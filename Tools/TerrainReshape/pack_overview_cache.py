@@ -32,6 +32,7 @@ def decode(raw):
     return meta, data
 
 CORE, PAD = 2560, 320
+NATIVE = '0647786260a982ef6793a9e77fac850f0d9e23b8ae8ec3319fe6978b6538c84a'  # bundled overview model world
 
 
 def main():
@@ -43,6 +44,8 @@ def main():
             meta, data = decode(path.read_bytes())
         except Exception:
             bad += 1
+            continue
+        if meta.get('native_model_world_id') != NATIVE or meta.get('query_kind') != 'pinned-coarse-base-model':
             continue
         w = meta['window']
         s = w['spacing_m']

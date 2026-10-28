@@ -1,7 +1,7 @@
 # Terrain reshape pre-bake (erosion + talus)
 
 Applies the "Teton" look from `Docs/MaterialsV3/scale-test` to the whole map. The result is one baked file,
-`Assets/AshenVoxel/Exploration/Samples/ExplorationReshape.bytes` (gzip, about 17 MiB).
+`Assets/AshenVoxel/Exploration/Samples/ExplorationReshape.bytes` (gzip, about 17 MiB; v2 baked from the 40 m overview windows).
 
 ## What the bake does (40 m grid, whole 300 x 150 km world)
 1. **Base:** samples the game's own composed height: the bundled atlas plus the 80 m overview windows from `.terrain-cache/regional-overview-cache`.
