@@ -42,6 +42,10 @@ namespace AshenVoxel.Exploration
         public int Seed=714103;
         [Tooltip("Next Play: versioned small earth forms everywhere, shared by terrain, plants and collision. Does not replace the learned source.")]
         public bool EnableSurfaceRelief=true;
+        [Tooltip("Next Play: pre-baked whole-world landform reshape (Tools/TerrainReshape): lower broad mountain mass, talus aprons under cliffs, erosion gullies. Climate follows the new heights, so forest climbs the lowered flanks.")]
+        public bool EnableTerrainReshape=true;
+        [Tooltip("ExplorationReshape.bytes from Tools/TerrainReshape. Empty: loaded from the samples folder in the Editor.")]
+        public TextAsset TerrainReshape;
         public bool UseImportedDimensions=true;
         [Tooltip("Scale5 of the transferred map is approximately300 by150km. Horizontal resize does not change the10cm matter contract.")]
         public double WorldWidthMeters=299520,WorldDepthMeters=149760;

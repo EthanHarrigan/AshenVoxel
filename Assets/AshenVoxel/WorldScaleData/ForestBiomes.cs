@@ -20,13 +20,22 @@ namespace AshenVoxel.WorldScale
     /// habitat while coherent3–6km fields control age, openness and species subregions.</summary>
     public static class ForestBiomes
     {
-        public const int Version=2;
+        public const int Version=3;
         public static ForestStand Sample(SurfaceColumn surface,double x,double z,int seed)
         {
             Numeric.Finite(x,nameof(x));Numeric.Finite(z,nameof(z));
             byte b=surface.BiomeUsed;
-            if(!surface.IsLand||surface.HasWater||b==0||b==1||b==2||b==10||b==11||b==13||surface.SlopeDegrees>42||surface.TemperatureC< -22||surface.SnowDepthMeters>2.2)
-                return new ForestStand(ForestHabitat.None,ForestStage.MatureOpen,TreeSpecies.Oak,0,1);
+            if(!surface.IsLand||surface.HasWater||b==0||b==1||b==13||surface.SlopeDegrees>46||surface.TemperatureC< -22||surface.SnowDepthMeters>2.2)
+                return None;
+            // v3 montane conifer belt: upland flanks of open biomes carry pine wherever the local
+            // climate is above the treeline and wet enough, so forest climbs the (reshaped) mountain
+            // sides until it gets too steep or too cold. Lowland steppe/tundra/grass stay open.
+            double montane=Montane(surface,x,z,seed);
+            if(b==2||b==10||b==11)
+            {
+                if(montane<=0)return None;
+                return Pine(surface,x,z,seed,montane);
+            }
             double region=Noise(x/5600,z/5600,unchecked(seed+101));
             ForestHabitat habitat;TreeSpecies species;double cover;
             switch(b)
@@ -51,7 +60,35 @@ namespace AshenVoxel.WorldScale
                 if(thicket>.5)density*=1+(thicket-.5)*1.5;
             }
             if(species==TreeSpecies.Redwood)density*=stage==ForestStage.YoungDense?.68:.42;
+            // Sparse lowland cover (shrub/grass/savanna biomes) gives way to the montane belt uphill.
+            if(montane>0&&(b==3||b==4||b==12)&&density<montane*.6)return Pine(surface,x,z,seed,montane);
+            // v3: every stand thins out through the treeline band (cold reshaped summits stay bare).
+            density*=Numeric.Clamp((surface.TemperatureC-TreelineTemperatureC)/TreelineFadeC,0,1);
+            // v3: thin out on steep ground (was a hard 42 degree cut).
+            density*=Numeric.Clamp((46-surface.SlopeDegrees)/8,0,1);
             return new ForestStand(habitat,stage,species,density,1);
+        }
+        static ForestStand None=>new ForestStand(ForestHabitat.None,ForestStage.MatureOpen,TreeSpecies.Oak,0,1);
+        public const double TreelineTemperatureC=-7,TreelineFadeC=3,MontaneMinimumHeightMeters=350,MontaneMinimumPrecipitationMm=230;
+        /// <summary>0..1 montane forest suitability: above the lowland, below the treeline, not too dry; thins on steep ground.</summary>
+        public static double Montane(SurfaceColumn surface,double x,double z,int seed)
+        {
+            if(surface.GroundHeightMeters<MontaneMinimumHeightMeters||surface.PrecipitationMm<MontaneMinimumPrecipitationMm||surface.TemperatureC>16)return 0;
+            double warm=Numeric.Clamp((surface.TemperatureC-TreelineTemperatureC)/TreelineFadeC,0,1);
+            if(warm<=0)return 0;
+            double rise=Numeric.Clamp((surface.GroundHeightMeters-MontaneMinimumHeightMeters)/250,0,1);
+            double steep=Numeric.Clamp((46-surface.SlopeDegrees)/14,0,1);
+            double dry=Numeric.Clamp((surface.PrecipitationMm-MontaneMinimumPrecipitationMm)/170,0,1);
+            // Ragged upper edge: kilometre-scale noise pushes tongues of forest up gullies and leaves avalanche gaps.
+            double ragged=Noise(x/430,z/430,unchecked(seed+353));
+            return Numeric.Clamp(warm*rise*dry*(steep*1.3-.35*ragged+.2),0,1);
+        }
+        static ForestStand Pine(SurfaceColumn surface,double x,double z,int seed,double montane)
+        {
+            double age=Noise(x/3700,z/3700,unchecked(seed+211));ForestStage stage=age<.46?ForestStage.YoungDense:ForestStage.MatureOpen;
+            double openness=.6+.4*Noise(x/1250,z/1250,unchecked(seed+307));
+            double density=montane*(stage==ForestStage.YoungDense?1.05:.7)*openness;
+            return new ForestStand(ForestHabitat.PineTaiga,stage,TreeSpecies.Pine,density,1);
         }
         public static double Noise(double x,double z,int seed)
         {

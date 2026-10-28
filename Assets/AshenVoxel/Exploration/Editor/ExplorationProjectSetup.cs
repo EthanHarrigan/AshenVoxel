@@ -179,6 +179,7 @@ namespace AshenVoxel.Exploration.Editor
             Wire(serialized,"FineClimate",SampleFolder+"ExplorationFine.climate.bytes");
             Wire(serialized,"SourceBiomes",SampleFolder+"ExplorationBiomes.bytes");
             Wire(serialized,"WorldMetadata",SampleFolder+"exploration-world.json");
+            Wire(serialized,"TerrainReshape",SampleFolder+"ExplorationReshape.bytes");
             Wire(serialized,"PrototypePack",PrototypePath);
             serialized.ApplyModifiedPropertiesWithoutUndo();EditorUtility.SetDirty(settings);
         }

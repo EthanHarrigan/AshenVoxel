@@ -114,6 +114,24 @@ namespace AshenVoxel.Exploration
             ClimateAtlas macroClimate=ReadClimate(ActiveSettings.MacroClimate),fineClimate=ReadClimate(ActiveSettings.FineClimate);
             ExplorationBiomeAtlas biomes=null;
             if(ActiveSettings.SourceBiomes!=null)using(var stream=new MemoryStream(ActiveSettings.SourceBiomes.bytes,false))biomes=ExplorationBiomeAtlasIO.Read(stream);
+            TerrainReshapeAtlas reshape=null;
+            if(ActiveSettings.EnableTerrainReshape)
+            {
+                TextAsset reshapeAsset=ActiveSettings.TerrainReshape;
+#if UNITY_EDITOR
+                if(reshapeAsset==null)reshapeAsset=UnityEditor.AssetDatabase.LoadAssetAtPath<TextAsset>(TerrainReshapeAssetPath);
+#endif
+                if(reshapeAsset!=null)
+                {
+                    // Decompress off the main thread (tens of MiB); the field itself is immutable.
+                    byte[] reshapeBytes=reshapeAsset.bytes;
+                    var reading=System.Threading.Tasks.Task.Run(()=>{using(var reshapeStream=new MemoryStream(reshapeBytes,false))return TerrainReshapeIO.Read(reshapeStream);});
+                    while(!reading.IsCompleted){Status="Reading reshaped landforms…";yield return null;}
+                    if(reading.IsFaulted)Debug.LogWarning("Terrain reshape skipped: "+reading.Exception.GetBaseException().Message);
+                    else reshape=reading.Result;
+                }
+            }
+            AppliedTerrainReshape=reshape;
             double width=ActiveSettings.UseImportedDimensions?macro.ExtentX:ActiveSettings.WorldWidthMeters;
             double depth=ActiveSettings.UseImportedDimensions?macro.ExtentZ:ActiveSettings.WorldDepthMeters;
             Source=new ExplorationAtlasField(macro,macroClimate,fine,fineClimate,ActiveSettings.FineBlendMeters,width,depth,ActiveSettings.VerticalScale,biomes,
@@ -142,6 +160,12 @@ namespace AshenVoxel.Exploration
             // Build complete coarse coverage from the baked source immediately.
             // Near-source decoding runs concurrently; its normal regional refresh
             // replaces affected caches before population and collision are created.
+            // Landform reshape applies to every height source below it (baked, overview, decoded 5 m).
+            if(reshape!=null)
+            {
+                WorldField=new TerrainReshapeField(WorldField,reshape);
+                if(ActiveSettings.UseRecommendedSpawn)spawn=new WorldPoint(spawn.X,WorldField.Sample(spawn.X,spawn.Z).HeightMeters+2,spawn.Z);
+            }
             if(ActiveSettings.EnableSurfaceRelief)WorldField=new TerrainDetailField(WorldField,ActiveSettings.Seed);
             Vista.ConfigureExternal(WorldField,ActiveSettings.Surface(),new WorldPoint(spawn.X,spawn.Y+ActiveSettings.EyeHeight,spawn.Z),Quaternion.Euler(ActiveSettings.SpawnPitch,ActiveSettings.SpawnYaw,0));
             Vista.enabled=true;
@@ -232,6 +256,9 @@ namespace AshenVoxel.Exploration
             Status="Explore";
         }
         static void Require(TextAsset asset,string label){if(asset==null)throw new InvalidDataException("Missing bundled "+label+" data. Use the complete Play project archive.");}
+        public const string TerrainReshapeAssetPath="Assets/AshenVoxel/Exploration/Samples/ExplorationReshape.bytes";
+        /// <summary>Reshape atlas used by the running world, or null when disabled/missing.</summary>
+        public TerrainReshapeAtlas AppliedTerrainReshape {get;private set;}
         static HeightAtlas ReadHeight(TextAsset asset){using(var s=new MemoryStream(asset.bytes,false))return AtlasIO.Read(s);}
         static ClimateAtlas ReadClimate(TextAsset asset){using(var s=new MemoryStream(asset.bytes,false))return ClimateArchiveIO.Read(s);}
         WorldPoint RecommendedSpawn()

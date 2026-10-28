@@ -6,6 +6,7 @@ using System;using System.IO;using System.Threading.Tasks;using System.Collectio
 /// Usage: root out cx cz size grid W H az el dist features(csv: shadow,trees,erosion,rocks)</summary>
 static class Scenic
 {
+    static TerrainReshapeAtlas Reshape;
     static void Main(string[] a)
     {
         string root=a[0],output=a[1];double cx=double.Parse(a[2]),cz=double.Parse(a[3]),size=double.Parse(a[4]),grid=double.Parse(a[5]);
@@ -19,7 +20,9 @@ static class Scenic
         var flow=new double[n*n];var deposit=new double[n*n];var original=(double[])hgt.Clone();
         int thermal=int.Parse(Environment.GetEnvironmentVariable("THERMAL")??"0");
         if(thermal>0)Talus(hgt,deposit,n,grid,sea,thermal,double.Parse(Environment.GetEnvironmentVariable("REPOSE")??"36"));
-        if(erosion)Erode(hgt,flow,deposit,n,grid,sea);
+        if(erosion&&Reshape==null)Erode(hgt,flow,deposit,n,grid,sea);
+        if(Reshape!=null)for(int z=0;z<n;z++)for(int x=0;x<n;x++){double wx=cx-size/2+x*grid,wz=cz-size/2+z*grid;flow[x+z*n]=Math.Exp(Reshape.Flow(wx,wz)*9)-1;deposit[x+z*n]=Math.Pow(Reshape.Talus(wx,wz),2)*40;}
+        bool shapedWorld=hscale<1||Reshape!=null;double treeT=double.Parse(Environment.GetEnvironmentVariable("TREET")??"-4");
         if(Environment.GetEnvironmentVariable("DUMP") is string dump){var bb=new byte[n*n*8];Buffer.BlockCopy(hgt,0,bb,0,bb.Length);File.WriteAllBytes(dump,bb);
             var cv=new double[n*n];for(int i=0;i<n*n;i++)cv[i]=cols[i].HasWater?-1:ForestBiomes.Sample(cols[i],cx-size/2+(i%n)*grid,cz-size/2+(i/n)*grid,714103).Density;var cb=new byte[n*n*8];Buffer.BlockCopy(cv,0,cb,0,cb.Length);File.WriteAllBytes(dump+".forest",cb);}
         double Hh(int x,int z)=>hgt[Math.Clamp(x,0,n-1)+Math.Clamp(z,0,n-1)*n];
@@ -46,15 +49,15 @@ static class Scenic
         if(trees)Parallel.For(0,n,z=>{for(int x=0;x<n;x++){
             int i=x+z*n;var c=cols[i];if(c.HasWater||!c.IsLand)continue;
             double hx=(Hh(x+1,z)-Hh(x-1,z))/(2*grid),hz=(Hh(x,z+1)-Hh(x,z-1))/(2*grid);double s=Math.Atan(Math.Sqrt(hx*hx+hz*hz))*180/Math.PI;
-            var stand=ForestBiomes.Sample(c,cx-size/2+x*grid,cz-size/2+z*grid,714103);if(montane&&c.PrecipitationMm>350&&(hscale<1||(c.TemperatureC>-4&&c.TemperatureC<14))&&(!stand.HasTrees||stand.Density<.6))
+            var stand=ForestBiomes.Sample(c,cx-size/2+x*grid,cz-size/2+z*grid,714103);if(montane&&c.PrecipitationMm>350&&(hscale<1||(c.TemperatureC>treeT-3&&c.TemperatureC<14))&&(!stand.HasTrees||stand.Density<.6))
                 stand=new ForestStand(ForestHabitat.PineTaiga,ForestStage.MatureOpen,AshenVoxel.Core.Trees.TreeSpecies.Pine,.75,1);
             standOf[i]=stand;if(!stand.HasTrees)continue;
-            double steep=Math.Clamp((46-s)/14,0,1),cold=hscale<1?Math.Clamp((treeline-hgt[i])/600,0,1):Math.Clamp((c.TemperatureC+3)/6,0,1);
+            double steep=Math.Clamp((46-s)/14,0,1),cold=hscale<1?Math.Clamp((treeline-hgt[i])/600,0,1):Math.Clamp((c.TemperatureC-treeT)/3,0,1);
             bool bare=c.SurfaceMaterial==MaterialId.Snow||c.SurfaceMaterial==MaterialId.Ice||false;if(c.SurfaceMaterial==MaterialId.Gravel)steep*=.45;
             // Ragged edges: noise lets fingers of forest run up gullies and leaves avalanche/rockfall gaps.
             double ragged=Math.Sin(x*.9+Math.Sin(z*.31)*2.5)*Math.Sin(z*.7+Math.Sin(x*.23)*2)*.5+.5;
             double gully=erosion?Math.Clamp(Math.Log(1+flow[i])/5,0,1):0;
-            double v=Math.Min(1,stand.Density*1.4)*Math.Clamp(steep+gully*.35-.25*ragged,0,1)*cold;if(bare)v*=.1;
+            double v=montane?Math.Min(1,stand.Density*1.4)*Math.Clamp(steep+gully*.35-.25*ragged,0,1)*cold:Math.Min(1,stand.Density*1.3);if(bare)v*=.1;// game rule: ForestBiomes density only
             canopy[i]=Math.Clamp(v,0,1);}});
         if(trees&&montane){ // soften biome-tile edges into natural stand boundaries
             int R=(int)Math.Max(2,60/grid);var tmp=new double[n*n];
@@ -62,6 +65,10 @@ static class Scenic
             var blurred=new double[n*n];Parallel.For(0,n,x=>{double acc=0;int c0=0;for(int z=-R;z<n;z++){if(z+R<n){acc+=tmp[x+(z+R)*n];c0++;}if(z-R-1>=0){acc-=tmp[x+(z-R-1)*n];c0--;}if(z>=0)blurred[x+z*n]=acc/c0;}});
             for(int i=0;i<n*n;i++)if(!cols[i].HasWater)canopy[i]=Math.Min(canopy[i]>0?1:0.0,Math.Clamp((blurred[i]-.25)*1.6,0,1))*(canopy[i]>0?1:0);
         }
+        if(Environment.GetEnvironmentVariable("DIAG2")!=null){var hist=new Dictionary<string,int>();for(int i=0;i<n*n;i+=5){if(hgt[i]<1000||hgt[i]>2600)continue;var c=cols[i];
+            double m=ForestBiomes.Montane(c,0,0,714103);var st=ForestBiomes.Sample(c,cx-size/2+(i%n)*grid,cz-size/2+(i/n)*grid,714103);
+            string k=$"b{c.BiomeUsed} T{Math.Round(c.TemperatureC/3)*3} S{Math.Round(c.SlopeDegrees/10)*10} P{Math.Round(c.PrecipitationMm/200)*200} snow{(c.SnowDepthMeters>2.2?1:0)} m{Math.Round(m*4)/4} d{Math.Round(st.Density*4)/4}";hist[k]=hist.TryGetValue(k,out var v)?v+1:1;}
+            foreach(var kv in hist)if(kv.Value>300)Console.WriteLine(kv.Value+" "+kv.Key);}
         if(Environment.GetEnvironmentVariable("DIAG")!=null){var hist=new Dictionary<string,int>();for(int i=0;i<n*n;i+=7){if(hgt[i]<600||hgt[i]>1800)continue;var c=cols[i];
             string k=$"T{Math.Round(c.TemperatureC/4)*4} P{Math.Round(c.PrecipitationMm/200)*200} {c.SurfaceMaterial} b{c.BiomeUsed} can{Math.Round(canopy[i]*4)/4}";hist[k]=hist.TryGetValue(k,out var v)?v+1:1;}
             foreach(var kv in hist)if(kv.Value>150)Console.WriteLine(kv.Key+" "+kv.Value);}
@@ -86,9 +93,9 @@ static class Scenic
             {
                 double ch=Math.Clamp(Math.Log(1+flow[i])/3-1.3,0,1)*Math.Clamp((-1-c.TemperatureC)/4,0,1)*.85;r+=(.93-r)*ch;g+=(.94-g)*ch;b+=(.97-b)*ch;
             }
-            if(rocks&&grade&&!c.HasWater&&hscale<1)
+            if(rocks&&grade&&!c.HasWater&&shapedWorld)
             {
-                double alp=Math.Clamp((hgt[i]-(treeline-300))/500,0,1)*Math.Clamp((slopeDeg[i]-24)/10,0,1);double lum0=(r+g+b)/3;
+                double alp=(hscale<1?Math.Clamp((hgt[i]-(treeline-300))/500,0,1):Math.Clamp((treeT+1.5-c.TemperatureC)/3,0,1))*Math.Clamp((slopeDeg[i]-24)/10,0,1);double lum0=(r+g+b)/3;
                 double gr=.34+.07*Math.Sin(x*.21+Math.Sin(z*.13)*2)+.05*Math.Sin(hgt[i]/37.0);r+=(gr*.98-r)*alp*.8;g+=(gr*.98-g)*alp*.8;b+=(gr*1.03-b)*alp*.8;
                 double dep2=Math.Clamp(deposit[i]/(grid*.05),0,1)*Math.Clamp((slopeDeg[i]-15)/10,0,1)*(1-canopy[i]);r+=(.60-r)*dep2*.5;g+=(.59-g)*dep2*.5;b+=(.57-b)*dep2*.5;
             }
@@ -233,6 +240,34 @@ static class Scenic
         using(var f=File.OpenRead(Path.Combine(p,"ExplorationMacro.climate.bytes")))mc=ClimateArchiveIO.Read(f);using(var f=File.OpenRead(Path.Combine(p,"ExplorationFine.climate.bytes")))fc=ClimateArchiveIO.Read(f);
         using(var f=File.OpenRead(Path.Combine(p,"ExplorationBiomes.bytes")))biomes=ExplorationBiomeAtlasIO.Read(f);
         var field=new ExplorationAtlasField(macro,mc,fine,fc,512,macro.ExtentX,macro.ExtentZ,1,biomes,macro.ExtentX,macro.ExtentZ);
-        return new SurfaceMaterialSampler(new TerrainDetailField(field,714103),new SurfaceProfile(seed:714103,maxSnowDepthMeters:2.4f,winterFraction:.2f));
+        IWorldField shaped=field;
+        if(Environment.GetEnvironmentVariable("PATCHES") is string pp)shaped=new PackedOverview(field,pp);
+        if(Environment.GetEnvironmentVariable("RESHAPE") is string rp){using var rf=File.OpenRead(rp);Reshape=TerrainReshapeIO.Read(rf);shaped=new TerrainReshapeField(field,Reshape);}
+        return new SurfaceMaterialSampler(new TerrainDetailField(shaped,714103),new SurfaceProfile(seed:714103,maxSnowDepthMeters:2.4f,winterFraction:.2f));
+    }
+}
+/// <summary>Renderer-only: the game's overview composition over the bundled atlas from a packed .avov set.</summary>
+sealed class PackedOverview:IWorldFieldBounds,IClimateWorldField
+{
+    sealed class Patch{public double X0,Z0;public int Spacing,Columns;public float[] H;public long CX,CZ;}
+    readonly ExplorationAtlasField atlas;readonly Dictionary<(long,long),Patch> patches=new Dictionary<(long,long),Patch>();
+    public PackedOverview(ExplorationAtlasField a,string path)
+    {
+        atlas=a;using var r=new BinaryReader(File.OpenRead(path));int n=r.ReadInt32();
+        for(int i=0;i<n;i++){var p=new Patch{CX=r.ReadInt64(),CZ=r.ReadInt64(),Spacing=r.ReadInt32(),Columns=r.ReadInt32()};p.H=new float[p.Columns*p.Columns];
+            var b=r.ReadBytes(p.H.Length*4);Buffer.BlockCopy(b,0,p.H,0,b.Length);p.X0=p.CX*2560.0-320;p.Z0=p.CZ*2560.0-320;patches[(p.CX,p.CZ)]=p;}
+    }
+    public string SourceIdentity=>atlas.SourceIdentity+"/packed-overview";
+    static double Weight(Patch p,double x,double z){double minX=p.CX*2560.0,minZ=p.CZ*2560.0,maxX=minX+2560,maxZ=minZ+2560;double dx=Math.Max(0,Math.Max(minX-x,x-maxX)),dz=Math.Max(0,Math.Max(minZ-z,z-maxZ));double t=Math.Max(0,Math.Min(1,1-Math.Max(dx,dz)/320));return t*t*(3-2*t);}
+    static double Height(Patch p,double x,double z){int C=p.Columns;double px=Math.Clamp((x-p.X0)/p.Spacing,0,C-1),pz=Math.Clamp((z-p.Z0)/p.Spacing,0,C-1);int ix=Math.Min(C-2,(int)Math.Floor(px)),iz=Math.Min(C-2,(int)Math.Floor(pz));double fx=px-ix,fz=pz-iz;int a=ix+iz*C;return (p.H[a]*(1-fx)+p.H[a+1]*fx)*(1-fz)+(p.H[a+C]*(1-fx)+p.H[a+C+1]*fx)*fz;}
+    double H(double x,double z,double b){long cx=(long)Math.Floor(x/2560),cz=(long)Math.Floor(z/2560);double sum=0,total=0;
+        for(long j=cz-1;j<=cz+1;j++)for(long i=cx-1;i<=cx+1;i++){if(!patches.TryGetValue((i,j),out var p))continue;double w=Weight(p,x,z);if(w<=0)continue;sum+=Height(p,x,z)*w;total+=w;}
+        if(total<=0)return b;double weight=Math.Min(1,total)*(1-atlas.FineWeightAt(x,z));return b+(sum/total-b)*weight;}
+    public SurfaceSample Sample(double x,double z){var a=atlas.Sample(x,z);double h=H(x,z,a.HeightMeters);return new SurfaceSample(h,a.SourceBiome,a.EffectiveBiome,h>=0);}
+    public HeightBounds QueryBounds(double x0,double z0,double x1,double z1){var b=atlas.QueryBounds(x0,z0,x1,z1);return new HeightBounds(b.Minimum-3000,b.Maximum+3000);}
+    public bool TrySampleClimate(double x,double z,out SurfaceClimate c)
+    {
+        if(!atlas.TrySampleClimate(x,z,out var a)){c=default;return false;}double o=atlas.Sample(x,z).HeightMeters,n=H(x,z,o);
+        c=new SurfaceClimate(Math.Clamp(a.TemperatureC+a.LapseRateCPerMeter*(Math.Max(n,0)-Math.Max(o,0)),-150,100),a.SeasonalityC,a.PrecipitationMm,a.PrecipitationCvPercent,a.LapseRateCPerMeter);return true;
     }
 }
