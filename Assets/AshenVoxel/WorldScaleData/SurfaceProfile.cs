@@ -25,7 +25,7 @@ namespace AshenVoxel.WorldScale
     public sealed class SurfaceProfile
     {
         /// <summary>2: non-periodic deformed strata, weathering pigment, autoshader slope thresholds.</summary>
-        public const int Version=2;
+        public const int Version=3;
         public const double SampleRadiusMax=32;
         public readonly int Seed;
         public readonly double SeaLevelMeters,SnowlineMeters,MaxSnowDepthMeters,WindStrength,WinterFraction,TemperatureBiasC;

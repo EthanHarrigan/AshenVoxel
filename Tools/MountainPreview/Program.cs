@@ -9,7 +9,7 @@ static class MountainPreview
         int width=a.Length>6?int.Parse(a[6]):1600,height=a.Length>7?int.Parse(a[7]):1000;double az=(a.Length>8?double.Parse(a[8]):45)*Math.PI/180,el=(a.Length>9?double.Parse(a[9]):32)*Math.PI/180;
         var sampler=Load(Path.Combine(root,"Assets/AshenVoxel/Exploration/Samples"));
         int n=(int)(size/grid);var col=new SurfaceColumn[n*n];
-        Parallel.For(0,n,z=>{for(int x=0;x<n;x++)col[x+z*n]=sampler.EvaluateColumn(cx-size/2+(x+.5)*grid,cz-size/2+(z+.5)*grid);});
+        Parallel.For(0,n,z=>{for(int x=0;x<n;x++)col[x+z*n]=sampler.EvaluateColumn(cx-size/2+(x+.5)*grid,cz-size/2+(z+.5)*grid,grid);});
         double hmin=double.MaxValue,hmax=double.MinValue;foreach(var c in col){hmin=Math.Min(hmin,c.SurfaceHeightMeters);hmax=Math.Max(hmax,c.SurfaceHeightMeters);}
         double ca=Math.Cos(az),sa=Math.Sin(az),ce=Math.Cos(el),se=Math.Sin(el);
         double span=size*1.42;double k=Math.Min(width/span,height/(span*se+(hmax-hmin)*ce))*.97;

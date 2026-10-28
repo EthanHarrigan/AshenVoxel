@@ -86,7 +86,7 @@ namespace AshenVoxel.WorldScale
             int pitch=n+3,stride=n+1;double spacing=tile.SizeMeters/n;
             var samples=new Sample[pitch*pitch];int At(int x,int z)=>x+1+(z+1)*pitch;
             void Row(int z)
-            {for(int x=-1;x<=n+1;x++){cancel.ThrowIfCancellationRequested();samples[At(x,z)]=new Sample(sampler.EvaluateColumn(tile.OriginXMeters+x*spacing,tile.OriginZMeters+z*spacing));}}
+            {for(int x=-1;x<=n+1;x++){cancel.ThrowIfCancellationRequested();samples[At(x,z)]=new Sample(sampler.EvaluateColumn(tile.OriginXMeters+x*spacing,tile.OriginZMeters+z*spacing,spacing));}}
             if(parallelSampling&&n>=128&&Environment.ProcessorCount>2)
                 Parallel.For(-1,n+2,new ParallelOptions{MaxDegreeOfParallelism=2,CancellationToken=cancel},Row);
             else for(int z=-1;z<=n+1;z++)Row(z);

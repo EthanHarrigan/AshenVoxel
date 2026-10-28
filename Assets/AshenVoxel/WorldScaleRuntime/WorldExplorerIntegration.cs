@@ -348,7 +348,7 @@ namespace AshenVoxel.WorldScaleRuntime
             {
             for (int z = 0; z <= n; z++) for (int x = 0; x <= n; x++)
             {
-                columns[x + z * stride] = new TerrainVertex(sampler.EvaluateColumn(tile.OriginXMeters + x * spacing, tile.OriginZMeters + z * spacing));
+                columns[x + z * stride] = new TerrainVertex(sampler.EvaluateColumn(tile.OriginXMeters + x * spacing, tile.OriginZMeters + z * spacing, spacing));
                 yield return null;
             }
             double anchor = columns[0].Height;

@@ -10,13 +10,25 @@ namespace AshenVoxel.WorldScale
         public readonly uint SurfaceTint;
         public readonly byte SourceBiome,EffectiveBiome,BiomeUsed;
         public readonly bool HasWater,IsLand,ClimateFromField;
+        /// <summary>Landform context used for appearance (all 0 for synthetic/legacy columns):
+        /// Ridge/Crease = metre-scale convexity/concavity 0..1, SunFacing = cosine to a 40-degree-high
+        /// sun -1..1, Talus = foot of a steeper face 0..1, Flow = gully/channel concentration 0..1.</summary>
+        public readonly float Ridge,Crease,SunFacing,Talus,Flow;
+        internal SurfaceColumn WithTint(uint tint)=>new SurfaceColumn(GroundHeightMeters,SnowDepthMeters,IceDepthMeters,GroundCoverDepthMeters,OrganicDepthMeters,SoilDepthMeters,SedimentDepthMeters,
+            SlopeDegrees,Curvature,Exposure,Wetness,TemperatureC,PrecipitationMm,WaterLevelMeters,SurfaceMaterial,BaseSurfaceMaterial,BedrockMaterial,SoilMaterial,SedimentMaterial,
+            tint,SourceBiome,EffectiveBiome,BiomeUsed,HasWater,IsLand,ClimateFromField,Ridge,Crease,SunFacing,Talus,Flow);
         internal SurfaceColumn(double ground,double snow,double ice,double cover,double organic,double soil,double sediment,double slope,double curvature,double exposure,double wetness,
             double temperature,double precipitation,double sea,MaterialId top,MaterialId baseSurface,MaterialId rock,MaterialId soilMaterial,MaterialId sedimentMaterial,
-            uint tint,byte sourceBiome,byte effectiveBiome,byte biomeUsed,bool water,bool land,bool climateFromField)
+            uint tint,byte sourceBiome,byte effectiveBiome,byte biomeUsed,bool water,bool land,bool climateFromField,float ridge,float crease,float sun,float talus,float flow)
         {GroundHeightMeters=ground;SnowDepthMeters=snow;SurfaceHeightMeters=ground+snow;IceDepthMeters=ice;GroundCoverDepthMeters=cover;OrganicDepthMeters=organic;SoilDepthMeters=soil;SedimentDepthMeters=sediment;
             SlopeDegrees=slope;Curvature=curvature;Exposure=exposure;Wetness=wetness;TemperatureC=temperature;PrecipitationMm=precipitation;WaterLevelMeters=sea;
             SurfaceMaterial=top;BaseSurfaceMaterial=baseSurface;BedrockMaterial=rock;OrganicMaterial=MaterialId.Litter;SoilMaterial=soilMaterial;SedimentMaterial=sedimentMaterial;SurfaceTint=tint;
-            SourceBiome=sourceBiome;EffectiveBiome=effectiveBiome;BiomeUsed=biomeUsed;HasWater=water;IsLand=land;ClimateFromField=climateFromField;}
+            SourceBiome=sourceBiome;EffectiveBiome=effectiveBiome;BiomeUsed=biomeUsed;HasWater=water;IsLand=land;ClimateFromField=climateFromField;
+            Ridge=ridge;Crease=crease;SunFacing=sun;Talus=talus;Flow=flow;}
+        internal SurfaceColumn(double ground,double snow,double ice,double cover,double organic,double soil,double sediment,double slope,double curvature,double exposure,double wetness,
+            double temperature,double precipitation,double sea,MaterialId top,MaterialId baseSurface,MaterialId rock,MaterialId soilMaterial,MaterialId sedimentMaterial,
+            uint tint,byte sourceBiome,byte effectiveBiome,byte biomeUsed,bool water,bool land,bool climateFromField)
+            :this(ground,snow,ice,cover,organic,soil,sediment,slope,curvature,exposure,wetness,temperature,precipitation,sea,top,baseSurface,rock,soilMaterial,sedimentMaterial,tint,sourceBiome,effectiveBiome,biomeUsed,water,land,climateFromField,0,0,0,0,0){}
     }
     /// <summary>Shared, bounded meter-space geology, sediment and static snow heuristics.
     /// A column takes at most15 height queries. SampleMatter then needs no source queries.</summary>
@@ -29,18 +41,71 @@ namespace AshenVoxel.WorldScale
         public SurfaceMaterialSampler(IWorldField baseField,SurfaceProfile profile=null)
         {BaseField=baseField??throw new ArgumentNullException(nameof(baseField));Profile=profile??new SurfaceProfile();
             double w=Profile.WindAzimuthDegrees*Math.PI/180,s=Profile.SolarAzimuthDegrees*Math.PI/180;windX=Math.Cos(w);windZ=Math.Sin(w);solarX=Math.Cos(s);solarZ=Math.Sin(s);}
-        public SurfaceColumn EvaluateColumn(double x,double z)
+        public SurfaceColumn EvaluateColumn(double x,double z)=>Evaluate(x,z,0);
+        /// <summary>Column for a render vertex that stands for a <paramref name="footprintMeters"/>-wide patch.
+        /// Appearance is prefiltered: detail finer than the footprint fades to its average, and wide
+        /// footprints average three spread evaluations, so distant slopes show their true mix of rock,
+        /// scree, grass and snow instead of point-sampled speckle. Height and materials stay exact.</summary>
+        public SurfaceColumn EvaluateColumn(double x,double z,double footprintMeters)
         {
+            if(double.IsNaN(footprintMeters)||footprintMeters<=0)return Evaluate(x,z,0);
+            double f=Math.Min(footprintMeters,512);var c=Evaluate(x,z,f);
+            if(f<8)return c;
+            // Supersample the patch (rotated grid): rock, scree, turf and snow mix by area, not by luck.
+            double q=f*.42;
+            // Very wide footprints (far rings, fewer pixels each) use three taps instead of five.
+            bool five=f<32;
+            var a=Evaluate(x+q,z+q*.5,f);var d=Evaluate(x-q,z-q*.5,f);
+            var b=five?Evaluate(x-q*.5,z+q,f):c;var e=five?Evaluate(x+q*.5,z-q,f):c;
+            uint Mix(int shift)=>(uint)Math.Round(((c.SurfaceTint>>shift&255)+(a.SurfaceTint>>shift&255)+(b.SurfaceTint>>shift&255)+(d.SurfaceTint>>shift&255)+(e.SurfaceTint>>shift&255))*.2);
+            return c.WithTint(0xff000000u|Mix(16)<<16|Mix(8)<<8|Mix(0));
+        }
+        SurfaceColumn Evaluate(double x,double z,double footprint)
+        {
+            // Low-pass a threshold noise for wide footprints: a distant vertex takes the patch's majority
+            // class instead of an arbitrary point decision (no salt-and-pepper material at distance).
+            double L(double n,double scale)=>footprint<=0?n:.5+(n-.5)*Clamp(1-footprint/(scale*1.5),0,1);
             Coordinate(x,z);SurfaceSample center=BaseField.Sample(x,z);double h=center.HeightMeters;
             SurfaceSample east=BaseField.Sample(x+2,z),west=BaseField.Sample(x-2,z),north=BaseField.Sample(x,z+2),south=BaseField.Sample(x,z-2);
             double dx=(east.HeightMeters-west.HeightMeters)/4,dz=(north.HeightMeters-south.HeightMeters)/4;
-            double up=1/Math.Sqrt(1+dx*dx+dz*dz),slope=Math.Acos(up)*180/Math.PI;
+            double fine=(east.HeightMeters+west.HeightMeters+north.HeightMeters+south.HeightMeters)*.25-h;
             double broad=(BaseField.Sample(x+24,z).HeightMeters+BaseField.Sample(x-24,z).HeightMeters+BaseField.Sample(x,z+24).HeightMeters+BaseField.Sample(x,z-24).HeightMeters)*.25;
-            double curvature=Clamp((broad-h)/6,-1,1); // positive = sheltered hollow; not flow accumulation
+            double curvatureScale=6,fineScale=.9,footprintBlend=0;
+            if(footprint>=4)
+            {
+                // A distant vertex stands for a wide patch: classify and shade it from the terrain as seen
+                // at that scale (slope, aspect, convexity), not from metre-scale bumps that alias into speckle.
+                double f=footprint;footprintBlend=Clamp((f-4)/20,0,1);
+                double eL=BaseField.Sample(x+f,z).HeightMeters,wL=BaseField.Sample(x-f,z).HeightMeters,nL=BaseField.Sample(x,z+f).HeightMeters,sL=BaseField.Sample(x,z-f).HeightMeters;
+                double t=footprintBlend;
+                dx=dx*(1-t)+(eL-wL)/(2*f)*t;dz=dz*(1-t)+(nL-sL)/(2*f)*t;
+                fine=fine*(1-t)+((eL+wL+nL+sL)*.25-h)*t;fineScale=fineScale*(1-t)+(.12*f+.5)*t;
+                if(f>24){broad=(eL+wL+nL+sL)*.25;curvatureScale=6*f/24;}
+            }
+            double up=1/Math.Sqrt(1+dx*dx+dz*dz),slope=Math.Acos(up)*180/Math.PI;
+            double curvature=Clamp((broad-h)/curvatureScale,-1,1); // positive = sheltered hollow; not flow accumulation
             double upstream=BaseField.Sample(x-windX*32,z-windZ*32).HeightMeters,downstream=BaseField.Sample(x+windX*32,z+windZ*32).HeightMeters;
             double shelter=Clamp((upstream-h)/12,-1,1),windFacing=Clamp((dx*windX+dz*windZ)*up,-1,1);
             double windCrest=Clamp((h-(upstream+downstream)*.5)/12,-1,1);
             double exposure=Clamp(.45-curvature*.3+windFacing*.2-shelter*.22+windCrest*.12,0,1);
+            // ---- Landform masks (as in Gaia/World Creator style terrain shaders) ----
+            // Metre-scale convexity: crests and edges vs creases and cracks.
+            double ridge=Clamp(-fine/fineScale,0,1),crease=Clamp(fine/fineScale,0,1);
+            // Aspect against a 40-degree-high sun: sunlit faces bleach and dry, shaded faces stay damp.
+            double sunFacing=Clamp((-dx*solarX*.766-dz*solarZ*.766+.643)*up,-1,1);
+            double talus=0,flow=0;
+            if(slope>6&&slope<60)
+            {
+                double g=Math.Sqrt(dx*dx+dz*dz),ux=dx/g,uz=dz/g;
+                // Talus: debris collects where the ground just uphill is much steeper (cliff feet).
+                double k=Math.Max(1,footprint/7);
+                double h7=BaseField.Sample(x+ux*7*k,z+uz*7*k).HeightMeters,h16=BaseField.Sample(x+ux*16*k,z+uz*16*k).HeightMeters;
+                double above=Math.Atan(Math.Max(0,(h16-h7)/(9*k)))*180/Math.PI;
+                talus=Clamp((above-slope-10)/18,0,1)*Clamp((44-slope)/14,0,1);
+                // Flow: concave across the contour = a gully that gathers runoff and debris.
+                double left=BaseField.Sample(x-uz*10*k,z+ux*10*k).HeightMeters,right=BaseField.Sample(x+uz*10*k,z-ux*10*k).HeightMeters;
+                flow=Clamp(((left+right)*.5-h-.4*k)/(2.6*k),0,1)*Clamp((slope-10)/12,0,1);
+            }
             byte biome=center.SourceBiome==0&&center.IsLand?(byte)6:center.SourceBiome;
             SurfaceClimate climate;bool fromField=false;
             if(Profile.ClimateOverride.HasValue)climate=Profile.ClimateOverride.Value;
@@ -51,8 +116,8 @@ namespace AshenVoxel.WorldScale
             bool water=h<Profile.SeaLevelMeters||(!center.IsLand&&h<=Profile.SeaLevelMeters+.02);
             bool neighboringWater=!east.IsLand||!west.IsLand||!north.IsLand||!south.IsLand||Math.Min(Math.Min(east.HeightMeters,west.HeightMeters),Math.Min(north.HeightMeters,south.HeightMeters))<Profile.SeaLevelMeters;
             double nearSea=Clamp(1-Math.Abs(h-Profile.SeaLevelMeters)/3,0,1);
-            double wetness=Clamp(rainfall/(rainfall+850)+curvature*.18+(biome==12?.16:0)+(neighboringWater?nearSea*.25:0)-(slope/90)*.2,0,1);
-            MaterialId rock=RockAt(x,TopCellCenter(h),z),surface,soilMat=MaterialId.Dirt,sedimentMat=MaterialId.Clay;
+            double wetness=Clamp(rainfall/(rainfall+850)+curvature*.18+(biome==12?.16:0)+(neighboringWater?nearSea*.25:0)-(slope/90)*.2+flow*.2+crease*.05-Math.Max(0,sunFacing-.6)*.12,0,1);
+            MaterialId rock=footprint>=8?RockAtBroad(x,TopCellCenter(h),z):RockAt(x,TopCellCenter(h),z),surface,soilMat=MaterialId.Dirt,sedimentMat=MaterialId.Clay;
             double retention=Math.Pow(Clamp(1-slope/48,0,1),1.6),soil=(.18+wetness*.8)*retention,cover=.1,sediment=0;
             soil*=rock==MaterialId.Granite?.75:rock==MaterialId.Shale?1.3:rock==MaterialId.Sandstone?1.1:rock==MaterialId.Limestone?.9:.8;
             bool organic=biome==5||biome==6||biome==7||biome==8||biome==9||biome==12;
@@ -64,11 +129,22 @@ namespace AshenVoxel.WorldScale
                 cover=slope<25?.35:0;soil=0;sediment=slope<12?1.8:.2;sedimentMat=MaterialId.Clay;
             }
             // Autoshader-style thresholds: broken by coherent noise and landform, never one global cutoff.
-            double rockCut=Clamp(51+(Noise01(x/38,z/38,Profile.Seed+401)-.5)*12+Math.Min(0,curvature)*10,40,58);
-            double screeCut=Clamp(29+(Noise01(x/27,z/27,Profile.Seed+409)-.5)*10+(curvature>0?curvature*6:0),20,40);
-            bool outcrop=curvature< -.12&&slope>screeCut&&Noise01(x/11,z/11,Profile.Seed+419)>.58;
-            bool meadow=!arid&&wetness>.5&&temperature>-1&&slope<screeCut+9&&Noise01(x/19,z/19,Profile.Seed+421)>.42;
+            // Crests and sun-baked faces lose soil earlier; creases and shaded faces hold it longer.
+            double rockCut=Clamp(51+(L(Noise01(x/38,z/38,Profile.Seed+401),38)-.5)*12+Math.Min(0,curvature)*10-ridge*7+crease*5-sunFacing*2.5,38,60);
+            double screeCut=Clamp(29+(L(Noise01(x/27,z/27,Profile.Seed+409),27)-.5)*10+(curvature>0?curvature*6:0)-talus*12,16,40);
+            bool outcrop=curvature< -.12&&slope>screeCut&&L(Noise01(x/11,z/11,Profile.Seed+419),11)>.58;
+            bool meadow=!arid&&wetness>.5&&temperature>-1&&slope<screeCut+9&&L(Noise01(x/19,z/19,Profile.Seed+421),19)>.42;
             if(!water&&(slope>rockCut||retention<.035||outcrop)){surface=rock;cover=soil=sediment=0;}
+            else if(!water&&talus>.4&&slope>14&&!(neighboringWater&&nearSea>0))
+            {
+                // Talus apron below a cliff: angular debris from the face above.
+                surface=MaterialId.Gravel;cover=.15+talus*.35;soil*=.2;sediment=.5*retention;sedimentMat=rock;
+            }
+            else if(!water&&flow>.55&&slope>24&&(arid||temperature<4||slope>34))
+            {
+                // Erosion chute: runoff strips the gully floor to gravel.
+                surface=MaterialId.Gravel;cover=.12;soil*=.3;sediment=.3;sedimentMat=rock;
+            }
             else if(neighboringWater&&nearSea>0&&slope<13)
             {surface=wetness>.8&&slope<3?MaterialId.Mud:rock==MaterialId.Stone?MaterialId.BlackSand:MaterialId.Sand;cover=.3+nearSea*.7;soil=0;sediment=1.2;sedimentMat=MaterialId.Gravel;}
             else if(slope>screeCut&&!(meadow&&slope<screeCut+9))
@@ -84,9 +160,10 @@ namespace AshenVoxel.WorldScale
             {surface=MaterialId.Silt;cover=.2;soilMat=MaterialId.Mud;sediment=.65;sedimentMat=MaterialId.Clay;}
             else
             {surface=MaterialId.Grass;cover=.1;soilMat=wetness>.65?MaterialId.Mud:MaterialId.Dirt;sediment=organic?.18:.08;sedimentMat=MaterialId.Clay;}
-            if(!water&&surface==MaterialId.Grass&&(climate.TemperatureC< -2||h>Profile.SnowlineMeters-400))
+            double alpine=Clamp((-2-climate.TemperatureC)/4+.5,0,1)+Clamp((h-(Profile.SnowlineMeters-400))/300+.5,0,1);
+            if(!water&&surface==MaterialId.Grass&&alpine>.6+.5*(L(Noise01(x/23,z/23,Profile.Seed+481),23)-.5)-ridge*.25-Math.Max(0,sunFacing)*.1)
             {surface=retention>.5?MaterialId.Gravel:rock;cover=surface==rock?0:.1;soil*=.3;sediment=.05;sedimentMat=rock;}
-            else if(!water&&surface==MaterialId.Grass&&organic&&Noise01(x/8,z/8,Profile.Seed+151)>.67)
+            else if(!water&&surface==MaterialId.Grass&&organic&&L(Noise01(x/8,z/8,Profile.Seed+151),8)>.67)
             {surface=MaterialId.Litter;cover=.1+.15*wetness;}
             if(!water&&temperature< -6&&biome==11&&slope<24&&curvature>.15&&wetness>.4)
             {surface=MaterialId.Ice;cover=.2;soil=0;sediment=0;}
@@ -94,9 +171,22 @@ namespace AshenVoxel.WorldScale
             double ice=!water&&biome==11&&temperature< -5&&slope<24&&snow>.7&&curvature>.1?Math.Min(1.4,snow*.65):0;
             double organicDepth=!water&&organic&&(surface==MaterialId.Grass||surface==MaterialId.Litter)? .10+wetness*.18:0;
             MaterialId top=snow>=.099?MaterialId.Snow:surface;
-            uint tint=Tint(top,x,TopCellCenter(h+snow),z,biome,wetness,rock,slope,curvature);
+            var land=new Landform(ridge,crease,sunFacing,talus,flow,footprint,temperature);
+            uint tint=Tint(top,x,TopCellCenter(h+snow),z,biome,wetness,rock,slope,curvature,land);
+            if(footprint>=12&&!water)
+            {
+                // Distant vertex: blend snow and bare ground by the snow-covered fraction of the footprint.
+                double coverage=SnowCoverage(x,z,temperature,rainfall,slope,curvature,exposure,dx,dz,water);
+                if(coverage>0&&coverage<1||(coverage==0)!=(top!=MaterialId.Snow))
+                {
+                    uint snowTint=top==MaterialId.Snow?tint:Tint(MaterialId.Snow,x,TopCellCenter(h+.5),z,biome,wetness,rock,slope,curvature,land);
+                    uint groundTint=top!=MaterialId.Snow?tint:Tint(surface,x,TopCellCenter(h),z,biome,wetness,rock,slope,curvature,land);
+                    tint=VoxelColor.Pack(Channel(((groundTint>>16)&255)*(1-coverage)+((snowTint>>16)&255)*coverage),
+                        Channel(((groundTint>>8)&255)*(1-coverage)+((snowTint>>8)&255)*coverage),Channel((groundTint&255)*(1-coverage)+(snowTint&255)*coverage));
+                }
+            }
             return new SurfaceColumn(h,snow,ice,cover,organicDepth,soil,sediment,slope,curvature,exposure,wetness,temperature,rainfall,Profile.SeaLevelMeters,top,surface,rock,soilMat,sedimentMat,tint,
-                center.SourceBiome,center.EffectiveBiome,biome,water,center.IsLand,fromField);
+                center.SourceBiome,center.EffectiveBiome,biome,water,center.IsLand,fromField,(float)ridge,(float)crease,(float)sunFacing,(float)talus,(float)flow);
         }
         public MatterSample SampleMatter(WorldPoint position,SurfaceColumn column)
         {
@@ -110,17 +200,27 @@ namespace AshenVoxel.WorldScale
             else if(depth<column.GroundCoverDepthMeters+column.OrganicDepthMeters+column.SoilDepthMeters)material=column.SoilMaterial;
             else if(depth<column.GroundCoverDepthMeters+column.OrganicDepthMeters+column.SoilDepthMeters+column.SedimentDepthMeters)material=column.SedimentMaterial;
             else material=RockAt(position.X,position.Y,position.Z);
-            return new MatterSample(material,Tint(material,position.X,position.Y,position.Z,column.BiomeUsed,column.Wetness,column.BedrockMaterial,column.SlopeDegrees,column.Curvature));
+            return new MatterSample(material,Tint(material,position.X,position.Y,position.Z,column.BiomeUsed,column.Wetness,column.BedrockMaterial,column.SlopeDegrees,column.Curvature,
+                new Landform(column.Ridge,column.Crease,column.SunFacing,column.Talus,column.Flow,0,column.TemperatureC)));
         }
         public MatterSample SampleMatter(WorldCell cell,SurfaceColumn column)=>SampleMatter(cell.Center,column);
         double Snow(double x,double z,double temp,double precipitation,double slope,double curvature,double exposure,double dx,double dz,bool water)
+            =>SnowWith(Noise01(x/14,z/14,Profile.Seed+911)*.65+Noise01(x/47,z/47,Profile.Seed+919)*.35,temp,precipitation,slope,curvature,exposure,dx,dz,water);
+        /// <summary>Fraction of a wide footprint under snow: the 14 m patch noise is integrated over
+        /// four quantiles instead of point-sampled, so distant snowfields read as soft coverage.</summary>
+        double SnowCoverage(double x,double z,double temp,double precipitation,double slope,double curvature,double exposure,double dx,double dz,bool water)
+        {
+            double broad=Noise01(x/47,z/47,Profile.Seed+919)*.35;int covered=0;
+            foreach(double q in new[]{.3,.43,.57,.7})if(SnowWith(broad+.65*q,temp,precipitation,slope,curvature,exposure,dx,dz,water)>=.099)covered++;
+            return covered*.25;
+        }
+        double SnowWith(double patch,double temp,double precipitation,double slope,double curvature,double exposure,double dx,double dz,bool water)
         {
             if(!Profile.EnableSnow||Profile.MaxSnowDepthMeters<.1||water||temp>2.5||slope>=78)return 0;
             double cold=Clamp((1.5-temp)/9,0,1),supply=Clamp((precipitation-60)/1100,0,1);
             double slopeRetention=Math.Pow(Clamp((55-slope)/35,0,1),1.4);
             double solarExposure=Clamp((-dx*solarX-dz*solarZ)/Math.Sqrt(1+dx*dx+dz*dz),-1,1);
             double drift=Clamp(.57+curvature*.3-exposure*Profile.WindStrength*.46-solarExposure*.11,.04,1);
-            double patch=Noise01(x/14,z/14,Profile.Seed+911)*.65+Noise01(x/47,z/47,Profile.Seed+919)*.35;
             // Coherent bare patches remain even high above snowline, especially on crests.
             double threshold=.20+exposure*Profile.WindStrength*.42+Clamp(slope/55,0,1)*.17+(1-cold)*.25;
             if(patch<threshold)return 0;
@@ -167,6 +267,14 @@ namespace AshenVoxel.WorldScale
             if(y>BasementContact(x,z))return Noise01(x/2600,z/2600,Profile.Seed+461)<.38?MaterialId.Stone:MaterialId.Granite;
             return Bed(x,y,z).Rock;
         }
+        /// <summary>Rock type as seen from afar: a formation's dominant lithology instead of its
+        /// metre-scale interbeds, so distant flanks are not speckled by alternating beds.</summary>
+        MaterialId RockAtBroad(double x,double y,double z)
+        {
+            var rock=RockAt(x,y,z);
+            if(rock==MaterialId.Stone||rock==MaterialId.Granite||Profile.ForcedBedrockMaterial.HasValue||Profile.ExperimentalBroadLithology)return rock;
+            return Dominant(Bed(x,y,z).Kind);
+        }
         double BasementContact(double x,double z)=>2300+(Noise01(x/4200,z/4200,Profile.Seed+449)-.5)*1600+(Noise01(x/700,z/700,Profile.Seed+457)-.5)*260;
 
         // ---- Geology v2 ------------------------------------------------------------------
@@ -177,8 +285,8 @@ namespace AshenVoxel.WorldScale
         // repeats on a fixed period, so mountains no longer wear regular horizontal stripes.
         readonly struct Stratum
         {
-            public readonly MaterialId Rock;public readonly ulong Formation,BedKey;public readonly bool Massive;
-            public Stratum(MaterialId rock,ulong formation,ulong bed,bool massive){Rock=rock;Formation=formation;BedKey=bed;Massive=massive;}
+            public readonly MaterialId Rock;public readonly ulong Formation,BedKey;public readonly bool Massive;public readonly int Kind;
+            public Stratum(MaterialId rock,ulong formation,ulong bed,bool massive,int kind){Rock=rock;Formation=formation;BedKey=bed;Massive=massive;Kind=kind;}
         }
         /// <summary>Stratigraphic height: elevation corrected for regional dip, folds and fault throw.</summary>
         double Stratigraphic(double x,double y,double z)
@@ -201,7 +309,10 @@ namespace AshenVoxel.WorldScale
             double s=Stratigraphic(x,y,z);
             long formation=Partition(s,60,Profile.Seed+347,11);
             ulong fh=Hash(formation,13,0,Profile.Seed+353);
-            int kind=(int)(fh%4);bool massive=(fh>>8)%5<2;
+            // Most formations share their ~500 m group's lithology mix: thick coherent sequences
+            // rather than every 60 m unit flipping between limestone and sandstone.
+            long group=Partition(s,520,Profile.Seed+463,29);ulong gh=Hash(group,31,0,Profile.Seed+467);
+            int kind=Unit(fh>>44)<.7?(int)(gh%4):(int)(fh%4);bool massive=(fh>>8)%5<2;
             // Beds pinch and swell; the lateral warp is small relative to bed thickness.
             double sb=s+(Noise01(x/60,z/60,Profile.Seed+359)-.5)*2.4+(Noise01(x/14,z/14,Profile.Seed+367)-.5)*.6;
             double bedUnit=3+6*Unit(fh>>16);
@@ -215,7 +326,7 @@ namespace AshenVoxel.WorldScale
                 case 2:rock=massive||r<.66?MaterialId.Shale:MaterialId.Sandstone;break;                        // mudrock dominant
                 default:rock=r<.45?MaterialId.Sandstone:r<.70?MaterialId.Limestone:MaterialId.Shale;break;    // interbedded
             }
-            return new Stratum(rock,fh,bh,massive);
+            return new Stratum(rock,fh,bh,massive,kind);
         }
         static readonly uint[] SandstoneFamily={0xffb09670,0xffbeac8a,0xffb28060,0xffa0684a,0xff8c7e6c,0xffa89070};
         static readonly uint[] LimestoneFamily={0xffa8a69c,0xffb2aa94,0xff8c9296,0xff9e9688,0xffb4b0a4};
@@ -243,7 +354,19 @@ namespace AshenVoxel.WorldScale
             {
                 // Crystalline provinces: subtype per ~3 km region, two warped vertical joint sets.
                 long rx=(long)Math.Floor(x/3000),rz=(long)Math.Floor(z/3000);ulong rh=Hash(rx,23,rz,Profile.Seed+383);
-                uint basis=Pick(rock==MaterialId.Stone?BasaltFamily:GraniteFamily,rh);
+                // Subtype tone blends smoothly between ~3 km regions (warped bilinear lattice): no hard region edges.
+                double wx=x/3000+(Noise01(x/1700,z/1700,Profile.Seed+403)-.5)*.8-.5,wz=z/3000+(Noise01(x/1700,z/1700,Profile.Seed+409)-.5)*.8-.5;
+                long gx=(long)Math.Floor(wx),gz=(long)Math.Floor(wz);double tx=wx-gx,tz=wz-gz;tx=tx*tx*(3-2*tx);tz=tz*tz*(3-2*tz);
+                // Basalt/granite contacts get a weathered transition band instead of a paint-like edge.
+                double contact=y>BasementContact(x,z)?Smooth(.34,.42,Noise01(x/2600,z/2600,Profile.Seed+461)):Smooth(.26,.32,Noise01(x/1900,z/1900,Profile.Seed+11)*.68+Noise01(x/7400,z/7400,Profile.Seed+17)*.32);
+                double br=0,bg=0,bb=0;
+                for(int k=0;k<4;k++)
+                {
+                    long ax=gx+(k&1),az=gz+(k>>1);ulong ch=Hash(ax,23,az,Profile.Seed+383);double w=((k&1)==1?tx:1-tx)*((k>>1)==1?tz:1-tz);
+                    uint dark=Pick(BasaltFamily,ch),light=Pick(GraniteFamily,ch);
+                    br+=(((dark>>16)&255)*(1-contact)+((light>>16)&255)*contact)*w;bg+=(((dark>>8)&255)*(1-contact)+((light>>8)&255)*contact)*w;bb+=((dark&255)*(1-contact)+(light&255)*contact)*w;
+                }
+                uint basis=VoxelColor.Pack(Channel(br),Channel(bg),Channel(bb));
                 double a1=Unit(rh>>20)*Math.PI,a2=a1+Math.PI*(.35+.3*Unit(rh>>40));
                 double spacing=2.6+3.2*Unit(rh>>12);double warpJ=(Noise01(x/9,z/9,Profile.Seed+389)-.5)*1.4;
                 double j1=(x*Math.Cos(a1)+z*Math.Sin(a1)+warpJ)/spacing,j2=(x*Math.Cos(a2)+z*Math.Sin(a2)-warpJ)/(spacing*1.6);
@@ -255,7 +378,7 @@ namespace AshenVoxel.WorldScale
                 return basis;
             }
             Stratum st=Bed(x,y,z);ulong palette=PaletteKey(st,Stratigraphic(x,y,z));
-            uint family=FamilyColor(rock,palette),dominant=FamilyColor(Dominant((int)(st.Formation%4)),palette);
+            uint family=FamilyColor(rock,palette),dominant=FamilyColor(Dominant(st.Kind),palette);
             weathered=dominant;
             double r=(family>>16)&255,g=(family>>8)&255,b=family&255;
             // Minority interbeds take on much of their formation's dominant tone: bedding stays legible
@@ -268,12 +391,31 @@ namespace AshenVoxel.WorldScale
         }
         /// <summary>Pigment without terrain context (flat, sheltered). Prefer the column-aware overload.</summary>
         public uint Color(MaterialId material,double x,double y,double z,byte biome,double wetness,MaterialId parentRock)=>Tint(material,x,y,z,biome,wetness,parentRock,0,0);
+        /// <summary>Landform context for appearance; default = flat, sheltered, point sample.</summary>
+        public readonly struct Landform
+        {
+            public readonly double Ridge,Crease,Sun,Talus,Flow,Footprint,TemperatureC;
+            public Landform(double ridge,double crease,double sun,double talus,double flow,double footprint,double temperature)
+            {Ridge=ridge;Crease=crease;Sun=sun;Talus=talus;Flow=flow;Footprint=Math.Max(0,footprint);TemperatureC=temperature;}
+            public static Landform Neutral=>new Landform(0,0,.64,0,0,0,12);
+        }
         /// <summary>Pigment with terrain context: steep exposed rock weathers, streaks and grows lichen.</summary>
         public uint Tint(MaterialId material,double x,double y,double z,byte biome,double wetness,MaterialId parentRock,double slopeDegrees,double curvature)
+            =>Tint(material,x,y,z,biome,wetness,parentRock,slopeDegrees,curvature,Landform.Neutral);
+        /// <summary>Gaia-style layered appearance. Material base colour, then: strata/joint pigment for rock,
+        /// cavity occlusion in creases and hollows, pale weathered crests and edges, sun-bleached dry
+        /// aspects versus cool damp shaded aspects with moss and lichen, dark runoff streaks down gullies,
+        /// fresh talus, and vegetation that dries on sunny crests, greens in moist hollows and turns to
+        /// straw-coloured alpine turf with altitude. Detail finer than the render footprint fades to
+        /// its average so distant terrain is not speckled.</summary>
+        public uint Tint(MaterialId material,double x,double y,double z,byte biome,double wetness,MaterialId parentRock,double slopeDegrees,double curvature,Landform land)
         {
             Coordinate(x,z);Numeric.Finite(y,nameof(y));if(Math.Abs(y)>1e12||!MaterialCatalog.IsValid(material)||double.IsNaN(wetness)||wetness<0||wetness>1)throw new ArgumentOutOfRangeException("appearance input");
             if(material==MaterialId.Air)return 0;
+            double fp=land.Footprint;
+            double Fade(double scale)=>fp<=0?1:Clamp(1-fp/scale,0,1);
             uint basis=VoxelColor.Base(material);
+            bool arid=biome==1||biome==2||biome==13;
             if(material==MaterialId.Grass)
             {
                 switch(biome){case 3:basis=0xff988b43;break;case 4:basis=0xff898443;break;case 7:basis=0xff376e36;break;
@@ -282,10 +424,11 @@ namespace AshenVoxel.WorldScale
             bool rockCell=SurfaceProfile.IsRock(material);double joint=1;uint weathered=0;
             if(rockCell)basis=RockPigment(material,x,y,z,out joint,out weathered);
             else if(material==MaterialId.Gravel&&SurfaceProfile.IsRock(parentRock))basis=RockPigment(parentRock,x,y,z,out _);
+            joint=.965+(joint-.965)*Fade(6);
             // True 3D mottling replaces the former height-sheared 2D layer noise (visible diagonal stripes).
-            double broad=Noise01(x/9,z/9,Profile.Seed+211)*2-1,layer=Noise3(x/1.3,y/1.3,z/1.3,Profile.Seed+223)*2-1;
+            double broad=(Noise01(x/9,z/9,Profile.Seed+211)*2-1)*Fade(30),layer=(Noise3(x/1.3,y/1.3,z/1.3,Profile.Seed+223)*2-1)*Fade(4);
             long cx=(long)Math.Floor(x*5),cy=(long)Math.Floor(y*5),cz=(long)Math.Floor(z*5);
-            double grain=Unit(Hash(cx,cy,cz,Profile.Seed+227))*2-1;
+            double grain=(Unit(Hash(cx,cy,cz,Profile.Seed+227))*2-1)*Fade(.6);
             double variation=material==MaterialId.Snow?.022:material==MaterialId.Ice?.035:.08;
             double brightness=1+broad*variation+layer*variation*.45+grain*variation*.28;
             if(material==MaterialId.Mud||material==MaterialId.Clay||material==MaterialId.Silt||material==MaterialId.Peat)brightness*=1-wetness*.1;
@@ -294,9 +437,13 @@ namespace AshenVoxel.WorldScale
                 double mineral=Unit(Hash(cx,cy,cz,Profile.Seed+241));
                 // Individual granite crystals are normally much smaller than10cm.
                 // Voxel pigment represents an aggregate, not isolated20cm black/white cubes.
-                brightness*=mineral>.93?.88:mineral<.08?1.10:1;
+                brightness*=1+((mineral>.93?-.12:mineral<.08?.10:0))*Fade(.6);
             }
             double r=(basis>>16)&255,g=(basis>>8)&255,b=basis&255;
+            void Toward(double tr,double tg,double tb,double amount){if(amount<=0)return;amount=Math.Min(1,amount);r+=(tr-r)*amount;g+=(tg-g)*amount;b+=(tb-b)*amount;}
+            double sunLit=Math.Max(0,land.Sun),shade=Clamp(.35-land.Sun,0,1);
+            // Cavity occlusion and edge highlights for every surface (ambient light reaches crests, not cracks).
+            brightness*=1+.06*land.Ridge-.10*land.Crease-.07*Clamp(curvature,0,1);
             if(rockCell||material==MaterialId.Gravel)
             {
                 brightness*=joint;
@@ -305,14 +452,57 @@ namespace AshenVoxel.WorldScale
                 double face=Clamp((slopeDegrees-28)/40,0,1);
                 // Weathered faces converge on one formation tone, as exposed cliffs do.
                 if(weathered!=0&&face>0){double u=.3*face;r+=(((weathered>>16)&255)*.93-r)*u;g+=(((weathered>>8)&255)*.93-g)*u;b+=((weathered&255)*.93-b)*u;}
-                double streak=Noise3(x/1.6,y/24,z/1.6,Profile.Seed+433);
+                // From afar, metre-scale beds blend into their formation tone.
+                if(weathered!=0&&fp>0)Toward((weathered>>16)&255,(weathered>>8)&255,weathered&255,.8*(1-Fade(14)));
+                double streak=.5+(Noise3(x/1.6,y/24,z/1.6,Profile.Seed+433)-.5)*Fade(5);
                 double patina=face*(.10+.12*Clamp((streak-.45)/.4,0,1))*(1+.4*wetness)-Math.Max(0,curvature)*.04;
                 brightness*=1-Math.Max(0,patina);
-                bool arid=biome==1||biome==2||biome==13;
+                // Crests and arêtes weather pale; the debris-filled creases between them stay dark.
+                brightness*=1+.08*land.Ridge*(.5+face);
+                // Sunlit faces bleach and warm; shaded faces are cooler and darker.
+                if(sunLit>0){brightness*=1+.06*sunLit*face;r*=1+.03*sunLit;b*=1-.03*sunLit;}
+                brightness*=1-.07*shade*face;b*=1+.03*shade;
                 if(arid&&face>0){r*=1+.06*face;b*=1-.08*face;}                       // desert varnish warms faces
-                double lichen=Noise3(x/2.7,y/2.7,z/2.7,Profile.Seed+439);
-                double lichenAmount=Clamp((lichen-.66)/.2,0,1)*Clamp((wetness-.3)/.4,0,1)*(.25+.5*face);
-                if(lichenAmount>0){r+=(146-r)*lichenAmount*.45;g+=(154-g)*lichenAmount*.45;b+=(124-b)*lichenAmount*.45;}
+                // Runoff: dark wet streaks down gullies and below seeps.
+                double run=land.Flow*(.4+.6*Clamp((Noise3(x/1.1,y/30,z/1.1,Profile.Seed+487)-.4)/.35,0,1)*Fade(4)+.6*(1-Fade(4))*.5);
+                brightness*=1-.20*run*(.4+.6*face)-.06*wetness*face;
+                // Talus is freshly broken: lighter and less weathered.
+                if(material==MaterialId.Gravel)brightness*=1+.06*land.Talus;
+                double lichenNoise=.5+(Noise3(x/2.7,y/2.7,z/2.7,Profile.Seed+439)-.5)*Fade(8);
+                double lichenAmount=Clamp((lichenNoise-.66+.12*shade)/.2,0,1)*Clamp((wetness-.3+.15*shade)/.4,0,1)*(.25+.5*face);
+                if(lichenAmount>0)Toward(146,154,124,lichenAmount*.45);
+                // Moss on damp shaded rock in mild, wet climates; crustose orange lichen on cold sunny crests.
+                double mossy=shade*Clamp((wetness-.5)/.3,0,1)*Clamp((land.TemperatureC+2)/10,0,1)*(1-.5*face)*(arid?0:1);
+                if(mossy>0)Toward(84,102,58,mossy*.55*(.6+.4*(.5+(Noise01(x/3.1,z/3.1,Profile.Seed+491)-.5)*Fade(10))));
+                double orange=sunLit*land.Ridge*Clamp((6-land.TemperatureC)/10,0,1)*Clamp((Noise3(x/4.3,y/4.3,z/4.3,Profile.Seed+499)-.6)/.25,0,1);
+                if(orange>0)Toward(176,128,72,orange*.35*Fade(12)+orange*.12*(1-Fade(12)));
+            }
+            else if(material==MaterialId.Grass||material==MaterialId.Litter)
+            {
+                // Vegetation: dries to straw on sunny crests and steep sun faces, deep green in moist
+                // hollows and gullies, olive-straw alpine turf near the tree line, patchy meadows.
+                double dry=Clamp(.55*sunLit*Clamp((slopeDegrees-5)/25,0,1)+.35*land.Ridge-.6*(wetness-.5)-.5*land.Crease-.4*land.Flow+(arid?.25:0),0,1);
+                double lush=Clamp(.6*land.Crease+.7*land.Flow+.6*Math.Max(0,wetness-.6)+.3*shade-.3*land.Ridge,0,1);
+                double alpine=Clamp((7-land.TemperatureC)/9,0,1);
+                double meadow=(Noise01(x/41,z/41,Profile.Seed+503)-.5)*Fade(120)+(Noise01(x/7,z/7,Profile.Seed+509)-.5)*.5*Fade(20);
+                if(material==MaterialId.Grass)
+                {
+                    Toward(150,138,76,dry*.55+Math.Max(0,meadow)*.18);
+                    Toward(118,118,74,alpine*.5);
+                    Toward(46,86,38,lush*.45);
+                    brightness*=1+meadow*.08;
+                }
+                else brightness*=1-lush*.08;
+            }
+            else if(material==MaterialId.Snow)
+            {
+                // Shaded snow reads cool and blue, sunlit snow warm; windblown crests show crust.
+                Toward(214,226,242,shade*.35);brightness*=1+.03*sunLit-.04*land.Crease;
+            }
+            else if(material==MaterialId.Dirt||material==MaterialId.Sand||material==MaterialId.Clay||material==MaterialId.Silt)
+            {
+                brightness*=1+.05*sunLit-.06*shade-.10*land.Flow;
+                if(material==MaterialId.Sand&&land.Ridge>0)brightness*=1+.05*land.Ridge; // wind-scoured crests
             }
             brightness=Math.Round(brightness*24)/24;
             return VoxelColor.Pack(Channel(r*brightness),Channel(g*brightness),Channel(b*brightness));
@@ -321,6 +511,7 @@ namespace AshenVoxel.WorldScale
         static double TopCellCenter(double h)=>(Math.Floor(h/WorldCell.SizeMeters-.5+1e-8)+.5)*WorldCell.SizeMeters;
         static void Coordinate(double x,double z){Numeric.Finite(x,nameof(x));Numeric.Finite(z,nameof(z));if(Math.Abs(x)>1e12||Math.Abs(z)>1e12)throw new ArgumentOutOfRangeException("Surface coordinates limited to +/-1e12m.");}
         static double Clamp(double v,double a,double b)=>Math.Max(a,Math.Min(b,v));
+        static double Smooth(double a,double b,double v){double t=Clamp((v-a)/(b-a),0,1);return t*t*(3-2*t);}
         static double Unit(ulong n)=>(n>>11)*(1.0/9007199254740992.0);
         static ulong Hash(long x,long y,long z,int seed)
         {unchecked{ulong n=(ulong)x*0x9e3779b185ebca87UL^(ulong)y*0x165667b19e3779f9UL^(ulong)z*0xc2b2ae3d27d4eb4fUL^(uint)seed;n^=n>>30;n*=0xbf58476d1ce4e5b9UL;n^=n>>27;n*=0x94d049bb133111ebUL;n^=n>>31;return n;}}

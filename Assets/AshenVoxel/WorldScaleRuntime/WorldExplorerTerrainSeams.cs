@@ -112,7 +112,7 @@ namespace AshenVoxel.WorldScaleRuntime
                         foreach(double p in points)
                         {double wx=horizontal?p:fixedCoordinate,wz=horizontal?fixedCoordinate:p;if(Math.Abs(SeamHeight(owner,wx,wz)-SeamHeight(other,wx,wz))>.000001){different=true;break;}}
                         if(!different){t=stop;continue;}
-                        var column=sampler.EvaluateColumn(horizontal?(t+stop)*.5:fixedCoordinate,horizontal?fixedCoordinate:(t+stop)*.5);
+                        var column=sampler.EvaluateColumn(horizontal?(t+stop)*.5:fixedCoordinate,horizontal?fixedCoordinate:(t+stop)*.5,Math.Max(stop-t,.1));
                         uint tint=column.SurfaceTint;int offset=vertices.Count;
                         foreach(double p in points)
                         {
