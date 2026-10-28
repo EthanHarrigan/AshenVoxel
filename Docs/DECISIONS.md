@@ -1,21 +1,33 @@
 ## ATM-D01 — Editable atmosphere within ordinary URP
 
-Use an art-directed sky in the existing background pass, a shared analytical
-height-fog function in the five existing surface paths, and an owned URP post
-volume. Keep sun/cloud detail and grading editable; expose day/dusk/overcast
-presets without changing terrain, generation or matter. Small scattering LUTs
-and volumetric clouds remain comparison candidates requiring measured benefit.
+Use an art-directed sky, a finite volumetric cloud layer, shared analytical height
+fog in five existing surface paths, and an owned URP post volume. The user rejected
+flat shell clouds and selected MishMash's above-cloud view at 14.5–20 seconds;
+the layer therefore must obscure terrain as well as the background sky. Preserve
+terrain generation, source and matter. Small scattering LUTs remain a separate
+comparison candidate. Day/dusk/overcast controls remain editable.
 
-No new sky/fog textures, history or render targets; cloud work is bounded at
-6/10 value-noise evaluations for Layered/Detailed. This is an operation bound,
-not a millisecond guarantee. Bloom has its ordinary separate URP cost. Convert
-authored colors explicitly before raw vector upload; reuse one horizon color
-for sky and fog. Integrate height fog in global metres across Y rebases and
-restore owned globals/RenderSettings on teardown. Saved environment controls
-use an independent version-1 block; old preferences remain readable.
+Keep ordinary URP. One owned 64³ linear RGBA8 noise texture is generated offline
+(1 MiB payload, ~1.143 MiB including GPU mips). One camera-enclosing mesh blends
+premultiplied cloud radiance after water, clipping to opaque depth; the ordinary
+renderer now copies depth after opaques. The sky skips its duplicate volume draw.
+No cloud history, extra render target or renderer feature. Layered fallback uses
+six noise evaluations; volume is capped at 64 view steps and 5 sunlight probes
+(512 texture samples/pixel including nearest-probe fine density), not a millisecond
+guarantee. Bloom retains its ordinary URP cost. Above-sea clouds cover water;
+foreground transparents or clouds intersecting sea level need a separate policy.
 
-Source/API/math checks pass; native shader, appearance, mesh menu and hardware
-performance acceptance are still required. [Implementation and gates](ATMOSPHERE.md),
+Native GPU evidence corrected color handling: plain Color properties require
+authored sRGB SetColor; HDR Color properties/globals receive working-space vectors.
+Reuse one horizon color for sky/fog. Integrate fog and cloud phase in global metres
+across rebases; restore owned resources/globals on teardown. Options version 2
+migrates version 1 volume defaults, retaining its old controls; unknown versions
+are ignored. Voxel snapshot/generator formats are unchanged.
+
+Source/API/math and native shader/color/fog/depth/grading/mesh checks pass. Revised
+cloud stills from run 20261028-223042 are ready for user review; full-scene Play,
+motion stability and hardware performance remain unexecuted.
+User approval is bounded captures/checks only, no Play. [Implementation and gates](ATMOSPHERE.md),
 [cloud research and rejected alternatives](AtmosphereEvidence/cloud-research.md).
 
 ## D050 - Learned overview source passes and exact edge bridges

@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--editor', type=Path, default=Path('C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor'))
+    parser.add_argument('--report', type=Path, default=ROOT/'Docs/AtmosphereEvidence/editor-api.json')
     args = parser.parse_args()
     out = ROOT/'Tools/VoxelTerrainChecks/bin/unity-api'
     source = ROOT/'Assets/AshenVoxel/Exploration/Editor/AtmosphereGraphicsCheck.cs'
@@ -37,7 +38,8 @@ def main():
     report = dict(status='PASS', scope='Installed Unity 6000.3.27f1 Editor API compilation only; fixture not executed.',
                   generated_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
                   source_sha256={source.relative_to(ROOT).as_posix(): hashlib.sha256(source.read_bytes()).hexdigest()})
-    (ROOT/'Docs/AtmosphereEvidence/editor-api.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
+    args.report.parent.mkdir(parents=True,exist_ok=True)
+    args.report.write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
     print('PASS installed Unity Editor API compile: AtmosphereGraphicsCheck (not executed)')
 
 

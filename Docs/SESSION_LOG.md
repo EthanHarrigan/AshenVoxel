@@ -1,4 +1,61 @@
-## Sky/atmosphere continuation — October 28, 2026
+## Sky/atmosphere native revision — October 28, 2026
+
+User authorized bounded shader/capture and mesh checks only, explicitly no Play.
+They rejected the shell as cartoony and pointed to MishMash's video xGkWWfO87no,
+14.5–20 seconds. Retrieved and viewed the exact sequence: after ~15.5 seconds,
+the camera looks over a thick cloud sea with mountain ridges emerging through it.
+The task's browser was disabled; ordinary public video frames were fetched using
+yt-dlp/ffmpeg without sign-in or bypassing browser settings. Audio was not inspected.
+
+Native float-target GPU probes found a double color decode on plain ShaderLab
+Color properties even when using SetVector; corrected those to authored SetColor
+and retained working-space vectors for HDR properties/globals. Corrected capture
+encoding to HDR through post, then sRGB for PNG. Raw half-float readback looked
+too dark; LDR camera targets clipped the sun before tone mapping. Preserved the
+rejected runs 210214 and 212310 with their source identities. Actual production
+fog HLSL matched independent quadrature over 192 rays/origin shifts with maximum
+absolute transmission error 5.9027e-7. Native mesh oracle: 32,198 faces and 128,416 AO.
+
+Delegated real volumetric implementation to the same cloud agent. Integrated its
+64³ RGBA noise generator/data, finite-layer integration and depth composite. Local
+code owns texture/material/mesh/camera state, publishes absolute double-coordinate
+phase and migrates options v1 to v2. Ordinary URP now copies depth after opaques.
+Added bounded bundled-source terrain context and above-cloud captures. The first
+native volume looked like a flat smooth blanket and was rejected locally; requested
+another cloud-authored density/light revision. The explicit alternating opaque
+near/far probe initially failed because its synthetic plane omitted the DepthNormals
+pass requested by the renderer's existing SSAO. Adding that pass produced zero
+foreground-cloud error and visible cloud cover over the far plane. This was a
+fixture defect, not a production depth failure. Preserved initial failure under
+native/rejected-volume-20261028-215459. No new renderer feature was needed.
+
+An actual GPU post-exposure test then identified stale grading in repeated
+SingleCameraRequest captures: that API bypasses URP's Volume framework update.
+Changed the fixture to StandardRequest. Exposure 0/+1 produced luminance
+0.0065136645/0.0192064662. Run 221636 passed the shader/color/fog/depth/post/resource
+checks and native mesh oracle. Earlier images cannot establish preset grading.
+Compared local and cloud-authored density revisions with the user's explicit
+correction that edges should fade into wisps. Adopted a combined core/fringe
+envelope, smooth positive body compression, multiplicative fine erosion and
+three-dimensional boundary warping. Clamped warp to 12% of layer thickness after
+cloud review. Uniform 64-step integration reduced bands; quadratic primary cells
+wasted resolution in clear air above the body. The nearest sunlight probe now
+uses fine density, with farther probes remaining a coarse approximation. Lightened
+dusk toward pale peach and lavender rather than the earlier brown/purple palette.
+
+Final bounded native run 20261028-223042 passed shaders/color/fog/depth/grading,
+settings migration/resource ownership and the mesh oracle; near opaque error 0,
+far cloud luminance gain 0.441369057. Saved all 12 actual 1600×900 Unity captures,
+source hashes and Editor log in Docs/AtmosphereEvidence/native/20261028-223042.
+Agent reviewed the stills as ready for user comparison, not user-accepted or a
+full-scene visual/performance result. The terrain backdrop is deliberately coarse
+and bounded. Current CPU noise regeneration/density/opacity checks, six runtime
+API assemblies, Editor fixture API and project integrity also pass. No Play,
+motion stability, full-scene frame times, VRAM deltas or audio work was performed.
+Current worst-case cloud bound is 512 volume texture samples plus depth per pixel;
+it is not a real-time performance claim. Unrelated launcher/Claude files remain untouched.
+
+## Initial sky/atmosphere implementation (12317c9) — October 28, 2026
 
 Continued the exact request from `Improve Skybox and Atmosphere`, local thread
 `01a1842f-d72f-7bc3-952b-2330a38511a8`, after it was interrupted. Its cloud task

@@ -1,0 +1,8 @@
+PASS: all 5 surface fog integrations and runtime sky property bindings
+PASS: 150 fog integrals vs independent Simpson quadrature; worst relative error 2.78e-12
+PASS: equal-height, zero falloff/density/distance, start exclusion, 35 extreme altitude rays, 200 origin shifts
+PASS: 100000 shell directions; max radius error 1.09e-14; 300 noise period checks
+PASS: shader name, requested property presence and legacy fallback contract
+PASS: 5000 float32 fog stress rays; worst absolute transmission error 3.38e-06
+PASS: float32 default tint preserves baseline zenith in linear and gamma working spaces
+NOT RUN: Unity/HLSL compile, scene validation, native appearance or performance

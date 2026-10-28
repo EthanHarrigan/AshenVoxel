@@ -1,4 +1,25 @@
-# Sky/atmosphere shader delivery
+# Cloud implementation and review
+
+The original shell delivery below is historical (`12317c9`). The user rejected
+its flat appearance and requested the thick, soft-edged cloud sea in MishMash's
+video xGkWWfO87no at 14.5–20 seconds. The same cloud thread,
+`01a18431-2b54-709a-a452-9f27e4159027`, then produced a deterministic 64³ RGBA noise
+generator, finite volume integration, depth-composite shader and CPU checks,
+followed by density/light revisions and review of the locally combined result.
+Actual source text was exchanged because its private repository access was absent.
+
+Current integration uses an opaque core with a faint, broad fringe and fine
+three-dimensional boundary warp. Local native comparisons selected uniform 64
+primary samples to reduce cloud-top bands. Cloud review prompted a ±12%-thickness
+warp clamp and matching fine density at the nearest sunlight probe. The remaining
+light probes are approximate coarse shadows. Maximum cost is 512 volume texture
+samples plus one depth sample per pixel, seven noise mips (~1.143 MiB), one owned
+camera-enclosing mesh/material and no cloud history or additional render target.
+That bound is not a GPU timing result. Motion stability and full-scene performance
+remain untested. The cloud agent did not run Unity; the local task ran the native
+checks and captured the [current evidence](README.md).
+
+## Historical first shader delivery
 
 Source basis: supplied ExplorationSky.shader from reported local main
 76a8fc5d88299575f6468e5a49b16f0f952f405b. The repository itself and AGENTS.md
@@ -139,13 +160,16 @@ zenith/poles/horizon, moving clouds, altitude/origin shift, DLSS/DLAA/SMAA. Meas
 p50/p95/p99 frame time and CPU/system commit/VRAM deltas on actual hardware.
 No full-scene FPS or appearance acceptance is proven. No PC tools were started.
 
-## Final runtime color clarification
+## Native correction to the original color recommendation
 
-Authored colors are sRGB. The integrating C# code explicitly converts once to
-linear when the project uses linear rendering, then sends raw components through
-Material.SetVector. Gamma projects send raw sRGB. This avoids the attribute-dependent
-behavior of Material.SetColor across plain, HDR and Gamma properties. Shader
-uniforms are already in working space and must not be decoded again. Inspector-only
-material authoring remains a separate native validation case.
+The original recommendation to use Material.SetVector for every color was wrong
+for plain ShaderLab Color properties. Native Unity 6000.3 GPU probes showed that
+these properties still receive sRGB-to-linear conversion during upload, even
+when SetVector supplies already-linear components. That caused a second decode.
+Use authored sRGB with SetColor for plain Color properties; use explicitly
+converted working-space vectors for HDR Color properties and shader globals.
+The shader itself must not decode them again. Preserved GPU evidence is in
+native/rejected-20261028-212310/color-upload.csv. Those captures fixed encoding
+but the flat cloud appearance was rejected and is not a visual acceptance.
 
 Reference: https://docs.unity.com/en-us/engine/6000.3/script-reference/unityengine/material/setcolor

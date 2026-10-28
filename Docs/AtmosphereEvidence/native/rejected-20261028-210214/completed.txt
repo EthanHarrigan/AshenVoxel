@@ -1,0 +1,1 @@
+PASS native shader passes, settings roundtrip, global cleanup and 3 sky-only captures. 2026-10-28T21:02:18.3320315Z / 6000.3.27f1 / NVIDIA GeForce RTX 3080 Ti. This does not establish full-scene visual acceptance, fog continuity or FPS.

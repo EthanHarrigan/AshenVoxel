@@ -1,0 +1,19 @@
+{
+  "format": "AVCN64-v1",
+  "seed": 1096172337,
+  "size": [
+    64,
+    64,
+    64
+  ],
+  "storage": "RGBA8_UNorm; x fastest, then y, then z; no header",
+  "bytes": 1048576,
+  "sha256": "da810b3ea1837fe254b7326fd36ef4d9a4042f76d90c8c24f3294fce5319f92b",
+  "numpy": "1.26.4",
+  "channels": {
+    "R": "base value/Worley blend",
+    "G": "erosion",
+    "B": "2D weather, invariant in y",
+    "A": "2D top variation, invariant in y"
+  }
+}

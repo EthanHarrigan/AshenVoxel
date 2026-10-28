@@ -114,13 +114,26 @@ MonoBehaviour:
     SunRadiance: 12
     Haze: 0.35
     CloudQuality: 2
-    CloudCoverage: 0.42
+    CloudCoverage: 0.58
     CloudDensity: 0.8
-    CloudScale: 1
+    CloudScale: 1.6
     CloudWindAzimuth: 70
     CloudSpeed: 0.012
-    CloudLightColor: {r: 0.98, g: 0.96, b: 0.91, a: 1}
-    CloudShadowColor: {r: 0.47, g: 0.56, b: 0.68, a: 1}
+    CloudLightColor: {r: 0.98, g: 0.98, b: 0.97, a: 1}
+    CloudShadowColor: {r: 0.6, g: 0.64, b: 0.69, a: 1}
+    CloudBaseHeight: 2200
+    CloudThickness: 700
+    CloudNoiseWorldSize: 6400
+    CloudVerticalScale: 3
+    CloudExtinction: 0.018
+    CloudErosion: 0.22
+    CloudMaxDistance: 30000
+    CloudViewSteps: 64
+    CloudLightSteps: 4
+    CloudAnisotropy: 0.45
+    CloudAmbientStrength: 1
+    CloudSunStrength: 1
+    CloudAerialDensity: 0.000035
     HeightFog: 1
     FogBaseHeight: 0
     FogHeightFalloff: 0.00035

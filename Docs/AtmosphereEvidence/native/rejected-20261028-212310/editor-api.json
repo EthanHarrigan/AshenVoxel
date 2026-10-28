@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "Installed Unity 6000.3.27f1 Editor API compilation only; fixture not executed.",
+  "generated_utc": "2026-10-28T21:18:16.394871+00:00",
+  "source_sha256": {
+    "Assets/AshenVoxel/Exploration/Editor/AtmosphereGraphicsCheck.cs": "0aac2933b806b765640b708d301db0d24de76211aa2e682f23571eb277f07004"
+  }
+}

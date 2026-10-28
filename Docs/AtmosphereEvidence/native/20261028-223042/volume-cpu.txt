@@ -1,0 +1,8 @@
+PASS AVCN64-v1 identity, exact regeneration, 1 MiB payload, x-fastest layout
+PASS weather/top y-invariance; 600 repeat/trilinear periodic comparisons
+PASS horizontal/up/down/extreme layer intersections; finite bounded intervals
+PASS zero coverage/density and 4200 sampled monotonic density cases
+PASS Beer-Lambert/compositing at 24/32/40/64 steps
+144 vertical columns, coverage=.58 density=.8: opacity quantiles [0.0, 0.0002, 0.6088, 0.9647, 0.997]
+PASS at least one dense column exceeds .99 opacity; not an appearance test
+NOT RUN Unity/HLSL compile, GPU texture upload, mip generation, native captures/timings

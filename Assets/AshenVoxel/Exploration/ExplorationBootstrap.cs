@@ -208,6 +208,7 @@ namespace AshenVoxel.Exploration
 #if UNITY_5_3_OR_NEWER
             visualQuality=worldObject.AddComponent<ExplorationVisualQuality>();
             visualQuality.Initialize(Vista.MainCamera,ownedPipeline);visualQuality.Apply(ActiveSettings.Atmosphere);
+            environment?.BindCamera(Vista.MainCamera);
             Upscaler=worldObject.AddComponent<ExplorationUpscaling>();Upscaler.Initialize(Vista.MainCamera,ownedPipeline,ActiveSettings,Vista);
             Wind=worldObject.AddComponent<ExplorationWind>();Wind.Initialize(ActiveSettings.WindStrength,Vista.RenderOrigin);
 #endif
@@ -302,7 +303,7 @@ namespace AshenVoxel.Exploration
         void LateUpdate()
         {
 #if UNITY_5_3_OR_NEWER
-            if(Vista!=null)environment?.SetOriginY((float)Vista.RenderOrigin.Y);
+            if(Vista!=null){environment?.SetOriginY((float)Vista.RenderOrigin.Y);environment?.SetObserver(Vista.GlobalCamera.X,Vista.GlobalCamera.Y,Vista.GlobalCamera.Z);}
 #endif
             if(Failed||Vista==null||Population==null||Vista.MainCamera==null)return;
             try
@@ -324,6 +325,7 @@ namespace AshenVoxel.Exploration
                 #if UNITY_5_3_OR_NEWER
                 if(Wind!=null)Wind.SetOrigin(Vista.RenderOrigin);
                 environment?.SetOriginY((float)Vista.RenderOrigin.Y);
+                environment?.SetObserver(Vista.GlobalCamera.X,Vista.GlobalCamera.Y,Vista.GlobalCamera.Z);
 #endif
                 Population.SetObserver(observer,Vista.RenderOrigin);
                 Population.Tick(Vista.MainCamera);
@@ -404,7 +406,7 @@ namespace AshenVoxel.Exploration
             QualitySettings.shadowDistance=ActiveSettings.ShadowDistanceMeters;
 #if UNITY_5_3_OR_NEWER
             environment?.Apply(ActiveSettings,sky,sun);
-            if(Vista!=null)environment?.SetOriginY((float)Vista.RenderOrigin.Y);
+            if(Vista!=null){environment?.SetOriginY((float)Vista.RenderOrigin.Y);environment?.SetObserver(Vista.GlobalCamera.X,Vista.GlobalCamera.Y,Vista.GlobalCamera.Z);}
             visualQuality?.Apply(ActiveSettings.Atmosphere);
 #else
             RenderSettings.fog=ActiveSettings.FogEnabled;RenderSettings.fogMode=ActiveSettings.FogMode;RenderSettings.fogDensity=ActiveSettings.FogDensity;RenderSettings.fogColor=ActiveSettings.FogColor;

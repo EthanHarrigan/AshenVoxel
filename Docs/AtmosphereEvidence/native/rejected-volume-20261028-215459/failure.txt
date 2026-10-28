@@ -1,0 +1,5 @@
+System.InvalidOperationException: Clouds leaked through the foreground opaque plane.
+  at AshenVoxel.Exploration.Editor.AtmosphereGraphicsCheck.CheckCloudOcclusion (UnityEngine.Camera camera, UnityEngine.RenderTexture rt, AshenVoxel.Exploration.ExplorationEnvironmentRuntime environment, AshenVoxel.Exploration.ExplorationSettings settings, UnityEngine.Material sky, UnityEngine.Light sun, AshenVoxel.Exploration.ExplorationVisualQuality quality) [0x0034c] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\Exploration\Editor\AtmosphereGraphicsCheck.cs:370
+  at AshenVoxel.Exploration.Editor.AtmosphereGraphicsCheck.CapturePresets () [0x006ff] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\Exploration\Editor\AtmosphereGraphicsCheck.cs:300
+  at AshenVoxel.Exploration.Editor.AtmosphereGraphicsCheck.Run () [0x00221] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\Exploration\Editor\AtmosphereGraphicsCheck.cs:47
+  at AshenVoxel.Exploration.Editor.AtmosphereGraphicsCheck+<>c.<RunBatch>b__4_0 () [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\Exploration\Editor\AtmosphereGraphicsCheck.cs:60

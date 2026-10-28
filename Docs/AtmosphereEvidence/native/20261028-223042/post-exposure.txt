@@ -1,0 +1,1 @@
+Native URP render request, ACES exposure0 luminance=0.0065136645; exposure+1 luminance=0.0192064662. No Play.

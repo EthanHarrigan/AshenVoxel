@@ -24,7 +24,7 @@ namespace AshenVoxel.Exploration
             s.AmbientFillStrength=Slider("Shadow fill",s.AmbientFillStrength,0,2,"×");
             a.CloudCoverage=Slider("Cloud coverage",a.CloudCoverage,0,1,"");
             a.CloudDensity=Slider("Cloud density",a.CloudDensity,0,2,"");
-            string quality=a.CloudQuality==0?"Off":a.CloudQuality==1?"Layered":"Detailed";
+            string quality=a.CloudQuality==0?"Off":a.CloudQuality==1?"Layered":"Volumetric";
             if(GUILayout.Button("Cloud detail: "+quality)){a.CloudQuality=(a.CloudQuality+1)%3;GUI.changed=true;}
             a.Haze=Slider("Sky haze",a.Haze,0,1,"");
             s.FogEnabled=GUILayout.Toggle(s.FogEnabled,"Atmospheric fog");
@@ -45,6 +45,19 @@ namespace AshenVoxel.Exploration
                 a.CloudScale=Slider("Cloud scale",a.CloudScale,.25f,4,"");
                 a.CloudWindAzimuth=Slider("Cloud wind direction",a.CloudWindAzimuth,0,360,"°");
                 a.CloudSpeed=Slider("Cloud speed",a.CloudSpeed*1000,0,100,"")*.001f;
+                a.CloudBaseHeight=Slider("Cloud base altitude",a.CloudBaseHeight,-1000,12000," m");
+                a.CloudThickness=Slider("Cloud thickness",a.CloudThickness,100,3000," m");
+                a.CloudNoiseWorldSize=Slider("Cloud repeat distance",a.CloudNoiseWorldSize,1000,20000," m");
+                a.CloudVerticalScale=Slider("Cloud vertical detail",a.CloudVerticalScale,.5f,8,"");
+                a.CloudExtinction=Slider("Cloud opacity per km",a.CloudExtinction*1000,1,80,"")*.001f;
+                a.CloudErosion=Slider("Cloud edge erosion",a.CloudErosion,0,.6f,"");
+                a.CloudMaxDistance=Slider("Cloud distance",a.CloudMaxDistance/1000,3,80," km")*1000;
+                a.CloudViewSteps=Mathf.RoundToInt(Slider("Cloud depth samples",a.CloudViewSteps,24,64,""));
+                a.CloudLightSteps=Mathf.RoundToInt(Slider("Cloud light samples",a.CloudLightSteps,3,5,""));
+                a.CloudAnisotropy=Slider("Cloud forward glow",a.CloudAnisotropy,0,.75f,"");
+                a.CloudAmbientStrength=Slider("Cloud shadow fill",a.CloudAmbientStrength,0,2,"×");
+                a.CloudSunStrength=Slider("Cloud sunlight",a.CloudSunStrength,0,4,"×");
+                a.CloudAerialDensity=Slider("Cloud distance haze per km",a.CloudAerialDensity*1000,0,.2f,"")*.001f;
                 a.FogBaseHeight=Slider("Fog reference altitude",a.FogBaseHeight,-1000,8000," m");
                 a.FogHeightFalloff=Slider("Fog falloff per km",a.FogHeightFalloff*1000,0,10,"")*.001f;
                 a.FogStart=Slider("Fog clear distance",a.FogStart,0,2000," m");

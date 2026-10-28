@@ -18,15 +18,29 @@ namespace AshenVoxel.Exploration
         [Range(0,32)] public float SunRadiance=12;
         [Range(0,1)] public float Haze=.35f;
         [Header("Clouds")]
-        [Range(0,2),Tooltip("0: clear sky; 1: layered clouds; 2: detailed clouds.")]
+        [Range(0,2),Tooltip("0: clear sky; 1: layered clouds; 2: volumetric clouds.")]
         public int CloudQuality=2;
-        [Range(0,1)] public float CloudCoverage=.42f;
+        [Range(0,1)] public float CloudCoverage=.58f;
         [Range(0,2)] public float CloudDensity=.8f;
-        [Range(.25f,4)] public float CloudScale=1;
+        [Range(.25f,4)] public float CloudScale=1.6f;
         [Range(0,360)] public float CloudWindAzimuth=70;
         [Range(0,.1f)] public float CloudSpeed=.012f;
-        public Color CloudLightColor=new Color(.98f,.96f,.91f,1);
-        public Color CloudShadowColor=new Color(.47f,.56f,.68f,1);
+        public Color CloudLightColor=new Color(.98f,.98f,.97f,1);
+        public Color CloudShadowColor=new Color(.60f,.64f,.69f,1);
+        [Header("Volumetric clouds (metres)")]
+        [Range(-1000,12000)] public float CloudBaseHeight=2200;
+        [Range(100,3000)] public float CloudThickness=700;
+        [Range(1000,20000)] public float CloudNoiseWorldSize=6400;
+        [Range(.5f,8)] public float CloudVerticalScale=3;
+        [Range(.001f,.08f)] public float CloudExtinction=.018f;
+        [Range(0,.6f)] public float CloudErosion=.22f;
+        [Range(3000,80000)] public float CloudMaxDistance=30000;
+        [Range(24,64)] public int CloudViewSteps=64;
+        [Range(3,5)] public int CloudLightSteps=4;
+        [Range(0,.75f)] public float CloudAnisotropy=.45f;
+        [Range(0,2)] public float CloudAmbientStrength=1;
+        [Range(0,4)] public float CloudSunStrength=1;
+        [Range(0,.0002f)] public float CloudAerialDensity=.000035f;
         [Header("Height fog (metres)")]
         public bool HeightFog=true;
         [Range(-1000,8000)] public float FogBaseHeight;
@@ -50,6 +64,14 @@ namespace AshenVoxel.Exploration
         [Range(0,.5f)] public float Vignette;
 
         public ExplorationAtmosphere Copy()=>(ExplorationAtmosphere)MemberwiseClone();
+        public void CopyVolumeFrom(ExplorationAtmosphere source)
+        {
+            CloudBaseHeight=source.CloudBaseHeight;CloudThickness=source.CloudThickness;CloudNoiseWorldSize=source.CloudNoiseWorldSize;
+            CloudVerticalScale=source.CloudVerticalScale;CloudExtinction=source.CloudExtinction;CloudErosion=source.CloudErosion;
+            CloudMaxDistance=source.CloudMaxDistance;CloudViewSteps=source.CloudViewSteps;CloudLightSteps=source.CloudLightSteps;
+            CloudAnisotropy=source.CloudAnisotropy;CloudAmbientStrength=source.CloudAmbientStrength;
+            CloudSunStrength=source.CloudSunStrength;CloudAerialDensity=source.CloudAerialDensity;
+        }
         public static float Finite(float value,float fallback,float min,float max)=>
             float.IsNaN(value)||float.IsInfinity(value)?fallback:Mathf.Clamp(value,min,max);
         public static Color FiniteColor(Color value,Color fallback)=>new Color(
@@ -59,11 +81,17 @@ namespace AshenVoxel.Exploration
             SkyExposure=Finite(SkyExposure,1,.1f,4);Haze=Finite(Haze,.35f,0,1);
             SunAngularDiameter=Finite(SunAngularDiameter,.53f,.1f,3);SunRadiance=Finite(SunRadiance,12,0,32);
             HorizonColor=FiniteColor(HorizonColor,new Color(.68f,.77f,.84f,1));
-            CloudQuality=Mathf.Clamp(CloudQuality,0,2);CloudCoverage=Finite(CloudCoverage,.42f,0,1);
-            CloudDensity=Finite(CloudDensity,.8f,0,2);CloudScale=Finite(CloudScale,1,.25f,4);
+            CloudQuality=Mathf.Clamp(CloudQuality,0,2);CloudCoverage=Finite(CloudCoverage,.58f,0,1);
+            CloudDensity=Finite(CloudDensity,.8f,0,2);CloudScale=Finite(CloudScale,1.6f,.25f,4);
             CloudWindAzimuth=Finite(CloudWindAzimuth,70,0,360);CloudSpeed=Finite(CloudSpeed,.012f,0,.1f);
-            CloudLightColor=FiniteColor(CloudLightColor,new Color(.98f,.96f,.91f,1));
-            CloudShadowColor=FiniteColor(CloudShadowColor,new Color(.47f,.56f,.68f,1));
+            CloudLightColor=FiniteColor(CloudLightColor,new Color(.98f,.98f,.97f,1));
+            CloudShadowColor=FiniteColor(CloudShadowColor,new Color(.60f,.64f,.69f,1));
+            CloudBaseHeight=Finite(CloudBaseHeight,2200,-1000,12000);CloudThickness=Finite(CloudThickness,700,100,3000);
+            CloudNoiseWorldSize=Finite(CloudNoiseWorldSize,6400,1000,20000);CloudVerticalScale=Finite(CloudVerticalScale,3,.5f,8);
+            CloudExtinction=Finite(CloudExtinction,.018f,.001f,.08f);CloudErosion=Finite(CloudErosion,.22f,0,.6f);
+            CloudMaxDistance=Finite(CloudMaxDistance,30000,3000,80000);CloudViewSteps=Mathf.Clamp(CloudViewSteps,24,64);CloudLightSteps=Mathf.Clamp(CloudLightSteps,3,5);
+            CloudAnisotropy=Finite(CloudAnisotropy,.45f,0,.75f);CloudAmbientStrength=Finite(CloudAmbientStrength,1,0,2);
+            CloudSunStrength=Finite(CloudSunStrength,1,0,4);CloudAerialDensity=Finite(CloudAerialDensity,.000035f,0,.0002f);
             FogBaseHeight=Finite(FogBaseHeight,0,-1000,8000);FogHeightFalloff=Finite(FogHeightFalloff,.00035f,0,.01f);
             FogStart=Finite(FogStart,80,0,2000);FogMaxOpacity=Finite(FogMaxOpacity,.97f,0,1);FogSunScatter=Finite(FogSunScatter,.12f,0,1);
             ToneMapping=(ExplorationToneMapping)Mathf.Clamp((int)ToneMapping,0,2);
@@ -98,13 +126,13 @@ namespace AshenVoxel.Exploration
             s.AmbientGround=new Color(.36f,.39f,.32f,1);s.AmbientFillStrength=1.5f;
             if(preset==ExplorationAtmospherePreset.WarmDusk)
             {
-                s.SunElevation=4;s.SunAzimuth=265;s.SunIntensity=1.2f;s.SunColor=new Color(1,.65f,.37f,1);
-                s.SkyColor=new Color(.35f,.39f,.61f,1);s.FogColor=new Color(.68f,.48f,.42f,1);
-                s.AmbientSky=new Color(.42f,.46f,.66f,1);s.AmbientEquator=new Color(.63f,.43f,.40f,1);
-                s.AmbientGround=new Color(.27f,.25f,.29f,1);s.AmbientFillStrength=1.2f;
-                a.HorizonColor=new Color(.81f,.57f,.44f,1);a.Haze=.55f;a.CloudCoverage=.36f;
-                a.CloudLightColor=new Color(1,.73f,.50f,1);a.CloudShadowColor=new Color(.32f,.34f,.49f,1);
-                a.PostExposure=.25f;a.Temperature=5;a.BloomIntensity=.16f;
+                s.SunElevation=4;s.SunAzimuth=265;s.SunIntensity=1.2f;s.SunColor=new Color(1,.86f,.72f,1);
+                s.SkyColor=new Color(.45f,.56f,.72f,1);s.FogColor=new Color(.78f,.65f,.59f,1);
+                s.AmbientSky=new Color(.50f,.56f,.70f,1);s.AmbientEquator=new Color(.65f,.54f,.51f,1);
+                s.AmbientGround=new Color(.31f,.30f,.35f,1);s.AmbientFillStrength=1.2f;
+                a.HorizonColor=new Color(.93f,.78f,.72f,1);a.Haze=.45f;a.CloudCoverage=.60f;
+                a.CloudLightColor=new Color(.98f,.97f,.96f,1);a.CloudShadowColor=new Color(.60f,.59f,.68f,1);
+                a.PostExposure=.25f;a.Temperature=0;a.Contrast=4;a.Saturation=-8;a.BloomIntensity=.16f;
             }
             else if(preset==ExplorationAtmospherePreset.Overcast)
             {
@@ -113,6 +141,7 @@ namespace AshenVoxel.Exploration
                 s.FogDensity=.000085f;s.AmbientFillStrength=1.3f;
                 s.AmbientSky=new Color(.64f,.69f,.75f,1);s.AmbientEquator=new Color(.54f,.61f,.65f,1);
                 a.HorizonColor=new Color(.65f,.70f,.74f,1);a.Haze=.85f;a.CloudCoverage=.92f;a.CloudDensity=1.8f;
+                a.CloudBaseHeight=1800;a.CloudThickness=900;
                 a.CloudLightColor=new Color(.78f,.83f,.87f,1);a.CloudShadowColor=new Color(.32f,.38f,.46f,1);
                 a.SunRadiance=4;a.PostExposure=.1f;a.Contrast=9;a.Saturation=-10;a.BloomIntensity=.04f;
             }
@@ -123,7 +152,7 @@ namespace AshenVoxel.Exploration
     [Serializable]
     public sealed class ExplorationEnvironmentOptions
     {
-        public int version=1;
+        public int version=2;
         public ExplorationAtmosphere atmosphere;
         public bool fogEnabled;
         public int fogMode;
@@ -137,8 +166,10 @@ namespace AshenVoxel.Exploration
         };
         public void Apply(ExplorationSettings s)
         {
-            if(version!=1||atmosphere==null)return;
-            s.Atmosphere=atmosphere.Copy();s.FogEnabled=fogEnabled;s.FogMode=(FogMode)fogMode;s.FogDensity=fogDensity;
+            if((version!=1&&version!=2)||atmosphere==null)return;
+            s.Atmosphere=atmosphere.Copy();
+            if(version==1)s.Atmosphere.CopyVolumeFrom(new ExplorationAtmosphere());
+            s.FogEnabled=fogEnabled;s.FogMode=(FogMode)fogMode;s.FogDensity=fogDensity;
             s.SunElevation=sunElevation;s.SunAzimuth=sunAzimuth;s.SunIntensity=sunIntensity;s.AmbientFillStrength=ambientFill;
             s.SkyColor=sky;s.FogColor=fog;s.SunColor=sun;s.AmbientSky=ambientSky;s.AmbientEquator=ambientEquator;s.AmbientGround=ambientGround;
             ExplorationAtmosphere.SanitizeLighting(s);

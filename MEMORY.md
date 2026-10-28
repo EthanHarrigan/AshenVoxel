@@ -47,9 +47,11 @@ under ~150 lines. Put dated narrative in Docs/SESSION_LOG.md.
   The outer LOD rings refine globally in passes (8→16→32→64…).
 - F1 contains: terrain quality Normal/Detailed/Maximum, reach and allowances, wind strength, shadow fill, DLSS/DLAA,
   ground representation, and pause for far-source refinement.
-- Sky/atmosphere candidate: cloud-authored HDR sun + animated shell clouds, shared height fog across ground/props/forest/water,
+- Sky/atmosphere candidate: cloud-authored volumetric clouds + HDR sun, shared height fog across ground/props/forest/water,
   clear day, dusk and overcast presets, live F1 colors/controls and saved post grading. Ordinary URP retained.
-  CPU math, six runtime API assemblies, Editor fixture API, mesh oracle and project checks pass; **native visuals/FPS remain open**.
+  Native shader/color/fog/depth/grading probes and mesh regression pass. Revised opaque billows with soft irregular fringes;
+  native run 20261028-223042 reviewed against MishMash 14.5–20s and saved for user review. Earlier rejections preserved.
+  User authorized bounded captures/checks **only, no Play**. Full-scene appearance, motion stability and FPS remain open.
   See [ATMOSPHERE.md](Docs/ATMOSPHERE.md) and [source-matched evidence](Docs/AtmosphereEvidence/README.md).
 - Also installed: GPU-culled distant forest and impostors, wind, material optics, shrubs (U), bees (unverified),
   and grounded roots (off by default).

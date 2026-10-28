@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 
 namespace AshenVoxel.Exploration
 {
-    /// <summary>Owns environment globals. No textures, render passes or per-frame allocations.</summary>
+    /// <summary>Owns environment globals, immutable cloud noise and one camera cloud draw.</summary>
     public sealed class ExplorationEnvironmentRuntime : IDisposable
     {
         static readonly string[] FloatNames={"_AshenAtmosphereEnabled","_AshenFogDensity","_AshenFogBaseHeight","_AshenFogHeightFalloff","_AshenFogStart","_AshenFogMaxOpacity","_AshenFogSunScatter","_AshenFogOriginY"};
@@ -20,6 +20,11 @@ namespace AshenVoxel.Exploration
         readonly AmbientMode oldAmbientMode=RenderSettings.ambientMode;
         readonly Light oldSun=RenderSettings.sun;
         Light ownerSun;
+        readonly ExplorationCloudNoise cloudNoise=new ExplorationCloudNoise();
+        ExplorationCloudVolume cloudVolume;
+        Material ownerSky;
+        ExplorationAtmosphere atmosphere;
+        double observerX,observerY,observerZ;
         bool disposed;
         float lastOriginY=float.NaN;
         static int[] Ids(string[] names){var ids=new int[names.Length];for(int i=0;i<ids.Length;i++)ids[i]=Shader.PropertyToID(names[i]);return ids;}
@@ -35,6 +40,26 @@ namespace AshenVoxel.Exploration
         {
             if(originY==lastOriginY)return;
             Shader.SetGlobalFloat(FloatIds[7],originY);lastOriginY=originY;
+        }
+        public void BindCamera(Camera camera)
+        {
+            cloudVolume?.Dispose();cloudVolume=new ExplorationCloudVolume(camera);
+            RefreshCloudDraw();
+        }
+        public void SetObserver(double x,double y,double z)
+        {
+            observerX=x;observerY=y;observerZ=z;
+            if(ownerSky==null||atmosphere==null)return;
+            double period=atmosphere.CloudNoiseWorldSize/atmosphere.CloudScale;
+            double px=x/period,pz=z/period;
+            var value=new Vector4((float)(px-Math.Floor(px)),(float)(y-atmosphere.CloudBaseHeight),(float)(pz-Math.Floor(pz)),0);
+            ownerSky.SetVector("_CloudCameraData",value);cloudVolume?.SetCameraData(value);
+        }
+        void RefreshCloudDraw()
+        {
+            if(ownerSky==null||atmosphere==null)return;
+            cloudVolume?.Apply(ownerSky,atmosphere.CloudQuality>=2&&ownerSky.GetFloat("_CloudNoiseReady")>.5f);
+            SetObserver(observerX,observerY,observerZ);
         }
         public void Apply(ExplorationSettings s,Material sky,Light sun)
         {
@@ -67,20 +92,39 @@ namespace AshenVoxel.Exploration
             sky.SetFloat("_Exposure",a.SkyExposure);
             if(sky.shader.name!="AshenVoxel/ExplorationSky")
             {sky.SetColor("_SkyTint",s.SkyColor);sky.SetColor("_GroundColor",s.AmbientGround);return;}
-            // Raw vectors avoid SetColor's attribute-dependent HDR/Gamma conversion.
-            sky.SetVector("_SkyTint",Linear(s.SkyColor));sky.SetVector("_GroundColor",Linear(s.AmbientGround));
+            ownerSky=sky;atmosphere=a;
+            // Plain Color properties are decoded by Unity at GPU upload, even
+            // with SetVector. HDR Color properties take working-space vectors.
+            // Verified by the native float-target uniform readback fixture.
+            sky.SetColor("_SkyTint",s.SkyColor);sky.SetColor("_GroundColor",s.AmbientGround);
             sky.SetVector("_SunDirection",new Vector4(direction.x,direction.y,direction.z,0));
-            sky.SetVector("_HorizonColor",horizonLinear);sky.SetVector("_SunColor",Linear(s.SunColor));
+            sky.SetColor("_HorizonColor",Authored(horizonLinear));sky.SetVector("_SunColor",Linear(s.SunColor));
             sky.SetFloat("_SunAngularDiameter",a.SunAngularDiameter);sky.SetFloat("_SunRadiance",a.SunRadiance*directDaylight);
             sky.SetFloat("_Haze",a.Haze);sky.SetFloat("_CloudCoverage",a.CloudCoverage);sky.SetFloat("_CloudDensity",a.CloudDensity);
             sky.SetFloat("_CloudScale",a.CloudScale);sky.SetFloat("_CloudSpeed",a.CloudSpeed);sky.SetFloat("_CloudQuality",a.CloudQuality);
             float wind=a.CloudWindAzimuth*Mathf.Deg2Rad;
             sky.SetVector("_CloudWind",new Vector4(Mathf.Cos(wind),Mathf.Sin(wind),0,0));
             sky.SetVector("_CloudLightColor",Linear(a.CloudLightColor));sky.SetVector("_CloudShadowColor",Linear(a.CloudShadowColor));
+            if(sky.HasProperty("_CloudNoiseReady"))
+            {
+                Texture3D noise=a.CloudQuality>=2?cloudNoise.Texture:null;
+                sky.SetTexture("_CloudNoiseTex",noise);sky.SetFloat("_CloudNoiseReady",noise!=null?1:0);
+            }
+            sky.SetFloat("_CloudNoiseWorldSize",a.CloudNoiseWorldSize);sky.SetFloat("_CloudThickness",a.CloudThickness);
+            sky.SetFloat("_CloudVerticalScale",a.CloudVerticalScale);sky.SetFloat("_CloudExtinction",a.CloudExtinction);
+            sky.SetFloat("_CloudErosion",a.CloudErosion);sky.SetFloat("_CloudMaxDistance",a.CloudMaxDistance);
+            sky.SetFloat("_CloudViewSteps",a.CloudViewSteps);sky.SetFloat("_CloudLightSteps",a.CloudLightSteps);
+            sky.SetFloat("_CloudAnisotropy",a.CloudAnisotropy);sky.SetFloat("_CloudAmbientStrength",a.CloudAmbientStrength);
+            sky.SetFloat("_CloudSunStrength",a.CloudSunStrength*s.SunIntensity*directDaylight/2.1f);
+            sky.SetFloat("_CloudAerialDensity",a.CloudAerialDensity);
+            RefreshCloudDraw();
         }
         public void Dispose()
         {
             if(disposed)return;disposed=true;
+            cloudVolume?.Dispose();
+            if(ownerSky!=null){ownerSky.SetFloat("_CloudNoiseReady",0);ownerSky.SetTexture("_CloudNoiseTex",null);}
+            cloudNoise.Dispose();
             // A different environment may have taken over the scene in the meantime.
             if(ReferenceEquals(ownerSun,null)||(RenderSettings.sun!=ownerSun&&RenderSettings.sun!=null))return;
             RenderSettings.sun=oldSun;RenderSettings.fog=oldFog;RenderSettings.fogMode=oldFogMode;

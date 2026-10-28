@@ -1,0 +1,1 @@
+Actual GPU composite, alternating far/near opaque plane with forward + depth passes. Near on/off max channel error=0.5611267; far cloud luminance gain=0.524066567. Near off=RGBA(0.039, 0.029, 0.019, 1.000); far off=RGBA(0.039, 0.029, 0.019, 1.000); near on=RGBA(0.547, 0.554, 0.581, 1.000); far on=RGBA(0.547, 0.554, 0.581, 1.000). After-opaques depth copy; no Play.

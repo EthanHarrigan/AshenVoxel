@@ -16,9 +16,11 @@ Edit this list in place. Do not stack new dated sections on top.
   - Add one `Tools/run_all_checks.py` entry point.
 
 ## P1 — One real playtest (the single biggest gap)
-- [ ] Atmosphere candidate: after permission, run the bounded native shader/preset fixture and mesh regression, then
-  inspect clear day/dusk/overcast, fog continuity/rebase, saved controls and DLAA in Play. Measure frame/commit/VRAM deltas.
-  Code and lightweight checks are complete; [procedure/evidence](Docs/ATMOSPHERE.md). No native acceptance yet.
+- [x] Atmosphere: bounded native shader/color/fog/depth/grading probes and mesh regression. Reference-led volume revision
+  adds opaque billows with soft irregular fringes; 12 current captures saved for user review. Earlier rejections preserved.
+  [Procedure/evidence](Docs/ATMOSPHERE.md). No Play was run.
+- [ ] Atmosphere: user visual acceptance; inspect full forest/shoreline, moving clouds/rebases,
+  saved controls and DLAA in a separately approved Play session. Measure frame/commit/VRAM deltas. No full-scene acceptance.
 - [ ] First: stop/restart Play to compile the 2026-10-28 changes; follow the checklist in Docs/REPORT_2026-10-28.md.
 - [ ] One consolidated native Play session in the Exploration scene with other games closed.
   - Normal profile first, then the saved Maximum.
