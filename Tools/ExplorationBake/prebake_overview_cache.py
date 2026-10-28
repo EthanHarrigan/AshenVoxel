@@ -23,11 +23,20 @@ import traceback
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-import numpy as np
-from coarse_overview import ROOT, b, atomic_json, LATENT_WORLD_SPACING, NATIVE_WORLD_SPACING, LATENT_COMPRESSION
-from overview_provider import OverviewProvider, Busy
-from serve_overview import LearnedQuery, below_normal_priority
-from convert_world import read_avwf
+_MARK = HERE.parents[1] / '.terrain-cache/prebake-overview'
+_MARK.mkdir(parents=True, exist_ok=True)
+with (_MARK / 'prebake.log').open('a', encoding='utf-8') as _f:
+    _f.write(datetime.datetime.now().strftime('%H:%M:%S ') + f'process start (python {sys.version.split()[0]})\n')
+try:
+    import numpy as np
+    from coarse_overview import ROOT, b, atomic_json, LATENT_WORLD_SPACING, NATIVE_WORLD_SPACING, LATENT_COMPRESSION
+    from overview_provider import OverviewProvider, Busy
+    from serve_overview import LearnedQuery, below_normal_priority
+    from convert_world import read_avwf
+except BaseException:
+    with (_MARK / 'prebake.log').open('a', encoding='utf-8') as _f:
+        _f.write('import failed:\n' + traceback.format_exc())
+    raise
 
 CORE = 2560
 PADDING = 320
@@ -117,14 +126,28 @@ def main():
     sx, sz = spawn['x_m'], spawn['z_m']
     spacings = [int(s) for s in a.spacings.split(',')]
     big = 4 * 1024 ** 3
-    model = OverviewProvider(job, a.cache_dir, lambda: LearnedQuery(job), fine_idle=lambda: True, strip_delay=0.,
-                             query_kind=QUERY_KIND, idle_grace=3600., disk_limit=big, wait_seconds=3600)
     macro_query = MacroQuery(macro)
-    sea = OverviewProvider(job, a.cache_dir, lambda: macro_query, fine_idle=lambda: True, strip_delay=0.,
-                           query_kind=QUERY_KIND, idle_grace=3600., disk_limit=big, wait_seconds=3600,
-                           commit=lambda: 1 << 62, min_commit=0, load_commit=0)  # no model: no memory admission
-    if model.source_id != sea.source_id:
-        raise SystemExit('Provider identities differ')
+    def pair(cls, shared):
+        model = cls(job, a.cache_dir, shared, fine_idle=lambda: True, strip_delay=0.,
+                    query_kind=QUERY_KIND, idle_grace=3600., disk_limit=big, wait_seconds=3600)
+        sea = cls(job, a.cache_dir, lambda: macro_query, fine_idle=lambda: True, strip_delay=0.,
+                  query_kind=QUERY_KIND, idle_grace=3600., disk_limit=big, wait_seconds=3600,
+                  commit=lambda: 1 << 62, min_commit=0, load_commit=0)  # no model: no memory admission
+        if model.source_id != sea.source_id:
+            raise SystemExit('Provider identities differ')
+        return model, sea
+    try:
+        from serve_overview import SharedQuery
+        shared = SharedQuery(job).factory
+    except ImportError:
+        shared = lambda: LearnedQuery(job)
+    providers = {}
+    if any(s in (160, 80) for s in spacings):
+        providers[160] = providers[80] = pair(OverviewProvider, shared)
+    if 40 in spacings:
+        from overview_provider40 import OverviewProvider40
+        providers[40] = pair(OverviewProvider40, shared)
+    model, sea = providers[spacings[0]]
     w2, d2 = world['world_width_m'] / 2, world['world_depth_m'] / 2
     cells = [(x, z) for z in range(math.floor(-d2 / CORE), math.ceil(d2 / CORE))
                     for x in range(math.floor(-w2 / CORE), math.ceil(w2 / CORE))]
@@ -137,9 +160,9 @@ def main():
     started = time.time(); model_seconds = 0.
     try:
         for i, (cx, cz) in enumerate(cells):
-            provider = model if land[(cx, cz)] else sea
             t = time.time()
             for spacing in spacings:
+                provider = providers[spacing][0 if land[(cx, cz)] else 1]
                 run_window(provider, {'native_model_world_id': job['world_id'], **window(cx, cz, spacing)}, log)
             if land[(cx, cz)]:
                 status['done_land'] += 1; model_seconds += time.time() - t
@@ -150,7 +173,7 @@ def main():
                 status.update(last_cell=[cx, cz], elapsed_seconds=round(time.time() - started),
                               seconds_per_land_cell=round(rate, 2),
                               estimated_remaining_hours=round(rate * (total_land - status['done_land']) / 3600, 2),
-                              cache_hits=model.hits + sea.hits, model_queries=model.model_queries,
+                              cache_hits=sum(p.hits for m in providers.values() for p in m), model_queries=sum(m[0].model_queries for m in set(providers.values())),
                               updated_utc=datetime.datetime.utcnow().isoformat())
                 atomic_json(a.status, status)
             if land[(cx, cz)] and status['done_land'] % 25 == 0:
@@ -164,7 +187,8 @@ def main():
     finally:
         status['elapsed_seconds'] = round(time.time() - started)
         atomic_json(a.status, status)
-        model.close(); sea.close()
+        for m in set(providers.values()):
+            m[0].close(); m[1].close()
 
 
 if __name__ == '__main__':

@@ -28,7 +28,7 @@ namespace AshenVoxel.Exploration
         [Serializable] sealed class ProviderState {public bool ready=false;public string source_id=null,native_model_world_id=null;}
         [Serializable] sealed class JobState {public string request_id=null,source_id=null,state=null,error=null;public int completed_rows=0;}
         [Serializable] sealed class BakedIdentity {public string generator_version=null,native_model_world_id=null;}
-        const int MaximumResponseBytes=65536;
+        const int MaximumResponseBytes=131072;
         HttpClient client;Uri endpoint;CancellationTokenSource cancel;
         Task<ExplorationOverviewPatch> request;ExplorationOverviewPatch completed;
         ExplorationAtlasField baked;WorldExplorer vista;
@@ -102,7 +102,7 @@ namespace AshenVoxel.Exploration
                         value=>Volatile.Write(ref networkStatus,value),cancel.Token);
                 }
             }
-            Status=(plan.PassSpacingMeters==0?"Far learned source passes complete through 80 m":
+            Status=(plan.PassSpacingMeters==0?"Far learned source passes complete through 40 m":
                 "Far learned "+plan.PassSpacingMeters+" m: "+plan.CompletedCells+" / "+plan.TotalCells+" regions")+". "+Volatile.Read(ref networkStatus);
         }
         void Changed(ExplorationRefinementBounds region)
@@ -110,7 +110,7 @@ namespace AshenVoxel.Exploration
         static bool Hash(string value)=>value!=null&&Regex.IsMatch(value,"\\A[0-9a-f]{64}\\z");
         public static Request MakeRequest(string nativeId,long cellX,long cellZ,int spacing)
         {
-            if(!Hash(nativeId)||(spacing!=160&&spacing!=80))throw new ArgumentException("Checked model identity and 160/80 m spacing required");
+            if(!Hash(nativeId)||(spacing!=160&&spacing!=80&&spacing!=40))throw new ArgumentException("Checked model identity and 160/80/40 m spacing required");
             return new Request{native_model_world_id=nativeId,spacing_m=spacing,row0=checked((int)((cellZ*2560-320)/spacing)),col0=checked((int)((cellX*2560-320)/spacing)),rows=3200/spacing+1,cols=3200/spacing+1};
         }
         public static ExplorationOverviewPatch Decode(byte[] raw,Request expected,long cellX,long cellZ,string sourceId)
@@ -146,7 +146,7 @@ namespace AshenVoxel.Exploration
             try
             {
                 string source;
-                using(var response=await http.GetAsync(new Uri(root,"status"),HttpCompletionOption.ResponseHeadersRead,token).ConfigureAwait(false))
+                using(var response=await http.GetAsync(new Uri(root,"status?spacing="+spacing.ToString(System.Globalization.CultureInfo.InvariantCulture)),HttpCompletionOption.ResponseHeadersRead,token).ConfigureAwait(false))
                 {
                     response.EnsureSuccessStatusCode();var state=JsonUtility.FromJson<ProviderState>(Encoding.UTF8.GetString(await Read(response,token).ConfigureAwait(false)));
                     if(state==null||!state.ready||state.native_model_world_id!=nativeId||!Hash(state.source_id))throw new InvalidDataException("Overview provider not ready or model identity differs");source=state.source_id;

@@ -17,11 +17,11 @@ namespace AshenVoxel.WorldScale
         public long PayloadBytes=>heights.LongLength*4;
         public ExplorationOverviewPatch(long cellX,long cellZ,int spacingMeters,float[] values,string nativeId)
         {
-            if(spacingMeters!=160&&spacingMeters!=80)throw new ArgumentOutOfRangeException(nameof(spacingMeters));
+            if(spacingMeters!=160&&spacingMeters!=80&&spacingMeters!=40)throw new ArgumentOutOfRangeException(nameof(spacingMeters));
             if(Math.Abs((double)cellX)>1000000||Math.Abs((double)cellZ)>1000000)throw new ArgumentOutOfRangeException(nameof(cellX));
             if(!ExplorationRefinementPatch.ValidId(nativeId))throw new ArgumentException("Verified native model identity required");
             CellX=cellX;CellZ=cellZ;SpacingMeters=spacingMeters;Columns=(int)((CoreMeters+BlendMeters*2)/spacingMeters)+1;
-            if(Columns>65||values==null||values.Length!=Columns*Columns)throw new ArgumentException("Complete canonical overview grid required");
+            if(Columns>81||values==null||values.Length!=Columns*Columns)throw new ArgumentException("Complete canonical overview grid required");
             NativeModelWorldId=nativeId.ToLowerInvariant();heights=(float[])values.Clone();double lo=double.MaxValue,hi=double.MinValue;
             foreach(float h in heights){if(float.IsNaN(h)||float.IsInfinity(h)||h< -12000||h>48000)throw new ArgumentException("Unsupported overview height");lo=Math.Min(lo,h);hi=Math.Max(hi,h);}
             MinimumHeight=lo;MaximumHeight=hi;

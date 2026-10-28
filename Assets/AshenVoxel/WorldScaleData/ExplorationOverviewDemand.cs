@@ -26,13 +26,13 @@ namespace AshenVoxel.WorldScale
         }
         public sealed class Plan
         {
-            public readonly int PassSpacingMeters,CompletedCells,TotalCells,Completed160Cells,Completed80Cells,ScannedCells;
+            public readonly int PassSpacingMeters,CompletedCells,TotalCells,Completed160Cells,Completed80Cells,Completed40Cells,ScannedCells;
             public readonly Cell[] Desired;
             public readonly Cell? NextRequest;
-            internal Plan(Cell[] desired,int completed160,int completed80,int scanned,Cell? next,int spacing)
+            internal Plan(Cell[] desired,int completed160,int completed80,int completed40,int scanned,Cell? next,int spacing)
             {
-                Desired=desired;TotalCells=desired.Length;Completed160Cells=completed160;Completed80Cells=completed80;ScannedCells=scanned;
-                PassSpacingMeters=spacing;CompletedCells=spacing==160?completed160:spacing==80?completed80:desired.Length;NextRequest=next;
+                Desired=desired;TotalCells=desired.Length;Completed160Cells=completed160;Completed80Cells=completed80;Completed40Cells=completed40;ScannedCells=scanned;
+                PassSpacingMeters=spacing;CompletedCells=spacing==160?completed160:spacing==80?completed80:spacing==40?completed40:desired.Length;NextRequest=next;
             }
         }
         public static Plan Build(WorldPoint observer,double radiusMeters,ExplorationRefinementBounds bakedBounds,ExplorationOverviewPatchInfo[] coverage)
@@ -50,7 +50,7 @@ namespace AshenVoxel.WorldScale
             var spacingByCell=new Dictionary<(long,long),int>(coverage.Length);
             foreach(var patch in coverage)
             {
-                if(patch.SpacingMeters!=160&&patch.SpacingMeters!=80)throw new ArgumentException("Verified overview coverage spacing must be160m or80m",nameof(coverage));
+                if(patch.SpacingMeters!=160&&patch.SpacingMeters!=80&&patch.SpacingMeters!=40)throw new ArgumentException("Verified overview coverage spacing must be160, 80 or 40 m",nameof(coverage));
                 var core=new ExplorationRefinementBounds(patch.CellX*CoreMeters,patch.CellZ*CoreMeters,(patch.CellX+1)*CoreMeters,(patch.CellZ+1)*CoreMeters);
                 if(patch.CoreBounds.MinimumX>core.MinimumX||patch.CoreBounds.MinimumZ>core.MinimumZ||patch.CoreBounds.MaximumX<core.MaximumX||patch.CoreBounds.MaximumZ<core.MaximumZ)
                     throw new ArgumentException("Coverage must contain its complete canonical overview core",nameof(coverage));
@@ -67,14 +67,15 @@ namespace AshenVoxel.WorldScale
                 desired.Add(cell);
             }
             desired.Sort((a,b)=>{int distance=b.DistanceSquared.CompareTo(a.DistanceSquared);if(distance!=0)return distance;int z=a.CellZ.CompareTo(b.CellZ);return z!=0?z:a.CellX.CompareTo(b.CellX);});
-            int ready160=0,ready80=0;Cell? missing160=null,missing80=null;
+            int ready160=0,ready80=0,ready40=0;Cell? missing160=null,missing80=null,missing40=null;
             foreach(var cell in desired)
             {
                 bool ready=spacingByCell.TryGetValue((cell.CellX,cell.CellZ),out int spacing);
                 if(ready&&spacing<=160)ready160++;else if(!missing160.HasValue)missing160=cell;
                 if(ready&&spacing<=80)ready80++;else if(!missing80.HasValue)missing80=cell;
+                if(ready&&spacing<=40)ready40++;else if(!missing40.HasValue)missing40=cell;
             }
-            return new Plan(desired.ToArray(),ready160,ready80,(int)count,missing160??missing80,missing160.HasValue?160:missing80.HasValue?80:0);
+            return new Plan(desired.ToArray(),ready160,ready80,ready40,(int)count,missing160??missing80??missing40,missing160.HasValue?160:missing80.HasValue?80:missing40.HasValue?40:0);
         }
     }
 }
