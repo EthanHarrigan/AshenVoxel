@@ -7,6 +7,7 @@ built from the Azgaar map "Ceteviles", with breakable **10 cm voxel** props and 
 - Current state: [MEMORY.md](MEMORY.md). Priorities: [TODO.md](TODO.md).
 - Controls and settings in depth: [Docs/EXPLORATION_GUIDE.md](Docs/EXPLORATION_GUIDE.md). Note that START_HERE lists newer controls.
 - Code map: [Docs/FILE_MAP.md](Docs/FILE_MAP.md). Architecture decisions: [Docs/DECISIONS.md](Docs/DECISIONS.md).
+- Sky, fog and post presets/controls: [Docs/ATMOSPHERE.md](Docs/ATMOSPHERE.md) (native visual acceptance pending).
 - Previous long README, with every feature-patch note and evidence link:
   [Docs/History/README_through_2026-10-28.md](Docs/History/README_through_2026-10-28.md).
 

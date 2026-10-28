@@ -106,6 +106,39 @@ MonoBehaviour:
   SunIntensity: 2.1
   SunElevation: 36
   SunAzimuth: 325
+  Atmosphere:
+    SkyExposure: 1
+    HorizonColor: {r: 0.68, g: 0.77, b: 0.84, a: 1}
+    MatchFogToHorizon: 1
+    SunAngularDiameter: 0.53
+    SunRadiance: 12
+    Haze: 0.35
+    CloudQuality: 2
+    CloudCoverage: 0.42
+    CloudDensity: 0.8
+    CloudScale: 1
+    CloudWindAzimuth: 70
+    CloudSpeed: 0.012
+    CloudLightColor: {r: 0.98, g: 0.96, b: 0.91, a: 1}
+    CloudShadowColor: {r: 0.47, g: 0.56, b: 0.68, a: 1}
+    HeightFog: 1
+    FogBaseHeight: 0
+    FogHeightFalloff: 0.00035
+    FogStart: 80
+    FogMaxOpacity: 0.97
+    FogSunScatter: 0.12
+    PostProcessing: 1
+    ToneMapping: 0
+    PostExposure: 0.2
+    Contrast: 6
+    Saturation: 3
+    Temperature: 0
+    Tint: 0
+    ColorFilter: {r: 1, g: 1, b: 1, a: 1}
+    BloomIntensity: 0.1
+    BloomThreshold: 1.2
+    BloomScatter: 0.55
+    Vignette: 0
   ShadowDistanceMeters: 260
   EnableAmbientOcclusion: 1
   ShowVisualWater: 1

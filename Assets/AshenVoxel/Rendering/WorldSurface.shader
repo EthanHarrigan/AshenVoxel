@@ -27,6 +27,7 @@ Shader "AshenVoxel/WorldSurface"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "MaterialOptics.hlsl"
+        #include "AshenAtmosphere.hlsl"
         #include "VoxelWind.hlsl"
         // One material layout shared by forward, shadow, depth, normals, motion.
         CBUFFER_START(UnityPerMaterial)
@@ -183,7 +184,7 @@ Shader "AshenVoxel/WorldSurface"
                 }
                 #endif
                 color += half3(.24h, .065h, .008h) * breaking;
-                return half4(MixFog(color, input.fog), 1);
+                return half4(AshenApplyFog(color, input.fog, input.positionWS), 1);
             }
             ENDHLSL
         }

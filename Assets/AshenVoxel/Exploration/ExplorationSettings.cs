@@ -155,7 +155,7 @@ namespace AshenVoxel.Exploration
         [Header("Atmosphere and rock lighting")]
         public bool FogEnabled=true;
         public FogMode FogMode=UnityEngine.FogMode.ExponentialSquared;
-        [Range(.000005f,.0002f)] public float FogDensity=.00004f;
+        [Range(0,.002f)] public float FogDensity=.00004f;
         public Color FogColor=new Color(.49f,.59f,.68f,1);
         public Color SkyColor=new Color(.42f,.53f,.65f,1);
         [Range(0,2),Tooltip("Sky and ground fill in shadows. Independent of sun direction.")] public float AmbientFillStrength=1.5f;
@@ -163,9 +163,10 @@ namespace AshenVoxel.Exploration
         public Color AmbientEquator=new Color(.58f,.66f,.73f,1);
         public Color AmbientGround=new Color(.36f,.39f,.32f,1);
         public Color SunColor=new Color(1,.92f,.81f,1);
-        [Range(.5f,4)] public float SunIntensity=2.1f;
-        [Range(5,80)] public float SunElevation=36;
+        [Range(0,4)] public float SunIntensity=2.1f;
+        [Range(-12,89)] public float SunElevation=36;
         [Range(0,360)] public float SunAzimuth=325;
+        public ExplorationAtmosphere Atmosphere=new ExplorationAtmosphere();
         [Range(50,300)] public float ShadowDistanceMeters=260;
         [Tooltip("Applied when the Editor creates or repairs the exploration renderer.")]
         public bool EnableAmbientOcclusion=true;
@@ -213,6 +214,7 @@ namespace AshenVoxel.Exploration
         }
         void OnValidate()
         {
+            ExplorationAtmosphere.SanitizeLighting(this);
             MinimumTerrainTileMeters=Mathf.Clamp(MinimumTerrainTileMeters,16,64);
             NearTerrainQuads=Mathf.Clamp(Mathf.Max(NearTerrainQuads,Mathf.CeilToInt(MinimumTerrainTileMeters)),32,64);
             MaximumTerrainTiles=Mathf.Clamp(MaximumTerrainTiles,64,LodSettings.MaximumSupportedTiles);

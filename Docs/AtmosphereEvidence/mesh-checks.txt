@@ -1,0 +1,5 @@
+Command: python -X utf8 Tools/run_mesh_checks.py
+Scope: CPU mesher oracle, not native Unity or shader execution.
+Compiling actual mesher against minimal geometry shim; Unity engine and shaders are NOT being compiled.
+PASS actual C# greedy mesh: 32198 unit faces and RGB colors match independent world oracle; 128416 vertex AO values match independent neighborhood oracle across 12 worlds.
+Ashen Voxel: all mesh regression checks passed.

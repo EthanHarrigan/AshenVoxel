@@ -1,3 +1,36 @@
+## Sky/atmosphere continuation — October 28, 2026
+
+Continued the exact request from `Improve Skybox and Atmosphere`, local thread
+`01a1842f-d72f-7bc3-952b-2330a38511a8`, after it was interrupted. Its cloud task
+`01a18431-2b54-709a-a452-9f27e4159027` lacked private GitHub access. Supplied actual
+source and a bounded shader/include contract through that thread; cloud execution
+produced real shader/fog code, primary-source research and runnable numerical
+checks. Retrieved complete text and integrated it in this sole authoritative
+folder. Base remained `76a8fc5d88299575f6468e5a49b16f0f952f405b`; no sibling
+checkout or local background agent was started.
+
+Added editable angular sun, filtered animated cloud shell, coherent horizon and
+height/distance fog for terrain/props/near and GPU far forest/water. Added three
+presets, F1 controls/colors/reset, full environment options persistence, owned
+post-processing controls and cleanup. Review corrected working-space default
+tint normalization, raw vector color uploads and preservation of the camera
+stage needed for AA when grading is off. Shader/meta identity and matter,
+generation, source and ordinary URP surface passes are preserved.
+
+Passed CPU quadrature/float32/projection checks, all five fog integration bindings,
+six runtime Unity API assembly compilations, native-fixture Editor API compile,
+mesh oracle and project integrity. The initial integrity failure identified two
+already-tracked terrain-reshape files with no metadata; added new .meta files
+without editing their contents. Full check then passed. Existing compiler
+warnings about packed step vertex NW fields are unrelated and retained.
+
+Prepared bounded native shader/settings/sky-capture fixture; it is not run.
+No Unity Play or Computer Use was driven; native visual/performance acceptance
+is pending permission. No FPS, shader execution or native-quality claim follows
+from the CPU/API results. [Procedure](ATMOSPHERE.md),
+[source identities and evidence](AtmosphereEvidence/README.md).
+The unrelated dirty launcher and Claude outputs were left untouched.
+
 ## Horizon source passes and seam fixes - October 27, 2026 (Denver)
 
 Complete baked terrain coverage starts concurrently with nearby decoding. Mesh

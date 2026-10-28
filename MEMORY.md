@@ -47,6 +47,10 @@ under ~150 lines. Put dated narrative in Docs/SESSION_LOG.md.
   The outer LOD rings refine globally in passes (8→16→32→64…).
 - F1 contains: terrain quality Normal/Detailed/Maximum, reach and allowances, wind strength, shadow fill, DLSS/DLAA,
   ground representation, and pause for far-source refinement.
+- Sky/atmosphere candidate: cloud-authored HDR sun + animated shell clouds, shared height fog across ground/props/forest/water,
+  clear day, dusk and overcast presets, live F1 colors/controls and saved post grading. Ordinary URP retained.
+  CPU math, six runtime API assemblies, Editor fixture API, mesh oracle and project checks pass; **native visuals/FPS remain open**.
+  See [ATMOSPHERE.md](Docs/ATMOSPHERE.md) and [source-matched evidence](Docs/AtmosphereEvidence/README.md).
 - Also installed: GPU-culled distant forest and impostors, wind, material optics, shrubs (U), bees (unverified),
   and grounded roots (off by default).
 
@@ -77,7 +81,8 @@ under ~150 lines. Put dated narrative in Docs/SESSION_LOG.md.
 - The user has repeatedly interrupted Computer Use with a physical Escape during Play.
   Do not drive Unity Play without asking first.
 - All agents were stopped at the user's request at the end of Oct 27. No jobs are queued.
-  The last Editor activity was around 00:28 UTC Oct 28.
+  On Oct 28 the sky continuation used cloud thread `01a18431-2b54-709a-a452-9f27e4159027` for actual shader/fog code and checks;
+  returned source was integrated here. No Unity Play or Computer Use was driven during that continuation.
 
 ## Invariants
 See AGENTS.md. In short:

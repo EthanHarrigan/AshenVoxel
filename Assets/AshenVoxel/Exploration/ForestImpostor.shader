@@ -12,6 +12,7 @@ Shader "AshenVoxel/ForestImpostor"
         float _HorizonNear,_HorizonFar,_AtlasLightingVersion;
         CBUFFER_END
         #include "ForestImpostorLighting.hlsl"
+        #include "../Rendering/AshenAtmosphere.hlsl"
         struct A { float4 positionOS:POSITION; float3 normalOS:NORMAL; float4 uv:TEXCOORD0; UNITY_VERTEX_INPUT_INSTANCE_ID };
         struct V { float4 positionCS:SV_POSITION; float4 uv:TEXCOORD0; half fog:TEXCOORD1; half3 normalWS:TEXCOORD2; float distance:TEXCOORD3; float3 positionWS:TEXCOORD4; float2 yaw:TEXCOORD5; float3 views:TEXCOORD6; UNITY_VERTEX_OUTPUT_STEREO };
         V Vert(A a)
@@ -52,7 +53,7 @@ Shader "AshenVoxel/ForestImpostor"
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
             #pragma multi_compile_fragment _ _SHADOWS_SOFT _SHADOWS_SOFT_LOW _SHADOWS_SOFT_MEDIUM _SHADOWS_SOFT_HIGH
             #pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
-            half4 Frag(V i):SV_Target { UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(i);ForestViewSample c=Sample(i);return half4(MixFog(ForestLighting(c.albedo,c.normalAO,i.positionWS,i.positionCS,c.optics),i.fog),1); }
+            half4 Frag(V i):SV_Target { UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(i);ForestViewSample c=Sample(i);return half4(AshenApplyFog(ForestLighting(c.albedo,c.normalAO,i.positionWS,i.positionCS,c.optics),i.fog,i.positionWS),1); }
             ENDHLSL
         }
         Pass

@@ -17,6 +17,7 @@ Shader "AshenVoxel/GroundSurface"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "../Rendering/MaterialOptics.hlsl"
+        #include "../Rendering/AshenAtmosphere.hlsl"
         CBUFFER_START(UnityPerMaterial)
             float _GrainStrength;
             float _FineGrainStrength;
@@ -357,7 +358,7 @@ Shader "AshenVoxel/GroundSurface"
                     color += LightingPhysicallyBased(brdf,light,normal,view) * ao.directAmbientOcclusion;
                 }
                 #endif
-                return half4(MixFog(color, input.fog), 1);
+                return half4(AshenApplyFog(color, input.fog, input.positionWS), 1);
             }
             ENDHLSL
         }

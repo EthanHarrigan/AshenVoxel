@@ -1,0 +1,25 @@
+{
+  "base_commit": "76a8fc5d88299575f6468e5a49b16f0f952f405b",
+  "recorded_utc": "2026-10-28T20:46:07.1871562Z",
+  "native_acceptance": "not run",
+  "source_sha256": {
+    "Assets/AshenVoxel/Exploration/ExplorationAtmosphere.cs": "90cb77acf6d350dadd0555b9c5609bb46b6fe7b27195c7e6a56a876924448e55",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "7b09cae39e9365353c1a5c84c61e1463a92c06ae6a3c0afe01efbe29f2bbb97d",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrapEnvironment.cs": "78beac07e981705a9171bc9dcf500c6686a3a76b74334c371016b702494ef6f5",
+    "Assets/AshenVoxel/Exploration/ExplorationEnvironmentRuntime.cs": "a226d06271f153b1aa330bb6e62a4efbcbfa75fbb4b71aa3f65438e2ce5ffc4b",
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": "81b0e4400faba89279aa974152f944184f3dd14304c44d7fafed10d685560a48",
+    "Assets/AshenVoxel/Exploration/ExplorationVisualQuality.cs": "32b5305c98d506e1eb419147ab222bdbff9bed2d95a3a4e659bbc4c966630ada",
+    "Assets/AshenVoxel/Exploration/Editor/AtmosphereGraphicsCheck.cs": "cb747077e4e6b80928e407af65adbc17a5349387d52c559ce6162eb10954bd63",
+    "Assets/AshenVoxel/Exploration/ForestImpostor.shader": "b94b5335cca88d93a37c41ca7c238cb340251c888badc58ccdb0b728d176a73d",
+    "Assets/AshenVoxel/Exploration/Resources/ExplorationSky.shader": "05f328b1b5b83a9fb2252b952931ad0e7c976e0b399b76676c6db003a149684d",
+    "Assets/AshenVoxel/Exploration/Resources/ExplorationSky.shader.meta": "a1c1bf980d4fd7c1564380cd9a0571b2158ab8a08f739a05358bed10de24f840",
+    "Assets/AshenVoxel/Exploration/Resources/ForestHorizonGpu.shader": "2094db7150d801519d7236710a51929221ff4904143bc77d2c2bc2c6778fe872",
+    "Assets/AshenVoxel/Rendering/AshenAtmosphere.hlsl": "d2022e63ac0aa3407802eeb5b7170677616fe231fb37d7abbff3e77c982ca0ab",
+    "Assets/AshenVoxel/Rendering/WorldSurface.shader": "7a491e33ab4552cddbf9ed38c2c0bddfbb817ff7d7bb9448180f0abdede7f3ac",
+    "Assets/AshenVoxel/Settings/ExplorationSettings.asset": "461a41ec7d346f92e46caf23717e4b51f9a520826a7f1b5c482b09133a11e115",
+    "Assets/AshenVoxel/WorldScaleRuntime/GroundSurface.shader": "72b479f2f87ee52f1d68b2879cd41687b59d622f0526aa0e4fd59bfa335c7ca5",
+    "Assets/AshenVoxel/WorldScaleRuntime/VisualWater.shader": "d41d3a98cc29c5dd1712553c43c0055ca1aa6d82c03406f58d1ff62ffd84f541",
+    "Tools/check_atmosphere.py": "8636969994b6796a5ef91278bfa43153471e046ecee6af7a1639ccb9d85862b8",
+    "Tools/check_atmosphere_editor_api.py": "c611f4ed0236b18f84c19cdf3738efb955765df1c65ca00c2b821f88d5ed874c"
+  }
+}

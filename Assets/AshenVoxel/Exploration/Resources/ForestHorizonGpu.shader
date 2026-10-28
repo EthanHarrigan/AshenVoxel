@@ -18,6 +18,7 @@ Shader "AshenVoxel/ForestHorizonGpu"
         float _HorizonNear,_HorizonFar,_AtlasLightingVersion;
         CBUFFER_END
         #include "../ForestImpostorLighting.hlsl"
+        #include "../../Rendering/AshenAtmosphere.hlsl"
         struct V { float4 positionCS:SV_POSITION; float4 uv:TEXCOORD0; half fog:TEXCOORD1; half3 normalWS:TEXCOORD2; float range:TEXCOORD3; float3 positionWS:TEXCOORD4; float3 orientation:TEXCOORD5; float3 views:TEXCOORD6; nointerpolation float4 canopy:TEXCOORD7; };
         V Vert(uint vertexID:SV_VertexID,uint instanceID:SV_InstanceID)
         {
@@ -94,7 +95,7 @@ Shader "AshenVoxel/ForestHorizonGpu"
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
             #pragma multi_compile_fragment _ _SHADOWS_SOFT _SHADOWS_SOFT_LOW _SHADOWS_SOFT_MEDIUM _SHADOWS_SOFT_HIGH
             #pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
-            half4 Frag(V i):SV_Target{ForestViewSample c=Tree(i);return half4(MixFog(ForestLighting(c.albedo,c.normalAO,i.positionWS,i.positionCS,c.optics),i.fog),1);}
+            half4 Frag(V i):SV_Target{ForestViewSample c=Tree(i);return half4(AshenApplyFog(ForestLighting(c.albedo,c.normalAO,i.positionWS,i.positionCS,c.optics),i.fog,i.positionWS),1);}
             ENDHLSL
         }
         Pass

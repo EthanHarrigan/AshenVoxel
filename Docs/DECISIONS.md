@@ -1,3 +1,23 @@
+## ATM-D01 — Editable atmosphere within ordinary URP
+
+Use an art-directed sky in the existing background pass, a shared analytical
+height-fog function in the five existing surface paths, and an owned URP post
+volume. Keep sun/cloud detail and grading editable; expose day/dusk/overcast
+presets without changing terrain, generation or matter. Small scattering LUTs
+and volumetric clouds remain comparison candidates requiring measured benefit.
+
+No new sky/fog textures, history or render targets; cloud work is bounded at
+6/10 value-noise evaluations for Layered/Detailed. This is an operation bound,
+not a millisecond guarantee. Bloom has its ordinary separate URP cost. Convert
+authored colors explicitly before raw vector upload; reuse one horizon color
+for sky and fog. Integrate height fog in global metres across Y rebases and
+restore owned globals/RenderSettings on teardown. Saved environment controls
+use an independent version-1 block; old preferences remain readable.
+
+Source/API/math checks pass; native shader, appearance, mesh menu and hardware
+performance acceptance are still required. [Implementation and gates](ATMOSPHERE.md),
+[cloud research and rejected alternatives](AtmosphereEvidence/cloud-research.md).
+
 ## D050 - Learned overview source passes and exact edge bridges
 
 Keep baked320 m whole-view coverage independent of near5 m startup decoding.

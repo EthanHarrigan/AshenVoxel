@@ -39,6 +39,8 @@ namespace AshenVoxel.Exploration
 #if UNITY_5_3_OR_NEWER
         public ExplorationUpscaling Upscaler {get;private set;}
         public ExplorationWind Wind {get;private set;}
+        ExplorationEnvironmentRuntime environment;
+        ExplorationVisualQuality visualQuality;
 #endif
         Light sun;
         Material sky,instanceMaterial;
@@ -204,7 +206,8 @@ namespace AshenVoxel.Exploration
                 yield return null;
             }
 #if UNITY_5_3_OR_NEWER
-            worldObject.AddComponent<ExplorationVisualQuality>().Initialize(Vista.MainCamera,ownedPipeline);
+            visualQuality=worldObject.AddComponent<ExplorationVisualQuality>();
+            visualQuality.Initialize(Vista.MainCamera,ownedPipeline);visualQuality.Apply(ActiveSettings.Atmosphere);
             Upscaler=worldObject.AddComponent<ExplorationUpscaling>();Upscaler.Initialize(Vista.MainCamera,ownedPipeline,ActiveSettings,Vista);
             Wind=worldObject.AddComponent<ExplorationWind>();Wind.Initialize(ActiveSettings.WindStrength,Vista.RenderOrigin);
 #endif
@@ -298,6 +301,9 @@ namespace AshenVoxel.Exploration
         }
         void LateUpdate()
         {
+#if UNITY_5_3_OR_NEWER
+            if(Vista!=null)environment?.SetOriginY((float)Vista.RenderOrigin.Y);
+#endif
             if(Failed||Vista==null||Population==null||Vista.MainCamera==null)return;
             try
             {
@@ -317,6 +323,7 @@ namespace AshenVoxel.Exploration
                 }
                 #if UNITY_5_3_OR_NEWER
                 if(Wind!=null)Wind.SetOrigin(Vista.RenderOrigin);
+                environment?.SetOriginY((float)Vista.RenderOrigin.Y);
 #endif
                 Population.SetObserver(observer,Vista.RenderOrigin);
                 Population.Tick(Vista.MainCamera);
@@ -378,6 +385,9 @@ namespace AshenVoxel.Exploration
         {if(Vista!=null&&Vista.MainCamera!=null){Vista.MainCamera.fieldOfView=Mathf.Clamp(ActiveSettings.FieldOfView,45,110);Vista.MainCamera.nearClipPlane=.04f;Vista.MainCamera.allowHDR=true;Vista.MainCamera.clearFlags=CameraClearFlags.Skybox;}}
         void SetupLighting()
         {
+#if UNITY_5_3_OR_NEWER
+            environment=new ExplorationEnvironmentRuntime();
+#endif
             previousSky=RenderSettings.skybox;previousPipeline=GraphicsSettings.defaultRenderPipeline;previousQualityPipeline=QualitySettings.renderPipeline;previousShadowDistance=QualitySettings.shadowDistance;
             RenderPipelineAsset original=GraphicsSettings.currentRenderPipeline;
             if(original==null)throw new InvalidDataException("The exploration render pipeline is missing. Leave Play mode and choose Ashen Voxel → Exploration → Repair project setup, then Play again.");
@@ -385,22 +395,25 @@ namespace AshenVoxel.Exploration
             sun=new GameObject("Exploration daylight").AddComponent<Light>();sun.transform.SetParent(worldObject.transform,false);sun.type=LightType.Directional;sun.shadows=LightShadows.Soft;
             sun.shadowBias=.02f;sun.shadowNormalBias=.1f;sun.shadowNearPlane=.1f;
             Shader skyShader=Resources.Load<Shader>("ExplorationSky");if(skyShader==null)skyShader=Shader.Find("Skybox/Procedural");
-            if(skyShader!=null){sky=new Material(skyShader);sky.name="Exploration sky";sky.SetFloat("_SunSize",.035f);sky.SetFloat("_AtmosphereThickness",1);sky.SetFloat("_Exposure",1);RenderSettings.skybox=sky;}
+            if(skyShader!=null){sky=new Material(skyShader);sky.name="Exploration sky";RenderSettings.skybox=sky;}
             RenderSettings.sun=sun;ApplyLighting();
         }
         void ApplyLighting()
         {
             if(ActiveSettings==null)return;
             QualitySettings.shadowDistance=ActiveSettings.ShadowDistanceMeters;
+#if UNITY_5_3_OR_NEWER
+            environment?.Apply(ActiveSettings,sky,sun);
+            if(Vista!=null)environment?.SetOriginY((float)Vista.RenderOrigin.Y);
+            visualQuality?.Apply(ActiveSettings.Atmosphere);
+#else
             RenderSettings.fog=ActiveSettings.FogEnabled;RenderSettings.fogMode=ActiveSettings.FogMode;RenderSettings.fogDensity=ActiveSettings.FogDensity;RenderSettings.fogColor=ActiveSettings.FogColor;
             RenderSettings.fogStartDistance=ActiveSettings.ViewDistanceKm*500;RenderSettings.fogEndDistance=ActiveSettings.ViewDistanceKm*1000;
-#if UNITY_5_3_OR_NEWER
-            AshenVoxel.Rendering.MaterialOpticsProfile.SetAmbient(ActiveSettings.AmbientSky,ActiveSettings.AmbientEquator,ActiveSettings.AmbientGround,ActiveSettings.AmbientFillStrength);
-#endif
             RenderSettings.ambientMode=AmbientMode.Trilight;RenderSettings.ambientSkyColor=ActiveSettings.AmbientSky;RenderSettings.ambientEquatorColor=ActiveSettings.AmbientEquator;RenderSettings.ambientGroundColor=ActiveSettings.AmbientGround;
             if(sun!=null){sun.color=ActiveSettings.SunColor;sun.intensity=ActiveSettings.SunIntensity;sun.transform.rotation=Quaternion.Euler(ActiveSettings.SunElevation,ActiveSettings.SunAzimuth,0);}
             if(sky!=null){sky.SetColor("_SkyTint",ActiveSettings.SkyColor);sky.SetColor("_GroundColor",ActiveSettings.AmbientGround);
                 if(sun!=null)sky.SetVector("_SunDirection",new Vector4(-sun.transform.forward.x,-sun.transform.forward.y,-sun.transform.forward.z,0));}
+#endif
             if(ownedPipeline!=null)
             {
                 var property=ownedPipeline.GetType().GetProperty("shadowDistance");
@@ -425,6 +438,7 @@ namespace AshenVoxel.Exploration
             GUILayout.Label("Exploration beta settings",title);GUILayout.Label("WASD · F walk/fly · Q/E or Ctrl/Space in flight · N noclip · Escape pointer",text);
             settingsScroll=GUILayout.BeginScrollView(settingsScroll);
             GUILayout.Label("Beta: terrain can pop while refining and higher quality can remain budget limited. Grounded roots and responsive traversal are experimental.",text);
+            DrawEnvironmentSettings();
             DrawTerrainQualitySettings();
             bool traversal=GUILayout.Toggle(Player.EnableTraversalExperiment,"Responsive traversal (experimental)");
             if(traversal!=Player.EnableTraversalExperiment)Player.SetTraversalExperiment(traversal);
@@ -466,11 +480,7 @@ namespace AshenVoxel.Exploration
             ActiveSettings.FarHorizonKm=Slider("Coarse horizon (0 off)",ActiveSettings.FarHorizonKm,0,100," km");
             ActiveSettings.TreeDistanceMeters=Slider("Tree distance",ActiveSettings.TreeDistanceMeters,500,2500," m");
             ActiveSettings.GroundCoverDistanceMeters=Slider("Small plants",ActiveSettings.GroundCoverDistanceMeters,12,64," m");
-            ActiveSettings.FogEnabled=GUILayout.Toggle(ActiveSettings.FogEnabled,"Atmospheric fog");
-            ActiveSettings.FogDensity=Slider("Fog density",ActiveSettings.FogDensity,.000005f,.0002f,"");
-            ActiveSettings.AmbientFillStrength=Slider("Shadow fill",ActiveSettings.AmbientFillStrength,0,2,"×");
             ActiveSettings.WindStrength=Slider("Wind strength",ActiveSettings.WindStrength,0,2,"×");
-            ActiveSettings.SunElevation=Slider("Sun elevation",ActiveSettings.SunElevation,5,80,"°");
             if(GUILayout.Button("Apply view and movement"))ApplyRuntimeSettings(true);
 #if UNITY_5_3_OR_NEWER
             GUILayout.Label(Upscaler!=null?Upscaler.Status:"Native resolution",text);
@@ -559,6 +569,7 @@ namespace AshenVoxel.Exploration
         }
         [Serializable] sealed class UserOptions
         {
+            public ExplorationEnvironmentOptions environment;
             public float walk=4,sprint=7,flight=40,boost=4,fov=75,view=30,horizon,trees=1400,plants=32,fog=.00004f,sun=36;
             public bool fogOn=true;public int imageOptionsVersion,upscaling;public float ambientFill,windStrength;
             public int terrainOptionsVersion,terrainQuality;
@@ -580,6 +591,7 @@ namespace AshenVoxel.Exploration
             try
             {
                 var s=ActiveSettings;var o=new UserOptions{walk=s.WalkSpeed,sprint=s.SprintSpeed,flight=s.FlightSpeed,boost=s.FlightBoost,fov=s.FieldOfView,view=s.ViewDistanceKm,horizon=s.FarHorizonKm,trees=s.TreeDistanceMeters,plants=s.GroundCoverDistanceMeters,fog=s.FogDensity,sun=s.SunElevation,fogOn=s.FogEnabled,imageOptionsVersion=3,upscaling=(int)s.Upscaling,ambientFill=s.AmbientFillStrength,windStrength=s.WindStrength};
+                o.environment=ExplorationEnvironmentOptions.Capture(s);
                 o.terrainOptionsVersion=1;o.terrainQuality=(int)ActiveSettings.TerrainQuality;
                 o.terrainTuningOptionsVersion=1;o.detailReachMultiplier=ActiveSettings.TerrainDetailReachMultiplier;
                 o.farDetailMiBOverride=ActiveSettings.TerrainFarDetailMiBOverride;o.planTileLimitOverride=ActiveSettings.TerrainPlanTileLimitOverride;
@@ -625,6 +637,7 @@ namespace AshenVoxel.Exploration
                 if(o.contactRadiusOptionsVersion==1&&!float.IsNaN(o.contactRadius))s.VoxelFullDetailRadius=Mathf.Clamp(o.contactRadius,16,160);
                 if(o.sourceCoverageOptionsVersion==1)s.ExpandedLiveSourceWindow=o.expandedSourceCoverage;
                 if(o.overviewOptionsVersion==1)s.EnableOverviewRefinement=o.overviewRefinement;
+                o.environment?.Apply(s);
             }
             catch(Exception exception){optionsNotice="Saved options ignored: "+exception.Message;}
         }
@@ -632,7 +645,7 @@ namespace AshenVoxel.Exploration
         {
             OverviewRefinement?.Shutdown();
 #if UNITY_5_3_OR_NEWER
-            AshenVoxel.Rendering.MaterialOpticsProfile.ClearAmbient();
+            environment?.Dispose();environment=null;
 #endif
             if(Player!=null)Player.SetInputEnabled(false);
             if(worldObject!=null)QualitySettings.shadowDistance=previousShadowDistance;

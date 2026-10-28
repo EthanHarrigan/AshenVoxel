@@ -25,6 +25,7 @@ Shader "AshenVoxel/VisualWater"
             #pragma fragment Frag
             #pragma multi_compile_fog
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "../Rendering/AshenAtmosphere.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
             CBUFFER_START(UnityPerMaterial)
                 half4 _ShallowColor, _DeepColor;
@@ -64,7 +65,7 @@ Shader "AshenVoxel/VisualWater"
                 half3 sky = max(SampleSH(normal), half3(.12,.17,.22));
                 half3 reflection = sky * 1.35h + sun.color * highlight * .8h;
                 half3 color = lerp(water.rgb * (sky + .45h),reflection,fresnel);
-                return half4(MixFog(color,input.fog),saturate(water.a + fresnel * .16h));
+                return half4(AshenApplyFog(color,input.fog,input.positionWS),saturate(water.a + fresnel * .16h));
             }
             ENDHLSL
         }
