@@ -17,6 +17,12 @@ namespace AshenVoxel.WorldScaleRuntime
         [Tooltip("Optional rendered-cache representation. Distant indexed height grids; near/contact matter and cubes remain unchanged.")]
         public bool EnableDistantHeightProxies;
         public bool ConnectedTerrainSurface=true;
+        [Tooltip("Next regeneration: merged cubic voxel steps; 10cm pigment is painted by the shader and each level morphs continuously into the next (10/20/40/80cm).")]
+        public bool UseVoxelStepSurfaces;
+        [Tooltip("Blend each voxel-step level into its parent with distance instead of switching abruptly.")]
+        public bool VoxelStepMorph=true;
+        public int VoxelStepTiles {get;private set;}
+        public long VoxelStepTextureBytes {get;private set;}
         HeightProxyDiskCache heightProxyDiskCache;
         bool heightProxyCacheConfigured;
         long heightProxyCacheHits,heightProxyCacheMisses,heightProxyCacheWrites,heightProxyCacheWriteFailures,heightProxyCacheOwnedBytes;
@@ -80,7 +86,7 @@ namespace AshenVoxel.WorldScaleRuntime
             cancel.ThrowIfCancellationRequested();return built;
         }
         [Range(512,4096)] public float DistantHeightProxyMinimumMeters=768;
-        public string TerrainRepresentationMode=>!UseVoxelLodTerrain?"Legacy height proxies":ConnectedTerrainSurface?"Connected terrain surface (all distances)":EnableDistantHeightProxies?"Distant height proxies + near cubes":"Exposed voxels";
+        public string TerrainRepresentationMode=>!UseVoxelLodTerrain?"Legacy height proxies":ConnectedTerrainSurface?"Connected terrain surface (all distances)":UseVoxelStepSurfaces?"Voxel steps near + smooth far":EnableDistantHeightProxies?"Distant height proxies + near cubes":"Exposed voxels";
         bool WantsHeightProxy(LodTile tile)
         {
             if(UseVoxelLodTerrain&&ConnectedTerrainSurface)return true;
@@ -338,8 +344,10 @@ namespace AshenVoxel.WorldScaleRuntime
         sealed class TerrainBuildResult
         {
             public readonly VoxelLodSurface Voxels;public readonly HeightProxySurface Proxy;
+            public readonly VoxelStepSurface Steps;public readonly byte[] StepColorBytes;
             public TerrainBuildResult(VoxelLodSurface data){Voxels=data;}
             public TerrainBuildResult(HeightProxySurface data){Proxy=data;}
+            public TerrainBuildResult(VoxelStepSurface data,byte[] colors){Steps=data;StepColorBytes=colors;}
         }
         Task<TerrainBuildResult> voxelBuildJob;
         CancellationTokenSource voxelBuildCancellation;
@@ -817,6 +825,7 @@ namespace AshenVoxel.WorldScaleRuntime
                 tile.OriginXMeters-SurfaceHalo,tile.OriginZMeters-SurfaceHalo,tile.OriginXMeters+tile.SizeMeters+SurfaceHalo,tile.OriginZMeters+tile.SizeMeters+SurfaceHalo);
             var sampler=new SurfaceMaterialSampler(samples,CurrentSurfaceProfile);
             bool proxy=ConnectedTerrainSurface||!contact&&WantsHeightProxy(tile);
+            bool steps=!proxy&&UseVoxelStepSurfaces;
             HeightProxyDiskCache cache=heightProxyDiskCache;
             voxelBuildJob=Task.Run(()=>
             {
@@ -832,6 +841,11 @@ namespace AshenVoxel.WorldScaleRuntime
                 // worker snapshot. An apron encloses different LOD boundaries.
                 double floor=samples is IWorldFieldBounds bounded?bounded.QueryBounds(tile.OriginXMeters-tile.SizeMeters*2,tile.OriginZMeters-tile.SizeMeters*2,
                     tile.OriginXMeters+tile.SizeMeters*3,tile.OriginZMeters+tile.SizeMeters*3).Minimum-1:RemoteTerrainField.MinimumSupportedHeight-1;
+                if(steps)
+                {
+                    VoxelStepSurface stepData=VoxelStepSurface.Build(sampler,tile,n,floor,cancel,parallelSampling:true);
+                    byte[] colorBytes=stepData.ColorBytesRGBA();workerMilliseconds=clock.Elapsed.TotalMilliseconds;return new TerrainBuildResult(stepData,colorBytes);
+                }
                 VoxelLodSurface data=VoxelLodSurface.Build(sampler,tile,n,floor,cancel,parallelSampling:true);workerMilliseconds=clock.Elapsed.TotalMilliseconds;return new TerrainBuildResult(data);
             },cancel);
             try
@@ -846,6 +860,12 @@ namespace AshenVoxel.WorldScaleRuntime
                 if(proxy)
                 {
                     using(var upload=UploadHeightProxySteps(tile,completed.Proxy,neuralReady,cancel,contact))
+                        while(upload.MoveNext())yield return upload.Current;
+                    yield break;
+                }
+                if(completed.Steps!=null)
+                {
+                    using(var upload=UploadStepSurface(tile,completed.Steps,completed.StepColorBytes,neuralReady,cancel,contact))
                         while(upload.MoveNext())yield return upload.Current;
                     yield break;
                 }
@@ -900,6 +920,126 @@ namespace AshenVoxel.WorldScaleRuntime
             finally{voxelBuildCancellation?.Cancel();voxelBuildWaiting=false;}
         }
         static Vector3 VoxelAxis(int axis)=>axis==0?new Vector3(1,0,0):axis==1?new Vector3(0,1,0):new Vector3(0,0,1);
+
+        // Merged voxel-step tiles: 12-byte vertices (UNorm16 column/cell coordinates plus the
+        // parent-level morph height, SNorm8 axis normal), 16-bit indices in submeshes of at most
+        // 16384 quads, and point-sampled colour/height textures painted by GroundSurface.shader.
+        struct PackedStepVertex{public ushort X,Y,Z,W;public sbyte NX,NY,NZ,NW;}
+        struct FloatStepVertex{public Vector4 Position;public sbyte NX,NY,NZ,NW;}
+        static readonly VertexAttributeDescriptor[] StepVertexLayout={
+            new VertexAttributeDescriptor(VertexAttribute.Position,VertexAttributeFormat.UNorm16,4),
+            new VertexAttributeDescriptor(VertexAttribute.Normal,VertexAttributeFormat.SNorm8,4)};
+        static readonly VertexAttributeDescriptor[] StepFloatVertexLayout={
+            new VertexAttributeDescriptor(VertexAttribute.Position,VertexAttributeFormat.Float32,4),
+            new VertexAttributeDescriptor(VertexAttribute.Normal,VertexAttributeFormat.SNorm8,4)};
+        static bool stepPackedPositionsUnsupported;
+        static readonly int StepColorsId=Shader.PropertyToID("_StepColors"),StepHeightsId=Shader.PropertyToID("_StepHeights"),StepTileId=Shader.PropertyToID("_StepTile");
+        static readonly int StepMorphId=Shader.PropertyToID("_AshenStepMorph"),StepCameraId=Shader.PropertyToID("_AshenStepCamera");
+        PackedStepVertex[] stepVertices;ushort[] stepIndices;
+        void UpdateStepShaderGlobals()
+        {
+            if(view==null)return;
+            float target=Mathf.Clamp(VoxelTargetPixels,.5f,8);
+            Shader.SetGlobalVector(StepMorphId,new Vector4((float)(target/Math.Max(1.0,FocalPixels)),UseVoxelStepSurfaces&&VoxelStepMorph?1:0,0,0));
+            Shader.SetGlobalVector(StepCameraId,view.transform.position);
+        }
+        IEnumerator<Surface> UploadStepSurface(LodTile tile,VoxelStepSurface data,byte[] colorBytes,bool neuralReady,CancellationToken cancel,bool contact)
+        {
+            int n=data.Quads;long payloadBytes=data.PayloadBytes;
+            if(contact?!AdmitContactMesh(tile.Key,payloadBytes):!AdmitVoxelMesh(tile,n,payloadBytes))yield break;
+            if(!HasVoxelUploadHeadroom(payloadBytes))
+            {cancel.ThrowIfCancellationRequested();DeferVoxelCommit(tile,n,contact,payloadBytes);yield break;}
+            int faces=data.Faces.Count,vertexCount=faces*4,indexCount=faces*6;
+            if(stepVertices==null||stepVertices.Length<vertexCount)stepVertices=new PackedStepVertex[Capacity(vertexCount)];
+            if(stepIndices==null||stepIndices.Length<indexCount)stepIndices=new ushort[Capacity(indexCount)];
+            double cell=data.CellMeters;const double meter=10.0;
+            ushort Column(float metres)=>(ushort)Math.Max(0,Math.Min(65535,Math.Round(metres/cell)));
+            ushort Cells(float metres)=>(ushort)Math.Max(0,Math.Min(65535,Math.Round(metres*meter)+VoxelStepSurface.HeightBias));
+            Vector3 lo=new Vector3(float.MaxValue,float.MaxValue,float.MaxValue),hi=new Vector3(float.MinValue,float.MinValue,float.MinValue);
+            int vertex=0,index=0,processed=0;
+            const int perSub=VoxelStepSurface.MaximumQuadsPerSubmesh;
+            foreach(VoxelStepQuad q in data.Faces)
+            {
+                int start=vertex;sbyte sign=(sbyte)(q.Positive?127:-127);
+                sbyte nx=q.Axis==0?sign:(sbyte)0,ny=q.Axis==1?sign:(sbyte)0,nz=q.Axis==2?sign:(sbyte)0;
+                void Emit(float x,float y,float z,float morph)
+                {
+                    stepVertices[vertex++]=new PackedStepVertex{X=Column(x),Y=Cells(y),Z=Column(z),W=Cells(morph),NX=nx,NY=ny,NZ=nz};
+                    float low=Math.Min(y,morph),high=Math.Max(y,morph);
+                    lo=new Vector3(Math.Min(lo.x,x),Math.Min(lo.y,low),Math.Min(lo.z,z));hi=new Vector3(Math.Max(hi.x,x),Math.Max(hi.y,high),Math.Max(hi.z,z));
+                }
+                if(q.Axis==1)
+                {
+                    // U runs +Z and V runs +X.
+                    Emit(q.X,q.Y,q.Z,q.MorphLow);Emit(q.X,q.Y,q.Z+q.U,q.MorphLow);Emit(q.X+q.V,q.Y,q.Z+q.U,q.MorphLow);Emit(q.X+q.V,q.Y,q.Z,q.MorphLow);
+                }
+                else if(q.Axis==0)
+                {
+                    // U runs +Y (signed height), V runs +Z.
+                    float top=q.Y+q.U;
+                    Emit(q.X,q.Y,q.Z,q.MorphLow);Emit(q.X,top,q.Z,q.MorphHigh);Emit(q.X,top,q.Z+q.V,q.MorphHigh);Emit(q.X,q.Y,q.Z+q.V,q.MorphLow);
+                }
+                else
+                {
+                    // U runs +X, V runs +Y (signed height).
+                    float top=q.Y+q.V;
+                    Emit(q.X,q.Y,q.Z,q.MorphLow);Emit(q.X+q.U,q.Y,q.Z,q.MorphLow);Emit(q.X+q.U,top,q.Z,q.MorphHigh);Emit(q.X,top,q.Z,q.MorphHigh);
+                }
+                int local=start%(perSub*4);
+                void Tri(int a,int b,int c){stepIndices[index++]=(ushort)(local+a);stepIndices[index++]=(ushort)(local+(q.Positive?b:c));stepIndices[index++]=(ushort)(local+(q.Positive?c:b));}
+                Tri(0,1,2);Tri(0,2,3);
+                if(++processed%256==0)yield return null;
+            }
+            if(contact&&!AdmitContactMesh(tile.Key,payloadBytes))yield break;
+            var bounds=faces==0?new Bounds(Vector3.zero,Vector3.one):new Bounds((lo+hi)*.5f,hi-lo);
+            var mesh=new Mesh{name="Voxel steps "+tile.Key,indexFormat=IndexFormat.UInt16};
+            bool packed=!stepPackedPositionsUnsupported;
+            if(packed)
+            {
+                try{mesh.SetVertexBufferParams(vertexCount,StepVertexLayout);mesh.SetVertexBufferData(stepVertices,0,0,vertexCount);}
+                catch(Exception error){stepPackedPositionsUnsupported=true;packed=false;Debug.LogWarning("Packed voxel-step positions unsupported here; using float positions. "+error.Message);}
+            }
+            if(!packed)
+            {
+                var floats=new FloatStepVertex[vertexCount];
+                for(int i=0;i<vertexCount;i++)
+                {
+                    var v=stepVertices[i];
+                    floats[i]=new FloatStepVertex{Position=new Vector4((float)(v.X*cell),(float)((v.Y-VoxelStepSurface.HeightBias)*.1),(float)(v.Z*cell),(float)((v.W-VoxelStepSurface.HeightBias)*.1)),NX=v.NX,NY=v.NY,NZ=v.NZ};
+                }
+                mesh.SetVertexBufferParams(vertexCount,StepFloatVertexLayout);mesh.SetVertexBufferData(floats,0,0,vertexCount);
+            }
+            mesh.SetIndexBufferParams(indexCount,IndexFormat.UInt16);mesh.SetIndexBufferData(stepIndices,0,0,indexCount);
+            int submeshes=Math.Max(1,(faces+perSub-1)/perSub);mesh.subMeshCount=submeshes;
+            for(int s=0;s<submeshes;s++)
+            {
+                int first=s*perSub,count=Math.Max(0,Math.Min(perSub,faces-first));
+                mesh.SetSubMesh(s,new SubMeshDescriptor(first*6,count*6){baseVertex=first*4,firstVertex=first*4,vertexCount=count*4,bounds=bounds},
+                    MeshUpdateFlags.DontRecalculateBounds);
+            }
+            mesh.bounds=bounds;mesh.UploadMeshData(true);
+            var colors=new Texture2D(data.ColorWidth,data.ColorHeight,TextureFormat.RGBA32,false,true){name="Voxel step colours "+tile.Key,filterMode=FilterMode.Point,wrapMode=TextureWrapMode.Clamp,anisoLevel=0};
+            colors.SetPixelData(colorBytes,0);colors.Apply(false,true);
+            var heights=new Texture2D(data.HeightWidth,data.HeightHeight,TextureFormat.R16,false,true){name="Voxel step heights "+tile.Key,filterMode=FilterMode.Point,wrapMode=TextureWrapMode.Clamp,anisoLevel=0};
+            heights.SetPixelData(data.HeightTexels,0);heights.Apply(false,true);
+            RecordTerrainUpload(contact?"Contact voxel steps":"Voxel steps",vertexCount,indexCount,payloadBytes);
+            var go=new GameObject(mesh.name);go.transform.SetParent(transform,false);go.AddComponent<MeshFilter>().sharedMesh=mesh;
+            var owner=go.AddComponent<VoxelStepTextureOwner>();owner.Colors=colors;owner.Heights=heights;owner.TextureBytes=data.TextureBytes;
+            var renderer=go.AddComponent<MeshRenderer>();
+            if(contact&&contactMaterial==null)
+            {contactMaterial=new Material(EffectiveMaterial);contactMaterial.SetVector("_VoxelTerrainGrid",new Vector4(0,0,0,0));}
+            Material material=contact?contactMaterial:EffectiveMaterial;
+            var materials=new Material[submeshes];for(int s=0;s<submeshes;s++)materials[s]=material;
+            renderer.sharedMaterials=materials;
+            var block=new MaterialPropertyBlock();
+            block.SetTexture(StepColorsId,colors);block.SetTexture(StepHeightsId,heights);
+            block.SetVector(StepTileId,new Vector4((float)cell,n,(float)data.VerticalMeters,packed?1:0));
+            renderer.SetPropertyBlock(block);
+            VoxelStepTiles++;VoxelStepTextureBytes+=data.TextureBytes;
+            var result=new Surface{Object=go,Mesh=mesh,Renderer=renderer,Tile=tile,AnchorY=data.AnchorY,NeuralReady=neuralReady,Quads=n,
+                LocalHeights=data.Heights,VoxelColumns=true,TriangleCount=indexCount/3,MeshBytes=payloadBytes};
+            PositionSurface(result);go.SetActive(false);yield return result;
+        }
         IEnumerator<Surface> UploadHeightProxySteps(LodTile tile,HeightProxySurface data,bool neuralReady,CancellationToken cancel,bool contact=false)
         {
             long bytes=data.MeshPayloadBytes;

@@ -123,6 +123,8 @@ namespace AshenVoxel.Exploration
         [Tooltip("Experimental next-Play far render grid, reducing mesh payload and cubic steps. Near/contact remains cubic. Native acceptance pending.")]
         public bool ExperimentalDistantHeightProxies=false;
         public bool ConnectedTerrainSurface=true;
+        [Tooltip("Merged cubic voxel ground near the player: 10cm blocks painted with their own pigment, morphing smoothly to 20/40/80cm blocks with distance. Overrides the continuous surface near the player; distant terrain stays smooth. Next Play.")]
+        public bool VoxelStepGround=true;
         [Tooltip("Optional next-Play local disk cache for distant height proxies.1GiB, default off; does not reduce visible GPU mesh memory.")]
         public bool EnableHeightProxyDiskCache=false;
         public bool EnableForestHorizon=true;

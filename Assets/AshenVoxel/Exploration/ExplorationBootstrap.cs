@@ -55,7 +55,7 @@ namespace AshenVoxel.Exploration
         float nextApply;
         string optionsNotice="";
         TerrainQualityConfiguration appliedTerrainQuality;
-        bool terrainQualityCaptured,appliedGroundedRoots,appliedBroadLithology,appliedDistantHeightProxies,appliedConnectedTerrainSurface;
+        bool terrainQualityCaptured,appliedGroundedRoots,appliedBroadLithology,appliedDistantHeightProxies,appliedConnectedTerrainSurface,appliedVoxelStepGround;
         public TerrainQualityConfiguration AppliedTerrainQuality=>appliedTerrainQuality;
         public bool AppliedGroundedRoots=>appliedGroundedRoots;
         public bool AppliedBroadLithology=>appliedBroadLithology;
@@ -65,7 +65,9 @@ namespace AshenVoxel.Exploration
         public bool AppliedExpandedSourceWindow=>LiveRefinement!=null&&LiveRefinement.WorldField!=null&&LiveRefinement.WorldField.MaximumResidentPatches==32;
         public bool SourceWindowRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&LiveRefinement!=null&&LiveRefinement.WorldField!=null&&ActiveSettings.ExpandedLiveSourceWindow!=AppliedExpandedSourceWindow;
         public bool HeightProxyDiskCacheRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedHeightProxyDiskCache!=ActiveSettings.EnableHeightProxyDiskCache;
-        public bool TerrainRepresentationRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&(appliedDistantHeightProxies!=ActiveSettings.ExperimentalDistantHeightProxies||appliedConnectedTerrainSurface!=ActiveSettings.ConnectedTerrainSurface);
+        bool EffectiveVoxelStepGround=>ActiveSettings!=null&&ActiveSettings.VoxelStepGround&&ActiveSettings.EnableVoxelTerrain;
+        public bool AppliedVoxelStepGround=>appliedVoxelStepGround;
+        public bool TerrainRepresentationRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&(appliedDistantHeightProxies!=ActiveSettings.ExperimentalDistantHeightProxies||appliedConnectedTerrainSurface!=(ActiveSettings.ConnectedTerrainSurface&&!EffectiveVoxelStepGround)||appliedVoxelStepGround!=EffectiveVoxelStepGround);
         public bool GeologyRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedBroadLithology!=ActiveSettings.ExperimentalBroadLithology;
         public bool GroundedRootsRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedGroundedRoots!=ActiveSettings.EnableGroundedRoots;
         public bool TerrainQualityRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&!appliedTerrainQuality.SameRequest(ActiveSettings.ResolveTerrainQuality());
@@ -120,9 +122,12 @@ namespace AshenVoxel.Exploration
             SetupLighting();
             Vista=worldObject.AddComponent<WorldExplorer>();
             Vista.enabled=false; // Defer standalone Start/Update while the pre-spawn source gate yields.
-            appliedConnectedTerrainSurface=ActiveSettings.ConnectedTerrainSurface;
+            // Voxel steps replace the continuous surface near the player; distant tiles stay smooth proxies.
+            appliedVoxelStepGround=EffectiveVoxelStepGround;
+            appliedConnectedTerrainSurface=ActiveSettings.ConnectedTerrainSurface&&!appliedVoxelStepGround;
             Vista.ConnectedTerrainSurface=appliedConnectedTerrainSurface;
-            Vista.EnableDistantHeightProxies=appliedDistantHeightProxies;
+            Vista.UseVoxelStepSurfaces=appliedVoxelStepGround;
+            Vista.EnableDistantHeightProxies=appliedDistantHeightProxies||appliedVoxelStepGround;
             Vista.ConfigureInitialVoxelMeshBudgets(appliedTerrainQuality.DetailMiB,appliedTerrainQuality.ContactMiB);
             Vista.ConfigureHeightProxyDiskCache(appliedHeightProxyDiskCache,WorldExplorer.DefaultHeightProxyDiskCacheDirectory);
             ApplyVistaSettings(false);
@@ -389,11 +394,19 @@ namespace AshenVoxel.Exploration
             bool traversal=GUILayout.Toggle(Player.EnableTraversalExperiment,"Responsive traversal (experimental)");
             if(traversal!=Player.EnableTraversalExperiment)Player.SetTraversalExperiment(traversal);
             GUILayout.Label("Local bee patch: "+(bees==null?"preparing":bees.Status+" · drawn "+bees.DrawnActors),text);
-            bool connected=GUILayout.Toggle(ActiveSettings.ConnectedTerrainSurface,"Continuous terrain surface, near and far (next Play)");
+            bool stepGround=GUILayout.Toggle(ActiveSettings.VoxelStepGround,"Voxel step ground: merged 10cm blocks fading to 20/40/80cm (next Play)");
+            if(stepGround!=ActiveSettings.VoxelStepGround){ActiveSettings.VoxelStepGround=stepGround;optionsNotice="Ground style selected. Save options, then restart Play.";}
+            if(Vista!=null&&appliedVoxelStepGround)
+            {
+                bool morph=GUILayout.Toggle(Vista.VoxelStepMorph,"Smooth block-size transitions (live)");
+                if(morph!=Vista.VoxelStepMorph)Vista.VoxelStepMorph=morph;
+                GUILayout.Label("Voxel steps: "+Vista.VoxelStepTiles+" tiles uploaded · "+Vista.VoxelStepTextureBytes/1048576+" MiB colour textures uploaded this session",text);
+            }
+            bool connected=GUILayout.Toggle(ActiveSettings.ConnectedTerrainSurface,"Continuous terrain surface, near and far (next Play; voxel step ground takes priority near you)");
             if(connected!=ActiveSettings.ConnectedTerrainSurface){ActiveSettings.ConnectedTerrainSurface=connected;optionsNotice="Terrain surface selected. Save options, then restart Play.";}
             bool heightProxies=GUILayout.Toggle(ActiveSettings.ExperimentalDistantHeightProxies,"Legacy distant smooth terrain (when continuous surface is off, next Play)");
             if(heightProxies!=ActiveSettings.ExperimentalDistantHeightProxies){ActiveSettings.ExperimentalDistantHeightProxies=heightProxies;optionsNotice="Distant terrain selected. Save options, then restart Play.";}
-            GUILayout.Label("Terrain applied: "+(appliedConnectedTerrainSurface?"continuous surface at all distances":appliedDistantHeightProxies?"smooth far terrain, cubic contact":"exposed cubes")+(TerrainRepresentationRestartPending?" - restart pending":""),text);
+            GUILayout.Label("Terrain applied: "+(appliedVoxelStepGround?"voxel steps near, smooth far":appliedConnectedTerrainSurface?"continuous surface at all distances":appliedDistantHeightProxies?"smooth far terrain, cubic contact":"exposed cubes")+(TerrainRepresentationRestartPending?" - restart pending":""),text);
             bool diskCache=GUILayout.Toggle(ActiveSettings.EnableHeightProxyDiskCache,"Cache distant terrain on disk (next Play)");
             if(diskCache!=ActiveSettings.EnableHeightProxyDiskCache){ActiveSettings.EnableHeightProxyDiskCache=diskCache;optionsNotice="Disk cache selected. Save options, then restart Play.";}
             GUILayout.Label("Disk cache applied request: "+(appliedHeightProxyDiskCache?"on":"off")+(HeightProxyDiskCacheRestartPending?" - restart pending":"")+".1GiB local cache for smooth distant terrain; visible GPU meshes remain resident.",text);
@@ -511,6 +524,7 @@ namespace AshenVoxel.Exploration
             public int geologyOptionsVersion;public bool broadLithology;
             public int terrainRepresentationOptionsVersion;public bool distantHeightProxies;
             public int connectedTerrainOptionsVersion;public bool connectedTerrainSurface;
+            public int stepGroundOptionsVersion;public bool stepGround;
             public int heightProxyDiskCacheOptionsVersion;public bool heightProxyDiskCache;
             public int contactRadiusOptionsVersion;public float contactRadius;
             public int sourceCoverageOptionsVersion;public bool expandedSourceCoverage;
@@ -529,6 +543,7 @@ namespace AshenVoxel.Exploration
                 o.geologyOptionsVersion=1;o.broadLithology=ActiveSettings.ExperimentalBroadLithology;
                 o.terrainRepresentationOptionsVersion=1;o.distantHeightProxies=ActiveSettings.ExperimentalDistantHeightProxies;
                 o.connectedTerrainOptionsVersion=1;o.connectedTerrainSurface=ActiveSettings.ConnectedTerrainSurface;
+                o.stepGroundOptionsVersion=1;o.stepGround=ActiveSettings.VoxelStepGround;
                 o.heightProxyDiskCacheOptionsVersion=1;o.heightProxyDiskCache=ActiveSettings.EnableHeightProxyDiskCache;
                 o.contactRadiusOptionsVersion=1;o.contactRadius=ActiveSettings.VoxelFullDetailRadius;
                 o.sourceCoverageOptionsVersion=1;o.expandedSourceCoverage=ActiveSettings.ExpandedLiveSourceWindow;
@@ -558,6 +573,7 @@ namespace AshenVoxel.Exploration
                 if(o.geologyOptionsVersion==1)s.ExperimentalBroadLithology=o.broadLithology;
                 if(o.terrainRepresentationOptionsVersion==1)s.ExperimentalDistantHeightProxies=o.distantHeightProxies;
                 if(o.connectedTerrainOptionsVersion==1)s.ConnectedTerrainSurface=o.connectedTerrainSurface;
+                if(o.stepGroundOptionsVersion==1)s.VoxelStepGround=o.stepGround;
                 if(o.heightProxyDiskCacheOptionsVersion==1)s.EnableHeightProxyDiskCache=o.heightProxyDiskCache;
                 if(o.contactRadiusOptionsVersion==1&&!float.IsNaN(o.contactRadius))s.VoxelFullDetailRadius=Mathf.Clamp(o.contactRadius,16,160);
                 if(o.sourceCoverageOptionsVersion==1)s.ExpandedLiveSourceWindow=o.expandedSourceCoverage;

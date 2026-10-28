@@ -661,6 +661,7 @@ namespace AshenVoxel.WorldScaleRuntime
                     (float)PositivePhase(originX), (float)PositivePhase(originY), (float)PositivePhase(originZ), 0));
             }
             view.transform.position = new Vector3((float)(cameraX - originX), (float)(cameraY - originY), (float)(cameraZ - originZ));
+            UpdateStepShaderGlobals();
         }
         static double PositivePhase(double value) { double phase = value % 4096; return phase < 0 ? phase + 4096 : phase; }
         void PositionSurface(Surface surface)
