@@ -1,0 +1,7361 @@
+{
+ "status": "PASS",
+ "scope": "Foliage-lab exports baked with the actual greedy mesher; offline, not native Unity",
+ "original_pack_sha256": "41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa",
+ "pack_sha256": "79428734651280f7747815cc41f20ac4cb188b095a280078d061f85df8851314",
+ "bytes": 13231136,
+ "original_records": 99,
+ "lab_records": 180,
+ "records": [
+  {
+   "id": 300,
+   "name": "Lab agave-rosette 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 184,
+   "stick": 0,
+   "bytes": 2733,
+   "occupied_cells": 184,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1648,
+     "triangles": 824
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 536,
+     "triangles": 268
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 204,
+     "triangles": 102
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 100,
+     "triangles": 50
+    }
+   ],
+   "generation": {
+    "Key": "agave-rosette",
+    "Seed": 714103,
+    "Family": "groundcover",
+    "Habitat": "arid",
+    "SourceSha256": "ffb4400946eede2e3ec8a585051a874be1c05f5a74537ee6dc0354d5b328fa53",
+    "cells": 184
+   }
+  },
+  {
+   "id": 301,
+   "name": "Lab agave-rosette 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 173,
+   "stick": 0,
+   "bytes": 2734,
+   "occupied_cells": 173,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1576,
+     "triangles": 788
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 580,
+     "triangles": 290
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 200,
+     "triangles": 100
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 108,
+     "triangles": 54
+    }
+   ],
+   "generation": {
+    "Key": "agave-rosette",
+    "Seed": 271828,
+    "Family": "groundcover",
+    "Habitat": "arid",
+    "SourceSha256": "b22d623fc243b7df880eace76edd66730ed231e23ea6a4203c1bd92a3975380d",
+    "cells": 173
+   }
+  },
+  {
+   "id": 302,
+   "name": "Lab alpine-cushion 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 148,
+   "stick": 0,
+   "bytes": 2745,
+   "occupied_cells": 148,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1932,
+     "triangles": 966
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 560,
+     "triangles": 280
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 96,
+     "triangles": 48
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 48,
+     "triangles": 24
+    }
+   ],
+   "generation": {
+    "Key": "alpine-cushion",
+    "Seed": 714103,
+    "Family": "groundcover",
+    "Habitat": "alpine",
+    "SourceSha256": "16fd148c3ba1175969665273a878a1abf7a197323f01efb87a39fe72cc6f55fe",
+    "cells": 148
+   }
+  },
+  {
+   "id": 303,
+   "name": "Lab alpine-cushion 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 159,
+   "stick": 0,
+   "bytes": 2958,
+   "occupied_cells": 159,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2068,
+     "triangles": 1034
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 604,
+     "triangles": 302
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 120,
+     "triangles": 60
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 64,
+     "triangles": 32
+    }
+   ],
+   "generation": {
+    "Key": "alpine-cushion",
+    "Seed": 271828,
+    "Family": "groundcover",
+    "Habitat": "alpine",
+    "SourceSha256": "1ed235d09e336b050b3baf5f0931e321c27769514ef65444510bb1307de3714a",
+    "cells": 159
+   }
+  },
+  {
+   "id": 304,
+   "name": "Lab barrel-short 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 287,
+   "stick": 0,
+   "bytes": 1876,
+   "occupied_cells": 287,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1216,
+     "triangles": 608
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 380,
+     "triangles": 190
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 80,
+     "triangles": 40
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 76,
+     "triangles": 38
+    }
+   ],
+   "generation": {
+    "Key": "barrel-short",
+    "Seed": 714103,
+    "Family": "cactus",
+    "Habitat": "rocky desert",
+    "SourceSha256": "b6c40f2ba563ee50dd4c232a4a02f724b71afdca4d130db52069ba6e2dc1f98d",
+    "cells": 287
+   }
+  },
+  {
+   "id": 305,
+   "name": "Lab barrel-short 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 287,
+   "stick": 0,
+   "bytes": 1713,
+   "occupied_cells": 287,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1092,
+     "triangles": 546
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 372,
+     "triangles": 186
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 96,
+     "triangles": 48
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 76,
+     "triangles": 38
+    }
+   ],
+   "generation": {
+    "Key": "barrel-short",
+    "Seed": 271828,
+    "Family": "cactus",
+    "Habitat": "rocky desert",
+    "SourceSha256": "433dda927b8081290cd64db5824b3bb0083f07896ee74a390a31f03eb8f996fb",
+    "cells": 287
+   }
+  },
+  {
+   "id": 306,
+   "name": "Lab barrel-tall 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 890,
+   "stick": 0,
+   "bytes": 3188,
+   "occupied_cells": 890,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2652,
+     "triangles": 1326
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 648,
+     "triangles": 324
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 200,
+     "triangles": 100
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 84,
+     "triangles": 42
+    }
+   ],
+   "generation": {
+    "Key": "barrel-tall",
+    "Seed": 714103,
+    "Family": "cactus",
+    "Habitat": "rocky desert",
+    "SourceSha256": "a205c70097059a7458af4cb3c516b1d492172b579f069bb0743342122d045c7f",
+    "cells": 890
+   }
+  },
+  {
+   "id": 307,
+   "name": "Lab barrel-tall 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 890,
+   "stick": 0,
+   "bytes": 3016,
+   "occupied_cells": 890,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2504,
+     "triangles": 1252
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 612,
+     "triangles": 306
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 200,
+     "triangles": 100
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 84,
+     "triangles": 42
+    }
+   ],
+   "generation": {
+    "Key": "barrel-tall",
+    "Seed": 271828,
+    "Family": "cactus",
+    "Habitat": "rocky desert",
+    "SourceSha256": "e01c61dc64636c11c54c5c78fdc139277cb02c338739e4d7c74b744e2c1a6adf",
+    "cells": 890
+   }
+  },
+  {
+   "id": 308,
+   "name": "Lab beach-bitter-panicum 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 120,
+   "stick": 0,
+   "bytes": 2107,
+   "occupied_cells": 120,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1308,
+     "triangles": 654
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 436,
+     "triangles": 218
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 176,
+     "triangles": 88
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 72,
+     "triangles": 36
+    }
+   ],
+   "generation": {
+    "Key": "beach-bitter-panicum",
+    "Seed": 714103,
+    "Family": "beach",
+    "Habitat": "coastal dune grassland",
+    "SourceSha256": "188cfddeb892d239fcfcb1c920c1b71f6196e2dc07556ff7521c3804a4da5e37",
+    "cells": 120
+   }
+  },
+  {
+   "id": 309,
+   "name": "Lab beach-bitter-panicum 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 103,
+   "stick": 3,
+   "bytes": 1773,
+   "occupied_cells": 106,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1040,
+     "triangles": 520
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 392,
+     "triangles": 196
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 168,
+     "triangles": 84
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 48,
+     "triangles": 24
+    }
+   ],
+   "generation": {
+    "Key": "beach-bitter-panicum",
+    "Seed": 271828,
+    "Family": "beach",
+    "Habitat": "coastal dune grassland",
+    "SourceSha256": "ee7c4b8f16a0a6ee8a1bc695a2665f4c6b613ce5cc23bcfba3a9de293e55178c",
+    "cells": 106
+   }
+  },
+  {
+   "id": 310,
+   "name": "Lab beach-purslane 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 154,
+   "stick": 0,
+   "bytes": 1912,
+   "occupied_cells": 154,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1196,
+     "triangles": 598
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 316,
+     "triangles": 158
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 164,
+     "triangles": 82
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 88,
+     "triangles": 44
+    }
+   ],
+   "generation": {
+    "Key": "beach-purslane",
+    "Seed": 714103,
+    "Family": "beach",
+    "Habitat": "beach dune seaward edge",
+    "SourceSha256": "c0708652aad0f01bac4078540f422ec4f57e8038fb50988145529d8d38cb9eee",
+    "cells": 154
+   }
+  },
+  {
+   "id": 311,
+   "name": "Lab beach-purslane 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 158,
+   "stick": 0,
+   "bytes": 2018,
+   "occupied_cells": 158,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1336,
+     "triangles": 668
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 300,
+     "triangles": 150
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 148,
+     "triangles": 74
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 68,
+     "triangles": 34
+    }
+   ],
+   "generation": {
+    "Key": "beach-purslane",
+    "Seed": 271828,
+    "Family": "beach",
+    "Habitat": "beach dune seaward edge",
+    "SourceSha256": "5e7c33bcd4632d63716f6feb02816eb81310a414c49efd819d4d6e27751e337c",
+    "cells": 158
+   }
+  },
+  {
+   "id": 312,
+   "name": "Lab beach-railroad-vine 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 204,
+   "stick": 0,
+   "bytes": 3291,
+   "occupied_cells": 204,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2368,
+     "triangles": 1184
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 732,
+     "triangles": 366
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 216,
+     "triangles": 108
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 100,
+     "triangles": 50
+    }
+   ],
+   "generation": {
+    "Key": "beach-railroad-vine",
+    "Seed": 714103,
+    "Family": "beach",
+    "Habitat": "upper beach strand",
+    "SourceSha256": "04e48af8c5e72e935a1ae34f72fce9d61cd3a50272169f8a8340d0789f9d4fbd",
+    "cells": 204
+   }
+  },
+  {
+   "id": 313,
+   "name": "Lab beach-railroad-vine 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 222,
+   "stick": 0,
+   "bytes": 3964,
+   "occupied_cells": 222,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2708,
+     "triangles": 1354
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 868,
+     "triangles": 434
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 252,
+     "triangles": 126
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 136,
+     "triangles": 68
+    }
+   ],
+   "generation": {
+    "Key": "beach-railroad-vine",
+    "Seed": 271828,
+    "Family": "beach",
+    "Habitat": "upper beach strand",
+    "SourceSha256": "08096422bb18b37a1c36c5de4c50a8556a943c1cce531e22519bbf4f1ab10a13",
+    "cells": 222
+   }
+  },
+  {
+   "id": 314,
+   "name": "Lab beach-sea-oats 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 112,
+   "stick": 33,
+   "bytes": 3130,
+   "occupied_cells": 145,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1756,
+     "triangles": 878
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 836,
+     "triangles": 418
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 328,
+     "triangles": 164
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 108,
+     "triangles": 54
+    }
+   ],
+   "generation": {
+    "Key": "beach-sea-oats",
+    "Seed": 714103,
+    "Family": "beach",
+    "Habitat": "upper beach foredune",
+    "SourceSha256": "c0e63acc8d6484830cdbf26b768a87892c49ef8546f5e9494545dccc029fb3a0",
+    "cells": 145
+   }
+  },
+  {
+   "id": 315,
+   "name": "Lab beach-sea-oats 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 108,
+   "stick": 36,
+   "bytes": 3248,
+   "occupied_cells": 144,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1796,
+     "triangles": 898
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 824,
+     "triangles": 412
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 344,
+     "triangles": 172
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 128,
+     "triangles": 64
+    }
+   ],
+   "generation": {
+    "Key": "beach-sea-oats",
+    "Seed": 271828,
+    "Family": "beach",
+    "Habitat": "upper beach foredune",
+    "SourceSha256": "ead1c0363983cffe0b27f9064c78f2a215283ec612cb09845e545bfde6ed20b3",
+    "cells": 144
+   }
+  },
+  {
+   "id": 316,
+   "name": "Lab beach-sunflower 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 35,
+   "stick": 0,
+   "bytes": 1016,
+   "occupied_cells": 35,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 468,
+     "triangles": 234
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 188,
+     "triangles": 94
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 88,
+     "triangles": 44
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 64,
+     "triangles": 32
+    }
+   ],
+   "generation": {
+    "Key": "beach-sunflower",
+    "Seed": 714103,
+    "Family": "beach",
+    "Habitat": "sunny coastal dune",
+    "SourceSha256": "145035ca7e547fef676909972bd0c449c78861c88e2b644c20ffe3f30eda3243",
+    "cells": 35
+   }
+  },
+  {
+   "id": 317,
+   "name": "Lab beach-sunflower 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 40,
+   "stick": 0,
+   "bytes": 1135,
+   "occupied_cells": 40,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 564,
+     "triangles": 282
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 204,
+     "triangles": 102
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 100,
+     "triangles": 50
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 52,
+     "triangles": 26
+    }
+   ],
+   "generation": {
+    "Key": "beach-sunflower",
+    "Seed": 271828,
+    "Family": "beach",
+    "Habitat": "sunny coastal dune",
+    "SourceSha256": "48299148e4f11c2145683cf985b33906159b03b98a8b3c9421c1a2a28fbf4a84",
+    "cells": 40
+   }
+  },
+  {
+   "id": 318,
+   "name": "Lab bearberry-alpine-autumn 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 35,
+   "stick": 23,
+   "bytes": 1511,
+   "occupied_cells": 58,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 892,
+     "triangles": 446
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 272,
+     "triangles": 136
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 132,
+     "triangles": 66
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 52,
+     "triangles": 26
+    }
+   ],
+   "generation": {
+    "Key": "bearberry-alpine-autumn",
+    "Seed": 714103,
+    "Family": "alpine",
+    "Habitat": "alpine rocky tundra",
+    "SourceSha256": "33452282f0929ae41e70ae689e2bbca83796d3afcf9adc5fbe35ad5ee49365db",
+    "cells": 58
+   }
+  },
+  {
+   "id": 319,
+   "name": "Lab bearberry-alpine-autumn 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 34,
+   "stick": 26,
+   "bytes": 1636,
+   "occupied_cells": 60,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 960,
+     "triangles": 480
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 324,
+     "triangles": 162
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 152,
+     "triangles": 76
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 68,
+     "triangles": 34
+    }
+   ],
+   "generation": {
+    "Key": "bearberry-alpine-autumn",
+    "Seed": 271828,
+    "Family": "alpine",
+    "Habitat": "alpine rocky tundra",
+    "SourceSha256": "c1e4c9bb14bca0477d3ce7909afb2938ab71e4b5b1ccde36daa6f73d86f33999",
+    "cells": 60
+   }
+  },
+  {
+   "id": 320,
+   "name": "Lab bearberry-creeping-red 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 40,
+   "stick": 104,
+   "bytes": 3540,
+   "occupied_cells": 144,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2032,
+     "triangles": 1016
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 876,
+     "triangles": 438
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 200,
+     "triangles": 100
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 84,
+     "triangles": 42
+    }
+   ],
+   "generation": {
+    "Key": "bearberry-creeping-red",
+    "Seed": 714103,
+    "Family": "alpine",
+    "Habitat": "dry boreal heath",
+    "SourceSha256": "c832247055dd6499beb51331863e296366d24a129b2c9ae487045da822fbf2a4",
+    "cells": 144
+   }
+  },
+  {
+   "id": 321,
+   "name": "Lab bearberry-creeping-red 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 31,
+   "stick": 106,
+   "bytes": 3449,
+   "occupied_cells": 137,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1968,
+     "triangles": 984
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 824,
+     "triangles": 412
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 288,
+     "triangles": 144
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 112,
+     "triangles": 56
+    }
+   ],
+   "generation": {
+    "Key": "bearberry-creeping-red",
+    "Seed": 271828,
+    "Family": "alpine",
+    "Habitat": "dry boreal heath",
+    "SourceSha256": "e040885c20b8c5b63d7792d8e7120a67b3cb148a720fc2c786849739c5850c15",
+    "cells": 137
+   }
+  },
+  {
+   "id": 322,
+   "name": "Lab bromeliad-ground-tank 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 364,
+   "stick": 0,
+   "bytes": 4892,
+   "occupied_cells": 364,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3500,
+     "triangles": 1750
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 988,
+     "triangles": 494
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 232,
+     "triangles": 116
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 92,
+     "triangles": 46
+    }
+   ],
+   "generation": {
+    "Key": "bromeliad-ground-tank",
+    "Seed": 714103,
+    "Family": "bromeliad",
+    "Habitat": "humid sheltered ground",
+    "SourceSha256": "34a1fa9771f3688dc4f13ac6ecd45a3bc0d8712848132f5667ade139c568b0fe",
+    "cells": 364
+   }
+  },
+  {
+   "id": 323,
+   "name": "Lab bromeliad-ground-tank 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 339,
+   "stick": 0,
+   "bytes": 4779,
+   "occupied_cells": 339,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3392,
+     "triangles": 1696
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 936,
+     "triangles": 468
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 248,
+     "triangles": 124
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 112,
+     "triangles": 56
+    }
+   ],
+   "generation": {
+    "Key": "bromeliad-ground-tank",
+    "Seed": 271828,
+    "Family": "bromeliad",
+    "Habitat": "humid sheltered ground",
+    "SourceSha256": "9973e431c976976a6bde66a6d81e005d77cf95155b9b015939a3c0fb962202ff",
+    "cells": 339
+   }
+  },
+  {
+   "id": 324,
+   "name": "Lab bromeliad-red-bracts 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 477,
+   "stick": 0,
+   "bytes": 7418,
+   "occupied_cells": 477,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5272,
+     "triangles": 2636
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1488,
+     "triangles": 744
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 492,
+     "triangles": 246
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 192,
+     "triangles": 96
+    }
+   ],
+   "generation": {
+    "Key": "bromeliad-red-bracts",
+    "Seed": 714103,
+    "Family": "bromeliad",
+    "Habitat": "bright humid shelter",
+    "SourceSha256": "2f4d5a62ff17d5744edebc30e7da4a7de8096200e62318f9fc3a7ed78a4e954d",
+    "cells": 477
+   }
+  },
+  {
+   "id": 325,
+   "name": "Lab bromeliad-red-bracts 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 500,
+   "stick": 0,
+   "bytes": 7499,
+   "occupied_cells": 500,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5432,
+     "triangles": 2716
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1408,
+     "triangles": 704
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 488,
+     "triangles": 244
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 172,
+     "triangles": 86
+    }
+   ],
+   "generation": {
+    "Key": "bromeliad-red-bracts",
+    "Seed": 271828,
+    "Family": "bromeliad",
+    "Habitat": "bright humid shelter",
+    "SourceSha256": "b172df029944fdd0be8378d6c381250479ad8d25f1b15b151951efd25db3549c",
+    "cells": 500
+   }
+  },
+  {
+   "id": 326,
+   "name": "Lab cholla-candelabra 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 281,
+   "stick": 4,
+   "bytes": 4034,
+   "occupied_cells": 285,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2356,
+     "triangles": 1178
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 880,
+     "triangles": 440
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 400,
+     "triangles": 200
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 164,
+     "triangles": 82
+    }
+   ],
+   "generation": {
+    "Key": "cholla-candelabra",
+    "Seed": 714103,
+    "Family": "cactus",
+    "Habitat": "dry rocky slope",
+    "SourceSha256": "aa52b117136799e9faf33695b414fe89af74fa25f917ab5a4821cb84f0d86f6e",
+    "cells": 285
+   }
+  },
+  {
+   "id": 327,
+   "name": "Lab cholla-candelabra 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 266,
+   "stick": 7,
+   "bytes": 4379,
+   "occupied_cells": 273,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2468,
+     "triangles": 1234
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 964,
+     "triangles": 482
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 456,
+     "triangles": 228
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 216,
+     "triangles": 108
+    }
+   ],
+   "generation": {
+    "Key": "cholla-candelabra",
+    "Seed": 271828,
+    "Family": "cactus",
+    "Habitat": "dry rocky slope",
+    "SourceSha256": "90ef63b32014436b201c9a906e1526dca73eb0ebbe448fc691c02f642f0e4b16",
+    "cells": 273
+   }
+  },
+  {
+   "id": 328,
+   "name": "Lab cholla-low 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 72,
+   "stick": 3,
+   "bytes": 1449,
+   "occupied_cells": 75,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 744,
+     "triangles": 372
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 312,
+     "triangles": 156
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 140,
+     "triangles": 70
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 44,
+     "triangles": 22
+    }
+   ],
+   "generation": {
+    "Key": "cholla-low",
+    "Seed": 714103,
+    "Family": "cactus",
+    "Habitat": "dry rocky slope",
+    "SourceSha256": "718ad0ac34a478e584d94d89c4a5893ee769572534901846c3abd0e52de037e9",
+    "cells": 75
+   }
+  },
+  {
+   "id": 329,
+   "name": "Lab cholla-low 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 72,
+   "stick": 3,
+   "bytes": 1390,
+   "occupied_cells": 75,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 696,
+     "triangles": 348
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 292,
+     "triangles": 146
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 152,
+     "triangles": 76
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 64,
+     "triangles": 32
+    }
+   ],
+   "generation": {
+    "Key": "cholla-low",
+    "Seed": 271828,
+    "Family": "cactus",
+    "Habitat": "dry rocky slope",
+    "SourceSha256": "9033267820a06e8c09429b45b062190694eec0c0554ae34538ee6fefc461038b",
+    "cells": 75
+   }
+  },
+  {
+   "id": 330,
+   "name": "Lab cholla-tree 0",
+   "kind": 0,
+   "hard": 0,
+   "leaf": 792,
+   "stick": 7,
+   "bytes": 8520,
+   "occupied_cells": 799,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5736,
+     "triangles": 2868
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 2184,
+     "triangles": 1092
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 812,
+     "triangles": 406
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 84,
+     "triangles": 42
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "cholla-tree",
+    "Seed": 714103,
+    "Family": "cactus",
+    "Habitat": "dry rocky slope",
+    "SourceSha256": "1891c9f818919ae0dc64843e670feb2bcb4f98b8ada57e0099056ee2912c13d5",
+    "cells": 799
+   }
+  },
+  {
+   "id": 331,
+   "name": "Lab cholla-tree 1",
+   "kind": 0,
+   "hard": 0,
+   "leaf": 776,
+   "stick": 9,
+   "bytes": 9064,
+   "occupied_cells": 785,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 6020,
+     "triangles": 3010
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 2208,
+     "triangles": 1104
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 820,
+     "triangles": 410
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 100,
+     "triangles": 50
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "cholla-tree",
+    "Seed": 271828,
+    "Family": "cactus",
+    "Habitat": "dry rocky slope",
+    "SourceSha256": "9d1802674272743e7aef6232b09ed0e637c56f220e45a88b0991e8fa9c26ddf2",
+    "cells": 785
+   }
+  },
+  {
+   "id": 332,
+   "name": "Lab coral-digitate-fingers 0",
+   "kind": 1,
+   "hard": 134,
+   "leaf": 0,
+   "stick": 89,
+   "bytes": 2720,
+   "occupied_cells": 223,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1676,
+     "triangles": 838
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 572,
+     "triangles": 286
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 176,
+     "triangles": 88
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 64,
+     "triangles": 32
+    }
+   ],
+   "generation": {
+    "Key": "coral-digitate-fingers",
+    "Seed": 714103,
+    "Family": "coral",
+    "Habitat": "shallow reef colony",
+    "SourceSha256": "946204f4647c6eefcd1ed941a996768ca290d9afd5c3bdd1d68d3d0e9ecc2038",
+    "cells": 223
+   }
+  },
+  {
+   "id": 333,
+   "name": "Lab coral-digitate-fingers 1",
+   "kind": 1,
+   "hard": 128,
+   "leaf": 0,
+   "stick": 91,
+   "bytes": 2798,
+   "occupied_cells": 219,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1744,
+     "triangles": 872
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 540,
+     "triangles": 270
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 164,
+     "triangles": 82
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 68,
+     "triangles": 34
+    }
+   ],
+   "generation": {
+    "Key": "coral-digitate-fingers",
+    "Seed": 271828,
+    "Family": "coral",
+    "Habitat": "shallow reef colony",
+    "SourceSha256": "6c57d36d8aede2b6acd51231df120cbb4b9e48fe808d5e030eee7b0f35cb6a66",
+    "cells": 219
+   }
+  },
+  {
+   "id": 334,
+   "name": "Lab coral-elkhorn-flattened 0",
+   "kind": 1,
+   "hard": 148,
+   "leaf": 0,
+   "stick": 395,
+   "bytes": 7914,
+   "occupied_cells": 543,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5200,
+     "triangles": 2600
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1652,
+     "triangles": 826
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 604,
+     "triangles": 302
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 244,
+     "triangles": 122
+    }
+   ],
+   "generation": {
+    "Key": "coral-elkhorn-flattened",
+    "Seed": 714103,
+    "Family": "coral",
+    "Habitat": "shallow reef crest",
+    "SourceSha256": "6fc121a6aaa1af7f6e631c27091c914c7e78007154a07016a0ad8e9b3ade35f3",
+    "cells": 543
+   }
+  },
+  {
+   "id": 335,
+   "name": "Lab coral-elkhorn-flattened 1",
+   "kind": 1,
+   "hard": 84,
+   "leaf": 0,
+   "stick": 420,
+   "bytes": 7489,
+   "occupied_cells": 504,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5036,
+     "triangles": 2518
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1528,
+     "triangles": 764
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 540,
+     "triangles": 270
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 240,
+     "triangles": 120
+    }
+   ],
+   "generation": {
+    "Key": "coral-elkhorn-flattened",
+    "Seed": 271828,
+    "Family": "coral",
+    "Habitat": "shallow reef crest",
+    "SourceSha256": "a8ff76920295b76b84bc3466760bfaa039e2eff302d2352127209a3fe87f2b84",
+    "cells": 504
+   }
+  },
+  {
+   "id": 336,
+   "name": "Lab coral-encrusting-rock 0",
+   "kind": 1,
+   "hard": 347,
+   "leaf": 0,
+   "stick": 15,
+   "bytes": 2044,
+   "occupied_cells": 362,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1348,
+     "triangles": 674
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 288,
+     "triangles": 144
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 112,
+     "triangles": 56
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 48,
+     "triangles": 24
+    }
+   ],
+   "generation": {
+    "Key": "coral-encrusting-rock",
+    "Seed": 714103,
+    "Family": "coral",
+    "Habitat": "shallow reef rock surface",
+    "SourceSha256": "fc6666f6e370d047246f446623aa2ac846eeb6c20d316006e7cfc04c1c14061b",
+    "cells": 362
+   }
+  },
+  {
+   "id": 337,
+   "name": "Lab coral-encrusting-rock 1",
+   "kind": 1,
+   "hard": 339,
+   "leaf": 0,
+   "stick": 16,
+   "bytes": 2100,
+   "occupied_cells": 355,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1388,
+     "triangles": 694
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 324,
+     "triangles": 162
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 112,
+     "triangles": 56
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 48,
+     "triangles": 24
+    }
+   ],
+   "generation": {
+    "Key": "coral-encrusting-rock",
+    "Seed": 271828,
+    "Family": "coral",
+    "Habitat": "shallow reef rock surface",
+    "SourceSha256": "83b225d9bf98422095c6d3161124ec0eec93ed99611399897e791c6e0ee4b80b",
+    "cells": 355
+   }
+  },
+  {
+   "id": 338,
+   "name": "Lab coral-massive-ridges 0",
+   "kind": 1,
+   "hard": 1327,
+   "leaf": 0,
+   "stick": 48,
+   "bytes": 4635,
+   "occupied_cells": 1375,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3408,
+     "triangles": 1704
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 936,
+     "triangles": 468
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 272,
+     "triangles": 136
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 104,
+     "triangles": 52
+    }
+   ],
+   "generation": {
+    "Key": "coral-massive-ridges",
+    "Seed": 714103,
+    "Family": "coral",
+    "Habitat": "tropical reef boulder colony",
+    "SourceSha256": "158345da3a57d8b16d4facc7e060721201c96ca334ccf318af5f2eef1631d911",
+    "cells": 1375
+   }
+  },
+  {
+   "id": 339,
+   "name": "Lab coral-massive-ridges 1",
+   "kind": 1,
+   "hard": 1324,
+   "leaf": 0,
+   "stick": 50,
+   "bytes": 4629,
+   "occupied_cells": 1374,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3392,
+     "triangles": 1696
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 928,
+     "triangles": 464
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 292,
+     "triangles": 146
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 108,
+     "triangles": 54
+    }
+   ],
+   "generation": {
+    "Key": "coral-massive-ridges",
+    "Seed": 271828,
+    "Family": "coral",
+    "Habitat": "tropical reef boulder colony",
+    "SourceSha256": "e5f526a815d52751245cfa164fc4d0d8c2c8ba0d833c6a0f53e4f054e992353c",
+    "cells": 1374
+   }
+  },
+  {
+   "id": 340,
+   "name": "Lab coral-seafan-net 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 218,
+   "stick": 0,
+   "bytes": 3142,
+   "occupied_cells": 218,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2352,
+     "triangles": 1176
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 648,
+     "triangles": 324
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 280,
+     "triangles": 140
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 96,
+     "triangles": 48
+    }
+   ],
+   "generation": {
+    "Key": "coral-seafan-net",
+    "Seed": 714103,
+    "Family": "coral",
+    "Habitat": "current-exposed reef",
+    "SourceSha256": "d9d084a5f9b93b09009c7f6c20541d2cbd26345d0c40c0f35eb1523d787b5a5f",
+    "cells": 218
+   }
+  },
+  {
+   "id": 341,
+   "name": "Lab coral-seafan-net 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 236,
+   "stick": 0,
+   "bytes": 3834,
+   "occupied_cells": 236,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3092,
+     "triangles": 1546
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 912,
+     "triangles": 456
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 324,
+     "triangles": 162
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 116,
+     "triangles": 58
+    }
+   ],
+   "generation": {
+    "Key": "coral-seafan-net",
+    "Seed": 271828,
+    "Family": "coral",
+    "Habitat": "current-exposed reef",
+    "SourceSha256": "9cf412daea33f66752456cdcfb3a278934ffbe0a2abae249757804a0f6bb5337",
+    "cells": 236
+   }
+  },
+  {
+   "id": 342,
+   "name": "Lab coral-staghorn-branching 0",
+   "kind": 1,
+   "hard": 115,
+   "leaf": 0,
+   "stick": 268,
+   "bytes": 6372,
+   "occupied_cells": 383,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 4000,
+     "triangles": 2000
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1492,
+     "triangles": 746
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 540,
+     "triangles": 270
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 164,
+     "triangles": 82
+    }
+   ],
+   "generation": {
+    "Key": "coral-staghorn-branching",
+    "Seed": 714103,
+    "Family": "coral",
+    "Habitat": "shallow tropical reef",
+    "SourceSha256": "3bf5a935cabfb9e4eb4c1140f901713e5594021b679afe27e9b8f2fe24158380",
+    "cells": 383
+   }
+  },
+  {
+   "id": 343,
+   "name": "Lab coral-staghorn-branching 1",
+   "kind": 1,
+   "hard": 115,
+   "leaf": 0,
+   "stick": 266,
+   "bytes": 6249,
+   "occupied_cells": 381,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3940,
+     "triangles": 1970
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1408,
+     "triangles": 704
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 500,
+     "triangles": 250
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 168,
+     "triangles": 84
+    }
+   ],
+   "generation": {
+    "Key": "coral-staghorn-branching",
+    "Seed": 271828,
+    "Family": "coral",
+    "Habitat": "shallow tropical reef",
+    "SourceSha256": "476f75a7c35ff6334f4329dde0bf8c04931f4ee5de9e0cc4b197cabd58b2c7e6",
+    "cells": 381
+   }
+  },
+  {
+   "id": 344,
+   "name": "Lab coral-tiered-plates 0",
+   "kind": 1,
+   "hard": 442,
+   "leaf": 0,
+   "stick": 592,
+   "bytes": 6945,
+   "occupied_cells": 1034,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 4748,
+     "triangles": 2374
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1420,
+     "triangles": 710
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 408,
+     "triangles": 204
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 116,
+     "triangles": 58
+    }
+   ],
+   "generation": {
+    "Key": "coral-tiered-plates",
+    "Seed": 714103,
+    "Family": "coral",
+    "Habitat": "sheltered reef slope",
+    "SourceSha256": "c948d3f25e62b16b1e0677264aaad094b207dcfc38c1568f4945db3a4e5890aa",
+    "cells": 1034
+   }
+  },
+  {
+   "id": 345,
+   "name": "Lab coral-tiered-plates 1",
+   "kind": 1,
+   "hard": 460,
+   "leaf": 0,
+   "stick": 576,
+   "bytes": 7145,
+   "occupied_cells": 1036,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5068,
+     "triangles": 2534
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1412,
+     "triangles": 706
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 400,
+     "triangles": 200
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 112,
+     "triangles": 56
+    }
+   ],
+   "generation": {
+    "Key": "coral-tiered-plates",
+    "Seed": 271828,
+    "Family": "coral",
+    "Habitat": "sheltered reef slope",
+    "SourceSha256": "b95428a41fc6af41bba3f4dd0e3aa0896b07ecffad8d6d52f641833712c30d75",
+    "cells": 1036
+   }
+  },
+  {
+   "id": 346,
+   "name": "Lab creosote-open-paired 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 62,
+   "stick": 144,
+   "bytes": 5834,
+   "occupied_cells": 206,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3264,
+     "triangles": 1632
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1468,
+     "triangles": 734
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 532,
+     "triangles": 266
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 184,
+     "triangles": 92
+    }
+   ],
+   "generation": {
+    "Key": "creosote-open-paired",
+    "Seed": 714103,
+    "Family": "aridscrub",
+    "Habitat": "hot desert scrub",
+    "SourceSha256": "dfd2e7b837def759d857001c4bf7496e4021ab5f71f9cb1602c8912f488920e4",
+    "cells": 206
+   }
+  },
+  {
+   "id": 347,
+   "name": "Lab creosote-open-paired 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 63,
+   "stick": 137,
+   "bytes": 5536,
+   "occupied_cells": 200,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3224,
+     "triangles": 1612
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1396,
+     "triangles": 698
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 468,
+     "triangles": 234
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 156,
+     "triangles": 78
+    }
+   ],
+   "generation": {
+    "Key": "creosote-open-paired",
+    "Seed": 271828,
+    "Family": "aridscrub",
+    "Habitat": "hot desert scrub",
+    "SourceSha256": "f7d5d2b5cb583b4e319c7a24decf03aa9a0ca081307d65ff7f663ea983b3fc03",
+    "cells": 200
+   }
+  },
+  {
+   "id": 348,
+   "name": "Lab fungi-brown-layered 0",
+   "kind": 1,
+   "hard": 64,
+   "leaf": 124,
+   "stick": 36,
+   "bytes": 2356,
+   "occupied_cells": 224,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1496,
+     "triangles": 748
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 456,
+     "triangles": 228
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 188,
+     "triangles": 94
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 104,
+     "triangles": 52
+    }
+   ],
+   "generation": {
+    "Key": "fungi-brown-layered",
+    "Seed": 714103,
+    "Family": "fungi",
+    "Habitat": "damp dead hardwood fixture",
+    "SourceSha256": "f215ddef74eb032fc14d7a1ffcc3a16e40e1ca9170e02147c00f884d32e4eb2b",
+    "cells": 224
+   }
+  },
+  {
+   "id": 349,
+   "name": "Lab fungi-brown-layered 1",
+   "kind": 1,
+   "hard": 62,
+   "leaf": 143,
+   "stick": 37,
+   "bytes": 2428,
+   "occupied_cells": 242,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1528,
+     "triangles": 764
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 440,
+     "triangles": 220
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 220,
+     "triangles": 110
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 112,
+     "triangles": 56
+    }
+   ],
+   "generation": {
+    "Key": "fungi-brown-layered",
+    "Seed": 271828,
+    "Family": "fungi",
+    "Habitat": "damp dead hardwood fixture",
+    "SourceSha256": "200ea3f15da0ee200d236db8966480ecb86b0a242c111f3e9566b771abe1810d",
+    "cells": 242
+   }
+  },
+  {
+   "id": 350,
+   "name": "Lab fungi-ochre-overlap 0",
+   "kind": 1,
+   "hard": 178,
+   "leaf": 241,
+   "stick": 73,
+   "bytes": 4299,
+   "occupied_cells": 492,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2860,
+     "triangles": 1430
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 828,
+     "triangles": 414
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 372,
+     "triangles": 186
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 200,
+     "triangles": 100
+    }
+   ],
+   "generation": {
+    "Key": "fungi-ochre-overlap",
+    "Seed": 714103,
+    "Family": "fungi",
+    "Habitat": "fallen dead wood fixture",
+    "SourceSha256": "7d7825dce0ab89ec88a07df0eb816dd6ee0bfab00326618e03ea0d5836a05018",
+    "cells": 492
+   }
+  },
+  {
+   "id": 351,
+   "name": "Lab fungi-ochre-overlap 1",
+   "kind": 1,
+   "hard": 174,
+   "leaf": 295,
+   "stick": 67,
+   "bytes": 4425,
+   "occupied_cells": 536,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3116,
+     "triangles": 1558
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 824,
+     "triangles": 412
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 364,
+     "triangles": 182
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 188,
+     "triangles": 94
+    }
+   ],
+   "generation": {
+    "Key": "fungi-ochre-overlap",
+    "Seed": 271828,
+    "Family": "fungi",
+    "Habitat": "fallen dead wood fixture",
+    "SourceSha256": "f6668d65138ee1d1f9fdc956b8e4e4e2bed0574b504a861b134b24ede07ccbb4",
+    "cells": 536
+   }
+  },
+  {
+   "id": 352,
+   "name": "Lab fungi-pale-rounded 0",
+   "kind": 1,
+   "hard": 214,
+   "leaf": 230,
+   "stick": 21,
+   "bytes": 3403,
+   "occupied_cells": 465,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2368,
+     "triangles": 1184
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 700,
+     "triangles": 350
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 240,
+     "triangles": 120
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 124,
+     "triangles": 62
+    }
+   ],
+   "generation": {
+    "Key": "fungi-pale-rounded",
+    "Seed": 714103,
+    "Family": "fungi",
+    "Habitat": "shaded dead wood fixture",
+    "SourceSha256": "4af97f2ff05100a854bc7ad9aa42424b5f0b0ee3ab1e51c83053ddc18e331bd4",
+    "cells": 465
+   }
+  },
+  {
+   "id": 353,
+   "name": "Lab fungi-pale-rounded 1",
+   "kind": 1,
+   "hard": 214,
+   "leaf": 241,
+   "stick": 20,
+   "bytes": 3342,
+   "occupied_cells": 475,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2312,
+     "triangles": 1156
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 736,
+     "triangles": 368
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 252,
+     "triangles": 126
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 116,
+     "triangles": 58
+    }
+   ],
+   "generation": {
+    "Key": "fungi-pale-rounded",
+    "Seed": 271828,
+    "Family": "fungi",
+    "Habitat": "shaded dead wood fixture",
+    "SourceSha256": "325351c7e30f17c3e9de49602bf510d8ff1a78e21b4b7cf504dd021c3510f82f",
+    "cells": 475
+   }
+  },
+  {
+   "id": 354,
+   "name": "Lab heather-sparse-tips 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 37,
+   "stick": 7,
+   "bytes": 1453,
+   "occupied_cells": 44,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 676,
+     "triangles": 338
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 328,
+     "triangles": 164
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 112,
+     "triangles": 56
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 64,
+     "triangles": 32
+    }
+   ],
+   "generation": {
+    "Key": "heather-sparse-tips",
+    "Seed": 714103,
+    "Family": "alpine",
+    "Habitat": "cool acidic heath",
+    "SourceSha256": "45f24f3b779fc5a8ed5a1e33fd0d330b665b85711e1df0c0b4b795a01c70c226",
+    "cells": 44
+   }
+  },
+  {
+   "id": 355,
+   "name": "Lab heather-sparse-tips 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 37,
+   "stick": 7,
+   "bytes": 1306,
+   "occupied_cells": 44,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 700,
+     "triangles": 350
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 256,
+     "triangles": 128
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 72,
+     "triangles": 36
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 48,
+     "triangles": 24
+    }
+   ],
+   "generation": {
+    "Key": "heather-sparse-tips",
+    "Seed": 271828,
+    "Family": "alpine",
+    "Habitat": "cool acidic heath",
+    "SourceSha256": "aa86c0d69a3fd04d572e351fa0a836bd7ac743ae544a5bf04393af18d8ee02ad",
+    "cells": 44
+   }
+  },
+  {
+   "id": 356,
+   "name": "Lab horsetail-field-short 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 117,
+   "stick": 0,
+   "bytes": 1364,
+   "occupied_cells": 117,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 712,
+     "triangles": 356
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 220,
+     "triangles": 110
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 124,
+     "triangles": 62
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 68,
+     "triangles": 34
+    }
+   ],
+   "generation": {
+    "Key": "horsetail-field-short",
+    "Seed": 714103,
+    "Family": "horsetail",
+    "Habitat": "moist meadow",
+    "SourceSha256": "dd55e1ef7e05ab10149fd399f7ceaf3df128a46e56ed39ba22399cabd2999abe",
+    "cells": 117
+   }
+  },
+  {
+   "id": 357,
+   "name": "Lab horsetail-field-short 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 119,
+   "stick": 0,
+   "bytes": 1373,
+   "occupied_cells": 119,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 772,
+     "triangles": 386
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 224,
+     "triangles": 112
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 112,
+     "triangles": 56
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 72,
+     "triangles": 36
+    }
+   ],
+   "generation": {
+    "Key": "horsetail-field-short",
+    "Seed": 271828,
+    "Family": "horsetail",
+    "Habitat": "moist meadow",
+    "SourceSha256": "85adb0e4fbf410c9168868901734d2aef8387dc89529fe125425267cefadf06c",
+    "cells": 119
+   }
+  },
+  {
+   "id": 358,
+   "name": "Lab horsetail-open-tall 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 199,
+   "stick": 0,
+   "bytes": 2767,
+   "occupied_cells": 199,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2004,
+     "triangles": 1002
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 424,
+     "triangles": 212
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 152,
+     "triangles": 76
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 72,
+     "triangles": 36
+    }
+   ],
+   "generation": {
+    "Key": "horsetail-open-tall",
+    "Seed": 714103,
+    "Family": "horsetail",
+    "Habitat": "damp woodland edge",
+    "SourceSha256": "83e060fb31147fca06eeed6143a71ec65553bf11510536c8f642be9266e638dd",
+    "cells": 199
+   }
+  },
+  {
+   "id": 359,
+   "name": "Lab horsetail-open-tall 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 229,
+   "stick": 0,
+   "bytes": 2910,
+   "occupied_cells": 229,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2256,
+     "triangles": 1128
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 476,
+     "triangles": 238
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 160,
+     "triangles": 80
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 68,
+     "triangles": 34
+    }
+   ],
+   "generation": {
+    "Key": "horsetail-open-tall",
+    "Seed": 271828,
+    "Family": "horsetail",
+    "Habitat": "damp woodland edge",
+    "SourceSha256": "8c10257c4a69b5ff3bc3145983fd098918aced0df8bc925bb5b52494863149d2",
+    "cells": 229
+   }
+  },
+  {
+   "id": 360,
+   "name": "Lab horsetail-scouring-cones 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 122,
+   "stick": 0,
+   "bytes": 1793,
+   "occupied_cells": 122,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1680,
+     "triangles": 840
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 616,
+     "triangles": 308
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 204,
+     "triangles": 102
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 104,
+     "triangles": 52
+    }
+   ],
+   "generation": {
+    "Key": "horsetail-scouring-cones",
+    "Seed": 714103,
+    "Family": "horsetail",
+    "Habitat": "wet stream margin",
+    "SourceSha256": "b13865784e48b41185df8ee5128c3de922e8f17600d31c1bc5538e299cce23e1",
+    "cells": 122
+   }
+  },
+  {
+   "id": 361,
+   "name": "Lab horsetail-scouring-cones 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 123,
+   "stick": 0,
+   "bytes": 1893,
+   "occupied_cells": 123,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1628,
+     "triangles": 814
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 740,
+     "triangles": 370
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 196,
+     "triangles": 98
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 96,
+     "triangles": 48
+    }
+   ],
+   "generation": {
+    "Key": "horsetail-scouring-cones",
+    "Seed": 271828,
+    "Family": "horsetail",
+    "Habitat": "wet stream margin",
+    "SourceSha256": "0551de6390af36a04084e7e4687318e419b682094e478d78d9514dfed600eeba",
+    "cells": 123
+   }
+  },
+  {
+   "id": 362,
+   "name": "Lab jungle-beehive-ginger 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 474,
+   "stick": 0,
+   "bytes": 6654,
+   "occupied_cells": 474,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 4404,
+     "triangles": 2202
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1496,
+     "triangles": 748
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 480,
+     "triangles": 240
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 160,
+     "triangles": 80
+    }
+   ],
+   "generation": {
+    "Key": "jungle-beehive-ginger",
+    "Seed": 714103,
+    "Family": "jungle",
+    "Habitat": "shaded Southeast Asian understory study",
+    "SourceSha256": "ae0723d707f88ada87541bc3ab5519457df4e4f96b8586ff6386e2065c649b49",
+    "cells": 474
+   }
+  },
+  {
+   "id": 363,
+   "name": "Lab jungle-beehive-ginger 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 430,
+   "stick": 0,
+   "bytes": 5968,
+   "occupied_cells": 430,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3832,
+     "triangles": 1916
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1480,
+     "triangles": 740
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 440,
+     "triangles": 220
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 196,
+     "triangles": 98
+    }
+   ],
+   "generation": {
+    "Key": "jungle-beehive-ginger",
+    "Seed": 271828,
+    "Family": "jungle",
+    "Habitat": "shaded Southeast Asian understory study",
+    "SourceSha256": "3fdc49f649f8719cbd97acd60bfda1db3c377dc0944f85355a5c3525ee7f90f2",
+    "cells": 430
+   }
+  },
+  {
+   "id": 364,
+   "name": "Lab jungle-birds-nest-fern 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 544,
+   "stick": 0,
+   "bytes": 7264,
+   "occupied_cells": 544,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5028,
+     "triangles": 2514
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1532,
+     "triangles": 766
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 452,
+     "triangles": 226
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 144,
+     "triangles": 72
+    }
+   ],
+   "generation": {
+    "Key": "jungle-birds-nest-fern",
+    "Seed": 714103,
+    "Family": "jungle",
+    "Habitat": "humid epiphyte morphology study",
+    "SourceSha256": "5560cd227678d65605e71e8e7c276e5e28080c6bb3daef8a8de7f9e484472745",
+    "cells": 544
+   }
+  },
+  {
+   "id": 365,
+   "name": "Lab jungle-birds-nest-fern 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 524,
+   "stick": 0,
+   "bytes": 6743,
+   "occupied_cells": 524,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 4708,
+     "triangles": 2354
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1340,
+     "triangles": 670
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 396,
+     "triangles": 198
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 136,
+     "triangles": 68
+    }
+   ],
+   "generation": {
+    "Key": "jungle-birds-nest-fern",
+    "Seed": 271828,
+    "Family": "jungle",
+    "Habitat": "humid epiphyte morphology study",
+    "SourceSha256": "3d251e5d9904ff064a953c48f17b60d604893864ca1dca7ebabf44b56c637a91",
+    "cells": 524
+   }
+  },
+  {
+   "id": 366,
+   "name": "Lab jungle-heliconia-pendant 0",
+   "kind": 0,
+   "hard": 0,
+   "leaf": 317,
+   "stick": 0,
+   "bytes": 5797,
+   "occupied_cells": 317,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3820,
+     "triangles": 1910
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1292,
+     "triangles": 646
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 564,
+     "triangles": 282
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 56,
+     "triangles": 28
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "jungle-heliconia-pendant",
+    "Seed": 714103,
+    "Family": "jungle",
+    "Habitat": "humid tropical forest study",
+    "SourceSha256": "252acacf172cf6727fdbf168eac7e8f8fbd12010ebccd301d8c45a94813db62f",
+    "cells": 317
+   }
+  },
+  {
+   "id": 367,
+   "name": "Lab jungle-heliconia-pendant 1",
+   "kind": 0,
+   "hard": 0,
+   "leaf": 320,
+   "stick": 0,
+   "bytes": 5891,
+   "occupied_cells": 320,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3704,
+     "triangles": 1852
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1452,
+     "triangles": 726
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 452,
+     "triangles": 226
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 52,
+     "triangles": 26
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "jungle-heliconia-pendant",
+    "Seed": 271828,
+    "Family": "jungle",
+    "Habitat": "humid tropical forest study",
+    "SourceSha256": "108003b6f2fac73d9722a88ed9753427016c36e32775ac738c3228808ff29762",
+    "cells": 320
+   }
+  },
+  {
+   "id": 368,
+   "name": "Lab jungle-heliconia-upright 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 465,
+   "stick": 0,
+   "bytes": 7858,
+   "occupied_cells": 465,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5412,
+     "triangles": 2706
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1660,
+     "triangles": 830
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 636,
+     "triangles": 318
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 212,
+     "triangles": 106
+    }
+   ],
+   "generation": {
+    "Key": "jungle-heliconia-upright",
+    "Seed": 714103,
+    "Family": "jungle",
+    "Habitat": "humid neotropical understory study",
+    "SourceSha256": "f3f9498c3958130d8772bdf1ee31fc88947f89fdced5009b31988f544983041b",
+    "cells": 465
+   }
+  },
+  {
+   "id": 369,
+   "name": "Lab jungle-heliconia-upright 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 464,
+   "stick": 0,
+   "bytes": 7498,
+   "occupied_cells": 464,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5372,
+     "triangles": 2686
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1560,
+     "triangles": 780
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 544,
+     "triangles": 272
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 172,
+     "triangles": 86
+    }
+   ],
+   "generation": {
+    "Key": "jungle-heliconia-upright",
+    "Seed": 271828,
+    "Family": "jungle",
+    "Habitat": "humid neotropical understory study",
+    "SourceSha256": "36c4a688412ea3dd290a09c12d0add85dec30667491b8e84a35571c04ca36637",
+    "cells": 464
+   }
+  },
+  {
+   "id": 370,
+   "name": "Lab jungle-young-banana 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 710,
+   "stick": 0,
+   "bytes": 8692,
+   "occupied_cells": 710,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 6220,
+     "triangles": 3110
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 2128,
+     "triangles": 1064
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 652,
+     "triangles": 326
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 220,
+     "triangles": 110
+    }
+   ],
+   "generation": {
+    "Key": "jungle-young-banana",
+    "Seed": 714103,
+    "Family": "jungle",
+    "Habitat": "sheltered tropical study",
+    "SourceSha256": "5aca110c86c2c399aee38254014584e621f9513ec50431967542f50d830d9a86",
+    "cells": 710
+   }
+  },
+  {
+   "id": 371,
+   "name": "Lab jungle-young-banana 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 683,
+   "stick": 0,
+   "bytes": 8411,
+   "occupied_cells": 683,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5924,
+     "triangles": 2962
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1820,
+     "triangles": 910
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 616,
+     "triangles": 308
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 224,
+     "triangles": 112
+    }
+   ],
+   "generation": {
+    "Key": "jungle-young-banana",
+    "Seed": 271828,
+    "Family": "jungle",
+    "Habitat": "sheltered tropical study",
+    "SourceSha256": "aa7b2dd305a199dcdfaa63166174b9bad5bb61d7ddc32863f20e3602089ae9bf",
+    "cells": 683
+   }
+  },
+  {
+   "id": 372,
+   "name": "Lab lichen-reindeer-mat 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 86,
+   "stick": 0,
+   "bytes": 1308,
+   "occupied_cells": 86,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 740,
+     "triangles": 370
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 184,
+     "triangles": 92
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 124,
+     "triangles": 62
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 64,
+     "triangles": 32
+    }
+   ],
+   "generation": {
+    "Key": "lichen-reindeer-mat",
+    "Seed": 714103,
+    "Family": "alpine",
+    "Habitat": "boreal open heath",
+    "SourceSha256": "00f662726a7a5e03d1d48907c130f13aeacb23e5f5216e7907cee5037ec9eada",
+    "cells": 86
+   }
+  },
+  {
+   "id": 373,
+   "name": "Lab lichen-reindeer-mat 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 101,
+   "stick": 0,
+   "bytes": 1453,
+   "occupied_cells": 101,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 908,
+     "triangles": 454
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 200,
+     "triangles": 100
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 128,
+     "triangles": 64
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 52,
+     "triangles": 26
+    }
+   ],
+   "generation": {
+    "Key": "lichen-reindeer-mat",
+    "Seed": 271828,
+    "Family": "alpine",
+    "Habitat": "boreal open heath",
+    "SourceSha256": "269802fe39d58122360d7bc7bbba9117edfae1982e449134bebcb25ed1c275bd",
+    "cells": 101
+   }
+  },
+  {
+   "id": 374,
+   "name": "Lab low-berry-trail 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 150,
+   "stick": 17,
+   "bytes": 3599,
+   "occupied_cells": 167,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2312,
+     "triangles": 1156
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 780,
+     "triangles": 390
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 224,
+     "triangles": 112
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 128,
+     "triangles": 64
+    }
+   ],
+   "generation": {
+    "Key": "low-berry-trail",
+    "Seed": 714103,
+    "Family": "groundcover",
+    "Habitat": "woodland edge",
+    "SourceSha256": "bc3d365c0fc47fe1b97478d73fd3a474ee741df7fedc00f65d636aa4f1323987",
+    "cells": 167
+   }
+  },
+  {
+   "id": 375,
+   "name": "Lab low-berry-trail 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 147,
+   "stick": 17,
+   "bytes": 3692,
+   "occupied_cells": 164,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2328,
+     "triangles": 1164
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 768,
+     "triangles": 384
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 260,
+     "triangles": 130
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 140,
+     "triangles": 70
+    }
+   ],
+   "generation": {
+    "Key": "low-berry-trail",
+    "Seed": 271828,
+    "Family": "groundcover",
+    "Habitat": "woodland edge",
+    "SourceSha256": "f557525dcd24ada4a641bc1e952b76c29611fbe015320dd0b2ebecd2effdae67",
+    "cells": 164
+   }
+  },
+  {
+   "id": 376,
+   "name": "Lab mangrove-black-pencils 0",
+   "kind": 0,
+   "hard": 204,
+   "leaf": 582,
+   "stick": 305,
+   "bytes": 18124,
+   "occupied_cells": 1091,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 11896,
+     "triangles": 5948
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 4804,
+     "triangles": 2402
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 1760,
+     "triangles": 880
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 112,
+     "triangles": 56
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "mangrove-black-pencils",
+    "Seed": 714103,
+    "Family": "mangrove",
+    "Habitat": "slightly higher tidal flat",
+    "SourceSha256": "1313f6b79b7be87f7ac4d1377875d777808b6613f26e69420b20dceda8cc0e4d",
+    "cells": 1091
+   }
+  },
+  {
+   "id": 377,
+   "name": "Lab mangrove-black-pencils 1",
+   "kind": 0,
+   "hard": 207,
+   "leaf": 566,
+   "stick": 284,
+   "bytes": 16389,
+   "occupied_cells": 1057,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 10984,
+     "triangles": 5492
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 4348,
+     "triangles": 2174
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 1448,
+     "triangles": 724
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 128,
+     "triangles": 64
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "mangrove-black-pencils",
+    "Seed": 271828,
+    "Family": "mangrove",
+    "Habitat": "slightly higher tidal flat",
+    "SourceSha256": "3f7b623e52216e0370896db2e408b34d63164506515aed812f9f43d20e0c4b2e",
+    "cells": 1057
+   }
+  },
+  {
+   "id": 378,
+   "name": "Lab mangrove-red-sapling 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 59,
+   "stick": 76,
+   "bytes": 3215,
+   "occupied_cells": 135,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1788,
+     "triangles": 894
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 796,
+     "triangles": 398
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 228,
+     "triangles": 114
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 92,
+     "triangles": 46
+    }
+   ],
+   "generation": {
+    "Key": "mangrove-red-sapling",
+    "Seed": 714103,
+    "Family": "mangrove",
+    "Habitat": "shallow tropical tidal margin",
+    "SourceSha256": "d2b0fcce59afff7dc5a01a742d89056c214a73ba7dc27f2ea51b60c7a5896316",
+    "cells": 135
+   }
+  },
+  {
+   "id": 379,
+   "name": "Lab mangrove-red-sapling 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 63,
+   "stick": 68,
+   "bytes": 3255,
+   "occupied_cells": 131,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1696,
+     "triangles": 848
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 800,
+     "triangles": 400
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 312,
+     "triangles": 156
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 112,
+     "triangles": 56
+    }
+   ],
+   "generation": {
+    "Key": "mangrove-red-sapling",
+    "Seed": 271828,
+    "Family": "mangrove",
+    "Habitat": "shallow tropical tidal margin",
+    "SourceSha256": "b33349e33a9196f1203629d5f232c02fd10d48fd0cda1514471de5bb169e6ce0",
+    "cells": 131
+   }
+  },
+  {
+   "id": 380,
+   "name": "Lab mangrove-red-spreading 0",
+   "kind": 0,
+   "hard": 0,
+   "leaf": 676,
+   "stick": 748,
+   "bytes": 24832,
+   "occupied_cells": 1424,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 15928,
+     "triangles": 7964
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 6488,
+     "triangles": 3244
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 2436,
+     "triangles": 1218
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 236,
+     "triangles": 118
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "mangrove-red-spreading",
+    "Seed": 714103,
+    "Family": "mangrove",
+    "Habitat": "intertidal shoreline and creek edge",
+    "SourceSha256": "bfcbeccb59da2891dba928c9cbdbaec06752621a52a11ab027fb152091186702",
+    "cells": 1424
+   }
+  },
+  {
+   "id": 381,
+   "name": "Lab mangrove-red-spreading 1",
+   "kind": 0,
+   "hard": 0,
+   "leaf": 658,
+   "stick": 694,
+   "bytes": 22395,
+   "occupied_cells": 1352,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 14536,
+     "triangles": 7268
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 5628,
+     "triangles": 2814
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 2228,
+     "triangles": 1114
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 192,
+     "triangles": 96
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "mangrove-red-spreading",
+    "Seed": 271828,
+    "Family": "mangrove",
+    "Habitat": "intertidal shoreline and creek edge",
+    "SourceSha256": "4978c5f58001bff45970e5e53015986a0ce62606c1e57ecb107dfbcf99cb897c",
+    "cells": 1352
+   }
+  },
+  {
+   "id": 382,
+   "name": "Lab mangrove-red-swept-tangle 0",
+   "kind": 0,
+   "hard": 0,
+   "leaf": 324,
+   "stick": 719,
+   "bytes": 18357,
+   "occupied_cells": 1043,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 12156,
+     "triangles": 6078
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 4664,
+     "triangles": 2332
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 1788,
+     "triangles": 894
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 144,
+     "triangles": 72
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "mangrove-red-swept-tangle",
+    "Seed": 714103,
+    "Family": "mangrove",
+    "Habitat": "exposed shallow tidal edge",
+    "SourceSha256": "4159a9728a981ee3f6953c6cc3d6d4013784a59747530b85241edb1b22cde506",
+    "cells": 1043
+   }
+  },
+  {
+   "id": 383,
+   "name": "Lab mangrove-red-swept-tangle 1",
+   "kind": 0,
+   "hard": 0,
+   "leaf": 327,
+   "stick": 694,
+   "bytes": 19130,
+   "occupied_cells": 1021,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 12368,
+     "triangles": 6184
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 5156,
+     "triangles": 2578
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 1896,
+     "triangles": 948
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 140,
+     "triangles": 70
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "mangrove-red-swept-tangle",
+    "Seed": 271828,
+    "Family": "mangrove",
+    "Habitat": "exposed shallow tidal edge",
+    "SourceSha256": "1243e8d7091a2a124a3e43afb54c164bda6e8c9a77423042b7ddca6960a13791",
+    "cells": 1021
+   }
+  },
+  {
+   "id": 384,
+   "name": "Lab mangrove-white-upland 0",
+   "kind": 0,
+   "hard": 151,
+   "leaf": 458,
+   "stick": 58,
+   "bytes": 10473,
+   "occupied_cells": 667,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 6736,
+     "triangles": 3368
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 2588,
+     "triangles": 1294
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 900,
+     "triangles": 450
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 124,
+     "triangles": 62
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "mangrove-white-upland",
+    "Seed": 714103,
+    "Family": "mangrove",
+    "Habitat": "higher mangrove margin",
+    "SourceSha256": "af4cb359ccef9d9c4913314f1b84e877bba4aa7f7ae16a716f8871c839caf4d0",
+    "cells": 667
+   }
+  },
+  {
+   "id": 385,
+   "name": "Lab mangrove-white-upland 1",
+   "kind": 0,
+   "hard": 140,
+   "leaf": 466,
+   "stick": 51,
+   "bytes": 10183,
+   "occupied_cells": 657,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 6368,
+     "triangles": 3184
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 2492,
+     "triangles": 1246
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 888,
+     "triangles": 444
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 128,
+     "triangles": 64
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "mangrove-white-upland",
+    "Seed": 271828,
+    "Family": "mangrove",
+    "Habitat": "higher mangrove margin",
+    "SourceSha256": "fa8368cdd00d6fc87cfcd86d209fd3fb3daec7fb8040aeaa6a70623ae56f9a9c",
+    "cells": 657
+   }
+  },
+  {
+   "id": 386,
+   "name": "Lab marine-bull-kelp 0",
+   "kind": 0,
+   "hard": 2,
+   "leaf": 154,
+   "stick": 0,
+   "bytes": 2967,
+   "occupied_cells": 156,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1612,
+     "triangles": 806
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 732,
+     "triangles": 366
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 316,
+     "triangles": 158
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 80,
+     "triangles": 40
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "marine-bull-kelp",
+    "Seed": 714103,
+    "Family": "marine",
+    "Habitat": "temperate northeast Pacific rocky coast",
+    "SourceSha256": "0f4e48340a1dfeddd89cac956fa534437fd50b63d20cc9c3a6e700dc23eda789",
+    "cells": 156
+   }
+  },
+  {
+   "id": 387,
+   "name": "Lab marine-bull-kelp 1",
+   "kind": 0,
+   "hard": 2,
+   "leaf": 154,
+   "stick": 0,
+   "bytes": 2794,
+   "occupied_cells": 156,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1696,
+     "triangles": 848
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 612,
+     "triangles": 306
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 252,
+     "triangles": 126
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 56,
+     "triangles": 28
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "marine-bull-kelp",
+    "Seed": 271828,
+    "Family": "marine",
+    "Habitat": "temperate northeast Pacific rocky coast",
+    "SourceSha256": "868eae807dffbfaf9d8d2a5ce1d9c6f561a7b2d85ff79c854b94822d01ee0c39",
+    "cells": 156
+   }
+  },
+  {
+   "id": 388,
+   "name": "Lab marine-eelgrass 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 88,
+   "stick": 0,
+   "bytes": 1773,
+   "occupied_cells": 88,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 952,
+     "triangles": 476
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 456,
+     "triangles": 228
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 152,
+     "triangles": 76
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 80,
+     "triangles": 40
+    }
+   ],
+   "generation": {
+    "Key": "marine-eelgrass",
+    "Seed": 714103,
+    "Family": "marine",
+    "Habitat": "temperate marine estuary",
+    "SourceSha256": "11a8107eaa54f49c5d9ec9540365b58fe603c126c0ee2d13eea09176f9b810f5",
+    "cells": 88
+   }
+  },
+  {
+   "id": 389,
+   "name": "Lab marine-eelgrass 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 79,
+   "stick": 0,
+   "bytes": 1896,
+   "occupied_cells": 79,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 924,
+     "triangles": 462
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 520,
+     "triangles": 260
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 200,
+     "triangles": 100
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 84,
+     "triangles": 42
+    }
+   ],
+   "generation": {
+    "Key": "marine-eelgrass",
+    "Seed": 271828,
+    "Family": "marine",
+    "Habitat": "temperate marine estuary",
+    "SourceSha256": "777108cbba29ce5d10bec13f57fbe2dfa151dbc7043f9584030ada2a6aaf32d3",
+    "cells": 79
+   }
+  },
+  {
+   "id": 390,
+   "name": "Lab marine-giant-kelp-young 0",
+   "kind": 0,
+   "hard": 2,
+   "leaf": 243,
+   "stick": 0,
+   "bytes": 4945,
+   "occupied_cells": 245,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2968,
+     "triangles": 1484
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1268,
+     "triangles": 634
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 516,
+     "triangles": 258
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 56,
+     "triangles": 28
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "marine-giant-kelp-young",
+    "Seed": 714103,
+    "Family": "marine",
+    "Habitat": "temperate rocky kelp forest",
+    "SourceSha256": "b336c284ef324d98d9d9fec2dc2c8684200885729ddb30bf08517e54fff8c9c6",
+    "cells": 245
+   }
+  },
+  {
+   "id": 391,
+   "name": "Lab marine-giant-kelp-young 1",
+   "kind": 0,
+   "hard": 2,
+   "leaf": 218,
+   "stick": 0,
+   "bytes": 4633,
+   "occupied_cells": 220,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2616,
+     "triangles": 1308
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1200,
+     "triangles": 600
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 540,
+     "triangles": 270
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 72,
+     "triangles": 36
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "marine-giant-kelp-young",
+    "Seed": 271828,
+    "Family": "marine",
+    "Habitat": "temperate rocky kelp forest",
+    "SourceSha256": "be62a8e4702385fefbe3c1c5b93714232c1ef95ebaa76fc621265434a834ab68",
+    "cells": 220
+   }
+  },
+  {
+   "id": 392,
+   "name": "Lab marine-manateegrass 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 54,
+   "stick": 0,
+   "bytes": 1284,
+   "occupied_cells": 54,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 572,
+     "triangles": 286
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 384,
+     "triangles": 192
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 120,
+     "triangles": 60
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 84,
+     "triangles": 42
+    }
+   ],
+   "generation": {
+    "Key": "marine-manateegrass",
+    "Seed": 714103,
+    "Family": "marine",
+    "Habitat": "tropical marine seagrass meadow",
+    "SourceSha256": "a66ee4d7093024fa28a06bf59ac036edf42100a1e5e4d37a4c32bfd6f1bb9f59",
+    "cells": 54
+   }
+  },
+  {
+   "id": 393,
+   "name": "Lab marine-manateegrass 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 50,
+   "stick": 0,
+   "bytes": 1220,
+   "occupied_cells": 50,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 572,
+     "triangles": 286
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 336,
+     "triangles": 168
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 140,
+     "triangles": 70
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 88,
+     "triangles": 44
+    }
+   ],
+   "generation": {
+    "Key": "marine-manateegrass",
+    "Seed": 271828,
+    "Family": "marine",
+    "Habitat": "tropical marine seagrass meadow",
+    "SourceSha256": "69a72e2ba55e69347daed19d5f63d6e7370cc80e764191604aa86b2df01e200c",
+    "cells": 50
+   }
+  },
+  {
+   "id": 394,
+   "name": "Lab marine-sea-lettuce 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 59,
+   "stick": 8,
+   "bytes": 1303,
+   "occupied_cells": 67,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 688,
+     "triangles": 344
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 236,
+     "triangles": 118
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 68,
+     "triangles": 34
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 44,
+     "triangles": 22
+    }
+   ],
+   "generation": {
+    "Key": "marine-sea-lettuce",
+    "Seed": 714103,
+    "Family": "marine",
+    "Habitat": "marine intertidal rock",
+    "SourceSha256": "fa1429906084e501ad863fb8eb756bcb31a18e3090ca15c535c893027ee76f1a",
+    "cells": 67
+   }
+  },
+  {
+   "id": 395,
+   "name": "Lab marine-sea-lettuce 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 51,
+   "stick": 8,
+   "bytes": 1230,
+   "occupied_cells": 59,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 612,
+     "triangles": 306
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 228,
+     "triangles": 114
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 112,
+     "triangles": 56
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 40,
+     "triangles": 20
+    }
+   ],
+   "generation": {
+    "Key": "marine-sea-lettuce",
+    "Seed": 271828,
+    "Family": "marine",
+    "Habitat": "marine intertidal rock",
+    "SourceSha256": "0dd0601a7574d96752614ef08507d8f0212c41ebf7afc04bc6e75e3a04a41453",
+    "cells": 59
+   }
+  },
+  {
+   "id": 396,
+   "name": "Lab marine-turtlegrass 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 57,
+   "stick": 0,
+   "bytes": 1245,
+   "occupied_cells": 57,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 660,
+     "triangles": 330
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 248,
+     "triangles": 124
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 76,
+     "triangles": 38
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 52,
+     "triangles": 26
+    }
+   ],
+   "generation": {
+    "Key": "marine-turtlegrass",
+    "Seed": 714103,
+    "Family": "marine",
+    "Habitat": "tropical shallow seagrass meadow",
+    "SourceSha256": "e6d7b127c47167b053a57d9962364278d311107909aa8ba5e728eb72998709e3",
+    "cells": 57
+   }
+  },
+  {
+   "id": 397,
+   "name": "Lab marine-turtlegrass 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 55,
+   "stick": 0,
+   "bytes": 1212,
+   "occupied_cells": 55,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 624,
+     "triangles": 312
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 232,
+     "triangles": 116
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 88,
+     "triangles": 44
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 52,
+     "triangles": 26
+    }
+   ],
+   "generation": {
+    "Key": "marine-turtlegrass",
+    "Seed": 271828,
+    "Family": "marine",
+    "Habitat": "tropical shallow seagrass meadow",
+    "SourceSha256": "3416497c6774b5c1465708e879000cf5870d9e2020668277e03eb7c6fde9f957",
+    "cells": 55
+   }
+  },
+  {
+   "id": 398,
+   "name": "Lab palm-cabbage-fan 0",
+   "kind": 0,
+   "hard": 882,
+   "leaf": 1633,
+   "stick": 0,
+   "bytes": 25284,
+   "occupied_cells": 2515,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 19520,
+     "triangles": 9760
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 5996,
+     "triangles": 2998
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 1924,
+     "triangles": 962
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 284,
+     "triangles": 142
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "palm-cabbage-fan",
+    "Seed": 714103,
+    "Family": "palms",
+    "Habitat": "warm coastal woodland",
+    "SourceSha256": "5349e2a0b1cde2e5b33dd159bb3df56b45fc7007dc0970befa71d2160bd84c36",
+    "cells": 2515
+   }
+  },
+  {
+   "id": 399,
+   "name": "Lab palm-cabbage-fan 1",
+   "kind": 0,
+   "hard": 900,
+   "leaf": 1619,
+   "stick": 0,
+   "bytes": 25414,
+   "occupied_cells": 2519,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 19728,
+     "triangles": 9864
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 6160,
+     "triangles": 3080
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 1836,
+     "triangles": 918
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 280,
+     "triangles": 140
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 40,
+     "triangles": 20
+    }
+   ],
+   "generation": {
+    "Key": "palm-cabbage-fan",
+    "Seed": 271828,
+    "Family": "palms",
+    "Habitat": "warm coastal woodland",
+    "SourceSha256": "4f33c578875ad3748d639d67b3e4b7a0c38f3d95b4efa7cd94ef5adeb9c0b590",
+    "cells": 2519
+   }
+  },
+  {
+   "id": 400,
+   "name": "Lab palm-coconut-leaning 0",
+   "kind": 0,
+   "hard": 1460,
+   "leaf": 3309,
+   "stick": 33,
+   "bytes": 61316,
+   "occupied_cells": 4802,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 46752,
+     "triangles": 23376
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 14596,
+     "triangles": 7298
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 3888,
+     "triangles": 1944
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 480,
+     "triangles": 240
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 88,
+     "triangles": 44
+    }
+   ],
+   "generation": {
+    "Key": "palm-coconut-leaning",
+    "Seed": 714103,
+    "Family": "palms",
+    "Habitat": "tropical coastal strand",
+    "SourceSha256": "819c72e32dce7c339aa94f4d80f985a3400da8e042bb801ddb9e64317b10200b",
+    "cells": 4802
+   }
+  },
+  {
+   "id": 401,
+   "name": "Lab palm-coconut-leaning 1",
+   "kind": 0,
+   "hard": 1450,
+   "leaf": 3307,
+   "stick": 58,
+   "bytes": 59037,
+   "occupied_cells": 4815,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 45788,
+     "triangles": 22894
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 13644,
+     "triangles": 6822
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 3852,
+     "triangles": 1926
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 480,
+     "triangles": 240
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 88,
+     "triangles": 44
+    }
+   ],
+   "generation": {
+    "Key": "palm-coconut-leaning",
+    "Seed": 271828,
+    "Family": "palms",
+    "Habitat": "tropical coastal strand",
+    "SourceSha256": "d5115b6cc15c9dc99a27523ee5c13b71b7666ff479c391d06779caf2fa59f468",
+    "cells": 4815
+   }
+  },
+  {
+   "id": 402,
+   "name": "Lab palm-coconut-young 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 488,
+   "stick": 22,
+   "bytes": 9988,
+   "occupied_cells": 510,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 6188,
+     "triangles": 3094
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 2136,
+     "triangles": 1068
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 836,
+     "triangles": 418
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 336,
+     "triangles": 168
+    }
+   ],
+   "generation": {
+    "Key": "palm-coconut-young",
+    "Seed": 714103,
+    "Family": "palms",
+    "Habitat": "tropical sandy coast",
+    "SourceSha256": "1819e4f59e95aaea7aa6f9504223c4e5940637dbe483c70fcb006d3d8b758a5c",
+    "cells": 510
+   }
+  },
+  {
+   "id": 403,
+   "name": "Lab palm-coconut-young 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 480,
+   "stick": 23,
+   "bytes": 9268,
+   "occupied_cells": 503,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5732,
+     "triangles": 2866
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 2036,
+     "triangles": 1018
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 728,
+     "triangles": 364
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 352,
+     "triangles": 176
+    }
+   ],
+   "generation": {
+    "Key": "palm-coconut-young",
+    "Seed": 271828,
+    "Family": "palms",
+    "Habitat": "tropical sandy coast",
+    "SourceSha256": "0233dcf12f96f85f418dbe2a2bc4b36edb0730c427f2fbdbbc26ec87917e72ce",
+    "cells": 503
+   }
+  },
+  {
+   "id": 404,
+   "name": "Lab palm-date-compact 0",
+   "kind": 0,
+   "hard": 78,
+   "leaf": 449,
+   "stick": 0,
+   "bytes": 8781,
+   "occupied_cells": 527,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5892,
+     "triangles": 2946
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1792,
+     "triangles": 896
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 688,
+     "triangles": 344
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 104,
+     "triangles": 52
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "palm-date-compact",
+    "Seed": 714103,
+    "Family": "palms",
+    "Habitat": "sheltered warm inland planting",
+    "SourceSha256": "37ee44f6a8adb16ae417d93870049418c19dd1df9ff79f6b26939e7cf03aec3c",
+    "cells": 527
+   }
+  },
+  {
+   "id": 405,
+   "name": "Lab palm-date-compact 1",
+   "kind": 0,
+   "hard": 75,
+   "leaf": 427,
+   "stick": 0,
+   "bytes": 8182,
+   "occupied_cells": 502,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5524,
+     "triangles": 2762
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1768,
+     "triangles": 884
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 596,
+     "triangles": 298
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 104,
+     "triangles": 52
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "palm-date-compact",
+    "Seed": 271828,
+    "Family": "palms",
+    "Habitat": "sheltered warm inland planting",
+    "SourceSha256": "92776b33992a94aef610f53ae666939b1021abe7470d641e5929d15d6c915bbe",
+    "cells": 502
+   }
+  },
+  {
+   "id": 406,
+   "name": "Lab palm-saw-palmetto 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 501,
+   "stick": 13,
+   "bytes": 8312,
+   "occupied_cells": 514,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5576,
+     "triangles": 2788
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1792,
+     "triangles": 896
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 560,
+     "triangles": 280
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 184,
+     "triangles": 92
+    }
+   ],
+   "generation": {
+    "Key": "palm-saw-palmetto",
+    "Seed": 714103,
+    "Family": "palms",
+    "Habitat": "coastal scrub and flatwoods",
+    "SourceSha256": "489a74a9926fed6122f5bf70292d9af3aca34c631300fd31bd7ac4cccf8c35d0",
+    "cells": 514
+   }
+  },
+  {
+   "id": 407,
+   "name": "Lab palm-saw-palmetto 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 487,
+   "stick": 13,
+   "bytes": 8945,
+   "occupied_cells": 500,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5712,
+     "triangles": 2856
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1996,
+     "triangles": 998
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 696,
+     "triangles": 348
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 268,
+     "triangles": 134
+    }
+   ],
+   "generation": {
+    "Key": "palm-saw-palmetto",
+    "Seed": 271828,
+    "Family": "palms",
+    "Habitat": "coastal scrub and flatwoods",
+    "SourceSha256": "778499e5016e25cb5b0ddd40d23d46eb8cb243e64a406a7ebdca9f05db813109",
+    "cells": 500
+   }
+  },
+  {
+   "id": 408,
+   "name": "Lab prickly-pear-eleven 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 871,
+   "stick": 6,
+   "bytes": 5285,
+   "occupied_cells": 877,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 4128,
+     "triangles": 2064
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1272,
+     "triangles": 636
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 416,
+     "triangles": 208
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 172,
+     "triangles": 86
+    }
+   ],
+   "generation": {
+    "Key": "prickly-pear-eleven",
+    "Seed": 714103,
+    "Family": "cactus",
+    "Habitat": "dry open scrub",
+    "SourceSha256": "772e60bf3f2ae5b967d7903556785cbecc910bfc91de1b65681ef70650b56a3e",
+    "cells": 877
+   }
+  },
+  {
+   "id": 409,
+   "name": "Lab prickly-pear-eleven 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 842,
+   "stick": 9,
+   "bytes": 5065,
+   "occupied_cells": 851,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3860,
+     "triangles": 1930
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1096,
+     "triangles": 548
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 396,
+     "triangles": 198
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 148,
+     "triangles": 74
+    }
+   ],
+   "generation": {
+    "Key": "prickly-pear-eleven",
+    "Seed": 271828,
+    "Family": "cactus",
+    "Habitat": "dry open scrub",
+    "SourceSha256": "057656448b732469394ed4da522654fcc547db60f28c5e34e5344d60dd0a50dc",
+    "cells": 851
+   }
+  },
+  {
+   "id": 410,
+   "name": "Lab prickly-pear-seven 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 392,
+   "stick": 4,
+   "bytes": 3247,
+   "occupied_cells": 396,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2336,
+     "triangles": 1168
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 648,
+     "triangles": 324
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 288,
+     "triangles": 144
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 112,
+     "triangles": 56
+    }
+   ],
+   "generation": {
+    "Key": "prickly-pear-seven",
+    "Seed": 714103,
+    "Family": "cactus",
+    "Habitat": "dry open scrub",
+    "SourceSha256": "4618ce22dd2217ba2852ae8b72e6f08960452ea2f847f25637932dc943f706d1",
+    "cells": 396
+   }
+  },
+  {
+   "id": 411,
+   "name": "Lab prickly-pear-seven 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 399,
+   "stick": 8,
+   "bytes": 3226,
+   "occupied_cells": 407,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2224,
+     "triangles": 1112
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 668,
+     "triangles": 334
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 268,
+     "triangles": 134
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 96,
+     "triangles": 48
+    }
+   ],
+   "generation": {
+    "Key": "prickly-pear-seven",
+    "Seed": 271828,
+    "Family": "cactus",
+    "Habitat": "dry open scrub",
+    "SourceSha256": "59c1592a4947982fa2a1e6a404570933585bc57e46df40eba7972700ce26559d",
+    "cells": 407
+   }
+  },
+  {
+   "id": 412,
+   "name": "Lab prickly-pear-three 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 113,
+   "stick": 2,
+   "bytes": 1507,
+   "occupied_cells": 115,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 908,
+     "triangles": 454
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 288,
+     "triangles": 144
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 124,
+     "triangles": 62
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 64,
+     "triangles": 32
+    }
+   ],
+   "generation": {
+    "Key": "prickly-pear-three",
+    "Seed": 714103,
+    "Family": "cactus",
+    "Habitat": "dry open scrub",
+    "SourceSha256": "b4b64db08cbc87b45d3358bbe7b0bb3083f79101fb40b2e427e0dac682b663aa",
+    "cells": 115
+   }
+  },
+  {
+   "id": 413,
+   "name": "Lab prickly-pear-three 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 116,
+   "stick": 4,
+   "bytes": 1464,
+   "occupied_cells": 120,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 816,
+     "triangles": 408
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 284,
+     "triangles": 142
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 132,
+     "triangles": 66
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 52,
+     "triangles": 26
+    }
+   ],
+   "generation": {
+    "Key": "prickly-pear-three",
+    "Seed": 271828,
+    "Family": "cactus",
+    "Habitat": "dry open scrub",
+    "SourceSha256": "b13cb6b2720bc77a419c0a7b87cbea1a6fad0cba475725336821d2ebf8f706d5",
+    "cells": 120
+   }
+  },
+  {
+   "id": 414,
+   "name": "Lab reef-isolated-patch 0",
+   "kind": 2,
+   "hard": 10838,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 27344,
+   "occupied_cells": 10838,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 17352,
+     "triangles": 8676
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 5860,
+     "triangles": 2930
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 1984,
+     "triangles": 992
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 580,
+     "triangles": 290
+    }
+   ],
+   "generation": {
+    "Key": "reef-isolated-patch",
+    "Seed": 714103,
+    "Family": "reef",
+    "Habitat": "shallow hard-substrate study",
+    "SourceSha256": "2fd58aa11a949e6e51b2ee416f6fffa0e10f197190e17b16cd5907c832b67fc0",
+    "cells": 10838
+   }
+  },
+  {
+   "id": 415,
+   "name": "Lab reef-isolated-patch 1",
+   "kind": 2,
+   "hard": 10811,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 27086,
+   "occupied_cells": 10811,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 17088,
+     "triangles": 8544
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 5752,
+     "triangles": 2876
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 1884,
+     "triangles": 942
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 564,
+     "triangles": 282
+    }
+   ],
+   "generation": {
+    "Key": "reef-isolated-patch",
+    "Seed": 271828,
+    "Family": "reef",
+    "Habitat": "shallow hard-substrate study",
+    "SourceSha256": "21f3b18a141f22c3245691622cbc7afb2a919bfdf5c5f94f388a1170f36ac9a5",
+    "cells": 10811
+   }
+  },
+  {
+   "id": 416,
+   "name": "Lab reef-rugged-garden 0",
+   "kind": 2,
+   "hard": 23705,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 58923,
+   "occupied_cells": 24095,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 39972,
+     "triangles": 19986
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 11912,
+     "triangles": 5956
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 3736,
+     "triangles": 1868
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 1084,
+     "triangles": 542
+    }
+   ],
+   "generation": {
+    "Key": "reef-rugged-garden",
+    "Seed": 714103,
+    "Family": "reef",
+    "Habitat": "irregular hard-substrate patch study",
+    "SourceSha256": "da7f7a07f8a5f007ecbe0df66194748e55ea5b544fb063d860bd9f755806b582",
+    "cells": 24095
+   }
+  },
+  {
+   "id": 417,
+   "name": "Lab reef-rugged-garden 1",
+   "kind": 2,
+   "hard": 24410,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 57128,
+   "occupied_cells": 24637,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 38924,
+     "triangles": 19462
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 11656,
+     "triangles": 5828
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 3480,
+     "triangles": 1740
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 1032,
+     "triangles": 516
+    }
+   ],
+   "generation": {
+    "Key": "reef-rugged-garden",
+    "Seed": 271828,
+    "Family": "reef",
+    "Habitat": "irregular hard-substrate patch study",
+    "SourceSha256": "b10162a1093d1c9e98b7cc7cd90ca78859cbf83a7bf3a13e8176863644482cfb",
+    "cells": 24637
+   }
+  },
+  {
+   "id": 418,
+   "name": "Lab reef-shelf-terraces 0",
+   "kind": 2,
+   "hard": 19764,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 23706,
+   "occupied_cells": 19764,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 12364,
+     "triangles": 6182
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 5104,
+     "triangles": 2552
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 2012,
+     "triangles": 1006
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 584,
+     "triangles": 292
+    }
+   ],
+   "generation": {
+    "Key": "reef-shelf-terraces",
+    "Seed": 714103,
+    "Family": "reef",
+    "Habitat": "stepped hardbottom study",
+    "SourceSha256": "f9c2c495ac80c87393b17428c93f535d8dfef6484c35ada99014a058c00796f5",
+    "cells": 19764
+   }
+  },
+  {
+   "id": 419,
+   "name": "Lab reef-shelf-terraces 1",
+   "kind": 2,
+   "hard": 19760,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 24441,
+   "occupied_cells": 19760,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 12852,
+     "triangles": 6426
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 5428,
+     "triangles": 2714
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 1980,
+     "triangles": 990
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 600,
+     "triangles": 300
+    }
+   ],
+   "generation": {
+    "Key": "reef-shelf-terraces",
+    "Seed": 271828,
+    "Family": "reef",
+    "Habitat": "stepped hardbottom study",
+    "SourceSha256": "9973e3e9c1f4b18d2debdad299d452a86c613047cccfce219a658a3095ff36c6",
+    "cells": 19760
+   }
+  },
+  {
+   "id": 420,
+   "name": "Lab reef-spur-groove-slice 0",
+   "kind": 2,
+   "hard": 14152,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 22039,
+   "occupied_cells": 14152,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 10964,
+     "triangles": 5482
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 5132,
+     "triangles": 2566
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 2336,
+     "triangles": 1168
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 716,
+     "triangles": 358
+    }
+   ],
+   "generation": {
+    "Key": "reef-spur-groove-slice",
+    "Seed": 714103,
+    "Family": "reef",
+    "Habitat": "reef-ridge morphology study",
+    "SourceSha256": "d7cbcfbe713eff57660ab30751ab2537d75d4b786e84eec9d9a5906d3ef309c0",
+    "cells": 14152
+   }
+  },
+  {
+   "id": 421,
+   "name": "Lab reef-spur-groove-slice 1",
+   "kind": 2,
+   "hard": 14113,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 21851,
+   "occupied_cells": 14113,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 10944,
+     "triangles": 5472
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 5076,
+     "triangles": 2538
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 2256,
+     "triangles": 1128
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 712,
+     "triangles": 356
+    }
+   ],
+   "generation": {
+    "Key": "reef-spur-groove-slice",
+    "Seed": 271828,
+    "Family": "reef",
+    "Habitat": "reef-ridge morphology study",
+    "SourceSha256": "a2be7bcbb66a1ab2fd5cf65465303514a2588368e450a48c3eccc7e4febfa8e4",
+    "cells": 14113
+   }
+  },
+  {
+   "id": 422,
+   "name": "Lab sagebrush-gnarled-open 0",
+   "kind": 1,
+   "hard": 8,
+   "leaf": 61,
+   "stick": 97,
+   "bytes": 4472,
+   "occupied_cells": 166,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2304,
+     "triangles": 1152
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1056,
+     "triangles": 528
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 456,
+     "triangles": 228
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 208,
+     "triangles": 104
+    }
+   ],
+   "generation": {
+    "Key": "sagebrush-gnarled-open",
+    "Seed": 714103,
+    "Family": "aridscrub",
+    "Habitat": "dry intermountain steppe",
+    "SourceSha256": "52b9138b9db56e8c87b02e1d043642dceae4da333614b68e2d2ab084e15989d9",
+    "cells": 166
+   }
+  },
+  {
+   "id": 423,
+   "name": "Lab sagebrush-gnarled-open 1",
+   "kind": 1,
+   "hard": 8,
+   "leaf": 59,
+   "stick": 98,
+   "bytes": 4443,
+   "occupied_cells": 165,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2244,
+     "triangles": 1122
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1048,
+     "triangles": 524
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 460,
+     "triangles": 230
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 212,
+     "triangles": 106
+    }
+   ],
+   "generation": {
+    "Key": "sagebrush-gnarled-open",
+    "Seed": 271828,
+    "Family": "aridscrub",
+    "Habitat": "dry intermountain steppe",
+    "SourceSha256": "b46d3847cec79be14fc47a9bd4eee3bde1117e91790972f335699ebce7c4a115",
+    "cells": 165
+   }
+  },
+  {
+   "id": 424,
+   "name": "Lab sagebrush-low-gray 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 181,
+   "stick": 59,
+   "bytes": 4398,
+   "occupied_cells": 240,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2428,
+     "triangles": 1214
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1020,
+     "triangles": 510
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 360,
+     "triangles": 180
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 156,
+     "triangles": 78
+    }
+   ],
+   "generation": {
+    "Key": "sagebrush-low-gray",
+    "Seed": 714103,
+    "Family": "aridscrub",
+    "Habitat": "cold dry sagebrush steppe",
+    "SourceSha256": "1e767136aac6e2db2ca95498f72bda46bb95170ab81828d902743fbb3982da29",
+    "cells": 240
+   }
+  },
+  {
+   "id": 425,
+   "name": "Lab sagebrush-low-gray 1",
+   "kind": 1,
+   "hard": 16,
+   "leaf": 174,
+   "stick": 46,
+   "bytes": 4512,
+   "occupied_cells": 236,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2480,
+     "triangles": 1240
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1032,
+     "triangles": 516
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 396,
+     "triangles": 198
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 180,
+     "triangles": 90
+    }
+   ],
+   "generation": {
+    "Key": "sagebrush-low-gray",
+    "Seed": 271828,
+    "Family": "aridscrub",
+    "Habitat": "cold dry sagebrush steppe",
+    "SourceSha256": "b265b34a1e50a608f656166f76d304618d4e417780ce3083ed2655cf6048d834",
+    "cells": 236
+   }
+  },
+  {
+   "id": 426,
+   "name": "Lab saguaro-four-arm 0",
+   "kind": 0,
+   "hard": 0,
+   "leaf": 9438,
+   "stick": 0,
+   "bytes": 20323,
+   "occupied_cells": 9438,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 24384,
+     "triangles": 12192
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 5304,
+     "triangles": 2652
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 2176,
+     "triangles": 1088
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 216,
+     "triangles": 108
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "saguaro-four-arm",
+    "Seed": 714103,
+    "Family": "cactus",
+    "Habitat": "Sonoran desert",
+    "SourceSha256": "c3c7f49915099897e18b68b4d9111ff162c104ef36454adc1b2054ee3ab02317",
+    "cells": 9438
+   }
+  },
+  {
+   "id": 427,
+   "name": "Lab saguaro-four-arm 1",
+   "kind": 0,
+   "hard": 0,
+   "leaf": 8780,
+   "stick": 0,
+   "bytes": 19640,
+   "occupied_cells": 8780,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 23596,
+     "triangles": 11798
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 5760,
+     "triangles": 2880
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 1928,
+     "triangles": 964
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 160,
+     "triangles": 80
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 40,
+     "triangles": 20
+    }
+   ],
+   "generation": {
+    "Key": "saguaro-four-arm",
+    "Seed": 271828,
+    "Family": "cactus",
+    "Habitat": "Sonoran desert",
+    "SourceSha256": "256df2f17496fa45838283c83ec10e222665580499dbec3d44ec5fb131e29744",
+    "cells": 8780
+   }
+  },
+  {
+   "id": 428,
+   "name": "Lab saguaro-juvenile 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 133,
+   "stick": 0,
+   "bytes": 969,
+   "occupied_cells": 133,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 676,
+     "triangles": 338
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 228,
+     "triangles": 114
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 84,
+     "triangles": 42
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 56,
+     "triangles": 28
+    }
+   ],
+   "generation": {
+    "Key": "saguaro-juvenile",
+    "Seed": 714103,
+    "Family": "cactus",
+    "Habitat": "Sonoran desert",
+    "SourceSha256": "21625117455a9ddf49f6d052187b112c0017406512b4172de0e487caca482bba",
+    "cells": 133
+   }
+  },
+  {
+   "id": 429,
+   "name": "Lab saguaro-juvenile 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 133,
+   "stick": 0,
+   "bytes": 1023,
+   "occupied_cells": 133,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 684,
+     "triangles": 342
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 240,
+     "triangles": 120
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 108,
+     "triangles": 54
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 56,
+     "triangles": 28
+    }
+   ],
+   "generation": {
+    "Key": "saguaro-juvenile",
+    "Seed": 271828,
+    "Family": "cactus",
+    "Habitat": "Sonoran desert",
+    "SourceSha256": "88dfb8e7a93d7ab62f240aa840005a91815b2560fd992a222edaee9db79d15c9",
+    "cells": 133
+   }
+  },
+  {
+   "id": 430,
+   "name": "Lab saguaro-tall 0",
+   "kind": 0,
+   "hard": 0,
+   "leaf": 2118,
+   "stick": 0,
+   "bytes": 4360,
+   "occupied_cells": 2118,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5124,
+     "triangles": 2562
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1172,
+     "triangles": 586
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 552,
+     "triangles": 276
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 56,
+     "triangles": 28
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "saguaro-tall",
+    "Seed": 714103,
+    "Family": "cactus",
+    "Habitat": "Sonoran desert",
+    "SourceSha256": "3a19fbe531ebc1e827128660d66abb3eb3a443c416bf953566d3115087588353",
+    "cells": 2118
+   }
+  },
+  {
+   "id": 431,
+   "name": "Lab saguaro-tall 1",
+   "kind": 0,
+   "hard": 0,
+   "leaf": 2119,
+   "stick": 0,
+   "bytes": 4409,
+   "occupied_cells": 2119,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 5188,
+     "triangles": 2594
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1156,
+     "triangles": 578
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 548,
+     "triangles": 274
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 56,
+     "triangles": 28
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "saguaro-tall",
+    "Seed": 271828,
+    "Family": "cactus",
+    "Habitat": "Sonoran desert",
+    "SourceSha256": "18798ad4b02aff7479121aeb5029d89461a8556e05362da8682a9ce7309b2ce9",
+    "cells": 2119
+   }
+  },
+  {
+   "id": 432,
+   "name": "Lab saguaro-two-arm 0",
+   "kind": 0,
+   "hard": 0,
+   "leaf": 4572,
+   "stick": 0,
+   "bytes": 10374,
+   "occupied_cells": 4572,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 11776,
+     "triangles": 5888
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 3232,
+     "triangles": 1616
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 1044,
+     "triangles": 522
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 144,
+     "triangles": 72
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 40,
+     "triangles": 20
+    }
+   ],
+   "generation": {
+    "Key": "saguaro-two-arm",
+    "Seed": 714103,
+    "Family": "cactus",
+    "Habitat": "Sonoran desert",
+    "SourceSha256": "f855832f98e225d659eed104bfb508ba43b67e797d7e4a762612ebbf56e30241",
+    "cells": 4572
+   }
+  },
+  {
+   "id": 433,
+   "name": "Lab saguaro-two-arm 1",
+   "kind": 0,
+   "hard": 0,
+   "leaf": 4287,
+   "stick": 0,
+   "bytes": 10350,
+   "occupied_cells": 4287,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 11328,
+     "triangles": 5664
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 3068,
+     "triangles": 1534
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 1016,
+     "triangles": 508
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 144,
+     "triangles": 72
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 40,
+     "triangles": 20
+    }
+   ],
+   "generation": {
+    "Key": "saguaro-two-arm",
+    "Seed": 271828,
+    "Family": "cactus",
+    "Habitat": "Sonoran desert",
+    "SourceSha256": "afe73ed1d93cc4120af03e6e0dd466d603358121595adff9c3aa130a233657c4",
+    "cells": 4287
+   }
+  },
+  {
+   "id": 434,
+   "name": "Lab sedge-three-rank 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 291,
+   "stick": 7,
+   "bytes": 3077,
+   "occupied_cells": 298,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2020,
+     "triangles": 1010
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 572,
+     "triangles": 286
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 220,
+     "triangles": 110
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 60,
+     "triangles": 30
+    }
+   ],
+   "generation": {
+    "Key": "sedge-three-rank",
+    "Seed": 714103,
+    "Family": "groundcover",
+    "Habitat": "damp meadow",
+    "SourceSha256": "42359cefd20e0cde458ee2ee98a4e10e5575f6ae7a8191a457a06abd717014bb",
+    "cells": 298
+   }
+  },
+  {
+   "id": 435,
+   "name": "Lab sedge-three-rank 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 310,
+   "stick": 11,
+   "bytes": 3458,
+   "occupied_cells": 321,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2232,
+     "triangles": 1116
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 708,
+     "triangles": 354
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 252,
+     "triangles": 126
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 84,
+     "triangles": 42
+    }
+   ],
+   "generation": {
+    "Key": "sedge-three-rank",
+    "Seed": 271828,
+    "Family": "groundcover",
+    "Habitat": "damp meadow",
+    "SourceSha256": "76cfcce4342563153a7015813aceeab9c1820d7609e7b265dabe1a5751554955",
+    "cells": 321
+   }
+  },
+  {
+   "id": 436,
+   "name": "Lab steppe-dry-seed-bunch 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 229,
+   "stick": 0,
+   "bytes": 3091,
+   "occupied_cells": 229,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2144,
+     "triangles": 1072
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 548,
+     "triangles": 274
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 172,
+     "triangles": 86
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 76,
+     "triangles": 38
+    }
+   ],
+   "generation": {
+    "Key": "steppe-dry-seed-bunch",
+    "Seed": 714103,
+    "Family": "aridscrub",
+    "Habitat": "dry grassland and steppe",
+    "SourceSha256": "0ce1a8901cd87b993a137a191ba3d1bb809f6233704a33fc15e5443a7fbb7319",
+    "cells": 229
+   }
+  },
+  {
+   "id": 437,
+   "name": "Lab steppe-dry-seed-bunch 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 238,
+   "stick": 0,
+   "bytes": 3229,
+   "occupied_cells": 238,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2260,
+     "triangles": 1130
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 504,
+     "triangles": 252
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 188,
+     "triangles": 94
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 76,
+     "triangles": 38
+    }
+   ],
+   "generation": {
+    "Key": "steppe-dry-seed-bunch",
+    "Seed": 271828,
+    "Family": "aridscrub",
+    "Habitat": "dry grassland and steppe",
+    "SourceSha256": "eaf7814d8da902a970d8129a60b9976433c00490dfe2f4103a5caad424e4063f",
+    "cells": 238
+   }
+  },
+  {
+   "id": 438,
+   "name": "Lab stone-basalt-talus 0",
+   "kind": 2,
+   "hard": 1377,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 3112,
+   "occupied_cells": 1377,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2268,
+     "triangles": 1134
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 748,
+     "triangles": 374
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 300,
+     "triangles": 150
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 108,
+     "triangles": 54
+    }
+   ],
+   "generation": {
+    "Key": "stone-basalt-talus",
+    "Seed": 714103,
+    "Family": "geology",
+    "Habitat": "mountain",
+    "SourceSha256": "52307358b1cd69f4d7a0ca979acda2eb5d56668b477f159d7352157ab5b1e56a",
+    "cells": 1377
+   }
+  },
+  {
+   "id": 439,
+   "name": "Lab stone-basalt-talus 1",
+   "kind": 2,
+   "hard": 1582,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 3274,
+   "occupied_cells": 1582,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2584,
+     "triangles": 1292
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 816,
+     "triangles": 408
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 292,
+     "triangles": 146
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 108,
+     "triangles": 54
+    }
+   ],
+   "generation": {
+    "Key": "stone-basalt-talus",
+    "Seed": 271828,
+    "Family": "geology",
+    "Habitat": "mountain",
+    "SourceSha256": "1faa048518734ab7b0561a723a8e4e950162459fbb3d93e5b7eaf080b5c0bcbb",
+    "cells": 1582
+   }
+  },
+  {
+   "id": 440,
+   "name": "Lab stone-fractured-spire 0",
+   "kind": 2,
+   "hard": 1466,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 2597,
+   "occupied_cells": 1466,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2892,
+     "triangles": 1446
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 700,
+     "triangles": 350
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 288,
+     "triangles": 144
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 104,
+     "triangles": 52
+    }
+   ],
+   "generation": {
+    "Key": "stone-fractured-spire",
+    "Seed": 714103,
+    "Family": "geology",
+    "Habitat": "mountain",
+    "SourceSha256": "86f1258b587027df4bf2557569d35701757818d94c7d15734426acf3b059d4f2",
+    "cells": 1466
+   }
+  },
+  {
+   "id": 441,
+   "name": "Lab stone-fractured-spire 1",
+   "kind": 2,
+   "hard": 1666,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 2868,
+   "occupied_cells": 1666,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3328,
+     "triangles": 1664
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 924,
+     "triangles": 462
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 380,
+     "triangles": 190
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 140,
+     "triangles": 70
+    }
+   ],
+   "generation": {
+    "Key": "stone-fractured-spire",
+    "Seed": 271828,
+    "Family": "geology",
+    "Habitat": "mountain",
+    "SourceSha256": "575dc28c93524ef22c76598c2561b962492d30940f4648117095a33762ddecf4",
+    "cells": 1666
+   }
+  },
+  {
+   "id": 442,
+   "name": "Lab stone-granite-jointed 0",
+   "kind": 2,
+   "hard": 1549,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 2512,
+   "occupied_cells": 1549,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2044,
+     "triangles": 1022
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 628,
+     "triangles": 314
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 276,
+     "triangles": 138
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 100,
+     "triangles": 50
+    }
+   ],
+   "generation": {
+    "Key": "stone-granite-jointed",
+    "Seed": 714103,
+    "Family": "geology",
+    "Habitat": "mountain",
+    "SourceSha256": "6b5563060abb218cde9deec4df96d4d517c9055e4304353ecbc6396ec82f731a",
+    "cells": 1549
+   }
+  },
+  {
+   "id": 443,
+   "name": "Lab stone-granite-jointed 1",
+   "kind": 2,
+   "hard": 1755,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 2964,
+   "occupied_cells": 1755,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2812,
+     "triangles": 1406
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 900,
+     "triangles": 450
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 328,
+     "triangles": 164
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 136,
+     "triangles": 68
+    }
+   ],
+   "generation": {
+    "Key": "stone-granite-jointed",
+    "Seed": 271828,
+    "Family": "geology",
+    "Habitat": "mountain",
+    "SourceSha256": "8da374c33c8b09dfec30ac0eb1f79f95f4d873ccde6a2585683c15896bfd89ae",
+    "cells": 1755
+   }
+  },
+  {
+   "id": 444,
+   "name": "Lab stone-limestone-ledges 0",
+   "kind": 2,
+   "hard": 1526,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 4296,
+   "occupied_cells": 1526,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2752,
+     "triangles": 1376
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 920,
+     "triangles": 460
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 316,
+     "triangles": 158
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 156,
+     "triangles": 78
+    }
+   ],
+   "generation": {
+    "Key": "stone-limestone-ledges",
+    "Seed": 714103,
+    "Family": "geology",
+    "Habitat": "mountain",
+    "SourceSha256": "12221c9bf57e79aec2f495a591db8bb05d83fe3bc129bb9b1a712ad39127a578",
+    "cells": 1526
+   }
+  },
+  {
+   "id": 445,
+   "name": "Lab stone-limestone-ledges 1",
+   "kind": 2,
+   "hard": 1528,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 4822,
+   "occupied_cells": 1528,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3280,
+     "triangles": 1640
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 876,
+     "triangles": 438
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 264,
+     "triangles": 132
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 140,
+     "triangles": 70
+    }
+   ],
+   "generation": {
+    "Key": "stone-limestone-ledges",
+    "Seed": 271828,
+    "Family": "geology",
+    "Habitat": "mountain",
+    "SourceSha256": "5b41c15d1f2064b738538bf8bcfd34e8ca8b4df10b18097e36d32a46f7e24ae5",
+    "cells": 1528
+   }
+  },
+  {
+   "id": 446,
+   "name": "Lab stone-sandstone-grey 0",
+   "kind": 2,
+   "hard": 1371,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 3872,
+   "occupied_cells": 1371,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2572,
+     "triangles": 1286
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 740,
+     "triangles": 370
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 288,
+     "triangles": 144
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 96,
+     "triangles": 48
+    }
+   ],
+   "generation": {
+    "Key": "stone-sandstone-grey",
+    "Seed": 714103,
+    "Family": "geology",
+    "Habitat": "mountain",
+    "SourceSha256": "68a81637fa46dd37ad7550945ccd7512ab9c2d6e254c68c8218d91b5c6a94d06",
+    "cells": 1371
+   }
+  },
+  {
+   "id": 447,
+   "name": "Lab stone-sandstone-grey 1",
+   "kind": 2,
+   "hard": 1340,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 4570,
+   "occupied_cells": 1340,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2920,
+     "triangles": 1460
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 884,
+     "triangles": 442
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 388,
+     "triangles": 194
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 132,
+     "triangles": 66
+    }
+   ],
+   "generation": {
+    "Key": "stone-sandstone-grey",
+    "Seed": 271828,
+    "Family": "geology",
+    "Habitat": "mountain",
+    "SourceSha256": "2c533b4e2e6ce74f62903e8b0e79036439f948ec8542b9908b839b92a30b307f",
+    "cells": 1340
+   }
+  },
+  {
+   "id": 448,
+   "name": "Lab stone-shale-plates 0",
+   "kind": 2,
+   "hard": 591,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 2998,
+   "occupied_cells": 591,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1920,
+     "triangles": 960
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 520,
+     "triangles": 260
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 240,
+     "triangles": 120
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 100,
+     "triangles": 50
+    }
+   ],
+   "generation": {
+    "Key": "stone-shale-plates",
+    "Seed": 714103,
+    "Family": "geology",
+    "Habitat": "mountain",
+    "SourceSha256": "6360f3556ce04bc7f7dd910e702655d74ee1d54e9970d50c72ef905b2cc48288",
+    "cells": 591
+   }
+  },
+  {
+   "id": 449,
+   "name": "Lab stone-shale-plates 1",
+   "kind": 2,
+   "hard": 589,
+   "leaf": 0,
+   "stick": 0,
+   "bytes": 3182,
+   "occupied_cells": 589,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2080,
+     "triangles": 1040
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 580,
+     "triangles": 290
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 208,
+     "triangles": 104
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 104,
+     "triangles": 52
+    }
+   ],
+   "generation": {
+    "Key": "stone-shale-plates",
+    "Seed": 271828,
+    "Family": "geology",
+    "Habitat": "mountain",
+    "SourceSha256": "11096417c8b3bc940e91e08bc5aa1b6b1f434c62c736d4e6a1c0a7cf241741c4",
+    "cells": 589
+   }
+  },
+  {
+   "id": 450,
+   "name": "Lab tiny-grass-dense 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 275,
+   "stick": 0,
+   "bytes": 3815,
+   "occupied_cells": 275,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3236,
+     "triangles": 1618
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 736,
+     "triangles": 368
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 220,
+     "triangles": 110
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 84,
+     "triangles": 42
+    }
+   ],
+   "generation": {
+    "Key": "tiny-grass-dense",
+    "Seed": 714103,
+    "Family": "groundcover",
+    "Habitat": "temperate",
+    "SourceSha256": "e7d77b3a60b29ceb65756ee78ea9613fac6f115669e8df4605069886c7c2dbc6",
+    "cells": 275
+   }
+  },
+  {
+   "id": 451,
+   "name": "Lab tiny-grass-dense 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 305,
+   "stick": 0,
+   "bytes": 4569,
+   "occupied_cells": 305,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 3996,
+     "triangles": 1998
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 836,
+     "triangles": 418
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 240,
+     "triangles": 120
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 100,
+     "triangles": 50
+    }
+   ],
+   "generation": {
+    "Key": "tiny-grass-dense",
+    "Seed": 271828,
+    "Family": "groundcover",
+    "Habitat": "temperate",
+    "SourceSha256": "6b69f90688f366ec60e649f0bf70be207a75eadfd80d5071255fa8b22c2fb3ba",
+    "cells": 305
+   }
+  },
+  {
+   "id": 452,
+   "name": "Lab tiny-grass-dry 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 84,
+   "stick": 0,
+   "bytes": 1423,
+   "occupied_cells": 84,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 856,
+     "triangles": 428
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 512,
+     "triangles": 256
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 180,
+     "triangles": 90
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 76,
+     "triangles": 38
+    }
+   ],
+   "generation": {
+    "Key": "tiny-grass-dry",
+    "Seed": 714103,
+    "Family": "groundcover",
+    "Habitat": "dry grassland",
+    "SourceSha256": "01bdd08611028d576ad4d824cadbb103c9ff9a63781db0413519eda58e333dfb",
+    "cells": 84
+   }
+  },
+  {
+   "id": 453,
+   "name": "Lab tiny-grass-dry 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 90,
+   "stick": 0,
+   "bytes": 1802,
+   "occupied_cells": 90,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1200,
+     "triangles": 600
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 520,
+     "triangles": 260
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 184,
+     "triangles": 92
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 80,
+     "triangles": 40
+    }
+   ],
+   "generation": {
+    "Key": "tiny-grass-dry",
+    "Seed": 271828,
+    "Family": "groundcover",
+    "Habitat": "dry grassland",
+    "SourceSha256": "bc0220e5ba9380a16e296d4b72c9189d18962ebeb2053d4507638a751107d0e9",
+    "cells": 90
+   }
+  },
+  {
+   "id": 454,
+   "name": "Lab tiny-grass-sparse 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 10,
+   "stick": 0,
+   "bytes": 682,
+   "occupied_cells": 10,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 240,
+     "triangles": 120
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 232,
+     "triangles": 116
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 144,
+     "triangles": 72
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 64,
+     "triangles": 32
+    }
+   ],
+   "generation": {
+    "Key": "tiny-grass-sparse",
+    "Seed": 714103,
+    "Family": "groundcover",
+    "Habitat": "temperate",
+    "SourceSha256": "47cda05bd4f7b1dcbda6ae26705fd9475218ee00e3651bed235ea36fabac93a2",
+    "cells": 10
+   }
+  },
+  {
+   "id": 455,
+   "name": "Lab tiny-grass-sparse 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 10,
+   "stick": 0,
+   "bytes": 663,
+   "occupied_cells": 10,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 240,
+     "triangles": 120
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 240,
+     "triangles": 120
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 144,
+     "triangles": 72
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 52,
+     "triangles": 26
+    }
+   ],
+   "generation": {
+    "Key": "tiny-grass-sparse",
+    "Seed": 271828,
+    "Family": "groundcover",
+    "Habitat": "temperate",
+    "SourceSha256": "d29c0bfa2d091820c9133456078825370e4d241ab4733fc4377cb4e91f5a9ab8",
+    "cells": 10
+   }
+  },
+  {
+   "id": 456,
+   "name": "Lab wetland-arrowhead 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 122,
+   "stick": 0,
+   "bytes": 2379,
+   "occupied_cells": 122,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1432,
+     "triangles": 716
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 456,
+     "triangles": 228
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 232,
+     "triangles": 116
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 72,
+     "triangles": 36
+    }
+   ],
+   "generation": {
+    "Key": "wetland-arrowhead",
+    "Seed": 714103,
+    "Family": "wetland",
+    "Habitat": "freshwater swamp and pond margin",
+    "SourceSha256": "69ec0b1daa93dbc42e534ce21f048d1894a2c7d75c042d918ff9d403398e7128",
+    "cells": 122
+   }
+  },
+  {
+   "id": 457,
+   "name": "Lab wetland-arrowhead 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 111,
+   "stick": 0,
+   "bytes": 2102,
+   "occupied_cells": 111,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1140,
+     "triangles": 570
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 416,
+     "triangles": 208
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 220,
+     "triangles": 110
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 68,
+     "triangles": 34
+    }
+   ],
+   "generation": {
+    "Key": "wetland-arrowhead",
+    "Seed": 271828,
+    "Family": "wetland",
+    "Habitat": "freshwater swamp and pond margin",
+    "SourceSha256": "ea7898ed4fe47e5bac11964464c5641f811ff795620ad790e06071a36b34e536",
+    "cells": 111
+   }
+  },
+  {
+   "id": 458,
+   "name": "Lab wetland-cattail 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 136,
+   "stick": 8,
+   "bytes": 1819,
+   "occupied_cells": 144,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 996,
+     "triangles": 498
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 404,
+     "triangles": 202
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 168,
+     "triangles": 84
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 44,
+     "triangles": 22
+    }
+   ],
+   "generation": {
+    "Key": "wetland-cattail",
+    "Seed": 714103,
+    "Family": "wetland",
+    "Habitat": "freshwater emergent marsh",
+    "SourceSha256": "d34e9c0914846b54eabfd16b47f6a0fb6da5ab05f0f0d3c4d06ea90d57a2b444",
+    "cells": 144
+   }
+  },
+  {
+   "id": 459,
+   "name": "Lab wetland-cattail 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 138,
+   "stick": 8,
+   "bytes": 2187,
+   "occupied_cells": 146,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1204,
+     "triangles": 602
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 504,
+     "triangles": 252
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 212,
+     "triangles": 106
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 112,
+     "triangles": 56
+    }
+   ],
+   "generation": {
+    "Key": "wetland-cattail",
+    "Seed": 271828,
+    "Family": "wetland",
+    "Habitat": "freshwater emergent marsh",
+    "SourceSha256": "369ecc94bce1d0c29b56b22330aec37c92ad4cccc56621ca7507fbdd67a5d7da",
+    "cells": 146
+   }
+  },
+  {
+   "id": 460,
+   "name": "Lab wetland-lotus 0",
+   "kind": 1,
+   "hard": 18,
+   "leaf": 144,
+   "stick": 0,
+   "bytes": 2970,
+   "occupied_cells": 162,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1472,
+     "triangles": 736
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 640,
+     "triangles": 320
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 304,
+     "triangles": 152
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 152,
+     "triangles": 76
+    }
+   ],
+   "generation": {
+    "Key": "wetland-lotus",
+    "Seed": 714103,
+    "Family": "wetland",
+    "Habitat": "sheltered freshwater shallows",
+    "SourceSha256": "e492b02f54084ebac5193a6f60f4f73956271a6e9c8a85c7f7d448c25e07504e",
+    "cells": 162
+   }
+  },
+  {
+   "id": 461,
+   "name": "Lab wetland-lotus 1",
+   "kind": 1,
+   "hard": 18,
+   "leaf": 148,
+   "stick": 0,
+   "bytes": 3076,
+   "occupied_cells": 166,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1512,
+     "triangles": 756
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 664,
+     "triangles": 332
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 308,
+     "triangles": 154
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 132,
+     "triangles": 66
+    }
+   ],
+   "generation": {
+    "Key": "wetland-lotus",
+    "Seed": 271828,
+    "Family": "wetland",
+    "Habitat": "sheltered freshwater shallows",
+    "SourceSha256": "e8524fd58ea46c93b7fb7a6ce037617e43d2f04b93c3f0355d67bd0c6bee5127",
+    "cells": 166
+   }
+  },
+  {
+   "id": 462,
+   "name": "Lab wetland-papyrus 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 108,
+   "stick": 2,
+   "bytes": 2255,
+   "occupied_cells": 110,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1156,
+     "triangles": 578
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 604,
+     "triangles": 302
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 220,
+     "triangles": 110
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 100,
+     "triangles": 50
+    }
+   ],
+   "generation": {
+    "Key": "wetland-papyrus",
+    "Seed": 714103,
+    "Family": "wetland",
+    "Habitat": "warm freshwater marsh margin",
+    "SourceSha256": "8107ac58e90e0a9f798c63a224f0d6fe6f2085290759f7c61f2a85e5eb8c3f2a",
+    "cells": 110
+   }
+  },
+  {
+   "id": 463,
+   "name": "Lab wetland-papyrus 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 108,
+   "stick": 3,
+   "bytes": 2243,
+   "occupied_cells": 111,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1192,
+     "triangles": 596
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 472,
+     "triangles": 236
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 244,
+     "triangles": 122
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 120,
+     "triangles": 60
+    }
+   ],
+   "generation": {
+    "Key": "wetland-papyrus",
+    "Seed": 271828,
+    "Family": "wetland",
+    "Habitat": "warm freshwater marsh margin",
+    "SourceSha256": "e4c641640228ae11e8265d20cb1d23d31b852e79820a78f91e48c3efab8c6266",
+    "cells": 111
+   }
+  },
+  {
+   "id": 464,
+   "name": "Lab wetland-pickerelweed 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 99,
+   "stick": 0,
+   "bytes": 1762,
+   "occupied_cells": 99,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 968,
+     "triangles": 484
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 316,
+     "triangles": 158
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 156,
+     "triangles": 78
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 64,
+     "triangles": 32
+    }
+   ],
+   "generation": {
+    "Key": "wetland-pickerelweed",
+    "Seed": 714103,
+    "Family": "wetland",
+    "Habitat": "shallow freshwater shoreline",
+    "SourceSha256": "06de1ef5e4f4e4045ad690e558d8aca8ddce9590e38b637d07753367b5973b69",
+    "cells": 99
+   }
+  },
+  {
+   "id": 465,
+   "name": "Lab wetland-pickerelweed 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 108,
+   "stick": 0,
+   "bytes": 1976,
+   "occupied_cells": 108,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1084,
+     "triangles": 542
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 436,
+     "triangles": 218
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 216,
+     "triangles": 108
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 76,
+     "triangles": 38
+    }
+   ],
+   "generation": {
+    "Key": "wetland-pickerelweed",
+    "Seed": 271828,
+    "Family": "wetland",
+    "Habitat": "shallow freshwater shoreline",
+    "SourceSha256": "1ec3e235796648b99fc7eca30cad1586eb7a6e0fbf51662e7dde86715980a892",
+    "cells": 108
+   }
+  },
+  {
+   "id": 466,
+   "name": "Lab wetland-pink-lily-stages 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 135,
+   "stick": 0,
+   "bytes": 2623,
+   "occupied_cells": 135,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1392,
+     "triangles": 696
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 604,
+     "triangles": 302
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 192,
+     "triangles": 96
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 84,
+     "triangles": 42
+    }
+   ],
+   "generation": {
+    "Key": "wetland-pink-lily-stages",
+    "Seed": 714103,
+    "Family": "wetland",
+    "Habitat": "tropical freshwater pond",
+    "SourceSha256": "7540ccf48f77fd443191df8406673feb037721cffa6bf35050f6020cb88cc67c",
+    "cells": 135
+   }
+  },
+  {
+   "id": 467,
+   "name": "Lab wetland-pink-lily-stages 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 128,
+   "stick": 0,
+   "bytes": 2669,
+   "occupied_cells": 128,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1396,
+     "triangles": 698
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 604,
+     "triangles": 302
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 208,
+     "triangles": 104
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 72,
+     "triangles": 36
+    }
+   ],
+   "generation": {
+    "Key": "wetland-pink-lily-stages",
+    "Seed": 271828,
+    "Family": "wetland",
+    "Habitat": "tropical freshwater pond",
+    "SourceSha256": "ca6f700db32717c8c381d653fae4b13df0b3760bdf9aaa0a8bc52aed293a1976",
+    "cells": 128
+   }
+  },
+  {
+   "id": 468,
+   "name": "Lab wetland-rush 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 167,
+   "stick": 42,
+   "bytes": 3749,
+   "occupied_cells": 209,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2500,
+     "triangles": 1250
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 768,
+     "triangles": 384
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 280,
+     "triangles": 140
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 108,
+     "triangles": 54
+    }
+   ],
+   "generation": {
+    "Key": "wetland-rush",
+    "Seed": 714103,
+    "Family": "groundcover",
+    "Habitat": "wetland",
+    "SourceSha256": "79f44f398c24363b9b7cd3e1d14dd84b79c790c8f26411e6d4b9bd43c7b73813",
+    "cells": 209
+   }
+  },
+  {
+   "id": 469,
+   "name": "Lab wetland-rush 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 158,
+   "stick": 49,
+   "bytes": 3704,
+   "occupied_cells": 207,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2468,
+     "triangles": 1234
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 800,
+     "triangles": 400
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 324,
+     "triangles": 162
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 108,
+     "triangles": 54
+    }
+   ],
+   "generation": {
+    "Key": "wetland-rush",
+    "Seed": 271828,
+    "Family": "groundcover",
+    "Habitat": "wetland",
+    "SourceSha256": "fa954fc4c2527c7a793a77aaa7b2e8c928e2f155d7b6033d9e77419f0cfa6546",
+    "cells": 207
+   }
+  },
+  {
+   "id": 470,
+   "name": "Lab wetland-white-lily 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 182,
+   "stick": 0,
+   "bytes": 3347,
+   "occupied_cells": 182,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1960,
+     "triangles": 980
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 776,
+     "triangles": 388
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 236,
+     "triangles": 118
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 108,
+     "triangles": 54
+    }
+   ],
+   "generation": {
+    "Key": "wetland-white-lily",
+    "Seed": 714103,
+    "Family": "wetland",
+    "Habitat": "temperate freshwater pond",
+    "SourceSha256": "dcb2a09acf7645e12899605d4a9c64e3242c268cefafd49c04379f1d99867e17",
+    "cells": 182
+   }
+  },
+  {
+   "id": 471,
+   "name": "Lab wetland-white-lily 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 175,
+   "stick": 0,
+   "bytes": 3372,
+   "occupied_cells": 175,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1960,
+     "triangles": 980
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 816,
+     "triangles": 408
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 220,
+     "triangles": 110
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 72,
+     "triangles": 36
+    }
+   ],
+   "generation": {
+    "Key": "wetland-white-lily",
+    "Seed": 271828,
+    "Family": "wetland",
+    "Habitat": "temperate freshwater pond",
+    "SourceSha256": "18be36092d597261bff5cb50377e2f69c59778ba5627d0be7fb6efa4617835e6",
+    "cells": 175
+   }
+  },
+  {
+   "id": 472,
+   "name": "Lab willow-prostrate-catkins 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 47,
+   "stick": 35,
+   "bytes": 1703,
+   "occupied_cells": 82,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 948,
+     "triangles": 474
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 320,
+     "triangles": 160
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 164,
+     "triangles": 82
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 52,
+     "triangles": 26
+    }
+   ],
+   "generation": {
+    "Key": "willow-prostrate-catkins",
+    "Seed": 714103,
+    "Family": "alpine",
+    "Habitat": "alpine snowbed",
+    "SourceSha256": "542c8abf4f26d4c79494fff34111d46f8e2b8ba179121b2a2fb7a13027a2dac0",
+    "cells": 82
+   }
+  },
+  {
+   "id": 473,
+   "name": "Lab willow-prostrate-catkins 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 46,
+   "stick": 35,
+   "bytes": 1788,
+   "occupied_cells": 81,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 956,
+     "triangles": 478
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 372,
+     "triangles": 186
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 208,
+     "triangles": 104
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 64,
+     "triangles": 32
+    }
+   ],
+   "generation": {
+    "Key": "willow-prostrate-catkins",
+    "Seed": 271828,
+    "Family": "alpine",
+    "Habitat": "alpine snowbed",
+    "SourceSha256": "ec56ec6871a394c3d81f4b7756c03c1794e37a0a79c8ef967dc942589e38afa9",
+    "cells": 81
+   }
+  },
+  {
+   "id": 474,
+   "name": "Lab woodland-clover 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 132,
+   "stick": 0,
+   "bytes": 2484,
+   "occupied_cells": 132,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1700,
+     "triangles": 850
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 504,
+     "triangles": 252
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 160,
+     "triangles": 80
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 80,
+     "triangles": 40
+    }
+   ],
+   "generation": {
+    "Key": "woodland-clover",
+    "Seed": 714103,
+    "Family": "groundcover",
+    "Habitat": "woodland",
+    "SourceSha256": "22f9c88baeb2d24c374603a1c5495127992ae858299527318fa5e6e364edfb85",
+    "cells": 132
+   }
+  },
+  {
+   "id": 475,
+   "name": "Lab woodland-clover 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 128,
+   "stick": 0,
+   "bytes": 2461,
+   "occupied_cells": 128,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 1688,
+     "triangles": 844
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 488,
+     "triangles": 244
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 168,
+     "triangles": 84
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 80,
+     "triangles": 40
+    }
+   ],
+   "generation": {
+    "Key": "woodland-clover",
+    "Seed": 271828,
+    "Family": "groundcover",
+    "Habitat": "woodland",
+    "SourceSha256": "e4d201f0e699206b860d9c549337898a96db9c4e948d9bbeba7045db2123b941",
+    "cells": 128
+   }
+  },
+  {
+   "id": 476,
+   "name": "Lab yucca-basal-swords 0",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 245,
+   "stick": 0,
+   "bytes": 3974,
+   "occupied_cells": 245,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2496,
+     "triangles": 1248
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 828,
+     "triangles": 414
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 300,
+     "triangles": 150
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 120,
+     "triangles": 60
+    }
+   ],
+   "generation": {
+    "Key": "yucca-basal-swords",
+    "Seed": 714103,
+    "Family": "aridscrub",
+    "Habitat": "dry rocky grassland",
+    "SourceSha256": "2e94a2ca71fee676da58f2922daefcb96e0b1655149e61d332c312b264786183",
+    "cells": 245
+   }
+  },
+  {
+   "id": 477,
+   "name": "Lab yucca-basal-swords 1",
+   "kind": 1,
+   "hard": 0,
+   "leaf": 279,
+   "stick": 0,
+   "bytes": 4412,
+   "occupied_cells": 279,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 2928,
+     "triangles": 1464
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 836,
+     "triangles": 418
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 284,
+     "triangles": 142
+    },
+    {
+     "cell_m": 0.8,
+     "vertices": 128,
+     "triangles": 64
+    }
+   ],
+   "generation": {
+    "Key": "yucca-basal-swords",
+    "Seed": 271828,
+    "Family": "aridscrub",
+    "Habitat": "dry rocky grassland",
+    "SourceSha256": "0315841b9bbc2a6f7d5f420dd53c4ab6298d3ab140a8f4d34d02808edf872bf8",
+    "cells": 279
+   }
+  },
+  {
+   "id": 478,
+   "name": "Lab yucca-trunk-skirt 0",
+   "kind": 0,
+   "hard": 157,
+   "leaf": 276,
+   "stick": 60,
+   "bytes": 7485,
+   "occupied_cells": 493,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 4848,
+     "triangles": 2424
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1572,
+     "triangles": 786
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 600,
+     "triangles": 300
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 96,
+     "triangles": 48
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "yucca-trunk-skirt",
+    "Seed": 714103,
+    "Family": "aridscrub",
+    "Habitat": "warm dry scrub",
+    "SourceSha256": "12ae9983dc84c6604ad001f9542d20ad653c0246b1f618c2f20b4ad59ca29887",
+    "cells": 493
+   }
+  },
+  {
+   "id": 479,
+   "name": "Lab yucca-trunk-skirt 1",
+   "kind": 0,
+   "hard": 138,
+   "leaf": 296,
+   "stick": 58,
+   "bytes": 6817,
+   "occupied_cells": 492,
+   "lods": [
+    {
+     "cell_m": 0.1,
+     "vertices": 4652,
+     "triangles": 2326
+    },
+    {
+     "cell_m": 0.2,
+     "vertices": 1240,
+     "triangles": 620
+    },
+    {
+     "cell_m": 0.4,
+     "vertices": 424,
+     "triangles": 212
+    },
+    {
+     "cell_m": 1.6,
+     "vertices": 88,
+     "triangles": 44
+    },
+    {
+     "cell_m": 6.4,
+     "vertices": 24,
+     "triangles": 12
+    }
+   ],
+   "generation": {
+    "Key": "yucca-trunk-skirt",
+    "Seed": 271828,
+    "Family": "aridscrub",
+    "Habitat": "warm dry scrub",
+    "SourceSha256": "922a4fe354cdc8a65dadc1521853e329ad33d5c67b3f4ce0a878314334c943b2",
+    "cells": 492
+   }
+  }
+ ]
+}

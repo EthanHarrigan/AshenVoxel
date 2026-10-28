@@ -98,8 +98,35 @@ namespace AshenVoxel.WorldScale
     public sealed class ExplorationPrototypeReader:IDisposable
     {
         const int MaxRecordBytes=192*1024*1024,MaxPackBytes=192*1024*1024;
+        /// <summary>99 core prototypes plus foliage-lab models (IDs 300+).</summary>
+        public const int MaximumModels=512;
         readonly BinaryReader input;readonly HashSet<int> ids=new HashSet<int>();
         long expanded,decodedVertices,decodedIndices;
+        /// <summary>Number of records in the canonical core pack (IDs 0-299). Lab models append after them.</summary>
+        public const int CoreModels=99;
+        /// <summary>SHA-256 (lowercase hex) of the core prefix: magic, count=99 and the first 99 records
+        /// exactly as stored. Appended foliage-lab records never change it, so pinned tree, shrub and root
+        /// identities stay valid. Packs with 99 or fewer records hash in full (identical to plain SHA-256).</summary>
+        public static string CanonicalIdentity(byte[] bytes)
+        {
+            if(bytes==null||bytes.Length<12)return "";
+            int count=BitConverter.ToInt32(bytes,8);int end=bytes.Length;
+            if(count>CoreModels)
+            {
+                long position=12;
+                for(int i=0;i<CoreModels;i++)
+                {
+                    if(position+12>bytes.Length)return "";
+                    int packed=BitConverter.ToInt32(bytes,(int)position);if(packed<1)return "";
+                    position+=12L+packed;if(position>bytes.Length)return "";
+                }
+                end=(int)position;
+            }
+            var prefix=new byte[end];Buffer.BlockCopy(bytes,0,prefix,0,end);
+            if(count>CoreModels){byte[] c=BitConverter.GetBytes(CoreModels);Buffer.BlockCopy(c,0,prefix,8,4);}
+            using var sha=System.Security.Cryptography.SHA256.Create();var digest=sha.ComputeHash(prefix);
+            var text=new StringBuilder(64);foreach(byte b in digest)text.Append(b.ToString("x2",System.Globalization.CultureInfo.InvariantCulture));return text.ToString();
+        }
         public int FormatVersion {get;}
         public int Count {get;}
         public int ReadCount {get;private set;}
@@ -110,7 +137,7 @@ namespace AshenVoxel.WorldScale
             string magic=Encoding.ASCII.GetString(input.ReadBytes(8));
             FormatVersion=magic=="AVPM0001"?1:magic=="AVPM0002"?2:magic=="AVPM0003"?3:magic=="AVPM0004"?4:0;
             if(FormatVersion==0)throw new InvalidDataException("Unknown prototype pack format.");
-            Count=input.ReadInt32();if(Count<1||Count>128)throw new InvalidDataException("Invalid prototype count.");
+            Count=input.ReadInt32();if(Count<1||Count>MaximumModels)throw new InvalidDataException("Invalid prototype count.");
         }
         public bool TryRead(out ExplorationPrototype prototype)
         {

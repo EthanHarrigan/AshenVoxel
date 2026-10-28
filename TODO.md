@@ -16,6 +16,7 @@ Edit this list in place. Do not stack new dated sections on top.
   - Add one `Tools/run_all_checks.py` entry point.
 
 ## P1 — One real playtest (the single biggest gap)
+- [ ] First: stop/restart Play to compile the 2026-10-28 changes; follow the checklist in Docs/REPORT_2026-10-28.md.
 - [ ] One consolidated native Play session in the Exploration scene with other games closed.
   - Normal profile first, then the saved Maximum.
   - Record: loading stages, whether distant ground appears, frame time and hitches,
@@ -34,13 +35,13 @@ Edit this list in place. Do not stack new dated sections on top.
 
 ## P3 — Gameplay foundations
 - [ ] **Voxel floor near the player** (see below): bounded 10 cm ground plus a cheap voxel look in the distance.
-- [ ] Persistent edit and inventory ledger. Multiple active prop sessions.
+- [ ] Persistent edit and inventory ledger (saved across Play). Move-on/keep sessions done 2026-10-28.
+- [ ] Collision for kept (retired) broken remains; keep rooted redwood remains; breakable lab plants (300+ need replay recipes).
 - [ ] Arbitrary terrain excavation with sparse authoritative edits, plus collision and LOD invalidation.
 - [ ] R3: falling cubes collide with other props. R4: bee teardown.
 
 ## P4 — Optional adoptions (only on request)
-- [ ] Foliage lab: choose recipes and material behaviors, then integrate them into the prototype pack.
-  Needs native LOD, memory and FPS checks first.
+- [x] Foliage lab integrated into the pack and biomes (2026-10-28). Still needs native LOD/memory/FPS check (P1).
 - [ ] Hybrid worldgen experiment: a procedural intermediate field vs learned detail
   (Docs/HYBRID_WORLDGEN_FEASIBILITY_2026-10-27.md).
 - [ ] Microphysics: edit transactions, blasts, small reaction set, conserved water

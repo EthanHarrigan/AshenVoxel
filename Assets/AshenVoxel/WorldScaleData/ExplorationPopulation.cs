@@ -29,7 +29,7 @@ namespace AshenVoxel.WorldScale
     /// Source terrain/climate sampling is synchronous data only, never network/inference.</summary>
     public sealed class ExplorationPopulation
     {
-        public const int Version=1;
+        public const int Version=2;
         readonly SurfaceMaterialSampler surface;readonly int seed;
         public double TreeDensity=1,PlantDensity=.72,RockDensity=1;
         public ExplorationPopulation(SurfaceMaterialSampler surface,int seed){this.surface=surface??throw new ArgumentNullException(nameof(surface));this.seed=seed;}
@@ -54,6 +54,11 @@ namespace AshenVoxel.WorldScale
                     float scale=1;
                     items.Add(new PopulationInstance(prototype,new WorldPoint(x,c.GroundHeightMeters-.05,z),(float)(ForestBiomes.Unit(ForestBiomes.Mix(h+43))*360),scale,h));
                 }
+                if(TreeDensity>0)
+                {
+                    candidates+=Infill(x0,z0,size,items);
+                    candidates+=Flora(FloraTier.Canopy,x0,z0,size,Clamp(TreeDensity,0,2),items);
+                }
             }
             else
             {
@@ -75,8 +80,72 @@ namespace AshenVoxel.WorldScale
                     else{prototype=p.Plant.Kind==PlantKind.Mushroom&&p.Plant.HeightMeters<=.10001?120:100+(int)p.Plant.Kind*2+(int)(h&1);scale=1;}
                     items.Add(new PopulationInstance(prototype,new WorldPoint(p.Anchor.Center.X,p.Anchor.Center.Y-.05,p.Anchor.Center.Z),(float)(ForestBiomes.Unit(ForestBiomes.Mix(h+61))*360),scale,h));
                 }
+                candidates+=key.Layer==2?Flora(FloraTier.Understory,x0,z0,size,Clamp(PlantDensity,0,2),items)
+                    :Flora(FloraTier.Midstory,x0,z0,size,Clamp(Math.Max(PlantDensity,RockDensity),0,2),items);
             }
             return new PopulationCell(key,items.ToArray(),candidates);
+        }
+        /// <summary>Young thickets: a second, offset 6/sqrt2 m grid that only fills where the stand
+        /// density exceeds what one tree per 6 m grid point can show. Age/thicket fields are tested
+        /// before any terrain sampling, so open and mature stands cost nothing.</summary>
+        int Infill(double x0,double z0,double size,List<PopulationInstance> items)
+        {
+            const double spacing=4.2426406871192848;int candidates=0;double density=Clamp(TreeDensity,0,2);
+            long ix0=(long)Math.Floor(x0/spacing)-1,ix1=(long)Math.Floor((x0+size)/spacing)+1,iz0=(long)Math.Floor(z0/spacing)-1,iz1=(long)Math.Floor((z0+size)/spacing)+1;
+            for(long iz=iz0;iz<=iz1;iz++)for(long ix=ix0;ix<=ix1;ix++)
+            {
+                ulong h=ForestBiomes.Hash(ix,iz,unchecked(seed+70001));
+                double x=(ix+.5+(ForestBiomes.Unit(ForestBiomes.Mix(h+7))-.5)*.7)*spacing,z=(iz+.5+(ForestBiomes.Unit(ForestBiomes.Mix(h+13))-.5)*.7)*spacing;
+                if(x<x0||x>=x0+size||z<z0||z>=z0+size)continue;
+                if(ForestBiomes.Noise(x/3700,z/3700,unchecked(seed+211))>=.46||ForestBiomes.Noise(x/760,z/760,unchecked(seed+331))<=.5)continue;
+                double u=ForestBiomes.Unit(ForestBiomes.Mix(h+31));if(u>=.85)continue;
+                candidates++;SurfaceColumn c=surface.EvaluateColumn(x,z);ForestStand stand=ForestBiomes.Sample(c,x,z,seed);
+                if(!stand.HasTrees||stand.Stage!=ForestStage.YoungDense||u>=Math.Min(.85,(stand.Density*density-.7)*.9))continue;
+                int prototype=(int)stand.Species*4+(int)(ForestBiomes.Mix(h+37)&1);
+                items.Add(new PopulationInstance(prototype,new WorldPoint(x,c.GroundHeightMeters-.05,z),(float)(ForestBiomes.Unit(ForestBiomes.Mix(h+43))*360),1,h));
+            }
+            return candidates;
+        }
+        /// <summary>Biome community flora from the foliage lab (IDs 300+). Candidates are rejected by
+        /// the tier's largest possible fill before the column is sampled.</summary>
+        int Flora(FloraTier tier,double x0,double z0,double size,double density,List<PopulationInstance> items)
+        {
+            if(density<=0)return 0;
+            double spacing=tier==FloraTier.Understory?BiomeFlora.UnderstorySpacing:tier==FloraTier.Midstory?BiomeFlora.MidstorySpacing:BiomeFlora.CanopySpacing;
+            // Communities follow landform at metre-to-decametre scale; classify once per block and
+            // take each candidate's exact ground height from the base field (one sample).
+            double block=tier==FloraTier.Understory?4:tier==FloraTier.Midstory?6:0;
+            int salt=tier==FloraTier.Understory?80021:tier==FloraTier.Midstory?80039:80051;int candidates=0;double ceiling=BiomeFlora.MaximumFill[(int)tier]*density;
+            long ix0=(long)Math.Floor(x0/spacing)-1,ix1=(long)Math.Floor((x0+size)/spacing)+1,iz0=(long)Math.Floor(z0/spacing)-1,iz1=(long)Math.Floor((z0+size)/spacing)+1;
+            Dictionary<long,(SurfaceColumn column,FloraCommunity community)> blocks=block>0?new Dictionary<long,(SurfaceColumn,FloraCommunity)>():null;
+            double sea=surface.Profile.SeaLevelMeters;
+            for(long iz=iz0;iz<=iz1;iz++)for(long ix=ix0;ix<=ix1;ix++)
+            {
+                ulong h=ForestBiomes.Hash(ix,iz,unchecked(seed+salt));
+                double x=(ix+.1+ForestBiomes.Unit(ForestBiomes.Mix(h+7))*.8)*spacing,z=(iz+.1+ForestBiomes.Unit(ForestBiomes.Mix(h+13))*.8)*spacing;
+                if(x<x0||x>=x0+size||z<z0||z>=z0+size)continue;
+                double u=ForestBiomes.Unit(ForestBiomes.Mix(h+31));if(u>=ceiling)continue;
+                candidates++;SurfaceColumn c;FloraCommunity community;double ground;
+                if(blocks!=null)
+                {
+                    long bx=(long)Math.Floor(x/block),bz=(long)Math.Floor(z/block),bk=unchecked(bx*73856093L^bz*19349663L);
+                    if(!blocks.TryGetValue(bk,out var entry))
+                    {
+                        double cx=(bx+.5)*block,cz=(bz+.5)*block;SurfaceColumn bc=surface.EvaluateColumn(cx,cz);
+                        entry=(bc,BiomeFlora.Classify(bc,cx,cz,seed));blocks.Add(bk,entry);
+                    }
+                    c=entry.column;community=entry.community;if(community==FloraCommunity.None)continue;
+                    ground=surface.BaseField.Sample(x,z).HeightMeters;
+                    // A block straddling the shoreline never puts sea plants on land or land plants in the sea.
+                    if(BiomeFlora.IsMarine(community)?ground>sea-.25:ground<sea)continue;
+                }
+                else{c=surface.EvaluateColumn(x,z);community=BiomeFlora.Classify(c,x,z,seed);ground=c.GroundHeightMeters;}
+                FloraSite site=BiomeFlora.Site(community,x,z,seed);
+                int prototype=BiomeFlora.Pick(tier,site,c,u,ForestBiomes.Unit(ForestBiomes.Mix(h+37)),ForestBiomes.Mix(h+41),density);
+                if(prototype<0)continue;
+                items.Add(new PopulationInstance(prototype,new WorldPoint(x,ground-.05,z),(float)(ForestBiomes.Unit(ForestBiomes.Mix(h+43))*360),1,h));
+            }
+            return candidates;
         }
         static double Clamp(double x,double a,double b){if(double.IsNaN(x)||double.IsInfinity(x))return a;return Math.Max(a,Math.Min(b,x));}
     }

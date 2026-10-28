@@ -73,7 +73,7 @@ namespace AshenVoxel.Exploration
         void InitializeRoots(IWorldField bare,byte[] pack)
         {
             rootClosed=false;rootField=bare;rootUploader=new UnityMeshUpload(Thread.CurrentThread.ManagedThreadId);rootNextId=0;rootLastScan=Now-1000000;
-            PrototypePackIdentity=Policy.Hash(pack);
+            PrototypePackIdentity=ExplorationPrototypeReader.CanonicalIdentity(pack);
             if(!EnableGroundedRoots){GroundedRootStatus="Disabled";return;}
             if(PrototypePackIdentity!=RootPackIdentity){GroundedRootStatus="Canonical pack differs; authored roots retained";return;}
             foreach(int id in new[]{10,11})

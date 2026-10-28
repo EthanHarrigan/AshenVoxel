@@ -46,6 +46,7 @@ namespace AshenVoxel.Exploration
         Material previousSky;
         float previousShadowDistance;
         WorldPoint spawn;
+        readonly ExplorationFloraTour floraTour=new ExplorationFloraTour();
         ExplorationDistantRockPatch distantRocks;
         public ExplorationDistantRockPatch DistantRockPatch=>distantRocks;
         AshenVoxel.WildlifeDraft.ExplorationBeePatch bees;
@@ -266,6 +267,7 @@ namespace AshenVoxel.Exploration
             if(keys!=null&&keys.escapeKey.wasPressedThisFrame&&settingsOpen){settingsOpen=false;if(Player!=null)Player.SetInputEnabled(Ready);}
             if(keys!=null&&keys.hKey.wasPressedThisFrame)showHud=!showHud;
             if(Ready&&Time.unscaledTime>=nextApply){ApplyRuntimeSettings(false);nextApply=Time.unscaledTime+.5f;}
+            if(Ready&&floraTour.Searching){WorldPoint? found=floraTour.Poll();if(found.HasValue){Player.ResetAt(found.Value);Vista.ForceReplan();}}
         }
         void LateUpdate()
         {
@@ -336,7 +338,7 @@ namespace AshenVoxel.Exploration
             Population.RedwoodDetailDistance=ActiveSettings.RedwoodFullDetailMeters;
             Population.GroundCoverDistance=ActiveSettings.GroundCoverDistanceMeters;Population.RockDistance=ActiveSettings.RockDistanceMeters;
             Population.TreeDensity=ActiveSettings.TreeDensity;Population.PlantDensity=ActiveSettings.GroundCoverDensity;Population.RockDensity=1;
-            Population.TriangleBudget=ActiveSettings.VegetationTriangleBudget;Population.MaxInstances=Mathf.Clamp(ActiveSettings.MaximumResidentInstances,2000,60000);
+            Population.TriangleBudget=ActiveSettings.VegetationTriangleBudget;Population.MaxInstances=Mathf.Clamp(ActiveSettings.MaximumResidentInstances,2000,150000);
             Population.WorkMilliseconds=ActiveSettings.PopulationBuildMilliseconds;
         }
         void ApplyCamera()
@@ -442,6 +444,12 @@ namespace AshenVoxel.Exploration
 #endif
             if(GUILayout.Button("Save these options"))SaveOptions();
             if(GUILayout.Button("Return to starting clearing")){Player.ResetAt(spawn);Vista.ForceReplan();}
+            GUILayout.BeginHorizontal();
+            if(GUILayout.Button("Flora tour: "+floraTour.Target+" (click to change)"))floraTour.Next();
+            if(GUILayout.Button(floraTour.Searching?"Searching…":"Travel to nearest",GUILayout.Width(170))&&!floraTour.Searching)
+                floraTour.Begin(WorldField,ActiveSettings.Surface(),ActiveSettings.Seed,Player.Feet,Source.WorldWidthMeters*.5,Source.WorldDepthMeters*.5);
+            GUILayout.EndHorizontal();
+            if(floraTour.Status.Length>0)GUILayout.Label(floraTour.Status,text);
             GUILayout.Label(optionsNotice,text);
             bool live=GUILayout.Toggle(ActiveSettings.EnableLiveRefinement,"Use local InfiniteDiffusion refinement service");
             if(live!=ActiveSettings.EnableLiveRefinement){ActiveSettings.EnableLiveRefinement=live;LiveRefinement.SetEnabled(live);}

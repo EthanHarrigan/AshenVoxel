@@ -16,6 +16,30 @@ namespace AshenVoxel.Exploration
     public sealed class ExplorationNaturalTreeMatter:MonoBehaviour,IShrubMatterOwner
     {
         sealed class Activation {public VoxelWorld World;public Int3 Anchor;public NaturalTreePhysics Physics;}
+        /// <summary>A broken specimen the player has moved on from. Its original stays harvested
+        /// (hidden) in the registry; its remaining matter keeps settling for a while, then freezes
+        /// as a static mesh until it is far away or the retained-matter budget is exceeded.</summary>
+        sealed class Retired
+        {
+            public NaturalTreePhysics Physics;public NaturalMatterRenderer Renderer;public NaturalMatterRigidBodies Bodies;
+            public WorldPoint Instance;public float Since,SettledSince=-1;public bool Frozen;
+            public readonly Dictionary<Int3,float> Ground=new Dictionary<Int3,float>();
+            public readonly Queue<Int3> Queue=new Queue<Int3>();public readonly HashSet<Int3> Pending=new HashSet<Int3>();
+            public float Height(float x,float z)
+            {
+                var key=new Int3((int)Math.Floor(x*10),0,(int)Math.Floor(z*10));
+                if(Ground.TryGetValue(key,out float h))return h;
+                if(Ground.Count+Pending.Count<65536&&Pending.Count<2048&&Pending.Add(key))Queue.Enqueue(key);
+                return float.NaN;
+            }
+        }
+        readonly List<Retired> retired=new List<Retired>();bool lastLeaseHadRoot;
+        readonly long[] banked=new long[256];
+        const int MaximumSettling=3,MaximumRetained=48;const long MaximumRetainedCells=1500000;
+        const float SettleSeconds=15,RetireDistance=18,DropRetention=.6f;
+        float queuedPunchUntil,nextPrewarm;readonly int[] prewarmIds=new int[8];
+        public int RetiredSessions=>retired.Count;
+        public int HarvestedSpecimens=>registry?.HarvestedCount??0;
         ExplorationBootstrap boot;VegetationStreaming registry;VegetationStreaming.ShrubLease lease;
         NaturalTreePhysics physics;VoxelWorld world;Int3 anchor;WorldPoint instance;
         NaturalMatterRenderer matterRenderer;Task<Activation> preparation,drainingPreparation;
@@ -26,12 +50,14 @@ namespace AshenVoxel.Exploration
         readonly Queue<Int3> groundQueue=new Queue<Int3>();readonly HashSet<Int3> groundPending=new HashSet<Int3>();
         bool groundBounds;float groundMinX,groundMinZ,groundMaxX,groundMaxZ;
         bool requested,active,restoring,pendingFirstCut;
-        bool approached;
+        bool approached;float activationStarted;
+        /// <summary>Seconds from reserving a specimen to its matter becoming breakable (last session).</summary>
+        public float FirstCutLatency {get;private set;}
         readonly NaturalMatterBreakInput breakInput=new NaturalMatterBreakInput();
         float statusUntil,nextApproach,lastApproachAim,breakIndicatorUntil;
         bool breakIndicatorAccepted;string breakIndicator;
         const float ApproachReach=12,ApproachInterval=.35f,ApproachRetention=2;
-        string status="Tap LMB to break; hold and aim to keep breaking | automatic pickup | O: undo session";
+        string status="Tap LMB to break; punch the next specimen to move on | automatic pickup | O: undo current";
         public bool ShowBetaHud=true;
         public string Status=>status;
         public bool SessionActive=>active;
@@ -55,7 +81,11 @@ namespace AshenVoxel.Exploration
         public int ExplicitKickCommands {get;private set;}
         public bool ConservationIntact=>physics==null||physics.Conserved;
         public bool SuctionEnabled {get=>physics!=null&&physics.SuctionEnabled;set{if(physics!=null)physics.SuctionEnabled=value;}}
-        public long InventoryCount(MaterialId material)=>physics?.Collected(material)??0;
+        public long InventoryCount(MaterialId material)
+        {
+            long total=banked[(int)material]+(physics?.Collected(material)??0);
+            foreach(var r in retired)if(r.Physics!=null)total+=r.Physics.Collected(material);return total;
+        }
         public static ExplorationNaturalTreeMatter Attach(ExplorationBootstrap boot)
         {
             if(boot==null)throw new ArgumentNullException(nameof(boot));var result=boot.GetComponent<ExplorationNaturalTreeMatter>();
@@ -66,6 +96,8 @@ namespace AshenVoxel.Exploration
         {breakIndicatorAccepted=accepted;breakIndicator=label;breakIndicatorUntil=Time.unscaledTime+.25f;}
         void ResetBreakInput(){breakInput.Reset();pendingFirstCut=false;breakIndicatorUntil=0;}
         bool BreakReady=>active&&!restoring&&physics!=null&&physics.PendingSupport==0&&physics.PendingCuts==0&&matterRenderer!=null&&matterRenderer.Current;
+        // Speculatively prepared (approach) matter: complete, still invisible, original untouched.
+        bool PreparedUnclaimed=>lease!=null&&!requested&&!restoring&&!active&&physics!=null&&matterRenderer!=null&&matterRenderer.Ready&&rigidBodies!=null&&rigidBodies.Ready;
         bool PackMatches()
         {
             // Loading already verifies the same immutable bytes. Do not clone and
@@ -84,7 +116,7 @@ namespace AshenVoxel.Exploration
             if(!reserved)return false;
             if(!registry.TryGetNaturalMatterRenderSource(lease,out renderSource))
             {registry.RestoreShrub(lease);if(!approach)Feedback("Waiting for the nearby specimen's surface");return false;}
-            instance=lease.Instance.Position;pendingFirstCut=aimed&&!approach;approached=approach;lastApproachAim=Time.unscaledTime;
+            instance=lease.Instance.Position;pendingFirstCut=aimed&&!approach;activationStarted=Time.unscaledTime;approached=approach;lastApproachAim=Time.unscaledTime;
             if(!registry.TryPrepareLeasedMatterAsync(lease,out var template,out string reason)){registry.RestoreShrub(lease);Feedback(reason);return false;}
             float yaw=lease.Instance.YawDegrees*Mathf.Deg2Rad;
             preparation=Task.Run(async ()=>
@@ -111,7 +143,7 @@ namespace AshenVoxel.Exploration
             if(!approached||physics!=null&&physics.HasCut)return;
             var f=boot.Vista.MainCamera.transform.forward;
             if(registry.NaturalMatterLeaseAimed(lease,boot.Player.Eye,new WorldPoint(f.x,f.y,f.z),ApproachReach))lastApproachAim=Time.unscaledTime;
-            else if(!pendingFirstCut&&Time.unscaledTime-lastApproachAim>=ApproachRetention)Restore();
+            else if(!pendingFirstCut&&Time.unscaledTime>=queuedPunchUntil&&Time.unscaledTime-lastApproachAim>=(requested?ApproachRetention:DropRetention))Restore();
         }
         NV Relative(WorldPoint p)=>new NV((float)(p.X-instance.X),(float)(p.Y-instance.Y),(float)(p.Z-instance.Z));
         static NV Numeric(Vector3 p)=>new NV(p.x,p.y,p.z);
@@ -135,12 +167,20 @@ namespace AshenVoxel.Exploration
         // same entrypoint; source publication and retirement already call it.
         public void NotifyTerrainChanged(ExplorationRefinementBounds bounds)
         {
-            if(physics==null)return;
+            NotifyRetired(bounds);if(physics==null)return;
             float minX=(float)(bounds.MinimumX-instance.X),minZ=(float)(bounds.MinimumZ-instance.Z);
             float maxX=(float)(bounds.MaximumX-instance.X),maxZ=(float)(bounds.MaximumZ-instance.Z);
             if(groundBounds&&maxX>=groundMinX-.1f&&minX<=groundMaxX+.1f&&maxZ>=groundMinZ-.1f&&minZ<=groundMaxZ+.1f)
                 ground.Clear(); // Bounded cache; queued samples read the current surface when serviced.
             physics.NotifyTerrainChanged(minX,minZ,maxX,maxZ);
+        }
+        void NotifyRetired(ExplorationRefinementBounds bounds)
+        {
+            foreach(var r in retired)
+            {
+                if(r.Physics==null||r.Frozen)continue;r.Ground.Clear();
+                r.Physics.NotifyTerrainChanged((float)(bounds.MinimumX-r.Instance.X),(float)(bounds.MinimumZ-r.Instance.Z),(float)(bounds.MaximumX-r.Instance.X),(float)(bounds.MaximumZ-r.Instance.Z));
+            }
         }
         void CaptureGround()
         {
@@ -180,8 +220,17 @@ namespace AshenVoxel.Exploration
                 if(active&&!restoring)physics.StepSupport(32768,1.25);
                 var offset=RenderOffset();matterRenderer.Tick(offset);matterRenderer.UpdateBreakFeedback(Time.unscaledTime);rigidBodies?.Tick(offset,matterRenderer.Current);CaptureGround();
                 if(rigidBodies?.Error!=null||matterRenderer.Error!=null){Feedback("Original retained: "+(rigidBodies?.Error??matterRenderer.Error));Restore();}
-                if(!requested&&!restoring&&matterRenderer.Ready&&rigidBodies!=null&&rigidBodies.Ready){requested=true;if(!registry.RequestShrubOwnership(lease))Restore();}
+                if(!requested&&!restoring&&matterRenderer.Ready&&rigidBodies!=null&&rigidBodies.Ready&&(!approached||pendingFirstCut||Time.unscaledTime<queuedPunchUntil))
+                {requested=true;if(!registry.RequestShrubOwnership(lease))Restore();}
             }
+            TickRetired();PrewarmNearby();
+            if(lease!=null&&active&&!restoring&&physics!=null&&physics.HasCut&&boot.Player!=null)
+            {
+                double dx=boot.Player.Feet.X-instance.X,dz=boot.Player.Feet.Z-instance.Z;
+                if(dx*dx+dz*dz>RetireDistance*RetireDistance)Retire();
+            }
+            // A tap that arrived while matter was still preparing is honoured once it is ready.
+            if(Time.unscaledTime<queuedPunchUntil&&BreakReady&&!(Mouse.current!=null&&Mouse.current.leftButton.isPressed)){queuedPunchUntil=0;CutTrunk();}
             if(boot.Player==null||!boot.Player.InputEnabled){ResetBreakInput();return;}
             var keys=Keyboard.current;
             if(keys!=null)
@@ -194,18 +243,39 @@ namespace AshenVoxel.Exploration
             var mouse=Mouse.current;
             bool inputEnabled=mouse!=null&&Application.isFocused&&Cursor.lockState==CursorLockMode.Locked&&!restoring;
             var intent=breakInput.Poll(mouse!=null&&mouse.leftButton.wasPressedThisFrame,mouse!=null&&mouse.leftButton.isPressed,
-                inputEnabled,lease==null||BreakReady,Time.unscaledTime);
+                inputEnabled,lease==null||BreakReady||PreparedUnclaimed||SwitchReady(mouse),Time.unscaledTime);
             if(!inputEnabled){pendingFirstCut=false;breakIndicatorUntil=0;}
-            if(intent==NaturalMatterBreakIntent.Attempt)CutTrunk();
+            if(intent==NaturalMatterBreakIntent.Attempt){queuedPunchUntil=0;CutTrunk();}
             else if(intent==NaturalMatterBreakIntent.Waiting)
             {
                 BreakIndicator(false,active?"Updating cut":"Preparing matter");
+                if(mouse.leftButton.wasPressedThisFrame)queuedPunchUntil=Time.unscaledTime+3f;
                 if(mouse.leftButton.wasPressedThisFrame)Feedback(active?"Finishing the visible cut; hold LMB to continue at your current aim":"Preparing exact matter; hold LMB to break when ready");
             }
         }
+        // While working on one specimen, a punch aimed at a different one moves on immediately.
+        bool SwitchReady(Mouse mouse)=>mouse!=null&&mouse.leftButton.wasPressedThisFrame&&lease!=null&&!restoring&&(active&&physics!=null&&physics.HasCut||PreparedUnclaimed)&&AimsElsewhere();
+        bool AimsElsewhere()
+        {
+            if(registry==null||boot.Player==null)return false;var f=boot.Vista.MainCamera.transform.forward;var dir=new WorldPoint(f.x,f.y,f.z);
+            if(registry.NaturalMatterLeaseAimed(lease,boot.Player.Eye,dir,NaturalMatterPunch.Reach))return false;
+            return registry.AimsAtOtherNaturalMatter(boot.Player.Eye,dir,lease);
+        }
         public bool CutTrunk()
         {
-            if(lease==null){bool preparing=Activate(true);if(preparing)BreakIndicator(false,"Preparing matter");return preparing;}
+            if(lease!=null&&!restoring&&(active&&physics!=null&&physics.HasCut||PreparedUnclaimed)&&AimsElsewhere())
+            {
+                // Keep what was broken, release the slot, and start on the specimen under the crosshair.
+                if(active)Retire();else Restore();
+                if(lease!=null){queuedPunchUntil=Time.unscaledTime+3f;return false;}
+            }
+            if(lease==null){bool preparing=Activate(true);if(preparing){BreakIndicator(false,"Preparing matter");queuedPunchUntil=Time.unscaledTime+3f;}return preparing;}
+            if(PreparedUnclaimed)
+            {
+                // Claim the speculatively prepared specimen; the registry swaps it in this frame.
+                requested=true;if(!registry.RequestShrubOwnership(lease)){Restore();return false;}
+                if(!BreakReady){queuedPunchUntil=Time.unscaledTime+3f;BreakIndicator(false,"Preparing matter");return false;}
+            }
             if(!active||restoring)
             {
                 if(!restoring&&approached)
@@ -239,7 +309,7 @@ namespace AshenVoxel.Exploration
                 active=true;matterRenderer.SetVisible(true);Feedback("Breakable matter active; nearby debris collects automatically");
                 // Readiness is not a second input path. The normal Update gate
                 // continues only a live held gesture, using current aim/reach.
-                pendingFirstCut=false;
+                pendingFirstCut=false;FirstCutLatency=Time.unscaledTime-activationStarted;
             }
             else
             {
@@ -257,6 +327,74 @@ namespace AshenVoxel.Exploration
             if(lease==null||boot.Player==null)return true;var p=boot.Player.Feet;
             return !SourceBox(p.X-.3,p.Y,p.Z-.3,p.X+.3,p.Y+1.8,p.Z+.3,true);
         }
+        /// <summary>Move on from the current broken specimen without undoing it.</summary>
+        public bool Retire()
+        {
+            if(lease==null||!active||restoring||physics==null||!physics.HasCut||matterRenderer==null)return false;
+            lastLeaseHadRoot=lease.NaturalRoot!=null;
+            var r=new Retired{Physics=physics,Renderer=matterRenderer,Bodies=rigidBodies,Instance=instance,Since=Time.unscaledTime};
+            physics.TerrainHeight=r.Height;
+            // Detach before the registry closes the lease, so the close does not dispose the matter.
+            physics=null;matterRenderer=null;rigidBodies=null;world=null;
+            if(!registry.CommitShrub(lease))
+            {
+                physics=r.Physics;matterRenderer=r.Renderer;rigidBodies=r.Bodies;physics.TerrainHeight=GroundHeight;return false;
+            }
+            // Grounded-root parts are borrowed from root caches that may retire; do not keep drawing them.
+            if(r.Renderer!=null&&lastLeaseHadRoot){DisposeRetired(r);Feedback("Moved on; broken specimen kept");return true;}
+            retired.Add(r);Feedback("Moved on; broken specimen kept ("+retired.Count+" kept nearby)");return true;
+        }
+        void DisposeRetired(Retired r)
+        {
+            if(r.Physics!=null)for(int m=1;m<MaterialCatalog.Count;m++)banked[m]+=r.Physics.Collected((MaterialId)m);
+            r.Bodies?.Dispose();r.Bodies=null;r.Renderer?.Dispose();r.Renderer=null;r.Physics=null;
+        }
+        void TickRetired()
+        {
+            if(retired.Count==0||boot.Vista==null)return;var origin=boot.Vista.RenderOrigin;var sampler=boot.Vista.SurfaceSampler;
+            int settling=0;long cells=0;long started=Stopwatch.GetTimestamp();
+            for(int i=retired.Count-1;i>=0;i--)
+            {
+                var r=retired[i];
+                double x=r.Instance.X-origin.X,y=r.Instance.Y-origin.Y,z=r.Instance.Z-origin.Z;
+                if(Math.Abs(x)>2000||Math.Abs(z)>2000||Math.Abs(y)>2000||r.Renderer==null||r.Renderer.Error!=null){DisposeRetired(r);retired.RemoveAt(i);continue;}
+                var offset=new Vector3((float)x,(float)y,(float)z);
+                if(!r.Frozen)
+                {
+                    bool settled=r.Physics.IslandCells==0&&r.Physics.AwakeDebris==0&&r.Physics.PendingSupport==0;
+                    if(settled&&r.SettledSince<0)r.SettledSince=Time.unscaledTime;else if(!settled)r.SettledSince=-1;
+                    if(++settling>MaximumSettling||Time.unscaledTime-r.Since>SettleSeconds||r.SettledSince>=0&&Time.unscaledTime-r.SettledSince>2)
+                    {r.Frozen=true;r.Bodies?.Dispose();r.Bodies=null;}
+                }
+                if(!r.Frozen)
+                {
+                    r.Physics.StepSupport(8192,.4);
+                    if(sampler!=null)for(int budget=0;r.Queue.Count>0&&budget<32;budget++)
+                    {
+                        if((Stopwatch.GetTimestamp()-started)*1000.0/Stopwatch.Frequency>=.5)break;
+                        var key=r.Queue.Dequeue();r.Pending.Remove(key);
+                        var column=sampler.EvaluateColumn(r.Instance.X+(key.x+.5)*.1,r.Instance.Z+(key.z+.5)*.1);
+                        r.Ground[key]=(float)(VoxelTerrainPage.SurfaceTop(column.SurfaceHeightMeters)-r.Instance.Y);
+                    }
+                }
+                r.Renderer.Tick(offset);if(!r.Frozen)r.Bodies?.Tick(offset,r.Renderer.Current);
+                cells+=r.Physics.Count;
+                // Oldest frozen matter goes first when the retained budget is exceeded.
+                if(r.Frozen&&(i<retired.Count-MaximumRetained||cells>MaximumRetainedCells)){DisposeRetired(r);retired.RemoveAt(i);}
+            }
+        }
+        void PrewarmNearby()
+        {
+            if(Time.unscaledTime<nextPrewarm||boot.Player==null||boot.Population==null||NaturalTreeTemplate.Busy)return;nextPrewarm=Time.unscaledTime+.5f;
+            if(boot.Vista!=null&&boot.Vista.VoxelMemoryPressureBlocked)return;
+            int n=boot.Population.NearbyNaturalMatterIds(boot.Player.Feet,24,prewarmIds);
+            for(int i=0;i<n;i++)
+            {
+                int id=prewarmIds[i];
+                if(id>=8&&id<12&&i>1)continue; // redwoods are huge; only warm them when they are the nearest kinds
+                if(NaturalTreeTemplate.Prewarm(id))return;
+            }
+        }
         public void Restore()
         {
             ResetBreakInput();nextApproach=Time.unscaledTime+ApproachRetention;if(lease==null)return;restoring=true;
@@ -264,6 +402,12 @@ namespace AshenVoxel.Exploration
         }
         void FixedUpdate()
         {
+            if(boot!=null&&boot.Player!=null&&boot.Vista!=null&&boot.Vista.MainCamera!=null)foreach(var r in retired)
+            {
+                if(r.Frozen||r.Physics==null)continue;var eye=boot.Player.Eye;var f=boot.Vista.MainCamera.transform.forward;
+                r.Physics.Hand=new NV((float)(eye.X-r.Instance.X)+f.x*.55f,(float)(eye.Y-r.Instance.Y)+f.y*.55f,(float)(eye.Z-r.Instance.Z)+f.z*.55f);
+                r.Physics.MovementEnabled=r.Renderer!=null&&r.Renderer.Current;r.Bodies?.ReadBack(Time.fixedDeltaTime);r.Physics.Step(Time.fixedDeltaTime,0);
+            }
             if(!active||restoring||physics==null)return;
             physics.Hand=Relative(boot.Player.Eye)+Numeric(boot.Vista.MainCamera.transform.forward)*.55f;
             physics.MovementEnabled=matterRenderer!=null&&matterRenderer.Current;
@@ -316,7 +460,7 @@ namespace AshenVoxel.Exploration
             GUI.Label(new Rect(24,Screen.height-214,1010,24),status);
             string counts="Inventory:";for(int i=1;i<MaterialCatalog.Count;i++){long n=InventoryCount((MaterialId)i);if(n>0)counts+="  "+MaterialCatalog.Get((MaterialId)i).Name+" "+n;}
             GUI.Label(new Rect(24,Screen.height-187,1010,24),counts);
-            GUI.Label(new Rect(24,Screen.height-160,1010,24),"Tap LMB or hold and aim · 0.25 m sphere · 2.5 m reach | I toggle pickup | O undo session");
+            GUI.Label(new Rect(24,Screen.height-160,1010,24),"Tap LMB or hold and aim · 0.25 m sphere · 2.5 m reach · punch another specimen to move on | I pickup | O undo current");
             if(Cursor.lockState==CursorLockMode.Locked)
             {
                 float x=Screen.width*.5f,y=Screen.height*.5f;Color previous=GUI.color;
@@ -332,6 +476,6 @@ namespace AshenVoxel.Exploration
         }
         void OnEnable(){TrackTerrainChanges();}
         void OnDisable(){UntrackTerrainChanges();Restore();}
-        void OnDestroy(){UntrackTerrainChanges();Restore();rigidBodies?.Dispose();rigidBodies=null;matterRenderer?.Dispose();matterRenderer=null;}
+        void OnDestroy(){UntrackTerrainChanges();Restore();foreach(var r in retired)DisposeRetired(r);retired.Clear();rigidBodies?.Dispose();rigidBodies=null;matterRenderer?.Dispose();matterRenderer=null;}
     }
 }

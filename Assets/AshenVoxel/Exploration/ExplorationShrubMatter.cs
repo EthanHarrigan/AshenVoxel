@@ -50,7 +50,7 @@ namespace AshenVoxel.Exploration
             if(packChecked)return packValid;packChecked=true;
             if(boot.ActiveSettings==null||boot.ActiveSettings.PrototypePack==null)return false;
             byte[] bytes=boot.ActiveSettings.PrototypePack.bytes;
-            using(var sha=SHA256.Create())packValid=BitConverter.ToString(sha.ComputeHash(bytes)).Replace("-","").ToLowerInvariant()==PackPin;
+            packValid=ExplorationPrototypeReader.CanonicalIdentity(bytes)==PackPin;
             return packValid;
         }
         public bool BreakNearby()

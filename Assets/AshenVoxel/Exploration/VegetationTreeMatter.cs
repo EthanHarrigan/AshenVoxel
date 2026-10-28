@@ -22,7 +22,7 @@ namespace AshenVoxel.Exploration
                     double dx=point.X-instance.Position.X,dz=point.Z-instance.Position.Z,dy=point.Y-instance.Position.Y;
                     if(Math.Abs(dx)>8||Math.Abs(dz)>8)continue;
                     if(++visited>candidates){reason="Selection budget reached; original remains intact";return false;}
-                    if(!NaturalTreeTemplate.Supports(instance.PrototypeId)||instance.Scale!=1)continue;
+                    if(!NaturalTreeTemplate.Supports(instance.PrototypeId)||instance.Scale!=1||Harvested(cell.Data,instance))continue;
                     double distance=dx*dx+dy*dy+dz*dz;if(distance>=closest)continue;
                     closest=distance;selected=cell;best=instance;
                 }
@@ -50,9 +50,39 @@ namespace AshenVoxel.Exploration
         }
         bool TryReserveNaturalMatter(WorldPoint origin,WorldPoint direction,double reach,bool assisted,int candidates,IShrubMatterOwner owner,out ShrubLease lease,out string reason)
         {
-            lease=null;reason=assisted?"Aim at wood or rock within 2.5 m":"Aim at published tree or rock hard matter";
+            lease=null;
+            if(owner==null||HasReservedShrubMatter||shrubToken==long.MaxValue){reason="Matter slot busy";return false;}
+            if(!FindNaturalMatter(origin,direction,reach,assisted,candidates,null,out CachedCell selected,out PopulationInstance best,out reason))return false;
+            lease=new ShrubLease{Cell=selected.Data.Key,Instance=best,Epoch=selected.Epoch,OwnerCell=selected,Owner=owner,Source=rootField.SourceIdentity,Token=++shrubToken,NaturalRoot=SelectedRoot(selected.Data,best,false)};
+            shrubLease=lease;reason="Aimed complete specimen reserved; source remains visible while preparing";return true;
+        }
+        /// <summary>True when the punch footprint hits a breakable specimen other than <paramref name="except"/>
+        /// (used to move on from a broken specimen to the next one without undoing anything).</summary>
+        public bool AimsAtOtherNaturalMatter(WorldPoint origin,WorldPoint direction,ShrubLease except)
+            =>FindNaturalMatter(origin,direction,NaturalMatterPunch.Reach,true,100000,except,out _,out _,out _);
+        /// <summary>Distinct breakable prototype IDs near a point, nearest first (template prewarming).</summary>
+        public int NearbyNaturalMatterIds(WorldPoint point,double radius,int[] output)
+        {
+            int count=0;if(!Ready||output==null)return 0;var best=new System.Collections.Generic.Dictionary<int,double>();
+            for(int layer=0;layer<3;layer++)
+            {
+                double size=layer==2?16:64;long x0=(long)Math.Floor((point.X-radius)/size),x1=(long)Math.Floor((point.X+radius)/size),z0=(long)Math.Floor((point.Z-radius)/size),z1=(long)Math.Floor((point.Z+radius)/size);
+                for(long z=z0;z<=z1;z++)for(long x=x0;x<=x1;x++)if(cells.TryGetValue(new PopulationKey(x,z,layer),out var cell)&&cell.Published)
+                    foreach(var instance in cell.Data.Instances)
+                    {
+                        if(!NaturalTreeTemplate.Supports(instance.PrototypeId)||instance.Scale!=1)continue;
+                        double dx=point.X-instance.Position.X,dz=point.Z-instance.Position.Z,d=dx*dx+dz*dz;if(d>radius*radius)continue;
+                        if(!best.TryGetValue(instance.PrototypeId,out double old)||d<old)best[instance.PrototypeId]=d;
+                    }
+            }
+            foreach(var pair in System.Linq.Enumerable.OrderBy(best,p=>p.Value)){if(count==output.Length)break;output[count++]=pair.Key;}
+            return count;
+        }
+        bool FindNaturalMatter(WorldPoint origin,WorldPoint direction,double reach,bool assisted,int candidates,ShrubLease except,out CachedCell found,out PopulationInstance foundInstance,out string reason)
+        {
+            found=null;foundInstance=default;reason=assisted?"Aim at wood or rock within 2.5 m":"Aim at published tree or rock hard matter";
             double length=Math.Sqrt(direction.X*direction.X+direction.Y*direction.Y+direction.Z*direction.Z);
-            if(!Ready||owner==null||HasReservedShrubMatter||candidates<1||candidates>100000||rootField==null||shrubToken==long.MaxValue||!Finite(origin.X)||!Finite(origin.Y)||!Finite(origin.Z)||!Finite(length)||length<1e-9||!Finite(reach)||reach<=0||reach>12)return false;
+            if(!Ready||candidates<1||candidates>100000||rootField==null||!Finite(origin.X)||!Finite(origin.Y)||!Finite(origin.Z)||!Finite(length)||length<1e-9||!Finite(reach)||reach<=0||reach>12)return false;
             double dx=direction.X/length,dy=direction.Y/length,dz=direction.Z/length,closest=reach,assistedClosest=NaturalMatterPunch.RayReach(1);int visited=0;
             var aim=new System.Numerics.Vector3((float)dx,(float)dy,(float)dz);
             CachedCell selected=null,assistedSelected=null;PopulationInstance best=default,assistedBest=default;
@@ -69,6 +99,7 @@ namespace AshenVoxel.Exploration
                     // Bound registry scanning, including non-targets: never choose from a partial scan.
                     if(++visited>candidates){reason="Aim selection budget reached; original remains intact";return false;}
                     if(!NaturalTreeTemplate.Supports(instance.PrototypeId)||instance.Scale!=1||!models.TryGetValue(instance.PrototypeId,out var model))continue;
+                    if(Harvested(cell.Data,instance)||except!=null&&SameShrub(except,cell.Data,instance))continue;
                     var p=model.Data;double ox=origin.X-instance.Position.X,oy=origin.Y-instance.Position.Y,oz=origin.Z-instance.Position.Z;
                     var selectedRoot=SelectedRoot(cell.Data,instance,false);
                     double boundsReach=reach+(assisted?NaturalMatterPunch.Radius:0);
@@ -98,8 +129,7 @@ namespace AshenVoxel.Exploration
             }
             if(selected==null){selected=assistedSelected;best=assistedBest;}
             if(selected==null)return false;
-            lease=new ShrubLease{Cell=selected.Data.Key,Instance=best,Epoch=selected.Epoch,OwnerCell=selected,Owner=owner,Source=rootField.SourceIdentity,Token=++shrubToken,NaturalRoot=SelectedRoot(selected.Data,best,false)};
-            shrubLease=lease;reason="Aimed complete specimen reserved; source remains visible while preparing";return true;
+            found=selected;foundInstance=best;return true;
         }
         public bool OriginalHardCell(ShrubLease lease,int x,int y,int z)
         {

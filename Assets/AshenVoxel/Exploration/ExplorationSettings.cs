@@ -139,7 +139,7 @@ namespace AshenVoxel.Exploration
         public float EffectiveForestDistanceKm=>Mathf.Clamp(ForestFollowsTerrainView?Mathf.Max(ViewDistanceKm,FarHorizonKm):Mathf.Min(ForestHorizonKm,Mathf.Max(ViewDistanceKm,FarHorizonKm)),2,100);
         [Range(12,64)] public float GroundCoverDistanceMeters=64;
         [Range(60,600)] public float RockDistanceMeters=220;
-        [Range(2000,60000)] public int MaximumResidentInstances=40000;
+        [Range(2000,150000)] public int MaximumResidentInstances=90000;
         [Range(.25f,6)] public float PopulationBuildMilliseconds=2;
         [Range(1000000,64000000)] public int VegetationTriangleBudget=32000000;
 

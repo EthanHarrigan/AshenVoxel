@@ -89,7 +89,7 @@ MonoBehaviour:
   ForestHorizonKm: 30
   GroundCoverDistanceMeters: 64
   RockDistanceMeters: 220
-  MaximumResidentInstances: 40000
+  MaximumResidentInstances: 90000
   PopulationBuildMilliseconds: 2
   VegetationTriangleBudget: 32000000
   Upscaling: 1

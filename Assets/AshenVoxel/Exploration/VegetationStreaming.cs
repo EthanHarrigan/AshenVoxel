@@ -259,7 +259,7 @@ namespace AshenVoxel.Exploration
         }
         void BeginMatrices()
         {
-            ReleaseNextBatches();CaptureRootSelection();CaptureShrubSelection();
+            ReleaseNextBatches();CaptureRootSelection();CaptureShrubSelection();fastHidden.Clear();
             matrixCells.Clear();foreach(var cell in cells.Values)matrixCells.Add(cell);
             matrixCells.Sort((a,b)=>Distance(a.Data.Key).CompareTo(Distance(b.Data.Key)));
             // Reserve the actual cheapest representation of every captured entry, including hard props.
@@ -306,7 +306,7 @@ namespace AshenVoxel.Exploration
             if(finalizePage<finalizePages.Count)return;
             if(!ValidateShrubSelection()||!CommitRootSelection())
             {ReleaseNextBatches();ReleaseBuildingPages();matrixCells.Clear();finalizePages.Clear();finalizing=false;buildingMatrices=false;matricesDirty=true;rootNext=null;return;}
-            ReleaseBatches();var previous=batches;batches=nextBatches;nextBatches=previous;PublishShrubSelection();
+            ReleaseBatches();var previous=batches;batches=nextBatches;nextBatches=previous;ReapplyFastHidden();PublishShrubSelection();
             foreach(CachedCell captured in matrixCells)if(cells.TryGetValue(captured.Data.Key,out CachedCell current)&&object.ReferenceEquals(current,captured))captured.Published=true;
             BudgetDemotions=buildDemotions;ReleaseBuildingPages();matrixCells.Clear();finalizePages.Clear();finalizing=false;buildingMatrices=false;
         }
@@ -319,7 +319,7 @@ namespace AshenVoxel.Exploration
         {
             if(model.Data.Kind==1)return Math.Min(model.Meshes.Length-1,distance<24?0:distance<48?1:2);
             if(model.Data.Kind==2)return Math.Min(model.Meshes.Length-1,distance<35?0:distance<90?1:distance<160?2:3);
-            bool redwood=instance.PrototypeId/4==(int)TreeSpecies.Redwood;
+            bool redwood=instance.PrototypeId<100&&instance.PrototypeId/4==(int)TreeSpecies.Redwood;
             int lod=redwood?(distance<RedwoodDetailDistance?0:distance<Math.Max(100,RedwoodDetailDistance*2)?1:distance<300?2:distance<600?3:4):
                 distance<TreeDetailDistance?0:distance<TreeMidDistance?1:distance<TreeCoarseDistance?2:distance<TreeFarDistance?3:4;
             return Math.Min(model.Meshes.Length-1,lod);
@@ -345,7 +345,19 @@ namespace AshenVoxel.Exploration
                 if(visible){if(batch.CountsInstance)VisibleInstances+=batch.Count;VisibleTriangles+=(long)batch.TriangleCount*batch.Count;}
                 else{ShadowOnlyDrawCalls++;if(batch.CountsInstance)ShadowOnlyInstances+=batch.Count;}
             }
-            if(EnableForestHorizon&&Horizon!=null)Horizon.Tick(camera,observer,origin,TreeDistance*.97,Math.Max(TreeDistance,HorizonDistance),TreeDensity);
+            if(EnableForestHorizon&&Horizon!=null)Horizon.Tick(camera,observer,origin,HorizonNear(),Math.Max(TreeDistance,HorizonDistance),TreeDensity);
+        }
+        /// <summary>Where impostor canopy takes over. Normally just inside the tree radius, but when
+        /// the resident-instance budget defers far tree cells (dense forests), the horizon starts at
+        /// the nearest deferred cell instead, so no bare ring appears between real trees and canopy.
+        /// Quantized to 128 m so small budget changes do not replan the horizon.</summary>
+        public double TreeCoverageRadius {get;private set;}
+        double HorizonNear()
+        {
+            double full=TreeDistance*.97,nearest=double.MaxValue;
+            foreach(PopulationKey key in deferred)if(key.Layer==0)nearest=Math.Min(nearest,Distance(key));
+            double coverage=nearest==double.MaxValue?full:Math.Max(256,Math.Floor((Math.Sqrt(nearest)-64)/128)*128);
+            TreeCoverageRadius=Math.Min(full,coverage);return TreeCoverageRadius;
         }
         double BoundsDistance(Bounds bounds)
         {
@@ -355,8 +367,9 @@ namespace AshenVoxel.Exploration
         double MinimumLodDistance(Batch batch)
         {
             if(batch.Lod==0)return 0;
-            if(batch.ModelId<100){bool redwood=batch.ModelId/4==(int)TreeSpecies.Redwood;return redwood?(batch.Lod==1?RedwoodDetailDistance:batch.Lod==2?Math.Max(100,RedwoodDetailDistance*2):batch.Lod==3?300:600):batch.Lod==1?TreeDetailDistance:batch.Lod==2?TreeMidDistance:batch.Lod==3?TreeCoarseDistance:TreeFarDistance;}
-            return batch.ModelId<200?(batch.Lod==1?24:48):batch.Lod==1?35:batch.Lod==2?90:160;
+            int kind=models.TryGetValue(batch.ModelId,out Model owner)?owner.Data.Kind:batch.ModelId<100?0:batch.ModelId<200?1:2;
+            if(kind==0){bool redwood=batch.ModelId<100&&batch.ModelId/4==(int)TreeSpecies.Redwood;return redwood?(batch.Lod==1?RedwoodDetailDistance:batch.Lod==2?Math.Max(100,RedwoodDetailDistance*2):batch.Lod==3?300:600):batch.Lod==1?TreeDetailDistance:batch.Lod==2?TreeMidDistance:batch.Lod==3?TreeCoarseDistance:TreeFarDistance;}
+            return kind==1?(batch.Lod==1?24:48):batch.Lod==1?35:batch.Lod==2?90:160;
         }
         public bool IsReady(double x,double z,double radius)
         {

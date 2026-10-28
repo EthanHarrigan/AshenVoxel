@@ -34,8 +34,15 @@ under ~150 lines. Put dated narrative in Docs/SESSION_LOG.md.
   Aimed props start preparing within 12 m. The original mesh stays visible, and cuts rebuild only local patches.
 - Detached sections get one native Rigidbody each. After settling they become weighted debris parcels (awake/dormant scheduling).
   Exact material conservation is checked.
-- I = pickup (on by default), G = kick, O = restore. **Only one active prop session.**
-  O, moving more than 24 m away, or stopping Play restores the prop and discards inventory.
+- I = pickup (on by default), G = kick, O = undo the *current* prop only. Punching another specimen, or moving
+  18 m away, **keeps** the broken one (registry "harvested" set; remains settle 15 s then freeze; ≤48 kept) and
+  starts the next at once. Ownership swaps in-frame (published batches patched); replays are cached (24 / 3M cells)
+  and prewarmed for nearby species. Stopping Play still discards everything. (2026-10-28, not yet native-tested)
+- Flora: pack has 99 core + 180 foliage-lab models (IDs 300–479; canonical core identity still = old pin).
+  `BiomeFlora` = 26 communities (understory 1.4 m / midstory 3 m / canopy 7 m grids). ForestBiomes v2 adds young
+  thickets with an infill grid. Instance budget 90k. F1 → Flora tour teleports to a community.
+- Ground: voxel step surface (merged steps + shader 10 cm colour, parent morph) is default; Geology v2 strata.
+  See Docs/REPORT_2026-10-28.md.
 - Terrain predicts travel, requests nearby 5 m source, refreshes LODs and retires distant detail.
   The outer LOD rings refine globally in passes (8→16→32→64…).
 - F1 contains: terrain quality Normal/Detailed/Maximum, reach and allowances, wind strength, shadow fill, DLSS/DLAA,

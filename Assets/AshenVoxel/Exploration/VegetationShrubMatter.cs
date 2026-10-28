@@ -42,7 +42,7 @@ namespace AshenVoxel.Exploration
                 foreach(var instance in cell.Data.Instances)
                 {
                     if(++visited>candidates){reason="Selection count limit; request rejected intact";return false;}
-                    if((instance.PrototypeId!=102&&instance.PrototypeId!=103)||instance.Scale!=1)continue;
+                    if((instance.PrototypeId!=102&&instance.PrototypeId!=103)||instance.Scale!=1||Harvested(cell.Data,instance))continue;
                     double dx=point.X-instance.Position.X,dz=point.Z-instance.Position.Z,dy=point.Y-instance.Position.Y;
                     double distance=dx*dx+dz*dz+dy*dy;
                     if(distance>=closest)continue;closest=distance;selected=cell;best=instance;
@@ -55,7 +55,61 @@ namespace AshenVoxel.Exploration
             cells.TryGetValue(lease.Cell,out var cell)&&ReferenceEquals(cell,lease.OwnerCell)&&cell.Epoch==lease.Epoch&&rootField!=null&&rootField.SourceIdentity==lease.Source&&NaturalLeaseRootCurrent(lease);
         public bool RequestShrubOwnership(ShrubLease lease)
         {
-            if(!ShrubCurrent(lease))return false;lease.WantHidden=true;RestartShrubMatrices();return true;
+            if(!ShrubCurrent(lease))return false;lease.WantHidden=true;
+            // Fast path: remove the original from the batches already on screen and hand ownership
+            // over in this same frame. The full matrix rebuild still runs (in the background, with
+            // the lease hidden) but no longer gates the first cut.
+            if(!lease.Active&&lease.Owner.CanPublishShrubOwnership(true)&&HideInPublished(lease.Instance)>0)
+            {
+                // Do not abort a rebuild that is under way (repeated claims would starve streaming);
+                // its result is re-patched at publication, and the next build skips the lease itself.
+                FastOwnershipPublications++;lease.Active=true;fastHidden.Add(lease.Instance);if(!buildingMatrices)matricesDirty=true;
+                lease.Owner.PublishShrubOwnership(true);return true;
+            }
+            RestartShrubMatrices();return true;
+        }
+        public int FastOwnershipPublications {get;private set;}
+        readonly System.Collections.Generic.List<PopulationInstance> fastHidden=new System.Collections.Generic.List<PopulationInstance>();
+        /// <summary>A build that began before a fast claim may still contain the claimed original.</summary>
+        void ReapplyFastHidden(){foreach(var instance in fastHidden)HideInPublished(instance);}
+        /// <summary>Swap-remove every published matrix of this instance (all LOD/root parts).
+        /// Returns how many were removed; 0 means the instance was not found at the current origin.</summary>
+        int HideInPublished(PopulationInstance instance)
+        {
+            float x=(float)(instance.Position.X-origin.X),y=(float)(instance.Position.Y-origin.Y),z=(float)(instance.Position.Z-origin.Z);int removed=0;
+            foreach(var batch in batches)
+            {
+                if(batch.ModelId!=instance.PrototypeId)continue;
+                for(int i=0;i<batch.Count;i++)
+                {
+                    var m=batch.Matrices[i];
+                    if(Math.Abs(m.m03-x)>.001f||Math.Abs(m.m13-y)>.001f||Math.Abs(m.m23-z)>.001f)continue;
+                    batch.Matrices[i]=batch.Matrices[batch.Count-1];batch.Count--;i--;removed++;
+                }
+            }
+            return removed;
+        }
+        // ---- Harvested specimens: broken and left behind; the original never returns this session ----
+        readonly struct HarvestKey:IEquatable<HarvestKey>
+        {
+            readonly PopulationKey cell;readonly ulong stable;readonly int prototype;
+            public HarvestKey(PopulationKey cell,PopulationInstance instance){this.cell=cell;stable=instance.StableKey;prototype=instance.PrototypeId;}
+            public bool Equals(HarvestKey o)=>cell.Equals(o.cell)&&stable==o.stable&&prototype==o.prototype;
+            public override bool Equals(object o)=>o is HarvestKey k&&Equals(k);
+            public override int GetHashCode(){unchecked{return cell.GetHashCode()*397^stable.GetHashCode()^prototype*7919;}}
+        }
+        readonly System.Collections.Generic.HashSet<HarvestKey> harvested=new System.Collections.Generic.HashSet<HarvestKey>();
+        public int HarvestedCount=>harvested.Count;
+        bool Harvested(PopulationCell cell,PopulationInstance instance)=>harvested.Count>0&&harvested.Contains(new HarvestKey(cell.Key,instance));
+        /// <summary>Keep the broken specimen: the original stays hidden (draw, collision, aim) for the
+        /// rest of the session and the lease closes without restoring it, so the next specimen can be
+        /// prepared at once. The owner keeps drawing whatever matter remains.</summary>
+        public bool CommitShrub(ShrubLease lease)
+        {
+            if(!ReferenceEquals(shrubLease,lease)||lease.Closed||!lease.Active||lease.Restoring)return false;
+            harvested.Add(new HarvestKey(lease.Cell,lease.Instance));
+            // Published batches already omit it (hidden while leased); later rebuilds skip it as harvested.
+            CloseShrub();return true;
         }
         public void RestoreShrub(ShrubLease lease)
         {
@@ -72,8 +126,8 @@ namespace AshenVoxel.Exploration
         static bool SameShrub(ShrubLease lease,PopulationCell cell,PopulationInstance instance)=>lease!=null&&lease.Cell.Equals(cell.Key)&&
             lease.Instance.StableKey==instance.StableKey&&lease.Instance.PrototypeId==instance.PrototypeId&&lease.Instance.Position.X==instance.Position.X&&
             lease.Instance.Position.Y==instance.Position.Y&&lease.Instance.Position.Z==instance.Position.Z&&lease.Instance.YawDegrees==instance.YawDegrees&&instance.Scale==1;
-        bool SkipShrubNext(PopulationCell cell,PopulationInstance instance)=>shrubBuildHidden&&shrubLease!=null&&shrubBuildToken==shrubLease.Token&&SameShrub(shrubLease,cell,instance);
-        bool SkipShrubCurrent(PopulationCell cell,PopulationInstance instance)=>shrubLease!=null&&shrubLease.Active&&SameShrub(shrubLease,cell,instance);
+        bool SkipShrubNext(PopulationCell cell,PopulationInstance instance)=>Harvested(cell,instance)||shrubBuildHidden&&shrubLease!=null&&shrubBuildToken==shrubLease.Token&&SameShrub(shrubLease,cell,instance);
+        bool SkipShrubCurrent(PopulationCell cell,PopulationInstance instance)=>Harvested(cell,instance)||shrubLease!=null&&shrubLease.Active&&SameShrub(shrubLease,cell,instance);
         void CaptureShrubSelection(){shrubBuildHidden=ShrubCurrent(shrubLease)&&shrubLease.WantHidden;shrubBuildToken=shrubLease?.Token??0;}
         bool ValidateShrubSelection()
         {

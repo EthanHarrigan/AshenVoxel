@@ -120,16 +120,50 @@ namespace AshenVoxel.Exploration.Experimental
         static readonly object Gate=new object();
         static Task<Prepared> pending;
         static int pendingId=-1;
+        // Completed immutable templates, least-recently-used first. Bounded by total cells so a
+        // walk through a mixed forest reuses replays instead of regenerating each species.
+        const long CacheCells=3000000;const int CacheEntries=24;
+        static readonly System.Collections.Generic.List<Prepared> cache=new System.Collections.Generic.List<Prepared>();
+        static long cachedCells;
+        public static int CachedTemplates{get{lock(Gate)return cache.Count;}}
+        public static long CachedCells{get{lock(Gate)return cachedCells;}}
+        public static bool Busy{get{lock(Gate)return pending!=null&&!pending.IsCompleted;}}
         public static bool Supports(int id)=>(id>=0&&id<16)||(id>=100&&id<=122)||(id>=200&&id<260);
-        // One admitted build at a time and one retained immutable template. Caller retries busy requests.
+        public static bool IsCached(int id){lock(Gate){foreach(var p in cache)if(p.PrototypeId==id)return true;return false;}}
+        static void Store(Prepared prepared)
+        {
+            lock(Gate)
+            {
+                for(int i=0;i<cache.Count;i++)if(cache[i].PrototypeId==prepared.PrototypeId){cachedCells-=cache[i].CellCount;cache.RemoveAt(i);break;}
+                if(prepared.CellCount>CacheCells)return;
+                cache.Add(prepared);cachedCells+=prepared.CellCount;
+                while(cache.Count>CacheEntries||cachedCells>CacheCells){cachedCells-=cache[0].CellCount;cache.RemoveAt(0);}
+            }
+        }
+        // One admitted build at a time; completed templates come from the cache immediately.
         public static bool TryRequest(int id,out Task<Prepared> task)
         {
             if(!Supports(id))throw new ArgumentOutOfRangeException(nameof(id));
             lock(Gate)
             {
-                if(pending!=null&&pendingId==id){task=pending;return true;}
-                if(pending!=null&&!pending.IsCompleted){task=null;return false;}
-                pendingId=id;pending=Task.Run(()=>Prepare(id));task=pending;return true;
+                for(int i=0;i<cache.Count;i++)if(cache[i].PrototypeId==id)
+                {var hit=cache[i];cache.RemoveAt(i);cache.Add(hit);task=Task.FromResult(hit);return true;}
+                if(pending!=null&&pendingId==id&&!pending.IsFaulted){task=pending;return true;}
+                // A background warm-up never blocks a specimen the player actually punched.
+                if(pending!=null&&!pending.IsCompleted&&!pendingPrewarm){task=null;return false;}
+                pendingId=id;pendingPrewarm=false;pending=Task.Run(()=>{var p=Prepare(id);Store(p);return p;});task=pending;return true;
+            }
+        }
+        static bool pendingPrewarm;
+        /// <summary>Background warm-up for a specimen the player is likely to break. Never waits.</summary>
+        public static bool Prewarm(int id)
+        {
+            if(!Supports(id)||IsCached(id))return false;
+            lock(Gate)
+            {
+                if(pending!=null&&!pending.IsCompleted)return false;
+                pendingId=id;pendingPrewarm=true;pending=Task.Run(()=>{var p=Prepare(id);Store(p);return p;});
+                pending.ContinueWith(t=>{var observed=t.Exception;},TaskContinuationOptions.OnlyOnFaulted);return true;
             }
         }
         public sealed class Prepared

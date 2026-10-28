@@ -20,7 +20,7 @@ namespace AshenVoxel.WorldScale
     /// habitat while coherent3–6km fields control age, openness and species subregions.</summary>
     public static class ForestBiomes
     {
-        public const int Version=1;
+        public const int Version=2;
         public static ForestStand Sample(SurfaceColumn surface,double x,double z,int seed)
         {
             Numeric.Finite(x,nameof(x));Numeric.Finite(z,nameof(z));
@@ -42,7 +42,14 @@ namespace AshenVoxel.WorldScale
             double age=Noise(x/3700,z/3700,unchecked(seed+211));
             ForestStage stage=age<.46?ForestStage.YoungDense:ForestStage.MatureOpen;
             double openness=.30+.70*Noise(x/1250,z/1250,unchecked(seed+307));
-            double density=cover*openness*(stage==ForestStage.YoungDense?.88:.26);
+            // v2: denser stands overall, plus kilometre-scale thickets where young regrowth packs in
+            // beyond one tree per 6 m grid point (Density>1 drives the population's infill grid).
+            double density=stage==ForestStage.YoungDense?cover*(.55+.45*openness):cover*(.40+.60*openness)*.38;
+            if(stage==ForestStage.YoungDense)
+            {
+                double thicket=Noise(x/760,z/760,unchecked(seed+331));
+                if(thicket>.5)density*=1+(thicket-.5)*1.5;
+            }
             if(species==TreeSpecies.Redwood)density*=stage==ForestStage.YoungDense?.68:.42;
             return new ForestStand(habitat,stage,species,density,1);
         }

@@ -49,6 +49,15 @@ static class ExportPrototypes
    var watch=Stopwatch.StartNew();var result=RockGenerator.Generate(world,anchor,p);if(result.Truncated||result.ClippedCells>0)throw new Exception("Truncated rock "+material+" "+shape);
    reports.Add(Export(args[0],200+material*12+(shape-1)*2+size,2,Rocks[material]+" "+(RockShape)shape+" "+(size==0?"small":"large"),world,anchor,watch,new{profile=p,result}));
   }
+  if(mode=="lab")foreach(var lab in LabCatalog(args[2]))
+  {
+   // Foliage-lab recipes: exact authored 10 cm cells from the isolated lab's sealed exports.
+   var cells=lab.Cells;int minX=cells.Min(c=>c.x),maxX=cells.Max(c=>c.x),minZ=cells.Min(c=>c.z),maxZ=cells.Max(c=>c.z),maxY=cells.Max(c=>c.y);
+   if(cells.Min(c=>c.y)<0)throw new Exception("Lab cells below anchor: "+lab.Key);
+   var anchor=new Int3(-minX+2,4,-minZ+2);var world=new VoxelWorld(maxX-minX+5,maxY+9,maxZ-minZ+5,.1f,lab.Seed);var watch=Stopwatch.StartNew();
+   foreach(var c in cells){if(!world.Set(anchor.x+c.x,anchor.y+c.y,anchor.z+c.z,c.m,c.tint))throw new Exception("Lab cell rejected: "+lab.Key);}
+   reports.Add(Export(args[0],lab.Id,lab.Kind,lab.Name,world,anchor,watch,new{lab.Key,lab.Seed,lab.Family,lab.Habitat,lab.SourceSha256,cells=cells.Count}));
+  }
   File.WriteAllText(Path.Combine(args[0],"report-"+mode+".json"),JsonSerializer.Serialize(new{status="PASS",mode,records=reports},new JsonSerializerOptions{WriteIndented=true,IncludeFields=true}));
  }
  static object Export(string output,int id,byte kind,string name,VoxelWorld world,Int3 anchor,Stopwatch watch,object generation)
@@ -92,6 +101,27 @@ static class ExportPrototypes
   using(var w=new BinaryWriter(File.Create(Path.Combine(output,id.ToString("D3")+".avpr")))){w.Write(compressed.Length);w.Write(payload.Length);w.Write(ExplorationPrototypeReader.Crc(payload));w.Write(compressed);}
   var report=new{id,name,kind,occupied_cells=occupied,bounds,lods=lodCounts,collision_columns=columns.Count,expanded_bytes=payload.Length,compressed_bytes=compressed.Length,elapsed_ms=watch.ElapsedMilliseconds,generation};
   File.WriteAllText(Path.Combine(output,id.ToString("D3")+".json"),JsonSerializer.Serialize(report,new JsonSerializerOptions{WriteIndented=true,IncludeFields=true}));return report;
+ }
+ sealed class LabModel{public int Id;public byte Kind;public string Key,Name,Family,Habitat,SourceSha256;public int Seed;public List<(int x,int y,int z,MaterialId m,uint tint)> Cells;}
+ /// <summary>Reads lab-manifest.json: [{id,kind,key,seed,file,name}], each file a sealed lab export.</summary>
+ static IEnumerable<LabModel> LabCatalog(string manifest)
+ {
+  var root=JsonDocument.Parse(File.ReadAllText(manifest)).RootElement;string folder=Path.GetDirectoryName(Path.GetFullPath(manifest));
+  foreach(var e in root.EnumerateArray())
+  {
+   string file=Path.Combine(folder,e.GetProperty("file").GetString());var doc=JsonDocument.Parse(File.ReadAllText(file)).RootElement;
+   var cells=new List<(int,int,int,MaterialId,uint)>();
+   foreach(var c in doc.GetProperty("cells").EnumerateArray())
+   {
+    var m=(MaterialId)c[3].GetInt32();if(!MaterialCatalog.IsValid(m)||m==MaterialId.Air)throw new Exception("Invalid lab material in "+file);
+    uint tint=(uint)c[4].GetInt64();if((tint>>24)!=255)throw new Exception("Lab tint must be opaque in "+file);
+    cells.Add((c[0].GetInt32(),c[1].GetInt32(),c[2].GetInt32(),m,tint));
+   }
+   if(cells.Count!=doc.GetProperty("cellCount").GetInt32())throw new Exception("Lab cell count mismatch: "+file);
+   var recipe=doc.GetProperty("recipe");
+   yield return new LabModel{Id=e.GetProperty("id").GetInt32(),Kind=(byte)e.GetProperty("kind").GetInt32(),Key=recipe.GetProperty("Key").GetString(),Name=e.GetProperty("name").GetString(),
+    Family=recipe.GetProperty("Family").GetString(),Habitat=recipe.GetProperty("Habitat").GetString(),Seed=doc.GetProperty("seed").GetInt32(),SourceSha256=doc.GetProperty("sha256").GetString(),Cells=cells};
+  }
  }
  static VoxelWorld Reduce(VoxelWorld source,int factor)
  {
