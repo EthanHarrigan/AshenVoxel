@@ -62,6 +62,27 @@ class OverviewProvider40(OverviewProvider):
                              source_sha256=dict(self.identity['source_sha256'], **{'overview_provider40.py': sha(__file__)}))
         self.source_id = hashlib.sha256(canonical(self.identity)).hexdigest()
 
+    def _account(self, written):
+        # The base provider re-lists and stats the whole cache after every write; with >10k
+        # windows that costs seconds per window on Windows. Keep a running total instead and
+        # only sort/evict when over the limit (full resync every 500 writes).
+        with self.lock:
+            total = getattr(self, '_disk_total', None)
+            writes = getattr(self, '_disk_writes', 0) + 1
+            self._disk_writes = writes
+            if total is None or writes % 500 == 0:
+                total = sum(p.stat().st_size for p in self.cache.glob('*.avov'))
+            else:
+                total += written
+            if total > self.disk_limit:
+                files = sorted(self.cache.glob('*.avov'), key=lambda p: p.stat().st_mtime_ns)
+                total = sum(p.stat().st_size for p in files)
+                for old in files:
+                    if total <= self.disk_limit:
+                        break
+                    total -= old.stat().st_size; old.unlink()
+            self._disk_total = total
+
     def validate(self, request):
         if request.get('native_model_world_id') != self.job['world_id']:
             raise ValueError('Pinned native model job identity mismatch')
@@ -120,11 +141,7 @@ class OverviewProvider40(OverviewProvider):
                         'latent_spacing_world_m': 40., 'generator_scope': 'Pinned learned coarse/base low-frequency output at latent spacing; fine residual decoder omitted',
                         'height_sha256': hashlib.sha256(height.astype('<f4').tobytes()).hexdigest(), 'identity': self.identity}
                 raw = encode(meta, height); temporary = path.with_suffix('.tmp'); temporary.write_bytes(raw); os.replace(temporary, path)
-                files = sorted(self.cache.glob('*.avov'), key=lambda p: p.stat().st_mtime_ns); total = sum(p.stat().st_size for p in files)
-                for old in files:
-                    if total <= self.disk_limit:
-                        break
-                    total -= old.stat().st_size; old.unlink()
+                self._account(len(raw))
             with self.lock:
                 if record['cancel'].is_set():
                     raise Cancelled('Cancelled before response publication')
