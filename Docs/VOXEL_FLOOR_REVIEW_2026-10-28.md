@@ -112,3 +112,35 @@ The cause is the colour-in-geometry coupling, not the step shape.
    A/B again, then pick defaults.
 5. **Acceptance:** close-up visual parity with the old unmerged look (screenshot diff at fixed
    views), no seams while walking or flying, and memory below the commit threshold with a Maximum profile.
+
+## Measured: merged steps on real terrain (2026-10-28, offline, Python port)
+
+Heights were ported from `ExplorationAtlasField` (the macro atlas plus the 5 m decoded atlas, with a 512 m
+blend) and `TerrainDetailField` (relief seed 714103). Snow and the material keys were left out. Each tile is a
+25.6 m contact tile at 10 cm, with 256×256 columns. Face counts compare "old" and "new":
+- **Old:** one top face per column, plus every exposed wall cell. This approximates current `VoxelLodSurface`,
+  which almost never merges because the tint varies per cell.
+- **New:** greedy rectangles over tops that share a height, plus greedy rectangles on each wall plane.
+
+| Set | Tiles | Old faces | New faces | Reduction | Tops | Walls |
+|---|---|---|---|---|---|---|
+| 5×5 around saved spawn (-19065,-10200) | 25 | 2,596,857 | 879,618 | **2.95×** | 5.2× | 1.7× |
+| Random tiles in the decoded 5 km region | 40 | 7,750,250 | 3,376,519 | **2.30×** | 2.6× | 2.2× |
+
+By terrain type:
+- flat ground: about 6×
+- gentle slopes around 27°: 3–3.5×
+- steep slopes from 35° up: 1.7–2.3×
+- vertical cliffs: up to 19×
+
+**Takeaway:** removing colour from the merge key is necessary but not sufficient. The 10 cm risers on slopes
+(one cell tall, with wiggly contours) dominate the remaining count. At spawn, the merged steps average about
+35k faces per tile, roughly 4.2 MB at the current 120 B/face. A smooth 256-quad contact proxy is about 3.2 MB.
+So the merged stepped floor costs about the same as today's smooth floor, versus about 12 MB per tile unmerged.
+That is acceptable within about 50–64 m. It is still too heavy to extend to the 100 m default contact radius on steep ground.
+
+Next reductions, untested:
+1. A smaller vertex format for merged quads: 16 B, with colour moved to a texture.
+2. A shorter stepped radius on slopes steeper than about 35°. Use the shader virtual-step look there instead.
+3. Index buffer UInt16 per tile when vertices are under 65k.
+Script: (session scratch) measure.py / batch.py; results.json in the same folder.
