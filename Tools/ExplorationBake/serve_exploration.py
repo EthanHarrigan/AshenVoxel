@@ -34,7 +34,13 @@ class CoordinateView:
  def close(self):self.native.close()
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--job',type=Path,required=True);p.add_argument('--owner-cache-dir',type=Path,required=True);p.add_argument('--port',type=int,default=8787);p.add_argument('--host',default='127.0.0.1');p.add_argument('--world-spacing-m',type=float,default=5);p.add_argument('--world-width-m',type=float,default=299520);p.add_argument('--world-depth-m',type=float,default=149760);p.add_argument('--allow-download',action='store_true');a=p.parse_args()
- job=b.read_job(a.job);backend=canonical_backend(b,job,b.RealBackend(job,a.allow_download),a.owner_cache_dir);provider=CoordinateView(b.RegionProvider(job,backend),a.world_spacing_m,a.world_width_m,a.world_depth_m)
+ job=b.read_job(a.job);backend=canonical_backend(b,job,b.RealBackend(job,a.allow_download),a.owner_cache_dir);
+ # A pre-bake (prebake_fine_owners.py) may raise the owner-cache bound so its tiles are never LRU-evicted here.
+ limit_file=ROOT/'.terrain-cache/prebake-fine/owner-limit-bytes.txt'
+ if limit_file.exists():
+  try:backend.limit=max(backend.limit,int(limit_file.read_text().strip()))
+  except ValueError:pass
+ provider=CoordinateView(b.RegionProvider(job,backend),a.world_spacing_m,a.world_width_m,a.world_depth_m)
  server=http.server.ThreadingHTTPServer((a.host,a.port),b.handler_for(provider));print('Exploration provider ready',json.dumps(provider.status()),flush=True)
  try:server.serve_forever()
  finally:server.server_close();provider.close()

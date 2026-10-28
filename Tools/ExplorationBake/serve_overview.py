@@ -98,10 +98,25 @@ def below_normal_priority():
         if not kernel.SetPriorityClass(kernel.GetCurrentProcess(),0x4000):raise OSError('Cannot set overview helper BelowNormal priority')
     else:os.nice(5)
 
+def start_fine_bake(here):
+    """The 5 m detail bake is CPU-only, so run it alongside the GPU far-terrain bake instead of after it."""
+    root=here.parents[1];fine=root/'.terrain-cache/prebake-fine'
+    if os.name!='nt' or not (root/'.terrain-cache/prebake-overview/stage5m.enabled').exists():return
+    if not (root/'.terrain-cache/python/Scripts/python.exe').exists():return
+    try:
+        if json.loads((fine/'progress.json').read_text()).get('status')=='DONE':return
+    except (OSError,ValueError):pass
+    lock=fine/'bake.lock'
+    import time
+    if lock.exists() and time.time()-lock.stat().st_mtime<1800:return
+    subprocess.Popen(['cmd.exe','/c','start','Ashen 5m bake',str(here/'run_fine_bake_loop.cmd')],cwd=str(root))
+    print('Started the 5 m detail bake in its own window (CPU).',flush=True)
+
 def run_queued_prebake():
     """Bake-Terrain-80m.cmd starts this service when its 160/80 m pre-bake ends. If a further
     pre-bake stage is enabled (.terrain-cache/prebake-overview/stage40.enabled), finish it first."""
     here=Path(__file__).resolve().parent;state=here.parents[1]/'.terrain-cache/prebake-overview'
+    start_fine_bake(here)
     if not (state/'stage40.enabled').exists():return
     progress=state/'progress40.json'
     if progress.exists():
