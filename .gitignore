@@ -20,3 +20,6 @@ Tools/**/bin/
 
 # Optional local InfiniteDiffusion tools, weights and regenerated caches
 .terrain-cache/
+
+# Local setup logs
+git-setup.log
