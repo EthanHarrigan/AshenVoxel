@@ -24,7 +24,8 @@ namespace AshenVoxel.WorldScale
     /// This is a reproducible terrain-attribute heuristic, not an erosion or snow-energy solver.</summary>
     public sealed class SurfaceProfile
     {
-        public const int Version=1;
+        /// <summary>2: non-periodic deformed strata, weathering pigment, autoshader slope thresholds.</summary>
+        public const int Version=2;
         public const double SampleRadiusMax=32;
         public readonly int Seed;
         public readonly double SeaLevelMeters,SnowlineMeters,MaxSnowDepthMeters,WindStrength,WinterFraction,TemperatureBiasC;

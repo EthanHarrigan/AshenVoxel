@@ -88,11 +88,20 @@ static class Program
         for(int i=0;i<1000;i++)
         {double x=i*173.37,z=i*367.51;MaterialId a=geology.RockAt(x,123,z),b=geology.RockAt(x+.1,123,z);rocks.Add(a);if(a!=b)boundaries++;}
         Check(rocks.Count>=4&&boundaries<30,"geological provinces and strata are coherent across adjacent10cm cells");
+        // Geology v2 beds are non-periodic: search the steep fixture for an actual stratum contact
+        // instead of relying on one hard-coded coordinate.
         var contactField=new TestField{Height=108,SlopeX=2,Climate=new SurfaceClimate(12,0,800,30,-.0065)};
-        var contactSampler=new SurfaceMaterialSampler(contactField,new SurfaceProfile(enableSnow:false));var contact=contactSampler.EvaluateColumn(0,0);
-        var contactMatter=contactSampler.SampleMatter(new WorldPoint(0,107.95,0),contact);
-        Check(contact.SurfaceMaterial==contactMatter.Material&&contact.SurfaceTint==contactMatter.Tint&&contact.GroundCoverDepthMeters==0,"exposed steep rock proxy and top physical voxel agree at a stratum contact");
-        Check(contactMatter.Material!=contactSampler.SampleMatter(new WorldPoint(0,106,0),contact).Material,"stratum-contact fixture reveals a different underlying rock when excavated");
+        var contactSampler=new SurfaceMaterialSampler(contactField,new SurfaceProfile(enableSnow:false));
+        bool agree=true,revealed=false;
+        for(int i=0;i<400&&!revealed;i++)
+        {
+            double cz=i*37.3;var contact=contactSampler.EvaluateColumn(0,cz);double top=contact.SurfaceHeightMeters;
+            var contactMatter=contactSampler.SampleMatter(new WorldPoint(0,top-.05,cz),contact);
+            agree&=contact.SurfaceMaterial==contactMatter.Material&&contact.SurfaceTint==contactMatter.Tint&&contact.GroundCoverDepthMeters==0;
+            revealed=contactMatter.Material!=contactSampler.SampleMatter(new WorldPoint(0,top-2,cz),contact).Material;
+        }
+        Check(agree,"exposed steep rock proxy and top physical voxel agree at a stratum contact");
+        Check(revealed,"stratum-contact fixture reveals a different underlying rock when excavated");
         var windField=new TestField{SlopeX=.3};var eastWind=new SurfaceMaterialSampler(windField,Profile().With(windAzimuthDegrees:0));
         var westWind=new SurfaceMaterialSampler(windField,Profile().With(windAzimuthDegrees:180));
         Check(eastWind.EvaluateColumn(0,0).Exposure>westWind.EvaluateColumn(0,0).Exposure,"prevailing wind azimuth distinguishes exposed windward and sheltered leeward slopes");
