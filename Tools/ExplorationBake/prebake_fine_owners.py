@@ -80,8 +80,9 @@ def main():
     below_normal_priority()
     job = b.read_job(a.job)
     world = json.loads((a.samples / 'exploration-world.json').read_text(encoding='utf-8-sig'))
-    if world.get('detail_world_id') not in (None, job['world_id']):
-        raise SystemExit(f"Job {job['world_id']} is not the bundled detail world {world.get('detail_world_id')}")
+    expected = world.get('detail_native_model_world_id')
+    if expected not in (None, job['world_id']):
+        raise SystemExit(f"Job {job['world_id']} is not the bundled detail model world {expected}")
     macro = read_avwf(a.samples / 'ExplorationMacro.bytes')
     spawn = world.get('recommended_spawn') or {'x_m': 0, 'z_m': 0}
     size = job['spec']['owner_samples']; tile_m = size * a.world_spacing_m; limit = job['spec']['owner_disk_cache_bytes']
