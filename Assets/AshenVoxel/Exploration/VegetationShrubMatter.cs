@@ -30,6 +30,9 @@ namespace AshenVoxel.Exploration
             internal IShrubMatterOwner Owner;
         }
         public bool HasReservedShrubMatter=>shrubLease!=null&&!shrubLease.Closed;
+        /// <summary>A lease that owns matter (claimed or being claimed). A speculatively prepared,
+        /// still-invisible specimen does not, so it never holds terrain publication.</summary>
+        public bool HasActiveShrubMatter=>shrubLease!=null&&!shrubLease.Closed&&(shrubLease.Active||shrubLease.WantHidden||shrubLease.Restoring);
         ShrubLease shrubLease;long shrubToken;
         bool shrubBuildHidden;long shrubBuildToken;
         public bool TryReserveShrub(WorldPoint point,int candidates,IShrubMatterOwner owner,out ShrubLease lease,out string reason)

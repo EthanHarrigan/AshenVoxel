@@ -278,9 +278,9 @@ namespace AshenVoxel.Exploration
                 Population.SetObserver(observer,Vista.RenderOrigin);
                 if(LiveRefinement!=null)
                 {
-                    bool matterOwned=(betaMatter!=null&&betaMatter.OwnedCells>0)||Population.HasReservedShrubMatter;
+                    bool matterOwned=(betaMatter!=null&&betaMatter.OwnedCells>0)||Population.HasActiveShrubMatter;
                     var policy=matterOwned?ExplorationRefinementPublicationPolicy.HoldForGameplayMatter(observer):default;
-                    publishingVerifiedAirborneSource=!matterOwned&&Ready&&Player!=null&&Player.Motor!=null&&Player.Motor.Flying;
+                    publishingVerifiedAirborneSource=!matterOwned&&!Population.HasReservedShrubMatter&&Ready&&Player!=null&&Player.Motor!=null&&Player.Motor.Flying;
                     if(publishingVerifiedAirborneSource)policy=ExplorationRefinementPublicationPolicy.AirborneWithoutGameplayMatter(observer);
                     double halfAngle=Math.Max(15,Math.Min(85,Math.Atan(Math.Tan(Vista.MainCamera.fieldOfView*Math.PI/360)*Vista.MainCamera.aspect)*180/Math.PI));
                     try{LiveRefinement.Tick(observer,Vista.MainCamera.transform.forward,policy,Vista.VoxelTravelDetailDeferred,null,halfAngle);}

@@ -22,7 +22,7 @@ under ~150 lines. Put dated narrative in Docs/SESSION_LOG.md.
 | Layer | Resolution | Status |
 |---|---|---|
 | Whole-world learned source | 1280 m | Shipped |
-| Standalone baked coarse map | 320 m | Built ([Coarse320Evidence](Docs/Coarse320Evidence/2026-10-27/README.md)), **not adopted** |
+| Bundled learned overview (macro atlas, `learned-lowfreq-overview-v1`) | 320 m | **In use** (live source id `overview-field-v2/…`). The separate standalone 320 m bake ([Coarse320Evidence](Docs/Coarse320Evidence/2026-10-27/README.md)) is not adopted |
 | Horizon learned refinement (service :8788) | 160 → 80 m | Code installed; the one real attempt hit the memory guard, **no region completed** |
 | Nearby decoded source (service :8787) | 5 m | Bounded 16/32-patch moving window, not full view; 5.115 km starter region bundled |
 | Ground render mesh | continuous connected mesh, 0.4 m contact grids | Default |
