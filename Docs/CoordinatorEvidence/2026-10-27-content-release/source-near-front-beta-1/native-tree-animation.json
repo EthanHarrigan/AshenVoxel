@@ -1,0 +1,15 @@
+{
+  "file": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task\\AshenVoxel-natural-birch-cut-impact-beta.webp",
+  "sha256": "9354ee0460a13d9c924eac56575706b97843690958c87db186759a609d2dffc2",
+  "bytes": 5382840,
+  "frames": 73,
+  "duration_ms": 20000,
+  "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs\\FeatureCapture\\natural-tree-20261027-230439\\sequence.json",
+  "max_falling": 3379,
+  "max_individual": 3380,
+  "ground_impacts": 1,
+  "all_conserved": true,
+  "any_suction": false,
+  "max_debt_seconds": 6.639997057616711,
+  "note": "Actual recorded game frames. Only standard video resizing/lossy encoding; original recorded frame timing retained. Gravity/impact portion only; no automatic suction or forced kick. Native simulation debt is a known beta performance defect."
+}

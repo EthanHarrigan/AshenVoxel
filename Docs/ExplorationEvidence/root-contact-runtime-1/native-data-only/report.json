@@ -1,0 +1,11 @@
+{
+    "status": "DATA_ONLY_PASS",
+    "error": "",
+    "fixture_report_probe": "{\n    \"status\": \"SERIALIZATION_PROBE\",\n    \"gpu\": \"\",\n    \"pack_sha256\": \"\",\n    \"error\": \"\",\n    \"scope\": \"Synthetic data-only serializer probe; no rendering.\",\n    \"original_scene_dirty_unchanged\": false,\n    \"original_scene_roots_unchanged\": false,\n    \"initial_private_bytes\": 0,\n    \"max_private_bytes\": 0,\n    \"minimum_available_commit\": 0,\n    \"seconds\": 0.0,\n    \"last_stage\": \"\",\n    \"original_active_scene_restored\": false,\n    \"original_lighting_unchanged\": false,\n    \"shader_state_restored\": false,\n    \"render_target_restored\": false\n,\"captured_views\":[{\"id\":10,\"base_vertices\":123,\"shared_vertices\":0,\"appended_vertices\":0,\"changed_pixels\":0,\"pink_pixels\":0,\"root_sha256\":\"serialization-probe\",\"terrain_sha256\":\"\"},{\"id\":11,\"base_vertices\":123,\"shared_vertices\":0,\"appended_vertices\":0,\"changed_pixels\":0,\"pink_pixels\":0,\"root_sha256\":\"serialization-probe\",\"terrain_sha256\":\"\"}]}",
+    "scope": "Input identity, binary site decoding and primitive/nested report serialization only. No scene allocation, mesh, shader mutation, camera, RenderTexture allocation or rendering call. fixture_report_probe contains synthetic serialization records, not rendered views.",
+    "manifest_entries": 15,
+    "sites": 2,
+    "scene_unchanged": true,
+    "shader_unchanged": true,
+    "render_target_unchanged": true
+}

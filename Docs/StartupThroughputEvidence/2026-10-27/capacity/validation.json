@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "production_baseline_unchanged": true,
+  "reports": {
+    "far_fixture": {
+      "path": ".terrain-cache\\progressive-lod\\runs\\20261027-072709-420931-production-overlay-CapacityProgram\\result.json",
+      "status": "PASS",
+      "checks": 19,
+      "assemblies": null,
+      "source_match": "fixture-transform only"
+    },
+    "contact": {
+      "path": ".terrain-cache\\progressive-lod\\runs\\20261027-072709-419412-production-overlay-ContactCapacityProgram\\result.json",
+      "status": "PASS",
+      "checks": 10,
+      "assemblies": null,
+      "source_match": "exact candidate"
+    },
+    "progressive": {
+      "path": ".terrain-cache\\progressive-lod\\runs\\20261027-072547-612155-production-overlay-progressive\\result.json",
+      "status": "PASS",
+      "checks": 30,
+      "assemblies": null,
+      "source_match": "exact candidate"
+    },
+    "existing": {
+      "path": ".terrain-cache\\progressive-lod\\runs\\20261027-072709-431528-production-overlay-existing\\result.json",
+      "status": "PASS",
+      "checks": 19,
+      "assemblies": null,
+      "source_match": "exact candidate"
+    },
+    "api": {
+      "path": ".terrain-cache\\progressive-lod\\runs\\20261027-072547-631498-production-overlay-api\\result.json",
+      "status": "PASS",
+      "checks": null,
+      "assemblies": 5,
+      "source_match": "exact candidate"
+    }
+  }
+}

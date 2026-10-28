@@ -1,0 +1,60 @@
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(48,44): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(49,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(50,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(57,42): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+PASS actual launch scene references the bootstrap script and the exact bundled settings asset
+PASS actual settings asset GUIDs resolve all real world/climate/biome/prototype files
+PASS bundled settings choose offline learned data and recorded map spawn by default
+FRAME 1 Reading the learned world… / vista=none / queue=0
+FRAME 251 Preparing the starting clearing… Loading Granite Spire small · LOD 3/4 · 58/99 models / vista=Building the exploration view… / queue=488
+FRAME 501 Preparing the starting clearing… Population · 2033 instances / 21 cells · 1685 queued · 117 visible draws / vista=Building the exploration view… / queue=457
+FRAME 751 Preparing the starting clearing… Population · 5357 instances / 55 cells · 1651 queued · 396 visible draws / vista=Building the exploration view… / queue=425
+FRAME 1001 Preparing the starting clearing… Population · 8049 instances / 86 cells · 1620 queued · 482 visible draws / vista=Building the exploration view… / queue=388
+FRAME 1251 Preparing the starting clearing… Population · 8706 instances / 110 cells · 1596 queued · 676 visible draws / vista=Building the exploration view… / queue=351
+FRAME 1501 Preparing the starting clearing… Population · 9200 instances / 130 cells · 1576 queued · 820 visible draws / vista=Building the exploration view… / queue=318
+FRAME 1751 Preparing the starting clearing… Population · 9597 instances / 146 cells · 1560 queued · 886 visible draws / vista=Building the exploration view… / queue=279
+FRAME 2001 Preparing the starting clearing… Population · 10005 instances / 162 cells · 1544 queued · 930 visible draws / vista=Building the exploration view… / queue=243
+FRAME 2251 Preparing the starting clearing… Population · 10309 instances / 178 cells · 1528 queued · 938 visible draws / vista=Building the exploration view… / queue=206
+FRAME 2501 Preparing the starting clearing… Population · 10515 instances / 194 cells · 1512 queued · 938 visible draws / vista=Building the exploration view… / queue=165
+FRAME 2751 Preparing the starting clearing… Population · 10638 instances / 210 cells · 1496 queued · 938 visible draws / vista=Building the exploration view… / queue=114
+FRAME 3001 Preparing the starting clearing… Population · 10791 instances / 224 cells · 1482 queued · 938 visible draws / vista=Building the exploration view… / queue=61
+FRAME 3251 Preparing the starting clearing… Population · 10903 instances / 240 cells · 1466 queued · 938 visible draws / vista=Planning terrain coverage… / queue=95
+FRAME 3501 Preparing the starting clearing… Population · 11045 instances / 256 cells · 1450 queued · 938 visible draws / vista=Planning terrain coverage… / queue=606
+FRAME 3751 Preparing the starting clearing… Population · 11183 instances / 272 cells · 1434 queued · 938 visible draws / vista=Planning terrain coverage… / queue=605
+PASS complete async bootstrap reaches playable Ready from real assets within frame and wall-clock bounds
+PASS player remains gated during preparation and becomes grounded/input-enabled after publication
+PASS offline launch never creates a model HTTP client or pending inference request
+PASS loaded whole world matches the executed diffusion identity and300by150km target extent
+PASS spawn uses bundled decoded5m terrain rather than coarse preview terrain
+PASS actual99-model voxel pack decodes and submits shared instance pages
+PASS scene uses external navigation with locally refined visible terrain and no editing mode
+PASS legacy P/rebuild and captured click inputs cannot enter terrain editing in the exploration scene
+PASS published default spawn is clear of real wood/rock collision and its footprint is ready
+PASS session owns a settings clone and preserves the downloaded source asset
+PASS shadow settings apply to a private pipeline clone rather than the shared asset
+PASS actual learned-terrain walking advances without readiness flicker or hard-prop penetration
+PASS actual-terrain camera motion has no full-cell/stream-origin vertical jump
+PASS actual scene can switch its basic player into flight
+PASS collision-enabled flight rises through the prepared scene
+PASS camera rebase preserves global eye and submeter local position in the actual controller/vista pair
+PASS same LateUpdate rebases existing vegetation matrices into the new camera frame
+PASS F1 opens the settings panel and pauses input through the actual bootstrap
+PASS runtime settings clamp and apply move/fly/FOV/view/horizon controls to real components
+PASS fog is editable while source settings asset remains unchanged
+PASS runtime options save to the supplied isolated user-data directory
+PASS saved options reload through the actual options code with clamped speed
+PASS F1 closes settings and restores exploration input
+PASS destroying the scene releases owned prototype meshes, materials, terrain caches and pipeline
+PASS shutdown restores shared pipeline/sky/shadows without destroying or mutating shared source resources
+PASS no runtime exception was hidden by the actual boot/update failure handlers
+RUNTIME_EXCEPTION System.IO.InvalidDataException: Missing bundled whole-world height data. Use the complete Play project archive.
+   at AshenVoxel.Exploration.ExplorationBootstrap.Require(TextAsset asset, String label)
+   at AshenVoxel.Exploration.ExplorationBootstrap.Boot()+MoveNext()
+   at AshenVoxel.Exploration.ExplorationBootstrap.Start()+MoveNext()
+PASS incomplete project data fails explicitly before player/source fallback is created
+RUNTIME_EXCEPTION System.IO.InvalidDataException: The exploration render pipeline is missing. Leave Play mode and choose Ashen Voxel → Exploration → Repair project setup, then Play again.
+   at AshenVoxel.Exploration.ExplorationBootstrap.SetupLighting()
+   at AshenVoxel.Exploration.ExplorationBootstrap.Boot()+MoveNext()
+   at AshenVoxel.Exploration.ExplorationBootstrap.Start()+MoveNext()
+PASS missing render pipeline stops with the repair action instead of a pink playable scene
+All 31 exploration smoke checks passed.

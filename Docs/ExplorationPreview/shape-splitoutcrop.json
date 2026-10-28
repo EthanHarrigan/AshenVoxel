@@ -1,0 +1,243 @@
+{
+  "name": "shape-splitoutcrop",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    92,
+    19,
+    25
+  ],
+  "occupied_cells": 8618,
+  "bounds_min_m": [
+    0.2,
+    0,
+    0.1
+  ],
+  "bounds_max_m": [
+    8.5,
+    1.5,
+    2.4000000000000004
+  ],
+  "material_counts": {
+    "Gravel": 1860,
+    "Granite": 6758
+  },
+  "scene": {
+    "category": "rock-shape",
+    "label": "Split outcrop / same granite",
+    "seeds": [
+      714103,
+      271828,
+      161803
+    ],
+    "specimens": [
+      {
+        "name": "Granite",
+        "seed": 714103,
+        "profile": {
+          "Shape": 5,
+          "ResolvedShape": 5,
+          "Identity": "rock-v2/catalog-v3/11/714103/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False/shape=SplitOutcrop/resolved=SplitOutcrop/appearance-v2",
+          "Material": 11,
+          "Seed": 714103,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 2.2,
+          "HeightMeters": 1.3,
+          "DepthMeters": 1.85,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.82,
+          "JointStrength": 0.3,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 5,
+          "CandidateCount": 2376,
+          "ColumnEvaluations": 483,
+          "ShapeCells": 2289,
+          "WrittenCells": 2289,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 54,
+            "y": 6,
+            "z": 55
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 75,
+            "y": 20,
+            "z": 72
+          }
+        },
+        "actual_dimensions_m": [
+          2.2,
+          1.5,
+          1.8
+        ],
+        "requested_shape": "SplitOutcrop",
+        "resolved_shape": "SplitOutcrop",
+        "generated_cells": 2289,
+        "material_counts": {
+          "Granite": 2289
+        },
+        "palette": {
+          "Granite": [
+            4287597189,
+            4287860104
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -50,
+          "y": -6,
+          "z": -52
+        }
+      },
+      {
+        "name": "Granite",
+        "seed": 271828,
+        "profile": {
+          "Shape": 5,
+          "ResolvedShape": 5,
+          "Identity": "rock-v2/catalog-v3/11/271828/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False/shape=SplitOutcrop/resolved=SplitOutcrop/appearance-v2",
+          "Material": 11,
+          "Seed": 271828,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 2.2,
+          "HeightMeters": 1.3,
+          "DepthMeters": 1.85,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.82,
+          "JointStrength": 0.3,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 5,
+          "CandidateCount": 2391,
+          "ColumnEvaluations": 483,
+          "ShapeCells": 2309,
+          "WrittenCells": 2309,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 54,
+            "y": 6,
+            "z": 56
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 73,
+            "y": 19,
+            "z": 73
+          }
+        },
+        "actual_dimensions_m": [
+          2,
+          1.4000000000000001,
+          1.8
+        ],
+        "requested_shape": "SplitOutcrop",
+        "resolved_shape": "SplitOutcrop",
+        "generated_cells": 2309,
+        "material_counts": {
+          "Granite": 2309
+        },
+        "palette": {
+          "Granite": [
+            4286808190,
+            4287071104,
+            4287334019,
+            4287597189,
+            4287860104,
+            4288123018
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -19,
+          "y": -6,
+          "z": -53
+        }
+      },
+      {
+        "name": "Granite",
+        "seed": 161803,
+        "profile": {
+          "Shape": 5,
+          "ResolvedShape": 5,
+          "Identity": "rock-v2/catalog-v3/11/161803/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False/shape=SplitOutcrop/resolved=SplitOutcrop/appearance-v2",
+          "Material": 11,
+          "Seed": 161803,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 2.2,
+          "HeightMeters": 1.3,
+          "DepthMeters": 1.85,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.82,
+          "JointStrength": 0.3,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 5,
+          "CandidateCount": 2251,
+          "ColumnEvaluations": 483,
+          "ShapeCells": 2160,
+          "WrittenCells": 2160,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 55,
+            "y": 6,
+            "z": 55
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 73,
+            "y": 20,
+            "z": 73
+          }
+        },
+        "actual_dimensions_m": [
+          1.9000000000000001,
+          1.5,
+          1.9000000000000001
+        ],
+        "requested_shape": "SplitOutcrop",
+        "resolved_shape": "SplitOutcrop",
+        "generated_cells": 2160,
+        "material_counts": {
+          "Granite": 2160
+        },
+        "palette": {
+          "Granite": [
+            4287071104,
+            4287334019,
+            4287597189,
+            4287860104,
+            4288123018
+          ]
+        },
+        "packed_offset_cells": {
+          "x": 9,
+          "y": -6,
+          "z": -52
+        }
+      }
+    ],
+    "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+  },
+  "generation_version": {
+    "plant": 1,
+    "rock": 2,
+    "catalog": 3,
+    "rock_appearance": 2
+  },
+  "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain.",
+  "appearance_metadata_annotation": "AppearanceVersion read from the compiled source snapshot; original exporter does not emit this separate field."
+}

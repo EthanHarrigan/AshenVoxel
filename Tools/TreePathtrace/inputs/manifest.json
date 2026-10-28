@@ -1,0 +1,15 @@
+{
+  "captured_utc": "2026-10-26T08:41:14.037614+00:00",
+  "note": "Immutable actual generated voxel snapshots for CPU lighting study; use explicit --input-dir to render these historical inputs.",
+  "sha256": {
+    "birch-0.bin": "ac8823d0888b9490f7e5896ecb49de7829ad64259f7bedd7db5014921df3daa2",
+    "birch-0.json": "671ed9c7a7dd9ffd3bd308c037d581da023fc77be14b8ec844c63e3b502d600a",
+    "oak-fruit-0.bin": "cd557feb54426ba532d1878ca275474eef05ae998d37a08f675a5c3603796b99",
+    "oak-fruit-0.json": "da51a5226398de7cbe08d025ea64bd9f6b7c9af5dec757d1cb6961122eac36d2",
+    "redwood-0.bin": "e3fd8447b6570945bfef97e8755fefab1767ff9dba849a8f4ca2563d6f550d00",
+    "redwood-0.json": "b0fa75d6abb158c0ffb37b4cad51ddbf2f932cb931841f7e6da102044414c4ce",
+    "pine-0.bin": "9b1ae352d9f8c89ae075595d1af1c62d8695e3809a9d591f5c4fb21d07776869",
+    "pine-0.json": "6c6cfaad3d801045f86440bd5bf518db42e0b9817ebc66a9d864cfc87cac59f2"
+  },
+  "source_provenance_sha256": "9581d05d9e71dda5b740e533ee53e588ef219c7e3a25b127741478175397f47d"
+}

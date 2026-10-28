@@ -1,0 +1,32 @@
+{
+    "status": "PASS",
+    "error": "",
+    "utc": "2026-10-28T03:51:12.8419754Z",
+    "sources": [
+        "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs",
+        "Assets/AshenVoxel/Exploration/NaturalMatterRigidBodies.cs",
+        "Assets/AshenVoxel/Exploration/Editor/NaturalMatterNativeGravityProbe.cs"
+    ],
+    "sha256": [
+        "3edb4d9c7001ee3a31304cccf47eafe5fa5c9f077c24f6de7615e22c683a0286",
+        "0f13443d2244e8d56644041e7e8b6a28b118f82e8b364b611be4f07ddab16705",
+        "9083497336353cc4995b93e940be9d92378aab44e4f7a7f5661819b44a2d4b3d"
+    ],
+    "steps": 85,
+    "total": 36,
+    "source": 19,
+    "island": 0,
+    "individual": 17,
+    "cargo": 0,
+    "impacts": 1,
+    "initialY": 2.1999998092651369,
+    "minimumAirY": 0.27494558691978457,
+    "maximumAirSpinDegrees": 0.0,
+    "contactTime": 0.6399999856948853,
+    "releaseTime": 1.6999999284744263,
+    "conserved": true,
+    "allObjectsIsolated": true,
+    "activeScenePreserved": true,
+    "playPreserved": true,
+    "cleanupComplete": true
+}

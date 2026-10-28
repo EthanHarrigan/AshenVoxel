@@ -1,0 +1,6 @@
+{
+  "variant": "flight-v3",
+  "original_sha256": "d121d9b149f736aa7b181e6c9e25115d4e49764fdb0e1e8353f24790996ab0e3",
+  "instrumented_sha256": "66aac97542b7d24cbd3cec1fe4e4493a3e02d18e874e9687b8d9a1694f4a138b",
+  "scope": "Two common timing hooks around actual geometry worker only. Not deployable; depends on fixture class. Worker wall duration is not CPU utilization or game latency."
+}

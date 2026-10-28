@@ -1,0 +1,152 @@
+{
+    "status": "PASS",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "samples": [
+        {
+            "material": "Stone",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Mud",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Dirt",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Litter",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Grass",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Wood",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Leaves",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Sand",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Ember",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Fruit",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Granite",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Limestone",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Sandstone",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Shale",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Gravel",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Clay",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "BlackSand",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Snow",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Ice",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Silt",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Peat",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Fungus",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Petal",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        },
+        {
+            "material": "Web",
+            "opaque": 5404516,
+            "half": 2700334,
+            "clear": 0
+        }
+    ],
+    "backlight_dark": 146068,
+    "backlight_transmitted": 2033716
+}

@@ -1,0 +1,56 @@
+{
+  "utc": "2026-10-27T16:00:14.248330+00:00",
+  "status": "STAGED_NOT_NATIVE_TESTED",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/RootContact/UploadPreparation.cs",
+      "before": "f702d75fe941a9a2129bafcb835e62fe3031d51b64c098fe29598f6fa65742f5",
+      "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-canonical-memory\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\UploadPreparation.cs",
+      "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\UploadPreparation.cs",
+      "sha256": "ae018a7e27ad273b461e84c6c90d36703524b1561cc791c9c756edf5510ac07b"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/RootContact/UnityMeshUpload.cs",
+      "before": "68d79f9fa71cae15da3f0187b51230de1cd4f7d1089ffb46975c2478458b002a",
+      "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-canonical-memory\\payload\\Assets\\AshenVoxel\\Exploration\\RootContact\\UnityMeshUpload.cs",
+      "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\RootContact\\UnityMeshUpload.cs",
+      "sha256": "f1d17f4b34688db1dbb62f47f040b79a17d6e9970f4b60a456cd7e8a8ccadef4"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs",
+      "before": "3c33a568d69714c8993f6ecfd1eeeb002288892b5e78dcc154f995d6815a1c9f",
+      "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-canonical-memory\\payload\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "sha256": "5a9857676bbe91fdd5d744b0a62907938f6771ea95d861ce452b50ac14c75668"
+    }
+  ],
+  "protected": [
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationRoots.cs",
+      "sha256": "55fd2ee74dd317cfbc945a54ea97de1bfa9cde01cb1fec92e3d77d465b37de4f"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationSettings.cs",
+      "sha256": "fb6bfe496d49bf002feae191b56343808a2d65d364bf77047b96a351f999e8b3"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationBootstrap.cs",
+      "sha256": "473df2490ac1ef510f1ea1b40501ddb38dbf2da0247c50bb702a119a79dc0eb7"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\Scenes\\Exploration.unity",
+      "sha256": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Settings\\ExplorationSettings.asset",
+      "sha256": "38a9b5b822c4e61418597114703af58cf51847e69f80fd9940494c9e55738664"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationPopulation.cs",
+      "sha256": "ed0dc9bee43813cac4ad0532cfc0270fac0b2c83dbb6ea6eb324ce8721724a27"
+    }
+  ],
+  "headroom_bytes": 3835293696,
+  "log_offset": 1002966,
+  "slot": "Coordinatorexplicitrelease3fileimportonly; noPlay"
+}

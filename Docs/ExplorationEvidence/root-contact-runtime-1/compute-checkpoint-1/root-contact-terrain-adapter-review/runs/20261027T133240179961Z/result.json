@@ -1,0 +1,43 @@
+{
+  "status": "REPRODUCED",
+  "scope": "Small analytical CPU-only fields using actual frozen adapter and MAIN types; no world/assets/pack load or generation.",
+  "wrapper_cases": [
+    {
+      "mode": "standard",
+      "capture_accepted": true,
+      "reason": "",
+      "sampled": true,
+      "got": 49.800000000000004,
+      "expected_bare": 49.800000000000004,
+      "snow_contamination_m": 0,
+      "backing_calls": 1,
+      "adapter_calls": 1,
+      "identity": "bare-root-terrain-v1;cell=.1;center;SurfaceTop;no-snow;no-resampling/f42081ef148e53d6d1c511df8618e4d6398ae09518cd0ec8f56fc1634df1dcb4"
+    },
+    {
+      "mode": "detail-over-surface",
+      "capture_accepted": true,
+      "reason": "",
+      "sampled": true,
+      "got": 50.800000000000004,
+      "expected_bare": 49.800000000000004,
+      "snow_contamination_m": 1,
+      "backing_calls": 11,
+      "adapter_calls": 1,
+      "identity": "bare-root-terrain-v1;cell=.1;center;SurfaceTop;no-snow;no-resampling/d12ee6fda73351bc36c799908d45fc74d21edf6762933484491ad5efe63310bd"
+    },
+    {
+      "mode": "outer-surface-detail-inner-surface",
+      "capture_accepted": true,
+      "reason": "",
+      "sampled": true,
+      "got": 50.800000000000004,
+      "expected_bare": 49.800000000000004,
+      "snow_contamination_m": 1,
+      "backing_calls": 11,
+      "adapter_calls": 1,
+      "identity": "bare-root-terrain-v1;cell=.1;center;SurfaceTop;no-snow;no-resampling/d12ee6fda73351bc36c799908d45fc74d21edf6762933484491ad5efe63310bd"
+    }
+  ],
+  "finite_and_overflow_checks": 16
+}

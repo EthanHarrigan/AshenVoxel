@@ -1,0 +1,6 @@
+{
+  "variant": "flight-final",
+  "original_sha256": "eed51be61cb87f04752b0c8fc438f176539b3f31c686cf81a0d1a07c23097329",
+  "instrumented_sha256": "0d3cc838a68573ae9fa2fa7e285dff9e601f5deaac10ffd8c040644e928b2182",
+  "scope": "Common geometry-worker timing hooks only; not deployable"
+}

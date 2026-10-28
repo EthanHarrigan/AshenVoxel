@@ -1,0 +1,1 @@
+4 checks; 17 requested, 4 deferred, 120.92 MiB admitted, terrain ready after 1; 1695.4 ms geometry only

@@ -1,0 +1,289 @@
+{
+  "name": "plant-shrub",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    80,
+    18,
+    25
+  ],
+  "occupied_cells": 4148,
+  "bounds_min_m": [
+    0.2,
+    0,
+    0.1
+  ],
+  "bounds_max_m": [
+    7.300000000000001,
+    1.6,
+    2.4000000000000004
+  ],
+  "material_counts": {
+    "Litter": 2606,
+    "Leaves": 1208,
+    "Wood": 332,
+    "Fruit": 2
+  },
+  "scene": {
+    "category": "plant",
+    "label": "Shrub",
+    "seeds": [
+      714103,
+      271828,
+      161803
+    ],
+    "specimens": [
+      {
+        "name": "Shrub",
+        "seed": 714103,
+        "profile": {
+          "Kind": 1,
+          "HeightMeters": 1.35,
+          "RadiusMeters": 0.95,
+          "Density": 0.84,
+          "FruitProbability": 0.15,
+          "Variation": 0.35,
+          "Stems": 6,
+          "PaletteSteps": 4,
+          "FoliageColor": 4283130686,
+          "WoodColor": 4284633149,
+          "AccentColor": 4288623674
+        },
+        "result": {
+          "Kind": 1,
+          "Seed": 714103,
+          "RequestedMinCell": {
+            "x": 48,
+            "y": 4,
+            "z": 48
+          },
+          "RequestedMaxCell": {
+            "x": 80,
+            "y": 24,
+            "z": 80
+          },
+          "MinCell": {
+            "x": 57,
+            "y": 4,
+            "z": 57
+          },
+          "MaxCell": {
+            "x": 72,
+            "y": 17,
+            "z": 72
+          },
+          "WrittenCells": 510,
+          "Candidates": 3111,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Wood": 114,
+            "Leaves": 396
+          }
+        },
+        "actual_dimensions_m": [
+          1.6,
+          1.4000000000000001,
+          1.6
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 510,
+        "material_counts": {
+          "Wood": 114,
+          "Leaves": 396
+        },
+        "palette": {
+          "Wood": [
+            4283647028,
+            4284304442,
+            4284961856,
+            4285619270
+          ],
+          "Leaves": [
+            4282867259,
+            4283394113,
+            4283855431
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -53,
+          "y": -2,
+          "z": -53
+        }
+      },
+      {
+        "name": "Shrub",
+        "seed": 271828,
+        "profile": {
+          "Kind": 1,
+          "HeightMeters": 1.35,
+          "RadiusMeters": 0.95,
+          "Density": 0.84,
+          "FruitProbability": 0.15,
+          "Variation": 0.35,
+          "Stems": 6,
+          "PaletteSteps": 4,
+          "FoliageColor": 4283130686,
+          "WoodColor": 4284633149,
+          "AccentColor": 4288623674
+        },
+        "result": {
+          "Kind": 1,
+          "Seed": 271828,
+          "RequestedMinCell": {
+            "x": 48,
+            "y": 4,
+            "z": 48
+          },
+          "RequestedMaxCell": {
+            "x": 80,
+            "y": 24,
+            "z": 80
+          },
+          "MinCell": {
+            "x": 57,
+            "y": 4,
+            "z": 56
+          },
+          "MaxCell": {
+            "x": 72,
+            "y": 17,
+            "z": 72
+          },
+          "WrittenCells": 497,
+          "Candidates": 2929,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Wood": 112,
+            "Leaves": 383,
+            "Fruit": 2
+          }
+        },
+        "actual_dimensions_m": [
+          1.6,
+          1.4000000000000001,
+          1.7000000000000002
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 497,
+        "material_counts": {
+          "Wood": 112,
+          "Leaves": 383,
+          "Fruit": 2
+        },
+        "palette": {
+          "Wood": [
+            4283647028,
+            4284304442,
+            4284961856,
+            4285619270
+          ],
+          "Leaves": [
+            4282867259,
+            4283394113,
+            4283855431
+          ],
+          "Fruit": [
+            4290198595
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -28,
+          "y": -2,
+          "z": -52
+        }
+      },
+      {
+        "name": "Shrub",
+        "seed": 161803,
+        "profile": {
+          "Kind": 1,
+          "HeightMeters": 1.35,
+          "RadiusMeters": 0.95,
+          "Density": 0.84,
+          "FruitProbability": 0.15,
+          "Variation": 0.35,
+          "Stems": 6,
+          "PaletteSteps": 4,
+          "FoliageColor": 4283130686,
+          "WoodColor": 4284633149,
+          "AccentColor": 4288623674
+        },
+        "result": {
+          "Kind": 1,
+          "Seed": 161803,
+          "RequestedMinCell": {
+            "x": 48,
+            "y": 4,
+            "z": 48
+          },
+          "RequestedMaxCell": {
+            "x": 80,
+            "y": 24,
+            "z": 80
+          },
+          "MinCell": {
+            "x": 56,
+            "y": 4,
+            "z": 55
+          },
+          "MaxCell": {
+            "x": 72,
+            "y": 17,
+            "z": 73
+          },
+          "WrittenCells": 535,
+          "Candidates": 3407,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Wood": 106,
+            "Leaves": 429
+          }
+        },
+        "actual_dimensions_m": [
+          1.7000000000000002,
+          1.4000000000000001,
+          1.9000000000000001
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 535,
+        "material_counts": {
+          "Wood": 106,
+          "Leaves": 429
+        },
+        "palette": {
+          "Wood": [
+            4283647028,
+            4284304442,
+            4284961856,
+            4285619270
+          ],
+          "Leaves": [
+            4282867259,
+            4283394113,
+            4283855431
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -2,
+          "y": -2,
+          "z": -52
+        }
+      }
+    ],
+    "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+  },
+  "generation_version": {
+    "plant": 1,
+    "rock": 2,
+    "catalog": 3
+  },
+  "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+}

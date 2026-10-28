@@ -1,0 +1,26 @@
+{
+  "library_file_id": "libfile_aad42f66d70081918a4afefde2242a97",
+  "version": 1,
+  "file_service_id": "file_00000000d38c81f58a503f4f79679c16",
+  "name": "AshenVoxel-western-range-progress.png",
+  "sha256": "14b7c263f8b91054357b81d118d30c13bb06192627e1a95256eb94cf4e8486f5",
+  "size": 2328536,
+  "local_path": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task\\AshenVoxel-western-range-progress.png",
+  "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs\\MountainReviewFrames\\mountain-original-rocks-on-late\\view.png",
+  "capture_utc": "2026-10-27T19:03:05.6745651Z",
+  "camera": [
+    -63200,
+    6000,
+    -18800
+  ],
+  "fov": 60,
+  "applied_preset": "Maximum",
+  "stationary_seconds": 399,
+  "quality_pending": 3445,
+  "coverage_missing": 0,
+  "broad_lithology": false,
+  "rock_commands": 40,
+  "rock_triangles": 2016,
+  "limitations": "Progress baseline; periodic bands, stair/grid aliasing and pale rock brick remain. Not fully converged or near-perfect. No HUD/desktop; actual ScreenCapture pixels unchanged.",
+  "local_xattr_status": "Unsupported os.setxattr on Windows; Library save succeeded; identity retained here."
+}

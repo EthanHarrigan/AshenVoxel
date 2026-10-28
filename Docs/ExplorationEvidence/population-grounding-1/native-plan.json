@@ -1,0 +1,35 @@
+{
+  "status": "Prepared, NOT executed; coordinator explicit release required",
+  "execute": "C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Unity.exe",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels",
+    "-executeMethod",
+    "AshenVoxel.Exploration.Editor.GroundingNativeCheck.RunBatch",
+    "-force-d3d12",
+    "-logFile",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Logs\\GroundingNative\\editor.log"
+  ],
+  "window_style": "Hidden",
+  "no_quit_flag": "Delayed fixture exits itself",
+  "output_folder": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Logs\\GroundingNative",
+  "source_sha256": "af0fa82b134bbe9e665ae77e8e5cccb537066650bfb1ae7feb38fe49379de986",
+  "scope": "One25.6m analytical exact10cm terrain at a time, at most300000terrainfaces; three retained actualprops; six before/after views and six native-runtime motor paths. No wholeworld Play or bake.",
+  "resource_policy": {
+    "native_peak": "Not yet measured",
+    "minimum_initial_commit_headroom_GiB": 5.5,
+    "abort_own_process_private_GiB": 4,
+    "abort_system_commit_headroom_below_GiB": 1.5,
+    "timeout_seconds": 300,
+    "user_processes": "Leave main Editor and terrain service untouched; abort only newly spawned test PID if necessary"
+  },
+  "preprocess_CPU_cost": "Metadata26.29ms total warmed medians across76prototypes,6.49MB allocated; worstmodel9.74msmedian/13.14msmax. One-time synchronous loading work currently exceeds nominal2ms cooperative budget. Existing decode separate480.19ms/99models, two redwoods132\u2013150ms. Not Unity timing or hard realtime guarantee.",
+  "integration_safety": {
+    "native_before_install": true,
+    "before_staging": "Recheck every current main input against frozen manifest. Stop and reconcile any mismatch. Read-copy each preimage to a distinct owned backup folder and verify the copied SHA256 by rereading before publishing the manifest. Preserve matching .meta GUIDs and untouched user/world/prototype files.",
+    "no_destructive_cleanup": true,
+    "no_system_or_driver_changes": true,
+    "rollback": "Retain exact preimages and installed identity; never claim prior evidence covers later revisions."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "aerial-lod-1",
+  "utc": "2026-10-27T07:17:35.143187+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ForestImpostor.shader",
+      "before": "559f0b6e9575f4c676a25278e546ee8e6a543d929b0f4835e9f43c5a05474830",
+      "sha256": "9d96d4ffb7383c49c72b3fb09bac046d3a802e77ca0820899743e7101aa99c85"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestHorizonGpu.shader",
+      "before": "85eb010c0bc3d53d325ad521d716ee2c1e8434dcb0928170537494ae0b16d418",
+      "sha256": "8baf14bc7f5f483940671cd20a8d1218abed1402ed5919c68355dab604c9a81b"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ForestImpostorLighting.hlsl",
+      "before": "b6cd2ef9259ccdec4bf47c57db7cfa18cbb176629aeb726707859c72e69ab32c",
+      "sha256": "4a7e2b67fae374b889ac5182b4fe7b76deea19526eb486e6d2643edf656e1a85"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "c6fba94eb04f3cd580d5af5211a17ae6f0534495261fbfe3e9d3aa1a1d83e8c8",
+      "sha256": "9aae54f5dd9cde50cfa908b76190eee37167da4c2fc38a010845f54c00d4553e"
+    }
+  ]
+}

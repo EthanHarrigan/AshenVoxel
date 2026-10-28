@@ -1,0 +1,10 @@
+{
+  "scope": "Actual model repeatability: same 4096 global samples in separate GPU/batch8 probe and full-map block partition; not bit-exact determinism",
+  "samples": 4096,
+  "maximum_absolute_difference_m": 0.0,
+  "rmse_difference_m": 0.0,
+  "source_sha256": {
+    ".terrain-cache\\coarse320-study\\batch8\\valley.npz": "3650211dc0644bf0d64e59110c9b6ff5e039f8ed858ef628626538e7f7722064",
+    ".terrain-cache\\coarse320-study\\bake320-v1\\completed-valley.npz": "dfa6e4f08c106c0538257084f8fb4cf1622f8600673d4ce2a4d5c062243e2f57"
+  }
+}

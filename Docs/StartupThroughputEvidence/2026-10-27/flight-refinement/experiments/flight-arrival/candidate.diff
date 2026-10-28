@@ -1,0 +1,217 @@
+--- a/Assets/AshenVoxel/Exploration/ExplorationController.cs
++++ b/Assets/AshenVoxel/Exploration/ExplorationController.cs
+@@ -48,13 +48,13 @@
+         public void ResetAt(WorldPoint feet,bool flying=false)
+         {
+             if(Motor==null)throw new InvalidOperationException("Configure the player before respawning.");
+-            Motor.ResetAt(feet,flying);pendingSeconds=0;eyeInitialized=false;ApplyView(0);
++            Motor.ResetAt(feet,flying);pendingSeconds=0;eyeInitialized=false;ApplyView(0);vista.ResetObserverMotion();
+         }
+         public bool TrySpawn(WorldPoint near,double searchRadius=12)
+         {
+             if(Motor==null)return false;
+             if(!Motor.TryFindClearSpawn(near,searchRadius)){Status="Loading a clear starting area…";return false;}
+-            pendingSeconds=0;eyeInitialized=false;ApplyView(0);Status="Walking";return true;
++            pendingSeconds=0;eyeInitialized=false;ApplyView(0);vista.ResetObserverMotion();Status="Walking";return true;
+         }
+         public void CapturePointer(){Cursor.lockState=CursorLockMode.Locked;Cursor.visible=false;ownsPointer=true;}
+         public void ReleasePointer(){if(ownsPointer||Cursor.lockState==CursorLockMode.Locked){Cursor.lockState=CursorLockMode.None;Cursor.visible=true;}ownsPointer=false;}
+--- a/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs
++++ b/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs
+@@ -301,6 +301,7 @@
+                 revision++; ClearTerrain(); coarseStartup = ExternalNavigation;
+             }
+             plannedBaseTileSize = baseSize;
++            voxelPlanBoundsRevision = revision;
+             limitedSplits = plan.PendingSplits;
+             desired.Clear(); desiredTiles.Clear(); pending.Clear(); refining.Clear();
+             var sorted = new List<LodTile>(plan.Tiles);
+@@ -472,6 +473,7 @@
+                 if (!buildingInspection && mouse != null && mouse.leftButton.wasPressedThisFrame) DigPatch();
+                 return;
+             }
++            UpdateVoxelTravelMotion();
+             RefreshContactPlan();
+             QueueNextVoxelRefinement();
+             AdvanceBuilds();
+@@ -645,6 +647,7 @@
+         }
+         void ClearTerrain()
+         {
++            ResetVoxelTravelMotion();
+             CancelBuild();
+             ClearContactTerrain();
+             remove.Clear(); remove.AddRange(surfaces.Keys);
+--- a/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs
++++ b/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs
+@@ -247,17 +247,20 @@
+             if (currentBuild != null) currentBuild.Steps.Dispose();
+             currentBuild = null;
+         }
+-        Work NextWork()
+-        {
+-            Work best = pending.Dequeue(); double distance = WorkPriority(best.Tile);
+-            int count = pending.Count;
+-            for (int i = 0; i < count; i++)
+-            {
+-                Work next = pending.Dequeue(); double candidate = WorkPriority(next.Tile);
+-                if (candidate < distance) { pending.Enqueue(best); best = next; distance = candidate; }
++        bool TryNextWork(out Work best)
++        {
++            best=default;double distance=double.MaxValue;bool found=false;
++            int count=pending.Count;
++            for(int i=0;i<count;i++)
++            {
++                Work next=pending.Dequeue();
++                if(HoldVoxelDetailWork(next)){pending.Enqueue(next);continue;}
++                double candidate=WorkPriority(next.Tile);
++                if(!found||candidate<distance)
++                {if(found)pending.Enqueue(best);best=next;distance=candidate;found=true;}
+                 else pending.Enqueue(next);
+             }
+-            return best;
++            return found;
+         }
+         void AdvanceBuilds()
+         {
+@@ -271,8 +274,11 @@
+                 if (currentBuild == null)
+                 {
+                     if (pending.Count == 0 && contactPending.Count==0) break;
+-                    bool contactFirst=contactPending.Count>0&&(pending.Count==0||consecutiveContactBuilds<2||HasUrgentContactWork());
+-                    Work work=contactFirst?NextContactWork():NextWork();
++                    bool contactAvailable=contactPending.Count>0&&(!voxelTravelDeferring||HasUrgentContactWork());
++                    bool contactFirst=contactAvailable&&(pending.Count==0||consecutiveContactBuilds<2||HasUrgentContactWork());
++                    Work work;
++                    if(contactFirst)work=NextContactWork();
++                    else if(!TryNextWork(out work)){if(contactAvailable)work=NextContactWork();else break;}
+                     if(!work.Contact)consecutiveContactBuilds=0;
+                     if (work.Revision != revision || !(work.Contact?contactDesired.Contains(work.Tile.Key):desired.Contains(work.Tile.Key))) continue;
+                     if (!work.Contact&&!work.Replace && surfaces.ContainsKey(work.Tile.Key)) continue;
+--- a/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
++++ b/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
+@@ -74,7 +74,7 @@
+         Work NextContactWork()
+         {
+             int best=0;double distance=double.MaxValue;
+-            for(int i=0;i<contactPending.Count;i++){double d=DistanceSquared(contactPending[i].Tile);if(d<distance){distance=d;best=i;}}
++            for(int i=0;i<contactPending.Count;i++){if(voxelTravelDeferring&&!ContactWorkIsUrgent(contactPending[i].Tile))continue;double d=DistanceSquared(contactPending[i].Tile);if(d<distance){distance=d;best=i;}}
+             Work result=contactPending[best];contactPending.RemoveAt(best);return result;
+         }
+         static long SurfaceBytes(Surface s)=>(long)s.TriangleCount*60; // Four24-byte vertices + six4-byte indices per quad.
+@@ -272,8 +272,8 @@
+         void QueueNextVoxelRefinement()
+         {
+             if(!UseVoxelLodTerrain||coarseStartup||planActivationPending||!voxelRefinementScanPending||
+-                currentBuild!=null||pending.Count>0)return;
+-            if(contactPending.Count>0&&(consecutiveContactBuilds<2||HasUrgentContactWork()))return;
++                currentBuild!=null||HasRunnableVoxelWork())return;
++            if(contactPending.Count>0&&(voxelTravelDeferring?HasUrgentContactWork():consecutiveContactBuilds<2||HasUrgentContactWork()))return;
+             Surface best=null;double priority=double.MaxValue;int next=0;
+             foreach(var tile in desiredTiles.Values)
+             {
+@@ -281,7 +281,8 @@
+                 // While the outer contact ring fills, spend fair distant slots on
+                 // visible coverage rather than terrain already masked by10cm contact.
+                 if(contactPending.Count>0&&tile.Key.Level==0&&contactSurfaces.ContainsKey(tile.Key))continue;
+-                int target=VoxelQuadsFor(tile);if(s.Quads>=target||voxelDeferredQuads.ContainsKey(tile.Key))continue;
++                int target=VoxelQuadsFor(tile);if(voxelTravelDeferring)target=Math.Min(target,32);
++                if(s.Quads>=target||voxelDeferredQuads.ContainsKey(tile.Key))continue;
+                 // Favor near/in-view terrain; at similar distance, improve the
+                 // roughest tiles first. Scan the bounded plan, reuse its one queue.
+                 double score=(WorkPriority(tile)+tile.SizeMeters*tile.SizeMeters*.01)*s.Quads*s.Quads;
+@@ -291,10 +292,92 @@
+             pending.Enqueue(new Work(best.Tile,revision,true,quads:next,progressive:true));
+             VoxelRefinementBuilds++;
+         }
++        WorldPoint voxelMotionPosition;
++        double voxelMotionTime=-1,voxelMotionX,voxelMotionZ,voxelFastSince=-1,voxelSlowSince=-1,voxelRecoveryUntil;
++        bool voxelTravelDeferring;
++        public bool VoxelTravelDetailDeferred=>voxelTravelDeferring;
++        void SetVoxelTravelDeferral(bool value)
++        {
++            if(voxelTravelDeferring==value)return;
++            voxelTravelDeferring=value;voxelRefinementScanPending=true;
++            if(!value){voxelFastSince=-1;ForceReplan();}
++        }
++        /// <summary>Explicit teleport/respawn notification; normal pose updates
++        /// retain global velocity history across render-origin rebases.</summary>
++        public void ResetObserverMotion()
++        {
++            SetVoxelTravelDeferral(false);ResetVoxelTravelMotion();
++            voxelRefinementScanPending=true;ForceReplan();
++        }
++        void ResetVoxelTravelMotion()
++        {
++            voxelMotionTime=voxelFastSince=voxelSlowSince=-1;voxelMotionX=voxelMotionZ=voxelRecoveryUntil=0;
++            voxelTravelDeferring=false;
++        }
++        void UpdateVoxelTravelMotion()
++        {
++            if(!UseVoxelLodTerrain||!ExternalNavigation){ResetVoxelTravelMotion();return;}
++            double now=Time.unscaledTime,dt=now-voxelMotionTime;WorldPoint eye=GlobalCamera;
++            if(voxelMotionTime<0||dt>1)
++            {SetVoxelTravelDeferral(false);voxelMotionTime=now;voxelMotionPosition=eye;voxelFastSince=-1;return;}
++            if(dt<=0)return;
++            double vx=(eye.X-voxelMotionPosition.X)/dt,vy=(eye.Y-voxelMotionPosition.Y)/dt,vz=(eye.Z-voxelMotionPosition.Z)/dt;
++            double speed2=vx*vx+vz*vz,previous2=voxelMotionX*voxelMotionX+voxelMotionZ*voxelMotionZ;
++            bool reverse=speed2>96*96&&previous2>96*96&&vx*voxelMotionX+vz*voxelMotionZ<0;
++            voxelMotionTime=now;voxelMotionPosition=eye;voxelMotionX=vx;voxelMotionZ=vz;
++            var key=new TileKey((long)Math.Floor(eye.X/25.6),(long)Math.Floor(eye.Z/25.6),0);
++            // Unknown/stale bounds and descent preserve arrival work. Global
++            // coordinates prevent floating-origin shifts from masquerading as speed.
++            bool safe=!coarseStartup&&vy>=-12&&TryContactEnclosure(key,out LodTile bounds)&&eye.Y>bounds.MaximumHeight+32.1;
++            if(!safe||reverse||double.IsNaN(speed2)||double.IsInfinity(speed2))
++            {
++                voxelFastSince=voxelSlowSince=-1;SetVoxelTravelDeferral(false);
++                if(reverse)voxelRecoveryUntil=now+.5;
++                return;
++            }
++            if(voxelTravelDeferring)
++            {
++                if(speed2<96*96)
++                {if(voxelSlowSince<0)voxelSlowSince=now;if(now-voxelSlowSince>=.25)SetVoxelTravelDeferral(false);}
++                else voxelSlowSince=-1;
++            }
++            else if(speed2>=160*160&&now>=voxelRecoveryUntil)
++            {if(voxelFastSince<0)voxelFastSince=now;if(now-voxelFastSince>=.25)SetVoxelTravelDeferral(true);}
++            else voxelFastSince=-1;
++        }
++        bool HasRunnableVoxelWork()
++        {
++            foreach(Work work in pending)if(!HoldVoxelDetailWork(work))return true;
++            return false;
++        }
++        bool HoldVoxelDetailWork(Work work)=>voxelTravelDeferring&&work.Progressive&&work.Quads>32&&
++            !externallyDirty.Contains(work.Tile.Key)&&surfaces.TryGetValue(work.Tile.Key,out Surface s)&&work.Quads>s.Quads;
++        int voxelPlanBoundsRevision=-1;
+         bool HasUrgentContactWork()
+         {
+-            // Protect the near32m ring before sharing the single build slot.
+-            foreach(Work work in contactPending)if(DistanceSquared(work.Tile)<=32*32)return true;
++            foreach(Work work in contactPending)if(ContactWorkIsUrgent(work.Tile))return true;
++            return false;
++        }
++        bool ContactWorkIsUrgent(LodTile tile)
++        {
++            double distance=DistanceSquared(tile);
++            if(distance>32*32)return false;
++            // Reuse immutable planner enclosures, never query the field here.
++            // Unknown/stale bounds retain the original arrival-safe priority.
++            if(!TryContactEnclosure(tile.Key,out LodTile enclosure))return true;
++            double dy=Math.Max(enclosure.MinimumHeight-.1-cameraY,Math.Max(0,cameraY-enclosure.MaximumHeight-.1));
++            return distance+dy*dy<=32*32;
++        }
++        bool TryContactEnclosure(TileKey contactKey,out LodTile enclosure)
++        {
++            enclosure=default;
++            if(voxelPlanBoundsRevision!=revision||!(BareField(field) is IWorldFieldBounds))return false;
++            for(int level=0;level<=14;level++)
++            {
++                long divisor=1L<<level;
++                var key=new TileKey((long)Math.Floor((double)contactKey.X/divisor),(long)Math.Floor((double)contactKey.Z/divisor),level);
++                if(desiredTiles.TryGetValue(key,out enclosure))return true;
++            }
+             return false;
+         }
+         void WakeAdmissibleVoxelRefinements(long previousDetailBytes)

@@ -1,0 +1,20 @@
+read bounded root t=0.001 private=8134656
+generate one original mature tree t=0.023 private=11755520
+capture shared canonical summaries t=1.655 private=64741376
+capture F=1 fixed=2696 nonwood fine candidates=0
+capture F=2 fixed=1072 nonwood fine candidates=0
+capture F=4 fixed=297 nonwood fine candidates=0
+capture F=16 fixed=31 nonwood fine candidates=0
+capture F=64 fixed=5 nonwood fine candidates=0
+construct one canonical-order composite reference t=1.779 private=64753664
+LOD 1 reduce/reference t=2.388 private=182427648
+LOD 1 streaming packed/upper/lower comparison t=2.527 private=217686016
+LOD 2 reduce/reference t=3.831 private=262500352
+LOD 2 streaming packed/upper/lower comparison t=3.939 private=262500352
+LOD 4 reduce/reference t=4.221 private=280997888
+LOD 4 streaming packed/upper/lower comparison t=4.291 private=280150016
+LOD 16 reduce/reference t=4.372 private=283656192
+LOD 16 streaming packed/upper/lower comparison t=4.428 private=283664384
+LOD 64 reduce/reference t=4.451 private=283164672
+LOD 64 streaming packed/upper/lower comparison t=4.506 private=283070464
+complete t=4.524 private=280211456

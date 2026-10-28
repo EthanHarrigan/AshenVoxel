@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "Actual user Azgaar Full JSON through pinned upstream five-channel conditioning and pretrained canonical-owner provider into AVWF; not Unity or target FPS.",
+  "checks": {
+    "actual_pretrained_backend": true,
+    "height_finite": true,
+    "climate5_finite": true,
+    "expected_source_biome": true,
+    "crc_and_binary_reader": true
+  },
+  "height_min_m": 5145.75390625,
+  "height_max_m": 5803.9599609375,
+  "native_spacing_m": 30,
+  "source_map_sha256": "103f9b9d364b884dd532cd4e41effa83a327fd5a60ce0ba69cd612cd9a470d61",
+  "world_id": "ff0d60df1cd5b4a2de775eaac32011f16e8fa429109b99601638bae5ebf9f977",
+  "avwf_sha256": "f72e6e4b4568de7ba3495bfb2934af0f300cfdb56b032cc7d0a00e84c2f19fb2",
+  "source_sha256": {
+    "bridge.py": "ee121e8d2c1613b0b3b37169890d3cfb41d2be7150f2a3d056bee8298ee90d80",
+    "model-manifest.json": "2bbbb7106fd8b62b9a8b0c354d5bff56d02e0f471a2069d2abca5cb35115d1a5"
+  },
+  "limits": "This is soft conditioning at native30m, default land vertical scale1. Exceptional summit anchors/hard coast parity with Minecraft are not applied. Rendering and actual per-player streaming remain separate Unity validation."
+}

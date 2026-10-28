@@ -1,0 +1,240 @@
+{
+  "name": "rock-limestone",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    81,
+    16,
+    21
+  ],
+  "occupied_cells": 3859,
+  "bounds_min_m": [
+    0.2,
+    0,
+    0.1
+  ],
+  "bounds_max_m": [
+    7.4,
+    1.2000000000000002,
+    2
+  ],
+  "material_counts": {
+    "Gravel": 1144,
+    "Limestone": 2715
+  },
+  "scene": {
+    "category": "rock",
+    "label": "Limestone",
+    "seeds": [
+      714103,
+      271828,
+      161803
+    ],
+    "specimens": [
+      {
+        "name": "Limestone",
+        "seed": 714103,
+        "profile": {
+          "Shape": 0,
+          "ResolvedShape": 4,
+          "Identity": "rock-v2/catalog-v3/12/714103/2/1.15/1.75/0.2/0.72/0.65/500000/100000/False/shape=Auto/resolved=Spire",
+          "Material": 12,
+          "Seed": 714103,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 2,
+          "HeightMeters": 1.15,
+          "DepthMeters": 1.75,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.72,
+          "JointStrength": 0.65,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 4,
+          "CandidateCount": 438,
+          "ColumnEvaluations": 399,
+          "ShapeCells": 412,
+          "WrittenCells": 412,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 58,
+            "y": 6,
+            "z": 59
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 68,
+            "y": 17,
+            "z": 68
+          }
+        },
+        "actual_dimensions_m": [
+          1.1,
+          1.2000000000000002,
+          1
+        ],
+        "requested_shape": "Auto",
+        "resolved_shape": "Spire",
+        "generated_cells": 412,
+        "material_counts": {
+          "Limestone": 412
+        },
+        "palette": {
+          "Limestone": [
+            4288189312,
+            4288649862,
+            4289175948
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -54,
+          "y": -6,
+          "z": -54
+        }
+      },
+      {
+        "name": "Limestone",
+        "seed": 271828,
+        "profile": {
+          "Shape": 0,
+          "ResolvedShape": 2,
+          "Identity": "rock-v2/catalog-v3/12/271828/2/1.15/1.75/0.2/0.72/0.65/500000/100000/False/shape=Auto/resolved=Slab",
+          "Material": 12,
+          "Seed": 271828,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 2,
+          "HeightMeters": 1.15,
+          "DepthMeters": 1.75,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.72,
+          "JointStrength": 0.65,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 2,
+          "CandidateCount": 854,
+          "ColumnEvaluations": 399,
+          "ShapeCells": 801,
+          "WrittenCells": 801,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 54,
+            "y": 6,
+            "z": 59
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 73,
+            "y": 13,
+            "z": 68
+          }
+        },
+        "actual_dimensions_m": [
+          2,
+          0.8,
+          1
+        ],
+        "requested_shape": "Auto",
+        "resolved_shape": "Slab",
+        "generated_cells": 801,
+        "material_counts": {
+          "Limestone": 801
+        },
+        "palette": {
+          "Limestone": [
+            4287728762,
+            4288189312,
+            4288649862,
+            4289175948
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -30,
+          "y": -6,
+          "z": -54
+        }
+      },
+      {
+        "name": "Limestone",
+        "seed": 161803,
+        "profile": {
+          "Shape": 0,
+          "ResolvedShape": 1,
+          "Identity": "rock-v2/catalog-v3/12/161803/2/1.15/1.75/0.2/0.72/0.65/500000/100000/False/shape=Auto/resolved=AngularBoulder",
+          "Material": 12,
+          "Seed": 161803,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 2,
+          "HeightMeters": 1.15,
+          "DepthMeters": 1.75,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.72,
+          "JointStrength": 0.65,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 1,
+          "CandidateCount": 1574,
+          "ColumnEvaluations": 399,
+          "ShapeCells": 1502,
+          "WrittenCells": 1502,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 54,
+            "y": 6,
+            "z": 56
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 72,
+            "y": 17,
+            "z": 70
+          }
+        },
+        "actual_dimensions_m": [
+          1.9000000000000001,
+          1.2000000000000002,
+          1.5
+        ],
+        "requested_shape": "Auto",
+        "resolved_shape": "AngularBoulder",
+        "generated_cells": 1502,
+        "material_counts": {
+          "Limestone": 1502
+        },
+        "palette": {
+          "Limestone": [
+            4287728762,
+            4288189312,
+            4288649862,
+            4289175948,
+            4289636498
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -1,
+          "y": -6,
+          "z": -53
+        }
+      }
+    ],
+    "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+  },
+  "generation_version": {
+    "plant": 1,
+    "rock": 2,
+    "catalog": 3
+  },
+  "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+}

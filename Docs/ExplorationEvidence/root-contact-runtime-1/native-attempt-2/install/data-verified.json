@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-27T12:13:07.183885+00:00",
+  "status": "DATA_ONLY_PASS",
+  "report": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-native-data\\20261027T121241954Z\\report.json",
+  "report_sha256": "d10278d78ab073368435b7501f8317341e98399675e5e247266b2e531b7daca7",
+  "nested_probe_parses": true,
+  "identities": 15,
+  "site_ids": [
+    10,
+    11
+  ],
+  "synthetic_records_only": true,
+  "all3_state_checks": true,
+  "original_scene_settings_prefs_unchanged": true,
+  "no_render_marker": true
+}

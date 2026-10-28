@@ -1,0 +1,49 @@
+--- frozen/RootTerrainSnapshot.cs
++++ candidate-v2/RootTerrainSnapshot.cs
+@@ -1,5 +1,6 @@
+ using System;
+ using System.Globalization;
++using System.Collections.Generic;
+ using System.Text;
+ using AshenVoxel.WorldScale;
+ 
+@@ -38,12 +39,27 @@
+             if(string.IsNullOrEmpty(id)||id.Length>MaxIdentityChars)throw new ArgumentException("identity-limit");
+             return id;
+         }
++        sealed class NestedSurfaceException:Exception {}
+         static IWorldField Bare(IWorldField input)
+         {
+-            int count=0;
+-            while(input is SurfaceWorldField surface)
+-            {if(++count>MaxUnwrap)throw new ArgumentException("wrapper-limit");input=surface.BaseField;}
+-            return input??throw new ArgumentException("null-field");
++            IWorldField retained=input,cursor=input;int count=0;bool insideDetail=false;
++            var seen=new HashSet<IWorldField>();
++            while(cursor is SurfaceWorldField||cursor is TerrainDetailField)
++            {
++                // Both supported wrappers are sealed and retain reference equality.
++                if(++count>MaxUnwrap||!seen.Add(cursor))throw new ArgumentException("wrapper-depth-or-cycle");
++                if(cursor is SurfaceWorldField surface)
++                {
++                    if(insideDetail)throw new NestedSurfaceException();
++                    retained=cursor=surface.BaseField;
++                }
++                else
++                {
++                    insideDetail=true;cursor=((TerrainDetailField)cursor).BaseField;
++                }
++            }
++            if(cursor==null)throw new ArgumentException("null-field");
++            return retained;
+         }
+         public static bool TryCapture(IWorldField source,long minX,long maxX,long minZ,long maxZ,int maxQueries,
+             out RootTerrainSnapshot result,out string reason)
+@@ -63,6 +79,7 @@
+                 if(identity!=Identity(bare)||identity!=Identity(captured)){reason="capture-stale";return false;}
+                 result=new RootTerrainSnapshot(bare,captured,identity,minX,maxX,minZ,maxZ,maxQueries);return true;
+             }
++            catch(NestedSurfaceException){reason="nested-surface-wrapper";return false;}
+             catch(Exception){reason="capture-error-or-contract";return false;}
+         }
+         bool Reject(string reason){if(!Failed)Failure=reason;return false;}

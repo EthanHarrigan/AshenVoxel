@@ -1,0 +1,4 @@
+PASS crossing invokes contact-only replan with unchanged far plan/source revision
+System.Exception: still-desired far iterator survives contact-cell crossing
+   at Program.Check(Boolean ok, String s)
+   at Program.Main(String[] args)

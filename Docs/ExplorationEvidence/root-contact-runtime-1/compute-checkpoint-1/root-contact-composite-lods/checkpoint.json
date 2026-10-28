@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-27T13:23:11.267675+00:00",
+  "status": "PASS isolated actual two-root all-LOD CPU equivalence; not production/native integration",
+  "actual_assertions": 75175468,
+  "policy_assertions": 67,
+  "all10_replayed_mesh_hashes_exact": true,
+  "csharp9_netstandard21_compile": true,
+  "no_owned_capture_processes_remain": true,
+  "prior_frozen_evidence_and_inputs_verified": 341,
+  "evidence_manifests": {
+    "specimen-10-20261027T130937232091Z": "44731cdf9f50ec14a59d5897fd26e4ac99f81b631f39d79f0c10f544b651ff88",
+    "specimen-11-20261027T131159753179Z": "fc51fa131943221e32e6aa618386273e63ad237714f6c0a430e9b53e1c4c42a3",
+    "policy-20261027T131630278854Z": "8fc4b56c55385fb6135fc0848b26490e22ae0b9c37e40b961c5aec4b43e3ba13",
+    "captured-replay-20261027T131848203063Z": "b7a16d618d6b0e0be07c443bebaf4d64600d1c138cb933db9c3b1b523dec6c16"
+  },
+  "sha256": {
+    "CompositeLowerLod.cs": "6efb2d4e2c6fcf644b7f42af570656c93fc4ba5f7fe9093939b59c543496e319",
+    "CompositeChecks.cs": "6f0b3fd1f27e399fc6a9725ba5ee1920a954948189c071a947c8a51cc0809f9c",
+    "run.py": "54fbb9043a12085a9e5957ee8abf9a32ecc7a53684081b1e11827e96596d488b",
+    "run_guard2.py": "04c0fae687a831fa5933cf6c7d39536ea6f8b0d97118ea8ddb5e8437fe4d8612",
+    "PolicyChecks.cs": "694a2297bd6ecadf75bd0bbe8bfc7c8ec039eb42742b96933aef124afd99fdab",
+    "run_policy.py": "86af388c74aea52094e4988b7b8f55076eae4dc465556f0f53f62f251a2236d7",
+    "CapturedReplay.cs": "0a682e594e87a6e0598f0f13f0c6b928aed8706da01155baf3b59352dc780b56",
+    "replay_captured.py": "e5a53b6d8085fb256d024592475503fde116da0541b0094f75dc28234f6ee168",
+    "README.md": "f9c86e976ca28546bdb7dfb39f82456bfc97f1f058a9c1599972903daa6da61b",
+    "completion-audit.json": "c1c7ddc985144255ccdf912736025a6fad668e496a62753bc11b38f294ce653e",
+    "freeze_checkpoint.py": "188b303e987d77feabd658839a22e164c6a7f21e532f88858e497e5b702445ce",
+    "netstandard21.rsp": "b021794c6ff8d830004ec5e8116588c0d1092b49e1fb76a0f4d768f009bec1bd",
+    "netstandard21.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "CompositeLowerLod.netstandard21.dll": "8031b3a61ec4a6958d844fc0d7b2ad0842e8619be74fa253201b9e5e812d43d9"
+  },
+  "scope": "Only this new isolated directory written; root builder, classifier/caps, main pack, Assets, shaders and old frozen sources/evidence untouched."
+}

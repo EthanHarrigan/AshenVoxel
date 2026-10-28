@@ -1,0 +1,58 @@
+{
+  "name": "arid",
+  "fixture_kind": "Controlled synthetic field/profile exercising the actual shared sampler; NOT Ceteviles or neural output",
+  "source_identity": "CONTROLLED-SURFACE-FIXTURE/arid/v1/surface-v1/catalog-v2/714103/0/4200/2.4/False/0.7/0.2/0/rock=13/wind=36.86989764584402/sun=287.3540246362613/climate=30,0,80,70,-0.0065",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    192,
+    105,
+    192
+  ],
+  "world_origin_m": [
+    0,
+    154.70000000000002,
+    0
+  ],
+  "bounds_min_m": [
+    0,
+    0,
+    0
+  ],
+  "bounds_max_m": [
+    19.200000000000003,
+    9.450825523437146,
+    19.200000000000003
+  ],
+  "seed": 714103,
+  "material_counts": {
+    "Sandstone": 1610133,
+    "Gravel": 227293,
+    "Dirt": 14156,
+    "Sand": 254597
+  },
+  "cutaway_removed_cells": 54542,
+  "water_plane": false,
+  "water_local_height_m": -154.70000000000002,
+  "snow": {
+    "minimum_m": 0,
+    "maximum_m": 0,
+    "distinct_depths": 1,
+    "covered_columns": 0,
+    "total_columns": 36864
+  },
+  "profile": {
+    "MaxSnowDepthMeters": 2.4,
+    "WindStrength": 0.7,
+    "WindAzimuthDegrees": 36.86989764584402,
+    "SolarAzimuthDegrees": 287.3540246362613,
+    "forced_rock": "Sandstone",
+    "climate": {
+      "TemperatureC": 30,
+      "SeasonalityC": 0,
+      "PrecipitationMm": 80,
+      "PrecipitationCvPercent": 70,
+      "LapseRateCPerMeter": -0.0065
+    }
+  },
+  "note": "Matter created with SurfaceMaterialSampler.SampleMatter and VoxelWorld.Set; optional water is a separate illustrative offline surface, not a solid material or the URP shader."
+}

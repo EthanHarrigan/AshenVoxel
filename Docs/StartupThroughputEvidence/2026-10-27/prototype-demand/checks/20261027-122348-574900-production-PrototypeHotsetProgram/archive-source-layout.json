@@ -1,0 +1,8 @@
+{
+  "base_snapshot": "../../../flight-refinement/baseline-source",
+  "overrides": "source",
+  "overridden_files": [
+    "Tools/StartupThroughput/PrototypeHotsetProgram.cs"
+  ],
+  "all_hashes": "result.json/source_sha256"
+}

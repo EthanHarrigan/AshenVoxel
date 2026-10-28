@@ -1,0 +1,245 @@
+{
+  "name": "rock-shale",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    88,
+    13,
+    24
+  ],
+  "occupied_cells": 4751,
+  "bounds_min_m": [
+    0.2,
+    0,
+    0.1
+  ],
+  "bounds_max_m": [
+    8.1,
+    0.9,
+    2.3000000000000003
+  ],
+  "material_counts": {
+    "Gravel": 1588,
+    "Shale": 3163
+  },
+  "scene": {
+    "category": "rock",
+    "label": "Shale",
+    "seeds": [
+      714103,
+      271828,
+      161803
+    ],
+    "specimens": [
+      {
+        "name": "Shale",
+        "seed": 714103,
+        "profile": {
+          "Shape": 0,
+          "ResolvedShape": 2,
+          "Identity": "rock-v2/catalog-v3/14/714103/2.15/0.72/1.8/0.2/0.5/0.72/500000/100000/False/shape=Auto/resolved=Slab",
+          "Material": 14,
+          "Seed": 714103,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 2.15,
+          "HeightMeters": 0.72,
+          "DepthMeters": 1.8,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.5,
+          "JointStrength": 0.72,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 2,
+          "CandidateCount": 852,
+          "ColumnEvaluations": 437,
+          "ShapeCells": 733,
+          "WrittenCells": 733,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 54,
+            "y": 6,
+            "z": 57
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 73,
+            "y": 11,
+            "z": 70
+          }
+        },
+        "actual_dimensions_m": [
+          2,
+          0.6000000000000001,
+          1.4000000000000001
+        ],
+        "requested_shape": "Auto",
+        "resolved_shape": "Slab",
+        "generated_cells": 733,
+        "material_counts": {
+          "Shale": 733
+        },
+        "palette": {
+          "Shale": [
+            4283783515,
+            4284046687,
+            4284375651,
+            4284638824,
+            4284901996
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -50,
+          "y": -6,
+          "z": -52
+        }
+      },
+      {
+        "name": "Shale",
+        "seed": 271828,
+        "profile": {
+          "Shape": 0,
+          "ResolvedShape": 1,
+          "Identity": "rock-v2/catalog-v3/14/271828/2.15/0.72/1.8/0.2/0.5/0.72/500000/100000/False/shape=Auto/resolved=AngularBoulder",
+          "Material": 14,
+          "Seed": 271828,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 2.15,
+          "HeightMeters": 0.72,
+          "DepthMeters": 1.8,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.5,
+          "JointStrength": 0.72,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 1,
+          "CandidateCount": 1380,
+          "ColumnEvaluations": 437,
+          "ShapeCells": 1268,
+          "WrittenCells": 1268,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 54,
+            "y": 6,
+            "z": 56
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 72,
+            "y": 13,
+            "z": 73
+          }
+        },
+        "actual_dimensions_m": [
+          1.9000000000000001,
+          0.8,
+          1.8
+        ],
+        "requested_shape": "Auto",
+        "resolved_shape": "AngularBoulder",
+        "generated_cells": 1268,
+        "material_counts": {
+          "Shale": 1268
+        },
+        "palette": {
+          "Shale": [
+            4283454550,
+            4283783515,
+            4284046687,
+            4284375651,
+            4284638824,
+            4284901996
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -21,
+          "y": -6,
+          "z": -53
+        }
+      },
+      {
+        "name": "Shale",
+        "seed": 161803,
+        "profile": {
+          "Shape": 0,
+          "ResolvedShape": 6,
+          "Identity": "rock-v2/catalog-v3/14/161803/2.15/0.72/1.8/0.2/0.5/0.72/500000/100000/False/shape=Auto/resolved=Cluster",
+          "Material": 14,
+          "Seed": 161803,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 2.15,
+          "HeightMeters": 0.72,
+          "DepthMeters": 1.8,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.5,
+          "JointStrength": 0.72,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 6,
+          "CandidateCount": 1231,
+          "ColumnEvaluations": 437,
+          "ShapeCells": 1162,
+          "WrittenCells": 1162,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 56,
+            "y": 6,
+            "z": 56
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 73,
+            "y": 14,
+            "z": 73
+          }
+        },
+        "actual_dimensions_m": [
+          1.8,
+          0.9,
+          1.8
+        ],
+        "requested_shape": "Auto",
+        "resolved_shape": "Cluster",
+        "generated_cells": 1162,
+        "material_counts": {
+          "Shale": 1162
+        },
+        "palette": {
+          "Shale": [
+            4283454550,
+            4283783515,
+            4284046687,
+            4284375651,
+            4284638824,
+            4284901996
+          ]
+        },
+        "packed_offset_cells": {
+          "x": 5,
+          "y": -6,
+          "z": -53
+        }
+      }
+    ],
+    "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+  },
+  "generation_version": {
+    "plant": 1,
+    "rock": 2,
+    "catalog": 3
+  },
+  "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+}

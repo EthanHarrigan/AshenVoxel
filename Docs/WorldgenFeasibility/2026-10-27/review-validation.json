@@ -1,0 +1,12 @@
+{
+  "scope": "Static source and metadata verification only",
+  "inspected_files": 19,
+  "changed_inspected_sources": [],
+  "bundled_data_hash_matches": {
+    "macro_height": true,
+    "macro_climate": true,
+    "fine_height": true,
+    "fine_climate": true
+  },
+  "new_inference_or_Unity_run": false
+}

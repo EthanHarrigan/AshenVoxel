@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-27T23:02:21.020194+00:00",
+  "editor_log_offset": 896888,
+  "protected": {
+    "Assets/Scenes/Exploration.unity": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+    "Assets/AshenVoxel/Settings/ExplorationSettings.asset": "605f1f5cc1b27de83cd24246bbc4222faee6e3cee83acdec67a0a53f379ad82a",
+    "Assets/AshenVoxel/Exploration/Samples/exploration-world.json": "85ff39810a717cc35db248d9c48b38af52839346e392c32ba707f67e6df94ea3",
+    "Assets/AshenVoxel/Exploration/Prototypes/ExplorationPrototypes.bytes": "41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs": "26a7ff1ed745d29542d1b4327f764d6878b2f4e8581829c6cff7cc55f94f6769",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs": "4fdfa88f0a1b608a8e33ecad7b37f83ee31202b21b16839305fa93ef08e6abdb",
+    "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs": "eb4a78b85aa600e82ff15fbf96afcc099008e50784dfbf7a8ca9b4fb1d64de9c"
+  }
+}

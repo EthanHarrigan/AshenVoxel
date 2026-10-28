@@ -1,0 +1,261 @@
+{
+  "name": "plant-cactus",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    49,
+    16,
+    13
+  ],
+  "occupied_cells": 874,
+  "bounds_min_m": [
+    0.2,
+    0,
+    0.1
+  ],
+  "bounds_max_m": [
+    4.2,
+    1.4000000000000001,
+    1.2000000000000002
+  ],
+  "material_counts": {
+    "Sand": 660,
+    "Leaves": 214
+  },
+  "scene": {
+    "category": "plant",
+    "label": "Cactus",
+    "seeds": [
+      714103,
+      271828,
+      161803
+    ],
+    "specimens": [
+      {
+        "name": "Cactus",
+        "seed": 714103,
+        "profile": {
+          "Kind": 7,
+          "HeightMeters": 1.25,
+          "RadiusMeters": 0.48,
+          "Density": 0.9,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 3,
+          "PaletteSteps": 4,
+          "FoliageColor": 4285302112,
+          "WoodColor": 4284829754,
+          "AccentColor": 4291339633
+        },
+        "result": {
+          "Kind": 7,
+          "Seed": 714103,
+          "RequestedMinCell": {
+            "x": 55,
+            "y": 4,
+            "z": 55
+          },
+          "RequestedMaxCell": {
+            "x": 73,
+            "y": 22,
+            "z": 73
+          },
+          "MinCell": {
+            "x": 61,
+            "y": 4,
+            "z": 61
+          },
+          "MaxCell": {
+            "x": 66,
+            "y": 15,
+            "z": 67
+          },
+          "WrittenCells": 74,
+          "Candidates": 674,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 74
+          }
+        },
+        "actual_dimensions_m": [
+          0.6000000000000001,
+          1.2000000000000002,
+          0.7000000000000001
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 74,
+        "material_counts": {
+          "Leaves": 74
+        },
+        "palette": {
+          "Leaves": [
+            4284248402,
+            4284972635,
+            4285631589,
+            4286355822
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -57,
+          "y": -2,
+          "z": -58
+        }
+      },
+      {
+        "name": "Cactus",
+        "seed": 271828,
+        "profile": {
+          "Kind": 7,
+          "HeightMeters": 1.25,
+          "RadiusMeters": 0.48,
+          "Density": 0.9,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 3,
+          "PaletteSteps": 4,
+          "FoliageColor": 4285302112,
+          "WoodColor": 4284829754,
+          "AccentColor": 4291339633
+        },
+        "result": {
+          "Kind": 7,
+          "Seed": 271828,
+          "RequestedMinCell": {
+            "x": 55,
+            "y": 4,
+            "z": 55
+          },
+          "RequestedMaxCell": {
+            "x": 73,
+            "y": 22,
+            "z": 73
+          },
+          "MinCell": {
+            "x": 61,
+            "y": 4,
+            "z": 61
+          },
+          "MaxCell": {
+            "x": 66,
+            "y": 15,
+            "z": 67
+          },
+          "WrittenCells": 69,
+          "Candidates": 666,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 69
+          }
+        },
+        "actual_dimensions_m": [
+          0.6000000000000001,
+          1.2000000000000002,
+          0.7000000000000001
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 69,
+        "material_counts": {
+          "Leaves": 69
+        },
+        "palette": {
+          "Leaves": [
+            4284248402,
+            4284972635,
+            4285631589,
+            4286355822
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -42,
+          "y": -2,
+          "z": -58
+        }
+      },
+      {
+        "name": "Cactus",
+        "seed": 161803,
+        "profile": {
+          "Kind": 7,
+          "HeightMeters": 1.25,
+          "RadiusMeters": 0.48,
+          "Density": 0.9,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 3,
+          "PaletteSteps": 4,
+          "FoliageColor": 4285302112,
+          "WoodColor": 4284829754,
+          "AccentColor": 4291339633
+        },
+        "result": {
+          "Kind": 7,
+          "Seed": 161803,
+          "RequestedMinCell": {
+            "x": 55,
+            "y": 4,
+            "z": 55
+          },
+          "RequestedMaxCell": {
+            "x": 73,
+            "y": 22,
+            "z": 73
+          },
+          "MinCell": {
+            "x": 61,
+            "y": 4,
+            "z": 61
+          },
+          "MaxCell": {
+            "x": 66,
+            "y": 15,
+            "z": 67
+          },
+          "WrittenCells": 71,
+          "Candidates": 627,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 71
+          }
+        },
+        "actual_dimensions_m": [
+          0.6000000000000001,
+          1.2000000000000002,
+          0.7000000000000001
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 71,
+        "material_counts": {
+          "Leaves": 71
+        },
+        "palette": {
+          "Leaves": [
+            4284248402,
+            4284972635,
+            4285631589,
+            4286355822
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -27,
+          "y": -2,
+          "z": -58
+        }
+      }
+    ],
+    "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+  },
+  "generation_version": {
+    "plant": 1,
+    "rock": 2,
+    "catalog": 3
+  },
+  "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+}

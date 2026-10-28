@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-27T22:31:35.719455+00:00",
+  "status": "Installed; native Ready then safely stopped for next integration",
+  "hashes": {
+    "Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs": "ec4bacefa951d9961759dbdafc4518f765be87e6e7026d21634a11397cd3342f",
+    "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs": "1cd1dd13bc43584bab095a32f19a5e4b580d41f4e349c3ec9f76eb5a00a01563",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "0d17fadfaa2a6ef36247e14486f9c3312c59c5da4be9985ad11be221c2a946f4",
+    "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs": "542046572b5f9d4e714fc7fbf060709210b24d93ce3353a618708213e9f99f0a",
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": "3b80bb4ff5d1ba3b457cfe3db6048c62c314e161e90eeb10b1aeddeb66945f1a"
+  },
+  "capture": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs\\MountainReviewFrames\\valley-source32-late\\terrain-20261027-221910-595.json",
+  "source": {
+    "resident": 32,
+    "selected": 30,
+    "ready": 30,
+    "held": 0,
+    "selected_core_area_km2": 12.288,
+    "published_core_area_km2": 13.1072
+  },
+  "mesh": {
+    "quality_pending": 2609,
+    "quality_builds": 6241,
+    "far_bytes": 2947369320,
+    "contact_bytes": 514703280,
+    "available_commit_bytes": 2224222208,
+    "limit": "Commit headroom waiting"
+  },
+  "cache": {
+    "hits": 0,
+    "misses": 7502,
+    "writes": 7502,
+    "failures": 0
+  },
+  "options_restored_sha256": "a971d9170fe3dfcea5acfc46a4894b3ffc512927e6c9402f660a6660110e74ca",
+  "image": {
+    "library_file_id": "libfile_a5a648d43fa08191b3b433f8f79a0e01",
+    "version": 3,
+    "utc": "2026-10-27T22:19:10.5483992Z",
+    "not_final_fidelity": true
+  }
+}

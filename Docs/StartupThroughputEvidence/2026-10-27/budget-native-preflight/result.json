@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-27T10:35:52.405720+00:00",
+  "status": "NOT_RUN_INSUFFICIENT_COMMIT_HEADROOM",
+  "launched": false,
+  "run32_headroom_gib": 4.321834564208984,
+  "required_gib": 5,
+  "run40": "NOT_AUTHORIZED_OR_RUN; separate coordinator decision after successful32 required",
+  "main_editor_untouched": true,
+  "native_slot_released": true,
+  "launcher_sha256": "3c0cfd7eefb4c9f22d781c8dad02d401575a7c37391712c8bf66981a42e8b491",
+  "fixture_sha256": "771db2201c1486ad9d752e867c037cfbc41f48c8385fb4e74560f2fa3ed47e9b",
+  "source_identity": "Exact225-file installed-main snapshot; actual14fb32, seed714103, populationv1, current wind/aerial/capacity/contact freshness. Failed groundingv2 excluded.",
+  "validation": "Fixture installed-API compilation PASS; guarded launcher PowerShell syntax PASS. No runtime memory/timing/visual measurements obtained."
+}

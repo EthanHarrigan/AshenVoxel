@@ -1,0 +1,181 @@
+PASS 132087
+[
+  {
+    "test": "real birch flat",
+    "count": 3395,
+    "island_max": 3375,
+    "first_release_age": 5.2500134,
+    "minimum_up": -0.11695522,
+    "cargo": 3376,
+    "source": 19
+  },
+  {
+    "test": "real birch slope",
+    "count": 3395,
+    "island_max": 3375,
+    "first_release_age": 5.116678,
+    "minimum_up": -0.13264799,
+    "cargo": 3376,
+    "source": 19
+  },
+  {
+    "test": "budget1",
+    "frames": 1050
+  },
+  {
+    "test": "queued lowbudget cuts",
+    "frames": 118,
+    "source": 3,
+    "individual": 3
+  },
+  {
+    "test": "twelve disconnected sections delayed mesh gate",
+    "frames": 145,
+    "waited": true,
+    "movedWhileWaiting": true,
+    "source": 1,
+    "individual": 13
+  },
+  {
+    "test": "100000 connected upper cells adaptive parcels",
+    "count": 100002,
+    "weight": 25,
+    "representatives": 4001,
+    "peakRepresentatives": 4001,
+    "logical": 100001,
+    "partialRetained": true,
+    "frames": 12794,
+    "source": 1,
+    "cargo": 100001,
+    "resolvedCargo": 100001,
+    "resolvedSource": 1,
+    "total_cpu_ms": 139.6873
+  },
+  {
+    "test": "weighted parcel",
+    "weight": 1,
+    "representatives": 28,
+    "logical": 28,
+    "cargo": 28
+  },
+  {
+    "test": "weighted parcel",
+    "weight": 2,
+    "representatives": 15,
+    "logical": 28,
+    "cargo": 28
+  },
+  {
+    "test": "weighted parcel",
+    "weight": 4,
+    "representatives": 8,
+    "logical": 28,
+    "cargo": 28
+  },
+  {
+    "test": "weighted parcel",
+    "weight": 7,
+    "representatives": 5,
+    "logical": 28,
+    "cargo": 28
+  },
+  {
+    "test": "all 76 tree and rock initial support"
+  },
+  {
+    "test": "3395 birch perf settled weight4",
+    "count": 3395,
+    "representatives_at_start": 867,
+    "body_budget": 8192,
+    "representative_visit_bound_frames": 1,
+    "individual": 3376,
+    "island": 0,
+    "physics_debt": 0,
+    "supplied_seconds": 3.9999999999999907,
+    "cargo": 0,
+    "p50_ms": 0.0193,
+    "p95_ms": 0.0372,
+    "max_ms": 0.1509,
+    "allocated_bytes": 0
+  },
+  {
+    "test": "12000 debris perf settled weight4",
+    "count": 12002,
+    "representatives_at_start": 3001,
+    "body_budget": 8192,
+    "representative_visit_bound_frames": 1,
+    "individual": 12001,
+    "island": 0,
+    "physics_debt": 0,
+    "supplied_seconds": 3.9999999999999907,
+    "cargo": 0,
+    "p50_ms": 0.0385,
+    "p95_ms": 0.0611,
+    "max_ms": 0.0884,
+    "allocated_bytes": 0
+  },
+  {
+    "test": "12000 debris perf active air weight4",
+    "count": 12002,
+    "representatives_at_start": 3001,
+    "body_budget": 8192,
+    "representative_visit_bound_frames": 1,
+    "individual": 12001,
+    "island": 0,
+    "physics_debt": 0,
+    "supplied_seconds": 3.9999999999999907,
+    "cargo": 0,
+    "p50_ms": 0.0637,
+    "p95_ms": 0.0983,
+    "max_ms": 0.2599,
+    "allocated_bytes": 0
+  },
+  {
+    "test": "12000 debris perf suction first120 weight4",
+    "count": 12002,
+    "representatives_at_start": 3001,
+    "body_budget": 8192,
+    "representative_visit_bound_frames": 1,
+    "individual": 0,
+    "island": 0,
+    "physics_debt": 0,
+    "supplied_seconds": 1.9999999999999978,
+    "cargo": 12001,
+    "p50_ms": 0.0001,
+    "p95_ms": 0.0962,
+    "max_ms": 0.1342,
+    "allocated_bytes": 136
+  },
+  {
+    "test": "12000 debris perf active air weight1",
+    "count": 12002,
+    "representatives_at_start": 12001,
+    "body_budget": 8192,
+    "representative_visit_bound_frames": 2,
+    "individual": 12001,
+    "island": 0,
+    "physics_debt": 0,
+    "supplied_seconds": 3.9999999999999907,
+    "cargo": 0,
+    "p50_ms": 0.1087,
+    "p95_ms": 0.1622,
+    "max_ms": 0.2668,
+    "allocated_bytes": 0
+  },
+  {
+    "test": "3395 birch perf settled weight1",
+    "count": 3395,
+    "representatives_at_start": 3376,
+    "body_budget": 8192,
+    "representative_visit_bound_frames": 1,
+    "individual": 3376,
+    "island": 0,
+    "physics_debt": 0,
+    "supplied_seconds": 3.9999999999999907,
+    "cargo": 0,
+    "p50_ms": 0.0345,
+    "p95_ms": 0.0619,
+    "max_ms": 0.2307,
+    "allocated_bytes": 0
+  }
+]

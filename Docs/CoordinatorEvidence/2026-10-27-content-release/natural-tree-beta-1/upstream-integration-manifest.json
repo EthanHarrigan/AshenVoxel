@@ -1,0 +1,50 @@
+{
+  "identity": "natural-tree-matter-1",
+  "status": "CPU focused + installed API compile; NOT installed/native tested",
+  "targets": {
+    "Assets/AshenVoxel/Exploration/NaturalTreeTemplate.cs": "7935ba5c190a5cf5e93208dc1722656571c058a34e6d7de4ad131ce56a76b33f",
+    "Assets/AshenVoxel/Exploration/NaturalTreeTemplate.cs.meta": "4797ca23af4c8876a0295844bf01f46142aabbfc579a4cf959f9cc8213901352",
+    "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs": "eb4a78b85aa600e82ff15fbf96afcc099008e50784dfbf7a8ca9b4fb1d64de9c",
+    "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs.meta": "f40cc13484acf0e9dfa8a918d757028580a79a922d6d277e098bfc3bc34dad69",
+    "Assets/AshenVoxel/Exploration/VegetationTreeMatter.cs": "27e23e030394a6e0a4ec09ac89cdf11b0f97e002739968ba53bd7073b2cee091",
+    "Assets/AshenVoxel/Exploration/VegetationTreeMatter.cs.meta": "269c7f74a24e55228255ce0b3ec55844b533678ca653687f2c54f1eaa1e06ab1",
+    "Assets/AshenVoxel/Exploration/ExplorationNaturalTreeMatter.cs": "bdea2c8015c761263e7da64df952a6aafa4f15749186e53959fe10c6a98748d5",
+    "Assets/AshenVoxel/Exploration/ExplorationNaturalTreeMatter.cs.meta": "38814aed62d820461eee0a674f1079fe26928aeb5ac1860d4faf58afd687c9ce"
+  },
+  "preimages": {
+    "check.py": "0730aa61b40c3550dceeb8958ab8f49dfefff015ec98ebd81c1335bb0a851fb7",
+    "CheckShrub.cs": "50627e35e23e32159b4756a4108b17840dd6f63ba20ca6b4110d302de1117921",
+    "compile_integration.py": "8cd5c3020a2309a13bb046664cbe6dcb27aff7b51ba9ed60980cac201c08e6b5",
+    "exploration-prototype-bake.json": "98e9829552747a39632d18ac2beb0c2290bdad9e023d285879344ddfd651f62d",
+    "ExplorationBetaMatter.cs": "07abb8845adf947c10daaf3f18e764731961c79e39e324d26792c0b994a91d42",
+    "ExplorationBetaMenu.cs": "f9e89cad9f1791d063619fda75bfe4d2652513a38bc9e08053b617a35314cccc",
+    "ExplorationBootstrap.cs": "2e60c6c86692d113e9e449a7846a0710dbf3bd3046c8f7b650ad75f82feeabf8",
+    "ExplorationShrubMatter.cs": "f8221f75aedcaf13b80e51e275b229f5f02b1c35523c2653acc2256618b661cf",
+    "ExportPrototypes.cs": "5bab94749ee19505309dbd0a71009edd5998af0fd11db89f12a37074172fe6f8",
+    "sequence.json": "2ae79487ee169f9008ae04cbb1ad84e2cf695bbf9e93d5e593c2171635e4a3f6",
+    "VegetationShrubMatter.cs": "5e39d90108bea4e3d463ebb7e61be776f0c6a6430d58ea0fdc353df23affe900",
+    "VegetationStreaming.cs": "8de336345203ed79abc59394f2afd06b842b1780d1041ffab694ce1dfa2e7aaa"
+  },
+  "hook": "ExplorationNaturalTreeMatter.Attach(this); coordinator merges into current Bootstrap",
+  "source_lease": "Reuse installed exclusive shrub lease + HasReservedShrubMatter source hold; new VegetationTreeMatter partial only",
+  "limits": {
+    "whole_tree_cells": 4096,
+    "eligible_models": [
+      0,
+      1
+    ],
+    "actual_cells": [
+      3395,
+      3408
+    ],
+    "islands": 8,
+    "support_candidates": 2048,
+    "body_candidates": 8192,
+    "pair_candidates": 131072,
+    "ground_columns": 16384,
+    "ground_columns_per_update": 256,
+    "cube_objects": 0
+  },
+  "no_main_existing_file_replacement": true,
+  "native": "Coordinator exclusive shared pass required"
+}

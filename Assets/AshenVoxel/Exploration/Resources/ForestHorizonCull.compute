@@ -1,0 +1,23 @@
+#pragma kernel CullForest
+struct ForestInstance { float4 positionSpan; float4 style; };
+StructuredBuffer<ForestInstance> _ForestInstances;
+AppendStructuredBuffer<uint> _VisibleForest;
+uint _InstanceCount;
+float4 _SnapshotOffset,_Observer,_Range;
+float4 _Planes[6];
+
+[numthreads(64,1,1)]
+void CullForest(uint3 thread:SV_DispatchThreadID)
+{
+    uint id=thread.x;if(id>=_InstanceCount)return;
+    ForestInstance stand=_ForestInstances[id];
+    float3 center=stand.positionSpan.xyz+_SnapshotOffset.xyz;
+    float distanceToEye=distance(center,_Observer.xyz);
+    // Same center-distance policy as the forward/depth/normal shaders.
+    if(distanceToEye<_Range.x||distanceToEye>_Range.y)return;
+    // New canopy patches can follow a bounded +/-1 terrain gradient. Enclose
+    // the sloped plane and modest height variance; retain legacy bounds at w=0.
+    float radius=stand.positionSpan.w*(stand.style.w>0?max(1.14,stand.style.x)*1.5:max(1,stand.style.x)*0.707107);
+    [unroll]for(uint i=0;i<6;i++)if(dot(_Planes[i].xyz,center)+_Planes[i].w < -radius)return;
+    _VisibleForest.Append(id);
+}

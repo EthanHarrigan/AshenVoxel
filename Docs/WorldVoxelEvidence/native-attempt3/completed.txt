@@ -1,0 +1,1 @@
+PASS native actual-source terrain play, three settled voxel views and native mesh regression. Terrain-only to coexist with user main game. No full-scene/FPS acceptance.

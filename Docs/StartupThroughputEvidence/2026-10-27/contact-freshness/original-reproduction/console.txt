@@ -1,0 +1,31 @@
+PASS old contact support is available before source edit
+PASS source edit queues existing contact replacement
+PASS denied replacement preserves visible old contact and refresh obligation
+PASS overlap movement retains fallback surface
+FAIL overlap movement retains stale source replacement despite existing surface
+PASS static over-budget refresh does not busy-retry
+FAIL net memory release wakes overlap's retained source replacement
+FAIL replacement publishes current source after overlap/free-capacity sequence
+PASS next source replacement can defer independently
+PASS eviction retires old contact and obsolete deferred accounting
+PASS away/back queues current contact even after eviction
+PASS return publishes current source height
+PASS another source revision replaces deferred work with current revision
+PASS multiple deferred revisions cannot publish an earlier source as current
+PASS resolution and admission budget remain unchanged
+PASS metadata fixture shutdown clears caches and obligations
+PASS real immutable geometry work starts before cancellation
+PASS source revision cancels old in-flight iterator
+PASS real publication cap
+PASS real publication cap
+PASS real publication cap
+PASS real publication cap
+PASS real publication cap
+PASS real publication cap
+PASS real publication cap
+PASS real publication cap
+PASS real publication cap
+PASS real publication cap
+PASS real canceled source cannot overwrite new 10cm support
+PASS real replacement retains256-column contact detail
+PASS cancellation/disposal leaves no worker handle or owned scratch

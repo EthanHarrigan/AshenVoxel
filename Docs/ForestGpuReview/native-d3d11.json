@@ -1,0 +1,12 @@
+{
+    "unity": "6000.3.27f1",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "api": "Direct3D11",
+    "scope": "Actual compute culling, GPU append count, indirect rendering and pixel readback; not FPS profiling",
+    "checks": 10,
+    "tree_pixels": 5365,
+    "visible_30km": 1,
+    "visible_100km": 3,
+    "visible_after_turn": 1,
+    "visible_after_rebase": 3
+}

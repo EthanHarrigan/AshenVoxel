@@ -1,0 +1,7 @@
+Tools\NaturalMatterChecks\Program.cs(31,9): error CS0136: A local or parameter named 'sticks' cannot be declared in this scope because that name is used in an enclosing local scope to define a local or parameter
+Traceback (most recent call last):
+  File "C:\Users\ethan\Downloads\AshenVoxel\Tools\run_natural_matter_checks.py", line 15, in <module>
+    subprocess.run([str(dotnet),str(sdk/'Roslyn/bincore/csc.dll'),'@'+str(rsp)],check=True)
+  File "C:\Users\ethan\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['C:\\Program Files\\dotnet\\dotnet.EXE', 'C:\\Program Files\\dotnet\\sdk\\8.0.407\\Roslyn\\bincore\\csc.dll', '@C:\\Users\\ethan\\Downloads\\AshenVoxel\\Tools\\NaturalMatterChecks\\bin\\compile.rsp']' returned non-zero exit status 1.

@@ -1,0 +1,5 @@
+PASS 0: 530.62ms, 260.84MiB allocated; mesh 359.63ms
+PASS 1: 370.69ms, 260.83MiB allocated; mesh 230.71ms
+PASS 2: 367.82ms, 260.83MiB allocated; mesh 229.47ms
+PASS 3: 366.43ms, 260.83MiB allocated; mesh 229.01ms
+PASS 4: 375.65ms, 260.83MiB allocated; mesh 234.90ms

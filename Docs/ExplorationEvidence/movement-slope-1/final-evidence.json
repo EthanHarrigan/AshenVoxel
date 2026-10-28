@@ -1,0 +1,16 @@
+{
+  "generated_utc": "2026-10-27T07:18:08.601589+00:00",
+  "scope": "Diagnostic and proposed-source copies only; production unchanged; no native tests",
+  "sha256": {
+    "candidate/ExplorationMovement.cs": "5e8f22e774be8469fb9d82a55ce23cff468565deef6cfe79f0ad53389a0a6701",
+    "candidate/VoxelTerrainPage.cs": "c811f44c9b4165637748dd7130d447709c5e3ba08ff302b58658bfeb851699d7",
+    "candidate-production.diff": "3f8d9f105653932496d29139298033204ef625622be768a314950a0aaafd1d6b",
+    "FocusedChecks.cs": "5e80ace82de5e0f0221c4ca00e4112ca94a436b529b1363a4796a5233a666ccf",
+    "candidate-focused.json": "538b6a79fd077f7c0310fab155188ed982941165404ddc101f46ccecd0c1ee88",
+    "paths.json": "8754304ae1f0c448c54d503510a0d8314dafccd9e8b21457ce434cb51c324dc9",
+    "candidate-paths.json": "39a3ba4057658182c4a791b1e0a231eed49bc245805d6647ea285c352be71790",
+    "candidate-existing-movement.json": "7eb624d4405f6ab0280edecdb217bf1254971f61364c5ccbfb16263f9b6da7e3",
+    "candidate-existing-voxel/validation.json": "cdbd903859b633586692d56eca5a884cb5c29b935e779815b0368cb8b13e7b13",
+    "README.md": "cea72b86303c95754393f24618c3df7d64896b0472557f3f57b49ab20af719e0"
+  }
+}

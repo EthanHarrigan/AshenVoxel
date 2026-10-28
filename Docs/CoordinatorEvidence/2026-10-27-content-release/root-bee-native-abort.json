@@ -1,0 +1,16 @@
+{
+    "marker": "coordinator-smoke-v1",
+    "run": "content-batch-20261027-1546",
+    "stopReason": "Main private growth reached1.5GiB",
+    "pid": 23204,
+    "startTicks": 639286722618688970,
+    "baselinePrivate": 9074937856,
+    "minimumHeadroom": 4136058880,
+    "peakPrivate": 10714624000,
+    "minHeadroomSeen": 2514165760,
+    "started": 40533.7691966,
+    "readyAt": 10.751522300000945,
+    "began": true,
+    "finished": true,
+    "originalPaused": false
+}

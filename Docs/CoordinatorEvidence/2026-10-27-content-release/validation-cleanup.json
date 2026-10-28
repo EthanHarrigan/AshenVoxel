@@ -1,0 +1,82 @@
+{
+  "utc": "2026-10-27T15:52:11.273428+00:00",
+  "status": "OWNED_HELPERS_REMOVED_READABLE_BACKUPS_ORIGINAL3_UNCHANGED",
+  "files": [
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\CoordinatorSmokeSettings.asset",
+      "sha256": "379f3703d672f425a4cd82712ebd31730562a96fc33df7aedf797661e795969f",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\content-batch\\cleanup-preimages\\Assets\\_Validation\\CoordinatorSmoke\\CoordinatorSmokeSettings.asset"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\CoordinatorSmokeSettings.asset.meta",
+      "sha256": "5f6c88314d941ff04765aabce5713ca3b6fae64bdf4a387b6c0642ea15fbf0b8",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\content-batch\\cleanup-preimages\\Assets\\_Validation\\CoordinatorSmoke\\CoordinatorSmokeSettings.asset.meta"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Editor.meta",
+      "sha256": "06e691ad2d3d518c716d52bee146476aca6f83a0c94fa2e5328c46af9876e131",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\content-batch\\cleanup-preimages\\Assets\\_Validation\\CoordinatorSmoke\\Editor.meta"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\ExplorationSmoke_20261027.unity",
+      "sha256": "57db94a4cd62cf8c9c015c47e0e49b6b47a4a6b4587f7995a5677d45ba647dc6",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\content-batch\\cleanup-preimages\\Assets\\_Validation\\CoordinatorSmoke\\ExplorationSmoke_20261027.unity"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\ExplorationSmoke_20261027.unity.meta",
+      "sha256": "53ece4c144a2bd3f895187d3aacdfd0fcf7aeb747d6bda270d4aef0e753f77f2",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\content-batch\\cleanup-preimages\\Assets\\_Validation\\CoordinatorSmoke\\ExplorationSmoke_20261027.unity.meta"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Runtime.meta",
+      "sha256": "c7e01625a679bffff683f50c05e9d4fb02922e896e0ae81585b45f6ce29d4798",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\content-batch\\cleanup-preimages\\Assets\\_Validation\\CoordinatorSmoke\\Runtime.meta"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\BatchBeeProbe.cs",
+      "sha256": "79aaa2b4338b999941c63fde84192a90d1a7abf72d1bf0b09f3ce5415292129a",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\content-batch\\cleanup-preimages\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\BatchBeeProbe.cs"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\BatchBeeProbe.cs.meta",
+      "sha256": "6f38cf077361b9b2b11db85e8df0c5a0e18f5388155cfd06442f6844de038fd3",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\content-batch\\cleanup-preimages\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\BatchBeeProbe.cs.meta"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\BatchRootBridge.cs",
+      "sha256": "c96e949375702287868ac7d5910d50ca789e86ff9a03083533b28bd9588609e0",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\content-batch\\cleanup-preimages\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\BatchRootBridge.cs"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\BatchRootBridge.cs.meta",
+      "sha256": "008340e5854c1eea3edba7a36fa1787ecc0fafa970229199c9f5f6718544dd81",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\content-batch\\cleanup-preimages\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\BatchRootBridge.cs.meta"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\CoordinatorSmokeGuard.cs",
+      "sha256": "698c52ccc7c8813d568dd5cee9019d64333d5757b1aab453ec952cbcc52023f7",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\content-batch\\cleanup-preimages\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\CoordinatorSmokeGuard.cs"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\CoordinatorSmokeGuard.cs.meta",
+      "sha256": "0fd62788269bbbec5824c4f31a7610ba3db13af93a0ead903cf6b2cb52b01eaf",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\content-batch\\cleanup-preimages\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\CoordinatorSmokeGuard.cs.meta"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Runtime\\RootNativeProbe.cs",
+      "sha256": "a038cce24ff47a86f71fbaa1fe29fdfd8a2784b333111dcba789a186d8b79758",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\content-batch\\cleanup-preimages\\Assets\\_Validation\\CoordinatorSmoke\\Runtime\\RootNativeProbe.cs"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Runtime\\RootNativeProbe.cs.meta",
+      "sha256": "ddf162304d37b1145b22b03d6bdf009f9e26a9cffe0f685fb9d55b5358496ca3",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\content-batch\\cleanup-preimages\\Assets\\_Validation\\CoordinatorSmoke\\Runtime\\RootNativeProbe.cs.meta"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke.meta",
+      "sha256": "7804bfc938c5f11ba589472b5c3db328b0c008634696d3b4877d2da4c0f3d1ce",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\content-batch\\cleanup-preimages\\Assets\\_Validation\\CoordinatorSmoke.meta"
+    }
+  ],
+  "finite_demo_preserved": true
+}

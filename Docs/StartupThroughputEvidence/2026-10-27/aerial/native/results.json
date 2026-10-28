@@ -1,0 +1,586 @@
+{
+    "status": "PASS",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "api": "Direct3D12",
+    "error": "",
+    "scope": "Bounded actual-atlas forward CPU/GPU views; explicit CPU depth/normal coverage; shader pass compilation. No FPS or full-world acceptance.",
+    "compiledPasses": 6,
+    "views": [
+        {
+            "prototype": 0,
+            "elevation": 0.0,
+            "cpuPixels": 13229,
+            "gpuPixels": 13228,
+            "depthPixels": 13228,
+            "normalPixels": 13228,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 0,
+            "elevation": 30.0,
+            "cpuPixels": 11486,
+            "gpuPixels": 11486,
+            "depthPixels": 11486,
+            "normalPixels": 11486,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 0,
+            "elevation": 45.900001525878909,
+            "cpuPixels": 9227,
+            "gpuPixels": 9227,
+            "depthPixels": 9227,
+            "normalPixels": 9227,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 0,
+            "elevation": 46.20000076293945,
+            "cpuPixels": 9111,
+            "gpuPixels": 9111,
+            "depthPixels": 9111,
+            "normalPixels": 9111,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 0,
+            "elevation": 60.0,
+            "cpuPixels": 6592,
+            "gpuPixels": 6592,
+            "depthPixels": 6592,
+            "normalPixels": 6592,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 0,
+            "elevation": 75.9000015258789,
+            "cpuPixels": 3236,
+            "gpuPixels": 3236,
+            "depthPixels": 3236,
+            "normalPixels": 3236,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 0,
+            "elevation": 76.0999984741211,
+            "cpuPixels": 3210,
+            "gpuPixels": 3210,
+            "depthPixels": 3210,
+            "normalPixels": 3210,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 0,
+            "elevation": 78.0,
+            "cpuPixels": 4725,
+            "gpuPixels": 4725,
+            "depthPixels": 4725,
+            "normalPixels": 4725,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 0,
+            "elevation": 80.0,
+            "cpuPixels": 7860,
+            "gpuPixels": 7860,
+            "depthPixels": 7860,
+            "normalPixels": 7860,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 0,
+            "elevation": 82.0,
+            "cpuPixels": 10668,
+            "gpuPixels": 10668,
+            "depthPixels": 10668,
+            "normalPixels": 10668,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 0,
+            "elevation": 84.0,
+            "cpuPixels": 12411,
+            "gpuPixels": 12411,
+            "depthPixels": 12411,
+            "normalPixels": 12411,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 0,
+            "elevation": 86.0,
+            "cpuPixels": 13223,
+            "gpuPixels": 13223,
+            "depthPixels": 13223,
+            "normalPixels": 13223,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 0,
+            "elevation": 87.9000015258789,
+            "cpuPixels": 13380,
+            "gpuPixels": 13380,
+            "depthPixels": 13380,
+            "normalPixels": 13380,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 0,
+            "elevation": 88.0999984741211,
+            "cpuPixels": 13379,
+            "gpuPixels": 13379,
+            "depthPixels": 13379,
+            "normalPixels": 13379,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 0,
+            "elevation": 89.9000015258789,
+            "cpuPixels": 13388,
+            "gpuPixels": 13388,
+            "depthPixels": 13388,
+            "normalPixels": 13388,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 0,
+            "elevation": 90.0,
+            "cpuPixels": 13388,
+            "gpuPixels": 13388,
+            "depthPixels": 13388,
+            "normalPixels": 13388,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 0.0,
+            "cpuPixels": 18394,
+            "gpuPixels": 18394,
+            "depthPixels": 18394,
+            "normalPixels": 18394,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 30.0,
+            "cpuPixels": 15945,
+            "gpuPixels": 15944,
+            "depthPixels": 15944,
+            "normalPixels": 15944,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 45.900001525878909,
+            "cpuPixels": 12806,
+            "gpuPixels": 12806,
+            "depthPixels": 12808,
+            "normalPixels": 12808,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 46.20000076293945,
+            "cpuPixels": 12744,
+            "gpuPixels": 12744,
+            "depthPixels": 12744,
+            "normalPixels": 12744,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 60.0,
+            "cpuPixels": 9223,
+            "gpuPixels": 9223,
+            "depthPixels": 9223,
+            "normalPixels": 9223,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 75.9000015258789,
+            "cpuPixels": 4507,
+            "gpuPixels": 4507,
+            "depthPixels": 4507,
+            "normalPixels": 4507,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 76.0999984741211,
+            "cpuPixels": 4448,
+            "gpuPixels": 4448,
+            "depthPixels": 4448,
+            "normalPixels": 4448,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 78.0,
+            "cpuPixels": 7216,
+            "gpuPixels": 7216,
+            "depthPixels": 7216,
+            "normalPixels": 7216,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 80.0,
+            "cpuPixels": 13082,
+            "gpuPixels": 13082,
+            "depthPixels": 13082,
+            "normalPixels": 13082,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 82.0,
+            "cpuPixels": 18194,
+            "gpuPixels": 18194,
+            "depthPixels": 18193,
+            "normalPixels": 18193,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 84.0,
+            "cpuPixels": 21416,
+            "gpuPixels": 21416,
+            "depthPixels": 21416,
+            "normalPixels": 21416,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 86.0,
+            "cpuPixels": 22810,
+            "gpuPixels": 22810,
+            "depthPixels": 22810,
+            "normalPixels": 22810,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 87.9000015258789,
+            "cpuPixels": 23144,
+            "gpuPixels": 23144,
+            "depthPixels": 23144,
+            "normalPixels": 23144,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 88.0999984741211,
+            "cpuPixels": 23146,
+            "gpuPixels": 23146,
+            "depthPixels": 23146,
+            "normalPixels": 23146,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 89.9000015258789,
+            "cpuPixels": 23152,
+            "gpuPixels": 23152,
+            "depthPixels": 23153,
+            "normalPixels": 23153,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 4,
+            "elevation": 90.0,
+            "cpuPixels": 23152,
+            "gpuPixels": 23152,
+            "depthPixels": 23153,
+            "normalPixels": 23153,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 0.0,
+            "cpuPixels": 5340,
+            "gpuPixels": 5340,
+            "depthPixels": 5340,
+            "normalPixels": 5340,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 30.0,
+            "cpuPixels": 4622,
+            "gpuPixels": 4622,
+            "depthPixels": 4623,
+            "normalPixels": 4623,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 45.900001525878909,
+            "cpuPixels": 3740,
+            "gpuPixels": 3740,
+            "depthPixels": 3741,
+            "normalPixels": 3741,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 46.20000076293945,
+            "cpuPixels": 3701,
+            "gpuPixels": 3701,
+            "depthPixels": 3701,
+            "normalPixels": 3701,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 60.0,
+            "cpuPixels": 2668,
+            "gpuPixels": 2668,
+            "depthPixels": 2668,
+            "normalPixels": 2668,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 75.9000015258789,
+            "cpuPixels": 1342,
+            "gpuPixels": 1342,
+            "depthPixels": 1342,
+            "normalPixels": 1342,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 76.0999984741211,
+            "cpuPixels": 1299,
+            "gpuPixels": 1299,
+            "depthPixels": 1299,
+            "normalPixels": 1299,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 78.0,
+            "cpuPixels": 1440,
+            "gpuPixels": 1440,
+            "depthPixels": 1440,
+            "normalPixels": 1440,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 80.0,
+            "cpuPixels": 1894,
+            "gpuPixels": 1894,
+            "depthPixels": 1894,
+            "normalPixels": 1894,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 82.0,
+            "cpuPixels": 2354,
+            "gpuPixels": 2354,
+            "depthPixels": 2352,
+            "normalPixels": 2352,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 84.0,
+            "cpuPixels": 2690,
+            "gpuPixels": 2690,
+            "depthPixels": 2690,
+            "normalPixels": 2690,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 86.0,
+            "cpuPixels": 2843,
+            "gpuPixels": 2843,
+            "depthPixels": 2843,
+            "normalPixels": 2843,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 87.9000015258789,
+            "cpuPixels": 2870,
+            "gpuPixels": 2870,
+            "depthPixels": 2870,
+            "normalPixels": 2870,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 88.0999984741211,
+            "cpuPixels": 2872,
+            "gpuPixels": 2872,
+            "depthPixels": 2872,
+            "normalPixels": 2872,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 89.9000015258789,
+            "cpuPixels": 2873,
+            "gpuPixels": 2873,
+            "depthPixels": 2873,
+            "normalPixels": 2873,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 8,
+            "elevation": 90.0,
+            "cpuPixels": 2873,
+            "gpuPixels": 2873,
+            "depthPixels": 2873,
+            "normalPixels": 2873,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 0.0,
+            "cpuPixels": 10986,
+            "gpuPixels": 10986,
+            "depthPixels": 10986,
+            "normalPixels": 10986,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 30.0,
+            "cpuPixels": 9461,
+            "gpuPixels": 9461,
+            "depthPixels": 9461,
+            "normalPixels": 9461,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 45.900001525878909,
+            "cpuPixels": 7668,
+            "gpuPixels": 7668,
+            "depthPixels": 7669,
+            "normalPixels": 7669,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 46.20000076293945,
+            "cpuPixels": 7567,
+            "gpuPixels": 7567,
+            "depthPixels": 7567,
+            "normalPixels": 7567,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 60.0,
+            "cpuPixels": 5480,
+            "gpuPixels": 5480,
+            "depthPixels": 5480,
+            "normalPixels": 5480,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 75.9000015258789,
+            "cpuPixels": 2671,
+            "gpuPixels": 2671,
+            "depthPixels": 2671,
+            "normalPixels": 2671,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 76.0999984741211,
+            "cpuPixels": 2594,
+            "gpuPixels": 2594,
+            "depthPixels": 2594,
+            "normalPixels": 2594,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 78.0,
+            "cpuPixels": 3790,
+            "gpuPixels": 3790,
+            "depthPixels": 3790,
+            "normalPixels": 3790,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 80.0,
+            "cpuPixels": 6221,
+            "gpuPixels": 6221,
+            "depthPixels": 6220,
+            "normalPixels": 6220,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 82.0,
+            "cpuPixels": 8437,
+            "gpuPixels": 8437,
+            "depthPixels": 8437,
+            "normalPixels": 8437,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 84.0,
+            "cpuPixels": 9858,
+            "gpuPixels": 9858,
+            "depthPixels": 9859,
+            "normalPixels": 9859,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 86.0,
+            "cpuPixels": 10549,
+            "gpuPixels": 10549,
+            "depthPixels": 10549,
+            "normalPixels": 10549,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 87.9000015258789,
+            "cpuPixels": 10656,
+            "gpuPixels": 10656,
+            "depthPixels": 10656,
+            "normalPixels": 10656,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 88.0999984741211,
+            "cpuPixels": 10656,
+            "gpuPixels": 10656,
+            "depthPixels": 10656,
+            "normalPixels": 10656,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 89.9000015258789,
+            "cpuPixels": 10654,
+            "gpuPixels": 10654,
+            "depthPixels": 10654,
+            "normalPixels": 10654,
+            "coverageMismatch": 0
+        },
+        {
+            "prototype": 12,
+            "elevation": 90.0,
+            "cpuPixels": 10654,
+            "gpuPixels": 10654,
+            "depthPixels": 10654,
+            "normalPixels": 10654,
+            "coverageMismatch": 0
+        }
+    ]
+}

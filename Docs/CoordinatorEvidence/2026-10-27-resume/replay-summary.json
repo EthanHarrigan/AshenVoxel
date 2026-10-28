@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-27T13:41:23.971980+00:00",
+  "status": "ONE_NATIVE_REPLAY_COMPLETE_ORIGINAL_SCENE_RESTORED_HELPERS_REMOVED",
+  "source_bundle": "planner1651,flightcontroller411c/explorer5d7e/integration48c0/voxels464c,settings6662/bootstrapf609",
+  "scope": "Copied192tile64MiBdetail128MiBcontact profile, sourceimportedcontrollerbridge/elevatednoclip, NOTfullprofileperformance/collision/funacceptance",
+  "readyAt_seconds": 8.543550800000958,
+  "guard_stop_reason": "60second smoke complete",
+  "private_growth_bytes": 1511776256,
+  "minimum_commit_headroom_bytes": 2779496448,
+  "replay_seconds": 20.000000688945875,
+  "sample_count": 5009,
+  "gate_entries": 2,
+  "gate_exits": 2,
+  "rebases": 1,
+  "stop_near2m_ready_seconds": [
+    0.5751926010707393,
+    0.5460045980289578
+  ],
+  "final_distance_from_spawn_m": 0.14935951563165872,
+  "final_height_from_spawn_m": 0.0,
+  "walking_accepted": true,
+  "final_flying": false,
+  "final_noclip": false,
+  "skipped_seconds": 0.0,
+  "deferred_seconds": 0.0,
+  "cleanup_error": "",
+  "ground_phase_p95_ms": 9.478301741182804,
+  "maximum_frame_ms": 48.63600432872772,
+  "performance_caveat": "Frame samples are actual native copied-profile observations, no baseline comparison, no claim of FPS speedup or saved512/30km performance. Initialheightset220m; flightusesnoclip; finalwalkingaccepted but not wall/slope feel acceptance.",
+  "cleanup": "Exact4ownedsource/meta +emptyRuntimefolder/meta removed afterreadablehashbackups; originalExplorationUIrestored, protected7runtime+3originalhashesmatch; noarmedtest/newEditor/userprocessclosed.",
+  "grass_scope": "Existingmodelsvisible inGameViewforest afterrestoration; didnotcapturepermodeldrawcounts or cleanwalkinggrassimage, so no grass-density/contactacceptance."
+}

@@ -1,0 +1,42 @@
+{
+  "scope": "Actual learned latent low-frequency channel; no full decoder",
+  "job_world_id": "0ba47bc1c6fb7606cd93696781ecefcef25cefdbee855046c58be6ccbb5e3c96",
+  "device": "cuda",
+  "load_seconds": 16.08372860000236,
+  "queries": [
+    {
+      "name": "valley",
+      "seconds": 9.876585799996974,
+      "latent_window": [
+        -400,
+        -1100,
+        128,
+        128
+      ],
+      "height_range_m": [
+        315.1817626953125,
+        7527.13232421875
+      ],
+      "finite": true,
+      "height_sha256": "ed11465981618940cf2d53933957a293310dcb7bd0a5774bf597ec3e3290ae68"
+    },
+    {
+      "name": "adjacent",
+      "seconds": 4.186378800004604,
+      "latent_window": [
+        -400,
+        -972,
+        128,
+        128
+      ],
+      "height_range_m": [
+        249.7035675048828,
+        1909.6070556640625
+      ],
+      "finite": true,
+      "height_sha256": "9fb5e69a93af6f4acb4582721ff871bc9359a6fa280fd26de92aded2864177ba"
+    }
+  ],
+  "status": "PASS",
+  "elapsed_seconds": 30.14745469999616
+}

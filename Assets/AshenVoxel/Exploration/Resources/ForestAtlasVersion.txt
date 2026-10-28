@@ -1,0 +1,1 @@
+forest-impostor-v3: sixteen original 10cm prototypes; eight azimuths plus overhead; unlit sRGB albedo + linear object normals + point-sampled material/AO byte; live URP lighting

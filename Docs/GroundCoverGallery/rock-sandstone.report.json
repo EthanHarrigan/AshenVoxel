@@ -1,0 +1,344 @@
+{
+  "created_utc": "2026-10-26T20:02:24.964892+00:00",
+  "image": "Docs/GroundCoverGallery/rock-sandstone.png",
+  "image_sha256": "f1434a3311b057c18aa740cb445593aa7095148bae39f05cc4a42e68fed711be",
+  "export_name": "rock-sandstone",
+  "input_sha256": "49fb8fc6edd6beb750e05ce9622754b95be179ec59d0dfab43163e792100b03e",
+  "source_provenance": {
+    "created_utc": "2026-10-26T20:01:46.161579+00:00",
+    "sdk": "8.0.427",
+    "source_sha256": {
+      "Assets/AshenVoxel/Core/Details/PlantGenerator.cs": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+      "Assets/AshenVoxel/Core/Details/PlantModel.cs": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2",
+      "Assets/AshenVoxel/Core/EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+      "Assets/AshenVoxel/Core/Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+      "Assets/AshenVoxel/Core/Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+      "Assets/AshenVoxel/Core/Materials.cs": "0342f83df63737d241289e0c86931ebe501cd0c090cf2c773316cc170ef9afd3",
+      "Assets/AshenVoxel/Core/Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+      "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs": "02657f6243d7cd173cb88883edd771e020910c2afce447d9d8c70a3f0ee802cb",
+      "Assets/AshenVoxel/Core/Rocks/RockProfile.cs": "f92cca9d29263eada1c0284994b270f1b9b1d41e30e4b6bef8957bdf3e2c67c0",
+      "Assets/AshenVoxel/Core/Rocks/RockShapeGeometry.cs": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69",
+      "Assets/AshenVoxel/Core/Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+      "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+      "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+      "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+      "Assets/AshenVoxel/Core/VoxelColor.cs": "b1392b24b7d0b3d966ac7cf35f438de7db384639397444d508ed28e95e8899c6",
+      "Assets/AshenVoxel/Core/VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+      "Assets/AshenVoxel/Core/VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+      "Assets/AshenVoxel/Core/WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+      "Tools/GroundCoverPreview/ExportGroundCover.cs": "e54fe6256847dc637a55a19682113d4dd92f00ac42c49caf306a059d927e00f6"
+    },
+    "tool_sha256": "7e6a8a6f69b513b66f180d26507c843b13cd443a464167f75107b95ca9312ea3",
+    "mode": "ground-cover",
+    "note": "Actual C# procedural plant/rock specimens on10cm voxel grid. Authored arrangements and lighting fixtures are explicit; not Unity or ecological world scatter.",
+    "exports": {
+      "plant-cactus.bin": "f2ae7856f2ff541db41e8315e3043994d9d5d1377ea029a3e2e4d158081bfbcc",
+      "plant-grasstuft.bin": "065e31903b0bc6597d2ae7c9358924eebc78ea7925b9ed98a7c6ff5d6408cbd3",
+      "plant-broadleafherb.json": "239e0a0ce8c7b1e30c0df39e93d07f0306d058234916ee3174279cfbdfc4b6ab",
+      "plant-fern.bin": "d010fe1a8e4c1fd0268e7c08a8f4a54c08f8e7ec5ef0ea14005411fed523891e",
+      "plant-cactus.json": "1bc5767125ec5f9e2f14d252a7148952e303f653b27eafc05b454b6e29b7eb7c",
+      "plant-shrub.bin": "2aa2251fc9a365dd5470db4639ae0246a7765c528431b2a043b45251e85db2e3",
+      "rock-granite.bin": "217467881641e3f14a69ee0ffe3f56bb148bee99bc7a459b3667703ecb70b98e",
+      "plant-cushion.json": "45dbb58298169294b152701e30041d5a41afa918fe7089a3388495b844390731",
+      "plant-shrub.json": "3336bfbc99fd8cb8af07dcf7d41166d65c1acf3a96315b63526cdd0dd10bc58b",
+      "plant-flower.json": "678be146c3a246d9fba59b7997c06cec6f9838f720f66cc7711474c01afc91e3",
+      "rock-granite.json": "6663cc60c8972217859f61edf0acdf526e4351b39e5c07c5254773a7b49ad836",
+      "berry-shrub.bin": "28ac8a7f861da19a8e574a73c05cb392bcfb2e22d6b3d227cef1e7a35d8e0c4d",
+      "dry-floor.json": "802e70b2cce69a62b64201ea817695c52059def18d35ad9180f6e6ea6f56ee50",
+      "plant-mushroom.json": "59205e412df91290c0897764a328e336e2b586e9563c8c4e2602062fe91b123b",
+      "rock-sandstone.bin": "49fb8fc6edd6beb750e05ce9622754b95be179ec59d0dfab43163e792100b03e",
+      "plant-reed.bin": "a19a68b50032e1d9a90931cbfb9bb16d756380e9d0ad2a8be1b097f413c329bc",
+      "dry-floor.bin": "61c6b93ab9dff029484a13d5483f7d1be62e4b8c5ada6e3b69e752281b08ed7d",
+      "micro-plants.bin": "edeeda4149175b22b9ea6ccfca33afbd172929acb9240e5901c422e99e9f4765",
+      "rock-limestone.bin": "f38038d5b7a1f89a8201caba5a038e654d4662abd9e7264f4766ae13f97379f4",
+      "plant-succulent.bin": "569ac3718603319c455ae094572188676e3b17c67078fa01cd7ec8e80e08a41d",
+      "rock-stone.json": "e2cd40abb1ac3782ce322fce4b0b52c9fbce2ea6f36fd294d433b38e9cc42b6c",
+      "plant-cushion.bin": "2febbf1a39fe47b9209f7fd7f514c6e736b88c58289abef27ef29b7e6b9cdf8b",
+      "rock-limestone.json": "cd874127100146c40578dba1e89cd0ec0cc0a6d2c7ac0077b601cf6ed7a4447e",
+      "rock-sandstone.json": "760fce506872c7fb651fc2ed2ce26d5d076a3f7941509aa416af7f0a56fe88a1",
+      "rock-stone.bin": "b88a8b689a24b42aeaf4a7a37a4dbdd7a1a9e54130a44b6123ea324a45862135",
+      "berry-shrub.json": "1e0af23d561830fa939c2e32c42c82070518806ca637e61c58506a7747fc9642",
+      "rock-shale.json": "6bc072951e7f47520a6eabf9967da920025b155643af47268c36ecb4eaaeea58",
+      "micro-plants.json": "212c6aecec25fa4aed7a1efc18bc63a45d504eda306e1148d3f0f125fdd62eaa",
+      "forest-floor.json": "1b3cb46f81a7bd62b05abc174cf6a6773a173d00d7074f66095d5dc6970fea9e",
+      "plant-flower.bin": "7e8a0f31211f431b4fe29a727ae660d06c681e20bf3d735e35d474d73ab9a6d3",
+      "plant-grasstuft.json": "dc67886e557ab4bca32c6242aab2111392b0570b8302326a7c4de91ef3cb518b",
+      "plant-broadleafherb.bin": "158fcae347c7390f89836856d026630eafa79adaaa8cf35cee30001ab64fe429",
+      "plant-succulent.json": "9181b904c61d68e13d1cdfb8a7bc31d74de82c3b4d8dd8e07c3dcc98e3f3b4d8",
+      "plant-fern.json": "16a3e752eb08b9284e38a47786ec8232c55fc0bd7df1d4f113718b16a5177901",
+      "forest-floor.bin": "a50cc5886e84e45b092782a108e394c19dc6418c341e88ae9e30fafd8b8b1389",
+      "plant-mushroom.bin": "70da42d9cd1273e2802a3311b88f3a080eeab080eab107af27f668f2d7419f20",
+      "rock-shale.bin": "91d8a15ccfa6112834bca532e39973dbad7bfe32c8b44b0de5c9cbc4789bcff8",
+      "plant-reed.json": "986da7294c68ee117c690a7edadd4527fe204671a72dc33ea1bcd0c08548c454"
+    }
+  },
+  "tool_sha256": "4e1bdcc24de82a848402fab3a18c0f21ad77c6ed10121a2ee34d4b108d09da19",
+  "geometry_tool_sha256": "433ff10a31b436dbbeb7d9eb9685c6d6c73f3ed5324ee8dc2a82bb92b08dd192",
+  "renderer": "Mitsuba 3.9.1",
+  "drjit": "1.5.0",
+  "threads": 4,
+  "spp": 64,
+  "render_seed": 42,
+  "voxel_m": 0.10000000149011612,
+  "vertices": 18456,
+  "triangles": 9228,
+  "exposed_quads": 4614,
+  "camera_origin_m": [
+    6.546178488299601,
+    10.229866390555928,
+    -9.308550424517314
+  ],
+  "camera_target_m": [
+    4.35,
+    0.516,
+    1.2500000000000002
+  ],
+  "fov": 39,
+  "elapsed_seconds": 1.908,
+  "metadata": {
+    "name": "rock-sandstone",
+    "voxel_m": 0.1,
+    "dimensions_cells": [
+      92,
+      16,
+      25
+    ],
+    "occupied_cells": 5052,
+    "bounds_min_m": [
+      0.2,
+      0,
+      0.1
+    ],
+    "bounds_max_m": [
+      8.5,
+      1.2000000000000002,
+      2.4000000000000004
+    ],
+    "material_counts": {
+      "Gravel": 1520,
+      "Sandstone": 3532
+    },
+    "scene": {
+      "category": "rock",
+      "label": "Sandstone",
+      "seeds": [
+        714103,
+        271828,
+        161803
+      ],
+      "specimens": [
+        {
+          "name": "Sandstone",
+          "seed": 714103,
+          "profile": {
+            "Shape": 0,
+            "ResolvedShape": 3,
+            "Identity": "rock-v2/catalog-v3/13/714103/2.2/1/1.8/0.2/0.7/0.55/500000/100000/False/shape=Auto/resolved=Wedge",
+            "Material": 13,
+            "Seed": 714103,
+            "MaxCandidates": 500000,
+            "MaxWrittenCells": 100000,
+            "WidthMeters": 2.2,
+            "HeightMeters": 1,
+            "DepthMeters": 1.8,
+            "BuriedDepthMeters": 0.2,
+            "Weathering": 0.7,
+            "JointStrength": 0.55,
+            "OverwriteExisting": false
+          },
+          "result": {
+            "ResolvedShape": 3,
+            "CandidateCount": 1104,
+            "ColumnEvaluations": 437,
+            "ShapeCells": 1034,
+            "WrittenCells": 1034,
+            "ClippedCells": 0,
+            "BlockedCells": 0,
+            "UnchangedCells": 0,
+            "Truncated": false,
+            "HasMatter": true,
+            "BoundsMinCellInclusive": {
+              "x": 54,
+              "y": 6,
+              "z": 55
+            },
+            "BoundsMaxCellInclusive": {
+              "x": 73,
+              "y": 15,
+              "z": 69
+            }
+          },
+          "actual_dimensions_m": [
+            2,
+            1,
+            1.5
+          ],
+          "requested_shape": "Auto",
+          "resolved_shape": "Wedge",
+          "generated_cells": 1034,
+          "material_counts": {
+            "Sandstone": 1034
+          },
+          "palette": {
+            "Sandstone": [
+              4288249437,
+              4288775265,
+              4289301093,
+              4289892713,
+              4290418541
+            ]
+          },
+          "packed_offset_cells": {
+            "x": -50,
+            "y": -6,
+            "z": -50
+          }
+        },
+        {
+          "name": "Sandstone",
+          "seed": 271828,
+          "profile": {
+            "Shape": 0,
+            "ResolvedShape": 2,
+            "Identity": "rock-v2/catalog-v3/13/271828/2.2/1/1.8/0.2/0.7/0.55/500000/100000/False/shape=Auto/resolved=Slab",
+            "Material": 13,
+            "Seed": 271828,
+            "MaxCandidates": 500000,
+            "MaxWrittenCells": 100000,
+            "WidthMeters": 2.2,
+            "HeightMeters": 1,
+            "DepthMeters": 1.8,
+            "BuriedDepthMeters": 0.2,
+            "Weathering": 0.7,
+            "JointStrength": 0.55,
+            "OverwriteExisting": false
+          },
+          "result": {
+            "ResolvedShape": 2,
+            "CandidateCount": 872,
+            "ColumnEvaluations": 437,
+            "ShapeCells": 815,
+            "WrittenCells": 815,
+            "ClippedCells": 0,
+            "BlockedCells": 0,
+            "UnchangedCells": 0,
+            "Truncated": false,
+            "HasMatter": true,
+            "BoundsMinCellInclusive": {
+              "x": 53,
+              "y": 6,
+              "z": 59
+            },
+            "BoundsMaxCellInclusive": {
+              "x": 74,
+              "y": 12,
+              "z": 68
+            }
+          },
+          "actual_dimensions_m": [
+            2.2,
+            0.7000000000000001,
+            1
+          ],
+          "requested_shape": "Auto",
+          "resolved_shape": "Slab",
+          "generated_cells": 815,
+          "material_counts": {
+            "Sandstone": 815
+          },
+          "palette": {
+            "Sandstone": [
+              4287723609,
+              4288249437,
+              4288775265,
+              4289301093,
+              4289892713,
+              4290418541
+            ]
+          },
+          "packed_offset_cells": {
+            "x": -20,
+            "y": -6,
+            "z": -52
+          }
+        },
+        {
+          "name": "Sandstone",
+          "seed": 161803,
+          "profile": {
+            "Shape": 0,
+            "ResolvedShape": 5,
+            "Identity": "rock-v2/catalog-v3/13/161803/2.2/1/1.8/0.2/0.7/0.55/500000/100000/False/shape=Auto/resolved=SplitOutcrop",
+            "Material": 13,
+            "Seed": 161803,
+            "MaxCandidates": 500000,
+            "MaxWrittenCells": 100000,
+            "WidthMeters": 2.2,
+            "HeightMeters": 1,
+            "DepthMeters": 1.8,
+            "BuriedDepthMeters": 0.2,
+            "Weathering": 0.7,
+            "JointStrength": 0.55,
+            "OverwriteExisting": false
+          },
+          "result": {
+            "ResolvedShape": 5,
+            "CandidateCount": 1761,
+            "ColumnEvaluations": 437,
+            "ShapeCells": 1683,
+            "WrittenCells": 1683,
+            "ClippedCells": 0,
+            "BlockedCells": 0,
+            "UnchangedCells": 0,
+            "Truncated": false,
+            "HasMatter": true,
+            "BoundsMinCellInclusive": {
+              "x": 55,
+              "y": 6,
+              "z": 55
+            },
+            "BoundsMaxCellInclusive": {
+              "x": 73,
+              "y": 17,
+              "z": 73
+            }
+          },
+          "actual_dimensions_m": [
+            1.9000000000000001,
+            1.2000000000000002,
+            1.9000000000000001
+          ],
+          "requested_shape": "Auto",
+          "resolved_shape": "SplitOutcrop",
+          "generated_cells": 1683,
+          "material_counts": {
+            "Sandstone": 1683
+          },
+          "palette": {
+            "Sandstone": [
+              4287723609,
+              4288249437,
+              4288775265,
+              4289301093,
+              4289892713,
+              4290418541
+            ]
+          },
+          "packed_offset_cells": {
+            "x": 9,
+            "y": -6,
+            "z": -52
+          }
+        }
+      ],
+      "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+    },
+    "generation_version": {
+      "plant": 1,
+      "rock": 2,
+      "catalog": 3
+    },
+    "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+  },
+  "note": "Exact actual generated occupied voxel faces and stored sRGB pigments. Camera, sky and key are offline lighting fixtures. Not Unity appearance, GPU evidence, neural terrain or ecological scatter."
+}

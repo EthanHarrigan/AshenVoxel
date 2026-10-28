@@ -1,0 +1,46 @@
+{
+    "status": "PASS",
+    "error": "",
+    "unity": "6000.3.27f1",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "scope": "Native Edit-mode two-camera Graphics.DrawMesh appearance comparison; actual borrowed prototype/mask/greedy patch path; not full-scene gameplay/FPS",
+    "initial_pixels": 9680,
+    "initial_different": 0,
+    "cut_pixels": 9680,
+    "cut_different": 0,
+    "changed_after_cut": 404,
+    "removed": 32,
+    "cargo": 32,
+    "patch_vertices": 236,
+    "original_parts": 3,
+    "feedback_pixels": 183,
+    "feedback_pulse_pixels": 114,
+    "feedback_pending_after_second": true,
+    "source_cells": 3040,
+    "island_cells": 0,
+    "individual_cells": 0,
+    "source_world_nonair": 3040,
+    "expected_mesh_vertices": [
+        220,
+        16,
+        20
+    ],
+    "original_mesh_vertices": [
+        20,
+        16,
+        20
+    ],
+    "renderer_current": false,
+    "conserved": true,
+    "mask_enabled": true,
+    "shared_mesh_survived": true,
+    "shader_error": false,
+    "errors": [],
+    "source_sha256": [
+        "Assets/AshenVoxel/Rendering/WorldSurface.shader 200b68320e75accbbe02df4061ba0e07c2e7212dca238ec04b39994c6631166b",
+        "Assets/AshenVoxel/Rendering/GreedyChunkMesher.cs a7fa57da979a55e7ad37361ee77e0ffd45d4110eded3c3c2b28d065d5ff4713b",
+        "Assets/AshenVoxel/Exploration/NaturalMatterRenderer.cs 3683e24da7325a176583bae60ee7e4f803e4447fee19787ec37983bab5af44ca",
+        "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs 669ad900e2e5fa67e822520461a025cfb794e248ae2cb77d864f85b836616a77",
+        "Assets/AshenVoxel/Exploration/Editor/NaturalMatterAppearanceChecks.cs 8693ba838c31d1150de152e7da9ff5b76afaf5f78cb11d6419f5be1ec976654b"
+    ]
+}

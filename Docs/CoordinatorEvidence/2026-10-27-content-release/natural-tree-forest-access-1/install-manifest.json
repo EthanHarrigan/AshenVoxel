@@ -1,0 +1,11 @@
+{
+  "id": "natural-tree-forest-access-1",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs",
+      "before": "d1f1d84beef3f894c2ff179a5faa1ad4d25cc157b438d0f12b176448d8122543",
+      "sha256": "853e6e69abcc5e9a7f7cb173080826d0efeb2d0208e09430dacc013ea3d3e7f4"
+    }
+  ],
+  "utc": "2026-10-27T22:38:40.277595+00:00"
+}

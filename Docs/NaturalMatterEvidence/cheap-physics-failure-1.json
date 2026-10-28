@@ -1,0 +1,12 @@
+{
+  "status": "FAIL",
+  "failure": "budget1 eventually finishes retained support and release after20000frames",
+  "passed_before_failure": [
+    "realbirchflat fall/release/floor/autocargo",
+    "realbirchslope fall/release/floor/autocargo"
+  ],
+  "reason": "release loop admits bodyBudget/2; integer zero atbudget1",
+  "generated_utc": "2026-10-27T23:54:16.066658+00:00",
+  "physics_sha256_observed_after_failure_not_test_identity": "77885efb81b573801fdd9b85b24417901be19632a3c8980936425625412da2a9",
+  "identity_limitation": "Parent was actively editing physics. This post-failure observed hash is not claimed as the compiled failure identity; transcript records actual failure. Later passing report has start/end source-match guard."
+}

@@ -1,0 +1,86 @@
+--- a/Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs
++++ b/Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs
+@@ -30,6 +30,32 @@
+     {
+         bool TryGetGroundGradient(double x,double z,out double gradientX,out double gradientZ);
+     }
++    // Optional automatic-slide slope, independently of the ascent classifier.
++    public interface IExplorationSlideSlope
++    {
++        bool TryGetSlideGradient(double x,double z,out double gradientX,out double gradientZ);
++    }
++    internal static class ExplorationSlideSampling
++    {
++        // A three-point one-sided stencil fits within half of one10cm cell.
++        // Select the smoother side so a remote step cannot tilt a flat support.
++        // Quadratic smooth ramps retain their exact local derivative.
++        public static bool TryGradient(IWorldField field,double x,double z,out double gx,out double gz)
++        {
++            double p=WorldCell.SizeMeters*.25,h=field.Sample(x,z).HeightMeters;
++            gx=Axis(h,field.Sample(x-p,z).HeightMeters,field.Sample(x-2*p,z).HeightMeters,
++                field.Sample(x+p,z).HeightMeters,field.Sample(x+2*p,z).HeightMeters,p);
++            gz=Axis(h,field.Sample(x,z-p).HeightMeters,field.Sample(x,z-2*p).HeightMeters,
++                field.Sample(x,z+p).HeightMeters,field.Sample(x,z+2*p).HeightMeters,p);
++            return !double.IsNaN(gx)&&!double.IsInfinity(gx)&&!double.IsNaN(gz)&&!double.IsInfinity(gz);
++        }
++        static double Axis(double h,double m,double mm,double p,double pp,double spacing)
++        {
++            double backward=(3*h-4*m+mm)/(2*spacing),forward=(-3*h+4*p-pp)/(2*spacing);
++            double left=Math.Abs(h-2*m+mm),right=Math.Abs(h-2*p+pp);
++            return left<right?backward:right<left?forward:(backward+forward)*.5;
++        }
++    }
+     public interface IExplorationCollision
+     {
+         bool IsReady(double x,double z,double radius);
+@@ -37,7 +63,7 @@
+         bool OverlapsBody(WorldPoint feet,double radius,double height);
+         bool TryGetSupportHeight(double x,double z,double radius,double minimumHeight,double maximumHeight,out double height);
+     }
+-    public sealed class FieldExplorationCollision:IExplorationCollision,IExplorationResistance
++    public sealed class FieldExplorationCollision:IExplorationCollision,IExplorationResistance,IExplorationSlideSlope
+     {
+         public IWorldField Terrain {get;}
+         public IExplorationObstacles Obstacles {get;set;}
+@@ -46,6 +72,7 @@
+         public bool IsReady(double x,double z,double radius)=>Obstacles!=null&&Obstacles.IsReady(x,z,radius)&&TryGetGroundHeight(x,z,out _);
+         public bool TryGetGroundHeight(double x,double z,out double height)
+         {height=Terrain.Sample(x,z).HeightMeters;return !double.IsNaN(height)&&!double.IsInfinity(height);}
++        public bool TryGetSlideGradient(double x,double z,out double gx,out double gz)=>ExplorationSlideSampling.TryGradient(Terrain,x,z,out gx,out gz);
+         public double WeightedSoftVoxels(WorldPoint feet,double radius,double height)=>Obstacles is IExplorationResistance soft?soft.WeightedSoftVoxels(feet,radius,height):0;
+         public bool OverlapsBody(WorldPoint feet,double radius,double height)=>Obstacles!=null&&Obstacles.BlocksBody(
+             feet.X-radius,feet.Y+.002,feet.Z-radius,feet.X+radius,feet.Y+height,feet.Z+radius);
+@@ -244,7 +271,13 @@
+         {
+             if(!Grounded||!Ground(Feet.X,Feet.Z,out double ground)||Feet.Y>ground+Settings.Skin+.03||!Gradient(Feet.X,Feet.Z,out double gx,out double gz))return;
+             double length=Math.Sqrt(gx*gx+gz*gz),maximum=Math.Tan(Settings.MaxSlopeDegrees*Math.PI/180);
+-            if(length<=maximum)return;
++            if(double.IsNaN(length)||double.IsInfinity(length)||length<=maximum)return;
++            if(Collision is IExplorationSlideSlope slope)
++            {
++                if(!slope.TryGetSlideGradient(Feet.X,Feet.Z,out gx,out gz))return;
++                length=Math.Sqrt(gx*gx+gz*gz);
++                if(double.IsNaN(length)||double.IsInfinity(length)||length<=maximum)return;
++            }
+             double speed=Math.Min(Settings.WalkSpeed,Settings.WalkSpeed*(length/maximum-1));
+             MoveHorizontal(-gx/length*speed*dt,-gz/length*speed*dt,false);
+             if(Ground(Feet.X,Feet.Z,out double next)&&next<=ground&&Feet.Y-next-Settings.Skin<=Settings.GroundSnap)
+--- a/Assets/AshenVoxel/WorldScaleData/VoxelTerrainPage.cs
++++ b/Assets/AshenVoxel/WorldScaleData/VoxelTerrainPage.cs
+@@ -111,7 +111,7 @@
+ 
+     /// <summary>Body contact uses the same globally fixed cell centres and occupied
+     /// top faces as voxel conversion, independent of mesh readiness or LOD.</summary>
+-    public sealed class VoxelTerrainCollision:IExplorationCollision,IExplorationResistance,IExplorationGroundSlope
++    public sealed class VoxelTerrainCollision:IExplorationCollision,IExplorationResistance,IExplorationGroundSlope,IExplorationSlideSlope
+     {
+         readonly IExplorationCollision props;
+         readonly IWorldField surface;
+@@ -132,6 +132,7 @@
+             gradientZ=(surface.Sample(x,z+probe).HeightMeters-surface.Sample(x,z-probe).HeightMeters)/(2*probe);
+             return !double.IsNaN(gradientX)&&!double.IsInfinity(gradientX)&&!double.IsNaN(gradientZ)&&!double.IsInfinity(gradientZ);
+         }
++        public bool TryGetSlideGradient(double x,double z,out double gx,out double gz)=>ExplorationSlideSampling.TryGradient(surface,x,z,out gx,out gz);
+         public bool OverlapsBody(WorldPoint feet,double radius,double height)=>props.OverlapsBody(feet,radius,height);
+         public bool TryGetSupportHeight(double x,double z,double radius,double minimumHeight,double maximumHeight,out double height)=>props.TryGetSupportHeight(x,z,radius,minimumHeight,maximumHeight,out height);
+         public double WeightedSoftVoxels(WorldPoint feet,double radius,double height)=>props is IExplorationResistance resistance?resistance.WeightedSoftVoxels(feet,radius,height):0;

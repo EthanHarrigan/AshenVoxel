@@ -1,0 +1,28 @@
+AshenVoxel.Rendering.Editor.MeshRegressionChecks:Run () (at Assets/AshenVoxel/Rendering/Editor/MeshRegressionChecks.cs:78)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.QualityPatchReview:Tick () (at Assets/AshenVoxel/Exploration/Editor/QualityPatchReview.cs:137)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: Assets/AshenVoxel/Rendering/Editor/MeshOracleChecks.cs Line: 58)
+
+Ashen Voxel: all mesh regression checks passed.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Rendering.Editor.MeshRegressionChecks:Run () (at Assets/AshenVoxel/Rendering/Editor/MeshRegressionChecks.cs:79)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.QualityPatchReview:Tick () (at Assets/AshenVoxel/Exploration/Editor/QualityPatchReview.cs:137)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: Assets/AshenVoxel/Rendering/Editor/MeshRegressionChecks.cs Line: 79)
+
+Asset Pipeline Refresh (id=cf2749f434980c3429ca4caae9c372ef): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+AssetDatabase: script compilation time: 0.000670s
+Refreshing native plugins compatible for Editor in 0.47 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.

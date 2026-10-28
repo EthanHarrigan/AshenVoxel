@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "id": 102,
+      "cells": 510,
+      "candidates": 3112,
+      "materials": {
+        "Leaves": 395,
+        "Fruit": 1,
+        "Wood": 114
+      },
+      "unit_material_color_faces": 1390,
+      "whole_specimen": true,
+      "truncated": false,
+      "bounds": {
+        "min": {
+          "x": 33,
+          "y": 4,
+          "z": 33
+        },
+        "max": {
+          "x": 48,
+          "y": 17,
+          "z": 48
+        }
+      },
+      "granular": 1,
+      "breakup_ticks": 4843,
+      "cargo": 510,
+      "all_material_tint_keys": 8,
+      "caveat": "Replay and full bounded CPU breakup/suction pass. Live visibility/collision publication, terrain/player interaction and native rendering not executed."
+    },
+    {
+      "id": 103,
+      "cells": 497,
+      "candidates": 2930,
+      "materials": {
+        "Leaves": 382,
+        "Wood": 112,
+        "Fruit": 3
+      },
+      "unit_material_color_faces": 1376,
+      "whole_specimen": true,
+      "truncated": false,
+      "bounds": {
+        "min": {
+          "x": 33,
+          "y": 4,
+          "z": 32
+        },
+        "max": {
+          "x": 48,
+          "y": 17,
+          "z": 48
+        }
+      },
+      "granular": 3,
+      "breakup_ticks": 4881,
+      "cargo": 497,
+      "all_material_tint_keys": 8,
+      "caveat": "Replay and full bounded CPU breakup/suction pass. Live visibility/collision publication, terrain/player interaction and native rendering not executed."
+    }
+  ]
+}

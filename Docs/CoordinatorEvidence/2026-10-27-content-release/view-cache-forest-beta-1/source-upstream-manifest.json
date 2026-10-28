@@ -1,0 +1,31 @@
+{
+  "id": "source-view-coverage-1",
+  "status": "FROZEN_FOCUSED_API_PASS_NOT_INSTALLED",
+  "utc": "2026-10-27T21:11:10.184632+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs",
+      "before_sha256": "aca9cd5f7a4d4058ab394421f265d2b94740ca956eb0ecdee254b36a4d08cc88",
+      "after_sha256": "0c2f90d59475aabd4d3668ddd78e813a09ed16db4c091ffae6986ca978ad131e"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs",
+      "before_sha256": "3eb560802045e75e26126e29baf451273f7d8be7188dba3cf37aee385d9a9fc2",
+      "after_sha256": "26a7ff1ed745d29542d1b4327f764d6878b2f4e8581829c6cff7cc55f94f6769"
+    }
+  ],
+  "evidence": "checks\\20261027T210941085608Z\\report.json",
+  "evidence_sha256": "e6487fd6f7fe586bf668eaa38d11dcc2ec7c0bee46ace373a75593b66b1d4011",
+  "focused_checks": 44,
+  "unchanged_textually": [
+    "patch IdentityDigest",
+    "compositor State including content-composition hash",
+    "Safe",
+    "Commit",
+    "TryPublish",
+    "TryRetire"
+  ],
+  "native_verified": false,
+  "network_or_service_used": false,
+  "main_modified": false
+}

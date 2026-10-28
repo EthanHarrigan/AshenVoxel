@@ -1,0 +1,900 @@
+{
+  "version": 1,
+  "tool_sha256": "0e5f83f764b2312301fbc3ae5656330f77c8ac02a037e1000a2cc03fb0622055",
+  "scope": "Derived prototype interaction cache; unchanged exact visual meshes and material saves",
+  "source_pack_sha256": "d8d826303fbf0ba71b9eca0a033e1366a073d7ee9a69e324049c849f514873f6",
+  "asset_sha256": "c9e73da0fc1b5c344bb08521382995d3022aa911aed899d9803d4deb7a9e8bd4",
+  "records": [
+    {
+      "id": 0,
+      "name": "Birch young 0",
+      "source_hard_cells": 1024,
+      "hard_cells": 96,
+      "leaf_cells": 2371,
+      "stick_cells": 928,
+      "geometry_sha256": "b5d1f0b94c60fee107f3c8a9d41e3dec451553d1c4a4e3bb6acb083de13608f1"
+    },
+    {
+      "id": 1,
+      "name": "Birch young 1",
+      "source_hard_cells": 1047,
+      "hard_cells": 97,
+      "leaf_cells": 2361,
+      "stick_cells": 950,
+      "geometry_sha256": "91eb80e7fadfdfb428923c1af0bc507f474764e762dd1158cd736808621360fa"
+    },
+    {
+      "id": 2,
+      "name": "Birch mature 0",
+      "source_hard_cells": 2804,
+      "hard_cells": 348,
+      "leaf_cells": 20179,
+      "stick_cells": 2456,
+      "geometry_sha256": "4a08ee56b72e815499d1be2e547e59daa7c58b21697c8eb40b9ecd3316525cab"
+    },
+    {
+      "id": 3,
+      "name": "Birch mature 1",
+      "source_hard_cells": 2965,
+      "hard_cells": 382,
+      "leaf_cells": 20187,
+      "stick_cells": 2583,
+      "geometry_sha256": "ac782f88bdbeca2b8027e8f15c70a57b472b78f3ba53b87363181c3470ff7b6d"
+    },
+    {
+      "id": 4,
+      "name": "Oak young 0",
+      "source_hard_cells": 1031,
+      "hard_cells": 258,
+      "leaf_cells": 5843,
+      "stick_cells": 773,
+      "geometry_sha256": "97743e53c740421097590a249bf198ac3ab29772ec1967f9a95ef0c5dd07a587"
+    },
+    {
+      "id": 5,
+      "name": "Oak young 1",
+      "source_hard_cells": 1082,
+      "hard_cells": 262,
+      "leaf_cells": 5600,
+      "stick_cells": 820,
+      "geometry_sha256": "b6ac7a2eb187580ee9d3dd23540a30c63e179c4ca3f3ff4af883a661fa515137"
+    },
+    {
+      "id": 6,
+      "name": "Oak mature 0",
+      "source_hard_cells": 4642,
+      "hard_cells": 2378,
+      "leaf_cells": 42615,
+      "stick_cells": 2264,
+      "geometry_sha256": "b35a318e2e2b8f1bfa16e4cc7a2e8386624971b9b7943eb0332a46dae7e0077f"
+    },
+    {
+      "id": 7,
+      "name": "Oak mature 1",
+      "source_hard_cells": 5066,
+      "hard_cells": 2701,
+      "leaf_cells": 40384,
+      "stick_cells": 2365,
+      "geometry_sha256": "735a73d4fba38ea59169c31e9b1bc25417fa4049ca71ea520af34abe6b4f6a0f"
+    },
+    {
+      "id": 8,
+      "name": "Redwood young 0",
+      "source_hard_cells": 12758,
+      "hard_cells": 8292,
+      "leaf_cells": 54199,
+      "stick_cells": 4466,
+      "geometry_sha256": "5f6e4275e070e699035a43293b343b886177d47f820acfe92963f79239899566"
+    },
+    {
+      "id": 9,
+      "name": "Redwood young 1",
+      "source_hard_cells": 13562,
+      "hard_cells": 8921,
+      "leaf_cells": 55028,
+      "stick_cells": 4641,
+      "geometry_sha256": "b2fff1552dac14e069931505f2f2ff43ce973c45c389eb6001d44870e7c103ef"
+    },
+    {
+      "id": 10,
+      "name": "Redwood mature 0",
+      "source_hard_cells": 380993,
+      "hard_cells": 366863,
+      "leaf_cells": 730110,
+      "stick_cells": 14130,
+      "geometry_sha256": "d0a2b8fa68aa616b2a965ed0c55bc23c13fdf95b0be4e2be865aaa4f0cd129c5"
+    },
+    {
+      "id": 11,
+      "name": "Redwood mature 1",
+      "source_hard_cells": 411904,
+      "hard_cells": 397484,
+      "leaf_cells": 747735,
+      "stick_cells": 14420,
+      "geometry_sha256": "574d75552e97e1cc35e3b01cb4f8138ee0ccb92150c62eb9b65cff34e3c54505"
+    },
+    {
+      "id": 12,
+      "name": "Pine young 0",
+      "source_hard_cells": 1576,
+      "hard_cells": 248,
+      "leaf_cells": 5787,
+      "stick_cells": 1328,
+      "geometry_sha256": "553a4dd4fe8fa462df2c7994d7a0220c41416c3db74a733d4c87f77089a0e87b"
+    },
+    {
+      "id": 13,
+      "name": "Pine young 1",
+      "source_hard_cells": 1599,
+      "hard_cells": 355,
+      "leaf_cells": 6021,
+      "stick_cells": 1244,
+      "geometry_sha256": "0d871b7289a9200a0eb53aa8c2b6226c4b748cf929a8f5870aa383fc360086e0"
+    },
+    {
+      "id": 14,
+      "name": "Pine mature 0",
+      "source_hard_cells": 5258,
+      "hard_cells": 1726,
+      "leaf_cells": 45184,
+      "stick_cells": 3532,
+      "geometry_sha256": "a9a6d00c8847f6ae0a7e70d77286998f08510e851cfcd5a19d5a8c1369c7e057"
+    },
+    {
+      "id": 15,
+      "name": "Pine mature 1",
+      "source_hard_cells": 5423,
+      "hard_cells": 1869,
+      "leaf_cells": 45805,
+      "stick_cells": 3554,
+      "geometry_sha256": "b92dc065ffb1818ebb76ceafbbd346b4e06619c31f3533b40226a335dfa9a9c9"
+    },
+    {
+      "id": 100,
+      "name": "Fern 0",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 170,
+      "stick_cells": 0,
+      "geometry_sha256": "90716856ac9dbb850b0b8ddf92bfb1454b2a29fcae94269df4af23eb3543fbf7"
+    },
+    {
+      "id": 101,
+      "name": "Fern 1",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 175,
+      "stick_cells": 0,
+      "geometry_sha256": "e69d58894c06ed69ae8d62786bdec3d6831708cb578fcec13e7f865295365a4e"
+    },
+    {
+      "id": 102,
+      "name": "Shrub 0",
+      "source_hard_cells": 115,
+      "hard_cells": 0,
+      "leaf_cells": 395,
+      "stick_cells": 115,
+      "geometry_sha256": "b1a5dc471651113273ca07b26c81386962c6651e3a6f7ba8ac3e101156ac4564"
+    },
+    {
+      "id": 103,
+      "name": "Shrub 1",
+      "source_hard_cells": 115,
+      "hard_cells": 0,
+      "leaf_cells": 382,
+      "stick_cells": 115,
+      "geometry_sha256": "67d47867491b9a9e318cc2188424fd8dad5bcdd5aa22e123eaa7d9524dcea662"
+    },
+    {
+      "id": 104,
+      "name": "GrassTuft 0",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 56,
+      "stick_cells": 0,
+      "geometry_sha256": "f27ff34356c085aebd1519e67dc9703a4fdfab43ff5550801a116a61165b3f19"
+    },
+    {
+      "id": 105,
+      "name": "GrassTuft 1",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 53,
+      "stick_cells": 0,
+      "geometry_sha256": "242e1fd0610f79fe0c51a5696a74478b5944af59fa8c0bebde5970d07fe34815"
+    },
+    {
+      "id": 106,
+      "name": "Reed 0",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 176,
+      "stick_cells": 0,
+      "geometry_sha256": "1f9404e3b0b66e2a9e8b7ef6269ad807dec4807021c81aabb27389ca7be58056"
+    },
+    {
+      "id": 107,
+      "name": "Reed 1",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 162,
+      "stick_cells": 0,
+      "geometry_sha256": "512c266354c7e64500b037424e3fa4943a8310ea2c77ed736e141a20c13a143b"
+    },
+    {
+      "id": 108,
+      "name": "BroadleafHerb 0",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 42,
+      "stick_cells": 0,
+      "geometry_sha256": "fdeda5e8a4cc68712d12c7a447caf98070049a32fa53e1f0a6412c0d9cca1d6b"
+    },
+    {
+      "id": 109,
+      "name": "BroadleafHerb 1",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 44,
+      "stick_cells": 0,
+      "geometry_sha256": "90edb1f64980810a7d6ffbdcb9635d17626f16f99912cc30c7ce574e87fb6d28"
+    },
+    {
+      "id": 110,
+      "name": "Flower 0",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 33,
+      "stick_cells": 0,
+      "geometry_sha256": "d5dec1ba6b60939633a6da2527055ba007264deabf170c907844b7bae610a565"
+    },
+    {
+      "id": 111,
+      "name": "Flower 1",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 36,
+      "stick_cells": 0,
+      "geometry_sha256": "b3d9194016456b394b4f0a471ba2e1937dde76c47eb5437776feb9261080538e"
+    },
+    {
+      "id": 112,
+      "name": "Mushroom 0",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 48,
+      "stick_cells": 0,
+      "geometry_sha256": "899f0b8105168914050a1f1052c709c3b1a7a548b7c4459d4ae02734e6297435"
+    },
+    {
+      "id": 113,
+      "name": "Mushroom 1",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 46,
+      "stick_cells": 0,
+      "geometry_sha256": "acaf2a55b611169dc16d71acb76dfbd1c95809f9d2a7bcb8286d91e3e9e34dcb"
+    },
+    {
+      "id": 114,
+      "name": "Cactus 0",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 74,
+      "stick_cells": 0,
+      "geometry_sha256": "a6a71693ecef52ed492068815697293a2774e3b0e51a8655829c75c5095de776"
+    },
+    {
+      "id": 115,
+      "name": "Cactus 1",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 69,
+      "stick_cells": 0,
+      "geometry_sha256": "1b6fe3f29c9e643c8dd0e642d17161444e5c7db6b32488bc5d09388e7a5a7b88"
+    },
+    {
+      "id": 116,
+      "name": "Succulent 0",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 67,
+      "stick_cells": 0,
+      "geometry_sha256": "c6419e3a6e3af7066f42609f5a3285be875c3047189a095eae7140ea15a00790"
+    },
+    {
+      "id": 117,
+      "name": "Succulent 1",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 68,
+      "stick_cells": 0,
+      "geometry_sha256": "582840455e06812a86421e8544f96ec44697e35b83070f96a31a4c1b2c9650c3"
+    },
+    {
+      "id": 118,
+      "name": "Cushion 0",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 48,
+      "stick_cells": 0,
+      "geometry_sha256": "1f718d52456e1c05b3d80cf83c701dda44172749f9ed1d9c27e5b9b644d383f0"
+    },
+    {
+      "id": 119,
+      "name": "Cushion 1",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 49,
+      "stick_cells": 0,
+      "geometry_sha256": "ede779c0ab7daf3768d72064ee51f985b0a28f3a24d6f3971c65b2dac47a40ba"
+    },
+    {
+      "id": 120,
+      "name": "Micro Mushroom",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 1,
+      "stick_cells": 0,
+      "geometry_sha256": "24502cee18d5cd64c605dde0670b88a0c45457ffea583fccd88a8d74c86c81f6"
+    },
+    {
+      "id": 121,
+      "name": "Micro BroadleafHerb",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 1,
+      "stick_cells": 0,
+      "geometry_sha256": "e7fa69076d8758ded6cc584fda24df455e462219518c705ff199dad75513c74d"
+    },
+    {
+      "id": 122,
+      "name": "Micro Flower",
+      "source_hard_cells": 0,
+      "hard_cells": 0,
+      "leaf_cells": 1,
+      "stick_cells": 0,
+      "geometry_sha256": "cb9d62ecbfa990ca7ff9216885afcf299b7e89de41c8c93961eb2f4e7b745366"
+    },
+    {
+      "id": 200,
+      "name": "Stone AngularBoulder small",
+      "source_hard_cells": 152,
+      "hard_cells": 152,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "eda555f6389e9c14639555a0d021fbfd416b7cecb5b603a1edc8c68a61850331"
+    },
+    {
+      "id": 201,
+      "name": "Stone AngularBoulder large",
+      "source_hard_cells": 1547,
+      "hard_cells": 1547,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "31f6d5d6344408d4da67ac3d9838f944d9c3f8ab6328e8df4607d711979a8dd9"
+    },
+    {
+      "id": 202,
+      "name": "Stone Slab small",
+      "source_hard_cells": 75,
+      "hard_cells": 75,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "0db68936464266da8cba41086d0990773a6f9244f76c65328a839346d1f89cac"
+    },
+    {
+      "id": 203,
+      "name": "Stone Slab large",
+      "source_hard_cells": 433,
+      "hard_cells": 433,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "32740d274b0f72ba389af063c955d349c653af577288a78eb17ac4fd7a5ae319"
+    },
+    {
+      "id": 204,
+      "name": "Stone Wedge small",
+      "source_hard_cells": 122,
+      "hard_cells": 122,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "9cfdc5fbb3c18edac9545290828189c09f622b934c66f04e82e4e246f2f95ded"
+    },
+    {
+      "id": 205,
+      "name": "Stone Wedge large",
+      "source_hard_cells": 1144,
+      "hard_cells": 1144,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "8e4d82cd29ff9908000332b125a0c4bfd833462ae490e81ddc8b69d3d139b6e0"
+    },
+    {
+      "id": 206,
+      "name": "Stone Spire small",
+      "source_hard_cells": 80,
+      "hard_cells": 80,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "274ed4ce58efab44e23de5432f6db7a132afac09ad591d9b0731afd8f1e89b60"
+    },
+    {
+      "id": 207,
+      "name": "Stone Spire large",
+      "source_hard_cells": 873,
+      "hard_cells": 873,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "5dae654a97e37ee9453b3a399c287ab10a0fb55b96ba650903fabf345089ad67"
+    },
+    {
+      "id": 208,
+      "name": "Stone SplitOutcrop small",
+      "source_hard_cells": 189,
+      "hard_cells": 189,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "cc09ab71e404c582468f49e3bd1518afe4dce6a4f493dff2d1f05a4e9d9e4a77"
+    },
+    {
+      "id": 209,
+      "name": "Stone SplitOutcrop large",
+      "source_hard_cells": 1991,
+      "hard_cells": 1991,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "27c4a430dc9c9e7d5aa304b43f6d7cba1e69ce3085db818631963275d086e638"
+    },
+    {
+      "id": 210,
+      "name": "Stone Cluster small",
+      "source_hard_cells": 152,
+      "hard_cells": 152,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "225dc70ab885607ed6454446832c635256255f0bee4ba3097bb371d35f6792cf"
+    },
+    {
+      "id": 211,
+      "name": "Stone Cluster large",
+      "source_hard_cells": 1523,
+      "hard_cells": 1523,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "e6514fda01811ecded334d12fb5ee269fa89632c288fc39fe1788641be238344"
+    },
+    {
+      "id": 212,
+      "name": "Granite AngularBoulder small",
+      "source_hard_cells": 152,
+      "hard_cells": 152,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "da3fe339ae6db827d1d8d040cd6e7d9213474ac13911e9f715c6faebdc34c02c"
+    },
+    {
+      "id": 213,
+      "name": "Granite AngularBoulder large",
+      "source_hard_cells": 1540,
+      "hard_cells": 1540,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "a28dc8fff3f564026b1b463b14c417488c7441f55da9da2d059d81ed7a4a9f2f"
+    },
+    {
+      "id": 214,
+      "name": "Granite Slab small",
+      "source_hard_cells": 75,
+      "hard_cells": 75,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "60a9381224640bf57627e4ecd90fb9379db0f60ea0e09ee7159fbb7092798f3e"
+    },
+    {
+      "id": 215,
+      "name": "Granite Slab large",
+      "source_hard_cells": 430,
+      "hard_cells": 430,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "5eefe12d72d2551c258e98872bffe21c15993c563cdd8fa4d9b09216e6958e64"
+    },
+    {
+      "id": 216,
+      "name": "Granite Wedge small",
+      "source_hard_cells": 122,
+      "hard_cells": 122,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "3bfe971609f95871d4f5ead883ac413694d51dc69e417922097549b4c11822de"
+    },
+    {
+      "id": 217,
+      "name": "Granite Wedge large",
+      "source_hard_cells": 1135,
+      "hard_cells": 1135,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "c3ba062c1e9c889bebb26587a08ccc81d9020164306a5c38c76e890fae380f23"
+    },
+    {
+      "id": 218,
+      "name": "Granite Spire small",
+      "source_hard_cells": 82,
+      "hard_cells": 82,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "6f9b7228c43dba90fae8c3f05a153f0ced5a59afe8fdcd0799e2764bd4a41581"
+    },
+    {
+      "id": 219,
+      "name": "Granite Spire large",
+      "source_hard_cells": 874,
+      "hard_cells": 874,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "78f32006a6865612d0054d813b0e0f2f88a6bf0d9addce32bf26812a14f13a95"
+    },
+    {
+      "id": 220,
+      "name": "Granite SplitOutcrop small",
+      "source_hard_cells": 189,
+      "hard_cells": 189,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "36cd26b74fa56638d2e04fbde87b02f69a7f235a53445dd8f3287e5bbefe3ddd"
+    },
+    {
+      "id": 221,
+      "name": "Granite SplitOutcrop large",
+      "source_hard_cells": 1977,
+      "hard_cells": 1977,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "69e41fbb224a104031de1b37a51f64040a8fabc3dd56852ac359c15b4b8847e4"
+    },
+    {
+      "id": 222,
+      "name": "Granite Cluster small",
+      "source_hard_cells": 152,
+      "hard_cells": 152,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "60f7d1b06f4ed6122875fa6fe7c762e4cab361944961384fb9e71b135731a368"
+    },
+    {
+      "id": 223,
+      "name": "Granite Cluster large",
+      "source_hard_cells": 1524,
+      "hard_cells": 1524,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "b495908651f35f27d522f407375840f38909a2d87e3b1033e82f2e5bdbb2703c"
+    },
+    {
+      "id": 224,
+      "name": "Limestone AngularBoulder small",
+      "source_hard_cells": 152,
+      "hard_cells": 152,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "1352f22d9e091fbcfe46c2d96b7088e54b6ff9397d6ef8683a60f7491a5ba5d3"
+    },
+    {
+      "id": 225,
+      "name": "Limestone AngularBoulder large",
+      "source_hard_cells": 1521,
+      "hard_cells": 1521,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "1cbb70fbf6c5d492a0a81f9ad6ebdd6544ac66ae7df3ca33085339e5d7b68581"
+    },
+    {
+      "id": 226,
+      "name": "Limestone Slab small",
+      "source_hard_cells": 75,
+      "hard_cells": 75,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "7a2004d75c18ef5c57bb3cdf4edfe23f668de3cd273afd0048979f2214cf23df"
+    },
+    {
+      "id": 227,
+      "name": "Limestone Slab large",
+      "source_hard_cells": 430,
+      "hard_cells": 430,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "29f8f6971933c650724f75eddd9df92d218d2491764244c51f0a5a980bbd2de4"
+    },
+    {
+      "id": 228,
+      "name": "Limestone Wedge small",
+      "source_hard_cells": 122,
+      "hard_cells": 122,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "72187798b5bf37bbd9a8f78492d16ac63fa2b7e7b12176a9ae9c60b281762e78"
+    },
+    {
+      "id": 229,
+      "name": "Limestone Wedge large",
+      "source_hard_cells": 1113,
+      "hard_cells": 1113,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "dd27469ce3a6ec9b11b2c4b60ea7064884505ed42e8fb36d8e86c5e827850cfe"
+    },
+    {
+      "id": 230,
+      "name": "Limestone Spire small",
+      "source_hard_cells": 80,
+      "hard_cells": 80,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "603dd9f4c7b1427420d10ab343b9059637eed448191bba626a94ee7899161607"
+    },
+    {
+      "id": 231,
+      "name": "Limestone Spire large",
+      "source_hard_cells": 863,
+      "hard_cells": 863,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "625bfbde6c6b3130ff7966528eaa5b05952d79b7dc8ef17eadb51c31170f8782"
+    },
+    {
+      "id": 232,
+      "name": "Limestone SplitOutcrop small",
+      "source_hard_cells": 189,
+      "hard_cells": 189,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "46b5858d8fa8ed21ab88e2c6fcfa7fddeb386074e95026381fc9c1fddfc9dca3"
+    },
+    {
+      "id": 233,
+      "name": "Limestone SplitOutcrop large",
+      "source_hard_cells": 1971,
+      "hard_cells": 1971,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "3cd4ad8c20a4cf00a7174943f3a968ec7773c1e790a2de25dad2d3229e37bddb"
+    },
+    {
+      "id": 234,
+      "name": "Limestone Cluster small",
+      "source_hard_cells": 152,
+      "hard_cells": 152,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "5c7f7a73d2374c6a12b1b73f2331aee460543a454076f5d295d5c13e561ca110"
+    },
+    {
+      "id": 235,
+      "name": "Limestone Cluster large",
+      "source_hard_cells": 1504,
+      "hard_cells": 1504,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "89467e6212a91444bccb99aa0cb7856d9127cefc4a76feb6796a325ba3a17dff"
+    },
+    {
+      "id": 236,
+      "name": "Sandstone AngularBoulder small",
+      "source_hard_cells": 147,
+      "hard_cells": 147,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "17bf274be41b2c25b7c60d1e47a50c12018a66e902a3d9657e6329f96124211a"
+    },
+    {
+      "id": 237,
+      "name": "Sandstone AngularBoulder large",
+      "source_hard_cells": 1509,
+      "hard_cells": 1509,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "6f00e03bc176bb17b179d602f672218b0e4c61b85be5833740d6cfe67fb46c80"
+    },
+    {
+      "id": 238,
+      "name": "Sandstone Slab small",
+      "source_hard_cells": 75,
+      "hard_cells": 75,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "528dedbaf54b623757ba9b82b626a65f7525fb5c5245759a009121a010c14873"
+    },
+    {
+      "id": 239,
+      "name": "Sandstone Slab large",
+      "source_hard_cells": 395,
+      "hard_cells": 395,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "a58448ca16aa567829d57dccc230b2817281d539e1b6233a725cd4c37ee452d8"
+    },
+    {
+      "id": 240,
+      "name": "Sandstone Wedge small",
+      "source_hard_cells": 119,
+      "hard_cells": 119,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "a641bafd6077bb194fa9e2418788810e78ef674c118c3fc177fa3304f887499e"
+    },
+    {
+      "id": 241,
+      "name": "Sandstone Wedge large",
+      "source_hard_cells": 1105,
+      "hard_cells": 1105,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "762959a060a34adab0c81177e4d0d17caca74c7c97fec8d6f888c838b1525cde"
+    },
+    {
+      "id": 242,
+      "name": "Sandstone Spire small",
+      "source_hard_cells": 80,
+      "hard_cells": 80,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "64e836bf046f827dfcf1f1f46c2632c25ee983967c7643dac52fc7dcd413e7de"
+    },
+    {
+      "id": 243,
+      "name": "Sandstone Spire large",
+      "source_hard_cells": 857,
+      "hard_cells": 857,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "946db772c2c98e3739d556f8e37c5b67ad62bd9ba5c0c5daba789c6efdf76565"
+    },
+    {
+      "id": 244,
+      "name": "Sandstone SplitOutcrop small",
+      "source_hard_cells": 181,
+      "hard_cells": 181,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "204211927e788a11c9721ef16fe80a74c6799a248f4dfe920dea0bc2335efcb2"
+    },
+    {
+      "id": 245,
+      "name": "Sandstone SplitOutcrop large",
+      "source_hard_cells": 1940,
+      "hard_cells": 1940,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "77e2118dc922c5db7c42943d31e63f1b4aaa93d730cc0164ac12883e5d2b267d"
+    },
+    {
+      "id": 246,
+      "name": "Sandstone Cluster small",
+      "source_hard_cells": 146,
+      "hard_cells": 146,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "bcc11bccc25f55db636902e51abbc946145054177302993d8ef120d26c973ee2"
+    },
+    {
+      "id": 247,
+      "name": "Sandstone Cluster large",
+      "source_hard_cells": 1476,
+      "hard_cells": 1476,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "1e836a186c7923863b569839de59d7c3d78c71ffccd452c40895cc597c83971c"
+    },
+    {
+      "id": 248,
+      "name": "Shale AngularBoulder small",
+      "source_hard_cells": 146,
+      "hard_cells": 146,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "20d9e8714404a18c0c38e34998437d9865fc6e6a2e14a41f123650c8786c89a7"
+    },
+    {
+      "id": 249,
+      "name": "Shale AngularBoulder large",
+      "source_hard_cells": 1507,
+      "hard_cells": 1507,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "a93e75248cda1998b868385e8a1b7681e50a13f0b1b75db171f94b14b0a1774a"
+    },
+    {
+      "id": 250,
+      "name": "Shale Slab small",
+      "source_hard_cells": 75,
+      "hard_cells": 75,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "119aecf5a9c97b9a2c7497e0cc9b16875af440fc42dcc7adee2617df4ff807b9"
+    },
+    {
+      "id": 251,
+      "name": "Shale Slab large",
+      "source_hard_cells": 431,
+      "hard_cells": 431,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "c8d1282d4983d05fc9a437932ec01557e1ba02b9d35d5fb7acb7a485d1a4ae98"
+    },
+    {
+      "id": 252,
+      "name": "Shale Wedge small",
+      "source_hard_cells": 121,
+      "hard_cells": 121,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "288bdb5f0afbcc23565a3652b4670825770fb61c3cbb0cc65936a231a759bc3c"
+    },
+    {
+      "id": 253,
+      "name": "Shale Wedge large",
+      "source_hard_cells": 1100,
+      "hard_cells": 1100,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "61feb18d517dc8fc0960d83414f0d4342478a6f1fb93c6eadef652071a226bdb"
+    },
+    {
+      "id": 254,
+      "name": "Shale Spire small",
+      "source_hard_cells": 78,
+      "hard_cells": 78,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "f2e0f3ad97b390197e549faa670fd3d2d210b6a5702b3b489c82afebee2bfcba"
+    },
+    {
+      "id": 255,
+      "name": "Shale Spire large",
+      "source_hard_cells": 860,
+      "hard_cells": 860,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "7a8d5b3b80910c449f9ee49cb40bb70ca4011a579101783f3df8df5a33ae8acb"
+    },
+    {
+      "id": 256,
+      "name": "Shale SplitOutcrop small",
+      "source_hard_cells": 185,
+      "hard_cells": 185,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "852734aa7fe54bee2dc4a5759c51f629ec16b59ed106e96ccdf628fb3aba4205"
+    },
+    {
+      "id": 257,
+      "name": "Shale SplitOutcrop large",
+      "source_hard_cells": 1944,
+      "hard_cells": 1944,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "dca8a131bf0f725f35fffccc4396e8aee9a9713f96fcb412f3776f7c09ec8e55"
+    },
+    {
+      "id": 258,
+      "name": "Shale Cluster small",
+      "source_hard_cells": 146,
+      "hard_cells": 146,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "4a0c18899033d99484b90c0b69f60111f049bd6e23a262e9590fa5ec8ce0cc44"
+    },
+    {
+      "id": 259,
+      "name": "Shale Cluster large",
+      "source_hard_cells": 1475,
+      "hard_cells": 1475,
+      "leaf_cells": 0,
+      "stick_cells": 0,
+      "geometry_sha256": "5463c6c0d73bf35e4f3e745bb59f4bc572bdccb67c57f94d2a9f18795e762a1b"
+    }
+  ]
+}

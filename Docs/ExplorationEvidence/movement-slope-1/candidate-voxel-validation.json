@@ -1,0 +1,1 @@
+{"status":"PASS","checks":25,"scope":"Actual engine-free voxel conversion and cell/contact tests, including bundled learned terrain. .NET CPU; no native Unity or GPU timing.","elapsed_seconds":1.3290638,"actual_cells":10240,"actual_faces":2366,"geometry_version":1,"world_id":"779b530a6ba6923d62f1c8e99a603a2d9d979dafaa1015670efd9826284757f4"}

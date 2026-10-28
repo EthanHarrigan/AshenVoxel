@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-27T11:15:40.115791+00:00",
+  "status": "Isolated startup-only candidate; NOT installed",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+      "before": "1b99928293fc061bf388946f4889df166f153cd0c0c8d2e1f5efe80ea1a256fa",
+      "sha256": "66626530b591492e92ea2771b50e7a6acf3c8c789211ddcc42bacdf37d3976b9"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "820fd9f05e4f7522f61949c9722f97c04bb325effd69787689468d11a158d90f",
+      "sha256": "f609db6e1bf116d81a063e926dd24a3f8157acf939c04e4325ca9ad1f5a4de55"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "3ab4075df98ffc9aa18faff1b0ec2ffe014e0c09b6b2203c8d6c54ebe778bee0",
+      "sha256": "4bd6abd85ad8fe18d83e6ca22c6f03a3b944f29fef52a117fc5444e889d1da47"
+    }
+  ]
+}

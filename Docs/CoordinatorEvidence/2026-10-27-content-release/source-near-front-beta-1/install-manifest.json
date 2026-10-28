@@ -1,0 +1,27 @@
+{
+  "id": "source-near-front-beta-1",
+  "utc": "2026-10-27T23:02:20.953609+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs",
+      "before": "2dcff11f2c1cc869905108d1e1fe9d07e6c8c0ad743b9ec2ebb3b3c32f8e9748",
+      "sha256": "c3be3d4800a4b49d5758732b916571010cdadd705f88b0a40ec528cddac36734"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs",
+      "before": "1cd1dd13bc43584bab095a32f19a5e4b580d41f4e349c3ec9f76eb5a00a01563",
+      "sha256": "b152f3e013cf9a38245d62b34149144b085c5f3305ffa8282cfc023de0f3899a"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "1e7de6b6d1e6253e0efe539e1e14d10cca67fc5baff5cf6fe216c9b84fb15eae",
+      "sha256": "6fc7dc0d422d90d5a378ed84a240bd81df021ab51cc1288b4e39bfbeb8998a1c"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs",
+      "before": "542046572b5f9d4e714fc7fbf060709210b24d93ce3353a618708213e9f99f0a",
+      "sha256": "4765b2ddeebe6ea98a8de8c48a92458c20eb9a192251f17335332354f6b3fd5d"
+    }
+  ],
+  "scope": "Frozen one-Live priority/prewarm fix, companion bounded startup gate and honest timeout, near-front read-only diagnostics, camera-only actual-wood aiming and capture cleanup. Source safety/hash/caps and real-tree dynamics unchanged."
+}

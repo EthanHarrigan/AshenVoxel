@@ -1,0 +1,20 @@
+AshenVoxel.Rendering 0 
+AshenVoxel.WorldScaleData 0 
+AshenVoxel.WorldScaleRuntime 0 Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(48,44): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(49,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(50,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(57,42): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+
+AshenVoxel.Exploration 0 
+AshenVoxel.Exploration.Editor 0 Assets\AshenVoxel\Exploration\Editor\DlssNativeCheck.cs(51,40): warning CS0618: 'GraphicsDeviceDebugView.dlssFeatureInfos' is obsolete: 'This property causes garbage collection and is inefficient. Use dlssFeatureInfosSpan and dlssFeatureInfoCount instead.'
+Assets\AshenVoxel\Exploration\Editor\ExplorationCapture.cs(13,141): warning CS0649: Field 'ExplorationCapture.Request.horizonKm' is never assigned to, and will always have its default value 0
+Assets\AshenVoxel\Exploration\Editor\QualityPatchReview.cs(20,57): warning CS0649: Field 'QualityPatchReview.Job.action' is never assigned to, and will always have its default value null
+Assets\AshenVoxel\Exploration\Editor\QualityPatchReview.cs(89,68): warning CS0649: Field 'QualityPatchReview.PatchFile.sha256' is never assigned to, and will always have its default value null
+Assets\AshenVoxel\Exploration\Editor\QualityPatchReview.cs(88,81): warning CS0649: Field 'QualityPatchReview.Patch.files' is never assigned to, and will always have its default value null
+Assets\AshenVoxel\Exploration\Editor\QualityPatchReview.cs(88,59): warning CS0649: Field 'QualityPatchReview.Patch.id' is never assigned to, and will always have its default value null
+Assets\AshenVoxel\Exploration\Editor\ExplorationCapture.cs(13,193): warning CS0649: Field 'ExplorationCapture.Request.stop' is never assigned to, and will always have its default value false
+Assets\AshenVoxel\Exploration\Editor\QualityPatchReview.cs(89,75): warning CS0649: Field 'QualityPatchReview.PatchFile.before' is never assigned to, and will always have its default value null
+Assets\AshenVoxel\Exploration\Editor\ExplorationCapture.cs(13,198): warning CS0649: Field 'ExplorationCapture.Request.requireGpu' is never assigned to, and will always have its default value false
+Assets\AshenVoxel\Exploration\Editor\QualityPatchReview.cs(20,64): warning CS0649: Field 'QualityPatchReview.Job.label' is never assigned to, and will always have its default value null
+Assets\AshenVoxel\Exploration\Editor\QualityPatchReview.cs(89,63): warning CS0649: Field 'QualityPatchReview.PatchFile.path' is never assigned to, and will always have its default value null
+

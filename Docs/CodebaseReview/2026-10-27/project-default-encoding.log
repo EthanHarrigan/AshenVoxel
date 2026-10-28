@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\ethan\Downloads\AshenVoxel\Tools\check_project.py", line 66, in <module>
+    for target in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)',md.read_text()):
+                                                          ^^^^^^^^^^^^^^
+  File "C:\Users\ethan\AppData\Local\Programs\Python\Python311\Lib\pathlib.py", line 1059, in read_text
+    return f.read()
+           ^^^^^^^^
+  File "C:\Users\ethan\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x9d in position 223: character maps to <undefined>

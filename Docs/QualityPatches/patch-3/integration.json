@@ -1,0 +1,153 @@
+{
+  "patch": 3,
+  "status": "LIVE; hashes verified; actual main Play ready and capture complete",
+  "utc": "2026-10-27T05:25:29.691494+00:00",
+  "changes": [
+    "Blue cloudy sky and ACES display mapping",
+    "Full detail trees100m, redwoods40m, plants24m; ground cover64m",
+    "32M vegetation budget,260m shadows, later impostor transitions",
+    "Version2 unlit color and normals/AO atlas, same URP BRDF for terrain/objects/impostors",
+    "11 native GPU checks including measured response to changed sun direction"
+  ],
+  "checks": {
+    "bootstrap": 31,
+    "streaming": 31,
+    "authoring": 40,
+    "native_gpu": 11,
+    "native_mesh": "PASS",
+    "native_redwood_ground": "4 actual 10cm tiles,26.9MB mesh buffers; same worker/upload code",
+    "note": "Native renderer checks passed; isolated edit-mode cleanup warnings preserved and disposal corrected afterward. Full gameplay/FPS remains pending.",
+    "live": "New user-imported world14fb32, DX12,96 contact tiles,0 pending,980971800 bytes; far queue496. No shader errors. Canopy shadows too dark; next material-lighting patch addresses this."
+  },
+  "manifest": {
+    "id": "3",
+    "files": [
+      {
+        "path": "Assets/AshenVoxel/WorldScaleRuntime/GroundSurface.shader",
+        "before": "b1248d012c3f7680818cbda18da1bba1f83025e3d3ec2c9c358c2c2222a51d63",
+        "sha256": "bc7b8c2fb504ffe9f81232537b1f215a209d67b67a77f06e9e1a234644fd6ec9"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+        "before": "79a1a3d07c72daa36e3e6ae2f895f73a3e3eed4e8d8e903e498cebdabe367a04",
+        "sha256": "59a74e38d41f5f2d9ccd87396fcf65eec09c98376f893e2420d2ea47ea9b0bf0"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+        "before": "45fd77c752f0cc426a1e400baa0a289a80a82a05367171a784b62bceaa01ff6a",
+        "sha256": "490cc03c60d386ac136649b3287d062750c3310f32fca9ef70b74bda05d4a8a1"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs",
+        "before": "f5067347d162ae6e2456ecb1751f45224b7f86383dd6704a087e84b6c81eff72",
+        "sha256": "9a300104a99249e0ab971639d5350d27c4570a919a10e051938cda071949c29c"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/ForestGpuRenderer.cs",
+        "before": "01fbb4789a6b951c54758d850b9064510da76d831adaf5491f7e83e149529e3e",
+        "sha256": "42f992e64008d07f06ba3f6abb2ec536b608800b856e48b70317516904c25fc1"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/ForestImpostor.shader",
+        "before": "030775e655a03e81e6b1853be3ceabe3f867b2d8a80b8da759d8cc375274696e",
+        "sha256": "f48da1607a51c989c842b99caefdf1bbef5d695e3b8512f06816f584a7c8d036"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/ForestImpostorLighting.hlsl",
+        "before": "",
+        "sha256": "dbf1494b8c86c5db40debbdcc83adea642105734fa7015cd4d7b5cb62a524196"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/ForestImpostorLighting.hlsl.meta",
+        "before": "",
+        "sha256": "2b704feb60575cbef635eb47db6d5b3a562c04fb9c624477337055a546125a68"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/ExplorationVisualQuality.cs",
+        "before": "",
+        "sha256": "d262753d79b29ca8c37425e690c7c4bd0f9088d0122cdaa93b8f81f08ed9c184"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/ExplorationVisualQuality.cs.meta",
+        "before": "",
+        "sha256": "cbdece1885ba2698dc78d6e0fcb96adb5b4961c32b30118efa711da705540a93"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/AshenVoxel.Exploration.asmdef",
+        "before": "5856e84c19897d50d202597931c3310d5b8d91263083cfd5925f9f6d408c0b0f",
+        "sha256": "e91a3381495ab488ed6cfe82c62f0aca434582a3b04f4300d361b30f871b3ceb"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs",
+        "before": "8dcd4ee21ef69dcabcb8c27a4aee2058066cae0b0f5db8064d076b4e078e8397",
+        "sha256": "9a787e54eb3a77fe7daf51b6c645c4d0d0630927b1ced2205a793a8faa19bb98"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Editor/ForestAtlasBake.shader",
+        "before": "e97cd091f25b1a479dc513e20d46f5968f96dc51c94d79e7a787dd2ac2100c95",
+        "sha256": "994a1619eeb18725f309d417e675fabbb1799e8931eedda43fa197e22cc5553f"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs",
+        "before": "4ec0fe112f910cd71ac6061d127f5c4d67750609b3266d6bfd41fac7eceddb73",
+        "sha256": "e12234de1eda74ca2c9defca4ba763a237deaee2e838aee4fe6758dee3866809"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Editor/QualityPatchReview.cs",
+        "before": "d8106bae7fdb6f2475c2835c995b7adc3682116fc74420440df86148be7bd17d",
+        "sha256": "5690f4319912abd60164d25720720cb24ce3020c169f92c1f7fe26cee05c49c3"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Resources/ExplorationSky.shader",
+        "before": "",
+        "sha256": "0aa47ef9fbea9ae7c897ac69c7d7374d9af90fe5b3a3a9525d21d95b2c8716fc"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Resources/ExplorationSky.shader.meta",
+        "before": "",
+        "sha256": "a1c1bf980d4fd7c1564380cd9a0571b2158ab8a08f739a05358bed10de24f840"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Resources/ForestHorizonGpu.shader",
+        "before": "3930701aa5241d49bba835e3c78feba738f5b507b585c32ea755e1a5bd6208e8",
+        "sha256": "96d1e8b60d6fd109da5b88a806e8c0313670706365a6f130645166ad883dd2cd"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Resources/ForestAtlas.png",
+        "before": "eff18fbfe34154e8e8b077aa95e38e7909913d8fcd5b13ee7775408e81ec96b5",
+        "sha256": "7bd942a198d803bf761599171e30cd6f14e53f028f159b599b2c15f166ea678b"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Resources/ForestAtlas.png.meta",
+        "before": "4be75d5c6b35f7afc5ed37db2a466b90d4025c7f3378f61aee024e517401d754",
+        "sha256": "4be75d5c6b35f7afc5ed37db2a466b90d4025c7f3378f61aee024e517401d754"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Resources/ForestAtlasNormals.png",
+        "before": "",
+        "sha256": "f2adb650f6d9b5c3a0b63bff4f997bfdac97c1248875f053aec1312b60b2cb92"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Resources/ForestAtlasNormals.png.meta",
+        "before": "",
+        "sha256": "f7ba9e129b1301bfed0f56531250da3111b46580b612e20794da07ac35f41c09"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Resources/ForestAtlasVersion.txt",
+        "before": "8ef15cf753cb1021095104f2d656c6ad1964755b0696926583c59b61fd4ff8b1",
+        "sha256": "e5380ea2f1460b3181a2c0cb4de8cd517268fa8ea29480c6cc1cc755c9cc003d"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Resources/ForestImpostor.mat",
+        "before": "25c98c112d287c3d91fa23ebb5098c25549f6a4c14dbdc4ac04d9cdae3a4ccae",
+        "sha256": "92b9751baf8f54bf8b83e97cbf70fe7212f7b107773dd58fcf92bd288c57e0bf"
+      },
+      {
+        "path": "Assets/AshenVoxel/Settings/ExplorationSettings.asset",
+        "before": "4d5df8fd0a44fbe69317a3ca18d83847d6fda5afe995139907f0df21f7a72a03",
+        "sha256": "d731e54ffa865834591c55ce49c54268f4b44d224666fa4d9eb615db0bd633cf"
+      }
+    ]
+  },
+  "applied_verified_utc": "2026-10-27T05:28:59.266153+00:00"
+}

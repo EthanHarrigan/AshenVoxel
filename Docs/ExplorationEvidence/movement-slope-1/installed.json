@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-27T07:22:22.894427+00:00",
+  "all_hashes_match": true,
+  "assembly_reload_complete": true,
+  "compiler_errors": [],
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs",
+      "before": "df262e7166249cbb65ab1808ae7d9c3c9fe1e7dffc1bf9ac400b2c7557b3b6df",
+      "sha256": "55712c21aa0066bf1a6231f52069ae33203e19bf5978f75eae53d9a9499887b4"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/VoxelTerrainPage.cs",
+      "before": "d52eb2807b8c7b4a118db2cc99b55aa691da47365c6cc7e965284f8f78a4056d",
+      "sha256": "f8b274d2288ead310432d170f55b5d48e9bc829085f4631ac655854822e0b337"
+    }
+  ],
+  "scope": "Main native Editor compile/reload confirmed;127movement+25voxel+31smoke CPU checks and5installedAPI assemblies. InteractivePlayfeel/native trajectories remain pending."
+}

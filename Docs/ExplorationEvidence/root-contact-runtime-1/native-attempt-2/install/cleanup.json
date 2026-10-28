@@ -1,0 +1,10 @@
+{
+  "utc": "2026-10-27T12:16:13.101948+00:00",
+  "status": "SECOND_ATTEMPT_FAILED_AT_SCENE_ACTIVATION_NO_RETRY",
+  "owned_trigger_removed": true,
+  "original_scene_settings_prefs_unchanged": true,
+  "all6_restore_flags": true,
+  "no_captures": true,
+  "data_only_pass_separate": true,
+  "failure_report": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-native\\20261027T121401096Z\\report.json"
+}

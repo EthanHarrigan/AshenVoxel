@@ -1,0 +1,172 @@
+--- a/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs
++++ b/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs
+@@ -418,6 +418,7 @@
+             if (!planActivationPending) return;
+             foreach (TileKey key in desired) if (!surfaces.ContainsKey(key)) return;
+             active.Clear(); active.UnionWith(desired); planActivationPending = false;
++            long previousDetailBytes=voxelDetailMeshBytes;
+             remove.Clear();
+             foreach (var item in surfaces)
+             {
+@@ -425,6 +426,7 @@
+                 if (!active.Contains(item.Key)) remove.Add(item.Key);
+             }
+             foreach (TileKey key in remove) Release(key);
++            WakeAdmissibleVoxelRefinements(previousDetailBytes);
+             RecordVoxelStatistics();
+             Status = "Ready · " + active.Count + (UseVoxelLodTerrain ? " voxel LOD tiles" : " heightfield tiles") + (limitedSplits > 0 ? " · detail capacity reached" : "");
+             if (coarseStartup)
+--- a/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs
++++ b/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs
+@@ -294,10 +294,12 @@
+                     else
+                     {
+                         bool visible = active.Contains(work.Tile.Key);
++                        long previousDetailBytes=voxelDetailMeshBytes;
+                         if (surfaces.ContainsKey(work.Tile.Key)) Release(work.Tile.Key);
+                         surfaces.Add(work.Tile.Key, built); refining.Remove(work.Tile.Key); externallyDirty.Remove(work.Tile.Key);
+                         if(built.VoxelColumns)
+                         {TerrainResidentMeshBytes+=SurfaceBytes(built);voxelDetailMeshBytes+=DetailBytes(SurfaceBytes(built));voxelRefinementScanPending=true;}
++                        WakeAdmissibleVoxelRefinements(previousDetailBytes);
+                         built.Object.SetActive(visible && !inspection);
+                     }
+                     MeshUploadsLastFrame++;
+--- a/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
++++ b/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
+@@ -21,7 +21,11 @@
+         public long ContactMeshBytes {get;private set;}
+         public long ContactTriangles {get;private set;}
+         readonly Dictionary<TileKey,Surface> contactSurfaces=new Dictionary<TileKey,Surface>();
+-        readonly HashSet<TileKey> contactDesired=new HashSet<TileKey>(),contactDeferred=new HashSet<TileKey>();
++        readonly HashSet<TileKey> contactDesired=new HashSet<TileKey>();
++        readonly Dictionary<TileKey,long> contactDeferred=new Dictionary<TileKey,long>();
++        public int ContactDeferredTiles=>contactDeferred.Count;
++        long contactObservedBudgetBytes=-1;
++        long ContactBudgetBytes=>(long)Mathf.Clamp(VoxelContactBudgetMB,128,2048)*1024*1024;
+         readonly List<Work> contactPending=new List<Work>();
+         readonly Vector4[] contactMask=new Vector4[64];
+         long contactCenterX=long.MinValue,contactCenterZ=long.MinValue;
+@@ -30,6 +34,9 @@
+         void RefreshContactPlan()
+         {
+             if(!UseVoxelLodTerrain||coarseStartup||field==null)return;
++            long budget=ContactBudgetBytes;
++            if(contactObservedBudgetBytes>=0&&budget>contactObservedBudgetBytes)WakeAdmissibleContactRequests(budget);
++            contactObservedBudgetBytes=budget;
+             double size=VoxelLodSurface.BaseTileMeters;
+             long cx=(long)Math.Floor(cameraX/size),cz=(long)Math.Floor(cameraZ/size);
+             float radius=Mathf.Clamp(VoxelFullDetailRadius,16,160);
+@@ -77,17 +84,33 @@
+         }
+         void PublishContact(Surface built,Work work)
+         {
+-            long bytes=SurfaceBytes(built),limit=(long)Mathf.Clamp(VoxelContactBudgetMB,128,2048)*1024*1024;
++            long bytes=SurfaceBytes(built),limit=ContactBudgetBytes,previousBytes=ContactMeshBytes;
+             long replaced=contactSurfaces.TryGetValue(work.Tile.Key,out Surface old)?SurfaceBytes(old):0;
+             if(ContactMeshBytes-replaced+bytes>limit)
+             {
+                 // Never silently lower the10cm contact resolution to meet admission.
+                 // Retain the old terrain and observable request until the next move/replan.
+-                Destroy(built.Object);Destroy(built.Mesh);contactDeferred.Add(work.Tile.Key);return;
++                Destroy(built.Object);Destroy(built.Mesh);contactDeferred[work.Tile.Key]=bytes;return;
+             }
+             ReleaseContact(work.Tile.Key);contactSurfaces.Add(work.Tile.Key,built);
+             ContactMeshBytes+=bytes;ContactTriangles+=built.TriangleCount;
++            contactDeferred.Remove(work.Tile.Key);
+             built.Object.SetActive(!inspection);UpdateContactMask();
++            if(ContactMeshBytes<previousBytes)WakeAdmissibleContactRequests(limit);
++        }
++        void WakeAdmissibleContactRequests(long limit)
++        {
++            remove.Clear();
++            foreach(var request in contactDeferred)
++            {
++                if(!contactDesired.Contains(request.Key))continue;
++                long previous=contactSurfaces.TryGetValue(request.Key,out Surface old)?SurfaceBytes(old):0;
++                if(ContactMeshBytes-previous+request.Value>limit)continue;
++                double size=VoxelLodSurface.BaseTileMeters;TileKey key=request.Key;
++                var tile=new LodTile(key,key.X*size,key.Z*size,size,RemoteTerrainField.MinimumSupportedHeight,RemoteTerrainField.MaximumSupportedHeight);
++                contactPending.Add(new Work(tile,revision,true,true));remove.Add(key);
++            }
++            foreach(TileKey key in remove)contactDeferred.Remove(key);
+         }
+         void UpdateContactMask()
+         {
+@@ -107,7 +130,7 @@
+         {
+             foreach(var s in contactSurfaces.Values){Destroy(s.Object);Destroy(s.Mesh);}
+             contactSurfaces.Clear();contactDesired.Clear();contactPending.Clear();contactDeferred.Clear();
+-            ContactMeshBytes=ContactTriangles=0;contactCenterX=contactCenterZ=long.MinValue;contactRevision=-1;
++            ContactMeshBytes=ContactTriangles=0;contactCenterX=contactCenterZ=long.MinValue;contactRevision=-1;contactObservedBudgetBytes=-1;
+             if(contactMaterial!=null)Destroy(contactMaterial);contactMaterial=null;
+             if(EffectiveMaterial!=null)EffectiveMaterial.SetVector("_VoxelTerrainGrid",new Vector4(0,0,0,0));
+         }
+@@ -174,7 +197,14 @@
+         long voxelDetailMeshBytes;
+         bool voxelRefinementScanPending;
+         int consecutiveContactBuilds;
+-        readonly Dictionary<TileKey,int> voxelDeferredQuads=new Dictionary<TileKey,int>();
++        readonly struct DeferredVoxelRefinement
++        {
++            public readonly int Quads;
++            public readonly long RequiredDetailBytes;
++            public DeferredVoxelRefinement(int quads,long bytes){Quads=quads;RequiredDetailBytes=bytes;}
++        }
++        readonly Dictionary<TileKey,DeferredVoxelRefinement> voxelDeferredQuads=new Dictionary<TileKey,DeferredVoxelRefinement>();
++        public int VoxelFaceCapacityLimitedTiles=>voxelCapacityQuads.Count;
+         public long TerrainResidentMeshBytes {get;private set;}
+         public long TerrainSteadyMeshLimitBytes=>VoxelDetailBudgetBytes+768*VoxelCoverageTileReserveBytes;
+         public long TerrainTransitionMeshLimitBytes=>VoxelDetailBudgetBytes+1536*VoxelCoverageTileReserveBytes;
+@@ -214,8 +244,9 @@
+             if(existing==null){pending.Enqueue(new Work(tile,revision,quads:8));return;}
+             if(externallyDirty.Contains(tile.Key))
+                 pending.Enqueue(new Work(tile,revision,true,quads:existing.Quads));
+-            else if(!coarseStartup&&!InVoxelView(tile)&&existing.Quads>VoxelQuadsFor(tile))
+-                // A turn releases rear-view detail before improving the new view.
++            else if(!coarseStartup&&existing.Quads>VoxelQuadsFor(tile))
++                // Release surplus cached detail after travel/turns while retaining
++                // the current pixel target, including for still-visible terrain.
+                 pending.Enqueue(new Work(tile,revision,true,quads:VoxelQuadsFor(tile)));
+         }
+         void QueueNextVoxelRefinement()
+@@ -246,6 +277,25 @@
+             foreach(Work work in contactPending)if(DistanceSquared(work.Tile)<=32*32)return true;
+             return false;
+         }
++        void WakeAdmissibleVoxelRefinements(long previousDetailBytes)
++        {
++            // Run after complete replacement/retirement, never during the temporary
++            // Release-before-add gap. Only measured requests which now fit wake.
++            if(voxelDetailMeshBytes>=previousDetailBytes||voxelDeferredQuads.Count==0)return;
++            remove.Clear();
++            foreach(var request in voxelDeferredQuads)
++            {
++                if(!desired.Contains(request.Key))continue;
++                long previous=surfaces.TryGetValue(request.Key,out Surface old)?DetailBytes(SurfaceBytes(old)):0;
++                if(voxelDetailMeshBytes-previous+request.Value.RequiredDetailBytes>VoxelDetailBudgetBytes)continue;
++                // Requeue the measured request itself: source refreshes can need
++                // replacement even when the old mesh already has the target quads.
++                pending.Enqueue(new Work(desiredTiles[request.Key],revision,true,quads:request.Value.Quads,progressive:true));
++                VoxelRefinementBuilds++;remove.Add(request.Key);
++            }
++            foreach(TileKey key in remove)voxelDeferredQuads.Remove(key);
++            if(remove.Count>0)voxelRefinementScanPending=true;
++        }
+         bool AdmitVoxelMesh(LodTile tile,int n,long bytes)
+         {
+             if(n==8&&bytes>VoxelCoverageTileReserveBytes)
+@@ -253,12 +303,12 @@
+             long previous=surfaces.TryGetValue(tile.Key,out Surface old)?DetailBytes(SurfaceBytes(old)):0;
+             if(voxelDetailMeshBytes-previous+DetailBytes(bytes)<=VoxelDetailBudgetBytes)
+             {
+-                if(voxelDeferredQuads.TryGetValue(tile.Key,out int request)&&n>=request)voxelDeferredQuads.Remove(tile.Key);
++                if(voxelDeferredQuads.TryGetValue(tile.Key,out DeferredVoxelRefinement request)&&n>=request.Quads)voxelDeferredQuads.Remove(tile.Key);
+                 return true;
+             }
+             // Reject before vertex expansion/GPU upload, remember the request and
+             // back off until a plan/source change can free/reprioritize capacity.
+-            voxelDeferredQuads[tile.Key]=n;voxelRefinementScanPending=true;
++            voxelDeferredQuads[tile.Key]=new DeferredVoxelRefinement(n,DetailBytes(bytes));voxelRefinementScanPending=true;
+             if(externallyDirty.Contains(tile.Key))pending.Enqueue(new Work(tile,revision,true,quads:8));
+             return false;
+         }

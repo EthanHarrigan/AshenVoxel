@@ -1,0 +1,77 @@
+{
+  "utc": "2026-10-27T19:18:14.955632+00:00",
+  "docs": [
+    {
+      "path": "MEMORY.md",
+      "before": "6e558292e5010fd2f60e2734c6310113b59328c11e61c5f6c9136270182c6059",
+      "sha256": "060c8834cd694d651dc9e487ab93154819e6d691ac99d848d10743158fd2efff"
+    },
+    {
+      "path": "Docs/AI_HANDOFF.md",
+      "before": "aff2b4a3140cc69b41a33977496d32dc2325615d1710ba8d309cd22a35afce4e",
+      "sha256": "b2270ed9a13f45c92d1bd80842bd4834647b8a2debe64a59ccc9a552d5113879"
+    },
+    {
+      "path": "Docs/SESSION_LOG.md",
+      "before": "69909329c522b0cd121e7763f68fd8aa200a786ebdb301b4e70c5b30fdc5b915",
+      "sha256": "f192a4efbf8000072b32e738aff4d2b335cac951b35fb6ecdd2f9bb2f92395a8"
+    },
+    {
+      "path": "Docs/CHAT_COORDINATION.md",
+      "before": "a2c5b5d803dd41d5e930dc7532756ec3ee6ae34b054c8e766fcbb1c9b00200dd",
+      "sha256": "5a4869713d60b6784c88e2e42371ab003c88a0c79a80ae0a31f61e81c86f72ca"
+    },
+    {
+      "path": "TODO.md",
+      "before": "a4cdb5996fbf5d5add13c675b62479863c8b9dfaab7d19482e9adad0456b85d6",
+      "sha256": "72115f4c46850cd5ff4954ce002c456f060eb3cde4841cb6f977721a80784a50"
+    },
+    {
+      "path": "AGENTS.md",
+      "before": "7d92e55387356251a2e007f9c7f39c87519fc4f584609197e64aacf140cdc184",
+      "sha256": "68979b42673f43e8cc67fde33e1f9ab7583e1340d62dfb366656abd5bd0a51c9"
+    },
+    {
+      "path": "README.md",
+      "before": "5fa4c64ec8fdfb3ae878fdb23b2798bf5aa8812941f53cb0d733653d5b7bfe75",
+      "sha256": "ef2c220178df39920d0f7e87abb73481fa0798c4067f2b729c1234e743a29b43"
+    },
+    {
+      "path": "Docs/DECISIONS.md",
+      "before": "d9bbc809c7218b6a29f7a1c705cb9f4c4bc2a3e32cf71ef868a7f57d9ad2048d",
+      "sha256": "1f655b2cd749b8f3a7ffa3573e300419ebba93c74a19e5cfb3699857362fd792"
+    }
+  ],
+  "photo": {
+    "library_file_id": "libfile_aad42f66d70081918a4afefde2242a97",
+    "version": 1,
+    "file_service_id": "file_00000000d38c81f58a503f4f79679c16",
+    "name": "AshenVoxel-western-range-progress.png",
+    "sha256": "14b7c263f8b91054357b81d118d30c13bb06192627e1a95256eb94cf4e8486f5",
+    "size": 2328536,
+    "local_path": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task\\AshenVoxel-western-range-progress.png",
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs\\MountainReviewFrames\\mountain-original-rocks-on-late\\view.png",
+    "capture_utc": "2026-10-27T19:03:05.6745651Z",
+    "camera": [
+      -63200,
+      6000,
+      -18800
+    ],
+    "fov": 60,
+    "applied_preset": "Maximum",
+    "stationary_seconds": 399,
+    "quality_pending": 3445,
+    "coverage_missing": 0,
+    "broad_lithology": false,
+    "rock_commands": 40,
+    "rock_triangles": 2016,
+    "limitations": "Progress baseline; periodic bands, stair/grid aliasing and pale rock brick remain. Not fully converged or near-perfect. No HUD/desktop; actual ScreenCapture pixels unchanged.",
+    "local_xattr_status": "Unsupported os.setxattr on Windows; Library save succeeded; identity retained here."
+  },
+  "request_cleanup": "absent",
+  "ui_action": "Control+P to start Play",
+  "ui_status": "denied; not executed",
+  "ui_reason": "Auto-review cites earlier user takeover/no-stop restriction; fresh confirmation pending",
+  "physics_status": "waitingOnApproval; exact action/ID not exposed",
+  "imports_queued": false
+}

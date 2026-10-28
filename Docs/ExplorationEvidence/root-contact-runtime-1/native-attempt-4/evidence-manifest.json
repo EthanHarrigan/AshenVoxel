@@ -1,0 +1,30 @@
+{
+  "utc": "20261027T125605088280Z",
+  "fixture_sha256": "b8640f7ca42a97995ddbee06b072cabc79ee40d6428246b6294effaaca56dc0f",
+  "dll_sha256": "3b32ca4553601acb194071b2aa1f1a05d0063210a496cf2408b3e3c672af5fa0",
+  "files": {
+    "10-authored.png": "a7afab123df2d1ea386d2dabf400b0cebc30ff8445814fd1bae488f128279cfd",
+    "10-grounded.png": "a0d682913d00bcb2a3f7feb347b5bfb90e74c8b04ce233bffca22c5384c5accd",
+    "11-authored.png": "372918cfa9d27e6101681af58663945b284d4ad4511779512dfb311c2ed01a96",
+    "11-grounded.png": "92915ae803a6615f2fc3a1978afc7ab318a2cf0374bf2ae76f21e4fc28f83abf",
+    "report.json": "8f521bdc46a9443ccb50d41eb99b61ced80555856a85a9210fa948d491297a8b",
+    "install/import.log": "b6b5d341d9f1040290dd21966fdf4dde30bc147b6a884ee2e20c5642610a83da",
+    "install/independent-visual-review.json": "9a5087a3cb342281c9e5cbfb25cb6e3c61dd03ddd06f5b6656fb4ab59b94cf0e",
+    "install/render-arm.json": "7e9d049bfc34e3f892059692f5c3985b52bfdbaa577eb635ead79d148c10a952",
+    "install/render-run.log": "e492be5383159e9543c115e1286873d3602eadff0987cb3895585fa698df7c59",
+    "install/stage.json": "515f39999ccae0edf22259b15201e9e77455f98b6c3ac8d4871215050ef51ed5",
+    "install/visual-review-cleanup.json": "9e533999447b820b99eef3f7f7f3dad0684bfdfbd4abc53262f24d42ceffce28",
+    "frozen/native-inputs.json": "0fcd4195a739f9a929bf062cfe4548e446a755ff251a4c02aa92cb6bfd17b147",
+    "frozen/native-inputs.tsv": "b6cac3a1dd5b25da8b08fe3e0021d46c4d472ed6c6c12112d7c6a54e84b71879",
+    "frozen/native-sites.bin": "f68a55c2731e80e92117f2187584710ee51185021fa798e5a31e284f84d03765",
+    "frozen/native_api.py": "d13d63907bf35076910e3c6d2755a043621116abad4ba3fbd22533fa2e19920d",
+    "frozen/RootBaseChunkMesher.cs": "b5b90cd21534fd69a066e0dfdedd60a4a328b8be67d4ca6c31d84c5ae64ff222",
+    "frozen/RootContactNativePreview.cs": "b8640f7ca42a97995ddbee06b072cabc79ee40d6428246b6294effaaca56dc0f",
+    "frozen/RootPreviewData.cs": "4ec349eab0efae77f1b0d853cf03c343d16578c9caf16215a386b50d6c8cd5d4",
+    "frozen/RootPreviewTriggerV4.cs": "31fe4b1e09149fa99241c334239ad918f5056b1933cc864e9d896ba0885442f3",
+    "frozen/SharedUpperSplit.cs": "cf88a8dc41f156a37ba07d3cd7e16613a0d72db319313c59a3c7a5e24f10da0e",
+    "api-report.json": "fd85177d9e9e5f2b25f5f0fef50238520094c9784d12eb74960ef5c38dd1ee35",
+    "README.md": "977540eb6a36e8a60399a41a015558bc54598bfdb184688b5bf8a5dc31c0615b"
+  },
+  "runtime_integration": false
+}

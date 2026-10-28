@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "scenario": "One actual pinned mature-redwood11 LOD0 canonical preparation comparison",
+  "vertices": 3562010,
+  "old_allocated_bytes": 121116096,
+  "new_allocated_bytes": 21376528,
+  "observed_allocation_reduction": 99739568,
+  "eliminated_full_vertex_payload_bytes": 99736280,
+  "new_additional_retained_element_bytes": 21374066,
+  "exact_positions_normals_RGB_material_AO_indices_bounds": true,
+  "scope": "Current-thread managed allocation observations and exact payload comparison. No native/Editor/GPU call, no process peak or attribution of prior native memory abort. Native guard unchanged; shared targeted retest still required."
+}

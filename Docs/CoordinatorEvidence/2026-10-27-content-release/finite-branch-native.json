@@ -1,0 +1,11 @@
+{
+    "status": "FINITE_BRANCH_FALL_IMPACT_COLLECTION_PASS",
+    "samples": 6374,
+    "maximumRotation": 18.01848602294922,
+    "impact": true,
+    "conserved": true,
+    "owned": 72,
+    "credited": 72,
+    "debris": 0,
+    "remaining": 0
+}

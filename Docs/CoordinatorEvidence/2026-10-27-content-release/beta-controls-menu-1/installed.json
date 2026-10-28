@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-27T18:05:23.704435+00:00",
+  "id": "beta-controls-menu-1",
+  "transaction_applied": true,
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "3a8ba5d7971ad2325616494e7c7e2d383912b157e2a957eab977e582c7cf4399",
+      "sha256": "9b9b2a6fee9980f93a9de01d3d0b3b7a36f1a99c6a412aa7450adb881e012904",
+      "current_sha256": "9b9b2a6fee9980f93a9de01d3d0b3b7a36f1a99c6a412aa7450adb881e012904",
+      "still_original_payload": true
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs",
+      "before": "",
+      "sha256": "3a88e7e960ac1db9e6aa8fe131cdf8120b23786dcd6d1247b3d93dfe12387322",
+      "current_sha256": "3a88e7e960ac1db9e6aa8fe131cdf8120b23786dcd6d1247b3d93dfe12387322",
+      "still_original_payload": true
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs.meta",
+      "before": "",
+      "sha256": "48ef25f439a1fbb4e9bc036767d6cb10f6850ed466966660a8358ea196f3785f",
+      "current_sha256": "48ef25f439a1fbb4e9bc036767d6cb10f6850ed466966660a8358ea196f3785f",
+      "still_original_payload": true
+    }
+  ],
+  "native": "Main compile/reload passed after batch. Shared Play reached Ready before17:30; branch/cut/suction interaction not verified. Later air-placement and menu sources are separate identities."
+}

@@ -1,0 +1,531 @@
+VBCSCompilerServerWatchdog: watching VBCSCompiler (PID 29880)
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.27f1 (672d562a42a7) revision 6761814'; Using compiler version '194234433'; Build Type 'Release'
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-ethan" at "2026-10-27T06:41:28.5708933Z"
+OS: 'Windows 11  (10.0.26200) Professional' Language: 'en' Physical Memory: 32689 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-10-27T06:41:28Z
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 28612, path: "C:/Program Files/Unity Hub/UnityLicensingClient_V1/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.3+d7ffd15
+  Session Id:              57231d6a53c7415fbfce79d3cf176a0d
+  Correlation Id:          3a8e8352807b5160fae04e10ccfca026
+  External correlation Id: 3712397064554744810
+  Machine Id:              ufFF3dhs8SlprCUGKkpsqsCfiLc=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-ethan" (connect: 0.00s, validation: 0.00s, handshake: 0.06s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-ethan-notifications" at "2026-10-27T06:41:28.6287135Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 2475620621758-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.00
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 0.06s
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Unity.exe
+-batchmode
+-force-d3d12
+-projectPath
+C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels
+-executeMethod
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck.RunWindOptics
+-logFile
+C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels/Logs/wind-optics-native-1.log
+-job-worker-count
+2
+-assetImportWorkerCount
+1
+Successfully changed project path to: C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels
+C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-remapper-allocator-initial-capacity=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [27380]  Target information:
+
+Player connection [27380]  * "[IP] 192.168.0.44 [Port] 55505 [Flags] 2 [Guid] 885788055 [EditorId] 885788055 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-3MHM656) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [27380] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [27380] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 2
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Package Manager] Connected to IPC stream "Upm-26688" after 0.3 seconds.
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 0.13 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.27f1 (672d562a42a7)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels/Assets
+Forcing GfxDevice: Direct3D 12
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 3080 Ti (ID=0x2208)
+    Vendor:          NVIDIA
+    VRAM:            12086 MB
+    App VRAM Budget: 11318 MB
+    Driver:          32.0.16.1088
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56688
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.005860 seconds.
+- Loaded All Assemblies, in  0.429 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.426 seconds
+Domain Reload Profiling: 850ms
+	BeginReloadAssembly (145ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (9ms)
+	RebuildCommonClasses (36ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (59ms)
+	LoadAllAssembliesAndSetupDomain (172ms)
+		LoadAssemblies (132ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (168ms)
+			TypeCache.Refresh (166ms)
+				TypeCache.ScanAssembly (153ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (426ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (389ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (50ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (77ms)
+			ProcessInitializeOnLoadAttributes (154ms)
+			ProcessInitializeOnLoadMethodAttributes (104ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 23 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.inputsystem@1.17.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.inputsystem@02433b2481ab)
+    com.unity.searcher@4.9.5 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.searcher@a463122f2c00)
+    com.unity.burst@1.8.31 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.burst@bfa84123c21a)
+    com.unity.mathematics@1.3.3 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.mathematics@19a9377c4ffa)
+    com.unity.collections@2.7.1 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.collections@88d5bf65ce66)
+    com.unity.nuget.mono-cecil@1.11.6 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.test-framework.performance@3.5.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.test-framework.performance@8b56083ec0f0)
+  Built-in packages:
+    com.unity.render-pipelines.universal@17.3.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.render-pipelines.universal@ee0b6bbace10)
+    com.unity.modules.audio@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.imgui@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.physics@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.nvidia@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.nvidia)
+    com.unity.render-pipelines.core@17.3.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.render-pipelines.core@6c7e6aba313a)
+    com.unity.shadergraph@17.3.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.shadergraph@12f2ec01e6de)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.render-pipelines.universal-config@8dc1aab4af1d)
+    com.unity.modules.uielements@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.ugui@2.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.ugui@c0ef89c047f6)
+    com.unity.modules.terrain@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.modules.ui@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.hierarchycore)
+    com.unity.test-framework@1.6.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.test-framework@bd7f943e9647)
+    com.unity.ext.nunit@2.0.5 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.ext.nunit@d8c07649098d)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.01 seconds
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels
+DisplayProgressbar: Compiling Scripts
+ExitCode: 4 Duration: 0s234ms
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/1900b0aE-inputdata.json
+*** Tundra requires additional run (0.16 seconds), 0 items updated, 412 evaluated
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Data\netcorerun\netcorerun.exe "C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Data\Tools\BuildPipeline\ScriptCompilationBuildProgram.exe" "Library/Bee/1900b0aE.dag.json" "Library/Bee/1900b0aE-inputdata.json" "Library\Bee\buildprogram0.traceevents"
+WorkingDir: C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels
+ExitCode: 0 Duration: 0s517ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --dagfilejson="Library\Bee\1900b0aE.dag.json" --profile="Library/Bee/backend2.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels
+ExitCode: 0 Duration: 3s487ms
+Finished compiling graph: 701 nodes, 10862 flattened edges (8968 ToBuild, 106 ToUse), maximum node priority 728
+[411/698    0s] WriteText Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.Editor.rsp
+[412/698    0s] WriteText Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.rsp
+[540/698    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[658/698    1s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Rendering.dll (+2 others)
+[659/698    1s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleData.dll (+2 others)
+[660/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.Rendering.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Rendering.dll, with 141 defines and 237 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[661/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Rendering.pdb
+[662/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Rendering.dll
+[663/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.WorldScaleData.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleData.dll, with 141 defines and 126 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[664/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.WorldScaleData.pdb
+[665/698    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Authoring.dll (+2 others)
+[666/698    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Runtime.dll (+2 others)
+[667/698    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Rendering.Editor.dll (+2 others)
+[668/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.WorldScaleData.dll
+[669/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.Authoring.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Authoring.dll, with 141 defines and 239 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[670/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.Runtime.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Runtime.dll, with 141 defines and 241 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[671/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Authoring.pdb
+[672/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Authoring.dll
+[673/698    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleRuntime.dll (+2 others)
+[674/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.Rendering.Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Rendering.Editor.dll, with 139 defines and 274 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[676/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Runtime.pdb
+[677/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Runtime.dll
+[678/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Rendering.Editor.dll
+[679/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Rendering.Editor.pdb
+[680/698    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Editor.dll (+2 others)
+[681/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.WorldScaleRuntime.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleRuntime.dll, with 141 defines and 240 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[682/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Editor.dll, with 139 defines and 278 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[683/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.WorldScaleEditor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleEditor.dll, with 139 defines and 273 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[684/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Editor.pdb
+[685/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Editor.dll
+[686/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.WorldScaleRuntime.pdb
+[689/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.WorldScaleRuntime.dll
+[690/698    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.dll (+2 others)
+[691/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.Exploration.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.dll, with 142 defines and 243 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[692/698    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.Editor.dll (+2 others)
+Assets\AshenVoxel\Exploration\Editor\DlssNativeCheck.cs(51,40): warning CS0618: 'GraphicsDeviceDebugView.dlssFeatureInfos' is obsolete: 'This property causes garbage collection and is inefficient. Use dlssFeatureInfosSpan and dlssFeatureInfoCount instead.'
+[693/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.pdb
+[694/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.dll
+[695/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.Exploration.Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.Editor.dll, with 140 defines and 279 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[696/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.Editor.pdb
+[697/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.Editor.dll
+*** Tundra build success (3.46 seconds), 40 items updated, 698 evaluated
+Assets\AshenVoxel\Exploration\Editor\DlssNativeCheck.cs(51,40): warning CS0618: 'GraphicsDeviceDebugView.dlssFeatureInfos' is obsolete: 'This property causes garbage collection and is inefficient. Use dlssFeatureInfosSpan and dlssFeatureInfoCount instead.'
+AssetDatabase: script compilation time: 4.672901s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  4.644 seconds
+Refreshing native plugins compatible for Editor in 6.34 ms, found 0 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  3.495 seconds
+Domain Reload Profiling: 8131ms
+	BeginReloadAssembly (397ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (64ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (165ms)
+	RebuildCommonClasses (43ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (35ms)
+	LoadAllAssembliesAndSetupDomain (4147ms)
+		LoadAssemblies (4147ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (120ms)
+			TypeCache.Refresh (83ms)
+				TypeCache.ScanAssembly (75ms)
+			BuildScriptInfoCaches (26ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (3496ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2671ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (19ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (158ms)
+			ProcessInitializeOnLoadAttributes (2385ms)
+			ProcessInitializeOnLoadMethodAttributes (93ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (24ms)
+Start importing Assets/AshenVoxel/Rendering/MaterialOptics.hlsl using Guid(07d0f7ee3fc14424b6554637f25cb93a) (ShaderIncludeImporter) -> (artifact id: '75fea571add6fedcdfb1f91e2c973f05') in 0.0158404 seconds
+Start importing Assets/AshenVoxel/Rendering/VoxelWind.hlsl using Guid(7c108258c567472ba7b428fb8472e6b9) (ShaderIncludeImporter) -> (artifact id: '63a6d5f98d665bd8bc0b8b1a4c8721e2') in 0.003111 seconds
+Start importing Assets/AshenVoxel/WorldScaleRuntime/GroundSurface.shader using Guid(b2438cbf85224031b4ba5242baa85dc8) (ShaderImporter)Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+ -> (artifact id: 'b001390bed845e3aec9bb7c41b18034a') in 0.3432537 seconds
+Start importing Assets/AshenVoxel/Exploration/ForestImpostor.shader using Guid(765695a2eba67cf42985c749f9d53b2d) (ShaderImporter) -> (artifact id: 'e17377cc803ebaf7283647b5d4e037f1') in 0.029934 seconds
+Start importing Assets/AshenVoxel/Exploration/Resources/ForestHorizonGpu.shader using Guid(a9d2112f9a3adea4190c01d4e2094d63) (ShaderImporter) -> (artifact id: '01331be93ed6cdf784c5636855d1498a') in 0.0206028 seconds
+Start importing Assets/AshenVoxel/Rendering/WorldSurface.shader using Guid(9c31fe8407084be6af193b223f301852) (ShaderImporter) -> (artifact id: '9776c83122ec66c824f64d995ec84472') in 0.0517759 seconds
+Start importing Assets/AshenVoxel/Rendering/Resources/MaterialOptics.asset using Guid(53f94123a1244f248c2653c1442a50f5) (NativeFormatImporter) -> (artifact id: 'c3cc8e1405580dfa74258598d59e3e0a') in 0.0048784 seconds
+Start importing Assets/AshenVoxel/Rendering/RENDERING.md using Guid(d9c5aaebe784e3efbe3c02f5cfa52e81) (TextScriptImporter) -> (artifact id: '14748aeaf249adeef8a3ced0a582069c') in 0.0030324 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=bcfd18615d15f634480b4531133de997): Total: 15.727 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=8 (actual=8, local cache=0, cache server=0)
+		Asset DB Process Time: managed=3 ms, native=5115 ms
+		Asset DB Callback time: managed=197 ms, native=1044 ms
+		Scripting: domain reloads=1, domain reload time=4644 ms, compile time=4675 ms, other=46 ms
+		Project Asset Count: scripts=793, non-scripts=1673
+		Asset File Changes: new=3, changed=20, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.002ms
+	InvokePackagesCallback: 29.363ms
+	ApplyChangesToAssetFolders: 0.540ms
+	Scan: 96.839ms
+	OnSourceAssetsModified: 2.266ms
+	CategorizeAssetsWithTransientArtifact: 463.531ms
+	ProcessAssetsWithTransientArtifactChanges: 42.923ms
+	CategorizeAssets: 39.120ms
+	ImportOutOfDateAssets: 4005.663ms (-1189.840ms without children)
+		ImportManagerImport: 497.867ms (22.474ms without children)
+			ImportInProcess: 474.856ms
+			UpdateCategorizedAssets: 0.537ms
+		CompileScripts: 4674.839ms
+		ReloadNativeAssets: 0.031ms
+		UnloadImportedAssets: 1.096ms
+		ReloadImportedAssets: 21.007ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.296ms
+		InitializingProgressBar: 0.006ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.362ms
+	PostProcessAllAssets: 1211.380ms
+	Hotreload: 1.901ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.003ms
+	UnloadStreamsBegin: 3.466ms
+	PersistCurrentRevisions: 0.159ms
+	UnloadStreamsEnd: 0.002ms
+	GenerateScriptTypeHashes: 4.204ms
+	Untracked: 9830.233ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 9.093ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-Ashen Voxel Exploration
+Unloading 20 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3654 unused Assets / (4.6 MB). Loaded Objects now: 4504.
+Memory consumption went from 172.0 MB to 167.3 MB.
+Total: 9.608500 ms (FindLiveObjects: 0.414300 ms CreateObjectMapping: 0.157400 ms MarkObjects: 7.234400 ms  DeleteObjects: 1.800900 ms)
+
+[Project] Loading completed in 20.286 seconds
+	Project init time: 				19.835 seconds
+		Template init time: 		0.000 seconds
+		Package Manager init time: 		0.262 seconds
+		Asset Database init time: 		0.374 seconds
+		Global illumination init time: 	0.003 seconds
+		Assemblies load time: 			0.881 seconds
+		Unity extensions init time: 	0.005 seconds
+		Asset Database refresh time: 	15.727 seconds
+	Scene opening time: 			0.164 seconds
+##utp:{"type":"ProjectInfo","version":2,"phase":"Immediate","time":1793083308751,"processId":26688,"projectLoad":20.285851,"projectInit":19.8350962,"templateInit":0.0,"packageManagerInit":0.262025,"assetDatabaseInit":0.3738654,"globalIlluminationInit":0.0028305,"assembliesLoad":0.881257,"unityExtensionsInit":0.0045467,"assetDatabaseRefresh":15.7274921,"sceneOpening":0.1640577}
+##utp:{"type":"EditorInfo","version":2,"phase":"Immediate","time":1793083308751,"processId":26688,"editorVersion":"6000.3.27f1 (672d562a42a7)","branch":"6000.3/staging","buildType":"Release","platform":"Windows"}
+[Licensing::Client] Successfully resolved entitlement details
+Start Indexing on Editor startup
+[Indexing] Starting Initial Indexing for Assets
+null options given to DLSSIUpscaler()
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+DLSSIUpscaler:.ctor (DLSSOptions) (at ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/DLSSIUpscaler.cs:136)
+System.Reflection.RuntimeConstructorInfo:InternalInvoke (object,object[],bool)
+System.Reflection.RuntimeConstructorInfo:DoInvoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.RuntimeConstructorInfo:Invoke (System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.RuntimeType:CreateInstanceImpl (System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[],System.Threading.StackCrawlMark&)
+System.Activator:CreateInstance (System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[])
+System.Activator:CreateInstance (System.Type,object[])
+UnityEngine.Rendering.Upscaling:.ctor (System.Collections.Generic.List`1<UnityEngine.Rendering.UpscalerOptions>) (at ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/Upscaling.cs:54)
+UnityEngine.Rendering.Universal.UniversalRenderPipeline:.ctor (UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset) (at ./Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/Runtime/UniversalRenderPipeline.cs:326)
+UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset:CreatePipeline () (at ./Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/Runtime/Data/UniversalRenderPipelineAsset.cs:831)
+UnityEngine.Rendering.RenderPipelineAsset:InternalCreatePipeline ()
+UnityEngine.Rendering.RenderPipelineManager:TryPrepareRenderPipeline (UnityEngine.Rendering.RenderPipelineAsset)
+UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,UnityEngine.Object,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle)
+UnityEngine.Camera:Render ()
+AshenVoxel.Exploration.Editor.MaterialOpticsNativeCheck:<Test>g__Capture|3_0 (string,AshenVoxel.Exploration.Editor.MaterialOpticsNativeCheck/<>c__DisplayClass3_0&) (at Assets/AshenVoxel/Exploration/Editor/MaterialOpticsNativeCheck.cs:29)
+AshenVoxel.Exploration.Editor.MaterialOpticsNativeCheck:Test () (at Assets/AshenVoxel/Exploration/Editor/MaterialOpticsNativeCheck.cs:35)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:RunWindOpticsFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:30)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/DLSSIUpscaler.cs Line: 136)
+
+PASS material optics: 24 materials, manual/default/near-eye GPU coverage, stationary and camera-translated surface stability, directional backlight response.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.MaterialOpticsNativeCheck:Test () (at Assets/AshenVoxel/Exploration/Editor/MaterialOpticsNativeCheck.cs:77)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:RunWindOpticsFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:30)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/MaterialOpticsNativeCheck.cs Line: 77)
+
+PASS native wind pixels: visible leaves/wood, fixed roots/stone/time and all five shader passes compiled. DLAA/DLSS motion history acceptance remains separate.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.WindNativeCheck:Test () (at Assets/AshenVoxel/Exploration/Editor/WindNativeCheck.cs:77)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:RunWindOpticsFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:30)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/WindNativeCheck.cs Line: 77)
+
+PASS actual-tree shade readability with front sun, back sun and no direct sun.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestShadeNativeCheck:Test () (at Assets/AshenVoxel/Exploration/Editor/ForestShadeNativeCheck.cs:60)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:RunWindOpticsFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:30)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestShadeNativeCheck.cs Line: 60)
+
+Start importing ProjectSettings/GraphicsSettings.asset using Guid(00000000000000006100000000000000) (LibraryAssetImporter) -> (artifact id: '06428a8d8c2e624daeb74d27a06f3acf') in 0.0142676 seconds
+Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=03f53ffbae059bc4383958746a37ed9c): Total: 0.069 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-ethan-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-ethan channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Checking for leaked weakptr:
+  Found no leaked weakptrs.
+[Package Manager] Server process was shutdown
+##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1793083315664,"processId":26688,"allocatedMemory":13236712,"memoryLabels":[{"Default":29313},{"Permanent":15236},{"NewDelete":68563},{"Thread":4238040},{"Manager":808797},{"VertexData":8},{"Geometry":816},{"Texture":296},{"Shader":82965},{"Material":24},{"GfxDevice":58048},{"Animation":392},{"Audio":3040},{"FreeType":8},{"FontEngine":736},{"Physics":1970},{"Physics2D":16},{"Serialization":592},{"Input":14984},{"JobScheduler":33024},{"TextLib":280},{"Mono":32},{"MonoCode":64},{"ScriptingNativeRuntime":155060},{"BaseObject":1618992},{"Resource":1336},{"Renderer":3000},{"Transform":4685},{"File":1016},{"WebCam":616},{"Culling":32},{"Terrain":11394},{"Wind":24},{"STL":40},{"String":28209},{"DynamicArray":95888},{"HashMap":74648},{"Utility":2660822},{"Curl":2559},{"PoolAlloc":2248},{"AI":80},{"TypeTree":15525},{"ScriptManager":512},{"RuntimeInitializeOnLoadManager":64},{"SpriteAtlas":112},{"GI":7792},{"Director":8240},{"CloudService":9928},{"WebRequest":5213},{"VR":47994},{"SceneManager":504},{"Video":208},{"LazyScriptCache":32},{"Camera":17},{"Secure":2377},{"SerializationCache":1576},{"APIUpdating":10320},{"Subsystems":336},{"VirtualTexturing":57888},{"StaticSafetyDebugInfo":278528},{"Analytics":640},{"Hierarchy":608},{"CoreStats":13112},{"Identifiers":6480},{"Gui":96},{"EditorUtility":108694},{"VersionControl":4},{"Undo":947},{"AssetDatabase":2583259},{"EditorGi":328},{"UnityConnect":29232},{"Upm":1896},{"AssetCompliance":64},{"DrivenProperties":72},{"LocalIPC":260},{"ProfilerEditor":9746},{"CoreBusinessMetrics":3498},{"Licensing":12757},{"AssetReference":32},{"IPCStream":32}]}

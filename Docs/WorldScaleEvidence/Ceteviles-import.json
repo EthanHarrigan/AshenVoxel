@@ -1,0 +1,544 @@
+{
+  "atlas_sha256": "4948a84fcd979f496dbc630307d0b441c70bc307a8accdf7e8786edac727d990",
+  "identity": {
+    "mapping": "azgaar-control-atlas-v2",
+    "source_sha256": "103f9b9d364b884dd532cd4e41effa83a327fd5a60ce0ba69cd612cd9a470d61",
+    "source_version": "1.152.2",
+    "source_map_name": "Ceteviles",
+    "columns": 513,
+    "rows": 265,
+    "extent_x": 1800000.0,
+    "extent_z": 926015.625,
+    "height_exponent": 2.0,
+    "height_exponent_defaulted": false,
+    "peak_meters": 8000.0,
+    "sea_level_meters": 0,
+    "landmass_scale": 1,
+    "sampling": "polygon",
+    "uncovered": "grid-water",
+    "summits_applied": false,
+    "summit_profile": "metadata-only",
+    "extension_sha256": "84b857eea414f3c326d1500cfd01555b05f561c88907649e5881812c24e25613"
+  },
+  "source_biomes": [
+    {
+      "i": 0,
+      "name": "Ocean",
+      "color": "#466eab",
+      "habitability": 0,
+      "iconsDensity": 0,
+      "icons": [],
+      "cost": 10
+    },
+    {
+      "i": 1,
+      "name": "Desert",
+      "color": "#fbe79f",
+      "habitability": 4,
+      "iconsDensity": 3,
+      "icons": [
+        "dune",
+        "dune",
+        "dune",
+        "cactus",
+        "cactus",
+        "cactus",
+        "cactus",
+        "cactus",
+        "cactus",
+        "deadTree"
+      ],
+      "cost": 200
+    },
+    {
+      "i": 2,
+      "name": "Cold Arid",
+      "color": "#b5b887",
+      "habitability": 10,
+      "iconsDensity": 2,
+      "icons": [
+        "dune",
+        "dune",
+        "dune",
+        "dune",
+        "dune",
+        "dune",
+        "dune",
+        "dune",
+        "dune",
+        "deadTree"
+      ],
+      "cost": 150
+    },
+    {
+      "i": 3,
+      "name": "Savanna",
+      "color": "#d2d082",
+      "habitability": 22,
+      "iconsDensity": 120,
+      "icons": [
+        "acacia",
+        "grass",
+        "grass",
+        "grass",
+        "grass",
+        "grass",
+        "grass",
+        "grass",
+        "grass",
+        "grass"
+      ],
+      "cost": 60
+    },
+    {
+      "i": 4,
+      "name": "Plains",
+      "color": "#c8d68f",
+      "habitability": 30,
+      "iconsDensity": 120,
+      "icons": [
+        "grass"
+      ],
+      "cost": 50
+    },
+    {
+      "i": 5,
+      "name": "Dry Tropical Forest",
+      "color": "#b6d95d",
+      "habitability": 50,
+      "iconsDensity": 120,
+      "icons": [
+        "acacia",
+        "acacia",
+        "acacia",
+        "acacia",
+        "acacia",
+        "acacia",
+        "acacia",
+        "acacia",
+        "palm"
+      ],
+      "cost": 70
+    },
+    {
+      "i": 6,
+      "name": "Temperate Forest",
+      "color": "#29bc56",
+      "habitability": 100,
+      "iconsDensity": 120,
+      "icons": [
+        "deciduous"
+      ],
+      "cost": 70
+    },
+    {
+      "i": 7,
+      "name": "Jungle",
+      "color": "#7dcb35",
+      "habitability": 80,
+      "iconsDensity": 150,
+      "icons": [
+        "acacia",
+        "acacia",
+        "acacia",
+        "acacia",
+        "acacia",
+        "palm",
+        "palm",
+        "palm",
+        "deciduous",
+        "swamp"
+      ],
+      "cost": 80
+    },
+    {
+      "i": 8,
+      "name": "Wet Temperate Forest",
+      "color": "#409c43",
+      "habitability": 90,
+      "iconsDensity": 150,
+      "icons": [
+        "deciduous",
+        "deciduous",
+        "deciduous",
+        "deciduous",
+        "deciduous",
+        "deciduous",
+        "swamp"
+      ],
+      "cost": 90
+    },
+    {
+      "i": 9,
+      "name": "Taiga",
+      "color": "#4b6b32",
+      "habitability": 12,
+      "iconsDensity": 100,
+      "icons": [
+        "conifer"
+      ],
+      "cost": 200
+    },
+    {
+      "i": 10,
+      "name": "Tundra",
+      "color": "#96784b",
+      "habitability": 4,
+      "iconsDensity": 5,
+      "icons": [
+        "grass"
+      ],
+      "cost": 1000
+    },
+    {
+      "i": 11,
+      "name": "Ice",
+      "color": "#d5e7eb",
+      "habitability": 0,
+      "iconsDensity": 0,
+      "icons": [],
+      "cost": 5000
+    },
+    {
+      "i": 12,
+      "name": "Wetland",
+      "color": "#0b9131",
+      "habitability": 12,
+      "iconsDensity": 250,
+      "icons": [
+        "swamp"
+      ],
+      "cost": 150
+    },
+    {
+      "i": 13,
+      "name": "Sand Sea",
+      "color": "#edc27d",
+      "habitability": 4,
+      "iconsDensity": 0,
+      "icons": [],
+      "cost": 200
+    }
+  ],
+  "source_cell_count": 6971,
+  "land_samples": 42405,
+  "water_samples": 93540,
+  "height_min_m": -990.0,
+  "height_max_m": 8000.0,
+  "coverage": {
+    "packed_samples": 105955,
+    "original_grid_water_samples": 29990,
+    "original_grid_nearest_water_samples": 82,
+    "outside_source_samples": 0,
+    "policy": "grid-water"
+  },
+  "summits": {
+    "present": true,
+    "applied": false,
+    "profile": "metadata-only",
+    "anchors": [
+      {
+        "u": 0.25393750000000004,
+        "v": 0.2490584662110858,
+        "center_x_m": -442912.49999999994,
+        "center_z_m": -232375.78125,
+        "radius_m": 129600.0,
+        "boost_m": 10000.0
+      },
+      {
+        "u": 0.6702109375,
+        "v": 0.5832953682611998,
+        "center_x_m": 306379.68750000006,
+        "center_z_m": 77132.81250000006,
+        "radius_m": 111600.0,
+        "boost_m": 6500.0
+      }
+    ],
+    "extension_sha256": "84b857eea414f3c326d1500cfd01555b05f561c88907649e5881812c24e25613",
+    "warnings": [
+      "Authored summit anchors are preserved but not applied; select --apply-summits to apply the documented Unity envelope profile.",
+      "Authored biome profiles are preserved as metadata/source IDs; Minecraft biome mapping, desert dune ecology and other mod systems are not executed by this atlas converter."
+    ]
+  },
+  "source_terrain_diffusion": {
+    "formatVersion": 2,
+    "biomeProfiles": [
+      {
+        "sourceName": "Sand Sea",
+        "minecraftBiome": "minecraft:desert",
+        "archetype": "sand_sea"
+      }
+    ],
+    "summitAnchors": [
+      {
+        "u": 0.25393750000000004,
+        "v": 0.2490584662110858,
+        "boostMetres": 10000,
+        "radiusNativeAt750": 1800
+      },
+      {
+        "u": 0.6702109375,
+        "v": 0.5832953682611998,
+        "boostMetres": 6500,
+        "radiusNativeAt750": 1550
+      }
+    ],
+    "selection": {
+      "original": "Ceteviles Full 2026-09-15-23-05.json",
+      "cells": [
+        4784,
+        4785,
+        4786,
+        4787,
+        4788,
+        4905,
+        4906,
+        4912,
+        4913,
+        4914,
+        4929,
+        4930,
+        4931,
+        4932,
+        4933,
+        4934,
+        4935,
+        5049,
+        5050,
+        5051,
+        5054,
+        5055,
+        5057,
+        5058,
+        5076,
+        5077,
+        5078,
+        5079,
+        5080,
+        5081,
+        5191,
+        5192,
+        5193,
+        5195,
+        5196,
+        5197,
+        5199,
+        5200,
+        5218,
+        5219,
+        5220,
+        5221,
+        5222,
+        5223,
+        5224,
+        5350,
+        5351,
+        5355,
+        5370,
+        5371,
+        5372,
+        5373,
+        5374,
+        5489,
+        5490,
+        5491,
+        5492,
+        5510,
+        5511,
+        5512,
+        5513,
+        5514,
+        5515,
+        5640,
+        5641,
+        5642,
+        5643,
+        5644,
+        5645
+      ],
+      "sourcePolygons": [
+        [
+          [
+            1351.3694982785194,
+            874.788204662249
+          ],
+          [
+            1379.35880311885,
+            872.3492897511026
+          ],
+          [
+            1412.2158131488031,
+            883.3244068512614
+          ],
+          [
+            1446.289749476162,
+            880.885491940115
+          ],
+          [
+            1485.2313909931436,
+            890.6411515847008
+          ],
+          [
+            1510.7868432386626,
+            916.2497581517383
+          ],
+          [
+            1525.3899588075308,
+            938.1999923520563
+          ],
+          [
+            1513.220695833474,
+            952.8334818189348
+          ],
+          [
+            1492.5329487775775,
+            956.4918541856545
+          ],
+          [
+            1470.6282754242754,
+            950.3945669077884
+          ],
+          [
+            1446.289749476162,
+            952.8334818189348
+          ],
+          [
+            1412.2158131488031,
+            965.028056374667
+          ],
+          [
+            1384.2265083084726,
+            972.3448011081063
+          ],
+          [
+            1361.1049086577648,
+            982.100460752692
+          ],
+          [
+            1358.6710560629533,
+            966.2475138302402
+          ],
+          [
+            1367.189540144793,
+            944.2972796299223
+          ],
+          [
+            1370.8403190370102,
+            927.2248752518973
+          ],
+          [
+            1357.4541297655478,
+            916.2497581517383
+          ],
+          [
+            1352.586424575925,
+            900.3968112292865
+          ]
+        ],
+        [
+          [
+            1606.9240207337111,
+            866.2520024732365
+          ],
+          [
+            1605.7070944363054,
+            894.2995239514205
+          ],
+          [
+            1616.6594311129566,
+            902.8357261404329
+          ],
+          [
+            1647.0825885480983,
+            901.6162686848597
+          ],
+          [
+            1678.7226722806458,
+            911.3719283294454
+          ],
+          [
+            1689.675008957297,
+            926.0054177963241
+          ],
+          [
+            1683.5903774702685,
+            946.7361945410687
+          ],
+          [
+            1672.6380407936174,
+            966.2475138302402
+          ],
+          [
+            1668.9872619014004,
+            979.6615458415456
+          ],
+          [
+            1687.2411563624855,
+            996.7339502195706
+          ],
+          [
+            1712.7966086080048,
+            991.8561203972778
+          ],
+          [
+            1742.0028397457409,
+            986.9782905749848
+          ],
+          [
+            1763.9075130990432,
+            984.5393756638384
+          ],
+          [
+            1778.5106286679113,
+            961.3696840079473
+          ],
+          [
+            1789.4629653445622,
+            939.4194498076293
+          ],
+          [
+            1778.5106286679113,
+            919.908130518458
+          ],
+          [
+            1762.6905868016374,
+            906.4940985071527
+          ],
+          [
+            1740.7859134483354,
+            901.6162686848597
+          ],
+          [
+            1714.0135349054106,
+            890.6411515847008
+          ],
+          [
+            1689.675008957297,
+            884.5438643068347
+          ],
+          [
+            1662.9026304143722,
+            873.5687472066758
+          ],
+          [
+            1637.347178168853,
+            867.4714599288096
+          ],
+          [
+            1620.3102100051735,
+            873.5687472066758
+          ]
+        ]
+      ],
+      "screenshotRegistration": {
+        "scaleX": 0.9743022115272956,
+        "translateX": 65.07840192072099,
+        "scaleY": 0.9764726242768436,
+        "translateY": 1.6566664718256796,
+        "maxLandmarkError": 0.47857334737818746
+      },
+      "rule": "arid land cell centers inside southern marked outlines; water, forests and grasslands preserved"
+    }
+  },
+  "note": "Offline Azgaar control map; source biomes preserved. Runtime forest override is separate. Not diffusion-generated or a voxel volume."
+}

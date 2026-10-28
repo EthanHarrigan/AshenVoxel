@@ -1,0 +1,6 @@
+{
+  "utc": "2026-10-27T18:30:54.598414+00:00",
+  "source_sha256": "5fba1888abbf810858b5ecec5e428702d6007b64aedae2b611b06a714652454b",
+  "result": "PASS 10 focused memory policy/ABI/native-query checks; availableCommit=6987079680\n",
+  "scope": "Actual source policy and real Windows readonly API in .NET8 with Time shim; NOT Unity native worker/VRAM/visual proof."
+}

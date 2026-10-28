@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-27T12:53:57.508476+00:00",
+  "status": "FOUR_VIEW_STATIC_VISUAL_PASS",
+  "automated_report": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-native\\20261027T124820483Z\\report.json",
+  "all4_comparison_acceptance": true,
+  "images": {
+    "10-authored.png": {
+      "sha256": "a7afab123df2d1ea386d2dabf400b0cebc30ff8445814fd1bae488f128279cfd",
+      "unique_colors": 5210
+    },
+    "10-grounded.png": {
+      "sha256": "a0d682913d00bcb2a3f7feb347b5bfb90e74c8b04ce233bffca22c5384c5accd",
+      "unique_colors": 4952
+    },
+    "11-authored.png": {
+      "sha256": "372918cfa9d27e6101681af58663945b284d4ad4511779512dfb311c2ed01a96",
+      "unique_colors": 5919
+    },
+    "11-grounded.png": {
+      "sha256": "92915ae803a6615f2fc3a1978afc7ab318a2cf0374bf2ae76f21e4fc28f83abf",
+      "unique_colors": 6033
+    }
+  },
+  "all6_restore_flags": true,
+  "originals_unchanged": true,
+  "owned2files_removed": true,
+  "private_growth_gib": 0.5212669372558594,
+  "minimum_commit_gib": 3.6472702026367188,
+  "observed_seconds": 4.5447266,
+  "render_calls": 12,
+  "guard_measurement": "Checkpoints only, not continuous peak or frame-time evidence",
+  "visual_review": "All four raw PNGs inspected individually. Both terrain-following bases improve slope contact without a continuous skirt. Sharp and somewhat symmetric tips remain an aesthetic limitation. Only two fixed LOD0 side views, static wind, isolated mesh fixture.",
+  "runtime_integration": false,
+  "remaining": "Composite LOD boundaries, actual worker/render/collision/edit integration, generation provenance, wind/travel/Play/FPS",
+  "warnings": [
+    "RenderTexture released while active before final restoration; original target restored true. Preserve frozen run and remove redundant early release in future fixture revision.",
+    "Existing DLSS null-options warning after reload; no clean-warning claim."
+  ],
+  "no_automatic_retry": true
+}

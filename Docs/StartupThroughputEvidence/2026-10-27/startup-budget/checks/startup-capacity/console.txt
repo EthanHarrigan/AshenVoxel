@@ -1,0 +1,10 @@
+PASS all metadata fixtures belong to the actual stationary contact plan
+PASS contact admission retains two requests exceeding the unchanged128MiB allowance
+PASS same-size contact replacement cannot wake requests during temporary release
+PASS completed contact payload reduction wakes measured requests which individually fit
+PASS actual admission keeps the second simultaneous wake deferred when shared capacity runs out
+PASS unchanged stopped contact plan does not repeatedly retry over-budget work
+PASS increased effective contact allowance wakes an admissible request without movement or source change
+PASS woken contact request publishes at full256-column resolution within the new explicit limit
+PASS settled contact allowance does not generate repeated queue entries
+PASS contact shutdown releases accounting and deferred records

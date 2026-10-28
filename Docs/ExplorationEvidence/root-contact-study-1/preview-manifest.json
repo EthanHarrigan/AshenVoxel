@@ -1,0 +1,135 @@
+{
+  "scope": "CPU actual-data appearance/geometry diagnostic only. Actual globally quantized terrain and wood, no foliage/native runtime/collision adoption. Canonical upper geometry/pigment exact, below3m continuous original central shaft, narrowed root flare and per-column terrain-following taper. Different matter volume is explicitly measured; not conserved physics. Root input world and old artifacts untouched.",
+  "source_sha256": {
+    "render_grounded_camera.py": "1ed5bfb059593454b223204c93da7934f72d9c53d699fa17c11d7d02dc055b83",
+    "seam_check.py": "94b442592d23c7b1c7f97ee8740b8c4e20c7eb8b4a2b8b26b4590da7193d4a86",
+    "compare_grounded_camera.py": "8ec2c5b1d433388a87e3d9d675e7f623b024e4b2253e0d1b968dd829f0cc99ac",
+    "compare.py": "d35d8b254c13f562801506083189f3ab6736ac0071885bc03cdade712d53a5a0",
+    "Export.cs": "e8795e8531f16c91a70e5b287570109827e79b6165574decd7c748301d9f7d2d",
+    "export.py": "fe82d848a17e73363fb8fad9212c21c5567f5fbf6d919bc1319d4423cc13f3de",
+    "provenance.json": "2541c482238eddc5ae0d6d1e2eaa4234b8983f6142b074d2df95f112d6f26ab7"
+  },
+  "input_sha256": {
+    "wood-10-baseline.bin": "ded723006328b2252cf1b1ff15b64d32b8ddc366dbd4d9be1647bec742fbf0d6",
+    "wood-10-narrow.bin": "667182574c4af39eff37335fcd585985f0cf17a0610d9ad752cedc074be8d101",
+    "wood-11-baseline.bin": "0fe828a36a112a6227bc63d066a6eeb02f7c20837882cb9a702118d016157b0f",
+    "wood-11-narrow.bin": "fc6243579c64541e439a3f91ac3264e90ac9a3c2fdc0c1f86ef05927ec964cf5",
+    "terrain-10.bin": "c1468f86849cb0db883a829aa7383634155e42e2184700a3c8578b8ac8c4bf25",
+    "terrain-11.bin": "67c8a26297252cd963a1b9978e6a23b38e7bd5c2633a065b66d6efe85028f826",
+    "sites.json": "17375673127de2d1651d3744972abdede8aa47b622c17ec957d8d0c6288051bd"
+  },
+  "rows": [
+    {
+      "site_id": 10,
+      "slope": 5.367374801767615,
+      "before_splice": {
+        "seam_upper_cells": 1344,
+        "seam_lower_cells": 1282,
+        "unsupported_upper_cells": 62,
+        "max_unsupported_horizontal_cells": 2
+      },
+      "after_base_splice": {
+        "seam_upper_cells": 1344,
+        "seam_lower_cells": 1344,
+        "unsupported_upper_cells": 0,
+        "max_unsupported_horizontal_cells": 0
+      },
+      "after_conforming_splice": {
+        "seam_upper_cells": 1344,
+        "seam_lower_cells": 1344,
+        "unsupported_upper_cells": 0,
+        "max_unsupported_horizontal_cells": 0
+      },
+      "canonical_shaft_cells_restored": 1794,
+      "max_base_displacement_m": 1.6,
+      "wood_cells": 349918,
+      "added_cells": 1704,
+      "removed_cells": 32779,
+      "lower_cells": 51453,
+      "disconnected_lower_cells": 0,
+      "max_basal_gap_m": 0,
+      "max_basal_burial_m": 0.2509227710905293,
+      "gap_columns": 0,
+      "burial_quantiles_m": [
+        0.050922771090540664,
+        0.050922771090540664,
+        0.1509227710905634,
+        0.2509227710905293
+      ],
+      "upper_geometry_and_tint_unchanged": true,
+      "baseline": {
+        "wood_cells": 380993,
+        "added_cells": 0,
+        "removed_cells": 0,
+        "lower_cells": 82528,
+        "disconnected_lower_cells": 0,
+        "max_basal_gap_m": 0.5490772289094252,
+        "max_basal_burial_m": 1.9509227710905748,
+        "gap_columns": 1067,
+        "burial_quantiles_m": [
+          0.0,
+          0.25092277109058614,
+          1.075922771090589,
+          1.9509227710905748
+        ],
+        "upper_geometry_and_tint_unchanged": true
+      }
+    },
+    {
+      "site_id": 11,
+      "slope": 7.192698944341146,
+      "before_splice": {
+        "seam_upper_cells": 1441,
+        "seam_lower_cells": 1379,
+        "unsupported_upper_cells": 62,
+        "max_unsupported_horizontal_cells": 2
+      },
+      "after_base_splice": {
+        "seam_upper_cells": 1441,
+        "seam_lower_cells": 1441,
+        "unsupported_upper_cells": 0,
+        "max_unsupported_horizontal_cells": 0
+      },
+      "after_conforming_splice": {
+        "seam_upper_cells": 1441,
+        "seam_lower_cells": 1441,
+        "unsupported_upper_cells": 0,
+        "max_unsupported_horizontal_cells": 0
+      },
+      "canonical_shaft_cells_restored": 2011,
+      "max_base_displacement_m": 1.4000000000000001,
+      "wood_cells": 379487,
+      "added_cells": 1682,
+      "removed_cells": 34099,
+      "lower_cells": 52973,
+      "disconnected_lower_cells": 0,
+      "max_basal_gap_m": 0,
+      "max_basal_burial_m": 0.2821021844439997,
+      "gap_columns": 0,
+      "burial_quantiles_m": [
+        0.08210218444395423,
+        0.08210218444395423,
+        0.18210218444397697,
+        0.2821021844439997
+      ],
+      "upper_geometry_and_tint_unchanged": true,
+      "baseline": {
+        "wood_cells": 411904,
+        "added_cells": 0,
+        "removed_cells": 0,
+        "lower_cells": 85390,
+        "disconnected_lower_cells": 0,
+        "max_basal_gap_m": 0.1178978155560344,
+        "max_basal_burial_m": 2.2821021844439997,
+        "gap_columns": 77,
+        "burial_quantiles_m": [
+          0.0,
+          0.48210218444398834,
+          1.4821021844439883,
+          2.2821021844439997
+        ],
+        "upper_geometry_and_tint_unchanged": true
+      }
+    }
+  ]
+}

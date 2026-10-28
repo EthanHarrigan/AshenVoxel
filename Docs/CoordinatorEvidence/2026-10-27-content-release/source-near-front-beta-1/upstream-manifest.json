@@ -1,0 +1,26 @@
+{
+  "id": "source-near-front-1",
+  "status": "FROZEN_NARROW_REPLAY_API_PASS_NOT_INSTALLED",
+  "utc": "2026-10-27T22:53:14.816988+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs",
+      "before_sha256": "542046572b5f9d4e714fc7fbf060709210b24d93ce3353a618708213e9f99f0a",
+      "after_sha256": "4765b2ddeebe6ea98a8de8c48a92458c20eb9a192251f17335332354f6b3fd5d"
+    }
+  ],
+  "unchanged_field_sha256": "26a7ff1ed745d29542d1b4327f764d6878b2f4e8581829c6cff7cc55f94f6769",
+  "focused_checks": 18,
+  "evidence": "checks\\20261027T225107454760Z\\report.json",
+  "evidence_sha256": "020edb115666338878fe401fc343728ddad8230c41123be553ea62234c2a6661",
+  "native_input": {
+    "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs\\MountainReviewFrames\\valley-source32-late\\terrain-20261027-221910-595.json",
+    "sha256": "0ab08155cd4e7b10ac1c510218a8713eec19b8e83579492fa8e6c8c792872b4b",
+    "coverage_map_json": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Docs\\CoordinatorEvidence\\2026-10-27-content-release\\source-residency-beta-1\\source-coverage-latest.json",
+    "coverage_map_sha256": "3042fb008699e72aa54aebfe0500cd25553a4dccf49760b80642c0be10eed94e"
+  },
+  "scope": "One Live.cs payload; Bootstrap gate/timeout status are a separate coordinator-owned PROPOSAL. SourceSafe/publication/hash/caps unchanged.",
+  "main_modified": false,
+  "native_verified": false,
+  "network_used": false
+}

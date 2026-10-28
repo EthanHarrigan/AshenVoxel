@@ -1,0 +1,12 @@
+PASS ordinary80m/s motion remains unchanged
+PASS brief speed spikes do not enter deferral
+PASS entry hysteresis waits for sustained fast travel
+PASS hysteresis band retains the existing state at120m/s
+PASS stationary arrival releases immediately while moving-speed hysteresis remains
+PASS stationary destination wakes refinement and requests current plan within0.35s virtual time
+PASS sustained640m/s elevated travel enters deferral
+PASS moving below exit speed releases after the first slow interval
+PASS fast reentry is reached without an extra already-deferred fast sample
+System.Exception: fast reentry starts a fresh slow interval instead of reusing the previous exit timestamp
+   at Program.Check(Boolean ok, String s)
+   at Program.Main(String[] args)

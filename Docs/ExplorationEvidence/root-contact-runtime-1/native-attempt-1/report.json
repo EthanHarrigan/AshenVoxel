@@ -1,0 +1,18 @@
+{
+    "status": "FAIL",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "pack_sha256": "41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa",
+    "error": "System.Exception: Missing frozen input manifest\r\n  at AshenVoxel.Exploration.Editor.RootContactNativePreview.Run () [0x001d0] in <4848babc407a4ee7b88b401b295b474f>:0 ",
+    "scope": "Native shared-submesh/root fixture only, not scene integration or Play/FPS. Exact recorded10cm terrain heights/top pigments; representative subsurface pigment with neutral opaque Dirt material/AO. Actual root Wood/material/RGB and shared original upper tree. Static wind, two fixed side views.",
+    "original_scene_dirty_unchanged": true,
+    "original_scene_roots_unchanged": true,
+    "initial_private_bytes": 8976506880,
+    "max_private_bytes": 8976506880,
+    "minimum_available_commit": 4524232704,
+    "seconds": 0.0104652,
+    "last_stage": "preflight",
+    "original_active_scene_restored": true,
+    "original_lighting_unchanged": true,
+    "shader_state_restored": true,
+    "render_target_restored": true
+}

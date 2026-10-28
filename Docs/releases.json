@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "updated_date_utc": "2026-10-27",
+  "gameplay_release": {
+    "name": "AshenVoxel Exploration prototype",
+    "published_date_utc": "2026-10-26",
+    "archive_name": "AshenVoxel-Exploration-Unity6000.3.27f1.zip",
+    "local_authoring_archive": "/workspace/AshenVoxel-Exploration.zip",
+    "bytes": 80999728,
+    "sha256": "bfaa982d0c522324a4c3e0f12890833990c70548344d0b511e38caee704a8207",
+    "manifest_entries": 741,
+    "drive_file_id": "1znskxGlWTSiRn9cKx_XBa0Rn32DVcj1Q",
+    "url": "https://drive.google.com/file/d/1znskxGlWTSiRn9cKx_XBa0Rn32DVcj1Q/view?usp=drivesdk",
+    "unity": "6000.3.27f1",
+    "urp": "17.3.0",
+    "input_system": "1.17.0",
+    "default_scene": "Assets/Scenes/Exploration.unity",
+    "view_world_id": "779b530a6ba6923d62f1c8e99a603a2d9d979dafaa1015670efd9826284757f4",
+    "native_job_id": "cb7bb688e7a5056fcabec160a3f12ccc9347a6953f33e21c5c898c07844ef418",
+    "native_unity_editor_hlsl_play_fps": "NOT EXECUTED",
+    "windows_launcher": "NOT EXECUTED"
+  },
+  "documentation_checkpoint": {
+    "id": "handoff-2026-10-27",
+    "scope": "Documentation only; gameplay code, assets and learned source remain unchanged",
+    "entry_files": ["AGENTS.md", "MEMORY.md", "TODO.md", "README.md", "Docs/AI_HANDOFF.md", "Docs/FILE_MAP.md", "Docs/SESSION_LOG.md"],
+    "distribution": "Separate documentation overlay; the frozen gameplay ZIP does not contain these later changes",
+    "manifest": "HANDOFF-MANIFEST.sha256",
+    "apply": "Merge the overlay AshenVoxel folder into the extracted gameplay project; it contains documentation files only. The original MANIFEST.sha256 continues to describe the original frozen release, not subsequent documentation edits."
+  },
+  "previews": [
+    {"description": "Current rock geometry2/appearance2, six shapes and three seeds, OFFLINE NOT UNITY", "url": "https://drive.google.com/file/d/1euzquTfXUFSsUS2Sakv7cciej3uCadPp/view?usp=drivesdk"},
+    {"description": "Current granite image crop and stored palette, OFFLINE NOT UNITY", "url": "https://drive.google.com/file/d/1U7PGX802vwgAsk6cvbpJpHne4kTK1L0U/view?usp=drivesdk"}
+  ]
+}

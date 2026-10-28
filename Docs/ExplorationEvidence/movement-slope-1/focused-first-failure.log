@@ -1,0 +1,4 @@
+Above50 result 30 x=0.0883938824757383
+Unhandled exception. System.Exception: Above50degree slope remains nonclimbable 30
+   at FocusedChecks.Check(Boolean pass, String label)
+   at FocusedChecks.Main(String[] args)

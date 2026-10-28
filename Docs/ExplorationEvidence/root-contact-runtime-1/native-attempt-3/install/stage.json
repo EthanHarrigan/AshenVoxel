@@ -1,0 +1,136 @@
+{
+  "utc": "2026-10-27T12:34:11.899151+00:00",
+  "status": "STAGED_PASSIVE_TRIGGER_ONLY_NOT_ARMED",
+  "available_commit_bytes": 4336775168,
+  "state": {
+    "playing": false,
+    "changing": false,
+    "compiling": false,
+    "ready": false,
+    "utc": "2026-10-27T12:34:11.5215536Z",
+    "population": {
+      "utc": "2026-10-27T12:34:11.5215536Z",
+      "error": "",
+      "status": "",
+      "source": "",
+      "horizon_error": "",
+      "present": false,
+      "boot_failed": false,
+      "ready": false,
+      "observer_valid": false,
+      "camera_valid": false,
+      "horizon_present": false,
+      "horizon_gpu": false,
+      "horizon_enabled": false,
+      "loaded_models": 0,
+      "resident_cells": 0,
+      "resident_instances": 0,
+      "pending_cells": 0,
+      "draw_calls": 0,
+      "visible_instances": 0,
+      "shadow_instances": 0,
+      "budget_demotions": 0,
+      "omitted_soft": 0,
+      "visible_triangles": 0,
+      "work_ms": 0.0,
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "origin_x": 0.0,
+      "origin_y": 0.0,
+      "origin_z": 0.0,
+      "camera_forward_x": 0.0,
+      "camera_forward_y": 0.0,
+      "camera_forward_z": 0.0,
+      "camera_far": 0.0,
+      "tree_distance": 0.0,
+      "plant_distance": 0.0,
+      "rock_distance": 0.0,
+      "tree_density": 0.0,
+      "plant_density": 0.0,
+      "triangle_budget": 0,
+      "instance_limit": 0,
+      "building_matrices": -1,
+      "finalizing": -1,
+      "matrix_cell": -1,
+      "matrix_instance": -1,
+      "matrix_cells": -1,
+      "finalize_page": -1,
+      "finalize_pages": -1,
+      "batches": -1,
+      "deferred_cells": -1,
+      "scanned_cells": 0,
+      "cell_scan_available": false,
+      "cell_scan_truncated": false,
+      "cells_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "published_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "empty_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "instances_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "horizon_pending": 0,
+      "horizon_resident": 0,
+      "horizon_draws": 0,
+      "horizon_visible": 0,
+      "horizon_worker_pending": false,
+      "horizon_visible_available": false,
+      "horizon_published_far": 0.0,
+      "horizon_farthest": 0.0
+    }
+  },
+  "originals": [
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Settings\\ExplorationSettings.asset",
+      "sha256": "38a9b5b822c4e61418597114703af58cf51847e69f80fd9940494c9e55738664",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\preimages\\0\\ExplorationSettings.asset",
+      "read_verified": true,
+      "before_sha256": "38a9b5b822c4e61418597114703af58cf51847e69f80fd9940494c9e55738664",
+      "preview_backup": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-mesh-prototype\\native-install-3\\preimages\\0\\ExplorationSettings.asset"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\Scenes\\Exploration.unity",
+      "sha256": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\preimages\\1\\Exploration.unity",
+      "read_verified": true,
+      "before_sha256": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+      "preview_backup": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-mesh-prototype\\native-install-3\\preimages\\1\\Exploration.unity"
+    },
+    {
+      "path": "C:\\Users\\ethan\\AppData\\LocalLow\\Ashen Voxel\\Ashen Voxel Exploration\\exploration-options.json",
+      "sha256": "93dc85a8d103b3de75587116507cbbd8de4b21029eeb2643cd0ba43c7451c231",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\preimages\\2\\exploration-options.json",
+      "read_verified": true,
+      "before_sha256": "93dc85a8d103b3de75587116507cbbd8de4b21029eeb2643cd0ba43c7451c231",
+      "preview_backup": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-mesh-prototype\\native-install-3\\preimages\\2\\exploration-options.json"
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/RootPreviewTrigger_20261027_v3.cs",
+      "sha256": "f271329755f1ae7fb16c63553dca8a43e57a15fb049303d05d00fb781c7f4d8c",
+      "before": ""
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/RootPreviewTrigger_20261027_v3.cs.meta",
+      "sha256": "04eef9377f66fbf5f21d732cce51cc42981ed404f980ceed4ddac654b47b49f1",
+      "before": ""
+    }
+  ],
+  "fixture_dll_sha256": "a2ebac329e6097a79955cb9758086ce4727d53a8e2ce75708cb2ade75e2edfe1",
+  "log_offset": 736864,
+  "editor_assembly_before_sha256": "7db361f0c03a3ce5ba443d8057cdfe0989debc72a1b68fe358d657d702158e5b"
+}

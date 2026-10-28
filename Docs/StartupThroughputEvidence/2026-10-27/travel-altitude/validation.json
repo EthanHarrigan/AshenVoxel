@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-27T09:43:20.334929+00:00",
+  "status": "CPU/API validated; NOT INSTALLED; native hold remains",
+  "baseline": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\startup-throughput\\capacity-candidate",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "before": "0d7d76771373134623fa9c13cc2e00f2830763c7658cfb3cf05701d71a8e0834",
+      "sha256": "23de3543fea92c32fc27bb046e0a4f68aba75ee75bb3046ccf3bf74602d202a3"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+      "before": "5d132d061fa7f855e480f20e2aaa7af174684085dd1b0349313399f5426a3700",
+      "sha256": "5d132d061fa7f855e480f20e2aaa7af174684085dd1b0349313399f5426a3700"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "b9e7964405642f84fd276644c2ecf726dac536ab756d2ffc1d92a2e31be6e20d",
+      "sha256": "ca667dd80da1334e6e526f0dbdfc0821d0f951a0ec07276e6fab3bb5809eac41"
+    }
+  ],
+  "evidence": "Docs/StartupThroughputEvidence/2026-10-27/travel-altitude/summary.json",
+  "validation": {
+    "altitude-priority": {
+      "status": "PASS",
+      "checks": 18
+    },
+    "altitude-route": {
+      "status": "PASS",
+      "checks": 10
+    },
+    "altitude-progressive": {
+      "status": "PASS",
+      "checks": 30
+    },
+    "altitude-api": {
+      "status": "PASS",
+      "assemblies": 5
+    }
+  },
+  "verified_utc": "2026-10-27T09:49:51.332950+00:00"
+}

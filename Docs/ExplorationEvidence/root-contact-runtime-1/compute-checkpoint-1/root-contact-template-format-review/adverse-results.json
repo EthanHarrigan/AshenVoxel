@@ -1,0 +1,104 @@
+{
+  "scope": "Independent adverse tests against frozen first-PASS library; accepted resigned semantic mutations are not trusted-file-pin bypasses.",
+  "results": [
+    {
+      "name": "valid",
+      "accepted": true,
+      "failure": "",
+      "reads": 68691,
+      "bytes_read": 480819,
+      "caller_stream_closed": false,
+      "output_null": false
+    },
+    {
+      "name": "oversized",
+      "accepted": false,
+      "failure": "PayloadLimit",
+      "reads": 3,
+      "bytes_read": 16,
+      "caller_stream_closed": false,
+      "output_null": true
+    },
+    {
+      "name": "missing-context31",
+      "accepted": true,
+      "failure": "",
+      "reads": 68690,
+      "bytes_read": 480809,
+      "caller_stream_closed": false,
+      "output_null": false
+    },
+    {
+      "name": "mismatched-fixed-rank",
+      "accepted": true,
+      "failure": "",
+      "reads": 68691,
+      "bytes_read": 480819,
+      "caller_stream_closed": false,
+      "output_null": false
+    },
+    {
+      "name": "read-error",
+      "failAfter": 0,
+      "accepted": false,
+      "failure": "IOException",
+      "output_null": true,
+      "caller_stream_closed": false
+    },
+    {
+      "name": "read-error",
+      "failAfter": 8,
+      "accepted": false,
+      "failure": "IOException",
+      "output_null": true,
+      "caller_stream_closed": false
+    },
+    {
+      "name": "read-error",
+      "failAfter": 16,
+      "accepted": false,
+      "failure": "IOException",
+      "output_null": true,
+      "caller_stream_closed": false
+    },
+    {
+      "name": "read-error",
+      "failAfter": 47,
+      "accepted": false,
+      "failure": "IOException",
+      "output_null": true,
+      "caller_stream_closed": false
+    },
+    {
+      "name": "read-error",
+      "failAfter": 100,
+      "accepted": false,
+      "failure": "IOException",
+      "output_null": true,
+      "caller_stream_closed": false
+    },
+    {
+      "name": "read-error",
+      "failAfter": 480819,
+      "accepted": false,
+      "failure": "IOException",
+      "output_null": true,
+      "caller_stream_closed": false
+    },
+    {
+      "name": "missing-context31-original-trusted-pin",
+      "accepted": false,
+      "failure": "FileIdentity"
+    },
+    {
+      "name": "mismatched-fixed-rank-original-trusted-pin",
+      "accepted": false,
+      "failure": "FileIdentity"
+    },
+    {
+      "name": "CanRead-throws",
+      "exception_escaped": true,
+      "exception": "IOException"
+    }
+  ]
+}

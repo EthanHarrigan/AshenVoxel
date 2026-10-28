@@ -1,0 +1,9 @@
+{
+  "name": "AshenVoxel.Authoring",
+  "rootNamespace": "AshenVoxel.Authoring",
+  "references": [
+    "AshenVoxel.Core",
+    "AshenVoxel.Rendering",
+    "Unity.InputSystem"
+  ]
+}

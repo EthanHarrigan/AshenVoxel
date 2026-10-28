@@ -1,0 +1,24 @@
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(48,44): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(49,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(50,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(57,42): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+PASS all active world terrain tiles use voxel geometry
+PASS main-thread publication retains one-upload frame cap
+PASS steady terrain residency and pending work respect tile capacity
+PASS triangle totals and real worker latency are observable
+PASS render cache query returns voxel column support without triangle interpolation
+PASS voxel tile uploads preserve normals, AO/pigment, surface properties and32bit indices
+PASS reported resident triangles match published mesh buffers
+PASS completed geometry leaves no orphan worker
+PASS 24byte packed vertices preserve geometry with one bounded reusable upload buffer pair
+PASS independent10cm contact lane settles within its byte admission budget
+PASS every contact tile uses25.6m/256 =10cm cells
+PASS turning in place schedules view detail while preserving complete coverage
+PASS large travel rebases existing voxel meshes before replacement coverage arrives
+PASS first contact tiles become visible while the wider replacement plan still has pending work
+PASS travel publishes new voxel coverage and evicts obsolete tiles
+PASS source invalidation retains old complete tiles until replacements are ready
+PASS worker failure preserves coverage, exposes the cause, and keeps queued retry work
+PASS recoverable source failure drains after retry without a missing tile
+PASS scene shutdown cancels worker and destroys all owned tile caches
+All 19 voxel LOD runtime checks passed.

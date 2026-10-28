@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-27T09:21:49.348180+00:00",
+  "baseline_matches_main": true,
+  "candidate_matches_manifest": true,
+  "reports": {
+    "far_fixture": {
+      "status": "PASS",
+      "candidate_source_match": true,
+      "checks": 19,
+      "assemblies": null
+    },
+    "contact": {
+      "status": "PASS",
+      "candidate_source_match": true,
+      "checks": 10,
+      "assemblies": null
+    },
+    "progressive": {
+      "status": "PASS",
+      "candidate_source_match": true,
+      "checks": 30,
+      "assemblies": null
+    },
+    "existing": {
+      "status": "PASS",
+      "candidate_source_match": true,
+      "checks": 19,
+      "assemblies": null
+    },
+    "api": {
+      "status": "PASS",
+      "candidate_source_match": true,
+      "checks": null,
+      "assemblies": 5
+    }
+  },
+  "native_launched": false,
+  "installed": false,
+  "hold": "Coordinator maintenance/installation hold; awaiting explicit release."
+}

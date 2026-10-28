@@ -1,0 +1,52 @@
+--- installed/Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs
++++ candidate/Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs
+@@ -98,7 +98,7 @@
+     public sealed class ExplorationPrototypeReader:IDisposable
+     {
+         const int MaxRecordBytes=192*1024*1024,MaxPackBytes=192*1024*1024;
+-        readonly BinaryReader input;readonly HashSet<int> ids=new HashSet<int>();
++        readonly byte[] packBytes;readonly BinaryReader input;readonly HashSet<int> ids=new HashSet<int>();
+         long expanded,decodedVertices,decodedIndices;
+         public int FormatVersion {get;}
+         public int Count {get;}
+@@ -106,7 +106,7 @@
+         public ExplorationPrototypeReader(byte[] bytes)
+         {
+             if(bytes==null||bytes.Length<12||bytes.Length>MaxPackBytes)throw new InvalidDataException("Prototype pack length exceeds bounds.");
+-            input=new BinaryReader(new MemoryStream(bytes,false));
++            packBytes=bytes;input=new BinaryReader(new MemoryStream(bytes,false));
+             string magic=Encoding.ASCII.GetString(input.ReadBytes(8));
+             FormatVersion=magic=="AVPM0001"?1:magic=="AVPM0002"?2:magic=="AVPM0003"?3:magic=="AVPM0004"?4:0;
+             if(FormatVersion==0)throw new InvalidDataException("Unknown prototype pack format.");
+@@ -118,8 +118,8 @@
+             if(ReadCount==Count){if(input.BaseStream.Position!=input.BaseStream.Length)throw new InvalidDataException("Trailing prototype data.");return false;}
+             int packed=input.ReadInt32(),raw=input.ReadInt32();uint crc=input.ReadUInt32();
+             if(packed<1||packed>MaxRecordBytes||raw<24||raw>MaxRecordBytes||packed>input.BaseStream.Length-input.BaseStream.Position||expanded+raw>1024L*1024*1024)throw new InvalidDataException("Prototype record exceeds bounds.");
+-            byte[] payload=new byte[raw];byte[] compressed=input.ReadBytes(packed);
+-            using(var gzip=new GZipStream(new MemoryStream(compressed,false),CompressionMode.Decompress))
++            byte[] payload=new byte[raw];int packedStart=(int)input.BaseStream.Position;input.BaseStream.Position+=packed;
++            using(var gzip=new GZipStream(new MemoryStream(packBytes,packedStart,packed,false),CompressionMode.Decompress))
+             {int offset=0;while(offset<raw){int n=gzip.Read(payload,offset,raw-offset);if(n==0)throw new EndOfStreamException("Truncated prototype record.");offset+=n;}if(gzip.ReadByte()!=-1)throw new InvalidDataException("Excess expanded prototype data.");}
+             if(Crc(payload)!=crc)throw new InvalidDataException("Prototype checksum mismatch.");
+             expanded+=raw;
+@@ -192,13 +192,19 @@
+                 byte normal=(byte)(flags&7);int pattern=(flags>>3)&3;
+                 if(normal>5||(flags>>5)!=0||width<1||width>32767||height<1||height>32767||color>=paletteCount)throw new InvalidDataException("Invalid quad attributes.");
+                 int u=(normal/2+1)%3,v=(normal/2+2)%3;
++                // Positive extents: checking both endpoints on each axis encloses all four corners.
++                for(int axis=0;axis<3;axis++)
++                {
++                    long minimum=previous[axis],maximum=minimum+(axis==u?width:axis==v?height:0);
++                    if(minimum<short.MinValue||maximum>short.MaxValue||minimum*.1<bounds[axis]-6.5||maximum*.1>bounds[axis+3]+6.5)
++                        throw new InvalidDataException("Quad vertex exceeds conservative bounds.");
++                }
+                 for(int corner=0;corner<4;corner++)
+                 {
+                     int vertex=q*4+corner;
+                     for(int axis=0;axis<3;axis++)
+                     {
+                         long value=previous[axis]+(axis==u&&(corner==1||corner==2)?width:0)+(axis==v&&(corner==2||corner==3)?height:0);
+-                        if(value<short.MinValue||value>short.MaxValue||value*.1<bounds[axis]-6.5||value*.1>bounds[axis+3]+6.5)throw new InvalidDataException("Quad vertex exceeds conservative bounds.");
+                         positions[vertex*3+axis]=(short)value;
+                     }
+                     normals[vertex]=normal;uint alpha=(uint)((material<<2)|((ao>>(corner*2))&3));colors[vertex]=palette[color]|alpha<<24;

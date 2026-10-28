@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-27T12:25:47.322073+00:00",
+  "scope": "C#9 installed Unity Editor API compilation only. No Assets installation, native execution, marker creation or rendering.",
+  "source_sha256": {
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-scene-probe\\RootSceneProbe.cs": "84b3d1968a351d9bddaf2a21776cc429cc8cec89496a1fb90bcfbdf4e21618d9",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-scene-probe\\RootSceneProbeTrigger.cs": "c5c3f46c73854695f16be4578c732d9c8b993da6a61667853cad51499849ddc9",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-scene-probe\\RootSceneProbe.cs.meta": "d3fb1a96ccafedcb78d40fdc2d805cc268377f2c7cad06fa46b54d21a13980dc",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-scene-probe\\RootSceneProbeTrigger.cs.meta": "ed9f75a8e593bc288bbed5d4fc9af276c50cf973cf1b77bbb43e8c507fcea090",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-scene-probe\\build.py": "29177d1d4330399e438d8ebf65141b73cd8ad3a02005892dd2f4fbaf4a80b8db"
+  },
+  "dynamic_dll": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-scene-probe\\api\\20261027T122546296461Z\\RootSceneProbeDynamic.dll",
+  "dynamic_dll_sha256": "c526f5348e2e3e81ab38cc8c3e8e07eb1027a13e60989f5e9dfee16599bb4c8b",
+  "imported_api_dll_sha256": "f38d9a43e0aa8d32b0f9d891dd672ddc55f1bd59544fea536ec6733d0f4a766e",
+  "dynamic_dll_bytes": 10240
+}

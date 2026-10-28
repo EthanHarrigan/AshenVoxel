@@ -1,0 +1,23 @@
+{
+    "status": "PASS",
+    "utc": "2026-10-28T05:25:25.1750125Z",
+    "unity": "6000.3.27f1",
+    "scope": "Actual imported Unity assets and source composition in Edit mode; no Play, visual scene or FPS acceptance",
+    "world_id": "653a72959be6e6ec9abb8e9643c685b2c690c183768a109f2110ede02b7dfb99",
+    "detail_world_id": "14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4",
+    "source_identity": "exploration-blend-v2/653a72959be6e6ec9abb8e9643c685b2c690c183768a109f2110ede02b7dfb99/detail-world=14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4/macro=50b4265dc3e19d9b3e7dd179e9d7241ae90aa0e94ab47b1cf6cc04318408bc70/fine=0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb/width=299520/depth=149760/height=1/blend=512/source-width=299520/source-depth=149760/biomes=biome-cells-v1/14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4/9495e761e7eece02ad764bfb31bf96bb5be66ed84faca207f1100bb73df1a072/234/118/-149760/-75520/1280",
+    "error": "",
+    "macro_sha256": "50b4265dc3e19d9b3e7dd179e9d7241ae90aa0e94ab47b1cf6cc04318408bc70",
+    "climate_sha256": "a73e7b03be8dfdb22bacd4da711640a7f18a0d1a6a8a903389b02275b9bc1040",
+    "fine_sha256": "0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb",
+    "biome_sha256": "de5217131a618329a2cc9df3bdb8db1a8bf69c15a5f979934deef6991c47d2cc",
+    "checks": 11,
+    "columns": 937,
+    "rows": 469,
+    "spacing_m": 320.0,
+    "saved_spawn_ground_m": 2013.2566619521792,
+    "decoded_patch_ground_m": 288.04400634765627,
+    "playing": false,
+    "scene_dirty_before": false,
+    "scene_dirty_after": false
+}

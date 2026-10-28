@@ -1,0 +1,5 @@
+{
+  "name": "AshenVoxel.FiniteMatter.Editor",
+  "references": ["AshenVoxel.FiniteMatter"],
+  "includePlatforms": ["Editor"]
+}

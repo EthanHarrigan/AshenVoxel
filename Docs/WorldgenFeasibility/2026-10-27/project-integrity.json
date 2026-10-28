@@ -1,0 +1,7 @@
+{
+  "command": "python -X utf8 Tools/check_project.py",
+  "initial_review_failure": "Broken report link to nonexistent source-residency-beta-1/README.md",
+  "correction": "Link directly to installed-native-checkpoint.json",
+  "final_exit_code": 0,
+  "final_output": "PASS project integrity: 250 unique assets, 13 assemblies, scene/material references, 10cm contract and local documentation links"
+}

@@ -1,0 +1,26 @@
+{
+  "library_file_id": "libfile_85c5db351e608191abf98d02e639dc16",
+  "current_version_number": 1,
+  "file_id": "file_0000000018ac81fbbf65bf7e95b24a7a",
+  "name": "AshenVoxel-mountain-broad-grid-preview.png",
+  "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs\\MountainReviewFrames\\mountain-broad-proxy-refining\\view.png",
+  "sha256": "c6f7a52ef372f828827ea695c474957480a72d608974160917fedf18ebef0038",
+  "capture_utc": "2026-10-27T19:40:59.4834463Z",
+  "camera": [
+    -63200.0,
+    6000.0,
+    -18800.0
+  ],
+  "fov": 60.0,
+  "seconds_from_mountain_arrival": 166,
+  "preset": "Maximum",
+  "broad_lithology": true,
+  "distant_height_proxies": true,
+  "missing": 0,
+  "quality_pending": 2963,
+  "far_mesh_bytes": 789441840,
+  "proxy_mesh_bytes": 320655840,
+  "available_commit_bytes": 5773860864,
+  "visual": "Narrow material rings absent and distant cubic steps reduced; uniform rounded broad ridges remain. Progress, not near-perfect target.",
+  "local_xattrs": "Windows os.setxattr unsupported; Library writes succeeded. Metadata retained in this sidecar."
+}

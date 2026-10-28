@@ -1,0 +1,15 @@
+{
+  "scope": "same frozen BaseCost assembly and data, repeat with process-local tiered JIT disabled to remove first-site tiering disparity; not a system setting change",
+  "process_environment": {
+    "DOTNET_TieredCompilation": "0",
+    "DOTNET_TieredPGO": "0"
+  },
+  "assembly_sha256": "b8f2401173b97a9165cd91d65defddcef0a9db43ed36a7284670a4bc85895c9c",
+  "source_provenance_sha256": "84ffc29bf3946ddb9d254dd469c8139989a0515cddb1287e00768761de88f669",
+  "input_sha256": {
+    "cost-10.bin": "fd9d4de003390f09d91dcb8b01f2d42e9b4ea8ab2b2437c1b7224963c0deea54",
+    "cost-11.bin": "4adaa2efe4f4a842a457c2c3e64a1fe7044350c8c26f28b055f78a4803a5e96b",
+    "expected-10.bin": "1bdf7c287f19c3c7d7f81ceab874d32de1d5304f864bfd05c3f8798686ff94dd",
+    "expected-11.bin": "b4f325d67c0b126c0a7f56fc2644b84eac84e671658686664b647efedcc220fa"
+  }
+}

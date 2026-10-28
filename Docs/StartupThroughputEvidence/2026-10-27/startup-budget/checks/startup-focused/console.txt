@@ -1,0 +1,15 @@
+PASS settings and standalone renderer retain shipping defaults
+PASS Boot clones startup quotas before its first yield and before renderer allocation
+PASS initial budget API applies effective quotas before field/plan/build
+PASS budget settings do not change generation identity
+PASS initial effective lower clamps are stable
+PASS initial effective upper clamps are stable
+PASS reconfiguration after initialization is rejected atomically and requests Play restart
+PASS periodic runtime settings cannot silently change startup quotas
+PASS legacy direct contact debug allowance is not overwritten by periodic settings
+PASS reserved coarse coverage remains admissible with the small initial detail quota
+PASS initial far quota rejects oversized detail before upload and retains demand
+PASS over-budget real contact geometry is rejected before scratch expansion or mesh publication
+PASS quota lowered during expansion is rechecked before native mesh creation
+PASS denied in-flight work leaves existing contacts and quota accounting intact
+PASS worker disposal releases scratch and async handle

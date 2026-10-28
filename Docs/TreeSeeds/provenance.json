@@ -1,0 +1,27 @@
+{
+  "source_sha256": {
+    "Assets/AshenVoxel/Core/EnvironmentColors.cs": "f410806283c80873829f03d713c2ccc78b6a881ea4ae394e5021c450f9206253",
+    "Assets/AshenVoxel/Core/Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+    "Assets/AshenVoxel/Core/Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+    "Assets/AshenVoxel/Core/Materials.cs": "ea1c07d1683b5474dbfd133c0dffd8d50614f4aa915c7ce883085cbbc933a4fa",
+    "Assets/AshenVoxel/Core/Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+    "Assets/AshenVoxel/Core/Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+    "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+    "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+    "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+    "Assets/AshenVoxel/Core/VoxelColor.cs": "421a8fe122d3fbfa98fe54b41f77b67a079b656bde1c3d59869791e5a4179814",
+    "Assets/AshenVoxel/Core/VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+    "Assets/AshenVoxel/Core/VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+    "Assets/AshenVoxel/Core/WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646"
+  },
+  "tool_sha256": {
+    "ExportTrees.cs": "a320823589f4fd4086531671ce00eea8077d764db864e8268502670ff93b66ab",
+    "render_trees.py": "9253938e013a11761285103591668b0c9f4bc978821b5f3e3963c053c7ffdb6e",
+    "fast_dda.py": "396aa87f348148f7e6da1052c34b0423c9325ead6743c21d4bcebb3b601c5e24"
+  },
+  "exported_utc": "2026-10-26T08:46:34.975244+00:00",
+  "sdk": "8.0.427",
+  "export_species": "all",
+  "export_variations": 5,
+  "note": "Actual generated data from immutable source snapshot; CPU inspection render, not Unity output."
+}

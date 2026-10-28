@@ -1,0 +1,18 @@
+{
+    "unity": "6000.3.27f1",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "api": "Direct3D11",
+    "horizon_error": "",
+    "width": 1600,
+    "height": 900,
+    "tiles": 775,
+    "instances": 1514,
+    "horizon_stands": 7816,
+    "horizon_pending": 0,
+    "horizon_draws": 18,
+    "triangles": 7957432,
+    "mesh_bytes": 356762136,
+    "population_ms": 0.2207,
+    "horizon_ms": 0.1215,
+    "impostor_shader_errors": false
+}

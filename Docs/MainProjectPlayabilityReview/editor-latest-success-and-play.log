@@ -1,0 +1,175 @@
+*** Tundra build success (1.12 seconds), 17 items updated, 698 evaluated
+Reloading assemblies after forced synchronous recompile.
+Begin MonoManager ReloadAssembly
+Total cache size 268418860
+Total cache size after purge 268418860, took 00:00:00.3782320
+- Loaded All Assemblies, in  1.047 seconds
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.579 seconds
+Domain Reload Profiling: 2623ms
+	BeginReloadAssembly (705ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (180ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (282ms)
+	RebuildCommonClasses (32ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (28ms)
+	LoadAllAssembliesAndSetupDomain (267ms)
+		LoadAssemblies (258ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (99ms)
+			TypeCache.Refresh (8ms)
+				TypeCache.ScanAssembly (1ms)
+			BuildScriptInfoCaches (67ms)
+			ResolveRequiredComponents (22ms)
+	FinalizeReload (1579ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (599ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (18ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (217ms)
+			ProcessInitializeOnLoadAttributes (278ms)
+			ProcessInitializeOnLoadMethodAttributes (73ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (469ms)
+Start importing Assets/AshenVoxel/Settings/ExplorationSettings.asset using Guid(f69927eec92045b4a4ac219cdb0db429) (NativeFormatImporter) -> (artifact id: 'f34e87378aa88be228c9a04ba62ab0f2') in 0.006939 seconds
+Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=325bf190d21efac49b6accef5de93d30): Total: 4.403 seconds - Initiated by RefreshV2(AllowForceSynchronousImport)
+	Summary:
+		Imports: total=1 (actual=1, local cache=0, cache server=0)
+		Asset DB Process Time: managed=2 ms, native=1730 ms
+		Asset DB Callback time: managed=80 ms, native=5 ms
+		Scripting: domain reloads=1, domain reload time=1065 ms, compile time=1519 ms, other=0 ms
+		Project Asset Count: scripts=791, non-scripts=1666
+		Asset File Changes: new=2, changed=7, moved=0, deleted=2
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 3.020ms
+	ApplyChangesToAssetFolders: 0.224ms
+	Scan: 21.522ms
+	OnSourceAssetsModified: 0.084ms
+	CategorizeAssetsWithTransientArtifact: 0.041ms
+	ProcessAssetsWithTransientArtifactChanges: 4.159ms
+	UnregisterDeletedAssets: 0.002ms
+	CategorizeAssets: 33.159ms
+	ImportOutOfDateAssets: 1593.930ms (62.276ms without children)
+		ImportManagerImport: 8.461ms (1.045ms without children)
+			ImportInProcess: 7.404ms
+			UpdateCategorizedAssets: 0.013ms
+		CompileScripts: 1519.431ms
+		CollectScriptTypesHashes: 0.929ms
+		ReloadNativeAssets: 1.766ms
+		UnloadImportedAssets: 0.198ms
+		ReloadImportedAssets: 0.000ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.260ms
+		InitializingProgressBar: 0.001ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.606ms
+	PostProcessAllAssets: 78.403ms
+	Hotreload: 6.688ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.094ms
+	UnloadStreamsBegin: 0.032ms
+	PersistCurrentRevisions: 0.103ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 3.150ms
+	Untracked: 2661.927ms
+
+[Licensing::Client] Successfully resolved entitlement details
+Reloading assemblies for play mode.
+Reloading assemblies after forced synchronous recompile.
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.737 seconds
+Refreshing native plugins compatible for Editor in 0.44 ms, found 0 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.367 seconds
+Domain Reload Profiling: 2100ms
+	BeginReloadAssembly (539ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (94ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (278ms)
+	RebuildCommonClasses (32ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (28ms)
+	LoadAllAssembliesAndSetupDomain (123ms)
+		LoadAssemblies (117ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (96ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (68ms)
+			ResolveRequiredComponents (22ms)
+	FinalizeReload (1367ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (499ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (18ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (135ms)
+			ProcessInitializeOnLoadAttributes (268ms)
+			ProcessInitializeOnLoadMethodAttributes (65ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (489ms)
+Asset Pipeline Refresh (id=65c9f2e421ee719408fe1d458d50593f): Total: 2.212 seconds - Initiated by StopAssetImportingV2(ForceSynchronousImport | ForceDomainReload)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=1433 ms
+		Asset DB Callback time: managed=23 ms, native=0 ms
+		Scripting: domain reloads=1, domain reload time=752 ms, compile time=1 ms, other=0 ms
+		Project Asset Count: scripts=791, non-scripts=1666
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 1.987ms
+	ApplyChangesToAssetFolders: 0.161ms
+	Scan: 0.001ms
+	OnSourceAssetsModified: 0.002ms
+	CategorizeAssetsWithTransientArtifact: 0.002ms
+	ProcessAssetsWithTransientArtifactChanges: 3.127ms
+	CategorizeAssets: 31.596ms
+	ImportOutOfDateAssets: 1371.554ms (1368.394ms without children)
+		CompileScripts: 1.040ms
+		CollectScriptTypesHashes: 0.649ms
+		ReloadNativeAssets: 0.838ms
+		UnloadImportedAssets: 0.001ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.242ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.390ms
+	PostProcessAllAssets: 23.557ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.072ms
+	UnloadStreamsBegin: 0.075ms
+	PersistCurrentRevisions: 0.065ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 2.645ms
+	Untracked: 779.308ms
+
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            0.403 ms
+	Integration:            252.074 ms
+	Integration of assets:  0.001 ms
+	Thread Wait Time:       0.014 ms
+	Total Operation Time:   252.492 ms
+[Licensing::Client] Successfully resolved entitlement details

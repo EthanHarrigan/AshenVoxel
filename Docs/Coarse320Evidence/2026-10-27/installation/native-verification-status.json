@@ -1,0 +1,11 @@
+{
+  "status": "NOT_EXECUTED",
+  "scope": "Edit-mode source check canceled after observing active user Play; no Play/Stop/camera input issued",
+  "reason": "User Play began after source install/import. Do not interrupt the session.",
+  "native_source_check_queued": false,
+  "installed_via_editor": true,
+  "verified_source_checks": 37,
+  "verified_live_checks": 44,
+  "api_assembly_checks": 5,
+  "stale_harness": "Original check_voxel_unity_api.py omits nested sources and assembly references; its failed log is preserved. Full asmdef-owned inventory compilation passed."
+}

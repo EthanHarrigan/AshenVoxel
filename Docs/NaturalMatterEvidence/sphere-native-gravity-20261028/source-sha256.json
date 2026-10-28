@@ -1,0 +1,13 @@
+{
+  "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs": "3edb4d9c7001ee3a31304cccf47eafe5fa5c9f077c24f6de7615e22c683a0286",
+  "Assets/AshenVoxel/Exploration/NaturalTreeTemplate.cs": "794afd4148a203c4ac8dbc4883d91c124e8cf1639455b2276b09c9964f9a9dd1",
+  "Assets/AshenVoxel/Exploration/NaturalMatterRigidBodies.cs": "0f13443d2244e8d56644041e7e8b6a28b118f82e8b364b611be4f07ddab16705",
+  "Assets/AshenVoxel/Exploration/NaturalMatterRenderer.cs": "2be8344e19df5746d0476360cbe300b7818dac9f5c67f35055daf6d4bb609831",
+  "Assets/AshenVoxel/Exploration/ExplorationNaturalTreeMatter.cs": "4986e7836b79d608212ae05cf58c39169923da1ac8375fe25f929245a6bf9090",
+  "Assets/AshenVoxel/Exploration/VegetationTreeMatter.cs": "8de0d9bdda0019ada1397a39a27112cdc28ac491813acadaae84dfbaedf4f009",
+  "Assets/AshenVoxel/Exploration/VegetationShrubMatter.cs": "93fedc3d994747628d13ddda2ba71819b60acaa3f3ba076b47ffe5757dd28e70",
+  "Assets/AshenVoxel/Exploration/VegetationRoots.cs": "e3260e79540f0b3ef15060f83321d60e50c06ed7d8c25656dfb7575c82b215de",
+  "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs": "675a36f5a388538bab3cdd2723268dc95502f0fa00bda02fddf5e104b4bc5999",
+  "Assets/AshenVoxel/Exploration/ExplorationLoadingScreen.cs": "dd2a1f15410385b584137794b0b45e901eda3d532e713363826e8e7e997f8ed8",
+  "Assets/AshenVoxel/Exploration/WorldLoadingProgress.cs": "38ea28bd6b373b6f22f46a1b82213a9890661dfeb3eb83e3ad3cc7d8f979604e"
+}

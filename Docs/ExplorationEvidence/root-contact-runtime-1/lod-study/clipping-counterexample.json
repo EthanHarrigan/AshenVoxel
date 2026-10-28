@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "assertions": 25,
+  "scope": "Synthetic rational triangle clipping and CPU model of inspected shader formula, not HLSL/native rendering verification.",
+  "source_sha256": {
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\VertexAppearance.cs": "3ccdc0517c6e3e1db6d2f5680cc07b36b8b3ca1a4fb0273e621eb3a3d867a2ad",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Rendering\\MaterialOptics.hlsl": "f19104a070c814f84f7de4e15d4ee5130715eea49231560e5869a4497a7922ba",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Rendering\\WorldSurface.shader": "79959309d848d4c8950eb8bb4035832fc8fea2166fa38a74f96417f621185416"
+  },
+  "y_edge": [
+    -4,
+    60
+  ],
+  "cut_cells": 30,
+  "edge_fraction": "17/32",
+  "material_id": 6,
+  "material_unchanged": true,
+  "required_raw_ao": "51/32",
+  "rounded_packed_ao": 2,
+  "exact_shader_ao": "353/544",
+  "rounded_shader_ao": "574/765",
+  "shader_ao_error": "2483/24480",
+  "shader_ao_error_float": 0.1014297385620915,
+  "original_triangles": 2,
+  "clipped_upper_triangles": 3,
+  "clipped_lower_triangles": 3,
+  "unique_new_intersection_vertices": 3,
+  "extra_index_bytes_32": 48,
+  "extra_vertex_bytes_original_stride_28": 84,
+  "cost_limit": "132 extra bytes for this sharing model before an AO stream; adding float AO costs4bytes per vertex if tightly packed, actual stream layout/alignment and meshwide allocation unmeasured."
+}

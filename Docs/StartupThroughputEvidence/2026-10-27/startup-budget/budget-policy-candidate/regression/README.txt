@@ -1,0 +1,1 @@
+Existing progressive30-check suite copied verbatim except private constant reflection now reads the public effective quota. Initial failure111145-977642 is a fixture assumption failure, not a scheduling failure; no production source changed for this adaptation.

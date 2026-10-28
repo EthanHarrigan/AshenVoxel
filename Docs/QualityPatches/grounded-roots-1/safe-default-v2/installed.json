@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-27T15:53:16.763359+00:00",
+  "status": "NATIVE_COMPILE_RELOAD_PASS_DEFAULT_OFF",
+  "source_hashes": {
+    "Assets/AshenVoxel/Exploration/VegetationRoots.cs": "55fd2ee74dd317cfbc945a54ea97de1bfa9cde01cb1fec92e3d77d465b37de4f",
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": "fb6bfe496d49bf002feae191b56343808a2d65d364bf77047b96a351f999e8b3",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "473df2490ac1ef510f1ea1b40501ddb38dbf2da0247c50bb702a119a79dc0eb7"
+  },
+  "compiled_exploration_sha256": "fa7875128e7e99d319607cd2daa656340a403b26a50007dd52246ff635d0fe0b",
+  "default": false,
+  "setting": "Exploration settings asset > Enable Grounded Roots; set before restarting Play",
+  "helper_failure_preserved": "InitialScreenCaptureCS0103 fromcoordinatorownedRootNativeProbe; removedwithownedcleanup, laterreloadclean",
+  "play": "Native rootacceptanceBLOCKEDmemory; no rerun"
+}

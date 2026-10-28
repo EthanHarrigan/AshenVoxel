@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-27T13:26:03.091191+00:00",
+  "supersedes": "Prior audit description of a24m sampler halo and root use of full EvaluateColumn.",
+  "facts": [
+    "Full SurfaceMaterialSampler.EvaluateColumn samples wind upstream/downstream at32m (SurfaceProfile.SampleRadiusMax=32), beyond the24m curvature samples.",
+    "GroundHeightMeters is exactly BaseField.Sample(x,z).HeightMeters before material/snow derivation. RootTerrainSnapshot uses this bare height directly at global10cm centers plus existing SurfaceTop quantization.",
+    "Preserve TerrainDetailField; remove outer SurfaceWorldField before snapshot capture. Bare adapter needs no external material-sampler halo. Provider-internal dependency footprints remain part of the bare-field revision contract.",
+    "Immutable snapshot consistency does not certify current live source, template/context, resident owner or edit revision. The existing cache Current/final transaction gate must check all of them."
+  ],
+  "adapter_report": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-terrain-adapter\\report.json",
+  "adapter_report_sha256": "4395dcb0d8376fa2e03cdf000bddbc9a40e8a71eee1f3999aa43d563930ed5b8",
+  "earlier_audit_preserved_sha256": {
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-integration-audit\\README-before-terrain-correction.md": "93bee5a25ebeae37d7501020fe7a11f7a6615bd1f2de4e14a8dda66e1d836e72",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-integration-audit\\report-before-terrain-correction.json": "15068f55e89ca7d23024a2d34cd97d5eac683eced57a480687a3037fc755422b",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-integration-audit\\audit-before-terrain-correction.py": "80cd0edeb26b953b4cd497a4b8d076a453a123e3f395196eb04f399508f77d0b"
+  },
+  "scope": "Correction only. Historical main source hashes/date remain those of the original audit; no claim of a refreshed current-main audit or installed adapter."
+}

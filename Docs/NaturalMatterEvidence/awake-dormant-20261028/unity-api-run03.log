@@ -1,0 +1,10 @@
+PASS official Unity API compile: Core
+PASS official Unity API compile: WorldScaleData
+PASS official Unity API compile: Rendering
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(48,44): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(49,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(50,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(57,42): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+PASS official Unity API compile: WorldScaleRuntime
+PASS official Unity API compile: FiniteMatter
+PASS official Unity API compile: Exploration

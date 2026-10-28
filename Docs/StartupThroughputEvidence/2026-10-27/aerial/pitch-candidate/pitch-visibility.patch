@@ -1,0 +1,29 @@
+--- a/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
++++ b/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
+@@ -147,10 +147,22 @@
+         double FocalPixels=>Math.Max(720,view==null?Screen.height:view.pixelHeight)*.5/Math.Tan(Math.Max(30,view==null?75:view.fieldOfView)*Math.PI/360);
+         bool InVoxelView(LodTile tile)
+         {
+-            Vector3 forward=view==null?Vector3.forward:view.transform.forward;
+-            double vertical=(view==null?75:view.fieldOfView)*Math.PI/360;
+-            double horizontal=Math.Atan(Math.Tan(vertical)*Math.Max(1,view==null?Screen.width/(double)Math.Max(1,Screen.height):view.aspect));
+-            return VoxelLodQuality.InView(tile,GlobalCamera,forward.x,forward.z,Math.Min(Math.PI, horizontal+20*Math.PI/180));
++            Quaternion rotation=view==null?Quaternion.Euler(0,0,0):view.transform.rotation;
++            Vector3 forward=rotation*Vector3.forward,right=rotation*Vector3.right,up=rotation*Vector3.up;
++            double length=Math.Sqrt((double)forward.x*forward.x+(double)forward.z*forward.z);
++            if(length<.2)return true;
++            double vertical=Math.Tan((view==null?75:view.fieldOfView)*Math.PI/360);
++            double horizontal=vertical*Math.Max(1,view==null?Screen.width/(double)Math.Max(1,Screen.height):view.aspect);
++            // Project the complete frustum ray rectangle onto horizontal heading
++            // axes. Pitch/roll can widen it far beyond the level-camera FOV.
++            double along=length-(Math.Abs(right.x*forward.x+right.z*forward.z)*horizontal+
++                Math.Abs(up.x*forward.x+up.z*forward.z)*vertical)/length;
++            double across=(Math.Abs(right.x*forward.z-right.z*forward.x)*horizontal+
++                Math.Abs(up.x*forward.z-up.z*forward.x)*vertical)/length;
++            // If the rectangle crosses the eye's heading plane, retaining every
++            // heading is conservative. Otherwise bound its largest azimuth.
++            double angle=along<=0?Math.PI:Math.Atan2(across,along);
++            return VoxelLodQuality.InView(tile,GlobalCamera,forward.x,forward.z,Math.Min(Math.PI,angle+20*Math.PI/180));
+         }
+         // An8-column tile has at most64 tops,112 internal exposed sides and32
+         // boundary sides. Each side has at most38 layer/pigment segments, plus

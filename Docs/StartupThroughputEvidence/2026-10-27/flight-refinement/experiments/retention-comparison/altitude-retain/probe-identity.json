@@ -1,0 +1,6 @@
+{
+  "variant": "altitude-retain",
+  "original_sha256": "1899a8e7d3c9888f55ac46fad09b1a7537c03e17cd72fe78a715996e4ec474cc",
+  "instrumented_sha256": "a770bec7fcd664ba11314ff355f8d6f1839e86c92c59bca54ae5e17a41f68873",
+  "scope": "Common geometry-worker timing hooks only; not deployable"
+}

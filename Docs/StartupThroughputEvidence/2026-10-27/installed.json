@@ -1,0 +1,119 @@
+{
+  "utc": "2026-10-27T07:02:14.350767+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs",
+      "before": "100879c15b273d5d81cecab68ec24df83eb1f3a351f3286727020aa066eea993",
+      "sha256": "5048632bc8a14276501758f22b4f8347c1a195d936dee359ae84aa571f629bb7"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "before": "1fc28e882e6cf69db38c5f128094882705504de907a6413137c3e9714ed7cb36",
+      "sha256": "847b218247a97e974101f7ac6e55fdcb35ff86d4c107acd3a2b91f894bd04a1a"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+      "before": "dba8e9f06c17c3c51abdd86c89091b6fa4309f2aac3366c907f54cee3fcef8c4",
+      "sha256": "b050c02ede81aa97bf491d02dea5fe47b0fa45fbc59b9480bda09ba0c49060a9"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "e471e662129bd5c102e7c1fc57e4b92429c8bf5d793d751815d6b72d8517a164",
+      "sha256": "c6fba94eb04f3cd580d5af5211a17ae6f0534495261fbfe3e9d3aa1a1d83e8c8"
+    }
+  ],
+  "all_hashes_match": true,
+  "editor_heartbeat": {
+    "playing": false,
+    "changing": false,
+    "compiling": false,
+    "ready": false,
+    "utc": "2026-10-27T07:02:12.7791656Z",
+    "population": {
+      "utc": "2026-10-27T07:02:12.7791656Z",
+      "error": "",
+      "status": "",
+      "source": "",
+      "horizon_error": "",
+      "present": false,
+      "boot_failed": false,
+      "ready": false,
+      "observer_valid": false,
+      "camera_valid": false,
+      "horizon_present": false,
+      "horizon_gpu": false,
+      "horizon_enabled": false,
+      "loaded_models": 0,
+      "resident_cells": 0,
+      "resident_instances": 0,
+      "pending_cells": 0,
+      "draw_calls": 0,
+      "visible_instances": 0,
+      "shadow_instances": 0,
+      "budget_demotions": 0,
+      "omitted_soft": 0,
+      "visible_triangles": 0,
+      "work_ms": 0.0,
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "origin_x": 0.0,
+      "origin_y": 0.0,
+      "origin_z": 0.0,
+      "camera_forward_x": 0.0,
+      "camera_forward_y": 0.0,
+      "camera_forward_z": 0.0,
+      "camera_far": 0.0,
+      "tree_distance": 0.0,
+      "plant_distance": 0.0,
+      "rock_distance": 0.0,
+      "tree_density": 0.0,
+      "plant_density": 0.0,
+      "triangle_budget": 0,
+      "instance_limit": 0,
+      "building_matrices": -1,
+      "finalizing": -1,
+      "matrix_cell": -1,
+      "matrix_instance": -1,
+      "matrix_cells": -1,
+      "finalize_page": -1,
+      "finalize_pages": -1,
+      "batches": -1,
+      "deferred_cells": -1,
+      "scanned_cells": 0,
+      "cell_scan_available": false,
+      "cell_scan_truncated": false,
+      "cells_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "published_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "empty_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "instances_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "horizon_pending": 0,
+      "horizon_resident": 0,
+      "horizon_draws": 0,
+      "horizon_visible": 0,
+      "horizon_worker_pending": false,
+      "horizon_visible_available": false,
+      "horizon_published_far": 0.0,
+      "horizon_farthest": 0.0
+    }
+  },
+  "applied_log_marker": true,
+  "compiler_errors": [],
+  "assembly_reload_complete": true
+}

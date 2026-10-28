@@ -1,0 +1,7 @@
+{
+  "utc": "2026-10-27T09:34:45.357437+00:00",
+  "path": "Tools/ExplorationStreamingChecks/CoverageCheck.cs",
+  "sha256": "9a35db1511293eb10e802415a5b552efea367d0d50c0488602cdf8f9d71ee6bc",
+  "preserved_main_program_sha256": "ec6d5df3b71fdee90b6c17da8703578e61549f4a5c5b1b041f3910392596ede0",
+  "reason": "Sibling missed three existing startup-lod-1 test updates: bounded52-413frame startup, second BuildMatrices reflection argument, and exact coverage fixture. Restored those current main checks and retained new legacy pack regressions. Failed stale-sibling run ready=true models99 frames52; not a runtime regression."
+}

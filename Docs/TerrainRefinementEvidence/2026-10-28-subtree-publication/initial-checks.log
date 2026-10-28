@@ -1,0 +1,47 @@
+.terrain-cache\progressive-lod\runs\20261028-024742-195122-production-progressive\source\Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(48,44): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+.terrain-cache\progressive-lod\runs\20261028-024742-195122-production-progressive\source\Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(49,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+.terrain-cache\progressive-lod\runs\20261028-024742-195122-production-progressive\source\Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(50,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+.terrain-cache\progressive-lod\runs\20261028-024742-195122-production-progressive\source\Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(57,42): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+PASS local contact floor publishes while distant startup coverage remains pending
+PASS startup100m preference is deferred behind a bounded small arrival contact neighborhood
+PASS commit pause drains completed worker ownership and performs no unsafe upload
+PASS pressure releases reusable scratch while retaining exact pending work and urgent local floor
+PASS real headroom recovery completes remaining coarse coverage without bypassing readiness
+PASS Maximum4096 request starts with at most128 whole-view tiles
+PASS coarse first plan covers the requested30km perimeter without shortening view distance
+PASS all bounded first-plan meshes actually publish together at8 columns
+PASS first full coverage restores the exact requested4096 limit and split tuning
+PASS requested larger plan returns while the complete first coverage stays active during replacement
+PASS initial bounded coverage publishes all8-column tiles
+PASS initial coverage opens the refinement phase
+PASS visible terrain progressively publishes8,32,64,128,256 columns
+PASS near full detail and rear bounded quality stay distinct
+PASS visible pixel-limited terrain advances beyond the previous128 ceiling
+PASS large replacement retains exact queued demand and still obeys unchanged commit safety reserve
+PASS safe small downshifts bypass a commit-deferred large upgrade without discarding it
+PASS sufficient real headroom wakes retained quality demand
+PASS fast travel reclaims fine mesh payload without a new plan or losing active coverage
+PASS slowing restores progressive detail on the same retained plan
+PASS resident payload includes every live far mesh exactly once
+PASS static settled scene terminates without rebuilding tiles or allocating meshes
+PASS old complete coverage remains while replacement tiles build
+PASS travel rebases the retained terrain immediately
+PASS travel publishes complete coarse replacement before expensive quality work
+PASS unfinished quality remains observable after coverage publication
+PASS obsolete high-detail coverage is retired at replacement publication
+PASS mesh admission rejects a payload exceeding the detail limit before upload
+PASS capacity rejection retains an observable quality request
+PASS capacity-limited work backs off rather than retrying unchanged requests forever
+PASS one capacity-denied tile does not starve other refinements
+PASS steady far payload is below2GiB and both bounded plans below2.5GiB
+PASS byte admission accepts the exact ceiling and rejects one byte above it
+PASS a new plan reconsiders retained capacity requests and completes them
+PASS view turn releases rear detail and improves the newly visible tile
+PASS source invalidation retains coverage and observable replacement work
+PASS source invalidation replaces terrain with the new immutable source height
+PASS eight incomplete rapid replans retain only active plus latest desired coverage
+Unhandled exception. System.Exception: FAIL superseded partial meshes are destroyed and byte accounting remains exact across rapid replans
+   at Program.Check(Boolean value, String message)
+   at Program.Main(String[] args)
+
+C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\progressive-lod\runs\20261028-024742-195122-production-progressive\result.json

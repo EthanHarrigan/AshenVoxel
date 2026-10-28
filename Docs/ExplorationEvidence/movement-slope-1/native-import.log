@@ -1,0 +1,199 @@
+QUALITY_PATCH_APPLIED movement-slope-1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.QualityPatchReview:ApplyStagedPatch () (at Assets/AshenVoxel/Exploration/Editor/QualityPatchReview.cs:105)
+AshenVoxel.Exploration.Editor.QualityPatchReview:Tick () (at Assets/AshenVoxel/Exploration/Editor/QualityPatchReview.cs:132)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/QualityPatchReview.cs Line: 105)
+
+[Licensing::Client] Successfully resolved entitlement details
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/ethan/Downloads/AshenVoxel
+ExitCode: 0 Duration: 1s862ms
+[545/698    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[678/698    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleData.dll (+2 others)
+[679/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.WorldScaleData.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleData.dll, with 141 defines and 126 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[680/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.WorldScaleData.pdb
+[681/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.WorldScaleData.dll
+[682/698    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleRuntime.dll (+2 others)
+[684/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.WorldScaleRuntime.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleRuntime.dll, with 141 defines and 240 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[685/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.WorldScaleEditor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleEditor.dll, with 139 defines and 273 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[688/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.WorldScaleRuntime.pdb
+[689/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.WorldScaleRuntime.dll
+[690/698    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.dll (+2 others)
+[691/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.Exploration.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.dll, with 142 defines and 243 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[692/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.pdb
+[693/698    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.Editor.dll (+2 others)
+Assets\AshenVoxel\Exploration\Editor\DlssNativeCheck.cs(51,40): warning CS0618: 'GraphicsDeviceDebugView.dlssFeatureInfos' is obsolete: 'This property causes garbage collection and is inefficient. Use dlssFeatureInfosSpan and dlssFeatureInfoCount instead.'
+[694/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.dll
+[695/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.Exploration.Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.Editor.dll, with 140 defines and 279 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[696/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.Editor.pdb
+[697/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.Editor.dll
+*** Tundra build success (1.79 seconds), 18 items updated, 698 evaluated
+Assets\AshenVoxel\Exploration\Editor\DlssNativeCheck.cs(51,40): warning CS0618: 'GraphicsDeviceDebugView.dlssFeatureInfos' is obsolete: 'This property causes garbage collection and is inefficient. Use dlssFeatureInfosSpan and dlssFeatureInfoCount instead.'
+Reloading assemblies after finishing script compilation.
+Reloading assemblies after forced synchronous recompile.
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.315 seconds
+Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.105 seconds
+Domain Reload Profiling: 3414ms
+	BeginReloadAssembly (965ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (141ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (470ms)
+	RebuildCommonClasses (51ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (44ms)
+	LoadAllAssembliesAndSetupDomain (238ms)
+		LoadAssemblies (205ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (169ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (3ms)
+			BuildScriptInfoCaches (116ms)
+			ResolveRequiredComponents (37ms)
+	FinalizeReload (2105ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (799ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (28ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (275ms)
+			ProcessInitializeOnLoadAttributes (388ms)
+			ProcessInitializeOnLoadMethodAttributes (92ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (555ms)
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=f94786ca03e32ab4ebbd671b9f99a043): Total: 3.624 seconds - Initiated by StopAssetImportingV2(ForceSynchronousImport | ForceDomainReload)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=2184 ms
+		Asset DB Callback time: managed=92 ms, native=5 ms
+		Scripting: domain reloads=1, domain reload time=1339 ms, compile time=1 ms, other=0 ms
+		Project Asset Count: scripts=794, non-scripts=1674
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 2.824ms
+	ApplyChangesToAssetFolders: 0.198ms
+	Scan: 0.001ms
+	OnSourceAssetsModified: 0.003ms
+	CategorizeAssetsWithTransientArtifact: 0.003ms
+	ProcessAssetsWithTransientArtifactChanges: 4.732ms
+	CategorizeAssets: 36.653ms
+	ImportOutOfDateAssets: 2109.531ms (2105.700ms without children)
+		CompileScripts: 1.155ms
+		CollectScriptTypesHashes: 1.129ms
+		ReloadNativeAssets: 0.884ms
+		UnloadImportedAssets: 0.002ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.263ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.398ms
+	PostProcessAllAssets: 93.306ms
+	Hotreload: 4.434ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.094ms
+	UnloadStreamsBegin: 0.002ms
+	PersistCurrentRevisions: 0.082ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 2.924ms
+	Untracked: 1372.260ms
+
+[Licensing::Client] Successfully resolved entitlement details
+null options given to DLSSIUpscaler()
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+DLSSIUpscaler:.ctor (DLSSOptions) (at ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/DLSSIUpscaler.cs:136)
+System.Reflection.RuntimeConstructorInfo:InternalInvoke (object,object[],bool)
+System.Reflection.RuntimeConstructorInfo:DoInvoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.RuntimeConstructorInfo:Invoke (System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.RuntimeType:CreateInstanceImpl (System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[],System.Threading.StackCrawlMark&)
+System.Activator:CreateInstance (System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[])
+System.Activator:CreateInstance (System.Type,object[])
+UnityEngine.Rendering.Upscaling:.ctor (System.Collections.Generic.List`1<UnityEngine.Rendering.UpscalerOptions>) (at ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/Upscaling.cs:54)
+UnityEngine.Rendering.Universal.UniversalRenderPipeline:.ctor (UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset) (at ./Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/Runtime/UniversalRenderPipeline.cs:326)
+UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset:CreatePipeline () (at ./Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/Runtime/Data/UniversalRenderPipelineAsset.cs:831)
+UnityEngine.Rendering.RenderPipelineAsset:InternalCreatePipeline ()
+UnityEngine.Rendering.RenderPipelineManager:TryPrepareRenderPipeline (UnityEngine.Rendering.RenderPipelineAsset)
+UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,UnityEngine.Object,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle)
+UnityEditor.EditorGUIUtility:RenderPlayModeViewCamerasInternal (UnityEngine.RenderTexture,int,UnityEngine.Vector2,bool,bool)
+UnityEditor.PlayModeView:RenderView (UnityEngine.Vector2,bool)
+UnityEditor.GameView:OnGUI ()
+UnityEditor.HostView:InvokeOnGUI (UnityEngine.Rect)
+UnityEditor.DockArea:DrawView (UnityEngine.Rect)
+UnityEditor.DockArea:OldOnGUI ()
+UnityEngine.UIElements.IMGUIContainer:DoOnGUI (UnityEngine.Event,UnityEngine.Matrix4x4,UnityEngine.Rect,bool,UnityEngine.Rect,System.Action,bool)
+UnityEngine.UIElements.IMGUIContainer:HandleIMGUIEvent (UnityEngine.Event,UnityEngine.Matrix4x4,UnityEngine.Rect,System.Action,bool)
+UnityEngine.UIElements.IMGUIContainer:DoIMGUIRepaint ()
+UnityEngine.UIElements.UIR.RenderChainCommand:ExecuteNonDrawMesh (UnityEngine.UIElements.UIR.DrawParams,single,System.Exception&)
+UnityEngine.UIElements.UIR.UIRenderDevice:EvaluateChain (UnityEngine.UIElements.UIR.RenderChainCommand,UnityEngine.Material,UnityEngine.Texture,UnityEngine.Texture,System.Nullable`1<UnityEngine.Rect>,UnityEngine.Vector2,single,bool,UnityEngine.UIElements.TextureSlotCount,bool,System.Exception&)
+UnityEngine.UIElements.UIR.RenderTreeManager:RenderSingleTree (UnityEngine.UIElements.UIR.RenderTree,UnityEngine.RenderTexture,UnityEngine.RectInt,UnityEngine.Rect)
+UnityEngine.UIElements.UIR.RenderTreeManager:RenderRootTree ()
+UnityEngine.UIElements.UIRRepaintUpdater:Render ()
+UnityEngine.UIElements.BaseVisualElementPanel:Render ()
+UnityEngine.UIElements.Panel:Render ()
+UnityEngine.UIElements.UIElementsUtility:DoDispatch (UnityEngine.UIElements.BaseVisualElementPanel)
+UnityEngine.UIElements.UIElementsUtility:UnityEngine.UIElements.IUIElementsUtility.ProcessEvent (int,intptr,bool&)
+UnityEngine.UIElements.UIEventRegistration:ProcessEvent (int,intptr)
+UnityEngine.UIElements.UIEventRegistration/<>c:<.cctor>b__1_2 (int,intptr)
+UnityEngine.GUIUtility:ProcessEvent (int,intptr,bool&)
+
+(Filename: ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/DLSSIUpscaler.cs Line: 136)
+

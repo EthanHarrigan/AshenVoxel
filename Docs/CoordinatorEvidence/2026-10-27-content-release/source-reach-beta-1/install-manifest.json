@@ -1,0 +1,68 @@
+{
+  "id": "source-reach-beta-1",
+  "utc": "2026-10-27T20:46:39.458844+00:00",
+  "status": "FROZEN UNINSTALLED",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs",
+      "before": "352a77faf52d1473fd78c82a7d76942eb621c5a846827f0f14f7a17de9d8fbe0",
+      "sha256": "cb43da64db5f19e829e9441f4c2b8e6dfdb268ee1a9cf34c0719fc7c00b4ed18"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "133db5b589d2357002836332ee763b313ad641d669a78c272f152413007bb6c3",
+      "sha256": "db72cebbbfdfdef5b87d09b825e884f2e9c63bf55c629f9d4bea679b2d17d4ef"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs",
+      "before": "72879000eed2a41b927d4c237a2751d17f345d236181ff15ea4fa9695ab0d9a6",
+      "sha256": "aca9cd5f7a4d4058ab394421f265d2b94740ca956eb0ecdee254b36a4d08cc88"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+      "before": "b4c821ae30b2549348b5f4f98b02c9429690b019aea6b7b5865e70cfe3d5a132",
+      "sha256": "20c3108ed0d7a3b12717e1d5b6ca29f9cbc847405dfadfbc7fdb429444cccc3e"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationShrubMatter.cs",
+      "before": "f1094604a8e8cad704c3f0920225277319257e41d6ce5103a50b504a488c2efc",
+      "sha256": "5e39d90108bea4e3d463ebb7e61be776f0c6a6430d58ea0fdc353df23affe900"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs",
+      "before": "3d482d24bcb27ad8e8bec6026b8246f191d45d0438624085ce185540174b9763",
+      "sha256": "8de336345203ed79abc59394f2afd06b842b1780d1041ffab694ce1dfa2e7aaa"
+    },
+    {
+      "path": "Assets/AshenVoxel/Settings/ExplorationSettings.asset",
+      "before": "d92bc27e1481bdcf5091f2c21e41f4136527a808f638402cf4c866b2ef41d6d6",
+      "sha256": "605f1f5cc1b27de83cd24246bbc4222faee6e3cee83acdec67a0a53f379ad82a"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs",
+      "before": "7d7f3794bf4574d1d0011c185f8de959d9dc7f7d6b3d96cf55f587e1328ac588",
+      "sha256": "3eb560802045e75e26126e29baf451273f7d8be7188dba3cf37aee385d9a9fc2"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs",
+      "before": "1651adfb2a1a9f589fc18ae96b8651ed608f546c7f79c666e237788b2c5dfc67",
+      "sha256": "3af2c8133b151228f9340927c0b065edc8e93920190222d980e7b0f38432faec"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "before": "8cf62e84e42f80fed03cb3b61872b193dc8990cbad154c0b23f2ff32b093143a",
+      "sha256": "d9d0c48ed812e76f782fee945e057796bc230d1f0a4bd79a2a935f8d823a582c"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "50f1ecc710b6b3fca372b49e0916932d56c2dc46580787a731cd1213f6c9f503",
+      "sha256": "d63c7eeb00738bebd9522d1bc6b546626a6b73ecdd3417c6819a48061c88d276"
+    }
+  ],
+  "checks": {
+    "api": "checks\\api-20261027-204600-088747\\result.json",
+    "focused37": "checks\\focused-20261027-204407-680639\\result.json"
+  },
+  "source_service_evidence": "source-promotion-1\\service-evidence\\saved-valley-region.json",
+  "scope": "Existing local source promotion plus frozen terrain reach controls. No new service, queue, worker or rendering representation. Source live setting enabled; saved spawn/options preserved."
+}

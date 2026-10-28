@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "checks": 3984,
+  "cases": 125,
+  "scope": "Small synthetic CPU partition/transform tests with actual frozen splitter and finalized ArrayRootMesher. No Unity execution, pack/fulltree loading or native upload."
+}

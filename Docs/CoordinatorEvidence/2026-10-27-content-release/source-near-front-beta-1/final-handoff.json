@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-27T23:12:30.367831+00:00",
+  "editor": "Edit; Play stopped; no compile or armed patch/capture request",
+  "options_restored_sha256": "a971d9170fe3dfcea5acfc46a4894b3ffc512927e6c9402f660a6660110e74ca",
+  "scene_sha256": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+  "installed_hashes": {
+    "Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs": "c3be3d4800a4b49d5758732b916571010cdadd705f88b0a40ec528cddac36734",
+    "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs": "b152f3e013cf9a38245d62b34149144b085c5f3305ffa8282cfc023de0f3899a",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "6fc7dc0d422d90d5a378ed84a240bd81df021ab51cc1288b4e39bfbeb8998a1c",
+    "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs": "4765b2ddeebe6ea98a8de8c48a92458c20eb9a192251f17335332354f6b3fd5d"
+  },
+  "near_front": {
+    "required": 9,
+    "ready": 9,
+    "protected_missing": 0,
+    "source_residents": 16,
+    "profile": "Normal \u00b7 reach 1.0\u00d7 \u00b7 512 tiles \u00b7 1536 MiB",
+    "startup": "Verified5m destination and required near-front source before population initialization; near-front 9/9 ready."
+  },
+  "tree": {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs\\FeatureCapture\\natural-tree-20261027-230439",
+    "initial": 3395,
+    "max_falling": 3379,
+    "max_individual": 3380,
+    "impacts": 1,
+    "all_recorded_conserved": true,
+    "recorded_suction": false,
+    "manual_collection_observed": 677,
+    "manual_collection_utc": "2026-10-27T23:08:17.4576109Z",
+    "manual_collection_note": "Observed native latest.json via tool output after explicit vacuum on, then off: source15 + independent2703 + cargo677 =3395; conserved. Recording covers gravity/impact only.",
+    "kick_native_accepted": false,
+    "restored": true,
+    "performance": "Large retained collision/time backlog; NOT real-time performance accepted"
+  },
+  "media": {
+    "valley_library": "libfile_a5a648d43fa08191b3b433f8f79a0e01",
+    "valley_version": 3,
+    "tree_library": "libfile_4ec71139ee4c8191947b7fc5e47645a3",
+    "tree_version": 0,
+    "tree_format": "20s animated WebP, actual73frames/timing,5.38MB; parent may convert to MP4"
+  },
+  "owners": "All four existing owners sent freeze/stop; source owner acknowledged. No collaboration children running."
+}

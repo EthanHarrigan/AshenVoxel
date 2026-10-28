@@ -1,0 +1,31 @@
+{
+  "id": "root-canonical-memory-1",
+  "utc": "2026-10-27T15:58:03.894260+00:00",
+  "status": "READY_NOT_INSTALLED",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/RootContact/UploadPreparation.cs",
+      "before": "f702d75fe941a9a2129bafcb835e62fe3031d51b64c098fe29598f6fa65742f5",
+      "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-canonical-memory\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\UploadPreparation.cs",
+      "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\UploadPreparation.cs",
+      "sha256": "ae018a7e27ad273b461e84c6c90d36703524b1561cc791c9c756edf5510ac07b"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/RootContact/UnityMeshUpload.cs",
+      "before": "68d79f9fa71cae15da3f0187b51230de1cd4f7d1089ffb46975c2478458b002a",
+      "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-canonical-memory\\payload\\Assets\\AshenVoxel\\Exploration\\RootContact\\UnityMeshUpload.cs",
+      "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\RootContact\\UnityMeshUpload.cs",
+      "sha256": "f1d17f4b34688db1dbb62f47f040b79a17d6e9970f4b60a456cd7e8a8ccadef4"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs",
+      "before": "3c33a568d69714c8993f6ecfd1eeeb002288892b5e78dcc154f995d6815a1c9f",
+      "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-canonical-memory\\payload\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "sha256": "5a9857676bbe91fdd5d744b0a62907938f6771ea95d861ce452b50ac14c75668"
+    }
+  ],
+  "api": "api/20261027T155554922404Z/report.json",
+  "comparison": "comparison/20261027T155655618954Z/result.json",
+  "scope": "Three source files only. Same canonical vertices/normals/RGB/material/AO/topology/bounds, lazy scalar view replaces complete duplicatefloatarrays; one actualredwood11LOD0 current-thread allocation99,739,568B less. No geometry/source/cacheformat change; rootdefault staysfalse. Nativeeffect requiresoneagreedsharedtargetedretest withoptintrue in copiedprofile, originalguardthresholdsunchanged."
+}

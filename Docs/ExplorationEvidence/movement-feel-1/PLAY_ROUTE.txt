@@ -1,0 +1,42 @@
+Repeatable native A/B route — required gates, not executed
+
+Freeze the same installed-source hashes, world identity 14fb32, existing pack,
+spawn feet/yaw, camera FOV 75, graphical settings and frame cap. Do not regenerate
+terrain/population or combine the uninstalled cliff-slide candidate. Coordinate
+one native session with the existing owner; this package does not authorize launch.
+
+Prepare a fixed location containing open flat ground, a 10cm hard barrier,
+diagonal wall/corner, low passage (1.2m clear ceiling), .2m step, near-50-degree
+voxel hillside, genuinely over-limit slope, small ledge and streaming boundary.
+Record global coordinates for each segment and use them in all repeats. A small
+controlled fixture may supplement the world; label it separately.
+
+Run default baseline first, then opt-in, then baseline again. Repeat each sequence
+three times at 30/60/144 FPS when possible. Reset to the same pose before each.
+Record route time, frame-time percentiles, collision penetration, missed/extra
+jumps, loading holds, final pose and perceived responsiveness/comfort. Capture
+video plus exact source/profile identity. Compare like-for-like warm/cold states.
+
+1. Flat: W 1s, W+Shift 1s, release Shift while holding W .3s, release W .5s.
+   Check acceleration control and continued sprint momentum without excessive drift.
+2. Diagonal wall/corner: sprint into wall at 45 degrees for 2s; release direction,
+   move along tangent, then clear wall. Check no sticking or stored launch.
+3. Jump: sprint, press Space once, release movement for .2s, steer sideways .2s.
+   Check useful steering, predictable landing and no extra airborne jump.
+4. Timing: press slightly before landing; step off ledge and press shortly after.
+   Compare 0/.05/.09/.12s offsets with captured frames; require a single jump only.
+5. Slide: reach sprint speed, hold Ctrl .2s, jump while crouched. Repeat toward
+   low passage and hard barrier; release Ctrl beneath ceiling, then leave passage.
+   Require real short-body clearance, blocked standing, no penetration or speed burst.
+6. Slopes: walk/sprint uphill/downhill across voxel treads, jump/land on hillside,
+   test over-limit ascent and cliff edge separately. Assess eye motion and foot contact.
+7. Interruption: queue prelanding jump then lose focus, release pointer or open
+   settings. Resume with neutral input. Cross a newly loading boundary and wait.
+   Require no old-input launch, burst, auto-jump or time backlog after resumption.
+8. Flight: F, normal/boost flight, N only in clear controlled space, return to walk.
+   Attempt flight under low ceiling, respawn, and toggle experiment off/on. Require
+   safe clearance, unchanged flight speeds, cleared traversal state and stable view.
+
+Reject adoption for penetration, stale launches, inconsistent route displacement,
+unacceptable comfort/steering or native frame regressions. CPU assertions do not
+certify fun. Tune one field at a time and rerun the identical route before adoption.

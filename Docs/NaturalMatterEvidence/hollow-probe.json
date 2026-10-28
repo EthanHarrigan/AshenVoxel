@@ -1,0 +1,219 @@
+{
+  "status": "PASS",
+  "scope": "Read-only actual complete10cm generator replay; not native Unity or performance measurements",
+  "definitions": {
+    "exposed_air": "at least one six-neighbor is Air",
+    "exposed_air_or_material_interface": "at least one six-neighbor has different material, including Air",
+    "interface_nonair": "at least one six-neighbor has a different non-Air material",
+    "buried_no_air": "all six-neighbors occupied, irrespective of material",
+    "buried_same_material": "all six-neighbors have this material",
+    "y_runs": "run starts where previous Y cell differs in material or material+tint; raw packed run13B=Int16 X/Z/start/end(8)+material(1)+raw tint(4); material-only9B; no actualcompressedformatimplemented",
+    "quarter": "global optimalceil(count per material+raw-tint key/4), exact finalweights; actualrelease/frame/spatialgrouping may need more",
+    "direct_arrays": "Marshal.SizeOf(Cube)+bool seen+bool sleeping+double updated+four int arrays(queue/group/parcelNext/parcelWeight), excludes all CLR/dictionary/list/island/mesh overhead; prospective savings only"
+  },
+  "records": [
+    {
+      "id": 0,
+      "total": {
+        "total": 3395,
+        "exposed_air": 2786,
+        "exposed_air_or_material_interface": 3370,
+        "interface_nonair": 2237,
+        "buried_no_air": 609,
+        "buried_same_material": 25,
+        "material_y_runs": 1975,
+        "material_tint_y_runs": 2686,
+        "optimal_quarter_representatives": 871
+      },
+      "by_material": {
+        "Leaves": {
+          "total": 2371,
+          "exposed_air": 2086,
+          "exposed_air_or_material_interface": 2346,
+          "interface_nonair": 1416,
+          "buried_no_air": 285,
+          "buried_same_material": 25,
+          "material_y_runs": 1290,
+          "material_tint_y_runs": 1866,
+          "optimal_quarter_representatives": 603
+        },
+        "Wood": {
+          "total": 1024,
+          "exposed_air": 700,
+          "exposed_air_or_material_interface": 1024,
+          "interface_nonair": 821,
+          "buried_no_air": 324,
+          "buried_same_material": 0,
+          "material_y_runs": 685,
+          "material_tint_y_runs": 820,
+          "optimal_quarter_representatives": 268
+        }
+      },
+      "distinct_material_tint_keys": 53,
+      "cube_bytes": 96,
+      "direct_arrays_bytes_per_cell": 122,
+      "air_buried_direct_array_savings_bytes": 74298,
+      "same_material_buried_direct_array_savings_bytes": 3050,
+      "material_tint_y_run_payload_bytes": 34918,
+      "material_only_y_run_payload_bytes": 17775,
+      "uncompressed_cell_coordinate_material_tint_payload_bytes": 57715,
+      "matter_sha256": "35bde1d1cd0f3902edf93025c01ef6c5ba3b47a35c296aede3ec8c22f33fa077"
+    },
+    {
+      "id": 10,
+      "total": {
+        "total": 1111103,
+        "exposed_air": 442738,
+        "exposed_air_or_material_interface": 498152,
+        "interface_nonair": 73117,
+        "buried_no_air": 668365,
+        "buried_same_material": 612951,
+        "material_y_runs": 164022,
+        "material_tint_y_runs": 486550,
+        "optimal_quarter_representatives": 277793
+      },
+      "by_material": {
+        "Leaves": {
+          "total": 730110,
+          "exposed_air": 383582,
+          "exposed_air_or_material_interface": 418094,
+          "interface_nonair": 46876,
+          "buried_no_air": 346528,
+          "buried_same_material": 312016,
+          "material_y_runs": 141539,
+          "material_tint_y_runs": 358950,
+          "optimal_quarter_representatives": 182538
+        },
+        "Wood": {
+          "total": 380993,
+          "exposed_air": 59156,
+          "exposed_air_or_material_interface": 80058,
+          "interface_nonair": 26241,
+          "buried_no_air": 321837,
+          "buried_same_material": 300935,
+          "material_y_runs": 22483,
+          "material_tint_y_runs": 127600,
+          "optimal_quarter_representatives": 95255
+        }
+      },
+      "distinct_material_tint_keys": 39,
+      "cube_bytes": 96,
+      "direct_arrays_bytes_per_cell": 122,
+      "air_buried_direct_array_savings_bytes": 81540530,
+      "same_material_buried_direct_array_savings_bytes": 74780022,
+      "material_tint_y_run_payload_bytes": 6325150,
+      "material_only_y_run_payload_bytes": 1476198,
+      "uncompressed_cell_coordinate_material_tint_payload_bytes": 18888751,
+      "matter_sha256": "90a3543895e57170202f758bf97248e9af164ec19b2861fecabab86bfdc856f6"
+    },
+    {
+      "id": 11,
+      "total": {
+        "total": 1159639,
+        "exposed_air": 454550,
+        "exposed_air_or_material_interface": 512117,
+        "interface_nonair": 75958,
+        "buried_no_air": 705089,
+        "buried_same_material": 647522,
+        "material_y_runs": 169129,
+        "material_tint_y_runs": 504791,
+        "optimal_quarter_representatives": 289928
+      },
+      "by_material": {
+        "Leaves": {
+          "total": 747735,
+          "exposed_air": 393560,
+          "exposed_air_or_material_interface": 429081,
+          "interface_nonair": 48528,
+          "buried_no_air": 354175,
+          "buried_same_material": 318654,
+          "material_y_runs": 145653,
+          "material_tint_y_runs": 365511,
+          "optimal_quarter_representatives": 186945
+        },
+        "Wood": {
+          "total": 411904,
+          "exposed_air": 60990,
+          "exposed_air_or_material_interface": 83036,
+          "interface_nonair": 27430,
+          "buried_no_air": 350914,
+          "buried_same_material": 328868,
+          "material_y_runs": 23476,
+          "material_tint_y_runs": 139280,
+          "optimal_quarter_representatives": 102983
+        }
+      },
+      "distinct_material_tint_keys": 40,
+      "cube_bytes": 96,
+      "direct_arrays_bytes_per_cell": 122,
+      "air_buried_direct_array_savings_bytes": 86020858,
+      "same_material_buried_direct_array_savings_bytes": 78997684,
+      "material_tint_y_run_payload_bytes": 6562283,
+      "material_only_y_run_payload_bytes": 1522161,
+      "uncompressed_cell_coordinate_material_tint_payload_bytes": 19713863,
+      "matter_sha256": "4b119bcd14b4779e480379e1359f9eacc1152773e014208e6f95cc45792f2043"
+    },
+    {
+      "id": 209,
+      "total": {
+        "total": 1991,
+        "exposed_air": 960,
+        "exposed_air_or_material_interface": 960,
+        "interface_nonair": 0,
+        "buried_no_air": 1031,
+        "buried_same_material": 1031,
+        "material_y_runs": 214,
+        "material_tint_y_runs": 291,
+        "optimal_quarter_representatives": 499
+      },
+      "by_material": {
+        "Stone": {
+          "total": 1991,
+          "exposed_air": 960,
+          "exposed_air_or_material_interface": 960,
+          "interface_nonair": 0,
+          "buried_no_air": 1031,
+          "buried_same_material": 1031,
+          "material_y_runs": 214,
+          "material_tint_y_runs": 291,
+          "optimal_quarter_representatives": 499
+        }
+      },
+      "distinct_material_tint_keys": 2,
+      "cube_bytes": 96,
+      "direct_arrays_bytes_per_cell": 122,
+      "air_buried_direct_array_savings_bytes": 125782,
+      "same_material_buried_direct_array_savings_bytes": 125782,
+      "material_tint_y_run_payload_bytes": 3783,
+      "material_only_y_run_payload_bytes": 1926,
+      "uncompressed_cell_coordinate_material_tint_payload_bytes": 33847,
+      "matter_sha256": "49e87164a9996d774bbdbd513e4d0b29cb644959a260ee059a167c2578765b5c"
+    }
+  ],
+  "source_sha256": {
+    "Assets\\AshenVoxel\\Core\\Details\\PlantGenerator.cs": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+    "Assets\\AshenVoxel\\Core\\Details\\PlantModel.cs": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2",
+    "Assets\\AshenVoxel\\Core\\EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+    "Assets\\AshenVoxel\\Core\\Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+    "Assets\\AshenVoxel\\Core\\Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+    "Assets\\AshenVoxel\\Core\\Materials.cs": "ab945a1f679e57f81dca05fc3fe4a70e2e0e0d35ce51f2d1457d99e8660baf85",
+    "Assets\\AshenVoxel\\Core\\Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+    "Assets\\AshenVoxel\\Core\\Rocks\\RockGenerator.cs": "006a8434c519bb996e85c4b05e0f188efe49a0a56e68d84ae6b9804f1e78425e",
+    "Assets\\AshenVoxel\\Core\\Rocks\\RockProfile.cs": "20152a9dbd0661143a400c1c2b7a69e97755e65342e3352239847b1dc752afc3",
+    "Assets\\AshenVoxel\\Core\\Rocks\\RockShapeGeometry.cs": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69",
+    "Assets\\AshenVoxel\\Core\\Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+    "Assets\\AshenVoxel\\Core\\Trees\\TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+    "Assets\\AshenVoxel\\Core\\Trees\\TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+    "Assets\\AshenVoxel\\Core\\Trees\\TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+    "Assets\\AshenVoxel\\Core\\VertexAppearance.cs": "3ccdc0517c6e3e1db6d2f5680cc07b36b8b3ca1a4fb0273e621eb3a3d867a2ad",
+    "Assets\\AshenVoxel\\Core\\VoxelColor.cs": "18387e0d5aedcb078e5f3ac6860908bbc1c6578a9bdbd295cbf6f4ea7a9550e9",
+    "Assets\\AshenVoxel\\Core\\VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+    "Assets\\AshenVoxel\\Core\\VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+    "Assets\\AshenVoxel\\Core\\WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+    "Assets\\AshenVoxel\\Exploration\\NaturalTreeTemplate.cs": "55eea6ce15f738bc14e629f0cb0a4dc17400058cf0ad232c59d1d413a4d4f901",
+    "Assets\\AshenVoxel\\Exploration\\NaturalTreePhysics.cs": "7984f3681a08fdfe3999a7c98056bb0b0e4d47e9899b9f9978fb16e02adde4d0",
+    "Assets\\_Validation\\FiniteMatterSlice\\Runtime\\LocalizedMatter.cs": "9623200a9e9b28c8692a7da9fbe396d306bcf22c3a250611fd14405d6156b23e",
+    "Tools\\NaturalMatterChecks\\HollowProbe.cs": "0b2c309afbb0155e787c2075d18b03614281003d6f456389d5f046cff5586413"
+  },
+  "generated_utc": "2026-10-28T00:08:46.451210+00:00"
+}

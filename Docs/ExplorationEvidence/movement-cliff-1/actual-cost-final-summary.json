@@ -1,0 +1,143 @@
+{
+  "scope": "Actual14fb32 assets, relief and snow surface; optimized Windows .NET8 CPU motor cost; not Unity timings/FPS/GPU/live observer",
+  "world_id": "14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4",
+  "method": "Separate baseline/candidate/candidate/baseline processes, each512warmup+7x128timed fixed-pose60Hz idle motor ticks/site; DOTNET_TieredCompilation=0 applies only benchmark child processes",
+  "cases": [
+    {
+      "site": "historical-camera",
+      "x": -19066.43170452222,
+      "z": -10233.014044816584,
+      "slope_degrees": 38.67014699903851,
+      "baseline_median_us_range": [
+        25.7,
+        26
+      ],
+      "candidate_median_us_range": [
+        25.6,
+        25.8
+      ],
+      "baseline_p99_us_range": [
+        44.4,
+        47.8
+      ],
+      "candidate_p99_us_range": [
+        35.1,
+        35.3
+      ],
+      "baseline_max_us": 127.8,
+      "candidate_max_us": 65.8,
+      "baseline_queries_per_tick": 16,
+      "candidate_queries_per_tick": 16
+    },
+    {
+      "site": "grounding-tree-site",
+      "x": -19009.67717863711,
+      "z": -10154.305642889685,
+      "slope_degrees": 42.94926673729133,
+      "baseline_median_us_range": [
+        25.9,
+        25.9
+      ],
+      "candidate_median_us_range": [
+        25.6,
+        25.8
+      ],
+      "baseline_p99_us_range": [
+        32.5,
+        39.3
+      ],
+      "candidate_p99_us_range": [
+        32.7,
+        48.7
+      ],
+      "baseline_max_us": 62.5,
+      "candidate_max_us": 114.3,
+      "baseline_queries_per_tick": 16,
+      "candidate_queries_per_tick": 16
+    },
+    {
+      "site": "steep-1",
+      "x": -19274.43170452222,
+      "z": -10081.014044816584,
+      "slope_degrees": 76.10297999191069,
+      "baseline_median_us_range": [
+        38.3,
+        38.4
+      ],
+      "candidate_median_us_range": [
+        66.6,
+        66.9
+      ],
+      "baseline_p99_us_range": [
+        47.5,
+        69.9
+      ],
+      "candidate_p99_us_range": [
+        76.3,
+        86.7
+      ],
+      "baseline_max_us": 136.6,
+      "candidate_max_us": 117.9,
+      "baseline_queries_per_tick": 24,
+      "candidate_queries_per_tick": 42
+    },
+    {
+      "site": "steep-2",
+      "x": -19290.43170452222,
+      "z": -10073.014044816584,
+      "slope_degrees": 73.30371282945633,
+      "baseline_median_us_range": [
+        38.2,
+        38.7
+      ],
+      "candidate_median_us_range": [
+        66.6,
+        67
+      ],
+      "baseline_p99_us_range": [
+        50.9,
+        62.9
+      ],
+      "candidate_p99_us_range": [
+        71.2,
+        123.6
+      ],
+      "baseline_max_us": 119.2,
+      "candidate_max_us": 211.4,
+      "baseline_queries_per_tick": 24,
+      "candidate_queries_per_tick": 42
+    },
+    {
+      "site": "steep-3",
+      "x": -19250.43170452222,
+      "z": -10457.014044816584,
+      "slope_degrees": 72.76503439005,
+      "baseline_median_us_range": [
+        23.9,
+        24.3
+      ],
+      "candidate_median_us_range": [
+        38,
+        38.1
+      ],
+      "baseline_p99_us_range": [
+        30.9,
+        35.9
+      ],
+      "candidate_p99_us_range": [
+        41.3,
+        48.4
+      ],
+      "baseline_max_us": 89.3,
+      "candidate_max_us": 79.7,
+      "baseline_queries_per_tick": 15,
+      "candidate_queries_per_tick": 24
+    }
+  ],
+  "candidate_v2_520_rows_exactly_match_frozen_v1": true,
+  "custom_provider_checks": 21,
+  "existing_movement_checks": 127,
+  "voxel_checks": 25,
+  "netstandard21": "PASS",
+  "cost_bound": "9extra surface queries per confirmation, only after existing grounded overlimit gate; sampled max18extra queries per60Hz tick. ConfiguredMaxSubsteps stillbounds pathological long ticks; no fixed millisecond bound claimed."
+}

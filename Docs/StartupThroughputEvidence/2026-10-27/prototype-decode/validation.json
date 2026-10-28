@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-27T10:19:57.854956+00:00",
+  "status": "CPU/API validated; NOT INSTALLED",
+  "population": 144,
+  "independent_decoder_assertions": 6635,
+  "api_assemblies": 5,
+  "exact_model_digests": 99,
+  "evidence": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Docs\\StartupThroughputEvidence\\2026-10-27\\prototype-decode\\summary.json"
+}

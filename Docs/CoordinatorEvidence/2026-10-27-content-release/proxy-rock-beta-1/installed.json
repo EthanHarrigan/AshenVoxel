@@ -1,0 +1,56 @@
+{
+  "utc": "2026-10-27T19:42:34.488242+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs",
+      "sha256": "fa270bc21c1f1612bd8af36624aa47992cf292d0ffc9e0942528b0c0630ee980"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs.meta",
+      "sha256": "cd1997e7385b02a901c2f4649485442f4dadaab4b797fafc1dc17963ce91f717"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "sha256": "8cf62e84e42f80fed03cb3b61872b193dc8990cbad154c0b23f2ff32b093143a"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+      "sha256": "4d0db66d4d52556fc6004f12803148e20bf29671ee20665bcb0d7bce2a4967fe"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "sha256": "50f1ecc710b6b3fca372b49e0916932d56c2dc46580787a731cd1213f6c9f503"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationRockRenderAccess.cs",
+      "sha256": "500b56ddd7f721135c673f2189a79856a1cbbc99c2dd1b51ff1b956ce8b439e8"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationDistantRockPatch.cs",
+      "sha256": "7e893bcdf15850b39fab159a542af93c989cdefda8430ba89e510cc2cfd7db5f"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+      "sha256": "b4c821ae30b2549348b5f4f98b02c9429690b019aea6b7b5865e70cfe3d5a132"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "sha256": "bd577544e7f36f8eba1fe56713e0ebd10c49598ac09af629cb81bcd9b612f98f"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs",
+      "sha256": "352a77faf52d1473fd78c82a7d76942eb621c5a846827f0f14f7a17de9d8fbe0"
+    }
+  ],
+  "protected": {
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerMemory.cs": "20a0adda253646f3f14126fe0c02d0faac7e46f26e9d006d6e9894dd4e567b31",
+    "Assets/Scenes/Exploration.unity": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+    "Assets/AshenVoxel/Settings/ExplorationSettings.asset": "d92bc27e1481bdcf5091f2c21e41f4136527a808f638402cf4c866b2ef41d6d6",
+    "Assets/AshenVoxel/Exploration/ExplorationBetaMatter.cs": "b3ec3ae249157450777b536ca4dcd2db241f2203076b67358e797ba86c9d19e9"
+  },
+  "options_sha256": "a971d9170fe3dfcea5acfc46a4894b3ffc512927e6c9402f660a6660110e74ca",
+  "native_import": "native-import.log",
+  "native_applied_evidence": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs\\MountainReviewFrames\\mountain-broad-proxy-refining\\terrain-20261027-194059-510.json",
+  "project_integrity": "PASS236assets13assemblies",
+  "scope": "Installed/compiled/shared Ready; optional modes active only in photo session. Visual/native near transition/rebase/FPS acceptance not complete."
+}

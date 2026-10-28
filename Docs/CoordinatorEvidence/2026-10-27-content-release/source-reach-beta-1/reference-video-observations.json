@@ -1,0 +1,25 @@
+{
+  "reported_utc": "2026-10-27T20:55:35.483803+00:00",
+  "helper": "01a17cb8-966b-7001-bbcb-0e4957a76021",
+  "url": "https://www.youtube.com/watch?v=xGkWWfO87no",
+  "actual_frames": [
+    "0:01",
+    "0:09",
+    "0:36",
+    "0:54",
+    "0:59",
+    "1:04",
+    "1:13",
+    "1:31",
+    "2:08",
+    "2:44"
+  ],
+  "observations": [
+    "Irregular small-scale mountain relief and near voxel snow/rock steps",
+    "Conifer stands with gaps and treeline",
+    "Strong atmospheric value separation",
+    "Reflective water/shore plants",
+    "Palms/coast forest and near flower/grass cover"
+  ],
+  "limits": "Edited scenes, no measured streaming proof; 5\u20136GB RAM plus3GB VRAM and45\u201350FPS are creator claims. Browser stopped because Windows URL policy could not be verified. No retry/bypass or Unity changes by helper."
+}

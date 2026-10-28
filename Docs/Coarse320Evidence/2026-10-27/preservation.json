@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "scope": "All ten original source/scene/settings/job/upstream inputs preserved",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/exploration-world.json",
+      "sha256": "85ff39810a717cc35db248d9c48b38af52839346e392c32ba707f67e6df94ea3",
+      "actual_sha256": "85ff39810a717cc35db248d9c48b38af52839346e392c32ba707f67e6df94ea3",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.bytes",
+      "sha256": "3a307d7dcebc47e0d1831e75a7cd73346480d3386b27aae9600c71dd2051c98b",
+      "actual_sha256": "3a307d7dcebc47e0d1831e75a7cd73346480d3386b27aae9600c71dd2051c98b",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.climate.bytes",
+      "sha256": "e81d209a9bf1959c9d6749b93ab96c91c903bf1583fe6dbd33651ecf87306684",
+      "actual_sha256": "e81d209a9bf1959c9d6749b93ab96c91c903bf1583fe6dbd33651ecf87306684",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.bytes",
+      "sha256": "0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb",
+      "actual_sha256": "0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.climate.bytes",
+      "sha256": "3c5b1be873732c2a46fec105a4a9c00649d5348c3546c5226ea4a1dbd5297069",
+      "actual_sha256": "3c5b1be873732c2a46fec105a4a9c00649d5348c3546c5226ea4a1dbd5297069",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/AshenVoxel/Settings/ExplorationSettings.asset",
+      "sha256": "605f1f5cc1b27de83cd24246bbc4222faee6e3cee83acdec67a0a53f379ad82a",
+      "actual_sha256": "605f1f5cc1b27de83cd24246bbc4222faee6e3cee83acdec67a0a53f379ad82a",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/Exploration.unity",
+      "sha256": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+      "actual_sha256": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+      "unchanged": true
+    },
+    {
+      "path": ".terrain-cache/world-job.json",
+      "sha256": "588059e63838023515073c35730cf0a80c039cba86bf06c9b9befa0017d39011",
+      "actual_sha256": "588059e63838023515073c35730cf0a80c039cba86bf06c9b9befa0017d39011",
+      "unchanged": true
+    },
+    {
+      "path": ".terrain-cache/world-job-gpu.json",
+      "sha256": "022c0dfd4bab47b31b1bd9eeb1e6d2396c0546ca35ef3a38c7c9dc522f144373",
+      "actual_sha256": "022c0dfd4bab47b31b1bd9eeb1e6d2396c0546ca35ef3a38c7c9dc522f144373",
+      "unchanged": true
+    },
+    {
+      "path": ".terrain-cache/terrain-diffusion/terrain_diffusion/inference/world_pipeline.py",
+      "sha256": "9bcb496cd61a7a1aa2d1e75c4279be2b387db860ff6eec1f27fa12eebaf977f0",
+      "actual_sha256": "9bcb496cd61a7a1aa2d1e75c4279be2b387db860ff6eec1f27fa12eebaf977f0",
+      "unchanged": true
+    }
+  ]
+}

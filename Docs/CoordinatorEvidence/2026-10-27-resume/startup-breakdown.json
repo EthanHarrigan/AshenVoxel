@@ -1,0 +1,198 @@
+{
+  "utc": "2026-10-27T12:06:45.338558+00:00",
+  "scope": "Existing sampled native smoke telemetry, no new run",
+  "boundaries_seconds": {
+    "first_Play_observation": 3.2370905,
+    "atlas_setup_to_loading_status": 4.218227,
+    "all_shared_prototype_payload_first_observed": 6.363778,
+    "starting_population_queue_first_empty": 7.5743686,
+    "Ready_first_observed": 8.3913234
+  },
+  "interpretation": [
+    "Clock starts at ExitingEditMode; first3.24s includes Editor Play transition and observation gap, not proven source generation cost.",
+    "Atlas read/source construction/camera/setup take place before loading status; approximately0.98s between sampled3.24 and4.22s boundaries, not exclusive profiler cost.",
+    "Population reads existing99-record prototype pack; no procedural prototype generation or atlas rebake in Boot. Decode/native mesh upload happen while terrain concurrently builds.",
+    "Prototype payload first observed at416.49MiB by6.36s; largest jumps surround Redwood models10/11, consistent with packed geometry size.",
+    "Population queue reaches0 at7.57s; Ready waits sharedmodel completion, spawn terrain area2m, population16m and TrySpawn.",
+    "AtReady onecontact8.51MiB and far queue208; Ready means local spawn safe, not all visible terrain fully refined. Contact eventually13tiles/4deferred under128MiB quota."
+  ],
+  "status_transitions": [
+    {
+      "elapsed": 0.0006189999985508621,
+      "status": "Preparing the world\u2026",
+      "ready": false,
+      "privateBytes": 8995590144,
+      "farBytes": 0,
+      "contactBytes": 0,
+      "prototypeBytes": 0,
+      "residentInstances": 0,
+      "farPending": 0
+    },
+    {
+      "elapsed": 3.237090499998885,
+      "status": "Reading the learned world\u2026",
+      "ready": false,
+      "privateBytes": 9000312832,
+      "farBytes": 0,
+      "contactBytes": 0,
+      "prototypeBytes": 0,
+      "residentInstances": 0,
+      "farPending": 0
+    },
+    {
+      "elapsed": 4.218226999997569,
+      "status": "Loading trees, plants and rocks\u2026",
+      "ready": false,
+      "privateBytes": 9135853568,
+      "farBytes": 0,
+      "contactBytes": 0,
+      "prototypeBytes": 0,
+      "residentInstances": 0,
+      "farPending": 1
+    },
+    {
+      "elapsed": 4.424692299999151,
+      "status": "Preparing the starting clearing\u2026 Loading Birch young 0 \u00b7 LOD 1/5 \u00b7 1/99 models",
+      "ready": false,
+      "privateBytes": 9408339968,
+      "farBytes": 0,
+      "contactBytes": 0,
+      "prototypeBytes": 1823760,
+      "residentInstances": 0,
+      "farPending": 192
+    },
+    {
+      "elapsed": 4.633573799997976,
+      "status": "Preparing the starting clearing\u2026 Loading Oak young 1 \u00b7 LOD 2/5 \u00b7 6/99 models",
+      "ready": false,
+      "privateBytes": 9431871488,
+      "farBytes": 533760,
+      "contactBytes": 0,
+      "prototypeBytes": 34144024,
+      "residentInstances": 0,
+      "farPending": 184
+    },
+    {
+      "elapsed": 5.235984700000699,
+      "status": "Preparing the starting clearing\u2026 Loading Redwood young 1 \u00b7 LOD 3/5 \u00b7 10/99 models",
+      "ready": false,
+      "privateBytes": 9649631232,
+      "farBytes": 961440,
+      "contactBytes": 0,
+      "prototypeBytes": 204530536,
+      "residentInstances": 0,
+      "farPending": 178
+    },
+    {
+      "elapsed": 5.927449399998295,
+      "status": "Preparing the starting clearing\u2026 Loading Redwood mature 0 \u00b7 LOD 3/5 \u00b7 11/99 models",
+      "ready": false,
+      "privateBytes": 9960677376,
+      "farBytes": 1042680,
+      "contactBytes": 0,
+      "prototypeBytes": 358371832,
+      "residentInstances": 0,
+      "farPending": 177
+    },
+    {
+      "elapsed": 6.157864699998754,
+      "status": "Preparing the starting clearing\u2026 Loading Pine mature 0 \u00b7 LOD 3/5 \u00b7 15/99 models",
+      "ready": false,
+      "privateBytes": 10050170880,
+      "farBytes": 1413600,
+      "contactBytes": 0,
+      "prototypeBytes": 426566992,
+      "residentInstances": 0,
+      "farPending": 172
+    },
+    {
+      "elapsed": 6.363777999999002,
+      "status": "Preparing the starting clearing\u2026 Population \u00b7 228 instances / 3 cells \u00b7 238 queued \u00b7 0 visible draws",
+      "ready": false,
+      "privateBytes": 10125848576,
+      "farBytes": 3335400,
+      "contactBytes": 0,
+      "prototypeBytes": 436717216,
+      "residentInstances": 276,
+      "farPending": 146
+    },
+    {
+      "elapsed": 6.566230699998414,
+      "status": "Preparing the starting clearing\u2026 Population \u00b7 1933 instances / 43 cells \u00b7 198 queued \u00b7 127 visible draws",
+      "ready": false,
+      "privateBytes": 10135023616,
+      "farBytes": 4708680,
+      "contactBytes": 0,
+      "prototypeBytes": 436717216,
+      "residentInstances": 1951,
+      "farPending": 126
+    },
+    {
+      "elapsed": 6.766772899998614,
+      "status": "Preparing the starting clearing\u2026 Population \u00b7 2633 instances / 88 cells \u00b7 153 queued \u00b7 126 visible draws",
+      "ready": false,
+      "privateBytes": 10136723456,
+      "farBytes": 6154920,
+      "contactBytes": 0,
+      "prototypeBytes": 436717216,
+      "residentInstances": 2648,
+      "farPending": 104
+    },
+    {
+      "elapsed": 6.968027799997799,
+      "status": "Preparing the starting clearing\u2026 Population \u00b7 3208 instances / 134 cells \u00b7 107 queued \u00b7 133 visible draws",
+      "ready": false,
+      "privateBytes": 10205155328,
+      "farBytes": 7437240,
+      "contactBytes": 0,
+      "prototypeBytes": 436717216,
+      "residentInstances": 3216,
+      "farPending": 81
+    },
+    {
+      "elapsed": 7.16821649999838,
+      "status": "Preparing the starting clearing\u2026 Population \u00b7 3669 instances / 177 cells \u00b7 64 queued \u00b7 131 visible draws",
+      "ready": false,
+      "privateBytes": 10205483008,
+      "farBytes": 8753280,
+      "contactBytes": 0,
+      "prototypeBytes": 436717216,
+      "residentInstances": 3677,
+      "farPending": 59
+    },
+    {
+      "elapsed": 7.3727037999997265,
+      "status": "Preparing the starting clearing\u2026 Population \u00b7 4095 instances / 221 cells \u00b7 19 queued \u00b7 138 visible draws",
+      "ready": false,
+      "privateBytes": 10205212672,
+      "farBytes": 9860400,
+      "contactBytes": 0,
+      "prototypeBytes": 436717216,
+      "residentInstances": 4095,
+      "farPending": 37
+    },
+    {
+      "elapsed": 7.5743685999987065,
+      "status": "Preparing the starting clearing\u2026 Population \u00b7 4095 instances / 226 cells \u00b7 0 queued \u00b7 132 visible draws",
+      "ready": false,
+      "privateBytes": 10205499392,
+      "farBytes": 10599360,
+      "contactBytes": 0,
+      "prototypeBytes": 436717216,
+      "residentInstances": 4095,
+      "farPending": 13
+    },
+    {
+      "elapsed": 8.391323399999237,
+      "status": "Explore",
+      "ready": true,
+      "privateBytes": 10208247808,
+      "farBytes": 10798320,
+      "contactBytes": 8918640,
+      "prototypeBytes": 436717216,
+      "residentInstances": 4095,
+      "farPending": 208
+    }
+  ],
+  "limits": "0.2s sampling target with larger unobserved atomic gaps. Overlapping work means boundary differences cannot be summed as exclusive stage timings. Need instrumentation only where a concrete optimization demands precise attribution."
+}

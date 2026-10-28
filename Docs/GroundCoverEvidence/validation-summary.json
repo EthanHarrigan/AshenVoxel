@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "generated_utc": "2026-10-26T20:06:03.711370+00:00",
+  "scope": "Headless checks and runtime substitutes; no native Unity/HLSL/player/GPU execution",
+  "reports": {
+    "understory": {
+      "status": "PASS",
+      "checks": 93,
+      "generated_utc": "2026-10-26T20:03:28.066753+00:00"
+    },
+    "rock": {
+      "status": "PASS",
+      "checks": 69,
+      "generated_utc": "2026-10-26T20:02:19.216373+00:00"
+    },
+    "groundcover": {
+      "status": "PASS",
+      "checks": 51,
+      "generated_utc": "2026-10-26T20:02:17.886903+00:00"
+    },
+    "groundcover-workshop": {
+      "status": "PASS",
+      "checks": 42,
+      "generated_utc": "2026-10-26T20:01:46.457766+00:00"
+    },
+    "material": {
+      "status": "PASS",
+      "checks": 53,
+      "generated_utc": "2026-10-26T20:03:27.239693+00:00"
+    },
+    "surface": {
+      "status": "PASS",
+      "checks": 44,
+      "generated_utc": "2026-10-26T20:02:18.084685+00:00"
+    },
+    "climate": {
+      "status": "PASS",
+      "checks": 27,
+      "generated_utc": "2026-10-26T20:02:17.862371+00:00"
+    },
+    "world-scale": {
+      "status": "PASS",
+      "checks": 55,
+      "generated_utc": "2026-10-26T20:02:17.338828+00:00"
+    },
+    "world-explorer": {
+      "status": "PASS",
+      "checks": 65,
+      "generated_utc": "2026-10-26T20:02:14.912244+00:00"
+    },
+    "water": {
+      "status": "PASS",
+      "checks": 28,
+      "generated_utc": "2026-10-26T20:03:26.834516+00:00"
+    },
+    "tree": {
+      "status": "PASS",
+      "checks": 73,
+      "generated_utc": "2026-10-26T20:03:44.120351+00:00"
+    }
+  },
+  "rock_generator_version": 2,
+  "groundcover_profile_version": 2,
+  "catalog_version": 3,
+  "material_ids": 24,
+  "core_checks": 87,
+  "authoring_checks": 40,
+  "mesh_oracle": {
+    "unit_faces": 27208,
+    "vertex_ao": 108456
+  },
+  "independent_rock_profiles": 5928,
+  "source_hash_mismatches": [],
+  "historical_evidence": "Version1 before renders preserve original source/data identity; other prior update counts remain historical where documented."
+}

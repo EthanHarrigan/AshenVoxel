@@ -1,0 +1,21 @@
+{
+  "scope": "Actual stock mesher CPU check for upper cells30..33, reading row29 below and34 above as neighbor/AO context. Demonstrates whether the existing visual-v1 base can reuse old upper face attributes. No Unity or live source mutation.",
+  "rows": [
+    {
+      "id": 10,
+      "baseline_upper_cell_faces": 785,
+      "visual_v1_missing_upper_faces": 0,
+      "visual_v1_extra_upper_faces": 0,
+      "visual_v1_changed_upper_face_attributes": 23,
+      "pinned_row29_geometry_rgb_material_ao_match": true
+    },
+    {
+      "id": 11,
+      "baseline_upper_cell_faces": 781,
+      "visual_v1_missing_upper_faces": 0,
+      "visual_v1_extra_upper_faces": 0,
+      "visual_v1_changed_upper_face_attributes": 15,
+      "pinned_row29_geometry_rgb_material_ao_match": true
+    }
+  ]
+}

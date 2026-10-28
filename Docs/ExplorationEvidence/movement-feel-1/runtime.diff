@@ -1,0 +1,328 @@
+--- baseline/Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs
++++ candidate/Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs
+@@ -55,15 +55,38 @@
+     /// <summary>Immutable physical movement controls. Feet and queries are meters,
+     /// independent of render origin. The body uses a conservative circular-footprint
+     /// AABB for props; smooth terrain contact uses continuous source heights.</summary>
++    /// <summary>Opt-in traversal experiment; null on movement settings preserves the legacy solver.
++    /// Rates are metres/second squared; timers consume solver time, never wall time.</summary>
++    public sealed class ExplorationTraversalSettings
++    {
++        public readonly double GroundAcceleration,GroundBraking,SprintReleaseBraking,AirAcceleration,CoyoteSeconds,JumpBufferSeconds;
++        public readonly double CrouchHeight,CrouchSpeedFactor,SlideMinimumSpeed,SlideBraking;
++        public ExplorationTraversalSettings(double groundAcceleration=32,double groundBraking=24,double sprintReleaseBraking=10,
++            double airAcceleration=6,double coyoteSeconds=.09,double jumpBufferSeconds=.10,
++            double crouchHeight=1.05,double crouchSpeedFactor=.6,double slideMinimumSpeed=5,double slideBraking=3)
++        {
++            Validate(groundAcceleration,.1,200,nameof(groundAcceleration));Validate(groundBraking,.1,200,nameof(groundBraking));
++            Validate(sprintReleaseBraking,.1,200,nameof(sprintReleaseBraking));Validate(airAcceleration,0,100,nameof(airAcceleration));
++            Validate(coyoteSeconds,0,.25,nameof(coyoteSeconds));Validate(jumpBufferSeconds,0,.25,nameof(jumpBufferSeconds));
++            Validate(crouchHeight,.3,5,nameof(crouchHeight));Validate(crouchSpeedFactor,.1,1,nameof(crouchSpeedFactor));
++            Validate(slideMinimumSpeed,.1,100,nameof(slideMinimumSpeed));Validate(slideBraking,.1,100,nameof(slideBraking));
++            GroundAcceleration=groundAcceleration;GroundBraking=groundBraking;SprintReleaseBraking=sprintReleaseBraking;
++            AirAcceleration=airAcceleration;CoyoteSeconds=coyoteSeconds;JumpBufferSeconds=jumpBufferSeconds;
++            CrouchHeight=crouchHeight;CrouchSpeedFactor=crouchSpeedFactor;SlideMinimumSpeed=slideMinimumSpeed;SlideBraking=slideBraking;
++        }
++        static void Validate(double v,double min,double max,string name)
++        {if(double.IsNaN(v)||double.IsInfinity(v)||v<min||v>max)throw new ArgumentOutOfRangeException(name);}
++    }
+     public sealed class ExplorationMovementSettings
+     {
+         public readonly double WalkSpeed,SprintSpeed,FlightSpeed,FlightBoost,Gravity,JumpSpeed,Radius,Height,EyeHeight,StepHeight,GroundSnap,MaxSlopeDegrees,Skin,SweepStep;
+         public readonly int MaxSubsteps;
+         public readonly double DragPerSoftVoxel,MinimumVegetationSpeed;
++        public readonly ExplorationTraversalSettings Traversal;
+         public ExplorationMovementSettings(double walkSpeed=4,double sprintSpeed=7,double flightSpeed=40,double flightBoost=4,
+             double gravity=20,double jumpSpeed=6,double radius=.28,double height=1.8,double eyeHeight=1.65,
+             double stepHeight=.32,double groundSnap=.24,double maxSlopeDegrees=50,double skin=.015,double sweepStep=.04,int maxSubsteps=512,
+-            double dragPerSoftVoxel=.0008,double minimumVegetationSpeed=.65)
++            double dragPerSoftVoxel=.0008,double minimumVegetationSpeed=.65,ExplorationTraversalSettings traversal=null)
+         {
+             Range(walkSpeed,.1,50,nameof(walkSpeed));Range(sprintSpeed,.1,100,nameof(sprintSpeed));Range(flightSpeed,.1,1000,nameof(flightSpeed));Range(flightBoost,1,10,nameof(flightBoost));
+             Range(gravity,.1,100,nameof(gravity));Range(jumpSpeed,0,30,nameof(jumpSpeed));Range(radius,.05,2,nameof(radius));Range(height,.3,5,nameof(height));Range(eyeHeight,.1,height,nameof(eyeHeight));
+@@ -71,22 +94,29 @@
+             if(maxSubsteps<8||maxSubsteps>4096)throw new ArgumentOutOfRangeException(nameof(maxSubsteps));
+             Range(dragPerSoftVoxel,0,.02,nameof(dragPerSoftVoxel));Range(minimumVegetationSpeed,.2,1,nameof(minimumVegetationSpeed));
+             DragPerSoftVoxel=dragPerSoftVoxel;MinimumVegetationSpeed=minimumVegetationSpeed;
++            Traversal=traversal;
+             WalkSpeed=walkSpeed;SprintSpeed=sprintSpeed;FlightSpeed=flightSpeed;FlightBoost=flightBoost;Gravity=gravity;JumpSpeed=jumpSpeed;Radius=radius;Height=height;EyeHeight=eyeHeight;
+             StepHeight=stepHeight;GroundSnap=groundSnap;MaxSlopeDegrees=maxSlopeDegrees;Skin=skin;SweepStep=sweepStep;MaxSubsteps=maxSubsteps;
+         }
+         static void Range(double v,double min,double max,string name){if(double.IsNaN(v)||double.IsInfinity(v)||v<min||v>max)throw new ArgumentOutOfRangeException(name);}
++        public ExplorationMovementSettings WithTraversal(ExplorationTraversalSettings traversal)=>new ExplorationMovementSettings(
++            WalkSpeed,SprintSpeed,FlightSpeed,FlightBoost,Gravity,JumpSpeed,Radius,Height,EyeHeight,
++            StepHeight,GroundSnap,MaxSlopeDegrees,Skin,SweepStep,MaxSubsteps,DragPerSoftVoxel,MinimumVegetationSpeed,traversal);
+     }
+     public readonly struct ExplorationMoveInput
+     {
+         /// <summary>World-oriented horizontal desired motion, normally derived from yaw.</summary>
+         public readonly double X,Z,Vertical;
+-        public readonly bool Sprint,Jump;
+-        public ExplorationMoveInput(double x,double z,double vertical=0,bool sprint=false,bool jump=false)
+-        {Numeric.Finite(x,nameof(x));Numeric.Finite(z,nameof(z));Numeric.Finite(vertical,nameof(vertical));X=x;Z=z;Vertical=vertical;Sprint=sprint;Jump=jump;}
++        public readonly bool Sprint,Jump,Crouch;
++        public ExplorationMoveInput(double x,double z,double vertical=0,bool sprint=false,bool jump=false,bool crouch=false)
++        {Numeric.Finite(x,nameof(x));Numeric.Finite(z,nameof(z));Numeric.Finite(vertical,nameof(vertical));X=x;Z=z;Vertical=vertical;Sprint=sprint;Jump=jump;Crouch=crouch;}
+     }
+     public sealed class ExplorationMotor
+     {
+         bool initialGroundSnap=true;
++        double coyoteRemaining,jumpBufferRemaining,crouchedBodyHeight;
++        bool jumpQueued;
++        ExplorationTraversalSettings activeTraversal;
+         public IExplorationCollision Collision {get;set;}
+         public ExplorationMovementSettings Settings {get;set;}
+         public WorldPoint Feet {get;private set;}
+@@ -95,6 +125,16 @@
+         public bool NoClip {get;set;}
+         public bool WaitingForWorld {get;private set;}
+         public double VerticalVelocity {get;private set;}
++        public double HorizontalVelocityX {get;private set;}
++        public double HorizontalVelocityZ {get;private set;}
++        public bool Crouched {get;private set;}
++        public bool Sliding {get;private set;}
++        public double BodyHeight=>Crouched?Math.Min(Settings.Height,crouchedBodyHeight):Settings.Height;
++        public double ViewHeight=>Crouched?Math.Min(Settings.EyeHeight,BodyHeight-.15):Settings.EyeHeight;
++        /// <summary>Discard traversal momentum and queued intent after focus/input/loading interruptions.
++        /// Keep crouched clearance until a subsequent ready tick can safely stand.</summary>
++        public void ClearTraversalIntent()
++        {HorizontalVelocityX=HorizontalVelocityZ=coyoteRemaining=jumpBufferRemaining=0;jumpQueued=false;Sliding=false;}
+         public int LastSubsteps {get;private set;}
+         public double SimulatedSeconds {get;private set;}
+         public double DeferredSeconds {get;private set;}
+@@ -104,24 +144,34 @@
+         public ExplorationMotor(IExplorationCollision collision,WorldPoint feet,ExplorationMovementSettings settings=null)
+         {Collision=collision??throw new ArgumentNullException(nameof(collision));Settings=settings??new ExplorationMovementSettings();ResetAt(feet);}
+         public void ResetAt(WorldPoint feet,bool flying=false)
+-        {Feet=feet;Flying=flying;Grounded=false;VerticalVelocity=0;WaitingForWorld=false;DeferredSeconds=0;initialGroundSnap=true;}
++        {Feet=feet;Flying=flying;Grounded=false;VerticalVelocity=0;WaitingForWorld=false;DeferredSeconds=0;initialGroundSnap=true;Crouched=false;ClearTraversalIntent();}
+         public bool SetFlying(bool flying)
+         {
++            if(flying&&Crouched&&Collision.OverlapsBody(Feet,Settings.Radius,Settings.Height))return false;
+             if(!flying)
+             {
+                 if(!Ready(Feet.X,Feet.Z)||Collision.OverlapsBody(Feet,Settings.Radius,Settings.Height)||!Ground(Feet.X,Feet.Z,out double h)||Feet.Y<h-Settings.Skin)return false;
+                 NoClip=false;
+             }
+-            Flying=flying;Grounded=false;VerticalVelocity=0;initialGroundSnap=true;return true;
++            Flying=flying;Grounded=false;VerticalVelocity=0;initialGroundSnap=true;Crouched=false;ClearTraversalIntent();return true;
+         }
+         public void Tick(ExplorationMoveInput input,double deltaSeconds)
+         {
+             Numeric.Finite(deltaSeconds,nameof(deltaSeconds));if(deltaSeconds<0)throw new ArgumentOutOfRangeException(nameof(deltaSeconds));
+             if(Collision==null||Settings==null)throw new InvalidOperationException("Movement needs a collision source and physical settings.");
+             LastSubsteps=0;SimulatedSeconds=0;DeferredSeconds=0;WaitingForWorld=false;
++            if(activeTraversal!=Settings.Traversal){ClearTraversalIntent();activeTraversal=Settings.Traversal;}
+             if(deltaSeconds==0)return;
+             bool free=Flying&&NoClip;
+-            if(!free&&!Ready(Feet.X,Feet.Z)){WaitingForWorld=true;return;}
++            if(!free&&!Ready(Feet.X,Feet.Z)){WaitingForWorld=true;ClearTraversalIntent();if(Settings.Traversal!=null)VerticalVelocity=Math.Min(0,VerticalVelocity);return;}
++            bool traversal=!Flying&&Settings.Traversal!=null;
++            // Never expand an experimental crouched body into a solid ceiling,
++            // even when the experiment is disabled while inside a low passage.
++            if(Crouched&&(Flying||Settings.Traversal==null)&&Collision.OverlapsBody(Feet,Settings.Radius,Settings.Height))
++            {ClearTraversalIntent();return;}
++            if(!traversal)Crouched=false;
++            else if(input.Crouch){Crouched=true;crouchedBodyHeight=Math.Min(Settings.Height,Settings.Traversal.CrouchHeight);}
++            else if(Crouched&&!Collision.OverlapsBody(Feet,Settings.Radius,Settings.Height))Crouched=false;
+             double x=input.X,z=input.Z,vertical=Flying?input.Vertical:0;
+             double length=Math.Sqrt(x*x+z*z+vertical*vertical);if(length>1){x/=length;z/=length;vertical/=length;}
+             double speed=Flying?Settings.FlightSpeed*(input.Sprint?Settings.FlightBoost:1):input.Sprint?Settings.SprintSpeed:Settings.WalkSpeed;
+@@ -130,21 +180,25 @@
+             // Only horizontal walking changes: jumping/gravity/flight remain stable.
+             if(!Flying&&Settings.DragPerSoftVoxel>0&&Collision is IExplorationResistance foliage)
+             {
+-                LastSoftVoxelOverlap=Math.Max(0,foliage.WeightedSoftVoxels(Feet,Settings.Radius,Settings.Height));
++                LastSoftVoxelOverlap=Math.Max(0,foliage.WeightedSoftVoxels(Feet,Settings.Radius,BodyHeight));
+                 VegetationSpeedFactor=Math.Max(Settings.MinimumVegetationSpeed,1/(1+LastSoftVoxelOverlap*Settings.DragPerSoftVoxel));
+                 speed*=VegetationSpeedFactor;
+             }
+             if(!Flying)
+             {
+                 RefreshGround();
+-                if(input.Jump&&Grounded){VerticalVelocity=Settings.JumpSpeed;Grounded=false;}
++                if(!traversal&&input.Jump&&Grounded){VerticalVelocity=Settings.JumpSpeed;Grounded=false;}
++                if(traversal&&input.Jump){jumpQueued=true;jumpBufferRemaining=Settings.Traversal.JumpBufferSeconds;}
+             }
+             // Preserve a bounded simulation remainder rather than taking a long
+             // collision jump after a slow frame. The caller may carry this time.
+             double dt=Math.Min(.25,deltaSeconds);
+             double horizontalSpeed=Math.Sqrt(x*x+z*z)*speed;
++            // Current overspeed (e.g. sprint release) must participate in the sweep
++            // bound. The steering target cannot exceed max(current, desired).
++            if(traversal)horizontalSpeed=Math.Max(horizontalSpeed,Math.Sqrt(HorizontalVelocityX*HorizontalVelocityX+HorizontalVelocityZ*HorizontalVelocityZ));
+             double worstSpeed=Flying?Math.Sqrt(x*x+z*z+vertical*vertical)*speed:
+-                Math.Sqrt(horizontalSpeed*horizontalSpeed+Math.Pow(Math.Abs(VerticalVelocity)+Settings.Gravity*dt,2))+Settings.WalkSpeed;
++                Math.Sqrt(horizontalSpeed*horizontalSpeed+Math.Pow(Math.Max(Math.Abs(VerticalVelocity),traversal&&jumpQueued?Settings.JumpSpeed:0)+Settings.Gravity*dt,2))+Settings.WalkSpeed;
+             int needed=(int)Math.Min(int.MaxValue,Math.Ceiling(Math.Max(dt*120,dt*worstSpeed/Settings.SweepStep)));
+             if(needed>Settings.MaxSubsteps){dt*=Settings.MaxSubsteps/(double)needed;needed=Settings.MaxSubsteps;}
+             int steps=Math.Max(1,needed);double step=dt/steps;
+@@ -158,21 +212,68 @@
+                 }
+                 else
+                 {
+-                    MoveHorizontal(x*speed*step,z*speed*step,true);
++                    if(traversal)MoveTraversal(input,x,z,speed,step);
++                    else MoveHorizontal(x*speed*step,z*speed*step,true);
++                    if(traversal&&WaitingForWorld)break;
+                     ApplySteepSlide(step);
+                     double dy=VerticalVelocity*step-Settings.Gravity*step*step*.5;
+                     VerticalVelocity=Math.Max(-80,VerticalVelocity-Settings.Gravity*step);
+                     MoveVertical(dy);
++                    if(traversal)
++                    {
++                        coyoteRemaining=Math.Max(0,coyoteRemaining-step);
++                        jumpBufferRemaining=Math.Max(0,jumpBufferRemaining-step);
++                        if(jumpBufferRemaining<=0)jumpQueued=false;
++                    }
+                 }
+                 LastSubsteps++;SimulatedSeconds+=step;
+             }
+             // Intentional streaming holds do not queue old user input, which
+             // would otherwise launch the player when collision becomes ready.
+             DeferredSeconds=WaitingForWorld?0:Math.Max(0,deltaSeconds-SimulatedSeconds);
++            if(WaitingForWorld){ClearTraversalIntent();if(traversal)VerticalVelocity=Math.Min(0,VerticalVelocity);}
++        }
++        void MoveTraversal(ExplorationMoveInput input,double x,double z,double speed,double step)
++        {
++            var feel=Settings.Traversal;
++            if(Grounded)coyoteRemaining=feel.CoyoteSeconds;
++            if(jumpQueued&&(Grounded||coyoteRemaining>0))
++            {VerticalVelocity=Settings.JumpSpeed;Grounded=false;coyoteRemaining=0;jumpQueued=false;jumpBufferRemaining=0;}
++            double magnitude=Math.Sqrt(HorizontalVelocityX*HorizontalVelocityX+HorizontalVelocityZ*HorizontalVelocityZ);
++            Sliding=Crouched&&input.Crouch&&Grounded&&magnitude>=feel.SlideMinimumSpeed;
++            double targetX=x*speed,targetZ=z*speed;
++            double acceleration=feel.GroundAcceleration;
++            if(Sliding)
++            {targetX=targetZ=0;acceleration=feel.SlideBraking;}
++            else if(!Grounded)
++            {
++                double wish=Math.Sqrt(x*x+z*z);
++                if(wish<1e-12){targetX=HorizontalVelocityX;targetZ=HorizontalVelocityZ;}
++                else {double airSpeed=Math.Max(magnitude,speed*wish);targetX=x/wish*airSpeed;targetZ=z/wish*airSpeed;}
++                acceleration=feel.AirAcceleration;
++            }
++            else if(Crouched){targetX*=feel.CrouchSpeedFactor;targetZ*=feel.CrouchSpeedFactor;acceleration=feel.GroundBraking;}
++            else if(Math.Abs(x)+Math.Abs(z)<1e-12)acceleration=feel.GroundBraking;
++            else if(magnitude>speed)acceleration=feel.SprintReleaseBraking;
++            // Exact integration along a straight velocity segment. In free space
++            // constant-input travel is independent of substep partition at arrival.
++            double vx=HorizontalVelocityX,vz=HorizontalVelocityZ;
++            double differenceX=targetX-vx,differenceZ=targetZ-vz,difference=Math.Sqrt(differenceX*differenceX+differenceZ*differenceZ);
++            double moving=acceleration>0?Math.Min(step,difference/acceleration):0;
++            double fraction=difference>1e-12?Math.Min(1,acceleration*step/difference):1;
++            HorizontalVelocityX=vx+differenceX*fraction;HorizontalVelocityZ=vz+differenceZ*fraction;
++            double dx=(vx+HorizontalVelocityX)*.5*moving+HorizontalVelocityX*(step-moving);
++            double dz=(vz+HorizontalVelocityZ)*.5*moving+HorizontalVelocityZ*(step-moving);
++            double beforeX=Feet.X,beforeZ=Feet.Z;
++            MoveHorizontal(dx,dz,true);
++            // This solver supplies axis rejection rather than contact normals.
++            // Remove blocked momentum and retain the successfully swept tangent.
++            if(Math.Abs(Feet.X-beforeX-dx)>1e-8)HorizontalVelocityX=0;
++            if(Math.Abs(Feet.Z-beforeZ-dz)>1e-8)HorizontalVelocityZ=0;
+         }
+         bool Ready(double x,double z)=>Collision.IsReady(x,z,Settings.Radius+Settings.SweepStep);
+         bool Ground(double x,double z,out double h)=>Collision.TryGetGroundHeight(x,z,out h);
+-        bool BodyFree(WorldPoint feet)=>!Collision.OverlapsBody(feet,Settings.Radius,Settings.Height);
++        bool BodyFree(WorldPoint feet)=>!Collision.OverlapsBody(feet,Settings.Radius,BodyHeight);
+         bool Support(double x,double z,double min,double max,out double height)
+         {
+             bool has=Ground(x,z,out double terrain);height=terrain;
+--- baseline/Assets/AshenVoxel/Exploration/ExplorationController.cs
++++ candidate/Assets/AshenVoxel/Exploration/ExplorationController.cs
+@@ -14,6 +14,7 @@
+         [Range(1,60)] public float GroundedEyeSmoothing=20;
+         public bool AllowNoClipToggle=true;
+         public bool CapturePointerOnEnable=true;
++        public bool EnableTraversalExperiment=false;
+         public bool InputEnabled {get;private set;}=true;
+         public bool IsConfigured=>Motor!=null&&vista!=null;
+         public ExplorationMotor Motor {get;private set;}
+@@ -26,23 +27,35 @@
+         public double SkippedLongFrameInputSeconds {get;private set;}
+         WorldExplorer vista;
+         double eyeY,pendingSeconds;
+-        bool eyeInitialized,ownsPointer;
++        bool eyeInitialized,ownsPointer,traversalExperimentApplied;
+ 
+         public void Configure(WorldExplorer world,IExplorationCollision collision,WorldPoint spawnFeet,ExplorationMovementSettings settings=null,
+             float initialYaw=0,float initialPitch=10,bool capturePointer=true)
+         {
+             vista=world??throw new ArgumentNullException(nameof(world));
+             Motor=new ExplorationMotor(collision,spawnFeet,settings);
++            SetTraversalExperiment(EnableTraversalExperiment||Motor.Settings.Traversal!=null,Motor.Settings.Traversal);
+             Yaw=initialYaw;Pitch=Mathf.Clamp(initialPitch,-86,86);pendingSeconds=0;eyeInitialized=false;
+             CapturePointerOnEnable=capturePointer;
+             if(InputEnabled&&capturePointer)CapturePointer();
+             ApplyView(0);Status="Ready";
+         }
+         public void ApplyMovementSettings(ExplorationMovementSettings settings)
+-        {if(settings==null)throw new ArgumentNullException(nameof(settings));if(Motor!=null)Motor.Settings=settings;}
++        {
++            if(settings==null)throw new ArgumentNullException(nameof(settings));
++            if(Motor!=null){Motor.Settings=settings;EnableTraversalExperiment=traversalExperimentApplied=settings.Traversal!=null;Motor.ClearTraversalIntent();}
++        }
++        /// <summary>Inspector or deterministic API opt-in. Existing physical speeds,
++        /// collision limits and flight controls are retained. Off is the default.</summary>
++        public void SetTraversalExperiment(bool enabled,ExplorationTraversalSettings tuning=null)
++        {
++            EnableTraversalExperiment=traversalExperimentApplied=enabled;
++            if(Motor!=null){Motor.ClearTraversalIntent();Motor.Settings=Motor.Settings.WithTraversal(enabled?tuning??new ExplorationTraversalSettings():null);}
++        }
+         public void SetInputEnabled(bool value)
+         {
+             InputEnabled=value;pendingSeconds=0;
++            if(!value)Motor?.ClearTraversalIntent();
+             if(!value)ReleasePointer();else if(IsConfigured&&CapturePointerOnEnable)CapturePointer();
+         }
+         public void ResetAt(WorldPoint feet,bool flying=false)
+@@ -57,10 +70,11 @@
+             pendingSeconds=0;eyeInitialized=false;ApplyView(0);vista.ResetObserverMotion();Status="Walking";return true;
+         }
+         public void CapturePointer(){Cursor.lockState=CursorLockMode.Locked;Cursor.visible=false;ownsPointer=true;}
+-        public void ReleasePointer(){if(ownsPointer||Cursor.lockState==CursorLockMode.Locked){Cursor.lockState=CursorLockMode.None;Cursor.visible=true;}ownsPointer=false;}
++        public void ReleasePointer(){if(ownsPointer||Cursor.lockState==CursorLockMode.Locked){Cursor.lockState=CursorLockMode.None;Cursor.visible=true;}ownsPointer=false;pendingSeconds=0;Motor?.ClearTraversalIntent();}
+         void Update()
+         {
+             if(!IsConfigured||!InputEnabled)return;
++            if(EnableTraversalExperiment!=traversalExperimentApplied)SetTraversalExperiment(EnableTraversalExperiment);
+             Keyboard keyboard=Keyboard.current;Mouse mouse=Mouse.current;
+             if(keyboard!=null&&keyboard.escapeKey.wasPressedThisFrame)
+             {
+@@ -89,7 +103,7 @@
+             double radians=Yaw*Math.PI/180,co=Math.Cos(radians),si=Math.Sin(radians);
+             double x=localX*co+localZ*si,z=localZ*co-localX*si;
+             double vertical=keyboard==null?0:((keyboard.spaceKey.isPressed||keyboard.eKey.isPressed)?1:0)-((keyboard.leftCtrlKey.isPressed||keyboard.qKey.isPressed)?1:0);
+-            var input=new ExplorationMoveInput(x,z,vertical,keyboard!=null&&keyboard.leftShiftKey.isPressed,keyboard!=null&&keyboard.spaceKey.wasPressedThisFrame);
++            var input=new ExplorationMoveInput(x,z,vertical,keyboard!=null&&keyboard.leftShiftKey.isPressed,keyboard!=null&&keyboard.spaceKey.wasPressedThisFrame,keyboard!=null&&keyboard.leftCtrlKey.isPressed);
+             Advance(input,Math.Max(0,Time.deltaTime));
+         }
+         /// <summary>Public deterministic-input bridge for bootstrap/testing. A long
+@@ -98,6 +112,7 @@
+         public void Advance(ExplorationMoveInput input,double frameSeconds)
+         {
+             if(!IsConfigured||!InputEnabled)return;
++            if(EnableTraversalExperiment!=traversalExperimentApplied)SetTraversalExperiment(EnableTraversalExperiment);
+             if(double.IsNaN(frameSeconds)||double.IsInfinity(frameSeconds)||frameSeconds<0)throw new ArgumentOutOfRangeException(nameof(frameSeconds));
+             double accepted=Math.Min(.25,frameSeconds);SkippedLongFrameInputSeconds+=Math.Max(0,frameSeconds-accepted);
+             pendingSeconds+=accepted;Motor.Tick(input,pendingSeconds);pendingSeconds=Motor.DeferredSeconds;
+@@ -108,15 +123,15 @@
+         void ApplyView(double dt)
+         {
+             if(!IsConfigured)return;
+-            double target=Motor.Feet.Y+Motor.Settings.EyeHeight;
++            double target=Motor.Feet.Y+Motor.ViewHeight;
+             if(!eyeInitialized||!Motor.Grounded||Motor.Flying||Math.Abs(target-eyeY)>Motor.Settings.StepHeight+.12)
+             {eyeY=target;eyeInitialized=true;}
+             else eyeY+=(target-eyeY)*(1-Math.Exp(-Math.Max(1,GroundedEyeSmoothing)*dt));
+             // Vertical camera smoothing must remain inside the already tested body.
+-            eyeY=Math.Max(Motor.Feet.Y+.1,Math.Min(Motor.Feet.Y+Motor.Settings.Height-.025,eyeY));
++            eyeY=Math.Max(Motor.Feet.Y+.1,Math.Min(Motor.Feet.Y+Motor.BodyHeight-.025,eyeY));
+             vista.SetObserverPose(Eye,Quaternion.Euler(Pitch,Yaw,0));
+         }
+-        void OnApplicationFocus(bool focused){if(!focused){if(ownsPointer)ReleasePointer();pendingSeconds=0;}}
+-        void OnDisable(){if(ownsPointer)ReleasePointer();pendingSeconds=0;}
++        void OnApplicationFocus(bool focused){if(!focused){if(ownsPointer)ReleasePointer();pendingSeconds=0;Motor?.ClearTraversalIntent();}}
++        void OnDisable(){if(ownsPointer)ReleasePointer();pendingSeconds=0;Motor?.ClearTraversalIntent();}
+     }
+ }

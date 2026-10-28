@@ -1,0 +1,293 @@
+{
+  "identity": "terrain-quality-presets-2",
+  "utc": "2026-10-27T17:17:51.447018+00:00",
+  "status": "Frozen four-file candidate with single physics Attach hook and explicit root opt-in; NOT INSTALLED by this lane",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+      "before": "fb6bfe496d49bf002feae191b56343808a2d65d364bf77047b96a351f999e8b3",
+      "sha256": "b3e6bb102d12acd49840524663c901a702aa540aa416cbda1a53b146b2121699"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "473df2490ac1ef510f1ea1b40501ddb38dbf2da0247c50bb702a119a79dc0eb7",
+      "sha256": "3a8ba5d7971ad2325616494e7c7e2d383912b157e2a957eab977e582c7cf4399"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "before": "5d7e2903cabc71af4618582951fa47fa35897c00c6ce91bd13db14831093c321",
+      "sha256": "a5176bba58f079150547782ca484fb3758f82cae6924e3753ea460eb2ced771c"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "464c5661cfd1f91624e77aeb68f1119d66ac439f23a54e78f8b31c5b0e2132b9",
+      "sha256": "dd09660ddd74610ba1ae5e1acf9a46144e601ea74bd1c3e54fa06dd3f56e3252"
+    }
+  ],
+  "compile_dependencies": {
+    "owner": "01a17c2d-6adf-742a-97e8-2240fba66035",
+    "identity": "movement-feel-1",
+    "integration_required": true,
+    "files": [
+      {
+        "path": "Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs",
+        "preimage_sha256": "55712c21aa0066bf1a6231f52069ae33203e19bf5978f75eae53d9a9499887b4",
+        "candidate_sha256": "9cc6b6fe875725b6fc7a5de191b47da91efd2465df0e5adf31d869801717806f",
+        "current_main_sha256": "55712c21aa0066bf1a6231f52069ae33203e19bf5978f75eae53d9a9499887b4",
+        "main_matches_preimage": true
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/ExplorationController.cs",
+        "preimage_sha256": "411c3feb0d03b04cd1277b3afefe122b56babb8636e13b011a11d3b390d1ccf2",
+        "candidate_sha256": "cd014dd2ea7f3146021acbed997209ed48ef3f7dcf06476a71302c558ee8723d",
+        "current_main_sha256": "411c3feb0d03b04cd1277b3afefe122b56babb8636e13b011a11d3b390d1ccf2",
+        "main_matches_preimage": true
+      }
+    ],
+    "scope": "Compile-only dependency payload; not owned or installed by preset lane."
+  },
+  "validation": {
+    "preset_admission_ring_focus": "checks/20261027-171142-154787-focused/result.json",
+    "preset_admission_ring_checks": 1995,
+    "latest_root_and_options_focus": "checks\\20261027-171655-043422-focused-options\\result.json",
+    "latest_options_checks": 33,
+    "api": "checks\\20261027-171650-971490-api-hook\\result.json",
+    "api_assemblies": 6,
+    "native_Play_or_visual_acceptance": false
+  },
+  "protected_unchanged": {
+    "Assets/AshenVoxel/Exploration/VegetationStreaming.cs": "5a9857676bbe91fdd5d744b0a62907938f6771ea95d861ce452b50ac14c75668",
+    "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs": "1651adfb2a1a9f589fc18ae96b8651ed608f546c7f79c666e237788b2c5dfc67",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs": "48c0e689eb7f3c06160d631bbcfe7f83c735379b032890e23c56bf448791f9fb",
+    "Assets/AshenVoxel/Settings/ExplorationSettings.asset": "a29a4afc820bbdefa7ecb228999b69c3bf95fbee79d1aa684f64f42a58aad112",
+    "Assets/Scenes/Exploration.unity": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+    "Assets/AshenVoxel/Exploration/Prototypes/ExplorationPrototypes.bytes": "41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa",
+    "Assets/AshenVoxel/Exploration/Samples/exploration-world.json": "85ff39810a717cc35db248d9c48b38af52839346e392c32ba707f67e6df94ea3"
+  },
+  "user_options_unchanged": {
+    "path": "C:\\Users\\ethan\\AppData\\LocalLow\\Ashen Voxel\\Ashen Voxel Exploration\\exploration-options.json",
+    "sha256": "93dc85a8d103b3de75587116507cbbd8de4b21029eeb2643cd0ba43c7451c231"
+  },
+  "presets": [
+    {
+      "name": "Normal",
+      "tiles": 512,
+      "pixels": 1.5,
+      "split": 2.2,
+      "far_detail_MiB": 1536,
+      "contact_MiB": 1024,
+      "greedy_visible": false
+    },
+    {
+      "name": "Detailed",
+      "tiles": 1536,
+      "pixels": 0.75,
+      "split": 4.4,
+      "far_detail_MiB": 2304,
+      "contact_MiB": 1024,
+      "greedy_visible": false
+    },
+    {
+      "name": "Maximum",
+      "tiles": 4096,
+      "pixels": 0.5,
+      "split": 20,
+      "far_detail_MiB": 4096,
+      "contact_MiB": 1024,
+      "greedy_visible": true
+    }
+  ],
+  "actual_world_requested_quality": [
+    {
+      "preset": "Detailed",
+      "radius_m": 512,
+      "samples": 11,
+      "before_mean_spacing_m": 1.3818181818181818,
+      "after_mean_spacing_m": 0.7999999999999999,
+      "finer": 8,
+      "coarser": 0,
+      "equal": 3
+    },
+    {
+      "preset": "Detailed",
+      "radius_m": 1024,
+      "samples": 11,
+      "before_mean_spacing_m": 1.7454545454545458,
+      "after_mean_spacing_m": 1.3818181818181818,
+      "finer": 4,
+      "coarser": 0,
+      "equal": 7
+    },
+    {
+      "preset": "Detailed",
+      "radius_m": 2048,
+      "samples": 11,
+      "before_mean_spacing_m": 4.072727272727274,
+      "after_mean_spacing_m": 2.3272727272727276,
+      "finer": 9,
+      "coarser": 0,
+      "equal": 2
+    },
+    {
+      "preset": "Detailed",
+      "radius_m": 4096,
+      "samples": 11,
+      "before_mean_spacing_m": 9.890909090909092,
+      "after_mean_spacing_m": 5.236363636363637,
+      "finer": 10,
+      "coarser": 0,
+      "equal": 1
+    },
+    {
+      "preset": "Detailed",
+      "radius_m": 8192,
+      "samples": 11,
+      "before_mean_spacing_m": 16.290909090909096,
+      "after_mean_spacing_m": 8.145454545454548,
+      "finer": 11,
+      "coarser": 0,
+      "equal": 0
+    },
+    {
+      "preset": "Maximum",
+      "radius_m": 512,
+      "samples": 11,
+      "before_mean_spacing_m": 1.3818181818181818,
+      "after_mean_spacing_m": 0.19999999999999998,
+      "finer": 11,
+      "coarser": 0,
+      "equal": 0
+    },
+    {
+      "preset": "Maximum",
+      "radius_m": 1024,
+      "samples": 11,
+      "before_mean_spacing_m": 1.7454545454545458,
+      "after_mean_spacing_m": 0.39999999999999997,
+      "finer": 11,
+      "coarser": 0,
+      "equal": 0
+    },
+    {
+      "preset": "Maximum",
+      "radius_m": 2048,
+      "samples": 11,
+      "before_mean_spacing_m": 4.072727272727274,
+      "after_mean_spacing_m": 0.7999999999999999,
+      "finer": 11,
+      "coarser": 0,
+      "equal": 0
+    },
+    {
+      "preset": "Maximum",
+      "radius_m": 4096,
+      "samples": 11,
+      "before_mean_spacing_m": 9.890909090909092,
+      "after_mean_spacing_m": 1.5999999999999999,
+      "finer": 11,
+      "coarser": 0,
+      "equal": 0
+    },
+    {
+      "preset": "Maximum",
+      "radius_m": 8192,
+      "samples": 11,
+      "before_mean_spacing_m": 16.290909090909096,
+      "after_mean_spacing_m": 3.1999999999999997,
+      "finer": 11,
+      "coarser": 0,
+      "equal": 0
+    }
+  ],
+  "actual_world_profile": {
+    "eye_x": -19065,
+    "eye_y": 589.8276432010615,
+    "eye_z": -10200,
+    "source_identity": "exploration-blend-v1/14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4/macro=3a307d7dcebc47e0d1831e75a7cd73346480d3386b27aae9600c71dd2051c98b/fine=0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb/width=299520/depth=149760/height=1/blend=512/source-width=299520/source-depth=149760/biomes=biome-cells-v1/14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4/9495e761e7eece02ad764bfb31bf96bb5be66ed84faca207f1100bb73df1a072/234/118/-149760/-75520/1280/surface-relief-v1/seed=714103/surface-v1/catalog-v4/714103/0/4200/2.4000000953674316/True/0.7/0.20000000298023224/0/rock=auto/wind=36.86989764584402/sun=287.3540246362613",
+    "viewport_width": 1440,
+    "viewport_height": 900,
+    "fov": 93.43284,
+    "geometry_builds": 0,
+    "scope": "Actual frozen source/static elevated spawn; requested targets and sampled canonical plan coverage only. No native geometry, achieved quality, Start/FPS or total memory claim."
+  },
+  "actual_world_plan_costs": [
+    {
+      "preset": "Normal",
+      "tiles": 511,
+      "pending": 95,
+      "planning_ms": 16.1145,
+      "reserve_bytes": 342097920,
+      "transition_plus_contact_bytes": 3368550400
+    },
+    {
+      "preset": "Detailed",
+      "tiles": 1534,
+      "pending": 344,
+      "planning_ms": 61.0816,
+      "reserve_bytes": 1026293760,
+      "transition_plus_contact_bytes": 5542248448
+    },
+    {
+      "preset": "Maximum",
+      "tiles": 4096,
+      "pending": 3892,
+      "planning_ms": 348.5359,
+      "reserve_bytes": 2736783360,
+      "transition_plus_contact_bytes": 10842275840
+    }
+  ],
+  "failure_history": [
+    {
+      "run": "20261027-170252-058525-api",
+      "status": "FAIL",
+      "error": "Command '['C:\\\\Program Files\\\\dotnet\\\\dotnet.exe', 'C:\\\\Program Files\\\\dotnet\\\\sdk\\\\8.0.407\\\\Roslyn\\\\bincore\\\\csc.dll', '@C:\\\\Users\\\\ethan\\\\Downloads\\\\AshenVoxel\\\\.terrain-cache\\\\terrain-quality-presets\\\\checks\\\\20261027-170252-058525-api\\\\AshenVoxel.WorldScaleRuntime.rsp']' returned non-zero exit status 1."
+    },
+    {
+      "run": "20261027-170645-787353-focused",
+      "status": "FAIL",
+      "error": "Command '['C:\\\\Program Files\\\\dotnet\\\\dotnet.exe', 'C:\\\\Program Files\\\\dotnet\\\\sdk\\\\8.0.407\\\\Roslyn\\\\bincore\\\\csc.dll', '@C:\\\\Users\\\\ethan\\\\Downloads\\\\AshenVoxel\\\\.terrain-cache\\\\terrain-quality-presets\\\\checks\\\\20261027-170645-787353-focused\\\\compile.rsp']' returned non-zero exit status 1."
+    },
+    {
+      "run": "20261027-170658-489839-focused",
+      "status": "FAIL",
+      "error": "Command '['C:\\\\Program Files\\\\dotnet\\\\dotnet.exe', 'C:\\\\Program Files\\\\dotnet\\\\sdk\\\\8.0.407\\\\Roslyn\\\\bincore\\\\csc.dll', '@C:\\\\Users\\\\ethan\\\\Downloads\\\\AshenVoxel\\\\.terrain-cache\\\\terrain-quality-presets\\\\checks\\\\20261027-170658-489839-focused\\\\compile.rsp']' returned non-zero exit status 1."
+    },
+    {
+      "run": "20261027-170838-604719-focused",
+      "status": "FAIL",
+      "error": "Command '['C:\\\\Program Files\\\\dotnet\\\\dotnet.exe', 'C:\\\\Program Files\\\\dotnet\\\\sdk\\\\8.0.407\\\\Roslyn\\\\bincore\\\\csc.dll', '@C:\\\\Users\\\\ethan\\\\Downloads\\\\AshenVoxel\\\\.terrain-cache\\\\terrain-quality-presets\\\\checks\\\\20261027-170838-604719-focused\\\\compile.rsp']' returned non-zero exit status 1."
+    }
+  ],
+  "limits": [
+    "Requested quality and sampled coverage only; no achieved valley fidelity, Start/FPS or native total memory claim.",
+    "Maximum transition+contact mesh payload ceiling10,340MiB excludes workers, upload scratch, native/driver copies, vegetation and process overhead. Not guaranteed safe RAM or eager reservation.",
+    "Detailed/Maximum increase coarse tile count and can substantially lengthen initial coverage and later refinement.",
+    "Existing one-worker/progressive queue,8-column initial coverage,contact urgency/flight gates,quota backoff/release wake and face-cap safeguards remain.",
+    "Maximum requests256columns for eligible visible leaves, within bounded4096plan; planar resolution is limited by selected leaf size and face/memory caps. Not10cm over the entire visible world.",
+    "Normal copied validation/custom fields remain effective and labeled. Explicit Normal selection resets canonical shipping values. Persisted preset only changes on explicit Save.",
+    "Movement opt-in UI requires coordinator-owned movement-feel-1 two-file payload, already present at freeze; default disabled. No movement persistence fields added.",
+    "Root F1 persistence is explicit opt-in; native grounded-root gameplay/memory acceptance remains open.",
+    "1995-check v1 preset/plan/memory source is unchanged except Bootstrap root/options and one hook. No broad rerun; v2 adds options-only checks and real helper/FiniteMatter API compile.",
+    "Focused options check stubs physics Attach and bee rendering because it stops Boot at first yield; real API compile includes actual helper/root/wildlife sources."
+  ],
+  "physics_dependency": {
+    "identity": "exploration-beta-matter-1",
+    "owner": "integration coordinator/physics owner",
+    "manifest": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\exploration-beta-matter\\manifest.json",
+    "sha256": "8e13c1b0dc3c1a8f47589a8568714eca849c95478115487a8e95b8721dac9bab",
+    "path": "Assets/AshenVoxel/Exploration/ExplorationBetaMatter.cs",
+    "assembly_change": "Add AshenVoxel.FiniteMatter reference to AshenVoxel.Exploration.asmdef (owner merges; never overwrite newer file)",
+    "included_in_preset_manifest": false
+  },
+  "v1_preserved": "frozen-v1/manifest.json",
+  "v2_changes": [
+    "One ExplorationBetaMatter.Attach(this) after bees.Initialize(this); helper and asmdef reference owned by physics/integration coordinator.",
+    "Grounded bases F1 selected/applied/restart pending; safe defaultfalse; independent rootOptionsVersion1 saved explicitly and loaded before initialization.",
+    "Periodic population settings use captured applied root flag and never toggle an initialized owner."
+  ],
+  "integration_requirements": [
+    "Merge all four source files atomically with physics helper/meta and Exploration asmdef FiniteMatter reference.",
+    "Use existing installed movement-feel-1 pair. Preserve all other root/bee/terrain/main settings and original options.",
+    "Short shared existing-Editor beta compile/Play/visual check belongs to coordinator; no standalone scene or rebakes."
+  ]
+}

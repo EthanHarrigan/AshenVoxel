@@ -1,0 +1,31 @@
+{
+  "id": "movement-cliff-1",
+  "status": "Unadopted candidate outside Assets; CPU/API PASS; native/install hold",
+  "utc": "2026-10-27T09:43:40.622740+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs",
+      "before": "55712c21aa0066bf1a6231f52069ae33203e19bf5978f75eae53d9a9499887b4",
+      "sha256": "eff7b11db3fd6f6d79a131598fdf39cf233438393632f41c6971d306df8c6d24",
+      "candidate_source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\cliff-slide-audit\\eno-v2\\ExplorationMovement.cs"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/VoxelTerrainPage.cs",
+      "before": "f8b274d2288ead310432d170f55b5d48e9bc829085f4631ac655854822e0b337",
+      "sha256": "e54828332bda0df46d885d5cde4b5d00e6cccbb1683d4f7af6514410c9db0a7d",
+      "candidate_source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\cliff-slide-audit\\eno-v2\\VoxelTerrainPage.cs"
+    }
+  ],
+  "checks": {
+    "scenarios": 520,
+    "custom_provider_guards": 21,
+    "movement": 127,
+    "voxel": 25,
+    "actual_Unity_API_assemblies": 5
+  },
+  "measured_extra_steep_tick_ms": [
+    0.014,
+    0.029
+  ],
+  "scope": "Warmed Windows .NET using actual14fb32 field+relief+snow; no Unity frame time/Play acceptance. Existing ordinary settings/contact/ascent remain unchanged. Grounding DEV freeze preserved."
+}

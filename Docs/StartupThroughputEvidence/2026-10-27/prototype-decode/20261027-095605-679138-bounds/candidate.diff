@@ -1,0 +1,23 @@
+--- installed/Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs
++++ candidate/Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs
+@@ -192,13 +192,19 @@
+                 byte normal=(byte)(flags&7);int pattern=(flags>>3)&3;
+                 if(normal>5||(flags>>5)!=0||width<1||width>32767||height<1||height>32767||color>=paletteCount)throw new InvalidDataException("Invalid quad attributes.");
+                 int u=(normal/2+1)%3,v=(normal/2+2)%3;
++                // Positive extents: checking both endpoints on each axis encloses all four corners.
++                for(int axis=0;axis<3;axis++)
++                {
++                    long minimum=previous[axis],maximum=minimum+(axis==u?width:axis==v?height:0);
++                    if(minimum<short.MinValue||maximum>short.MaxValue||minimum*.1<bounds[axis]-6.5||maximum*.1>bounds[axis+3]+6.5)
++                        throw new InvalidDataException("Quad vertex exceeds conservative bounds.");
++                }
+                 for(int corner=0;corner<4;corner++)
+                 {
+                     int vertex=q*4+corner;
+                     for(int axis=0;axis<3;axis++)
+                     {
+                         long value=previous[axis]+(axis==u&&(corner==1||corner==2)?width:0)+(axis==v&&(corner==2||corner==3)?height:0);
+-                        if(value<short.MinValue||value>short.MaxValue||value*.1<bounds[axis]-6.5||value*.1>bounds[axis+3]+6.5)throw new InvalidDataException("Quad vertex exceeds conservative bounds.");
+                         positions[vertex*3+axis]=(short)value;
+                     }
+                     normals[vertex]=normal;uint alpha=(uint)((material<<2)|((ao>>(corner*2))&3));colors[vertex]=palette[color]|alpha<<24;

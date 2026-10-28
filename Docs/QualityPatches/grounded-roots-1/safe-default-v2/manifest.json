@@ -1,0 +1,28 @@
+{
+  "id": "grounded-roots-safe-default-2",
+  "utc": "2026-10-27T15:50:52.720090+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationRoots.cs",
+      "before": "d1b3f78f5a7f4bfec2f6d2d770da27dfa60e7a9b602cdf0521a7e156d5925244",
+      "sha256": "55fd2ee74dd317cfbc945a54ea97de1bfa9cde01cb1fec92e3d77d465b37de4f",
+      "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\safe-default-v2\\payload\\Assets\\AshenVoxel\\Exploration\\VegetationRoots.cs",
+      "backup": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\safe-default-v2\\preimages\\Assets\\AshenVoxel\\Exploration\\VegetationRoots.cs"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+      "before": "66626530b591492e92ea2771b50e7a6acf3c8c789211ddcc42bacdf37d3976b9",
+      "sha256": "fb6bfe496d49bf002feae191b56343808a2d65d364bf77047b96a351f999e8b3",
+      "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\safe-default-v2\\payload\\Assets\\AshenVoxel\\Exploration\\ExplorationSettings.cs",
+      "backup": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\safe-default-v2\\preimages\\Assets\\AshenVoxel\\Exploration\\ExplorationSettings.cs"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "31145415cff911cb178955bdfb17fbbe561bfff9e7101abc5f6936dc5194fa94",
+      "sha256": "473df2490ac1ef510f1ea1b40501ddb38dbf2da0247c50bb702a119a79dc0eb7",
+      "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\safe-default-v2\\payload\\Assets\\AshenVoxel\\Exploration\\ExplorationBootstrap.cs",
+      "backup": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\safe-default-v2\\preimages\\Assets\\AshenVoxel\\Exploration\\ExplorationBootstrap.cs"
+    }
+  ],
+  "scope": "Reachable startup-only Settings opt-in,false default. Preserves bee Bootstrap hooks. No Play retry/thresholdraise."
+}

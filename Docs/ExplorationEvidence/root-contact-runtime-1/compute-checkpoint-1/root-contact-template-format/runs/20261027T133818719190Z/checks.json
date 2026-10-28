@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "assertions": 140751,
+  "models": [
+    {
+      "model": 10,
+      "bytes": 480819,
+      "root_columns": 2314,
+      "root_cells": 55061,
+      "context_cells": 5345,
+      "canonical_ranks": 1419,
+      "fixed_samples": 4101
+    },
+    {
+      "model": 11,
+      "bytes": 508934,
+      "root_columns": 2390,
+      "root_cells": 58086,
+      "context_cells": 5736,
+      "canonical_ranks": 1491,
+      "fixed_samples": 4396
+    }
+  ],
+  "scope": "Bounded companion data decoder only; corruption/truncation/version/identity/size and exact frozen template equality. Not production loading or native execution."
+}

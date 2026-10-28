@@ -1,0 +1,11 @@
+{
+  "name": "AshenVoxel.Rendering.Editor",
+  "rootNamespace": "AshenVoxel.Rendering.Editor",
+  "references": [
+    "AshenVoxel.Core",
+    "AshenVoxel.Rendering"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}

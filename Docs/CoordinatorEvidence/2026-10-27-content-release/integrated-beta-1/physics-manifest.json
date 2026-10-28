@@ -1,0 +1,34 @@
+{
+  "identity": "exploration-beta-matter-1",
+  "status": "API compiled; NOT installed/native tested",
+  "new_sources": {
+    "Assets/AshenVoxel/Exploration/ExplorationBetaMatter.cs": "13089bf2ade4107d471999300f48b7bc5d809a04752aebb7f1398bbbdc67277b",
+    "Assets/AshenVoxel/Exploration/ExplorationBetaMatter.cs.meta": "5280520e6d38fee65b402db97dc8f419cede6fbb8cdb89ea64f57298d5ff6e25"
+  },
+  "hook": "AshenVoxel.Exploration.ExplorationBetaMatter.Attach(this); once in ExplorationBootstrap",
+  "assembly_change": "Add AshenVoxel.FiniteMatter reference to AshenVoxel.Exploration.asmdef (owner merges; never overwrite newer file)",
+  "assembly_candidate_sha256": "e1e812cdc6207a3568eea552b85713336c070d2a70eb077960457a1076dc24a2",
+  "preimages": {
+    "preimages\\AshenVoxel.Exploration.asmdef": "f3413f05585bfe9b49f0c371671d3cab8fb8c349e1a0a2811b24b13ef6a048b0",
+    "preimages\\ExplorationBootstrap.cs": "473df2490ac1ef510f1ea1b40501ddb38dbf2da0247c50bb702a119a79dc0eb7",
+    "preimages\\FallingAggregate.cs": "369890c297906ffe668089a1b3c2f63b822c84ece0f5ac38fde2db87f216110a",
+    "preimages\\FallingAggregateActor.cs": "b788c82a74bd3a562d21e6272b444be9f26c5516d966cc143b5945fde0750dfe",
+    "preimages\\FiniteMatterSliceOwner.cs": "920ce6502eb4180c03cf62fc00f1e073112969295ec555e61b8097bdb7994c6b",
+    "preimages\\LocalizedMatter.cs": "9623200a9e9b28c8692a7da9fbe396d306bcf22c3a250611fd14405d6156b23e"
+  },
+  "required_references": {
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\AshenVoxel.Core.dll": "f481e3aa2ac74f1f13934d1680460ec11d9820cbdb32521d464d72830a9baf44",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\AshenVoxel.Rendering.dll": "28db2792660f68e532953982b57570a9bcc3ede9efa66c625ebcadbce187c705",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\AshenVoxel.WorldScaleData.dll": "8662664947c85207aec5153fa95599ed15eeda081ee11372ee6fde170cf8da44",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\AshenVoxel.WorldScaleRuntime.dll": "4368a23d2a69ba5c44555605d56ff17c7d294e42a58f6e78ec811f6babf6dc37",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\AshenVoxel.Exploration.dll": "bdb6539843cc9f37927f0c7e8476f78c17fc0f6bf5c76a5d92e7c392e7e20461",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\Unity.InputSystem.dll": "e0cca68a81cd3403eb43be02156a7ebf8691c1e8b663a1c18b2d91a7a4186e67"
+  },
+  "private_payload_cells": 72,
+  "aggregate_cap": 1,
+  "debris_cap": 16,
+  "cargo_keys_cap": 8,
+  "outside_world_writes": false,
+  "new_ground_colliders": 0,
+  "native_verifier": "shared coordinator only"
+}

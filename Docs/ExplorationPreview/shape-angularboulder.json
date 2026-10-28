@@ -1,0 +1,242 @@
+{
+  "name": "shape-angularboulder",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    90,
+    17,
+    24
+  ],
+  "occupied_cells": 7588,
+  "bounds_min_m": [
+    0.2,
+    0,
+    0.1
+  ],
+  "bounds_max_m": [
+    8.3,
+    1.3,
+    2.3000000000000003
+  ],
+  "material_counts": {
+    "Gravel": 1640,
+    "Granite": 5948
+  },
+  "scene": {
+    "category": "rock-shape",
+    "label": "Angular boulder / same granite",
+    "seeds": [
+      714103,
+      271828,
+      161803
+    ],
+    "specimens": [
+      {
+        "name": "Granite",
+        "seed": 714103,
+        "profile": {
+          "Shape": 1,
+          "ResolvedShape": 1,
+          "Identity": "rock-v2/catalog-v3/11/714103/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False/shape=AngularBoulder/resolved=AngularBoulder/appearance-v2",
+          "Material": 11,
+          "Seed": 714103,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 2.2,
+          "HeightMeters": 1.3,
+          "DepthMeters": 1.85,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.82,
+          "JointStrength": 0.3,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 1,
+          "CandidateCount": 1884,
+          "ColumnEvaluations": 483,
+          "ShapeCells": 1806,
+          "WrittenCells": 1806,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 53,
+            "y": 6,
+            "z": 56
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 72,
+            "y": 18,
+            "z": 71
+          }
+        },
+        "actual_dimensions_m": [
+          2,
+          1.3,
+          1.6
+        ],
+        "requested_shape": "AngularBoulder",
+        "resolved_shape": "AngularBoulder",
+        "generated_cells": 1806,
+        "material_counts": {
+          "Granite": 1806
+        },
+        "palette": {
+          "Granite": [
+            4287597189,
+            4287860104
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -49,
+          "y": -6,
+          "z": -52
+        }
+      },
+      {
+        "name": "Granite",
+        "seed": 271828,
+        "profile": {
+          "Shape": 1,
+          "ResolvedShape": 1,
+          "Identity": "rock-v2/catalog-v3/11/271828/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False/shape=AngularBoulder/resolved=AngularBoulder/appearance-v2",
+          "Material": 11,
+          "Seed": 271828,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 2.2,
+          "HeightMeters": 1.3,
+          "DepthMeters": 1.85,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.82,
+          "JointStrength": 0.3,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 1,
+          "CandidateCount": 2292,
+          "ColumnEvaluations": 483,
+          "ShapeCells": 2197,
+          "WrittenCells": 2197,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 54,
+            "y": 6,
+            "z": 56
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 72,
+            "y": 18,
+            "z": 73
+          }
+        },
+        "actual_dimensions_m": [
+          1.9000000000000001,
+          1.3,
+          1.8
+        ],
+        "requested_shape": "AngularBoulder",
+        "resolved_shape": "AngularBoulder",
+        "generated_cells": 2197,
+        "material_counts": {
+          "Granite": 2197
+        },
+        "palette": {
+          "Granite": [
+            4287071104,
+            4287334019,
+            4287597189,
+            4287860104,
+            4288123018
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -21,
+          "y": -6,
+          "z": -53
+        }
+      },
+      {
+        "name": "Granite",
+        "seed": 161803,
+        "profile": {
+          "Shape": 1,
+          "ResolvedShape": 1,
+          "Identity": "rock-v2/catalog-v3/11/161803/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False/shape=AngularBoulder/resolved=AngularBoulder/appearance-v2",
+          "Material": 11,
+          "Seed": 161803,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 2.2,
+          "HeightMeters": 1.3,
+          "DepthMeters": 1.85,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.82,
+          "JointStrength": 0.3,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 1,
+          "CandidateCount": 2021,
+          "ColumnEvaluations": 483,
+          "ShapeCells": 1945,
+          "WrittenCells": 1945,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 53,
+            "y": 6,
+            "z": 55
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 72,
+            "y": 18,
+            "z": 70
+          }
+        },
+        "actual_dimensions_m": [
+          2,
+          1.3,
+          1.6
+        ],
+        "requested_shape": "AngularBoulder",
+        "resolved_shape": "AngularBoulder",
+        "generated_cells": 1945,
+        "material_counts": {
+          "Granite": 1945
+        },
+        "palette": {
+          "Granite": [
+            4287071104,
+            4287334019,
+            4287597189,
+            4287860104,
+            4288123018
+          ]
+        },
+        "packed_offset_cells": {
+          "x": 8,
+          "y": -6,
+          "z": -51
+        }
+      }
+    ],
+    "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+  },
+  "generation_version": {
+    "plant": 1,
+    "rock": 2,
+    "catalog": 3,
+    "rock_appearance": 2
+  },
+  "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain.",
+  "appearance_metadata_annotation": "AppearanceVersion read from the compiled source snapshot; original exporter does not emit this separate field."
+}

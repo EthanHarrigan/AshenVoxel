@@ -1,0 +1,22 @@
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Ll]ogs/
+UserSettings/
+[Bb]uilds/
+.vs/
+.idea/
+*.csproj
+!Tools/**/*.csproj
+*.sln
+*.user
+Tools/**/bin/
+Tools/**/obj/
+.DS_Store
+
+__pycache__/
+*.pyc
+Tools/**/bin/
+
+# Optional local InfiniteDiffusion tools, weights and regenerated caches
+.terrain-cache/

@@ -1,0 +1,232 @@
+using System.Collections.Generic;
+using System;
+using AshenVoxel.Core;
+using AshenVoxel.Core.Experimental;
+using AshenVoxel.WorldScale;
+using UnityEngine.InputSystem;
+using AshenVoxel.Rendering;
+using UnityEngine;
+using UnityEngine.Rendering;
+
+namespace AshenVoxel.Exploration
+{
+    /// <summary>One opt-in placed 72-cell branch inside Exploration. Private finite matter,
+    /// one aggregate, sixteen debris records; no external world or save writes.</summary>
+    [DefaultExecutionOrder(250)]
+    public sealed class ExplorationBetaMatter : MonoBehaviour
+    {
+        public VoxelWorld World {get;private set;}
+        public LocalizedMatter Matter {get;private set;}
+        public FallingAggregateActor Actor {get;private set;}
+        public ChunkWorldRenderer Terrain {get;private set;}
+        public bool SuctionEnabled;
+        public bool ShowBetaHud=true;
+        public long PublishedStaticRevision {get;private set;}
+        public float MaximumRotationDegrees {get;private set;}
+        public bool ConservationIntact => initialized&&OwnedCells==InitialMatterCells;
+        public long OwnedCells => !initialized?0:WorldBranchCells()+Matter.DebrisCount+(Actor==null?0:Actor.Aggregate.Remaining)+Matter.CreditedCells;
+        public const int InitialMatterCells=72;
+        readonly FallingAggregateSlot slot=new FallingAggregateSlot();
+        readonly List<Int3> branch=new List<Int3>(64);
+        readonly Int3 cutCollector=new Int3(26,4,15);
+        Mesh debrisMesh; MeshFilter debrisFilter;
+        readonly List<Vector3> vertices=new List<Vector3>(384);
+        readonly List<Vector3> normals=new List<Vector3>(384);
+        readonly List<Color32> colors=new List<Color32>(384);
+        readonly List<int> triangles=new List<int>(576);
+        string state="J: place one experimental branch in front";bool cutRequested,capturePending,initialized;
+        float debrisClock;
+        ExplorationBootstrap boot;
+        WorldPoint anchor,lastOrigin;
+        Transform staticRoot;
+        bool suspended;
+        public static ExplorationBetaMatter Attach(ExplorationBootstrap boot)
+        {
+            if(boot==null)throw new ArgumentNullException(nameof(boot));
+            var existing=boot.GetComponent<ExplorationBetaMatter>();if(existing!=null)return existing;
+            var result=boot.gameObject.AddComponent<ExplorationBetaMatter>();result.boot=boot;return result;
+        }
+        GameObject Child(string label){var go=new GameObject(label);go.transform.SetParent(transform,false);return go;}
+        void Start(){if(boot==null){state="Attach through ExplorationBootstrap required";enabled=false;}}
+        public bool Place()
+        {
+            if(initialized||!boot.Ready||boot.Player==null||boot.Vista==null)return false;
+            var eye=boot.Player.Eye;double yaw=boot.Player.Yaw*Math.PI/180;
+            double cx=eye.X+Math.Sin(yaw)*3,cz=eye.Z+Math.Cos(yaw)*3;
+            // Float the existing finite fixture three metres ahead, centered at
+            // eye height. Placement does not depend on terrain slope/readiness.
+            // Its private simulation floor remains local Y=.1, not world terrain.
+            anchor=new WorldPoint(cx-1.5,eye.Y-1,cz-1.5);
+            lastOrigin=boot.Vista.RenderOrigin;
+            World=new VoxelWorld(32,32,32,.1f,714103);
+            for(int y=1;y<19;y++)for(int z=14;z<16;z++)for(int x=14;x<16;x++)
+            {var cell=new Int3(x,y,z);World.Set(cell,MaterialId.Wood,0xFF916039);if(y>=3)branch.Add(cell);}
+            Matter=new LocalizedMatter(World,new Int3(0,0,0),new Int3(31,31,31),64,16,8);
+            Matter.AdditionalOccupancy=(cell,excluded)=>Actor!=null&&!ReferenceEquals(excluded,Actor.Aggregate)&&Actor.OccupiesCell(cell);
+            staticRoot=Child("Experimental branch local frame").transform;
+            Terrain=staticRoot.gameObject.AddComponent<ChunkWorldRenderer>();
+            // Player collision uses Exploration's own motor; this placed beta
+            // does not register mature props or alter player collision contracts.
+            Terrain.GenerateColliders=false;Terrain.Initialize(World);
+            var debris=new GameObject("Bounded debris cache (one mesh)");debris.transform.SetParent(staticRoot,false);
+            debrisFilter=debris.AddComponent<MeshFilter>();debris.AddComponent<MeshRenderer>().sharedMaterial=Terrain.SurfaceMaterial;
+            debrisMesh=new Mesh{name="Exploration beta debris",indexFormat=IndexFormat.UInt32};debrisMesh.MarkDynamic();debrisFilter.sharedMesh=debrisMesh;
+            initialized=true;SyncOrigin();state="Floating branch ready: J cuts, K toggles suction";return true;
+        }
+        void SyncOrigin()
+        {
+            if(!initialized||boot==null||boot.Vista==null)return;
+            var origin=boot.Vista.RenderOrigin;
+            double x=anchor.X-origin.X,y=anchor.Y-origin.Y,z=anchor.Z-origin.Z;
+            bool near=Math.Abs(x)<10000&&Math.Abs(y)<10000&&Math.Abs(z)<10000;
+            if(!near){suspended=true;staticRoot.gameObject.SetActive(false);if(Actor!=null)Actor.gameObject.SetActive(false);state="Beta branch suspended outside local view; owned matter retained";return;}
+            staticRoot.gameObject.SetActive(true);
+            staticRoot.position=new Vector3((float)x,(float)y,(float)z);
+            if(Actor!=null)
+            {
+                // Actor's ledger is in the fixture's local metre frame. Translate
+                // the observer origin into that frame before any float conversion.
+                if(origin.X!=lastOrigin.X||origin.Y!=lastOrigin.Y||origin.Z!=lastOrigin.Z)
+                    Actor.SetRenderOrigin(origin.X-anchor.X,origin.Y-anchor.Y,origin.Z-anchor.Z);
+                Actor.gameObject.SetActive(true);
+            }
+            lastOrigin=origin;suspended=false;
+        }
+        bool NearPlayer()
+        {
+            if(!initialized||boot.Player==null)return false;var feet=boot.Player.Feet;
+            double x=feet.X-(anchor.X+1.5),y=feet.Y-(anchor.Y+.1),z=feet.Z-(anchor.Z+1.5);
+            return x*x+y*y+z*z<=36;
+        }
+        Int3 PlayerCollector()
+        {
+            // Private grid ends at 3.2m. Pull in the player's direction, with
+            // session cargo credit at the clamped edge if the player is outside.
+            var eye=boot.Player.Eye;
+            int Cell(double n)=>(int)Math.Max(1,Math.Min(30,Math.Floor(n/.1)));
+            return new Int3(Cell(eye.X-anchor.X),Cell(eye.Y-anchor.Y),Cell(eye.Z-anchor.Z));
+        }
+        public bool CutSupport()
+        {
+            if(!initialized||suspended||!NearPlayer()||cutRequested||Terrain.PendingChunks!=0||Terrain.PendingColliders!=0)return false;
+            // Exactly eight support cell centers lie within this radius. Their
+            // matter enters debris before branch capture; nothing is deleted.
+            if(!Matter.TryBeginRemoval(1.5,.2,1.5,.09,10))return false;
+            cutRequested=true;capturePending=true;state="Cut queued; bounded support withdrawal";return true;
+        }
+        void Update()
+        {
+            if(!initialized){if(boot!=null&&boot.Ready&&boot.Player!=null&&boot.Player.InputEnabled&&Keyboard.current!=null&&Keyboard.current.jKey.wasPressedThisFrame)Place();return;}
+            SyncOrigin();if(suspended)return;
+            var keys=Keyboard.current;
+            if(boot.Player.InputEnabled&&keys!=null){if(keys.jKey.wasPressedThisFrame)CutSupport();if(keys.kKey.wasPressedThisFrame&&NearPlayer())SuctionEnabled=!SuctionEnabled;}
+            Terrain.RebuildBudget(2);
+            if(Terrain.PendingChunks==0&&Terrain.PendingColliders==0)
+            {
+                PublishedStaticRevision=World.Revision;
+                if(Actor!=null&&!Actor.Armed&&!Actor.Aggregate.ImpactReported)
+                {Physics.SyncTransforms();if(Actor.ArmAfterStaticCollisionRevision(PublishedStaticRevision))state="Rotating fall armed after static collider publication";}
+            }
+        }
+        void LateUpdate(){SyncOrigin();}
+        void FixedUpdate()
+        {
+            if(!initialized)return;SyncOrigin();if(suspended)return;
+            Matter.Step(64,16);
+            if(capturePending&&!Matter.Pending)
+            {
+                // A cut chip still occupies matter space until evacuated. Pull
+                // the eight chips aside before declaring the branch unsupported.
+                Matter.StepDebris(16,true,cutCollector);
+                bool blocked=false;
+                for(int z=14;z<16;z++)for(int x=14;x<16;x++)if(Matter.IsOccupied(new Int3(x,2,z)))blocked=true;
+                if(!blocked&&slot.TryCapture(World,Matter,branch,1024,64,out string reason))
+                {
+                    capturePending=false;
+                    Actor=Child("Single detached branch body").AddComponent<FallingAggregateActor>();
+                    Actor.InitialAngularVelocity=new Vector3(0,0,1.5f);Actor.FragmentCandidateBudget=16;
+                    Actor.Bind(slot.Current,Terrain.SurfaceMaterial,v=>MaterialCatalog.BlocksActorBody(v.Matter.Material,false),lastOrigin.X-anchor.X,lastOrigin.Y-anchor.Y,lastOrigin.Z-anchor.Z);
+                    state="Branch captured; waiting for static collider cache";
+                }
+                else state="Evacuating support chips; branch remains in world";
+            }
+            if(Actor!=null)
+            {
+                Actor.TickOwnedPhysics();
+                MaximumRotationDegrees=Mathf.Max(MaximumRotationDegrees,Quaternion.Angle(Quaternion.identity,Actor.transform.rotation));
+                if(Actor.Aggregate.ImpactReported)state=Actor.Aggregate.Status;
+                if(Actor.Armed&&!Actor.Aggregate.ImpactReported)
+                {
+                    // Private fixture floor, independent of world terrain.
+                    // Contact stops and breaks the detached branch.
+                    float half=.05f*(Mathf.Abs(Actor.transform.right.y)+Mathf.Abs(Actor.transform.up.y)+Mathf.Abs(Actor.transform.forward.y));
+                    for(int i=0;i<Actor.Aggregate.OriginalCount;i++)
+                    {
+                        if(!Actor.Aggregate.IsRemaining(i))continue;
+                        Actor.Aggregate.WorldCenter(i,out _,out double y,out _);
+                        if(y-half<=.1){Actor.RequestBreakup();break;}
+                    }
+                }
+                if(SuctionEnabled&&NearPlayer()&&Actor.Aggregate.ImpactReported)
+                {
+                    var eye=boot.Player.Eye;
+                    Actor.Suction(eye.X-anchor.X,eye.Y-anchor.Y,eye.Z-anchor.Z,4,16);
+                }
+            }
+            debrisClock+=Time.fixedDeltaTime;
+            if(debrisClock>=.05f){debrisClock=0;if(!capturePending)Matter.StepDebris(16,SuctionEnabled&&NearPlayer(),PlayerCollector());RebuildDebris();}
+            if(OwnedCells!=InitialMatterCells){state="CONSERVATION FAILURE";enabled=false;Debug.LogError(state);}
+        }
+        int WorldBranchCells()
+        {
+            if(World==null)return 0;int count=0;
+            for(int y=1;y<19;y++)for(int z=14;z<16;z++)for(int x=14;x<16;x++)if(World.Get(x,y,z)==MaterialId.Wood)count++;
+            return count;
+        }
+        void RebuildDebris()
+        {
+            vertices.Clear();normals.Clear();colors.Clear();triangles.Clear();
+            foreach(var voxel in Matter.Debris)
+            {
+                uint color=voxel.Matter.Tint==0?VoxelColor.Base(voxel.Matter.Material):voxel.Matter.Tint;
+                var rgba=new Color32((byte)(color>>16),(byte)(color>>8),(byte)color,VertexAppearance.Pack(voxel.Matter.Material,3));
+                for(int axis=0;axis<3;axis++)for(int sign=-1;sign<=1;sign+=2)
+                {
+                    int start=vertices.Count,u=(axis+1)%3,v=(axis+2)%3;
+                    for(int corner=0;corner<4;corner++)
+                    {
+                        var point=new Vector3(voxel.Cell.x,voxel.Cell.y,voxel.Cell.z);point[axis]+=sign>0?1:0;
+                        point[u]+=(corner==1||corner==2)?1:0;point[v]+=corner>=2?1:0;
+                        var normal=Vector3.zero;normal[axis]=sign;vertices.Add(point*.1f);normals.Add(normal);colors.Add(rgba);
+                    }
+                    triangles.Add(start);triangles.Add(start+(sign>0?1:3));triangles.Add(start+2);
+                    triangles.Add(start);triangles.Add(start+2);triangles.Add(start+(sign>0?3:1));
+                }
+            }
+            debrisMesh.Clear();debrisMesh.SetVertices(vertices);debrisMesh.SetNormals(normals);debrisMesh.SetColors(colors);debrisMesh.SetTriangles(triangles,0);debrisMesh.RecalculateBounds();
+        }
+        void OnGUI()
+        {
+            if(!ShowBetaHud||boot==null||!boot.Ready)return;
+            GUI.Box(new Rect(12,Screen.height-152,620,140),"EXPERIMENTAL placed branch — 72 cells; authored trees unchanged");
+            GUI.Label(new Rect(24,Screen.height-124,590,24),state);
+            if(!initialized)
+            {if(GUI.Button(new Rect(24,Screen.height-92,250,28),"Spawn branch in air ahead"))Place();return;}
+            GUI.Label(new Rect(24,Screen.height-98,590,24),"Owned "+OwnedCells+" / 72 | debris "+Matter.DebrisCount+" /16 | cargo "+Matter.CreditedCells+" | aggregate "+(Actor==null?0:Actor.Aggregate.Remaining));
+            GUI.enabled=!suspended&&NearPlayer();
+            if(GUI.Button(new Rect(24,Screen.height-66,180,28),"J: Cut support"))CutSupport();
+            if(GUI.Button(new Rect(214,Screen.height-66,180,28),SuctionEnabled?"K: Suction ON":"K: Suction OFF"))SuctionEnabled=!SuctionEnabled;
+            GUI.enabled=true;
+            GUI.Label(new Rect(24,Screen.height-35,590,24),"Session cargo; edge credit outside local grid. Player passes through beta prop.");
+        }
+        void OnDisable(){if(Actor!=null)Actor.enabled=false;if(staticRoot!=null)staticRoot.gameObject.SetActive(false);}
+        void OnEnable(){if(initialized){SyncOrigin();if(Actor!=null)Actor.enabled=true;}}
+        void OnDestroy()
+        {
+            // Teardown terminates this explicit session, with no external world
+            // edits, inventory credits or persistence writes. No reset/respawn loop.
+            Matter?.Dispose();if(debrisMesh!=null)Destroy(debrisMesh);
+            if(Actor!=null)Destroy(Actor.gameObject);if(staticRoot!=null)Destroy(staticRoot.gameObject);
+        }
+    }
+}

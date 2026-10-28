@@ -1,0 +1,834 @@
+{
+  "status": "PASS",
+  "scope": "Actual shipped immutable learned world and default surface/population data; static walkability/real hard-prop clearance, not native Unity movement or visual validation",
+  "world_id": "779b530a6ba6923d62f1c8e99a603a2d9d979dafaa1015670efd9826284757f4",
+  "seed": 714103,
+  "grid_spacing_m": 640,
+  "total_grid_points": 109512,
+  "dry_land_grid_points": 31303,
+  "gentle_forest_grid_points": 12963,
+  "world_width_m": 299520,
+  "world_depth_m": 149760,
+  "spawn_x_m": 85760,
+  "spawn_z_m": 15330,
+  "sampling_note": "Cell-center rectangular640m lattice, counts are point counts rather than exact areas. Samples are nearest grid candidates with dry land, slope<=30deg, full-resolution hard-prop clearance for0.28m radius/1.8m height, and actual matching tree instances nearby. No runtime settings or world generation changed.",
+  "all_habitat_stage_counts": {
+    "BirchGrove/MatureOpen": 1690,
+    "BirchGrove/YoungDense": 1026,
+    "None/MatureOpen": 93578,
+    "OakWoodland/MatureOpen": 2502,
+    "OakWoodland/YoungDense": 2145,
+    "PineTaiga/MatureOpen": 1223,
+    "PineTaiga/YoungDense": 824,
+    "RedwoodRainforest/MatureOpen": 1278,
+    "RedwoodRainforest/YoungDense": 807,
+    "SeasonalBroadleaf/MatureOpen": 2689,
+    "SeasonalBroadleaf/YoungDense": 1750
+  },
+  "source_biome_grid_counts": {
+    "0": 75188,
+    "1": 1020,
+    "2": 304,
+    "3": 1000,
+    "4": 932,
+    "5": 3872,
+    "6": 2752,
+    "7": 2012,
+    "8": 3252,
+    "9": 2420,
+    "10": 868,
+    "11": 11428,
+    "12": 3884,
+    "13": 580
+  },
+  "habitats": [
+    {
+      "habitat": "OakWoodland",
+      "stage": "YoungDense",
+      "grid_points": 2145,
+      "grid_points_within_40km_of_spawn": 969,
+      "walkable_samples": [
+        {
+          "x_m": 83520,
+          "y_feet_m": 291.321303024292,
+          "z_m": 20160,
+          "distance_from_spawn_m": 5324.1,
+          "within_40km_of_spawn": true,
+          "source_biome": 3,
+          "slope_degrees": 22.249409040281197,
+          "surface_material": "Grass",
+          "temperature_c": 23.18899997472763,
+          "precipitation_mm": 715.2044372558594,
+          "stand_density": 0.05284645071576824,
+          "nearest_tree_m": 1.9946968601292465,
+          "matching_tree_instances_in_3x3_cells": 62,
+          "actual_prototype_ids": [
+            4,
+            5
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 85440,
+          "y_feet_m": 440.46110214233397,
+          "z_m": 7360,
+          "distance_from_spawn_m": 7976.4,
+          "within_40km_of_spawn": true,
+          "source_biome": 3,
+          "slope_degrees": 10.845440046452008,
+          "surface_material": "Grass",
+          "temperature_c": 16.693878626823427,
+          "precipitation_mm": 423.53272247314453,
+          "stand_density": 0.05031403345000927,
+          "nearest_tree_m": 6.265282201554554,
+          "matching_tree_instances_in_3x3_cells": 58,
+          "actual_prototype_ids": [
+            4,
+            5
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 85440,
+          "y_feet_m": 519.6276651763928,
+          "z_m": 6080,
+          "distance_from_spawn_m": 9255.5,
+          "within_40km_of_spawn": true,
+          "source_biome": 4,
+          "slope_degrees": 9.427543709125942,
+          "surface_material": "Grass",
+          "temperature_c": 15.71751593351363,
+          "precipitation_mm": 386.7051811218263,
+          "stand_density": 0.023831137819842578,
+          "nearest_tree_m": 34.38815209689602,
+          "matching_tree_instances_in_3x3_cells": 20,
+          "actual_prototype_ids": [
+            4,
+            5
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        }
+      ]
+    },
+    {
+      "habitat": "OakWoodland",
+      "stage": "MatureOpen",
+      "grid_points": 2502,
+      "grid_points_within_40km_of_spawn": 1115,
+      "walkable_samples": [
+        {
+          "x_m": 86720,
+          "y_feet_m": 256.294296875,
+          "z_m": 13760,
+          "distance_from_spawn_m": 1840.2,
+          "within_40km_of_spawn": true,
+          "source_biome": 6,
+          "slope_degrees": 25.676532039581613,
+          "surface_material": "Grass",
+          "temperature_c": 21.933285522460938,
+          "precipitation_mm": 1176.2744140625,
+          "stand_density": 0.20178278989849663,
+          "nearest_tree_m": 5.437605682359385,
+          "matching_tree_instances_in_3x3_cells": 80,
+          "actual_prototype_ids": [
+            6,
+            7
+          ],
+          "model_spacing_m": 5,
+          "fine_blend_weight": 1,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 84160,
+          "y_feet_m": 24.637033834457398,
+          "z_m": 18240,
+          "distance_from_spawn_m": 3320.9,
+          "within_40km_of_spawn": true,
+          "source_biome": 3,
+          "slope_degrees": 9.237922479586622,
+          "surface_material": "Grass",
+          "temperature_c": 24.442879313230513,
+          "precipitation_mm": 906.01806640625,
+          "stand_density": 0.013027963833636838,
+          "nearest_tree_m": 8.57128984794604,
+          "matching_tree_instances_in_3x3_cells": 10,
+          "actual_prototype_ids": [
+            6,
+            7
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 89920,
+          "y_feet_m": 460.5667807006836,
+          "z_m": 15040,
+          "distance_from_spawn_m": 4170.1,
+          "within_40km_of_spawn": true,
+          "source_biome": 6,
+          "slope_degrees": 15.928803641217689,
+          "surface_material": "Grass",
+          "temperature_c": 21.250007408857346,
+          "precipitation_mm": 1170.5219345092773,
+          "stand_density": 0.15362906644115595,
+          "nearest_tree_m": 4.9777837498950905,
+          "matching_tree_instances_in_3x3_cells": 182,
+          "actual_prototype_ids": [
+            6,
+            7
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        }
+      ]
+    },
+    {
+      "habitat": "BirchGrove",
+      "stage": "YoungDense",
+      "grid_points": 1026,
+      "grid_points_within_40km_of_spawn": 544,
+      "walkable_samples": [
+        {
+          "x_m": 86720,
+          "y_feet_m": 519.7953211212158,
+          "z_m": 11840,
+          "distance_from_spawn_m": 3619.6,
+          "within_40km_of_spawn": true,
+          "source_biome": 6,
+          "slope_degrees": 19.06967656163233,
+          "surface_material": "Litter",
+          "temperature_c": 19.36303088068962,
+          "precipitation_mm": 1431.823715209961,
+          "stand_density": 0.5766862262690972,
+          "nearest_tree_m": 1.217379678147593,
+          "matching_tree_instances_in_3x3_cells": 594,
+          "actual_prototype_ids": [
+            0,
+            1
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 87360,
+          "y_feet_m": 506.40042079925536,
+          "z_m": 9920,
+          "distance_from_spawn_m": 5641.6,
+          "within_40km_of_spawn": true,
+          "source_biome": 6,
+          "slope_degrees": 16.435515931406332,
+          "surface_material": "Grass",
+          "temperature_c": 18.3265472471714,
+          "precipitation_mm": 1285.1142272949219,
+          "stand_density": 0.701439088959751,
+          "nearest_tree_m": 2.8081940131791727,
+          "matching_tree_instances_in_3x3_cells": 732,
+          "actual_prototype_ids": [
+            0,
+            1
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 84160,
+          "y_feet_m": 672.121840133667,
+          "z_m": 20800,
+          "distance_from_spawn_m": 5699.2,
+          "within_40km_of_spawn": true,
+          "source_biome": 6,
+          "slope_degrees": 26.780158785653764,
+          "surface_material": "Litter",
+          "temperature_c": 21.114501559734343,
+          "precipitation_mm": 589.57568359375,
+          "stand_density": 0.6226780125301871,
+          "nearest_tree_m": 1.8953093282368498,
+          "matching_tree_instances_in_3x3_cells": 645,
+          "actual_prototype_ids": [
+            0,
+            1
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        }
+      ]
+    },
+    {
+      "habitat": "BirchGrove",
+      "stage": "MatureOpen",
+      "grid_points": 1690,
+      "grid_points_within_40km_of_spawn": 1007,
+      "walkable_samples": [
+        {
+          "x_m": 85440,
+          "y_feet_m": 792.0902220153808,
+          "z_m": 12480,
+          "distance_from_spawn_m": 2867.9,
+          "within_40km_of_spawn": true,
+          "source_biome": 6,
+          "slope_degrees": 18.148846598516528,
+          "surface_material": "Grass",
+          "temperature_c": 18.466939449310303,
+          "precipitation_mm": 1023.3603782653809,
+          "stand_density": 0.08838536059693049,
+          "nearest_tree_m": 7.107874894921151,
+          "matching_tree_instances_in_3x3_cells": 85,
+          "actual_prototype_ids": [
+            2,
+            3
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 86720,
+          "y_feet_m": 458.5255352401733,
+          "z_m": 12480,
+          "distance_from_spawn_m": 3007.3,
+          "within_40km_of_spawn": true,
+          "source_biome": 6,
+          "slope_degrees": 18.342351306987947,
+          "surface_material": "Grass",
+          "temperature_c": 20.150348556041717,
+          "precipitation_mm": 1371.809341430664,
+          "stand_density": 0.1458873294802462,
+          "nearest_tree_m": 6.60422671502292,
+          "matching_tree_instances_in_3x3_cells": 156,
+          "actual_prototype_ids": [
+            2,
+            3
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 84160,
+          "y_feet_m": 965.6556669616699,
+          "z_m": 12480,
+          "distance_from_spawn_m": 3268.4,
+          "within_40km_of_spawn": true,
+          "source_biome": 6,
+          "slope_degrees": 25.065806617593054,
+          "surface_material": "Grass",
+          "temperature_c": 17.173972886800765,
+          "precipitation_mm": 818.3823051452637,
+          "stand_density": 0.13083562856257056,
+          "nearest_tree_m": 2.977281851386492,
+          "matching_tree_instances_in_3x3_cells": 130,
+          "actual_prototype_ids": [
+            2,
+            3
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        }
+      ]
+    },
+    {
+      "habitat": "PineTaiga",
+      "stage": "YoungDense",
+      "grid_points": 824,
+      "grid_points_within_40km_of_spawn": 242,
+      "walkable_samples": [
+        {
+          "x_m": 82240,
+          "y_feet_m": 1994.9815145874024,
+          "z_m": 27840,
+          "distance_from_spawn_m": 12995.8,
+          "within_40km_of_spawn": true,
+          "source_biome": 8,
+          "slope_degrees": 28.132809730690305,
+          "surface_material": "Grass",
+          "temperature_c": 13.784266644716263,
+          "precipitation_mm": 892.158992767334,
+          "stand_density": 0.39405098018355855,
+          "nearest_tree_m": 2.8312367004103387,
+          "matching_tree_instances_in_3x3_cells": 421,
+          "actual_prototype_ids": [
+            12,
+            13
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 89920,
+          "y_feet_m": 1447.724983825686,
+          "z_m": 2240,
+          "distance_from_spawn_m": 13735.1,
+          "within_40km_of_spawn": true,
+          "source_biome": 8,
+          "slope_degrees": 19.17066871364911,
+          "surface_material": "Grass",
+          "temperature_c": 6.154563307762115,
+          "precipitation_mm": 857.4584922790499,
+          "stand_density": 0.6034190166324894,
+          "nearest_tree_m": 6.182287921268694,
+          "matching_tree_instances_in_3x3_cells": 447,
+          "actual_prototype_ids": [
+            12,
+            13
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 88640,
+          "y_feet_m": 1712.3868185424856,
+          "z_m": 1600,
+          "distance_from_spawn_m": 14028.8,
+          "within_40km_of_spawn": true,
+          "source_biome": 9,
+          "slope_degrees": 28.330511631390017,
+          "surface_material": "Litter",
+          "temperature_c": 4.3997043490409595,
+          "precipitation_mm": 588.0903854370115,
+          "stand_density": 0.4045558405074738,
+          "nearest_tree_m": 2.63333201370793,
+          "matching_tree_instances_in_3x3_cells": 425,
+          "actual_prototype_ids": [
+            12,
+            13
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        }
+      ]
+    },
+    {
+      "habitat": "PineTaiga",
+      "stage": "MatureOpen",
+      "grid_points": 1223,
+      "grid_points_within_40km_of_spawn": 433,
+      "walkable_samples": [
+        {
+          "x_m": 88640,
+          "y_feet_m": 1403.900704040526,
+          "z_m": 2880,
+          "distance_from_spawn_m": 12778.8,
+          "within_40km_of_spawn": true,
+          "source_biome": 8,
+          "slope_degrees": 8.152535794708266,
+          "surface_material": "Litter",
+          "temperature_c": 8.258393573761014,
+          "precipitation_mm": 819.2680740356467,
+          "stand_density": 0.09201376763752667,
+          "nearest_tree_m": 17.655278469819724,
+          "matching_tree_instances_in_3x3_cells": 60,
+          "actual_prototype_ids": [
+            14,
+            15
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 80960,
+          "y_feet_m": 2223.601410522461,
+          "z_m": 27200,
+          "distance_from_spawn_m": 12803.8,
+          "within_40km_of_spawn": true,
+          "source_biome": 8,
+          "slope_degrees": 5.2176544377123,
+          "surface_material": "Litter",
+          "temperature_c": 12.765381091833115,
+          "precipitation_mm": 813.9422721862793,
+          "stand_density": 0.18235008944726255,
+          "nearest_tree_m": 11.889388473933348,
+          "matching_tree_instances_in_3x3_cells": 123,
+          "actual_prototype_ids": [
+            14,
+            15
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 74560,
+          "y_feet_m": 2450.7275396728514,
+          "z_m": 24000,
+          "distance_from_spawn_m": 14163.6,
+          "within_40km_of_spawn": true,
+          "source_biome": 8,
+          "slope_degrees": 12.603020725729975,
+          "surface_material": "Grass",
+          "temperature_c": 9.612079679965973,
+          "precipitation_mm": 843.3656463623047,
+          "stand_density": 0.12456956807932003,
+          "nearest_tree_m": 14.291797395388851,
+          "matching_tree_instances_in_3x3_cells": 145,
+          "actual_prototype_ids": [
+            14,
+            15
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        }
+      ]
+    },
+    {
+      "habitat": "RedwoodRainforest",
+      "stage": "YoungDense",
+      "grid_points": 807,
+      "grid_points_within_40km_of_spawn": 361,
+      "walkable_samples": [
+        {
+          "x_m": 89920,
+          "y_feet_m": 446.95157302856444,
+          "z_m": 12480,
+          "distance_from_spawn_m": 5042.6,
+          "within_40km_of_spawn": true,
+          "source_biome": 8,
+          "slope_degrees": 19.27343559268389,
+          "surface_material": "Litter",
+          "temperature_c": 20.10778225660324,
+          "precipitation_mm": 1315.5835647583008,
+          "stand_density": 0.490033391903692,
+          "nearest_tree_m": 4.407540285358256,
+          "matching_tree_instances_in_3x3_cells": 140,
+          "actual_prototype_ids": [
+            8,
+            9
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 89920,
+          "y_feet_m": 454.2641569519043,
+          "z_m": 11200,
+          "distance_from_spawn_m": 5862,
+          "within_40km_of_spawn": true,
+          "source_biome": 8,
+          "slope_degrees": 14.631678640951403,
+          "surface_material": "Grass",
+          "temperature_c": 18.66208787560463,
+          "precipitation_mm": 1425.748794555664,
+          "stand_density": 0.2867855359085879,
+          "nearest_tree_m": 7.482994902959928,
+          "matching_tree_instances_in_3x3_cells": 317,
+          "actual_prototype_ids": [
+            8,
+            9
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 88640,
+          "y_feet_m": 755.279175415039,
+          "z_m": 8640,
+          "distance_from_spawn_m": 7283.6,
+          "within_40km_of_spawn": true,
+          "source_biome": 8,
+          "slope_degrees": 26.12146826399863,
+          "surface_material": "Grass",
+          "temperature_c": 15.696527701616287,
+          "precipitation_mm": 1247.9911460876465,
+          "stand_density": 0.26324459349160645,
+          "nearest_tree_m": 5.600712365346158,
+          "matching_tree_instances_in_3x3_cells": 240,
+          "actual_prototype_ids": [
+            8,
+            9
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        }
+      ]
+    },
+    {
+      "habitat": "RedwoodRainforest",
+      "stage": "MatureOpen",
+      "grid_points": 1278,
+      "grid_points_within_40km_of_spawn": 627,
+      "walkable_samples": [
+        {
+          "x_m": 90560,
+          "y_feet_m": 670.4551817321777,
+          "z_m": 12480,
+          "distance_from_spawn_m": 5582.3,
+          "within_40km_of_spawn": true,
+          "source_biome": 8,
+          "slope_degrees": 19.276078670612538,
+          "surface_material": "Grass",
+          "temperature_c": 19.081324017047884,
+          "precipitation_mm": 1341.8734970092773,
+          "stand_density": 0.06986734181105538,
+          "nearest_tree_m": 18.947139427441492,
+          "matching_tree_instances_in_3x3_cells": 74,
+          "actual_prototype_ids": [
+            10,
+            11
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 91840,
+          "y_feet_m": 952.2671171569824,
+          "z_m": 12480,
+          "distance_from_spawn_m": 6714.8,
+          "within_40km_of_spawn": true,
+          "source_biome": 8,
+          "slope_degrees": 12.580418583964944,
+          "surface_material": "Litter",
+          "temperature_c": 17.44997297525406,
+          "precipitation_mm": 1761.1291809082031,
+          "stand_density": 0.05822234062202383,
+          "nearest_tree_m": 28.94697231854114,
+          "matching_tree_instances_in_3x3_cells": 54,
+          "actual_prototype_ids": [
+            10,
+            11
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 92480,
+          "y_feet_m": 1357.762413635254,
+          "z_m": 15680,
+          "distance_from_spawn_m": 6729.1,
+          "within_40km_of_spawn": true,
+          "source_biome": 8,
+          "slope_degrees": 20.68038563142722,
+          "surface_material": "Grass",
+          "temperature_c": 17.173578184843063,
+          "precipitation_mm": 1621.7591400146484,
+          "stand_density": 0.09385539946642307,
+          "nearest_tree_m": 15.850271923594113,
+          "matching_tree_instances_in_3x3_cells": 92,
+          "actual_prototype_ids": [
+            10,
+            11
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        }
+      ]
+    },
+    {
+      "habitat": "SeasonalBroadleaf",
+      "stage": "YoungDense",
+      "grid_points": 1750,
+      "grid_points_within_40km_of_spawn": 706,
+      "walkable_samples": [
+        {
+          "x_m": 88000,
+          "y_feet_m": 222.25180210113524,
+          "z_m": 12480,
+          "distance_from_spawn_m": 3624.9,
+          "within_40km_of_spawn": true,
+          "source_biome": 5,
+          "slope_degrees": 8.803170686946968,
+          "surface_material": "Grass",
+          "temperature_c": 21.203184843063354,
+          "precipitation_mm": 1488.9081344604492,
+          "stand_density": 0.536035578522303,
+          "nearest_tree_m": 2.7051026855993783,
+          "matching_tree_instances_in_3x3_cells": 576,
+          "actual_prototype_ids": [
+            4,
+            5
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 87360,
+          "y_feet_m": 370.5118032836914,
+          "z_m": 11200,
+          "distance_from_spawn_m": 4429.1,
+          "within_40km_of_spawn": true,
+          "source_biome": 5,
+          "slope_degrees": 9.279009409225907,
+          "surface_material": "Grass",
+          "temperature_c": 19.53857428431511,
+          "precipitation_mm": 1527.1353454589844,
+          "stand_density": 0.4745897944114457,
+          "nearest_tree_m": 2.2265700200097,
+          "matching_tree_instances_in_3x3_cells": 499,
+          "actual_prototype_ids": [
+            4,
+            5
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 89280,
+          "y_feet_m": 295.1384474182129,
+          "z_m": 12480,
+          "distance_from_spawn_m": 4529.1,
+          "within_40km_of_spawn": true,
+          "source_biome": 5,
+          "slope_degrees": 7.149647695497862,
+          "surface_material": "Grass",
+          "temperature_c": 20.818521189689637,
+          "precipitation_mm": 1351.0685424804688,
+          "stand_density": 0.5193766871428203,
+          "nearest_tree_m": 2.0357976735591974,
+          "matching_tree_instances_in_3x3_cells": 495,
+          "actual_prototype_ids": [
+            4,
+            5
+          ],
+          "model_spacing_m": 1280,
+          "fine_blend_weight": 0,
+          "hard_prop_body_clear": true
+        }
+      ]
+    },
+    {
+      "habitat": "SeasonalBroadleaf",
+      "stage": "MatureOpen",
+      "grid_points": 2689,
+      "grid_points_within_40km_of_spawn": 887,
+      "walkable_samples": [
+        {
+          "x_m": 86080,
+          "y_feet_m": 147.93750061035155,
+          "z_m": 15040,
+          "distance_from_spawn_m": 431.9,
+          "within_40km_of_spawn": true,
+          "source_biome": 5,
+          "slope_degrees": 7.641738384802984,
+          "surface_material": "Grass",
+          "temperature_c": 23.082723903656007,
+          "precipitation_mm": 1122.4638671875,
+          "stand_density": 0.10721313649186798,
+          "nearest_tree_m": 9.807847320118055,
+          "matching_tree_instances_in_3x3_cells": 98,
+          "actual_prototype_ids": [
+            6,
+            7
+          ],
+          "model_spacing_m": 5,
+          "fine_blend_weight": 1,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 84800,
+          "y_feet_m": 138.8285528564453,
+          "z_m": 15680,
+          "distance_from_spawn_m": 1021.8,
+          "within_40km_of_spawn": true,
+          "source_biome": 5,
+          "slope_degrees": 2.6940747184447216,
+          "surface_material": "Litter",
+          "temperature_c": 23.6166335105896,
+          "precipitation_mm": 931.147216796875,
+          "stand_density": 0.14522492133193646,
+          "nearest_tree_m": 13.29363581435479,
+          "matching_tree_instances_in_3x3_cells": 153,
+          "actual_prototype_ids": [
+            6,
+            7
+          ],
+          "model_spacing_m": 5,
+          "fine_blend_weight": 1,
+          "hard_prop_body_clear": true
+        },
+        {
+          "x_m": 86080,
+          "y_feet_m": 164.1246496582031,
+          "z_m": 16320,
+          "distance_from_spawn_m": 1040.4,
+          "within_40km_of_spawn": true,
+          "source_biome": 5,
+          "slope_degrees": 8.901026793740913,
+          "surface_material": "Grass",
+          "temperature_c": 23.03281545639038,
+          "precipitation_mm": 1178.8436279296875,
+          "stand_density": 0.06053462684166543,
+          "nearest_tree_m": 16.41712605744603,
+          "matching_tree_instances_in_3x3_cells": 60,
+          "actual_prototype_ids": [
+            6,
+            7
+          ],
+          "model_spacing_m": 5,
+          "fine_blend_weight": 1,
+          "hard_prop_body_clear": true
+        }
+      ]
+    }
+  ],
+  "missing_habitat_stages": [],
+  "generated_utc": "2026-10-26T23:06:39.905569+00:00",
+  "source_sha256": {
+    "Assets/AshenVoxel/Core/Details/PlantGenerator.cs": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+    "Assets/AshenVoxel/Core/Details/PlantModel.cs": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2",
+    "Assets/AshenVoxel/Core/EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+    "Assets/AshenVoxel/Core/Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+    "Assets/AshenVoxel/Core/Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+    "Assets/AshenVoxel/Core/Materials.cs": "0342f83df63737d241289e0c86931ebe501cd0c090cf2c773316cc170ef9afd3",
+    "Assets/AshenVoxel/Core/Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+    "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs": "006a8434c519bb996e85c4b05e0f188efe49a0a56e68d84ae6b9804f1e78425e",
+    "Assets/AshenVoxel/Core/Rocks/RockProfile.cs": "20152a9dbd0661143a400c1c2b7a69e97755e65342e3352239847b1dc752afc3",
+    "Assets/AshenVoxel/Core/Rocks/RockShapeGeometry.cs": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69",
+    "Assets/AshenVoxel/Core/Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+    "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+    "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+    "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+    "Assets/AshenVoxel/Core/VoxelColor.cs": "b1392b24b7d0b3d966ac7cf35f438de7db384639397444d508ed28e95e8899c6",
+    "Assets/AshenVoxel/Core/VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+    "Assets/AshenVoxel/Core/VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+    "Assets/AshenVoxel/Core/WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+    "Assets/AshenVoxel/WorldScaleData/ClimateArchive.cs": "126995205fe788f26b2a516fce894d1dce732dea75ed9db37b14cb58bfe303d9",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationAtlasField.cs": "bac586c5a6d6e52a51d3776a8d4283d39fb10c47288be783b90770db598c8c39",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs": "8052f36426e5a7cd6823d25fab764862c538dbc2c4675440b2e6272c1be56e61",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationPopulation.cs": "ed0dc9bee43813cac4ad0532cfc0270fac0b2c83dbb6ea6eb324ce8721724a27",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs": "51ee55cc8c121f20689e90199c0bb5dacf2b6bf9e30234e3e31a350a54ba0ffd",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs": "7d7f3794bf4574d1d0011c185f8de959d9dc7f7d6b3d96cf55f587e1328ac588",
+    "Assets/AshenVoxel/WorldScaleData/ForestBiomes.cs": "6d775df485aab75bf6f507f46477ff60a82c74be0834af21d9b078ed04d4ee55",
+    "Assets/AshenVoxel/WorldScaleData/GroundCoverScatter.cs": "3a1ce33ae049b07c752e82e01b61cc75de0071c1fef7f8373ee83782309b78e5",
+    "Assets/AshenVoxel/WorldScaleData/HeightAtlas.cs": "e7ee57295416134833db7e9e8dfc86e73d6a779561b6adde73a91801b11a43b7",
+    "Assets/AshenVoxel/WorldScaleData/ImplicitMatter.cs": "c063bf46a0a905cf3b7edd1ad383e89b8e74d649b5597f2efd9f6ea1bcab2eb5",
+    "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs": "31f2f4bafeb44ad064c1c2e1702ebb700c051ec40e0a1a28de5777603522d88f",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs": "4e873a75acd0f67f22a2b85e2caf407d6851cc3fd870441947fee5a9629bed90",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceProfile.cs": "05711037d0af7676befcfa1bf056bb6186eb4d1f7c465a84d72d56c0872baff8",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceWorldField.cs": "614c9bc4c516ba6f164deb628f024554552c988e46e1b7e1d6e513968f67722a",
+    "Assets/AshenVoxel/WorldScaleData/WorldCoordinates.cs": "227e9cffedc4c23135e3486d229caad68fe20be39bbc8495d3d07af3d889dd82",
+    "Assets/AshenVoxel/WorldScaleData/WorldFields.cs": "750af4d4b9113607f005052a0b39f1d7e17f1f9f09b78a5a1557393304fa2339",
+    "Tools/ExplorationWorldSurvey/Program.cs": "fb11c3f7bd9d4cb6adb4020aab61560383b8d4d4212781a99915da3864e45000"
+  },
+  "asset_sha256": {
+    "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.climate.bytes": "8b37590a07879169a7e986618fcf0b2905481d462871c6da37235d8afe38af6f",
+    "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.bytes": "a15c39d2777274e7973309501e6cd1f6ca8a6a2d13a8115291054370f6c6cbad",
+    "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.climate.bytes": "60d170b9b35e00c0d9c2d809e4727a65dc74e083096855308bbebfbd77f4782c",
+    "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.bytes": "0f8585ebf87a269478e3e4f4fed8f600dbf3c6c6538ff57181674f9b64af7c14",
+    "Assets/AshenVoxel/Exploration/Samples/ExplorationBiomes.bytes": "fd29d63212c6753b52f94c056d8ce330ea991127a7d47c8e587ba2f2b3c9571b",
+    "Assets/AshenVoxel/Exploration/Samples/exploration-world.json": "3404d98b7ebc6795004badbb9467490d6be9a9974a3c71c5eb6a92b47887c430",
+    "Assets/AshenVoxel/Exploration/Prototypes/ExplorationPrototypes.bytes": "d8d826303fbf0ba71b9eca0a033e1366a073d7ee9a69e324049c849f514873f6"
+  }
+}

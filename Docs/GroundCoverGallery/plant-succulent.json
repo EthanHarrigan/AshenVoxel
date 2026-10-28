@@ -1,0 +1,261 @@
+{
+  "name": "plant-succulent",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    56,
+    8,
+    16
+  ],
+  "occupied_cells": 1220,
+  "bounds_min_m": [
+    0.2,
+    0,
+    0.1
+  ],
+  "bounds_max_m": [
+    4.9,
+    0.6000000000000001,
+    1.5
+  ],
+  "material_counts": {
+    "Sand": 1012,
+    "Leaves": 208
+  },
+  "scene": {
+    "category": "plant",
+    "label": "Succulent",
+    "seeds": [
+      714103,
+      271828,
+      161803
+    ],
+    "specimens": [
+      {
+        "name": "Succulent",
+        "seed": 714103,
+        "profile": {
+          "Kind": 8,
+          "HeightMeters": 0.35,
+          "RadiusMeters": 0.48,
+          "Density": 0.85,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 10,
+          "PaletteSteps": 4,
+          "FoliageColor": 4286682746,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 8,
+          "Seed": 714103,
+          "RequestedMinCell": {
+            "x": 55,
+            "y": 4,
+            "z": 55
+          },
+          "RequestedMaxCell": {
+            "x": 73,
+            "y": 12,
+            "z": 73
+          },
+          "MinCell": {
+            "x": 60,
+            "y": 4,
+            "z": 59
+          },
+          "MaxCell": {
+            "x": 68,
+            "y": 7,
+            "z": 68
+          },
+          "WrittenCells": 67,
+          "Candidates": 307,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 67
+          }
+        },
+        "actual_dimensions_m": [
+          0.9,
+          0.4,
+          1
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 67,
+        "material_counts": {
+          "Leaves": 67
+        },
+        "palette": {
+          "Leaves": [
+            4285431912,
+            4286287476,
+            4287078016,
+            4287933580
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -56,
+          "y": -2,
+          "z": -56
+        }
+      },
+      {
+        "name": "Succulent",
+        "seed": 271828,
+        "profile": {
+          "Kind": 8,
+          "HeightMeters": 0.35,
+          "RadiusMeters": 0.48,
+          "Density": 0.85,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 10,
+          "PaletteSteps": 4,
+          "FoliageColor": 4286682746,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 8,
+          "Seed": 271828,
+          "RequestedMinCell": {
+            "x": 55,
+            "y": 4,
+            "z": 55
+          },
+          "RequestedMaxCell": {
+            "x": 73,
+            "y": 12,
+            "z": 73
+          },
+          "MinCell": {
+            "x": 61,
+            "y": 4,
+            "z": 60
+          },
+          "MaxCell": {
+            "x": 68,
+            "y": 7,
+            "z": 69
+          },
+          "WrittenCells": 68,
+          "Candidates": 300,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 68
+          }
+        },
+        "actual_dimensions_m": [
+          0.8,
+          0.4,
+          1
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 68,
+        "material_counts": {
+          "Leaves": 68
+        },
+        "palette": {
+          "Leaves": [
+            4285431912,
+            4286287476,
+            4287078016,
+            4287933580
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -39,
+          "y": -2,
+          "z": -57
+        }
+      },
+      {
+        "name": "Succulent",
+        "seed": 161803,
+        "profile": {
+          "Kind": 8,
+          "HeightMeters": 0.35,
+          "RadiusMeters": 0.48,
+          "Density": 0.85,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 10,
+          "PaletteSteps": 4,
+          "FoliageColor": 4286682746,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 8,
+          "Seed": 161803,
+          "RequestedMinCell": {
+            "x": 55,
+            "y": 4,
+            "z": 55
+          },
+          "RequestedMaxCell": {
+            "x": 73,
+            "y": 12,
+            "z": 73
+          },
+          "MinCell": {
+            "x": 60,
+            "y": 4,
+            "z": 60
+          },
+          "MaxCell": {
+            "x": 67,
+            "y": 7,
+            "z": 68
+          },
+          "WrittenCells": 73,
+          "Candidates": 314,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 73
+          }
+        },
+        "actual_dimensions_m": [
+          0.8,
+          0.4,
+          0.9
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 73,
+        "material_counts": {
+          "Leaves": 73
+        },
+        "palette": {
+          "Leaves": [
+            4285431912,
+            4286287476,
+            4287078016,
+            4287933580
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -21,
+          "y": -2,
+          "z": -57
+        }
+      }
+    ],
+    "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+  },
+  "generation_version": {
+    "plant": 1,
+    "rock": 2,
+    "catalog": 3
+  },
+  "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+}

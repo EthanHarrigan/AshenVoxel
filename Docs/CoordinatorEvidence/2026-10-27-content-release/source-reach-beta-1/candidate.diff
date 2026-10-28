@@ -1,0 +1,815 @@
+--- before/Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs
++++ candidate/Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs
+@@ -16,7 +16,7 @@
+     public static class ExplorationTerrainDiagnostic
+     {
+         const BindingFlags Flags=BindingFlags.Instance|BindingFlags.Public|BindingFlags.NonPublic;
+-        const int MaximumRows=8192;
++        const int MaximumRows=2*LodSettings.MaximumSupportedTiles;
+         static readonly int[] Levels={0,8,16,32,64,128,256};
+         static readonly double[] Edges={0,250,1000,3000,6000,12000,double.PositiveInfinity};
+         static object Field(object o,string name)=>o?.GetType().GetField(name,Flags)?.GetValue(o);
+@@ -39,8 +39,9 @@
+         }
+         [Serializable] sealed class CaptureData
+         {
+-            public string diagnosticVersion="terrain-convergence-2-memory",utc,unity,sourceIdentity,bootStatus,terrainStatus,limitReason,lastBuildError;
++            public string diagnosticVersion="terrain-convergence-3-reach",utc,unity,sourceIdentity,bootStatus,terrainStatus,limitReason,lastBuildError;
+             public string appliedPreset,selectedPreset,notes;
++            public float appliedReachMultiplier,selectedReachMultiplier;public int selectedPlanLimit,selectedDetailMiB;
+             public bool playing,ready,failed,restartPending,validationProfile,voxelTerrain,greedyVisible,coarseStartup,planActivationPending,planning,travelDeferred,refinementScanPending;
+             public bool workerPresent,workerCompleted,buildPresent,buildContact,truncated,eligibleEffectiveTargetsReached,eligibleSupportedRequestsReached;
+             public int frame,width,height,configuredPlanLimit,appliedPlanLimit,residentTiles,activeTiles,desiredTiles,activeOnlyTiles,missingDesired,eligibleDesired,eligibleBelowEffective,eligibleBelowSupported;
+@@ -106,6 +107,9 @@
+             d.contactAltitudeDeferred=w.ContactAltitudeDeferred;d.contactAltitudeBoundsKnown=w.ContactAltitudeBoundsKnown;d.contactAltitudeCeilingMeters=w.ContactAltitudeCeilingMeters;d.altitudeHeldContactTiles=w.ContactAltitudeHeldTiles;d.altitudeRetiredContactTiles=w.ContactAltitudeRetiredTiles;
+             foreach(DictionaryEntry e in surfaces)if(Field(e.Value,"LocalHeights") is float[] heights)d.retainedHeightBytes+=heights.LongLength*4;
+             if(Field(w,"contactSurfaces") is IDictionary contacts)foreach(DictionaryEntry e in contacts)if(Field(e.Value,"LocalHeights") is float[] heights)d.retainedHeightBytes+=heights.LongLength*4;
++            var selected=boot.ActiveSettings?.ResolveTerrainQuality()??applied;
++            d.appliedReachMultiplier=applied.ReachMultiplier;d.selectedReachMultiplier=selected.ReachMultiplier;
++            d.selectedPlanLimit=selected.MaximumTiles;d.selectedDetailMiB=selected.DetailMiB;
+             d.activeTiles=active.Count;
+             var queued=new HashSet<TileKey>();var pending=Field(w,"pending") as IEnumerable;
+             if(pending!=null)foreach(object work in pending)if(!Bool(work,"Contact")&&Field(work,"Tile") is LodTile tile){queued.Add(tile.Key);d.pendingQueued++;}
+@@ -151,7 +155,7 @@
+             d.eligibleEffectiveTargetsReached=!d.truncated&&!d.coarseStartup&&!d.planActivationPending&&!d.planning&&!d.travelDeferred&&d.eligibleDesired>0&&d.eligibleBelowEffective==0;
+             d.eligibleSupportedRequestsReached=d.eligibleEffectiveTargetsReached&&d.eligibleBelowSupported==0;
+             rows.Sort((a,b)=>a.nearest3dMeters.CompareTo(b.nearest3dMeters));d.tiles=rows.ToArray();d.distanceBuckets=buckets;d.collectionMilliseconds=clock.Elapsed.TotalMilliseconds;
+-            d.notes="Read-only main-thread sample. Buckets use closest3D tile AABB distance, not tile-center distance; large tiles span buckets. current/effective/supported columns are per axis; SampleColumns=sum(n*n). Target reach is a selection/admission state, not native visual fidelity, geometric error, occlusion, RAM or FPS proof. Active-only rows are older drawn coverage during a pending plan. Pixel/plan limits can remain after effective targets are reached. No Tick/replan/source sampling/GPU readback. At most8192rows. Zero process counters mean unavailable (use external Windows process evidence), not zero usage. Process private/working set, managed/Profiler and mesh/height/scratch values overlap and must NOT be summed. GPU capacity is NOT current VRAM use. Read-only GC.GetTotalMemory(false), no forced collection.";
++            d.notes="Read-only main-thread sample. Buckets use closest3D tile AABB distance, not tile-center distance; large tiles span buckets. current/effective/supported columns are per axis; SampleColumns=sum(n*n). Target reach is a selection/admission state, not native visual fidelity, geometric error, occlusion, RAM or FPS proof. Active-only rows are older drawn coverage during a pending plan. Pixel/plan limits can remain after effective targets are reached. No Tick/replan/source sampling/GPU readback. At most"+MaximumRows+"rows. Zero process counters mean unavailable (use external Windows process evidence), not zero usage. Process private/working set, managed/Profiler and mesh/height/scratch values overlap and must NOT be summed. GPU capacity is NOT current VRAM use. Read-only GC.GetTotalMemory(false), no forced collection.";
+             Directory.CreateDirectory(outputDirectory);string file=Path.Combine(outputDirectory,"terrain-"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss-fff")+".json");
+             File.WriteAllText(file,JsonUtility.ToJson(d,true));UnityEngine.Debug.Log("TERRAIN_DIAGNOSTIC "+file);
+         }
+--- before/Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs
++++ candidate/Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs
+@@ -17,6 +17,10 @@
+     {
+         public ExplorationSettings Settings;
+         public bool LoadSavedOptions=true;
++        [Range(0,300)] public float SourceStartupWaitSeconds=20;
++        public string SourceStartupStatus {get;private set;}="Source startup not attempted.";
++        ExplorationBetaMatter betaMatter;
++        bool publishingVerifiedAirborneSource;
+         public string Status {get;private set;}="Preparing the world…";
+         public bool Ready {get;private set;}
+         public bool Failed {get;private set;}
+@@ -60,7 +64,7 @@
+         public bool GroundedRootsRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedGroundedRoots!=ActiveSettings.EnableGroundedRoots;
+         public bool TerrainQualityRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&!appliedTerrainQuality.SameRequest(ActiveSettings.ResolveTerrainQuality());
+         public bool TerrainQualityValidationProfile=>terrainQualityCaptured&&(appliedTerrainQuality.ValidationOverrides||
+-            (Vista!=null&&(Vista.MaximumTiles!=appliedTerrainQuality.MaximumTiles||Vista.VoxelTargetPixels!=appliedTerrainQuality.TargetPixels||
++            (Vista!=null&&(Vista.MaximumTiles!=appliedTerrainQuality.MaximumTiles||Vista.VoxelTargetPixels!=appliedTerrainQuality.TargetPixels||Vista.VoxelPlanSplitFactor!=appliedTerrainQuality.SplitFactor||
+             Vista.TerrainDetailLimitBytes!=(long)appliedTerrainQuality.DetailMiB*1048576||Vista.ContactMeshLimitBytes!=(long)appliedTerrainQuality.ContactMiB*1048576)));
+         GUIStyle text,title;
+ 
+@@ -100,14 +104,35 @@
+             worldObject=new GameObject("InfiniteDiffusion exploration");worldObject.transform.SetParent(transform,false);
+             SetupLighting();
+             Vista=worldObject.AddComponent<WorldExplorer>();
++            Vista.enabled=false; // Defer standalone Start/Update while the pre-spawn source gate yields.
+             Vista.EnableDistantHeightProxies=appliedDistantHeightProxies;
+             Vista.ConfigureInitialVoxelMeshBudgets(appliedTerrainQuality.DetailMiB,appliedTerrainQuality.ContactMiB);
+             ApplyVistaSettings(false);
+             Vista.ShowResearchHud=false;
+             LiveRefinement=worldObject.AddComponent<ExplorationLiveRefinement>();
+             WorldField=LiveRefinement.Configure(Source,Vista,ActiveSettings.DiffusionEndpoint,enabled:ActiveSettings.EnableLiveRefinement);
++            if(ActiveSettings.EnableLiveRefinement&&LiveRefinement.ResolutionMetersAt(spawn.X,spawn.Z)>5.000001)
++            {
++                // No player, population, collision, or gameplay matter exists yet.
++                float deadline=Time.unscaledTime+Mathf.Clamp(SourceStartupWaitSeconds,0,300);
++                Vector3 heading=Quaternion.Euler(ActiveSettings.SpawnPitch,ActiveSettings.SpawnYaw,0)*Vector3.forward;
++                var witness=new WorldPoint(spawn.X,spawn.Y+ActiveSettings.EyeHeight,spawn.Z);
++                while(Time.unscaledTime<deadline&&LiveRefinement.ResolutionMetersAt(spawn.X,spawn.Z)>5.000001)
++                {
++                    LiveRefinement.Tick(witness,heading,ExplorationRefinementPublicationPolicy.BeforeSpawn(witness));
++                    SourceStartupStatus=LiveRefinement.Status;
++                    Status="Preparing decoded source at the saved destination. "+SourceStartupStatus;yield return null;
++                }
++                double resolution=LiveRefinement.ResolutionMetersAt(spawn.X,spawn.Z);
++                SourceStartupStatus=resolution<=5.000001?"Verified5m decoded destination before population initialization.":
++                    "Startup wait ended with "+resolution.ToString("F1",CultureInfo.InvariantCulture)+"m source; coarse fallback remains active. "+LiveRefinement.CurrentAreaStatus;
++                // Keep a custom aerial height unless the new source would bury it.
++                double ground=WorldField.Sample(spawn.X,spawn.Z).HeightMeters;
++                if(spawn.Y<ground+2)spawn=new WorldPoint(spawn.X,ground+2,spawn.Z);
++            }
+             if(ActiveSettings.EnableSurfaceRelief)WorldField=new TerrainDetailField(WorldField,ActiveSettings.Seed);
+             Vista.ConfigureExternal(WorldField,ActiveSettings.Surface(),new WorldPoint(spawn.X,spawn.Y+ActiveSettings.EyeHeight,spawn.Z),Quaternion.Euler(ActiveSettings.SpawnPitch,ActiveSettings.SpawnYaw,0));
++            Vista.enabled=true;
+             ApplyCamera();
+ #if UNITY_5_3_OR_NEWER
+             worldObject.AddComponent<ExplorationVisualQuality>().Initialize(Vista.MainCamera,ownedPipeline);
+@@ -131,7 +156,11 @@
+             Status="Loading trees, plants and rocks…";yield return null;
+             Population.Initialize(WorldField,ActiveSettings.Surface(),ActiveSettings.PrototypePack,instanceMaterial,ActiveSettings.Seed);
+             distantRocks=worldObject.AddComponent<ExplorationDistantRockPatch>();distantRocks.Initialize(Population,WorldField,ActiveSettings.Seed);
+-            LiveRefinement.RegionChanged+=bounds=>Population.InvalidateRegion(bounds.MinimumX,bounds.MinimumZ,bounds.MaximumX,bounds.MaximumZ);
++            LiveRefinement.RegionChanged+=bounds=>
++            {
++                if(publishingVerifiedAirborneSource)Population.InvalidateVerifiedAirborneSourceRegion(bounds.MinimumX,bounds.MinimumZ,bounds.MaximumX,bounds.MaximumZ);
++                else Population.InvalidateRegion(bounds.MinimumX,bounds.MinimumZ,bounds.MaximumX,bounds.MaximumZ);
++            };
+             Player=worldObject.AddComponent<ExplorationController>();Player.SetInputEnabled(false);
+             IExplorationCollision collision=new FieldExplorationCollision(Vista.TerrainField,Population);
+             if(ActiveSettings.EnableVoxelTerrain)collision=new VoxelTerrainCollision(Vista.TerrainField,collision);
+@@ -148,7 +177,7 @@
+             if(ActiveSettings.StartFlying)Player.ResetAt(new WorldPoint(spawn.X,spawn.Y+2,spawn.Z),true);
+             Player.CapturePointerOnEnable=true;Ready=true;Player.SetInputEnabled(!settingsOpen);
+             bees=worldObject.AddComponent<AshenVoxel.WildlifeDraft.ExplorationBeePatch>();bees.Initialize(this);
+-            AshenVoxel.Exploration.ExplorationBetaMatter.Attach(this);
++            betaMatter=AshenVoxel.Exploration.ExplorationBetaMatter.Attach(this);
+             AshenVoxel.Exploration.ExplorationShrubMatter.Attach(this);
+             Status="Explore";
+         }
+@@ -193,7 +222,16 @@
+             try
+             {
+                 WorldPoint observer=Player!=null&&Player.IsConfigured?Player.Eye:new WorldPoint(spawn.X,spawn.Y+1.65,spawn.Z);
+-                if(LiveRefinement!=null)LiveRefinement.Tick(observer,Vista.MainCamera.transform.forward);
++                Population.SetObserver(observer,Vista.RenderOrigin);
++                if(LiveRefinement!=null)
++                {
++                    bool matterOwned=(betaMatter!=null&&betaMatter.OwnedCells>0)||Population.HasReservedShrubMatter;
++                    var policy=matterOwned?ExplorationRefinementPublicationPolicy.HoldForGameplayMatter(observer):default;
++                    publishingVerifiedAirborneSource=!matterOwned&&Ready&&Player!=null&&Player.Motor!=null&&Player.Motor.Flying;
++                    if(publishingVerifiedAirborneSource)policy=ExplorationRefinementPublicationPolicy.AirborneWithoutGameplayMatter(observer);
++                    try{LiveRefinement.Tick(observer,Vista.MainCamera.transform.forward,policy,Vista.VoxelTravelDetailDeferred);}
++                    finally{publishingVerifiedAirborneSource=false;}
++                }
+                 #if UNITY_5_3_OR_NEWER
+                 if(Wind!=null)Wind.SetOrigin(Vista.RenderOrigin);
+ #endif
+@@ -340,7 +378,7 @@
+             GUILayout.Label(optionsNotice,text);
+             bool live=GUILayout.Toggle(ActiveSettings.EnableLiveRefinement,"Use local InfiniteDiffusion refinement service");
+             if(live!=ActiveSettings.EnableLiveRefinement){ActiveSettings.EnableLiveRefinement=live;LiveRefinement.SetEnabled(live);}
+-            if(LiveRefinement!=null)GUILayout.Label(LiveRefinement.Status,text);
++            if(LiveRefinement!=null){GUILayout.Label(LiveRefinement.Status,text);GUILayout.Label(SourceStartupStatus,text);}
+             double weight=Source.FineWeightAt(Player.Feet.X,Player.Feet.Z);
+             bool liveDetail=LiveRefinement!=null&&LiveRefinement.HasActiveDetail(Player.Feet.X,Player.Feet.Z);
+             double resolution=LiveRefinement!=null?LiveRefinement.ResolutionMetersAt(Player.Feet.X,Player.Feet.Z):Source.ModelResolutionMeters(Player.Feet.X,Player.Feet.Z);
+@@ -374,7 +412,18 @@
+                 SelectTerrainQuality((TerrainQualityPreset)(((int)ActiveSettings.TerrainQuality+1)%3));
+             if(GUILayout.Button("Select Normal (rollback)"))SelectTerrainQuality(TerrainQualityPreset.Normal);
+             GUILayout.Label("Detailed refines farther terrain. Maximum greedily requests the finest supported visible tiles and can take much longer and use several GiB. Save options, then restart Play.",text);
+-            var selected=ActiveSettings.ResolveTerrainQuality();long selectedReserve=(long)selected.MaximumTiles*WorldExplorer.CoverageTileMeshReserveBytes;
++            float reach=Slider("Fine-detail reach (next Play)",ActiveSettings.TerrainDetailReachMultiplier,1,4,"×");
++            if(reach!=ActiveSettings.TerrainDetailReachMultiplier){ActiveSettings.TerrainDetailReachMultiplier=reach;optionsNotice="Terrain reach selected. Save options, then restart Play.";}
++            var selected=ActiveSettings.ResolveTerrainQuality();
++            float allowance=Slider("Far detail allowance (next Play)",selected.DetailMiB,64,8192," MiB");
++            if(allowance!=selected.DetailMiB){ActiveSettings.TerrainFarDetailMiBOverride=Mathf.Clamp((int)(Math.Round(allowance/256)*256),64,8192);optionsNotice="Terrain allowance selected. Save options, then restart Play.";}
++            if(GUILayout.Button("Plan allowance: "+selected.MaximumTiles+" tiles · "+(ActiveSettings.TerrainPlanTileLimitOverride==0?"auto with reach":"manual")+" (click: auto /4096 /8192 /16384)"))
++            {ActiveSettings.TerrainPlanTileLimitOverride=ActiveSettings.TerrainPlanTileLimitOverride==0?4096:ActiveSettings.TerrainPlanTileLimitOverride==4096?8192:ActiveSettings.TerrainPlanTileLimitOverride==8192?LodSettings.MaximumSupportedTiles:0;optionsNotice="Terrain plan selected. Save options, then restart Play.";}
++            if(GUILayout.Button("Use preset reach and allowances")){ActiveSettings.TerrainDetailReachMultiplier=1;ActiveSettings.TerrainFarDetailMiBOverride=ActiveSettings.TerrainPlanTileLimitOverride=0;}
++            selected=ActiveSettings.ResolveTerrainQuality();
++            GUILayout.Label("Selected: "+selected.Label+". Moving fine bands outward can increase initial generation time; the plan cap may leave bands unmet.",text);
++            GUILayout.Label("Nominal full256-column LOD reach (closest3D, before plan cap):0.1m to "+(51.2*selected.SplitFactor/1000).ToString("F2")+"km;0.4m to "+(204.8*selected.SplitFactor/1000).ToString("F2")+"km;1.6m to "+(819.2*selected.SplitFactor/1000).ToString("F2")+"km. These are requests, not achieved terrain/source detail.",text);
++            long selectedReserve=(long)selected.MaximumTiles*WorldExplorer.CoverageTileMeshReserveBytes;
+             GUILayout.Label("Selected payload ceilings: far detail "+selected.DetailMiB+" MiB + coarse "+selectedReserve/1048576+" MiB per plan; current + next plans "+
+                 ((long)selected.DetailMiB*1048576+2*selectedReserve)/1048576+" MiB, plus contact "+selected.ContactMiB+" MiB. These are limits, not eager allocations or a safe total-memory guarantee.",text);
+             if(Vista==null)return;
+@@ -385,6 +434,8 @@
+                 " MiB per plan; current + next plan ceiling "+Vista.TerrainTransitionMeshLimitBytes/1048576+" MiB, plus contact "+Vista.ContactMeshLimitBytes/1048576+" MiB.",text);
+             GUILayout.Label("These ceilings exclude worker data, upload scratch, native/driver copies, vegetation and the rest of the process. Actual far "+Vista.TerrainResidentMeshBytes/1048576+
+                 " MiB · contact "+Vista.ContactMeshBytes/1048576+" MiB · upload scratch "+Vista.VoxelScratchBytes/1048576+" MiB.",text);
++            GUILayout.Label("View-eligible desired tiles: "+Vista.VisibleTerrainAtRequestedSpacingTiles+" / "+Vista.VisibleTerrainSpacingTiles+" at requested sample spacing. Tile mean: actual "+Vista.VisibleTerrainMeanCurrentSpacingMeters.ToString("F2")+"m / requested "+Vista.VisibleTerrainMeanRequestedSpacingMeters.ToString("F2")+"m. Source resolution is separate.",text);
++            GUILayout.Label("System commit headroom "+(Vista.VoxelAvailableCommitBytes/1048576)+" MiB; reserve "+(WorldExplorer.VoxelCommitReserveBytes/1048576)+" MiB. The guard can pause below the mesh allowance.",text);
+             GUILayout.Label("Terrain quality: "+Vista.TerrainQualityLimitReason+" · planned "+Vista.TerrainPlannedTiles+" · refinement pending "+Vista.VoxelRefinementPendingTiles+
+                 " · budget deferred "+Vista.VoxelRefinementDeferredTiles+" · face limited "+Vista.VoxelFaceCapacityLimitedTiles+" · plan splits unmet "+Vista.TerrainPlanPendingSplits,text);
+         }
+@@ -393,6 +444,7 @@
+             public float walk=4,sprint=7,flight=40,boost=4,fov=75,view=30,horizon,trees=1400,plants=32,fog=.00004f,sun=36;
+             public bool fogOn=true;public int imageOptionsVersion,upscaling;public float ambientFill,windStrength;
+             public int terrainOptionsVersion,terrainQuality;
++            public int terrainTuningOptionsVersion,farDetailMiBOverride,planTileLimitOverride;public float detailReachMultiplier;
+             public int rootOptionsVersion;public bool groundedRoots;
+             public int geologyOptionsVersion;public bool broadLithology;
+             public int terrainRepresentationOptionsVersion;public bool distantHeightProxies;
+@@ -404,6 +456,8 @@
+             {
+                 var s=ActiveSettings;var o=new UserOptions{walk=s.WalkSpeed,sprint=s.SprintSpeed,flight=s.FlightSpeed,boost=s.FlightBoost,fov=s.FieldOfView,view=s.ViewDistanceKm,horizon=s.FarHorizonKm,trees=s.TreeDistanceMeters,plants=s.GroundCoverDistanceMeters,fog=s.FogDensity,sun=s.SunElevation,fogOn=s.FogEnabled,imageOptionsVersion=3,upscaling=(int)s.Upscaling,ambientFill=s.AmbientFillStrength,windStrength=s.WindStrength};
+                 o.terrainOptionsVersion=1;o.terrainQuality=(int)ActiveSettings.TerrainQuality;
++                o.terrainTuningOptionsVersion=1;o.detailReachMultiplier=ActiveSettings.TerrainDetailReachMultiplier;
++                o.farDetailMiBOverride=ActiveSettings.TerrainFarDetailMiBOverride;o.planTileLimitOverride=ActiveSettings.TerrainPlanTileLimitOverride;
+                 o.rootOptionsVersion=1;o.groundedRoots=ActiveSettings.EnableGroundedRoots;
+                 o.geologyOptionsVersion=1;o.broadLithology=ActiveSettings.ExperimentalBroadLithology;
+                 o.terrainRepresentationOptionsVersion=1;o.distantHeightProxies=ActiveSettings.ExperimentalDistantHeightProxies;
+@@ -422,6 +476,12 @@
+                 if(o.imageOptionsVersion>=2)s.AmbientFillStrength=Mathf.Clamp(o.ambientFill,0,2);
+                 if(o.imageOptionsVersion>=1)s.Upscaling=(ExplorationUpscaleMode)Mathf.Clamp(o.upscaling,0,2);
+                 if(o.terrainOptionsVersion==1&&o.terrainQuality>=0&&o.terrainQuality<=2)s.SelectTerrainQuality((TerrainQualityPreset)o.terrainQuality);
++                if(o.terrainTuningOptionsVersion==1)
++                {
++                    if(o.detailReachMultiplier>=1&&o.detailReachMultiplier<=4)s.TerrainDetailReachMultiplier=o.detailReachMultiplier;
++                    if(o.farDetailMiBOverride==0||o.farDetailMiBOverride>=64&&o.farDetailMiBOverride<=8192)s.TerrainFarDetailMiBOverride=o.farDetailMiBOverride;
++                    if(o.planTileLimitOverride==0||o.planTileLimitOverride>=64&&o.planTileLimitOverride<=LodSettings.MaximumSupportedTiles)s.TerrainPlanTileLimitOverride=o.planTileLimitOverride;
++                }
+                 if(o.rootOptionsVersion==1)s.EnableGroundedRoots=o.groundedRoots;
+                 if(o.geologyOptionsVersion==1)s.ExperimentalBroadLithology=o.broadLithology;
+                 if(o.terrainRepresentationOptionsVersion==1)s.ExperimentalDistantHeightProxies=o.distantHeightProxies;
+--- before/Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs
++++ candidate/Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs
+@@ -8,8 +8,8 @@
+ namespace AshenVoxel.Exploration
+ {
+     /// <summary>Optional asynchronous decoded terrain extension. Every successful
+-    /// publication is an immutable grid outside the protected player/query/prop
+-    /// area. Unavailable or mismatched services leave the baked world playable.</summary>
++    /// publication is an immutable grid with explicit player/query/prop protection.
++    /// Unavailable or mismatched services leave the baked world playable.</summary>
+     public sealed class ExplorationLiveRefinement:MonoBehaviour
+     {
+         public double TileMeters=640,BlendMeters=128,LookAheadMeters=1600;
+@@ -19,6 +19,9 @@
+         public ExplorationRefinementField WorldField {get;private set;}
+         public bool Connected=>remote!=null&&remote.Connected&&accepted;
+         public int PendingRequests=>work.Count;
++        public string CurrentAreaStatus {get;private set;}="No current-area demand yet.";
++        public bool CurrentAreaPending=>work.Exists(item=>item.Current);
++        public int DiscardedStaleResults {get;private set;}
+         public string Status {get;private set;}="Live decoding is off; bundled learned terrain is ready.";
+         public event Action<ExplorationRefinementBounds> RegionChanged;
+         sealed class Work
+@@ -27,6 +30,7 @@
+             public ExplorationRefinementBounds Core;
+             public Task<ExplorationRefinementPatch> Task;
+             public ExplorationRefinementPatch Complete;
++            public bool Desired,Current;
+         }
+         readonly List<Work> work=new List<Work>(2);
+         readonly Dictionary<string,float> retries=new Dictionary<string,float>();
+@@ -35,7 +39,7 @@
+         RemoteTerrainField remote;
+         Task connecting;
+         string endpoint;
+-        bool requested,accepted,compatible;
++        bool requested,accepted,compatible,stopping;
+         float nextConnect,nextRequests,nextStatus;
+         Vector3 lastHeading=Vector3.forward;
+ 
+@@ -44,6 +48,7 @@
+             if(source==null)throw new ArgumentNullException(nameof(source));
+             if(renderer==null)throw new ArgumentNullException(nameof(renderer));
+             StopClient();baked=source;vista=renderer;this.endpoint=endpoint;
++            nextRequests=nextStatus=0;retries.Clear();DiscardedStaleResults=0;CurrentAreaStatus="No current-area demand yet.";
+             compatible=Math.Abs(source.WorldWidthMeters-source.OriginalWidthMeters)<.001&&Math.Abs(source.WorldDepthMeters-source.OriginalDepthMeters)<.001&&Math.Abs(source.VerticalScale-1)<1e-7;
+             if(double.IsNaN(TileMeters)||TileMeters<160||TileMeters>1280||double.IsNaN(BlendMeters)||BlendMeters<32||BlendMeters>256||double.IsNaN(LookAheadMeters)||LookAheadMeters<1024||LookAheadMeters>10000)
+                 throw new ArgumentOutOfRangeException("Live tile/blend/look-ahead controls");
+@@ -59,10 +64,12 @@
+         }
+         public bool HasActiveDetail(double x,double z)=>WorldField!=null&&WorldField.HasActiveDetail(x,z);
+         public double ResolutionMetersAt(double x,double z)=>WorldField==null?double.NaN:WorldField.ResolutionMetersAt(x,z);
+-        public void Tick(WorldPoint observer,Vector3 forward)
+-        {
++        public void Tick(WorldPoint observer,Vector3 forward,ExplorationRefinementPublicationPolicy publicationPolicy=default,bool deferCurrentArea=false)
++        {
++            DrainStopped();
+             if(WorldField==null)return;WorldField.Touch(observer);
+             if(!requested||!compatible)return;
++            if(stopping){Status="Canceled model requests are draining before reconnection; bundled terrain continues.";return;}
+             if(remote==null&&Time.unscaledTime>=nextConnect)StartConnection();
+             if(connecting!=null&&connecting.IsCompleted)
+             {
+@@ -71,12 +78,22 @@
+                 {string why=completed.IsFaulted?completed.Exception.GetBaseException().Message:"canceled";StopClient();nextConnect=Time.unscaledTime+30;Status="Local model unavailable; bundled learned terrain continues. "+why;return;}
+                 if(remote==null||remote.Status.world_id!=baked.WorldId||Math.Abs(remote.Status.spacing_m-5)>1e-7)
+                 {StopClient();nextConnect=Time.unscaledTime+30;Status="Model world identity or5m coordinates differ; bundled learned terrain continues.";return;}
+-                accepted=true;Status="Matching InfiniteDiffusion service connected; decoding ahead.";
++                accepted=true;Status="Matching InfiniteDiffusion service connected; current-area and forward demand enabled.";
+             }
+             if(remote!=null&&!string.IsNullOrEmpty(remote.TerminalFailure))
+             {Status="Model stopped; bundled and retained learned terrain continue. "+remote.TerminalFailure;StopClient();nextConnect=Time.unscaledTime+30;return;}
+             if(!Connected)return;
+-            for(int i=work.Count-1;i>=0;i--)
++            if(Time.unscaledTime>=nextRequests)
++            {
++                nextRequests=Time.unscaledTime+.5f;
++                Vector3 horizontal=new Vector3(forward.x,0,forward.z);
++                if(horizontal.x*horizontal.x+horizontal.z*horizontal.z>.0001f)lastHeading=horizontal.normalized;
++                QueueDemand(observer,lastHeading,deferCurrentArea);
++            }
++            // Current-area completion is considered first. Stale in-flight tasks
++            // keep their two-slot ownership until completion; travel cannot orphan them.
++            work.Sort((a,b)=>b.Current.CompareTo(a.Current));
++            for(int i=0;i<work.Count;)
+             {
+                 Work item=work[i];
+                 if(item.Complete==null&&item.Task.IsCompleted)
+@@ -84,33 +101,33 @@
+                     if(item.Task.IsFaulted||item.Task.IsCanceled)
+                     {
+                         if(item.Task.IsFaulted){var observed=item.Task.Exception;}
+-                        retries[item.Key]=Time.unscaledTime+30;work.RemoveAt(i);continue;
++                        if(item.Desired)retries[item.Key]=Time.unscaledTime+30;
++                        work.RemoveAt(i);continue;
+                     }
+                     item.Complete=item.Task.Result;
+                 }
+-                if(item.Complete!=null&&WorldField.TryPublish(item.Complete,observer,out ExplorationRefinementBounds[] changes))
++                if(item.Complete!=null&&!item.Desired)
++                {DiscardedStaleResults++;work.RemoveAt(i);continue;}
++                if(item.Complete!=null&&WorldField.TryPublish(item.Complete,observer,out ExplorationRefinementBounds[] changes,publicationPolicy))
+                 {
+                     foreach(var bounds in changes)
+                     {
+                         vista.RefreshExternalRegion(bounds.MinimumX,bounds.MinimumZ,bounds.MaximumX,bounds.MaximumZ);
+                         RegionChanged?.Invoke(bounds);
+                     }
+-                    work.RemoveAt(i);
++                    work.RemoveAt(i);continue;
+                 }
+-            }
+-            if(Time.unscaledTime>=nextRequests)
+-            {
+-                nextRequests=Time.unscaledTime+.5f;
+-                Vector3 horizontal=new Vector3(forward.x,0,forward.z);
+-                if(horizontal.x*horizontal.x+horizontal.z*horizontal.z>.0001f)lastHeading=horizontal.normalized;
+-                QueueAhead(observer,lastHeading);
+-            }
++                if(item.Current)CurrentAreaStatus=item.Complete==null?"Current area: requesting verified5m source.":"Current area: "+WorldField.LastPublishRefusal;
++                i++;
++            }
++            double resolution=WorldField.ResolutionMetersAt(observer.X,observer.Z);
++            if(resolution<=5.000001)CurrentAreaStatus="Current area:5m learned source active.";
+             if(Time.unscaledTime>=nextStatus)
+             {
+                 nextStatus=Time.unscaledTime+.5f;
+-                Status="Live model connected · "+WorldField.ResidentPatches+" retained decoded patches · "+work.Count+" queued/ahead · "+
+-                    (WorldField.HasActiveDetail(observer.X,observer.Z)?"active live detail":"bundled learned terrain here");
+-                if(work.Exists(item=>item.Complete!=null))Status+=" · completed patches wait outside the player guard";
++                Status="Live model connected - "+WorldField.ResidentPatches+" retained decoded patches - "+work.Count+" pending (maximum2) - "+
++                    "source here "+resolution.ToString("F1",System.Globalization.CultureInfo.InvariantCulture)+"m. "+CurrentAreaStatus;
++                if(work.Exists(item=>!item.Desired))Status+=" Stale in-flight work is draining before replacement.";
+             }
+         }
+         void StartConnection()
+@@ -128,21 +145,32 @@
+             return baked.FineWeightAt(influence.MinimumX,influence.MinimumZ)>=.999999&&baked.FineWeightAt(influence.MaximumX,influence.MaximumZ)>=.999999&&
+                 baked.FineWeightAt(influence.MinimumX,influence.MaximumZ)>=.999999&&baked.FineWeightAt(influence.MaximumX,influence.MinimumZ)>=.999999;
+         }
+-        void QueueAhead(WorldPoint observer,Vector3 heading)
+-        {
+-            if(work.Count>=2)return;
+-            for(int attempt=0;attempt<6&&work.Count<2;attempt++)
+-            {
+-                int side=attempt%3==0?0:attempt%3==1?-1:1;
+-                double distance=LookAheadMeters+(attempt/3)*TileMeters;
++        void QueueDemand(WorldPoint observer,Vector3 heading,bool deferCurrentArea)
++        {
++            foreach(var item in work){item.Desired=false;item.Current=false;}
++            // Include the current/destination tile even while grounded; publication
++            // waits for safe coordinator evidence, while one forward slot can proceed.
++            for(int attempt=-1;attempt<6;attempt++)
++            {
++                bool current=attempt<0;
++                if(current&&deferCurrentArea){CurrentAreaStatus="Current area: fast travel; destination demand resumes on slowing/stopping.";continue;}
++                int side=current?0:attempt%3==0?0:attempt%3==1?-1:1;
++                double distance=current?0:LookAheadMeters+(attempt/3)*TileMeters;
+                 double px=observer.X+heading.x*distance-heading.z*side*TileMeters*.8,pz=observer.Z+heading.z*distance+heading.x*side*TileMeters*.8;
+                 long gx=(long)Math.Floor(px/TileMeters),gz=(long)Math.Floor(pz/TileMeters);string key=gx+"/"+gz+"/"+TileMeters.ToString(System.Globalization.CultureInfo.InvariantCulture);
+-                if(WorldField.ContainsPatch(key)||work.Exists(item=>item.Key==key)||retries.TryGetValue(key,out float until)&&Time.unscaledTime<until)continue;
++                if(WorldField.ContainsPatch(key))continue;
+                 var core=new ExplorationRefinementBounds(gx*TileMeters,gz*TileMeters,(gx+1)*TileMeters,(gz+1)*TileMeters);
+                 var required=core.Expanded(BlendMeters+SurfaceProfile.SampleRadiusMax+10);
+-                if(required.MinimumX< -baked.WorldWidthMeters*.5||required.MaximumX>baked.WorldWidthMeters*.5||required.MinimumZ< -baked.WorldDepthMeters*.5||required.MaximumZ>baked.WorldDepthMeters*.5||FullyBaked(core))continue;
+-                if(core.Expanded(BlendMeters+QueryAndPropGuardMeters).DistanceSquared(observer.X,observer.Z)<=ProtectedRadiusMeters*ProtectedRadiusMeters)continue;
+-                var request=new Work{Key=key,Core=core};request.Task=FetchCopy(core,key,required);work.Add(request);
++                if(required.MinimumX< -baked.WorldWidthMeters*.5||required.MaximumX>baked.WorldWidthMeters*.5||required.MinimumZ< -baked.WorldDepthMeters*.5||required.MaximumZ>baked.WorldDepthMeters*.5||FullyBaked(core))
++                {if(current)CurrentAreaStatus="Current area: bundled detail or map boundary; no live tile required.";continue;}
++                if(!current&&core.Expanded(BlendMeters+QueryAndPropGuardMeters).DistanceSquared(observer.X,observer.Z)<=ProtectedRadiusMeters*ProtectedRadiusMeters)continue;
++                Work existing=work.Find(item=>item.Key==key);
++                if(existing!=null){existing.Desired=true;existing.Current|=current;continue;}
++                if(retries.TryGetValue(key,out float until)&&Time.unscaledTime<until)
++                {if(current)CurrentAreaStatus="Current area: model request failed; bounded30s retry pending.";continue;}
++                if(work.Count>=2)
++                {if(current)CurrentAreaStatus="Current area: waiting for the existing two requests to drain.";continue;}
++                var request=new Work{Key=key,Core=core,Desired=true,Current=current};request.Task=FetchCopy(core,key,required);work.Add(request);
+             }
+             // Retry metadata is finite even during long exploration flights.
+             if(retries.Count>64)retries.Clear();
+@@ -157,11 +185,22 @@
+         }
+         void StopClient()
+         {
+-            foreach(var item in work)ObserveFailure(item.Task);work.Clear();ObserveFailure(connecting);connecting=null;
+-            if(remote!=null)remote.Dispose();remote=null;accepted=false;
++            // Dispose cancels transport, but retain all task ownership until terminal.
++            // Repeated toggles/reconfiguration cannot create unbounded orphan work.
++            if(remote!=null)remote.Dispose();remote=null;accepted=false;stopping=true;
++            DrainStopped();
++        }
++        void DrainStopped()
++        {
++            if(!stopping)return;
++            for(int i=work.Count-1;i>=0;i--)if(work[i].Task.IsCompleted)
++            {if(work[i].Task.IsFaulted){var observed=work[i].Task.Exception;}work.RemoveAt(i);}
++            if(connecting!=null&&connecting.IsCompleted)
++            {if(connecting.IsFaulted){var observed=connecting.Exception;}connecting=null;}
++            stopping=work.Count!=0||connecting!=null;
+         }
+         static void ObserveFailure(Task task)
+         {if(task!=null)task.ContinueWith(completed=>{var observed=completed.Exception;},TaskContinuationOptions.OnlyOnFaulted);}
+-        void OnDestroy(){StopClient();}
++        void OnDestroy(){StopClient();foreach(var item in work)ObserveFailure(item.Task);ObserveFailure(connecting);}
+     }
+ }
+--- before/Assets/AshenVoxel/Exploration/ExplorationSettings.cs
++++ candidate/Assets/AshenVoxel/Exploration/ExplorationSettings.cs
+@@ -11,11 +11,11 @@
+     {
+         public readonly TerrainQualityPreset Preset;
+         public readonly int MaximumTiles,DetailMiB,ContactMiB;
+-        public readonly float TargetPixels,SplitFactor;
++        public readonly float TargetPixels,SplitFactor,ReachMultiplier;
+         public readonly bool GreedyVisible,ValidationOverrides;
+-        public string Label=>Preset+(ValidationOverrides?" (validation/custom overrides)":"");
+-        public TerrainQualityConfiguration(TerrainQualityPreset preset,int tiles,float pixels,int detail,int contact,float split,bool greedy,bool validation=false)
+-        {Preset=preset;MaximumTiles=tiles;TargetPixels=pixels;DetailMiB=detail;ContactMiB=contact;SplitFactor=split;GreedyVisible=greedy;ValidationOverrides=validation;}
++        public string Label=>Preset+" · reach "+ReachMultiplier.ToString("F1")+"× · "+MaximumTiles+" tiles · "+DetailMiB+" MiB"+(ValidationOverrides?" (validation/custom overrides)":"");
++        public TerrainQualityConfiguration(TerrainQualityPreset preset,int tiles,float pixels,int detail,int contact,float split,bool greedy,bool validation=false,float reachMultiplier=1)
++        {Preset=preset;MaximumTiles=tiles;TargetPixels=pixels;DetailMiB=detail;ContactMiB=contact;SplitFactor=split;GreedyVisible=greedy;ValidationOverrides=validation;ReachMultiplier=reachMultiplier;}
+         public static TerrainQualityConfiguration ForPreset(TerrainQualityPreset preset)
+         {
+             switch(preset)
+@@ -27,7 +27,7 @@
+         }
+         public bool SameRequest(TerrainQualityConfiguration other)=>Preset==other.Preset&&MaximumTiles==other.MaximumTiles&&
+             TargetPixels==other.TargetPixels&&DetailMiB==other.DetailMiB&&ContactMiB==other.ContactMiB&&
+-            SplitFactor==other.SplitFactor&&GreedyVisible==other.GreedyVisible;
++            SplitFactor==other.SplitFactor&&GreedyVisible==other.GreedyVisible&&ReachMultiplier==other.ReachMultiplier;
+     }
+ 
+     /// <summary>One editable asset for the first walk/fly world. Baked learned data
+@@ -76,6 +76,12 @@
+         [Header("Terrain and distant mountains")]
+         [Tooltip("Requires restarting Play. Maximum greedily requests256 columns for visible tiles and is expensive; mesh/plan caps can leave demand unmet.")]
+         public TerrainQualityPreset TerrainQuality=TerrainQualityPreset.Normal;
++        [Tooltip("Next Play: moves terrain tile LOD boundaries outward. Maximum already uses256 columns; this changes planner reach instead of just pixels.")]
++        [Range(1,4)] public float TerrainDetailReachMultiplier=1;
++        [Tooltip("Next Play:0 uses preset. Far detail mesh payload MiB, not reserved RAM/VRAM or whole-process allocation. Commit guard remains active.")]
++        [Range(0,8192)] public int TerrainFarDetailMiBOverride;
++        [Tooltip("Next Play:0 scales the preset plan allowance with reach, up to16384. More tiles permit wider fine bands, but increase initial coverage work and coarse reserves.")]
++        [Range(0,LodSettings.MaximumSupportedTiles)] public int TerrainPlanTileLimitOverride;
+         [Tooltip("Next Play: voxel terrain across the whole view.10cm implicit matter, exposed-face LODs and existing material layers. No terrain editing or simulation is enabled.")]
+         public bool EnableVoxelTerrain=true;
+         [Tooltip("Smaller values favor detail. Projected horizontal face-size target; tile/sample caps can limit it. Applies on next Play.")]
+@@ -83,13 +89,13 @@
+         [Tooltip("Independent10cm ground coverage follows you everywhere and publishes each completed tile immediately. Distant terrain keeps voxel LODs. Applies on next Play.")]
+         [Range(16,160)] public float VoxelFullDetailRadius=100;
+         [Tooltip("Applies next Play. Far mesh detail MiB, additional to reserved coarse coverage. This is mesh payload, not total RAM/VRAM.")]
+-        [Range(64,4096)] public int VoxelDetailBudgetMB=1536;
++        [Range(64,8192)] public int VoxelDetailBudgetMB=1536;
+         [Tooltip("Applies next Play. Contact mesh payload MiB; admitted tiles retain10cm detail.")]
+         [Range(128,2048)] public int VoxelContactBudgetMB=1024;
+         [Range(20,40)] public float ViewDistanceKm=30;
+         [Tooltip("Zero disables the extra coarse horizon. This is bounded low-detail coverage, not full-resolution terrain.")]
+         [Range(0,100)] public float FarHorizonKm;
+-        [Range(192,4096)] public int MaximumTerrainTiles=512;
++        [Range(192,LodSettings.MaximumSupportedTiles)] public int MaximumTerrainTiles=512;
+         [Range(16,64)] public float MinimumTerrainTileMeters=32;
+         [Range(32,256)] public float NearTerrainRadius=96;
+         [Range(32,64)] public int NearTerrainQuads=64;
+@@ -168,18 +174,24 @@
+         public TerrainQualityConfiguration ResolveTerrainQuality()
+         {
+             var preset=(TerrainQualityPreset)Mathf.Clamp((int)TerrainQuality,0,2);
+-            if(preset!=TerrainQualityPreset.Normal)return TerrainQualityConfiguration.ForPreset(preset);
++            var selected=TerrainQualityConfiguration.ForPreset(preset);
+             // Existing serialized/copied test profiles keep their explicit values.
+             // Selecting Normal explicitly restores the canonical shipping request.
+             var normal=TerrainQualityConfiguration.ForPreset(TerrainQualityPreset.Normal);
+-            int tiles=Mathf.Clamp(MaximumTerrainTiles,64,4096),detail=Mathf.Clamp(VoxelDetailBudgetMB,64,4096),contact=Mathf.Clamp(VoxelContactBudgetMB,128,2048);
++            int tiles=Mathf.Clamp(MaximumTerrainTiles,64,LodSettings.MaximumSupportedTiles),detail=Mathf.Clamp(VoxelDetailBudgetMB,64,8192),contact=Mathf.Clamp(VoxelContactBudgetMB,128,2048);
+             float pixels=Mathf.Clamp(VoxelTargetPixels,.5f,8);
+-            return new TerrainQualityConfiguration(preset,tiles,pixels,detail,contact,normal.SplitFactor,false,
++            if(preset==TerrainQualityPreset.Normal)selected=new TerrainQualityConfiguration(preset,tiles,pixels,detail,contact,normal.SplitFactor,false,
+                 tiles!=normal.MaximumTiles||pixels!=normal.TargetPixels||detail!=normal.DetailMiB||contact!=normal.ContactMiB);
++            float reach=float.IsNaN(TerrainDetailReachMultiplier)?1:Mathf.Clamp(TerrainDetailReachMultiplier,1,4);
++            return new TerrainQualityConfiguration(preset,
++                TerrainPlanTileLimitOverride>0?Mathf.Clamp(TerrainPlanTileLimitOverride,64,LodSettings.MaximumSupportedTiles):Mathf.Min(LodSettings.MaximumSupportedTiles,Mathf.CeilToInt(selected.MaximumTiles*reach*reach)),
++                selected.TargetPixels,TerrainFarDetailMiBOverride>0?Mathf.Clamp(TerrainFarDetailMiBOverride,64,8192):selected.DetailMiB,
++                selected.ContactMiB,selected.SplitFactor*reach,selected.GreedyVisible,selected.ValidationOverrides,reach);
+         }
+         public void SelectTerrainQuality(TerrainQualityPreset preset)
+         {
+             var selected=TerrainQualityConfiguration.ForPreset(preset);TerrainQuality=selected.Preset;
++            TerrainDetailReachMultiplier=1;TerrainFarDetailMiBOverride=TerrainPlanTileLimitOverride=0;
+             MaximumTerrainTiles=selected.MaximumTiles;VoxelTargetPixels=selected.TargetPixels;
+             VoxelDetailBudgetMB=selected.DetailMiB;VoxelContactBudgetMB=selected.ContactMiB;
+         }
+@@ -187,7 +199,10 @@
+         {
+             MinimumTerrainTileMeters=Mathf.Clamp(MinimumTerrainTileMeters,16,64);
+             NearTerrainQuads=Mathf.Clamp(Mathf.Max(NearTerrainQuads,Mathf.CeilToInt(MinimumTerrainTileMeters)),32,64);
+-            MaximumTerrainTiles=Mathf.Clamp(MaximumTerrainTiles,64,4096);
++            MaximumTerrainTiles=Mathf.Clamp(MaximumTerrainTiles,64,LodSettings.MaximumSupportedTiles);
++            TerrainDetailReachMultiplier=float.IsNaN(TerrainDetailReachMultiplier)?1:Mathf.Clamp(TerrainDetailReachMultiplier,1,4);
++            TerrainFarDetailMiBOverride=TerrainFarDetailMiBOverride>0?Mathf.Clamp(TerrainFarDetailMiBOverride,64,8192):0;
++            TerrainPlanTileLimitOverride=TerrainPlanTileLimitOverride>0?Mathf.Clamp(TerrainPlanTileLimitOverride,64,LodSettings.MaximumSupportedTiles):0;
+             TerrainQuality=(TerrainQualityPreset)Mathf.Clamp((int)TerrainQuality,0,2);
+         }
+     }
+--- before/Assets/AshenVoxel/Exploration/VegetationShrubMatter.cs
++++ candidate/Assets/AshenVoxel/Exploration/VegetationShrubMatter.cs
+@@ -28,6 +28,7 @@
+             internal string Source;
+             internal IShrubMatterOwner Owner;
+         }
++        public bool HasReservedShrubMatter=>shrubLease!=null&&!shrubLease.Closed;
+         ShrubLease shrubLease;long shrubToken;
+         bool shrubBuildHidden;long shrubBuildToken;
+         public bool TryReserveShrub(WorldPoint point,int candidates,IShrubMatterOwner owner,out ShrubLease lease,out string reason)
+--- before/Assets/AshenVoxel/Exploration/VegetationStreaming.cs
++++ candidate/Assets/AshenVoxel/Exploration/VegetationStreaming.cs
+@@ -450,6 +450,15 @@
+         /// player safety guard. Keep complete old drawing until rebuilt pages publish;
+         /// immutable near collision cells are never removed during movement.</summary>
+         public void InvalidateRegion(double minimumX,double minimumZ,double maximumX,double maximumZ)
++            =>InvalidateSourceRegion(minimumX,minimumZ,maximumX,maximumZ,false);
++        // Only Bootstrap's verified airborne source-publication event uses this seam.
++        // The field has already checked old AND new terrain +512m clearance.
++        internal void InvalidateVerifiedAirborneSourceRegion(double minimumX,double minimumZ,double maximumX,double maximumZ)
++        {
++            if(HasReservedShrubMatter)throw new InvalidOperationException("Cannot replace source while shrub matter owns a cell.");
++            InvalidateSourceRegion(minimumX,minimumZ,maximumX,maximumZ,true);
++        }
++        void InvalidateSourceRegion(double minimumX,double minimumZ,double maximumX,double maximumZ,bool includeProtected)
+         {
+             Horizon?.Invalidate();
+             GlobalQuery(minimumX,minimumZ,0);GlobalQuery(maximumX,maximumZ,0);
+@@ -458,7 +467,7 @@
+             foreach(var pair in cells)
+             {
+                 PopulationKey key=pair.Key;if(ShrubRetains(key))continue;double size=key.SizeMeters;
+-                if((key.X+1)*size<=minimumX||key.X*size>=maximumX||(key.Z+1)*size<=minimumZ||key.Z*size>=maximumZ||Distance(key)<=512*512)continue;
++                if((key.X+1)*size<=minimumX||key.X*size>=maximumX||(key.Z+1)*size<=minimumZ||key.Z*size>=maximumZ||(!includeProtected&&Distance(key)<=512*512))continue;
+                 remove.Add(key);
+             }
+             foreach(PopulationKey key in remove)
+--- before/Assets/AshenVoxel/Settings/ExplorationSettings.asset
++++ candidate/Assets/AshenVoxel/Settings/ExplorationSettings.asset
+@@ -26,7 +26,7 @@
+   WorldDepthMeters: 149760
+   VerticalScale: 1
+   FineBlendMeters: 512
+-  EnableLiveRefinement: 0
++  EnableLiveRefinement: 1
+   DiffusionEndpoint: http://127.0.0.1:8787
+   UseRecommendedSpawn: 0
+   SpawnX: -40954.96880764632
+--- before/Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs
++++ candidate/Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs
+@@ -2,6 +2,8 @@
+ using System.Collections.Generic;
+ using System.Globalization;
+ using System.Threading;
++using System.Text;
++using System.Security.Cryptography;
+ 
+ namespace AshenVoxel.WorldScale
+ {
+@@ -48,7 +50,25 @@
+             heights=h;climate=c;SampleBounds=new ExplorationRefinementBounds(originX,originZ,originX+(columns-1)*spacing,originZ+(rows-1)*spacing);
+             InfluenceBounds=core.Expanded(blend);minimumHeight=double.MaxValue;maximumHeight=double.MinValue;
+             for(int i=0;i<h.Length;i++){minimumHeight=Math.Min(minimumHeight,h[i]);maximumHeight=Math.Max(maximumHeight,h[i]);}
+-            SourceIdentity=sourceIdentity+"/owned-live-grid/"+key+"/"+columns+"x"+rows+"/"+spacing.ToString("R",CultureInfo.InvariantCulture);
++            string metadata=sourceIdentity+"/owned-live-grid-v2/"+worldId+"/"+key+"/"+columns+"x"+rows;
++            foreach(double value in new[]{core.MinimumX,core.MinimumZ,core.MaximumX,core.MaximumZ,blend,originX,originZ,spacing})metadata+="/"+value.ToString("R",CultureInfo.InvariantCulture);
++            SourceIdentity="live-patch/"+IdentityDigest(metadata,h,c);
++        }
++        internal static string IdentityDigest(string metadata,params float[][] arrays)
++        {
++            using(var sha=SHA256.Create())
++            {
++                byte[] bytes=Encoding.UTF8.GetBytes(metadata);sha.TransformBlock(bytes,0,bytes.Length,bytes,0);
++                byte[] block=new byte[16384];
++                foreach(var array in arrays)
++                {
++                    int length=checked(array.Length*4);
++                    for(int offset=0;offset<length;offset+=block.Length)
++                    {int n=Math.Min(block.Length,length-offset);Buffer.BlockCopy(array,offset,block,0,n);sha.TransformBlock(block,0,n,block,0);}
++                }
++                sha.TransformFinalBlock(Array.Empty<byte>(),0,0);
++                return BitConverter.ToString(sha.Hash).Replace("-","").ToLowerInvariant();
++            }
+         }
+         public static ExplorationRefinementPatch CopySnapshot(IWorldField snapshot,string key,string worldId,
+             ExplorationRefinementBounds core,double blendMeters=128,double queryHaloMeters=32,double spacingMeters=5)
+@@ -93,9 +113,27 @@
+         public HeightBounds QueryBounds(double x0,double z0,double x1,double z1)=>new HeightBounds(minimumHeight,maximumHeight);
+     }
+ 
++    /// <summary>Fresh coordinator evidence for this exact observer. BeforeSpawn may
++    /// only be used before player, props and gameplay matter are initialized.
++    /// AirborneWithoutGameplayMatter requires flight and no active gameplay matter;
++    /// conservative old/new height clearance is still checked by the field.</summary>
++    public readonly struct ExplorationRefinementPublicationPolicy
++    {
++        readonly int mode;readonly WorldPoint witness;
++        ExplorationRefinementPublicationPolicy(int mode,WorldPoint observer){this.mode=mode;witness=observer;}
++        public static ExplorationRefinementPublicationPolicy BeforeSpawn(WorldPoint observer)=>new ExplorationRefinementPublicationPolicy(1,observer);
++        public static ExplorationRefinementPublicationPolicy AirborneWithoutGameplayMatter(WorldPoint observer)=>new ExplorationRefinementPublicationPolicy(2,observer);
++        internal bool Matches(WorldPoint observer)=>witness.X==observer.X&&witness.Y==observer.Y&&witness.Z==observer.Z;
++        public static ExplorationRefinementPublicationPolicy HoldForGameplayMatter(WorldPoint observer)=>new ExplorationRefinementPublicationPolicy(3,observer);
++        internal bool Hold=>mode==3;
++        internal bool Unspawned=>mode==1;
++        internal bool Airborne=>mode==2;
++    }
++
+     /// <summary>Stable shared world authority with atomic immutable patch states.
+-    /// Publishing/retiring is forbidden wherever full influence/query/prop bounds
+-    /// could reach the protected observer disk. Sampling performs no I/O.</summary>
++    /// Default publication and all direct retirement protect the full observer
++    /// disk. Explicit pre-spawn or conservative airborne evidence may permit
++    /// publication/replacement/eviction. Sampling performs no I/O.</summary>
+     public sealed class ExplorationRefinementField:IWorldFieldBounds,IClimateWorldField,IWorldFieldSnapshotProvider
+     {
+         readonly object gate=new object();readonly List<Record> records=new List<Record>();readonly IWorldField baseField;
+@@ -107,7 +145,12 @@
+             public readonly IWorldField Base;public readonly ExplorationRefinementPatch[] Patches;public readonly long Bytes;public readonly int Revision;
+             public string SourceIdentity {get;}
+             public State(IWorldField baseField,ExplorationRefinementPatch[] patches,int revision,string worldId)
+-            {Base=baseField;Patches=patches;Revision=revision;foreach(var p in patches)Bytes+=p.PayloadBytes;SourceIdentity=baseField.SourceIdentity+"/safe-refinement-v1/"+worldId+"/revision="+revision;}
++            {
++                Base=baseField;Patches=patches;Revision=revision;
++                string content=baseField.SourceIdentity+"/safe-refinement-v3/"+worldId;
++                foreach(var p in patches){Bytes+=p.PayloadBytes;content+="/"+p.SourceIdentity;}
++                SourceIdentity="refined-source/"+ExplorationRefinementPatch.IdentityDigest(content);
++            }
+             public SurfaceSample Sample(double x,double z)
+             {
+                 SurfaceSample basis=Base.Sample(x,z);double sum=0,delta=0;
+@@ -163,7 +206,27 @@
+             WorldId=worldId;SpacingMeters=spacingMeters;this.maximumPatches=maximumPatches;this.maximumBytes=maximumBytes;protectionRadius=protectionRadiusMeters;guardPadding=queryAndPropGuardMeters;
+             current=new State(baseField,Array.Empty<ExplorationRefinementPatch>(),0,worldId);
+         }
+-        bool Safe(ExplorationRefinementPatch patch,WorldPoint observer)=>patch.InfluenceBounds.Expanded(guardPadding).DistanceSquared(observer.X,observer.Z)>protectionRadius*protectionRadius;
++        bool Safe(ExplorationRefinementPatch patch,WorldPoint observer,ExplorationRefinementPublicationPolicy policy=default)
++        {
++            if(policy.Hold)return false;
++            var affected=patch.InfluenceBounds.Expanded(guardPadding);
++            if(affected.DistanceSquared(observer.X,observer.Z)>protectionRadius*protectionRadius)return true;
++            if(!policy.Matches(observer))return false;
++            if(policy.Unspawned)return true;
++            if(!policy.Airborne)return false;
++            try
++            {
++                // Current conservative bounds include the base and all retained patches.
++                // The new blended source is bounded by their maxima and the new grid.
++                HeightBounds old=current.QueryBounds(affected.MinimumX,affected.MinimumZ,affected.MaximumX,affected.MaximumZ);
++                HeightBounds added=patch.QueryBounds(affected.MinimumX,affected.MinimumZ,affected.MaximumX,affected.MaximumZ);
++                // Accepted prototype bounds reach250m above ground (scale1), plus
++                // wind/body/query clearance.512m is intentionally conservative.
++                double maximum=Math.Max(old.Maximum,added.Maximum),clearance=Math.Max(512,guardPadding+32);
++                return !double.IsNaN(maximum)&&!double.IsInfinity(maximum)&&observer.Y>maximum+clearance;
++            }
++            catch(Exception){return false;} // Missing/failing bounds keep the observer protected.
++        }
+         public bool ContainsPatch(string key){foreach(var p in Volatile.Read(ref current).Patches)if(p.Key==key)return true;return false;}
+         public double LiveWeightAt(double x,double z)
+         {double sum=0;foreach(var p in Volatile.Read(ref current).Patches)if(p.InfluenceBounds.Contains(x,z))sum+=p.CoreBounds.Weight(x,z,p.BlendMeters);return Math.Min(1,sum);}
+@@ -176,7 +239,7 @@
+             records.Clear();records.AddRange(next);var patches=new ExplorationRefinementPatch[next.Count];for(int i=0;i<patches.Length;i++)patches[i]=next[i].Patch;
+             Array.Sort(patches,(a,b)=>string.CompareOrdinal(a.Key,b.Key));int revision=++version;Volatile.Write(ref current,new State(baseField,patches,revision,WorldId));
+         }
+-        public bool TryPublish(ExplorationRefinementPatch patch,WorldPoint observer,out ExplorationRefinementBounds[] changes)
++        public bool TryPublish(ExplorationRefinementPatch patch,WorldPoint observer,out ExplorationRefinementBounds[] changes,ExplorationRefinementPublicationPolicy policy=default)
+         {
+             if(patch==null)throw new ArgumentNullException(nameof(patch));
+             if(patch.WorldId!=WorldId||Math.Abs(patch.SpacingMeters-SpacingMeters)>1e-7)throw new ArgumentException("Live patch identity or physical grid differs from this world.");
+@@ -184,18 +247,18 @@
+             lock(gate)
+             {
+                 LastPublishRefusal=null;
+-                if(!Safe(patch,observer)){LastPublishRefusal="Patch influence reaches protected player/query/prop area.";return false;}
++                if(!Safe(patch,observer,policy)){LastPublishRefusal=policy.Hold?"Source publication held while gameplay matter owns a session.":"Patch influence reaches protected player/query/prop area; requires pre-spawn evidence or clear airborne old/new bounds.";return false;}
+                 if(patch.PayloadBytes>maximumBytes){LastPublishRefusal="Patch exceeds the resident payload budget.";return false;}
+                 var next=new List<Record>(records);var dirty=new List<ExplorationRefinementBounds>();long bytes=0;
+                 for(int i=next.Count-1;i>=0;i--)
+                 {
+                     if(next[i].Patch.Key==patch.Key)
+-                    {if(!Safe(next[i].Patch,observer)){LastPublishRefusal="Replaced patch is protected.";return false;}dirty.Add(next[i].Patch.InfluenceBounds.Expanded(guardPadding));next.RemoveAt(i);}
++                    {if(!Safe(next[i].Patch,observer,policy)){LastPublishRefusal="Replaced patch is protected.";return false;}dirty.Add(next[i].Patch.InfluenceBounds.Expanded(guardPadding));next.RemoveAt(i);}
+                     else bytes+=next[i].Patch.PayloadBytes;
+                 }
+                 while(next.Count>=maximumPatches||bytes+patch.PayloadBytes>maximumBytes)
+                 {
+-                    int victim=-1;for(int i=0;i<next.Count;i++)if(Safe(next[i].Patch,observer)&&(victim<0||next[i].Use<next[victim].Use))victim=i;
++                    int victim=-1;for(int i=0;i<next.Count;i++)if(Safe(next[i].Patch,observer,policy)&&(victim<0||next[i].Use<next[victim].Use))victim=i;
+                     if(victim<0){LastPublishRefusal="All eviction candidates are protected; coarse world continues.";return false;}
+                     bytes-=next[victim].Patch.PayloadBytes;dirty.Add(next[victim].Patch.InfluenceBounds.Expanded(guardPadding));next.RemoveAt(victim);
+                 }
+--- before/Assets/AshenVoxel/WorldScaleData/LodPlanner.cs
++++ candidate/Assets/AshenVoxel/WorldScaleData/LodPlanner.cs
+@@ -21,13 +21,15 @@
+     }
+     public sealed class LodSettings
+     {
++        public const int MaximumSupportedTiles=16384;
++        public const float MaximumSplitFactor=80;
+         public readonly double BaseTileSizeMeters,FarDistanceMeters,SplitFactor,MinimumHeightMeters,MaximumHeightMeters;
+         public readonly int MaxLevel,MaxTiles;
+         public LodSettings(double baseTileSizeMeters=64,int maxLevel=10,double farDistanceMeters=32000,double splitFactor=2.2,int maxTiles=384,double minimumHeightMeters=-2000,double maximumHeightMeters=12000)
+         {
+             Numeric.Positive(baseTileSizeMeters,nameof(baseTileSizeMeters));Numeric.Positive(farDistanceMeters,nameof(farDistanceMeters));Numeric.Positive(splitFactor,nameof(splitFactor));
+             Numeric.Finite(minimumHeightMeters,nameof(minimumHeightMeters));Numeric.Finite(maximumHeightMeters,nameof(maximumHeightMeters));
+-            if(baseTileSizeMeters>1e9||farDistanceMeters>1e9||maxLevel<0||maxLevel>24||maxTiles<9||maxTiles>4096||minimumHeightMeters>=maximumHeightMeters||splitFactor>20||farDistanceMeters>baseTileSizeMeters*Math.Pow(2,maxLevel))throw new ArgumentOutOfRangeException("LOD limits require farDistance <= root tile size,9..4096 tiles and valid height bounds.");
++            if(baseTileSizeMeters>1e9||farDistanceMeters>1e9||maxLevel<0||maxLevel>24||maxTiles<9||maxTiles>MaximumSupportedTiles||minimumHeightMeters>=maximumHeightMeters||splitFactor>MaximumSplitFactor||farDistanceMeters>baseTileSizeMeters*Math.Pow(2,maxLevel))throw new ArgumentOutOfRangeException("LOD limits require farDistance <= root tile size,9..16384 tiles and valid height bounds.");
+             BaseTileSizeMeters=baseTileSizeMeters;MaxLevel=maxLevel;FarDistanceMeters=farDistanceMeters;SplitFactor=splitFactor;MaxTiles=maxTiles;MinimumHeightMeters=minimumHeightMeters;MaximumHeightMeters=maximumHeightMeters;
+         }
+     }
+--- before/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs
++++ candidate/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs
+@@ -53,7 +53,7 @@
+         public string DiffusionEndpoint = "http://127.0.0.1:8787";
+         [Range(256, 4096)] public float NeuralRefinementTileLimitMeters = 2048;
+         [Range(4, 100)] public float ViewDistanceKm = 32;
+-        [Range(64, 4096)] public int MaximumTiles = 384;
++        [Range(64, LodSettings.MaximumSupportedTiles)] public int MaximumTiles = 384;
+         [Range(1, 8)] public int MeshBuildsPerFrame = 2;
+         [Range(8, 64)] public int TileQuads = 32;
+         [Range(10, 2000)] public float FlightSpeedMetersPerSecond = 80;
+@@ -274,8 +274,8 @@
+             if (field == null || planJob != null) return;
+             double baseSize = UseVoxelLodTerrain ? VoxelLodSurface.BaseTileMeters : Mathf.Clamp(MinimumTileSizeMeters, 16, 128);
+             var settings = new LodSettings(baseTileSizeMeters: baseSize, maxLevel: 14,
+-                farDistanceMeters: EffectiveViewDistanceMeters, splitFactor: UseVoxelLodTerrain?Mathf.Clamp(VoxelPlanSplitFactor,1,20):2.2,
+-                maxTiles: Mathf.Clamp(MaximumTiles, 64, 4096),
++                farDistanceMeters: EffectiveViewDistanceMeters, splitFactor: UseVoxelLodTerrain?Mathf.Clamp(VoxelPlanSplitFactor,1,LodSettings.MaximumSplitFactor):2.2,
++                maxTiles: Mathf.Clamp(MaximumTiles, 64, LodSettings.MaximumSupportedTiles),
+                 minimumHeightMeters: RemoteTerrainField.MinimumSupportedHeight,
+                 maximumHeightMeters: RemoteTerrainField.MaximumSupportedHeight + CurrentSurfaceProfile.MaxSnowDepthMeters);
+             IWorldField planSource = CaptureField(SurfaceField(field)); WorldPoint observer = GlobalCamera;
+@@ -658,6 +658,7 @@
+             pending.Clear(); active.Clear(); desired.Clear(); desiredTiles.Clear(); refining.Clear(); externallyDirty.Clear(); planActivationPending = false;
+             voxelCapacityQuads.Clear();voxelRetryAt=0;voxelDeferredQuads.Clear();
+             TerrainResidentMeshBytes=voxelDetailMeshBytes=HeightProxyMeshBytes=0;VoxelRefinementPendingTiles=0;voxelRefinementScanPending=false;consecutiveContactBuilds=0;
++            VisibleTerrainSpacingTiles=VisibleTerrainAtRequestedSpacingTiles=0;VisibleTerrainMeanCurrentSpacingMeters=VisibleTerrainMeanRequestedSpacingMeters=0;
+         }
+         void OnGUI()
+         {
+--- before/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
++++ candidate/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
+@@ -27,7 +27,7 @@
+         }
+         bool NeedsTerrainQuality(LodTile tile,Surface s)=>s.Quads<VoxelQuadsFor(tile)||s.HeightProxy!=WantsHeightProxy(tile);
+         [Range(.5f,8)] public float VoxelTargetPixels=1.5f;
+-        [Range(1,20)] public float VoxelPlanSplitFactor=2.2f;
++        [Range(1,LodSettings.MaximumSplitFactor)] public float VoxelPlanSplitFactor=2.2f;
+         public bool VoxelGreedyVisibleDetail;
+         [Range(16,160)] public float VoxelFullDetailRadius=100;
+         [Range(128,2048)] public int VoxelContactBudgetMB=1024;
+@@ -321,7 +321,7 @@
+         {
+             if(field!=null||currentBuild!=null||surfaces.Count!=0||contactSurfaces.Count!=0)
+                 throw new InvalidOperationException("Terrain mesh budgets must be configured before initialization; restart Play to change them.");
+-            voxelInitialDetailBudgetBytes=(long)Mathf.Clamp(detailMiB,64,4096)*1024*1024;
++            voxelInitialDetailBudgetBytes=(long)Mathf.Clamp(detailMiB,64,8192)*1024*1024;
+             VoxelContactBudgetMB=Mathf.Clamp(contactMiB,128,2048);
+         }
+         long voxelDetailMeshBytes;
+@@ -347,7 +347,7 @@
+         {LastTerrainUploadRepresentation=kind;LastTerrainUploadVertices=vertices;LastTerrainUploadIndices=indices;LastTerrainUploadBytes=bytes;}
+         // Retain the older active plan's reserve when a smaller replacement is
+         // requested. Both cached plans remain covered until their atomic swap.
+-        public int TerrainCoverageReserveTiles=>Math.Max(Mathf.Clamp(MaximumTiles,64,4096),Math.Max(active.Count,desired.Count));
++        public int TerrainCoverageReserveTiles=>Math.Max(Mathf.Clamp(MaximumTiles,64,LodSettings.MaximumSupportedTiles),Math.Max(active.Count,desired.Count));
+         public long TerrainCoveragePlanReserveBytes=>(long)TerrainCoverageReserveTiles*VoxelCoverageTileReserveBytes;
+         public long TerrainSteadyMeshLimitBytes=>VoxelDetailBudgetBytes+TerrainCoveragePlanReserveBytes;
+         public long TerrainTransitionMeshLimitBytes=>VoxelDetailBudgetBytes+2*TerrainCoveragePlanReserveBytes;
+@@ -577,9 +577,15 @@
+             Vector3 f=view.transform.forward;
+             return f.x*plannedForward.x+f.y*plannedForward.y+f.z*plannedForward.z<.90;
+         }
++        public int VisibleTerrainSpacingTiles {get;private set;}
++        public int VisibleTerrainAtRequestedSpacingTiles {get;private set;}
++        public double VisibleTerrainMeanCurrentSpacingMeters {get;private set;}
++        public double VisibleTerrainMeanRequestedSpacingMeters {get;private set;}
+         void RecordVoxelStatistics()
+         {
+             VoxelLodTiles=DistantHeightProxyTiles=CameraPriorityTiles=PixelTargetLimitedTiles=VoxelRefinementPendingTiles=0;TerrainTriangles=0;
++            VisibleTerrainSpacingTiles=VisibleTerrainAtRequestedSpacingTiles=0;
++            VisibleTerrainMeanCurrentSpacingMeters=VisibleTerrainMeanRequestedSpacingMeters=0;
+             if(UseVoxelLodTerrain&&!coarseStartup)
+                 foreach(var tile in desiredTiles.Values)
+                     if(surfaces.TryGetValue(tile.Key,out Surface existing)&&NeedsTerrainQuality(tile,existing))VoxelRefinementPendingTiles++;
+@@ -589,9 +595,21 @@
+                 if(InVoxelView(s.Tile))
+                 {
+                     CameraPriorityTiles++;
++                    if(desiredTiles.TryGetValue(key,out LodTile request))
++                    {
++                        int target=VoxelQuadsFor(request);VisibleTerrainSpacingTiles++;
++                        VisibleTerrainMeanCurrentSpacingMeters+=s.Tile.SizeMeters/s.Quads;
++                        VisibleTerrainMeanRequestedSpacingMeters+=request.SizeMeters/target;
++                        if(s.Quads>=target)VisibleTerrainAtRequestedSpacingTiles++;
++                    }
+                     double distance=Math.Max(.1,Math.Sqrt(DistanceSquared(s.Tile)));
+                     if(s.Tile.SizeMeters/s.Quads*FocalPixels/distance>VoxelTargetPixels&&s.Tile.SizeMeters/s.Quads>.10001)PixelTargetLimitedTiles++;
+                 }
++            }
++            if(VisibleTerrainSpacingTiles>0)
++            {
++                VisibleTerrainMeanCurrentSpacingMeters/=VisibleTerrainSpacingTiles;
++                VisibleTerrainMeanRequestedSpacingMeters/=VisibleTerrainSpacingTiles;
+             }
+         }
+         IEnumerator<Surface> BuildVoxelSurfaceSteps(LodTile tile,int n,bool contact=false)

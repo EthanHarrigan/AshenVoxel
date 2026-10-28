@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-27T12:00:17.330754+00:00",
+  "status": "altitude-retain CPU-only; NOT INSTALLED",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "f609db6e1bf116d81a063e926dd24a3f8157acf939c04e4325ca9ad1f5a4de55",
+      "sha256": "f609db6e1bf116d81a063e926dd24a3f8157acf939c04e4325ca9ad1f5a4de55"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationController.cs",
+      "before": "bcbdaa0ee9a7550d0439209ed839cc69c85c794a5156906dc9deed3d9a8894aa",
+      "sha256": "bcbdaa0ee9a7550d0439209ed839cc69c85c794a5156906dc9deed3d9a8894aa"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+      "before": "66626530b591492e92ea2771b50e7a6acf3c8c789211ddcc42bacdf37d3976b9",
+      "sha256": "66626530b591492e92ea2771b50e7a6acf3c8c789211ddcc42bacdf37d3976b9"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "before": "15a24d325bc62db2dbe517ee5b2e6bd916f877d6b6d9b966dc2d964831a8d393",
+      "sha256": "ca98baf1f8c678918ba8b81857f4d10753bdef36c1dfbbc382a33d0b88276c86"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+      "before": "5d132d061fa7f855e480f20e2aaa7af174684085dd1b0349313399f5426a3700",
+      "sha256": "5d132d061fa7f855e480f20e2aaa7af174684085dd1b0349313399f5426a3700"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "4bd6abd85ad8fe18d83e6ca22c6f03a3b944f29fef52a117fc5444e889d1da47",
+      "sha256": "1899a8e7d3c9888f55ac46fad09b1a7537c03e17cd72fe78a715996e4ec474cc"
+    }
+  ]
+}

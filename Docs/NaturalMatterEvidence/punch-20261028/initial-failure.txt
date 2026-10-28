@@ -1,0 +1,10 @@
+First newly added registry reach test, before endpoint-tolerance repair:
+Unhandled exception. System.Exception: registry punch range/assist yaw=0 (-2.5, 0.05, True)
+   at Program.<PunchRegistry>g__Check|1_0(Boolean ok, String why, <>c__DisplayClass1_0&)
+   at Program.PunchRegistry()
+   at Program.Main(String[] args)
+
+The exact2.5m endpoint was excluded by accumulated double DDA stepping error.
+The corresponding active-physics cases passed; this failure correctly exposed an
+admission/active-cut mismatch. Final source uses0.01mm boundary tolerance and clamps
+reported hits to the supplied reach. Final source-matched reports are separate.

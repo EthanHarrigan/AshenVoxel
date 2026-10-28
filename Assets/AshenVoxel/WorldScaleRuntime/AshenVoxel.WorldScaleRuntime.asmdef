@@ -1,0 +1,5 @@
+{
+  "name": "AshenVoxel.WorldScaleRuntime",
+  "rootNamespace": "AshenVoxel.WorldScaleRuntime",
+  "references": ["AshenVoxel.Core", "AshenVoxel.Rendering", "AshenVoxel.WorldScaleData", "Unity.InputSystem"]
+}

@@ -1,0 +1,120 @@
+{
+  "status": "PASS",
+  "created_utc": "2026-10-26T16:41:30.724938+00:00",
+  "scope": "Actual pinned pretrained model through the canonical bridge; not Unity or gameplay FPS.",
+  "checks": {
+    "actual_pretrained_backend": true,
+    "all_float_channels_finite": true,
+    "cached_response_bit_exact": true,
+    "canonical_overlap_height_bit_exact": true,
+    "canonical_overlap_climate_bit_exact": true,
+    "owner_disk_recreation_bit_exact": true,
+    "avwf_baked": true
+  },
+  "timings_seconds": {
+    "prepare": 6.33034040399798,
+    "first_canonical_region": 196.32812187499803,
+    "response_cache_repeat": 3.330899926368147e-05,
+    "overlap_from_owner_disk": 0.0012323179980739951
+  },
+  "job": {
+    "spec": {
+      "schema": "ashen-diffusion-job-v1",
+      "upstream_commit": "e8dcb4b1a834ab2f6b1a6f5256ed7c9f2f3e8230",
+      "model": "xandergos/terrain-diffusion-30m",
+      "model_revision": "9ef8030cb805b433b98ec25c5dddefbac07a9e26",
+      "seed": 714103,
+      "spacing_m": 30.0,
+      "precision": "fp32",
+      "device": "cpu",
+      "pipeline_cache_bytes": 268435456,
+      "runtime_versions": {
+        "python": "3.12.14",
+        "torch": "2.14.1+cpu",
+        "torchvision": "0.29.1+cpu",
+        "diffusers": "0.42.0",
+        "infinite-tensor": "0.4.0",
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "scikit-image": "0.26.0",
+        "rasterio": "1.5.2",
+        "h5py": "3.16.0",
+        "safetensors": "0.8.0"
+      },
+      "sampling_policy": "canonical-owner-v1",
+      "owner_samples": 256,
+      "owner_halo": 32,
+      "owner_disk_cache_bytes": 536870912,
+      "torch_threads": 4,
+      "T": 2,
+      "latents_batch_size": [
+        1
+      ],
+      "statistics": {
+        "path": "/workspace/infinite-diffusion-smoke/pipeline_data.json",
+        "sha256": "e3132c3ef0c65d8613615f9278ffe23bbd9363ddcd87f1cc6f18456bcc9efe5c"
+      },
+      "response_cache_bytes": 134217728,
+      "max_region_side": 1024,
+      "max_cached_regions": 256,
+      "max_region_samples": 262144,
+      "queue_capacity": 8,
+      "conditioning_snr": [
+        0.2,
+        0.2,
+        1.0,
+        0.2,
+        1.0
+      ],
+      "conditioning": null,
+      "height_units": "meters",
+      "row_axis": "global_z",
+      "column_axis": "global_x",
+      "climate_channels": [
+        "temperature_c",
+        "temperature_std_c",
+        "precipitation_mm",
+        "precipitation_cv_percent",
+        "beta"
+      ],
+      "climate_encoding": "physical-si-v2",
+      "biome_policy": "preserve_imported_or_unclassified_zero",
+      "land_policy": "generated_height_at_or_above_zero",
+      "coast_policy": "soft_model_conditioning"
+    },
+    "world_id": "90cf154a199f8ffeac1946632c7e18c382de4242e96435268b0b26c0817e68a7",
+    "upstream_source": "/workspace/reference-code/terrain-diffusion",
+    "model_dir": "/workspace/infinite-diffusion-smoke/model",
+    "note": "Prepared inference job; this manifest is not generated terrain or evidence of executed weights."
+  },
+  "owner_cache_preexisting": false,
+  "cold_neural_region_execution_expected": true,
+  "avwf_sha256": "3f53bcb583b865552cc30b994fd1a3ea1b62fb7cf8c0b2bf1ac7bf1d72b9ad68",
+  "response_sha256": "8ba1153cfdf9b495902cef01f4bc1b16fce3bf31e321f6b972d4ff3a1a6eccbf",
+  "height_min_m": 1194.4822998046875,
+  "height_max_m": 1514.0501708984375,
+  "climate_shape": [
+    5,
+    33,
+    33
+  ],
+  "native_spacing_m": 30,
+  "source_sha256": {
+    "bridge.py": "a54ad8a3033e6a45632a96b9c694968ed342ef3b3351d6ebe23fd1d9100e1aef",
+    "check_real_bridge.py": "18be249f66c68bce61b82278df2f3bd8b4ffe81f2f313a62688673bede4e9464",
+    "model-manifest.json": "2bbbb7106fd8b62b9a8b0c354d5bff56d02e0f471a2069d2abca5cb35115d1a5"
+  },
+  "peak_rss_kib": 3026452,
+  "limits": "Actual test covers one canonical owner, overlapping requests and verified disk replay. If owner_cache_preexisting is true, this run verifies prior actual neural bytes without generating a new model region. Adjacent owner geometry, GPU/runtime changes, far LOD, Unity and model-cache eviction/recompute remain separate tests.",
+  "unit_regression": {
+    "historical_height_sha256": "8ff49309bec1ca8afba94345ce31587780f9079bbfe6b836d2ced67f8ffebd45",
+    "historical_climate_sha256": "4840264ffcbc78550f5c1a1d08690fc07d7c7ca36dfd153b031a2e0fe6927cda",
+    "height_array_bit_exact": true,
+    "other_climate_planes_bit_exact": true,
+    "seasonality_exact_native_times_point01": true,
+    "seasonality_c_range": [
+      6.5363898277282715,
+      6.639077186584473
+    ]
+  }
+}

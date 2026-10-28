@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-27T12:52:16.531102+00:00",
+  "status": "PASS",
+  "sha256": "c11cee0de3574d524221a516928b8395465d9efc87eec0c83453f045c692747e",
+  "scope": "ActualUnityAPIcombinedcompileONLY; ownRuntime+Editorpassive trigger not installed; noarm/Play",
+  "plan": [
+    "StageonlyreviewedRuntimecs+meta andtinyownedpassiveEditorarmadapter (notauthored/stagedyet).",
+    "Fresh3.5GiB/currentnativeWinAPIguard; profile64MiBdetail/128MiBcontact192tiles,savedoptionsfalse.",
+    "OnceReady: runtimecloneflight40/boost4; initial220mtestaltitudesetup, actual4s160m/sout,2sstop,4sreturn,2sstop,5sdescent,3sarrival. NoClip elevatedonly; recordshowingnoClipphaseexplicit.",
+    "OneAdvanceperactualUpdate; actuallongframecap/solverdebtretained. Samplesactualgateentries/exits,globalfeet/originrebase,worldwait,near2mterrainreadiness,queues/payload/frameDelta.",
+    "No V4rootnative overlap; source/APIreviewfirst thenseparatenativeresourceapproval. Existingguard60sexitsownsceneonmemory. Stoponcap/failure,noretrywithoutdiagnosis.",
+    "Restoreoriginalscene/profile/prefshashes afterward. Donotclaimframepercentilesormountainousperf basedsyntheticfixture."
+  ],
+  "open_gates": [
+    "Nativepreparedarmadaptermustnotbypasscurrentguardidentity orstartPlayitself.",
+    "Reviewrouteend/exceptioncleanup andrecordcoarsebound conservatism ifgateentries0.",
+    "NotnativeUnityimported; actualInput/fieldcollisionbridge trial remains pending."
+  ],
+  "trigger_sha256": "58732a4ad76a7c62f9df4d6568d3a84ae6ad3795df4a0b30446adb90d67fd348",
+  "review_corrections": "Exceptions finish immediately; independent nullsafe restoration; actual Flying/NoClip/walkingresult/deferred/skipped/finaloffset recorded; input earlyUpdate,samplesLateUpdate; sceneownership+pointercaptureflag scoped."
+}

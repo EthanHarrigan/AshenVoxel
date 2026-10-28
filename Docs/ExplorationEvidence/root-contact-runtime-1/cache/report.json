@@ -1,0 +1,108 @@
+{
+  "passed": true,
+  "assertions": 313824,
+  "actual_cases": [
+    {
+      "id": 10,
+      "key": "d94b4de876486120f70bc9a8895c5636f45f3ee925e48b49847c6ecfd53579ba",
+      "cells": 51454,
+      "render_cells": 50110,
+      "context_cells": 1344,
+      "job_candidates": 2611336,
+      "cache_ready_accounted_bytes": 876332
+    },
+    {
+      "id": 11,
+      "key": "d2bc3731b6ce5ce27a7088f88ae2ef601fe57930eb7b4eb41e906cb257fe0a09",
+      "cells": 52979,
+      "render_cells": 51538,
+      "context_cells": 1441,
+      "job_candidates": 2692254,
+      "cache_ready_accounted_bytes": 1778589
+    }
+  ],
+  "actual_peak_resident_accounted_bytes": 26042156,
+  "actual_total_job_candidates": 5303590,
+  "gates": "identity determinism and revisions; FIFO/dedup/queue-full retry; zero-budget; partial real packaging; bounded work; LRU eviction/retry; leases and publication pinning; resident admission; cancellation queued/running/waiting; actual builder cancellation; failure/factory/oversize; yielding work retained; stale queue/cache/lease; independent actual source gate; actual revised rebuild; exact cell/RGB/roles vs prior frozen oracle",
+  "utc": "2026-10-27T12:06:21.406718+00:00",
+  "source_sha256": {
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Details\\PlantGenerator.cs": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Details\\PlantModel.cs": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Materials.cs": "ab945a1f679e57f81dca05fc3fe4a70e2e0e0d35ce51f2d1457d99e8660baf85",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Rocks\\RockGenerator.cs": "006a8434c519bb996e85c4b05e0f188efe49a0a56e68d84ae6b9804f1e78425e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Rocks\\RockProfile.cs": "20152a9dbd0661143a400c1c2b7a69e97755e65342e3352239847b1dc752afc3",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Rocks\\RockShapeGeometry.cs": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Trees\\TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Trees\\TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Trees\\TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\VertexAppearance.cs": "3ccdc0517c6e3e1db6d2f5680cc07b36b8b3ca1a4fb0273e621eb3a3d867a2ad",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\VoxelColor.cs": "18387e0d5aedcb078e5f3ac6860908bbc1c6578a9bdbd295cbf6f4ea7a9550e9",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\RootContact.cs": "0154d84bb0f3ff2f7638ffe55c389f813237a4d438545a3f7a4d53902e314b8a",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\Interaction.cs": "8133a5181e77df83a94f66b6b4ae668c51e408ffce78df406a59bd01aa066f8e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-cache-prototype\\Controller.cs": "1c95beb9f475f41bcb32ba0bbd408ee2ed90f17027db9ee72fdff3efee06599f",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-cache-prototype\\FrozenJob.cs": "644081f435f5ef8337ecf62bf51f03610fa3853fb6ac3447f6655312cd7ee72e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-cache-prototype\\Checks.cs": "d8d4d3805b052043f340687e4b8ba1d67d5930450586ddd62cc511565a3da6eb",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-cache-prototype\\run.py": "042c7552e9fe358c98a94177571772f85eaef89ec0e28c985cdedf5cb739797b",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\report.json": "aff1310bd7ea0b1d27d9b567e7e661fe4de198c615c56a3520b30f392ab3f305",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\report.json": "9781c53e64893f8d8f601592e8ac56a853b86c6cdf84f34d32554af719864439",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\sites.json": "17375673127de2d1651d3744972abdede8aa47b622c17ec957d8d0c6288051bd",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\v2-template-10.bin": "c28b0a1ee88a3d120e5693aeac05d66a374428c592648bb48287128841d897f2",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\terrain-10.bin": "c1468f86849cb0db883a829aa7383634155e42e2184700a3c8578b8ac8c4bf25",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\wood-10-baseline.bin": "ded723006328b2252cf1b1ff15b64d32b8ddc366dbd4d9be1647bec742fbf0d6",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\actual-10-oracle.bin": "aaa975b776dfa303b863461beb0f5ed96bdfee44aa03019f2f6839427370b1eb",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\v2-template-11.bin": "078f395cefc141420cafce15c9c8606896aea40810e1e7f974e8738f049b807e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\terrain-11.bin": "67c8a26297252cd963a1b9978e6a23b38e7bd5c2633a065b66d6efe85028f826",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\wood-11-baseline.bin": "0fe828a36a112a6227bc63d066a6eeb02f7c20837882cb9a702118d016157b0f",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\actual-11-oracle.bin": "fc67f59db08661568aca2f46c0ea1cc7f4c17e42ceec7c82030c66beb57f9aa2"
+  },
+  "netstandard21_csharp9_compile": true,
+  "scope": "Isolated single-owner cooperative CPU admission/cache prototype around unchanged frozen root+interaction builders. No threads/native/Assets integration.",
+  "defaults": {
+    "max_pending_including_active": 4,
+    "max_ready_entries_including_retired_pinned": 2,
+    "max_leases": 4,
+    "max_ready_accounted_bytes": 2097152,
+    "max_worker_declared_reservation_bytes": 25165824,
+    "max_resident_accounted_bytes": 27262976,
+    "workers": 1
+  },
+  "configuration_ceiling": {
+    "pending": 64,
+    "ready_entries": 64,
+    "leases": 128,
+    "ready_bytes": 268435456,
+    "worker_bytes": 268435456,
+    "resident_bytes": 536870912
+  },
+  "accounting": [
+    "Owned artifact exact array element payload is17bytes per stored cell: Int3+uint tint+byte role. Row30 context is retained with None role; owned rendering/collision remains below30.",
+    "Accounted artifact bytes add512bytes plus twice identity-string character counts as an explicit envelope allowance; this is not exact CLR heap measurement.",
+    "A single active job reserves24MiB throughout root construction, interaction classification and incremental packaging, including waiting publication. Shared immutable templates/context and terrain-provider storage are caller-owned and excluded.",
+    "The resident ledger includes pinned/retired entries plus the worker reservation. Artifact publication transfers accounting from worker to cache.",
+    "Work units count supplied job candidates plus a unit for bounded controller start/publication/failure handling. Those metadata units may scan/evict up to configured64 ready entries; they are not millisecond guarantees.",
+    "Third-party IJob producers are trusted cooperative callbacks: reservations and Step work reports are checked but cannot sandbox arbitrary allocations, exceptions or CPU time. The included adapter uses the independently bounded frozen builders."
+  ],
+  "production_wiring": [
+    "Create immutable shared template/context after pack load; snapshot terrain revision and original pose into Identity.For.",
+    "Keep this controller on one coordinator-owned execution lane. Request returns QueueFull explicitly; retain the placement request outside and retry when capacity changes. Do not silently discard it.",
+    "Pump bounded candidate budgets from the chosen worker/coordinator. Cancel tickets and invalidate source/context revisions on travel, regeneration or unload. Frozen builders independently reject changed terrain identity.",
+    "Acquire a lease only after publication. Build/upload render meshes and collision/resistance data from the same complete cell+role payload, with row30 context excluded from ownership. That downstream mesh/collider transaction is not implemented here.",
+    "Release leases after consumers finish. A completed worker waiting for pinned capacity remains pending; caller must release/cancel/backpressure deliberately.",
+    "Provider identities must never be reused after mutation. Recheck before downstream upload/publication; a cached CPU snapshot does not certify current GPU or gameplay state."
+  ],
+  "limitations": [
+    "No asynchronous worker, Unity scheduler, native meshes, colliders, GPU buffers, actual memory-residency measurements or frame-time guarantees.",
+    "No disk persistence, cross-session cache, global cache or production generator/version change.",
+    "This controller bounds its own records and declared accounting, not caller-retained terminal tickets, provider data, shared templates/context, CLR garbage collection backlog or arbitrary producer allocations.",
+    "Identity/current-provider callbacks must be side-effect-free. Pump explicitly rejects producer reentry; trusted callbacks and cooperative byte/work reporting remain API contracts. Lease reads reject stale/current mismatches; lifecycle still requires caller release.",
+    "Only the two recorded actual redwood fixtures and focused controller cases were exercised; no live travel/Play validation."
+  ]
+}

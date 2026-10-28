@@ -1,0 +1,11 @@
+{
+  "utc": "2026-10-27T12:28:01.832163+00:00",
+  "status": "flight-refinement-1 installed; native compile/reload and mesh regression PASS; mountainous flight/FPS still unverified",
+  "installed": true,
+  "current": "install/installed.json",
+  "cpu_comparison": "final-checkpoint/summary.json",
+  "rejected_prior": "v4 same-XZ descent failure retained in final-checkpoint",
+  "native_Play_by_this_lane": false,
+  "timer_followup": "../flight-hysteresis/current-status.json",
+  "latest_voxels_sha256": "464c5661cfd1f91624e77aeb68f1119d66ac439f23a54e78f8b31c5b0e2132b9"
+}

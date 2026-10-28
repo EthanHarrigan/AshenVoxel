@@ -1,0 +1,6 @@
+{
+  "variant": "altitude",
+  "original_sha256": "0559a4d571addc6694a9e3b08d70edbcbe1aa54501ce118fecc5038f3ac252a7",
+  "instrumented_sha256": "0f2fff7d62d1fce5cb343c5268b0319126b10a093e400d0c20e970e057d58dd9",
+  "scope": "Two common timing hooks around actual geometry worker only. Not deployable; depends on fixture class. Worker wall duration is not CPU utilization or game latency."
+}

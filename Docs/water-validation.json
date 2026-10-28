@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "checks": 28,
+  "generated_utc": "2026-10-26T20:03:26.834516+00:00",
+  "scope": "Actual C# visual-water logic under Unity substitutes; static shader/material checks only. No native Unity, HLSL compilation or water simulation.",
+  "sdk": "8.0.427",
+  "source_sha256": {
+    "Assets/AshenVoxel/WorldScaleData/WorldCoordinates.cs": "227e9cffedc4c23135e3486d229caad68fe20be39bbc8495d3d07af3d889dd82",
+    "Assets/AshenVoxel/WorldScaleData/WorldFields.cs": "750af4d4b9113607f005052a0b39f1d7e17f1f9f09b78a5a1557393304fa2339",
+    "Assets/AshenVoxel/WorldScaleData/HeightAtlas.cs": "e7ee57295416134833db7e9e8dfc86e73d6a779561b6adde73a91801b11a43b7",
+    "Assets/AshenVoxel/WorldScaleRuntime/VisualWater.cs": "6c8a56e97e2acf2f3c25f305e98164680e2ab40e38946b64b86081f1bfc3494f",
+    "Tools/WaterChecks/UnityWaterShim.cs": "861a52b331898b3d5dda45e50f91590a308a2f08c41ba7bbc79e91b86803f35f",
+    "Tools/WaterChecks/Program.cs": "d100409bb398b03125d1f928fe3dd2b2e02c4f5785bb206d43e73c28ddaa8047",
+    "Assets/AshenVoxel/WorldScaleRuntime/VisualWater.shader": "aee7075db2368a4c287bd3c68772f3da807fbd2ef9974b813cce5c3689a7ac63",
+    "Assets/AshenVoxel/WorldScaleRuntime/Resources/VisualWater.mat": "fa9e46621ee75d604f61e32711cdc7666208d982a4e0f370f03a9305846e41d8",
+    "Tools/run_water_checks.py": "cf6c0624baea1dc13419320db3100e8db1ccff7e68584f26d95c181f1215674c"
+  },
+  "static_shader_checks": "PASS; retained shader reference, transparent/depth/cull contract, filtered analytic waves, no depth-texture dependency"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "AshenVoxel.Core",
+  "rootNamespace": "AshenVoxel.Core",
+  "noEngineReferences": true
+}

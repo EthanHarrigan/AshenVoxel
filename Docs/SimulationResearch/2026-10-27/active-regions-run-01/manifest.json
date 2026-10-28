@@ -1,0 +1,43 @@
+{
+  "captured_utc": "2026-10-28T04:57:54.618599+00:00",
+  "source_sha256": {
+    "Assets/AshenVoxel/Core/Details/PlantGenerator.cs": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+    "Assets/AshenVoxel/Core/Details/PlantModel.cs": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2",
+    "Assets/AshenVoxel/Core/EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+    "Assets/AshenVoxel/Core/Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+    "Assets/AshenVoxel/Core/Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+    "Assets/AshenVoxel/Core/Materials.cs": "ab945a1f679e57f81dca05fc3fe4a70e2e0e0d35ce51f2d1457d99e8660baf85",
+    "Assets/AshenVoxel/Core/Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+    "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs": "006a8434c519bb996e85c4b05e0f188efe49a0a56e68d84ae6b9804f1e78425e",
+    "Assets/AshenVoxel/Core/Rocks/RockProfile.cs": "20152a9dbd0661143a400c1c2b7a69e97755e65342e3352239847b1dc752afc3",
+    "Assets/AshenVoxel/Core/Rocks/RockShapeGeometry.cs": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69",
+    "Assets/AshenVoxel/Core/Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+    "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+    "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+    "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+    "Assets/AshenVoxel/Core/VertexAppearance.cs": "3ccdc0517c6e3e1db6d2f5680cc07b36b8b3ca1a4fb0273e621eb3a3d867a2ad",
+    "Assets/AshenVoxel/Core/VoxelColor.cs": "18387e0d5aedcb078e5f3ac6860908bbc1c6578a9bdbd295cbf6f4ea7a9550e9",
+    "Assets/AshenVoxel/Core/VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+    "Assets/AshenVoxel/Core/VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+    "Assets/AshenVoxel/Core/WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+    "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs": "5a98e9d0465e9cb8e1120a27aad611ac683b5d8b8e3b12714bd1342fa8f50784",
+    "Assets/_Validation/FiniteMatterSlice/Runtime/LocalizedMatter.cs": "9623200a9e9b28c8692a7da9fbe396d306bcf22c3a250611fd14405d6156b23e",
+    "Tools/ActiveRegionStudy/PagedCellSet.cs": "a3f5bd2572b17a4df7815016e1d0a7765ca905b9025ceb264f4e42b225cc36b9",
+    "Tools/ActiveRegionStudy/DormantRegionIndex.cs": "cdd203d6ae098a39180a14f213995fca44d8cade6546f0d39a0ebdd636a92d4f",
+    "Tools/ActiveRegionStudy/Program.cs": "2a478fbfdc7bfa2cd419ca79036739213f07973500ed2c7e66f2b5f433c3817a",
+    "Tools/ActiveRegionStudy/run_study.py": "a2fd1d3d98be86a3f645f72bd7e2a5d76993e29396800e03a7642e6573a182bb"
+  },
+  "generated_candidate_sha256": "0aa9e454eb574914bf3b056db40d41cb4cfe713168f3fe0c2290e99dd621f413",
+  "candidate_transform": "Rename Simulation; replace two membership HashSets with PagedCellSet; expose page count. FIFO and all movement/wake rules unchanged.",
+  "environment": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "cpu": "AMD Ryzen 7 5800X 8-Core Processor",
+    "logical_cpu_count": 16,
+    "sdk": "8.0.407",
+    "optimized": true,
+    "tiered_compilation": false,
+    "note": "Windows standalone .NET CPU experiment; other host workload uncontrolled. No Unity, GPU, renderer or native physics measurements."
+  },
+  "source_changes_during_run": {},
+  "exit_code": 3762504530
+}

@@ -1,0 +1,640 @@
+{
+  "utc": "2026-10-27T13:16:16.868441+00:00",
+  "scope": "READ-ONLY current MAIN production integration audit. No Assets/main writes, Unity/native/UI operations, runtime implementation or broad architecture change. Plans below are not installed.",
+  "main_root": "C:\\Users\\ethan\\Downloads\\AshenVoxel",
+  "main_sha256": {
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs": "5048632bc8a14276501758f22b4f8347c1a195d936dee359ae84aa571f629bb7",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationPopulation.cs": "ed0dc9bee43813cac4ad0532cfc0270fac0b2c83dbb6ea6eb324ce8721724a27",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationPrototypePack.cs": "1d1ed0696a32c6cbd4a85399b2f083e5b466bb5215b054e4ffe907f876008230",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationBootstrap.cs": "f609db6e1bf116d81a063e926dd24a3f8157acf939c04e4325ca9ad1f5a4de55",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationController.cs": "411c3feb0d03b04cd1277b3afefe122b56babb8636e13b011a11d3b390d1ccf2",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationLiveRefinement.cs": "72879000eed2a41b927d4c237a2751d17f345d236181ff15ea4fa9695ab0d9a6",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationSettings.cs": "66626530b591492e92ea2771b50e7a6acf3c8c789211ddcc42bacdf37d3976b9",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ForestHorizon.cs": "f9fd3e21b7c724f11031f25b4cd34f3746ae45a94c6743266490cafea81f002f",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ForestGpuRenderer.cs": "42f992e64008d07f06ba3f6abb2ec536b608800b856e48b70317516904c25fc1",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ForestBillboard.cs": "eb5369d8adaba81a00aa8236536a0f9ec483201b0ff170f0a7bbedc6624fc44b",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationWind.cs": "62ebdd37ffd5b818a33483b1fb1063e8e0b9af8de7451958b5daba6db39c4b4e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorer.cs": "5d7e2903cabc71af4618582951fa47fa35897c00c6ce91bd13db14831093c321",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorerIntegration.cs": "48c0e689eb7f3c06160d631bbcfe7f83c735379b032890e23c56bf448791f9fb",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorerVoxels.cs": "464c5661cfd1f91624e77aeb68f1119d66ac439f23a54e78f8b31c5b0e2132b9",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationMovement.cs": "55712c21aa0066bf1a6231f52069ae33203e19bf5978f75eae53d9a9499887b4",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\SurfaceMaterialSampler.cs": "4e873a75acd0f67f22a2b85e2caf407d6851cc3fd870441947fee5a9629bed90",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\SurfaceProfile.cs": "05711037d0af7676befcfa1bf056bb6186eb4d1f7c465a84d72d56c0872baff8",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\TerrainDetailField.cs": "8393d97d95a2d4deffda3db93d8b077cfa7223bb98f1e2c55b97f8242d17ac1b",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationRefinementField.cs": "7d7f3794bf4574d1d0011c185f8de959d9dc7f7d6b3d96cf55f587e1328ac588",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\VoxelTerrainPage.cs": "f8b274d2288ead310432d170f55b5d48e9bc829085f4631ac655854822e0b337",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Rendering\\GreedyChunkMesher.cs": "2afabf136e51512566fed42c369eb3408d6a1a53dbaf09558d48f031d978da0c",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Rendering\\WorldSurface.shader": "79959309d848d4c8950eb8bb4035832fc8fea2166fa38a74f96417f621185416",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Rendering\\VoxelWind.hlsl": "b8fa8879116e7e2c84ce859031ccaffce02a78c06862f63f2139d6f4a9c49956",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Tools\\ExplorationPrototypes\\ExportPrototypes.cs": "5bab94749ee19505309dbd0a71009edd5998af0fd11db89f12a37074172fe6f8",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Tools\\ExplorationPrototypes\\bake_interactions.py": "0e5f83f764b2312301fbc3ae5656330f77c8ac02a037e1000a2cc03fb0622055",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Tools\\ExplorationPrototypes\\bake_prototypes.py": "6b29ea09d79bd60aa98e0e88adda15c580e39c59203f5956c7c0da89ec1d2698",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\AshenVoxel.Exploration.asmdef": "f3413f05585bfe9b49f0c371671d3cab8fb8c349e1a0a2811b24b13ef6a048b0",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\AshenVoxel.WorldScaleData.asmdef": "a0460a349f9ec243d8a2300208d6b6cead12b70b5ed6c67fcc1f22e956da95ea",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Prototypes\\ExplorationPrototypes.bytes": "41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Samples\\exploration-world.json": "85ff39810a717cc35db248d9c48b38af52839346e392c32ba707f67e6df94ea3"
+  },
+  "evidence_references": {
+    "load_decode": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        100
+      ],
+      "contains": "while(reader.TryRead"
+    },
+    "billboard_substitution": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        105
+      ],
+      "contains": "lod>=3&&impostorMaterial"
+    },
+    "mesh_release": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        129
+      ],
+      "contains": "data.ReleaseMeshData"
+    },
+    "model_mesh_layout": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        45
+      ],
+      "contains": "sealed class Model"
+    },
+    "page_mesh_key": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        47
+      ],
+      "contains": "readonly struct PageKey"
+    },
+    "batch_mesh_layout": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        56
+      ],
+      "contains": "sealed class Batch"
+    },
+    "matrix_snapshot_capture": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        243
+      ],
+      "contains": "matrixCells.Clear();foreach(var cell"
+    },
+    "coverage_reserve": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        248
+      ],
+      "contains": "coverageReserve+=model.Triangles"
+    },
+    "render_publication": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        293
+      ],
+      "contains": "batches=nextBatches"
+    },
+    "published_cell_guard": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        294
+      ],
+      "contains": "object.ReferenceEquals(current,captured)"
+    },
+    "fixed_submesh_zero_draw": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        328
+      ],
+      "contains": "Graphics.RenderMeshInstanced(render,batch.Mesh,0"
+    },
+    "observer_rebase": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        140
+      ],
+      "contains": "void SetObserver"
+    },
+    "collision_body": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        366
+      ],
+      "contains": "public bool BlocksBody"
+    },
+    "resistance": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        387
+      ],
+      "contains": "public double WeightedSoftVoxels"
+    },
+    "support": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        413
+      ],
+      "contains": "public bool TryGetSupportHeight"
+    },
+    "population_safety_readiness": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        345
+      ],
+      "contains": "public bool IsReady"
+    },
+    "region_invalidation": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        436
+      ],
+      "contains": "public void InvalidateRegion"
+    },
+    "density_reconfiguration": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        459
+      ],
+      "contains": "void ReconfigureDensity"
+    },
+    "refresh": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        469
+      ],
+      "contains": "public void RefreshPopulation"
+    },
+    "dispose": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+      "lines": [
+        476
+      ],
+      "contains": "public void DisposeRuntime"
+    },
+    "population_version": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationPopulation.cs",
+      "lines": [
+        32
+      ],
+      "contains": "public const int Version="
+    },
+    "stable_tree_pose": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationPopulation.cs",
+      "lines": [
+        55
+      ],
+      "contains": "c.GroundHeightMeters-.05"
+    },
+    "full_resistance_mix": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationPrototypePack.cs",
+      "lines": [
+        50
+      ],
+      "contains": "return Overlap(leaves"
+    },
+    "source_snapshot": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationRefinementField.cs",
+      "lines": [
+        214
+      ],
+      "contains": "public IWorldField CaptureSnapshot"
+    },
+    "global_source_revision": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationRefinementField.cs",
+      "lines": [
+        110
+      ],
+      "contains": "/revision="
+    },
+    "bootstrap_region_hook": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationBootstrap.cs",
+      "lines": [
+        113
+      ],
+      "contains": "Population.InvalidateRegion"
+    },
+    "bootstrap_frame_order": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationBootstrap.cs",
+      "lines": [
+        176
+      ],
+      "contains": "Population.SetObserver"
+    },
+    "bootstrap_spawn_gate": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationBootstrap.cs",
+      "lines": [
+        119
+      ],
+      "contains": "while(!Population.Ready"
+    },
+    "no_edit_tools": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationController.cs",
+      "lines": [
+        10
+      ],
+      "contains": "Owns no editing tools"
+    },
+    "snapshot_sorts_chunks": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Persistence.cs",
+      "lines": [
+        22
+      ],
+      "contains": "keys.Sort"
+    },
+    "coarse_first_representative": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Tools\\ExplorationPrototypes\\ExportPrototypes.cs",
+      "lines": [
+        105
+      ],
+      "contains": "old==MaterialId.Air"
+    },
+    "coarse_original_iteration": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Tools\\ExplorationPrototypes\\ExportPrototypes.cs",
+      "lines": [
+        101
+      ],
+      "contains": "foreach(var pair in source.Chunks)"
+    },
+    "packed_material_ao": {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationPrototypePack.cs",
+      "lines": [
+        204
+      ],
+      "contains": "material<<2"
+    }
+  },
+  "current_implementation": {
+    "population_version": 1,
+    "pack_format": "AVPM0004",
+    "pack_models": 99,
+    "pack_bytes": 12016333,
+    "pack_sha256": "41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa",
+    "world_id": "14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4",
+    "root_contact_source_files_in_main_assets": [],
+    "facts": [
+      "Current Population instances retain original position/yaw/stable key and unit scale. Version1 remains installed; rejected vertical-seating candidate is not the root implementation.",
+      "Streaming uploads one shared Mesh per prototype/LOD, then releases decoded arrays. PageKey has model/LOD/page only and draw always uses submesh0.",
+      "All captured render batches swap together; CachedCell.Published changes only for captured cells still identical in the resident dictionary. Nearby movement readiness depends on that publication.",
+      "BlocksBody, WeightedSoftVoxels and TryGetSupportHeight read model.Data immutable hard/leaf/stick columns separately from draw batches; there is currently no instance root representation selector.",
+      "Default UseTreeImpostors=true substitutes billboard meshes at treeLOD3/4, and ForestHorizon is a separate path. Changing unused packed coarse meshLODs does not change far atlas roots.",
+      "Exploration controller explicitly owns no editing tools. Root gameplay/edit publication is not already supplied by Core.VoxelWorld.Set or the CPU cache.",
+      "Flight/capacity refinements already own terrain demand/scheduling. Root changes need no WorldExplorer/WorldExplorerVoxels planner, flight timer, movement speeds, source-resolution or terrain-cap edits."
+    ]
+  },
+  "smallest_coherent_boundary": {
+    "scope": "Initially only validated prototypeIDs10/11, preserving all population placement/stable keys, original shared fallback, impostors, horizon and AVPM4. Number of activated root instances must remain explicitly bounded; two-entry CPU proof is not forest-wide adoption.",
+    "one_owner": "One small RootContactStreaming owner called by VegetationStreaming.Tick; retain cooperative single-worker semantics. A real background Task is optional later and needs immutable snapshots/thread tests, not prerequisite for the first integration.",
+    "shared_mesh_solution": "Use the existing SharedUpperSplit approach BEFORE first Unity upload: ONE canonical vertex buffer, upper submesh0 and authored-base submesh1, with two appended vertices per uniform crossing quad. Do not retain another full or upper vertex buffer.",
+    "production_draw_rule": "Fallback instance draws both canonical upper0 and authored-base1. Active grounded instance draws canonical upper0 plus its prepared lower mesh. Never globally zero submesh1 as the isolated native fixture does: that would alter every instance sharing the Mesh.",
+    "delta_accounting": "Partition indices together cost original indices plus6 per crossing; appended vertices cost2 per crossing. With current28-byte uploaded vertices, GPU payload increase is80bytes/crossing. Split preparation adds temporary CPU index arrays and must yield/count preparation work before ReleaseMeshData.",
+    "lod_rule": "Use only mechanically safe uniform-crossing cuts [30,32,36,60,124]. Derived lowerLOD must include canonical buffer/representatives up to its own cut while matter/collision ownership stays<=29. Independent composite lower proof now passes all5 LODs for both specimen10 and11. Cuts alone were not that proof; the new comparisons use actual canonical order/material/RGB.",
+    "billboard_rule": "DefaultLOD3/4 stays canonical ForestBillboard and far ForestHorizon. Retain active exact root collision independently of drawLOD. No atlas rebake is authorized; distant visual root silhouette is explicitly unchanged. Validate transition/popping and mesh fallback with UseTreeImpostors=false separately.",
+    "wind_rule": "All lower vertices must be expressed in the SAME original prototype-local coordinates and use the SAME instance matrix as the upper. A translated child/chunk matrix would change rootWS and height/phase in VoxelWind. Preserve material+AO packing, wind padding, motion/shadow passes. Native static-wind proof does not establish moving-wind continuity."
+  },
+  "file_delta_plan": [
+    {
+      "file": "Assets/AshenVoxel/WorldScaleData/RootContact*.cs (new, scoped data files)",
+      "change": "Promote reviewed CPU builders/interactions/cache with immutable identities, explicit counters/caps and producer-owned results. Keep WorldScaleData noEngineReferences. Do not modify generic Core tree generation or GroundCoverScatter.",
+      "gate": "Existing CPU/netstandard suites plus actual sidecar/template validation; distinguish root geometry policy version from population placement version."
+    },
+    {
+      "file": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs",
+      "locations": [
+        "Model/PageKey/Batch:45..56",
+        "Load:96..138",
+        "Tick:154..199"
+      ],
+      "change": "Add optional prototype template/split metadata; derive/load only supported records before ReleaseMeshData. Upload shared2-submesh canonical Mesh once; record per-submesh triangles. Pump one bounded root owner without moving or rewriting existing loading/cell/matrix scheduling.",
+      "gate": "No new Ready shortcut or global hard-prop stall; failed/missing root template retains canonical rendering and collision."
+    },
+    {
+      "file": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs",
+      "locations": [
+        "BeginMatrices:240",
+        "BuildMatrices:252..295",
+        "Draw:314..332"
+      ],
+      "change": "Add SubmeshIndex and representation part to draw page/batch descriptors. Canonical upper pages may include both grounded/fallback instances; authored-base pages include fallback only; derived lower uses ready per-instance mesh. Capture binding/lease table with matrix snapshot and publish it at the SAME batches swap.",
+      "gate": "Triangle cost is aggregate upper+actual lower or upper+authored base, not just one Model.Triangles entry. Retain current cheapest-coverage reservation and explicit demotion counters. Include every lower draw/shadow in stats/bounds."
+    },
+    {
+      "file": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs",
+      "locations": [
+        "BlocksBody:365",
+        "WeightedSoftVoxels:387",
+        "TryGetSupportHeight:413"
+      ],
+      "change": "Consult the SAME published per-instance binding as rendering. For active roots query new hard/stick spans below3m; preserve canonical upper spans at/above3m and canonical leaves. Never OR new lower hard spans with the complete old hard prototype, which would retain phantom authored roots.",
+      "gate": "Atomic render/body/resistance/support fixture at row29/30, negative coordinates, yaw, under-body queries and updated minimumY bounds. Preserve existing conservative yaw handling and resistance normalization."
+    },
+    {
+      "file": "Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs",
+      "locations": [
+        "ResistanceLocal:43",
+        "Overlap:49",
+        "BlocksLocal:69",
+        "SupportLocal:83"
+      ],
+      "change": "No reader/format change is necessary for the initial two templates if their validated zero-lower-leaf certificate is enforced. For future specimens with lower leaves, add a narrow immutable leaf-only resistance query or channel selector: current public ResistanceLocal mixes leaves and sticks, so clipping the whole lower query would remove canonical leaves. Reuse existing span math.",
+      "gate": "Current captures certify zero canonical non-Wood lower/context candidates forIDs10/11 only. Unsupported templates retain canonical fallback; AVPM1..4 parsing remains unchanged."
+    },
+    {
+      "file": "Assets/AshenVoxel/Exploration/RootContactStreaming.cs (new small owner)",
+      "change": "Own controller, per-instance demand/bindings, bounded mesh preparation/upload stages and explicit native/CPU byte accounting. Prepare complete lower meshes for requiredLOD set plus exact role spans and conservative bounds; CPU cache completion is only an intermediate state.",
+      "gate": "Do not expose a representation until CPU, meshes, roles, owner epoch and source/context/template identities agree. Keep old representation/resources alive until replaced render batches retire."
+    },
+    {
+      "file": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs",
+      "locations": [
+        "SetObserver:140",
+        "InvalidateRegion:436",
+        "ReconfigureDensity:460",
+        "RefreshPopulation:469",
+        "DisposeRuntime:476"
+      ],
+      "change": "Rebase lower draw matrices/bounds together with active and next canonical batches. Cancel obsolete cell demand and uncommitted jobs; release only nonpublished/unpinned resources. Preserve current64m density and512m source safety guards and captured-cell identity checks.",
+      "gate": "Travel, rebase, density, source-change and refresh tests must cover builds during matrix snapshots and old/new resource lifetime."
+    },
+    {
+      "file": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "locations": [
+        "Initialize population:112",
+        "RegionChanged:113",
+        "LateUpdate:166..178"
+      ],
+      "change": "Prefer retaining existing single caller and RegionChanged hook. Pass full source snapshot/epoch context to the root owner through Population; do not add another Update loop or change movement/flight ownership.",
+      "gate": "Preserve spawn clearing IsReady contract and LateUpdate order: live publication, wind origin, Population.SetObserver, Population.Tick."
+    },
+    {
+      "file": "Tools/ExplorationPrototypes/ExportPrototypes.cs + existing authoring tooling (conditional)",
+      "change": "Only if validated canonical lower data cannot be derived from retained existing authoring artifacts: export a SMALL sidecar forIDs10/11 from exact source generation/order, tied to current packSHA. Preserve full AVPM4/atlas bytes and interactions; do not rebake99models or introduce AVPM5.",
+      "gate": "Canonical material/RGB and reducer representatives/ranks must compare to actual packed outputs. Existing Persistence2 sorts chunk keys and is insufficient as an order record by itself."
+    },
+    {
+      "file": "WorldExplorer*.cs, ExplorationMovement.cs, shader files, scene/settings/pack/atlas",
+      "change": "No required edit for this boundary. Same-Mesh submeshes remove the need for a new all-pass clipping shader. Keep active flight/coordinator changes untouched.",
+      "gate": "If later evidence requires changes here, review them separately against fresh current-main hashes."
+    }
+  ],
+  "proposed_data_interfaces": {
+    "RootTemplateSet": "PrototypeId + packSHA + rootTemplateSHA + canonicalContextSHA + generator/reducer policy + original fine origin/phase + perLOD cuts + immutable fixed representatives and original chunk ranks. Owns bounded shared data only.",
+    "RootInstanceOwner": "PopulationKey + StableKey + PrototypeId + captured cell reference/epoch. Keep this lifetime identity separate from geometry cache identity; pose alone does not own a population instance.",
+    "RootRequestIdentity": "Original global pose/yaw/unit scale, complete template/context/reducer identity, terrain snapshot/source identity, root geometry and interaction policy; editRevision=0 until edit integration exists.",
+    "RootTerrainSnapshot": "Capture IWorldFieldSnapshotProvider when available (TerrainDetailField forwards it), wrap the captured bare field and unchanged SurfaceProfile. Sample global10cm cell centers; return VoxelTerrainPage.SurfaceTop(column.GroundHeightMeters), not renderedLOD/interpolated height or snow top.",
+    "PreparedRootRepresentation": "Complete lower Mesh array/LOD cuts + shared split layout identity + immutable hard/stick spans + actual bounds + perLOD triangles + CPU/native memory leases. Not a new prototype ID and not yet published.",
+    "PublishedRootBinding": "Immutable per-instance binding captured with nextBatches. Exactly one representation determines rendering and all gameplay queries. Keep old leases until old batches and associated collision snapshot are retired."
+  },
+  "atomic_transaction": [
+    "Admit demand only for supported prototypes with validated shared data. Keep canonical fallback as the currently published representation; no geometry/collision partial switch.",
+    "Capture immutable terrain/profile plus cell/template/context epochs. Build CPU geometry, roles and composite lowerLOD caches incrementally under independent pending/CPU/native byte caps.",
+    "Upload all selected lower meshes with the shared original-local origin, complete exact interaction spans and union bounds. Count upload work and native bytes separately from the CPU cache reservation.",
+    "Immediately before admission to next matrix snapshot and again before final swap, require current terrain validity AND template/context/reducer policy AND cell owner/epoch AND edit epoch. FrozenJob no longer independently checks after its interaction phase; full Current predicate is mandatory.",
+    "Do not change collision under the body. First activation occurs before local readiness admits player entry, or in a safe unloaded/far region; otherwise retain old published binding until a safe transaction is possible.",
+    "At existing batches/nextBatches swap, switch matching RootBinding map and CachedCell publication together. Never mark root data usable simply because CPU job completed.",
+    "Only then retire old mesh/spans/leases. Rebase affects render matrices and bounds only; physical pose/source identity never changes with floating origin."
+  ],
+  "freshness_and_edits": {
+    "full_current_gate": "Must cover terrain snapshot validity, upper context/template/pack/reducer revision, owner cell epoch, original pose and any future edit revision. Terrain-only Current is insufficient during packing/cache residency.",
+    "global_revision_caveat": "ExplorationRefinementField.SourceIdentity increments globally when a distant patch publishes. Do not make active near collision disappear merely because an unrelated far revision changed; current population deliberately retains near cells. Either explicitly invalidate uncommitted jobs globally while retaining old published snapshot safely, or use region-epoch validation over the complete sampling footprint. That footprint includes SurfaceMaterialSampler relief/climate queries (up to24m beyond sampled columns), not only the root X/Z box.",
+    "initial_simple_policy": "Conservative first integration can cancel/retry all uncommitted work on any global source change, retaining committed old mesh+collision together until normal safe cell replacement. Never call a stale CPU lease to reconstruct collision after commit; retain an explicitly owned published representation or safe local epoch lease. Full reset/template replacement invalidates all owner epochs.",
+    "edit_boundary": "Main Exploration has no prop editing path. Do not claim destructible root adoption. If edits are introduced later, materialize the published cells/roles with original provenance in authoritative VoxelWorld via Set, bump edit revision, cancel derivation, and rebuild render+collision transactionally; never regenerate over edits or silently return to canonical roots."
+  },
+  "shared_template_residency": {
+    "measured_templates": [
+      {
+        "id": 10,
+        "columns": 2314,
+        "source_cells": 55061,
+        "column_fixture_bytes": 353510,
+        "canonical_context_29_through32_cells": 5345,
+        "exact_scalar_array_and_coordinate_payload_bytes": 434398,
+        "conservative_managed_reservation_estimate_bytes": 1119038,
+        "reservation_formula": "6*sourceCells +112*columns +96*contextCells +16KiB; estimated allowance for arrays/objects/dictionaries/identity, not measured CLR residency"
+      },
+      {
+        "id": 11,
+        "columns": 2390,
+        "source_cells": 58086,
+        "column_fixture_bytes": 372420,
+        "canonical_context_29_through32_cells": 5736,
+        "exact_scalar_array_and_coordinate_payload_bytes": 459412,
+        "conservative_managed_reservation_estimate_bytes": 1183236,
+        "reservation_formula": "6*sourceCells +112*columns +96*contextCells +16KiB; estimated allowance for arrays/objects/dictionaries/identity, not measured CLR residency"
+      }
+    ],
+    "total_exact_scalar_payload_bytes": 893810,
+    "total_estimated_managed_reservation_bytes": 2302274,
+    "proposed_initial_limit": "Exactly2supported source templates (IDs10/11),4MiB declared managed reservation proposed for shared template structures. Existing root+interaction structures estimate2.30MB together. Both specimens now have small serialized fixed representatives/order; serialized bytes are NOT measured CLR residency. Count actual managed structures before approving that reservation. Native meshes are separate.",
+    "missing_canonical_data": "Existing baseline.bin records Wood only, foliage suppressed, in original Wood chunk/cell traversal order. It cannot supply missing non-Wood/reducer representative state. Physics lane now captured all-material original order/phase and fixed representatives for BOTH specimens with all5 LOD checks. These small derived artifacts can serve the targeted companion-template boundary without rebaking AVPM4 or the atlas.",
+    "no_full_tree_runtime": "Never retain/generate the entire fine redwood world per instance. Small immutable per-template fixed representative/rank data plus bounded<=65536 root cells is the intended dependency. Root/contact canonical context through32 is not sufficient for coarseLOD upper halo by itself."
+  },
+  "shared_split_payload": [
+    {
+      "prototype_id": 10,
+      "lod": 0,
+      "cut_cells": 30,
+      "crossing_quads": 60,
+      "original_gpu_payload_bytes": 117532696,
+      "shared_split_incremental_gpu_payload_bytes": 4800,
+      "upper_triangles": 1696178,
+      "authored_base_triangles": 32364,
+      "default_runtime_uses_billboard": false
+    },
+    {
+      "prototype_id": 10,
+      "lod": 1,
+      "cut_cells": 32,
+      "crossing_quads": 6,
+      "original_gpu_payload_bytes": 25288792,
+      "shared_split_incremental_gpu_payload_bytes": 480,
+      "upper_triangles": 362538,
+      "authored_base_triangles": 9368,
+      "default_runtime_uses_billboard": false
+    },
+    {
+      "prototype_id": 10,
+      "lod": 2,
+      "cut_cells": 36,
+      "crossing_quads": 15,
+      "original_gpu_payload_bytes": 7447904,
+      "shared_split_incremental_gpu_payload_bytes": 1200,
+      "upper_triangles": 106960,
+      "authored_base_triangles": 2598,
+      "default_runtime_uses_billboard": false
+    },
+    {
+      "prototype_id": 10,
+      "lod": 3,
+      "cut_cells": 60,
+      "crossing_quads": 0,
+      "original_gpu_payload_bytes": 519928,
+      "shared_split_incremental_gpu_payload_bytes": 0,
+      "upper_triangles": 7366,
+      "authored_base_triangles": 280,
+      "default_runtime_uses_billboard": true
+    },
+    {
+      "prototype_id": 10,
+      "lod": 4,
+      "cut_cells": 124,
+      "crossing_quads": 0,
+      "original_gpu_payload_bytes": 23120,
+      "shared_split_incremental_gpu_payload_bytes": 0,
+      "upper_triangles": 286,
+      "authored_base_triangles": 54,
+      "default_runtime_uses_billboard": true
+    },
+    {
+      "prototype_id": 11,
+      "lod": 0,
+      "cut_cells": 30,
+      "crossing_quads": 59,
+      "original_gpu_payload_bytes": 121104328,
+      "shared_split_incremental_gpu_payload_bytes": 4720,
+      "upper_triangles": 1748486,
+      "authored_base_triangles": 32578,
+      "default_runtime_uses_billboard": false
+    },
+    {
+      "prototype_id": 11,
+      "lod": 1,
+      "cut_cells": 32,
+      "crossing_quads": 10,
+      "original_gpu_payload_bytes": 25927448,
+      "shared_split_incremental_gpu_payload_bytes": 800,
+      "upper_triangles": 372054,
+      "authored_base_triangles": 9252,
+      "default_runtime_uses_billboard": false
+    },
+    {
+      "prototype_id": 11,
+      "lod": 2,
+      "cut_cells": 36,
+      "crossing_quads": 9,
+      "original_gpu_payload_bytes": 7641432,
+      "shared_split_incremental_gpu_payload_bytes": 720,
+      "upper_triangles": 109790,
+      "authored_base_triangles": 2602,
+      "default_runtime_uses_billboard": false
+    },
+    {
+      "prototype_id": 11,
+      "lod": 3,
+      "cut_cells": 60,
+      "crossing_quads": 1,
+      "original_gpu_payload_bytes": 563856,
+      "shared_split_incremental_gpu_payload_bytes": 80,
+      "upper_triangles": 8006,
+      "authored_base_triangles": 288,
+      "default_runtime_uses_billboard": true
+    },
+    {
+      "prototype_id": 11,
+      "lod": 4,
+      "cut_cells": 124,
+      "crossing_quads": 0,
+      "original_gpu_payload_bytes": 24344,
+      "shared_split_incremental_gpu_payload_bytes": 0,
+      "upper_triangles": 304,
+      "authored_base_triangles": 54,
+      "default_runtime_uses_billboard": true
+    }
+  ],
+  "composite_lod_evidence": [
+    {
+      "id": 10,
+      "status": "CPU PASS; independent owner evidence inspected, not rerun here",
+      "result_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-10-20261027T130937232091Z\\result.json",
+      "checks": 37033317,
+      "canonical_original_rank_records": 1419,
+      "canonical_order_serialized_bytes": 14194,
+      "fixed_serialized_bytes_per_lod": [
+        45852,
+        18244,
+        5069,
+        547,
+        105
+      ],
+      "shared_fixed_plus_order_serialized_bytes": 84011,
+      "lower_gpu_arithmetic_bytes_per_lod": [
+        1143624,
+        328168,
+        102136,
+        13328,
+        2720
+      ],
+      "lower_gpu_arithmetic_bytes_mesh_lod0_through2": 1573928,
+      "lower_gpu_arithmetic_bytes_all5": 1589976,
+      "coarse_lod0_chunks": 50,
+      "atomic_mesher_mask_candidates_per_chunk": 26112,
+      "integration_caveat": "Do not reuse frozen24MiB worker reservation as proof for added lowerLOD meshing/upload stages. Count coarse worlds, mesh scratch/arrays, all completedLOD payloads and native objects; chunk-atomic26,112 mask candidates still do not establish a2ms bound. Current composite output uses mutable world/mesh equivalence artifacts, not production immutable cache/upload ownership."
+    },
+    {
+      "id": 11,
+      "status": "CPU PASS; independent owner evidence inspected, not rerun here",
+      "result_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-11-20261027T131159753179Z\\result.json",
+      "checks": 38142151,
+      "canonical_original_rank_records": 1491,
+      "canonical_order_serialized_bytes": 14914,
+      "fixed_serialized_bytes_per_lod": [
+        49099,
+        19587,
+        5477,
+        564,
+        105
+      ],
+      "shared_fixed_plus_order_serialized_bytes": 89746,
+      "lower_gpu_arithmetic_bytes_per_lod": [
+        1194216,
+        333336,
+        101864,
+        12784,
+        2312
+      ],
+      "lower_gpu_arithmetic_bytes_mesh_lod0_through2": 1629416,
+      "lower_gpu_arithmetic_bytes_all5": 1644512,
+      "coarse_lod0_chunks": 46,
+      "atomic_mesher_mask_candidates_per_chunk": 26112,
+      "integration_caveat": "Do not reuse frozen24MiB worker reservation as proof for added lowerLOD meshing/upload stages. Count coarse worlds, mesh scratch/arrays, all completedLOD payloads and native objects; chunk-atomic26,112 mask candidates still do not establish a2ms bound. Current composite output uses mutable world/mesh equivalence artifacts, not production immutable cache/upload ownership."
+    }
+  ],
+  "fallback_policy": [
+    "Missing/invalid/unsupported template, AVPM legacy lacking exact material, source/bounds/cliff/connectivity failure, queue-full, cache-full or native budget refusal keeps the existing complete canonical representation and its existing collision. Report reason and pending/retry status; no phantom invisible root or silently omitted tree.",
+    "Once a root is committed, temporary pressure cannot evict collision beneath the player. Retain/pin the published representation, use its already prepared coarser representation or explicit canonical billboard path, and defer new roots. Revert to canonical only via safe atomic render+collision transaction.",
+    "Keep original caps/coverage behavior. Do not raise32M triangle budget, weaken near readiness or remove pending jobs to disguise root costs. Root owner must separately cap shared templates, active prepared/published native lower meshes, uploads and queued CPU work."
+  ],
+  "outstanding_gates": [
+    "Convert both isolated composite CPU proofs into immutable production mesh-data ownership and cancellation/disposal; neither is runtime integration.",
+    "Per-submesh batching, triangle aggregation and correct snapshot collision publication.",
+    "Wind/motion/shadow depth continuity using common prototype-local origin.",
+    "Native memory/frame cost, player approach/travel/rebase/source/density transitions, atlas transition and UseTreeImpostors=false path.",
+    "Explicit root geometry provenance/version and any future edit-authority policy; CPU cache is not runtime integration."
+  ],
+  "evidence_sha256": {
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\report.json": "aff1310bd7ea0b1d27d9b567e7e661fe4de198c615c56a3520b30f392ab3f305",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-cache-prototype\\report.json": "ce93751a1b6849705a38cdb28c544e99270217f19d8243c7602d38a0299b3303",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\report.json": "9781c53e64893f8d8f601592e8ac56a853b86c6cdf84f34d32554af719864439",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\boundary-report.json": "4055d07c900716de34482a124f1e619748dfa121f7c01c6c6e8be2062345f8b5",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-mesh-prototype\\packed-interaction-seam.json": "55e5d087307761e47835c80ac125e2c268d1a62741ca72bfbfa4cafd8f8ebb00",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-mesh-prototype\\packed-interaction-provenance.json": "0ce517c6e13b04e1b9f60154592e8aba2229649633c336cb8e0e9557f218ac8e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-mesh-prototype\\SharedUpperSplit.cs": "cf88a8dc41f156a37ba07d3cd7e16613a0d72db319313c59a3c7a5e24f10da0e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-mesh-prototype\\RootContactNativePreview.cs": "b8640f7ca42a97995ddbee06b072cabc79ee40d6428246b6294effaaca56dc0f",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-alllod-checks\\proposed-cuts.json": "3918cdef7bb420f6724930b1b83bc2974d80c4b37c16f83be912de19ea76beb5",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-cache-review\\REVIEW.md": "4a0a15286946a3b2af6a088d68b93154068facc6760e01a1ea6c5871dbdfae41",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\v2-template-10.bin": "c28b0a1ee88a3d120e5693aeac05d66a374428c592648bb48287128841d897f2",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\wood-10-baseline.bin": "ded723006328b2252cf1b1ff15b64d32b8ddc366dbd4d9be1647bec742fbf0d6",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\v2-template-11.bin": "078f395cefc141420cafce15c9c8606896aea40810e1e7f974e8738f049b807e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\wood-11-baseline.bin": "0fe828a36a112a6227bc63d066a6eeb02f7c20837882cb9a702118d016157b0f",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-10-20261027T130937232091Z\\result.json": "1025c0248fb03a6242e0ae0a990bc085547512b1bb1d96313fe78f769b1e5277",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-10-20261027T130937232091Z\\manifest.json": "44731cdf9f50ec14a59d5897fd26e4ac99f81b631f39d79f0c10f544b651ff88",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-11-20261027T131159753179Z\\result.json": "f1693a1766feb5e89c9c523f0acfcbbd335e90c98e0d4a9306c99dc215549fd6",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-11-20261027T131159753179Z\\manifest.json": "fc51fa131943221e32e6aa618386273e63ad237714f6c0a430e9b53e1c4c42a3",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-11-20261027T131159753179Z\\resources.json": "fed7809f5c0c0c38d1caebf51ca6cdfffb5aadcdc10db84de965719096049ee6"
+  }
+}

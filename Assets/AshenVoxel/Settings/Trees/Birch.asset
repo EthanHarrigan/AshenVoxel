@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa9243cb2c9a9de192c381cad362311, type: 3}
+  m_Name: Birch
+  m_EditorClassIdentifier: 
+  Species: 0
+  Seed: 714103
+  Height: 10
+  TrunkRadius: 0.18
+  CrownRadius: 2.5
+  Age: 1
+  BranchAngle: 51
+  BranchLevels: 4
+  BranchCount: 20
+  LeaderStrength: 0.7
+  UpwardGrowth: 0.12
+  ShapeVariation: 0.62
+  WhorlSize: 1
+  LeaderHeightFraction: 1
+  BranchDroop: 0.76
+  Gnarl: 0.2
+  RootFlare: 0.12
+  ForkAngle: 31
+  CrownStart: 0.35
+  ConeTaper: 0
+  FoliageStyle: 0
+  FoliageDensity: 0.72
+  LeafClusterRadius: 0.3
+  FruitProbability: 0
+  BarkStyle: 0
+  BarkRelief: 0
+  BarkRidgeCount: 12
+  BarkColor: {r: 0.78431374, g: 0.78039217, b: 0.69803923, a: 1}
+  LeafColor: {r: 0.4, g: 0.49019608, b: 0.2627451, a: 1}
+  FruitColor: {r: 0.654902, g: 0.24313726, b: 0.15686275, a: 1}

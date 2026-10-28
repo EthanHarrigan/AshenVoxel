@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa9243cb2c9a9de192c381cad362311, type: 3}
+  m_Name: Redwood
+  m_EditorClassIdentifier: 
+  Species: 2
+  Seed: 716057
+  Height: 75
+  TrunkRadius: 2.2
+  CrownRadius: 8
+  Age: 1
+  BranchAngle: 94
+  BranchLevels: 3
+  BranchCount: 56
+  LeaderStrength: 0.98
+  UpwardGrowth: 0.2
+  ShapeVariation: 0.52
+  WhorlSize: 1
+  LeaderHeightFraction: 1
+  BranchDroop: 0.24
+  Gnarl: 0.055
+  RootFlare: 0.95
+  ForkAngle: 31
+  CrownStart: 0.43
+  ConeTaper: 0.64
+  FoliageStyle: 2
+  FoliageDensity: 0.87
+  LeafClusterRadius: 0.8
+  FruitProbability: 0
+  BarkStyle: 2
+  BarkRelief: 0.3
+  BarkRidgeCount: 13
+  BarkColor: {r: 0.52156866, g: 0.31764707, b: 0.23137255, a: 1}
+  LeafColor: {r: 0.28235295, g: 0.4, b: 0.28235295, a: 1}
+  FruitColor: {r: 0.654902, g: 0.24313726, b: 0.15686275, a: 1}

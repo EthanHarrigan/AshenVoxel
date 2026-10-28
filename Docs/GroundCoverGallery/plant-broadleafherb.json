@@ -1,0 +1,261 @@
+{
+  "name": "plant-broadleafherb",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    51,
+    9,
+    14
+  ],
+  "occupied_cells": 875,
+  "bounds_min_m": [
+    0.2,
+    0,
+    0.1
+  ],
+  "bounds_max_m": [
+    4.4,
+    0.7000000000000001,
+    1.3
+  ],
+  "material_counts": {
+    "Litter": 746,
+    "Leaves": 129
+  },
+  "scene": {
+    "category": "plant",
+    "label": "BroadleafHerb",
+    "seeds": [
+      714103,
+      271828,
+      161803
+    ],
+    "specimens": [
+      {
+        "name": "BroadleafHerb",
+        "seed": 714103,
+        "profile": {
+          "Kind": 4,
+          "HeightMeters": 0.45,
+          "RadiusMeters": 0.4,
+          "Density": 0.9,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 6,
+          "PaletteSteps": 4,
+          "FoliageColor": 4284512581,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 4,
+          "Seed": 714103,
+          "RequestedMinCell": {
+            "x": 56,
+            "y": 4,
+            "z": 56
+          },
+          "RequestedMaxCell": {
+            "x": 72,
+            "y": 13,
+            "z": 72
+          },
+          "MinCell": {
+            "x": 60,
+            "y": 4,
+            "z": 61
+          },
+          "MaxCell": {
+            "x": 66,
+            "y": 8,
+            "z": 67
+          },
+          "WrittenCells": 42,
+          "Candidates": 123,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 42
+          }
+        },
+        "actual_dimensions_m": [
+          0.7000000000000001,
+          0.5,
+          0.7000000000000001
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 42,
+        "material_counts": {
+          "Leaves": 42
+        },
+        "palette": {
+          "Leaves": [
+            4283590459,
+            4284183362,
+            4284841800,
+            4285434703
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -56,
+          "y": -2,
+          "z": -58
+        }
+      },
+      {
+        "name": "BroadleafHerb",
+        "seed": 271828,
+        "profile": {
+          "Kind": 4,
+          "HeightMeters": 0.45,
+          "RadiusMeters": 0.4,
+          "Density": 0.9,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 6,
+          "PaletteSteps": 4,
+          "FoliageColor": 4284512581,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 4,
+          "Seed": 271828,
+          "RequestedMinCell": {
+            "x": 56,
+            "y": 4,
+            "z": 56
+          },
+          "RequestedMaxCell": {
+            "x": 72,
+            "y": 13,
+            "z": 72
+          },
+          "MinCell": {
+            "x": 61,
+            "y": 4,
+            "z": 60
+          },
+          "MaxCell": {
+            "x": 67,
+            "y": 8,
+            "z": 67
+          },
+          "WrittenCells": 44,
+          "Candidates": 128,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 44
+          }
+        },
+        "actual_dimensions_m": [
+          0.7000000000000001,
+          0.5,
+          0.8
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 44,
+        "material_counts": {
+          "Leaves": 44
+        },
+        "palette": {
+          "Leaves": [
+            4283590459,
+            4284183362,
+            4284841800,
+            4285434703
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -41,
+          "y": -2,
+          "z": -57
+        }
+      },
+      {
+        "name": "BroadleafHerb",
+        "seed": 161803,
+        "profile": {
+          "Kind": 4,
+          "HeightMeters": 0.45,
+          "RadiusMeters": 0.4,
+          "Density": 0.9,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 6,
+          "PaletteSteps": 4,
+          "FoliageColor": 4284512581,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 4,
+          "Seed": 161803,
+          "RequestedMinCell": {
+            "x": 56,
+            "y": 4,
+            "z": 56
+          },
+          "RequestedMaxCell": {
+            "x": 72,
+            "y": 13,
+            "z": 72
+          },
+          "MinCell": {
+            "x": 61,
+            "y": 4,
+            "z": 60
+          },
+          "MaxCell": {
+            "x": 66,
+            "y": 8,
+            "z": 67
+          },
+          "WrittenCells": 43,
+          "Candidates": 126,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 43
+          }
+        },
+        "actual_dimensions_m": [
+          0.6000000000000001,
+          0.5,
+          0.8
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 43,
+        "material_counts": {
+          "Leaves": 43
+        },
+        "palette": {
+          "Leaves": [
+            4283590459,
+            4284183362,
+            4284841800,
+            4285434703
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -25,
+          "y": -2,
+          "z": -57
+        }
+      }
+    ],
+    "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+  },
+  "generation_version": {
+    "plant": 1,
+    "rock": 2,
+    "catalog": 3
+  },
+  "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+}

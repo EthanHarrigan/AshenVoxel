@@ -1,0 +1,9 @@
+{
+  "scope": "Offline exact-face preview, not Unity, actual learned spawn page versus explicitly labelled cliff fixture",
+  "inputs": {
+    "actual-spawn": "afc75b94f3bc9594d8b3330a9b87d289b195301badf8c8dd70aee89a683fac93",
+    "layered-cliff-fixture": "f8f5dd97c55b6ab366055063523216ec3a163e2cbe2f5ab67da43cde203703a7"
+  },
+  "renderer_sha256": "a93484380d58bc45ffe8943e091abe40a5eb10ab5cfce6874ef003f0bc7bef2e",
+  "image_sha256": "89b85fe00f65d37736726b307ae3c4573dec58ec3bba44c4f998dc111a1b292f"
+}

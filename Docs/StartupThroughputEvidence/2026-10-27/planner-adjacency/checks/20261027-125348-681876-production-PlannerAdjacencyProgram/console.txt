@@ -1,0 +1,9 @@
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AshenVoxel.WorldScale.LodPlanner.Adjacent(LodTile a, LodTile b)
+   at Program.<>c.<Main>b__11_0()
+   at Program.Reject(Action action, String label)
+   at Program.Main(String[] args)
+207 assertions; 3 recorded failures; 0 plans; normal predicate -1 bytes/0.00ms
+FAIL Reject unsupported level before shift -1
+FAIL Reject unsupported level before shift 25
+FAIL Reject unsupported level before shift 64

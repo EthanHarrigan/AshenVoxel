@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "checks": 68,
+  "cases": [
+    {
+      "sequence": "",
+      "accepted": true,
+      "top": 50,
+      "backing_calls": 1
+    },
+    {
+      "sequence": "S",
+      "accepted": true,
+      "top": 50,
+      "backing_calls": 1
+    },
+    {
+      "sequence": "SS",
+      "accepted": true,
+      "top": 50,
+      "backing_calls": 1
+    },
+    {
+      "sequence": "D",
+      "accepted": true,
+      "top": 49.800000000000004,
+      "backing_calls": 1
+    },
+    {
+      "sequence": "SD",
+      "accepted": true,
+      "top": 50.5,
+      "backing_calls": 1
+    },
+    {
+      "sequence": "SSDD",
+      "accepted": true,
+      "top": 50.1,
+      "backing_calls": 1
+    },
+    {
+      "sequence": "DDDD",
+      "accepted": true,
+      "top": 50.5,
+      "backing_calls": 1
+    },
+    {
+      "sequence": "SSSSDDDD",
+      "accepted": true,
+      "top": 50.300000000000004,
+      "backing_calls": 1
+    },
+    {
+      "sequence": "DDDDDDDD",
+      "accepted": true,
+      "top": 50.800000000000004,
+      "backing_calls": 1
+    },
+    {
+      "sequence": "DS",
+      "accepted": false,
+      "reason": "nested-surface-wrapper"
+    },
+    {
+      "sequence": "SDS",
+      "accepted": false,
+      "reason": "nested-surface-wrapper"
+    },
+    {
+      "sequence": "DDSD",
+      "accepted": false,
+      "reason": "nested-surface-wrapper"
+    },
+    {
+      "sequence": "SDDS",
+      "accepted": false,
+      "reason": "nested-surface-wrapper"
+    },
+    {
+      "sequence": "DSDS",
+      "accepted": false,
+      "reason": "nested-surface-wrapper"
+    },
+    {
+      "sequence": "DSSDD",
+      "accepted": false,
+      "reason": "nested-surface-wrapper"
+    },
+    {
+      "sequence": "SSDDDSS",
+      "accepted": false,
+      "reason": "nested-surface-wrapper"
+    }
+  ],
+  "scope": "Small analytical source-chain tests only; no world load/generation/native. Readonly sealed wrapper constructors cannot form cycles without bypassing their constructors; cycle defense is present but no reflection-based cycle fixture was used."
+}

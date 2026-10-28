@@ -1,0 +1,20 @@
+{
+  "name": "AshenVoxel.Exploration",
+  "rootNamespace": "AshenVoxel.Exploration",
+  "references": [
+    "AshenVoxel.Core",
+    "AshenVoxel.Rendering",
+    "AshenVoxel.WorldScaleData",
+    "AshenVoxel.WorldScaleRuntime",
+    "Unity.InputSystem",
+    "Unity.RenderPipelines.Core.Runtime",
+    "Unity.RenderPipelines.Universal.Runtime"
+  ],
+  "versionDefines": [
+    {
+      "name": "com.unity.modules.nvidia",
+      "expression": "1.0.0",
+      "define": "ASHEN_NVIDIA_MODULE"
+    }
+  ]
+}

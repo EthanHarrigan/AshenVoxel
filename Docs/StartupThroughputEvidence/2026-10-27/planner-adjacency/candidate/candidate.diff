@@ -1,0 +1,39 @@
+--- a/Assets/AshenVoxel/WorldScaleData/LodPlanner.cs
++++ b/Assets/AshenVoxel/WorldScaleData/LodPlanner.cs
+@@ -105,10 +105,34 @@
+             foreach(var neighbor in leaves)
+                 if(neighbor.Key.Level>target.Key.Level&&Adjacent(target,neighbor))Collect(neighbor,leaves,required);
+         }
++        /// <summary>Shared-edge adjacency on one aligned dyadic TileKey grid.
++        /// Render-coordinate rounding must not change split closure. Corners do not share an edge.</summary>
+         public static bool Adjacent(LodTile a,LodTile b)
+         {
+-            double ax=a.OriginXMeters,az=a.OriginZMeters,bx=b.OriginXMeters,bz=b.OriginZMeters,ae=ax+a.SizeMeters,aze=az+a.SizeMeters,be=bx+b.SizeMeters,bze=bz+b.SizeMeters;
+-            return ((ae==bx||be==ax)&&Math.Min(aze,bze)>Math.Max(az,bz))||((aze==bz||bze==az)&&Math.Min(ae,be)>Math.Max(ax,bx));
++            if(a==null||b==null)throw new ArgumentNullException(a==null?nameof(a):nameof(b));
++            if(a.Key.Level<0||a.Key.Level>24||b.Key.Level<0||b.Key.Level>24)
++                throw new ArgumentOutOfRangeException("level","Dyadic tile levels must be within0..24.");
++            long sa=1L<<a.Key.Level,sb=1L<<b.Key.Level;
++            try
++            {
++                checked
++                {
++                    long ax=a.Key.X*sa,az=a.Key.Z*sa,bx=b.Key.X*sb,bz=b.Key.Z*sb;
++                    long ae=ax+sa,aze=az+sa,be=bx+sb,bze=bz+sb;
++                    return ((ae==bx||be==ax)&&Math.Min(aze,bze)>Math.Max(az,bz))||
++                           ((aze==bz||bze==az)&&Math.Min(ae,be)>Math.Max(ax,bx));
++                }
++            }
++            catch(OverflowException)
++            {
++                // Decimal's96-bit integer range contains every signed64-bit key
++                // multiplied by2^24, including its exclusive upper endpoint.
++                decimal ax=(decimal)a.Key.X*sa,az=(decimal)a.Key.Z*sa,bx=(decimal)b.Key.X*sb,bz=(decimal)b.Key.Z*sb;
++                decimal ae=((decimal)a.Key.X+1)*sa,aze=((decimal)a.Key.Z+1)*sa;
++                decimal be=((decimal)b.Key.X+1)*sb,bze=((decimal)b.Key.Z+1)*sb;
++                return ((ae==bx||be==ax)&&Math.Min(aze,bze)>Math.Max(az,bz))||
++                       ((aze==bz||bze==az)&&Math.Min(ae,be)>Math.Max(ax,bx));
++            }
+         }
+         static double Distance(WorldPoint p,double x,double z,double size,double minY,double maxY)
+         {

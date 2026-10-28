@@ -1,0 +1,21 @@
+{
+  "checked_at_utc": "2026-10-28T04:50:53.220377+00:00",
+  "document_local_links": "PASS",
+  "missing_links": [],
+  "utf8": "PASS",
+  "analytic_arithmetic": "PASS",
+  "reviewed_file_count": 15,
+  "source_freeze_check": "CHANGED_CONCURRENTLY",
+  "observed_changes_not_made_by_this_study": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/NaturalMatterRenderer.cs",
+      "initial_sha256": "32f068225aef422276a0d5fd288bafcc5a9181c1ee5aa27e00e6758fb76ae91a",
+      "observed_sha256": "afe8fc3bb9ab6ba067008d5a0ebc37ad6484c5857c8684f9eeedc2d464b5c1a0",
+      "observed_write_utc": "2026-10-28T04:47:30.996794+00:00"
+    }
+  ],
+  "initial_failed_assertion": "Expected all reviewed sources unchanged; NaturalMatterRenderer.cs hash differed. Initial source manifest retained.",
+  "gameplay_tests": "NOT RUN: research/documentation only",
+  "native_control": "NONE",
+  "study_word_count": 3917
+}

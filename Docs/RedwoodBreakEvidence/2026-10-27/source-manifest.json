@@ -1,0 +1,91 @@
+{
+  "captured_utc": "2026-10-28T05:38:11.604481+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/NaturalMatterBreakInput.cs",
+      "sha256": "aba73d136abe30589f7789fc1225d0189211caa9bbe8005561db5c7869a66d63"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/NaturalMatterBreakInput.cs.meta",
+      "sha256": "91d1ef02de8d532d3b36b5b12310ba794d2dc729cc5b052f4aff06190a907acf"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationNaturalTreeMatter.cs",
+      "sha256": "f6c12abd583b8eafc8f7c802cfedf01d5b5859b78bf16d3aa6dc6ebbf557f17c"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/NaturalMatterRenderer.cs",
+      "sha256": "3683e24da7325a176583bae60ee7e4f803e4447fee19787ec37983bab5af44ca"
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/WorldSurface.shader",
+      "sha256": "200b68320e75accbbe02df4061ba0e07c2e7212dca238ec04b39994c6631166b"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/NaturalMatterAppearanceChecks.cs",
+      "sha256": "8693ba838c31d1150de152e7da9ff5b76afaf5f78cb11d6419f5be1ec976654b"
+    },
+    {
+      "path": "Tools/BreakInputChecks/Program.cs",
+      "sha256": "c76b5b0b8a1787d1c7f5bb737d93f52a8ca2647b8159731af5692af8bc907089"
+    },
+    {
+      "path": "Tools/BreakInputChecks/run_checks.py",
+      "sha256": "c58b5685c154e2844cedc548c91082d0f0ebd1457087ff9d69d4e10493ef2f47"
+    },
+    {
+      "path": "Tools/NaturalMatterRendererChecks/Program.cs",
+      "sha256": "95c0c4712c1c1ce869f78228b4d482b5ce70555f7de15d07ab8e0aa774c58ebf"
+    },
+    {
+      "path": "Tools/NaturalMatterRendererChecks/UnityShim.cs",
+      "sha256": "924c83539267dcaa893a706efc002a27facc6e99b8a8019f77dd74f9379c246f"
+    },
+    {
+      "path": "Tools/NaturalMatterRendererChecks/run_checks.py",
+      "sha256": "577be594ffeb7aa5700d0cca45881701cf68fd6eb38a4997e4d6bcda4f592587"
+    }
+  ],
+  "validation_sources": [
+    {
+      "report": "unity-api.json",
+      "mismatched_sources": [
+        "Assets/AshenVoxel/WorldScaleData/ExplorationOverviewField.cs",
+        "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+        "Assets/AshenVoxel/Exploration/ExplorationLoadingScreen.cs",
+        "Assets/AshenVoxel/Exploration/ExplorationOverviewRefinement.cs",
+        "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+        "Assets/AshenVoxel/Exploration/WorldLoadingProgress.cs"
+      ]
+    },
+    {
+      "report": "input-result.json",
+      "mismatched_sources": []
+    },
+    {
+      "report": "renderer/paired-final/result.json",
+      "mismatched_sources": []
+    },
+    {
+      "report": "native-result.json",
+      "mismatched_sources": []
+    }
+  ],
+  "preserved": [
+    {
+      "path": "Assets/Scenes/Exploration.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Packages/manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "Packages/packages-lock.json",
+      "unchanged": true
+    }
+  ],
+  "concurrent_work": "Noita chat owns awake/dormant physics changes; current combined source hashes recorded without attributing that work here.",
+  "concurrent_worldgen_changes": "Six unrelated worldgen/loading files changed after first full API compile. First report retained; final full API compile rerun.",
+  "final_api_mismatched_sources": []
+}

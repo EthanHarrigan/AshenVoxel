@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "total_blocks": 120,
+  "completed_blocks": 120,
+  "bake_id": "653a72959be6e6ec9abb8e9643c685b2c690c183768a109f2110ede02b7dfb99",
+  "new_blocks": 12,
+  "elapsed_seconds": 71.79991499999596,
+  "sum_chunk_generation_seconds": 1660.124871099848,
+  "available_commit_bytes": 2404511744,
+  "last_block": [
+    448,
+    896
+  ],
+  "last_block_seconds": 3.116748100001132,
+  "load_seconds": 7.358057599994936
+}

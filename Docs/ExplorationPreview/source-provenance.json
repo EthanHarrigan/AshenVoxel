@@ -1,0 +1,43 @@
+{
+  "created_utc": "2026-10-26T23:03:41.209951+00:00",
+  "sdk": "8.0.427",
+  "source_sha256": {
+    "Assets/AshenVoxel/Core/Details/PlantGenerator.cs": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+    "Assets/AshenVoxel/Core/Details/PlantModel.cs": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2",
+    "Assets/AshenVoxel/Core/EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+    "Assets/AshenVoxel/Core/Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+    "Assets/AshenVoxel/Core/Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+    "Assets/AshenVoxel/Core/Materials.cs": "0342f83df63737d241289e0c86931ebe501cd0c090cf2c773316cc170ef9afd3",
+    "Assets/AshenVoxel/Core/Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+    "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs": "006a8434c519bb996e85c4b05e0f188efe49a0a56e68d84ae6b9804f1e78425e",
+    "Assets/AshenVoxel/Core/Rocks/RockProfile.cs": "20152a9dbd0661143a400c1c2b7a69e97755e65342e3352239847b1dc752afc3",
+    "Assets/AshenVoxel/Core/Rocks/RockShapeGeometry.cs": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69",
+    "Assets/AshenVoxel/Core/Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+    "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+    "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+    "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+    "Assets/AshenVoxel/Core/VoxelColor.cs": "b1392b24b7d0b3d966ac7cf35f438de7db384639397444d508ed28e95e8899c6",
+    "Assets/AshenVoxel/Core/VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+    "Assets/AshenVoxel/Core/VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+    "Assets/AshenVoxel/Core/WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+    "Tools/GroundCoverPreview/ExportGroundCover.cs": "e54fe6256847dc637a55a19682113d4dd92f00ac42c49caf306a059d927e00f6"
+  },
+  "geometry_version": 2,
+  "appearance_version": 2,
+  "mode": "shapes",
+  "note": "Current actual C# occupied10cm voxels and stored colors. Presentation pads are authored fixtures. Offline preview, not Unity or reference-color calibration.",
+  "exports": {
+    "shape-angularboulder.bin": "0ca94378f4ab95caf82cc6fbe6ef04407e35f505485172b7157796740feaebc7",
+    "shape-angularboulder.json": "72f10df1ab0a8a2cdc48ee288cc6ca94f56b9d1e2a46040f6b8c2e782badc367",
+    "shape-cluster.bin": "90fa77cda2bcd82f83a693f23dd80c8dd155e4fe006091739e6156c617c0df84",
+    "shape-cluster.json": "dbe983e10f891b619088bbc418277b533fe721d5b8f39145bda0b7d6958ffae7",
+    "shape-slab.bin": "8738a2265b6c374b699baeb8f822cb2a6b20882bd642e2f981daa6914ad5f899",
+    "shape-slab.json": "d896285ffbbf203d620bfe421a14dd59061fcc5d734a5af8454906478c796fec",
+    "shape-spire.bin": "8860fcc782e912dff76d92481e7a1fdcd87a28e934aded275c8bd3f2bdc7072a",
+    "shape-spire.json": "cb46686ed0f24c948c88aab0c2c50624f54c5ae4b70a3602a1b5cce339c98f01",
+    "shape-splitoutcrop.bin": "da7d4c33d21a19c2a887319de84b4f04978b3817cd490147ca8c81624e6ff8ef",
+    "shape-splitoutcrop.json": "dbf3e1aae468c060ee74f65564df79fc7010272ff7c77f0dac4b51020f21b840",
+    "shape-wedge.bin": "e526c2f8b2a15ac2a141490aa6e35fb97454477fe603fd6341be42733c4e6686",
+    "shape-wedge.json": "3e387e4d48ae0e3a06921ff63cd2bd5c5d99e091972f23cbb8515591db3b2537"
+  }
+}

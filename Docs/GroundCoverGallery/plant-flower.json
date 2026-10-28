@@ -1,0 +1,282 @@
+{
+  "name": "plant-flower",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    46,
+    10,
+    12
+  ],
+  "occupied_cells": 623,
+  "bounds_min_m": [
+    0.2,
+    0,
+    0.1
+  ],
+  "bounds_max_m": [
+    3.9000000000000004,
+    0.8,
+    1.1
+  ],
+  "material_counts": {
+    "Litter": 520,
+    "Leaves": 82,
+    "Petal": 21
+  },
+  "scene": {
+    "category": "plant",
+    "label": "Flower",
+    "seeds": [
+      714103,
+      271828,
+      161803
+    ],
+    "specimens": [
+      {
+        "name": "Flower",
+        "seed": 714103,
+        "profile": {
+          "Kind": 5,
+          "HeightMeters": 0.5,
+          "RadiusMeters": 0.31,
+          "Density": 0.8,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 5,
+          "PaletteSteps": 4,
+          "FoliageColor": 4284905540,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290879670
+        },
+        "result": {
+          "Kind": 5,
+          "Seed": 714103,
+          "RequestedMinCell": {
+            "x": 57,
+            "y": 4,
+            "z": 57
+          },
+          "RequestedMaxCell": {
+            "x": 71,
+            "y": 13,
+            "z": 71
+          },
+          "MinCell": {
+            "x": 61,
+            "y": 4,
+            "z": 62
+          },
+          "MaxCell": {
+            "x": 66,
+            "y": 9,
+            "z": 66
+          },
+          "WrittenCells": 33,
+          "Candidates": 96,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 26,
+            "Petal": 7
+          }
+        },
+        "actual_dimensions_m": [
+          0.6000000000000001,
+          0.6000000000000001,
+          0.5
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 33,
+        "material_counts": {
+          "Leaves": 26,
+          "Petal": 7
+        },
+        "palette": {
+          "Leaves": [
+            4283917882,
+            4284576321,
+            4285234759,
+            4285893198
+          ],
+          "Petal": [
+            4291537087,
+            4292786385
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -57,
+          "y": -2,
+          "z": -59
+        }
+      },
+      {
+        "name": "Flower",
+        "seed": 271828,
+        "profile": {
+          "Kind": 5,
+          "HeightMeters": 0.5,
+          "RadiusMeters": 0.31,
+          "Density": 0.8,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 5,
+          "PaletteSteps": 4,
+          "FoliageColor": 4284905540,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290879670
+        },
+        "result": {
+          "Kind": 5,
+          "Seed": 271828,
+          "RequestedMinCell": {
+            "x": 57,
+            "y": 4,
+            "z": 57
+          },
+          "RequestedMaxCell": {
+            "x": 71,
+            "y": 13,
+            "z": 71
+          },
+          "MinCell": {
+            "x": 62,
+            "y": 4,
+            "z": 61
+          },
+          "MaxCell": {
+            "x": 66,
+            "y": 9,
+            "z": 66
+          },
+          "WrittenCells": 36,
+          "Candidates": 96,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 29,
+            "Petal": 7
+          }
+        },
+        "actual_dimensions_m": [
+          0.5,
+          0.6000000000000001,
+          0.6000000000000001
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 36,
+        "material_counts": {
+          "Leaves": 29,
+          "Petal": 7
+        },
+        "palette": {
+          "Leaves": [
+            4283917882,
+            4284576321,
+            4285234759,
+            4285893198
+          ],
+          "Petal": [
+            4290222253,
+            4291537087,
+            4292786385
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -43,
+          "y": -2,
+          "z": -58
+        }
+      },
+      {
+        "name": "Flower",
+        "seed": 161803,
+        "profile": {
+          "Kind": 5,
+          "HeightMeters": 0.5,
+          "RadiusMeters": 0.31,
+          "Density": 0.8,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 5,
+          "PaletteSteps": 4,
+          "FoliageColor": 4284905540,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290879670
+        },
+        "result": {
+          "Kind": 5,
+          "Seed": 161803,
+          "RequestedMinCell": {
+            "x": 57,
+            "y": 4,
+            "z": 57
+          },
+          "RequestedMaxCell": {
+            "x": 71,
+            "y": 13,
+            "z": 71
+          },
+          "MinCell": {
+            "x": 62,
+            "y": 4,
+            "z": 61
+          },
+          "MaxCell": {
+            "x": 65,
+            "y": 9,
+            "z": 66
+          },
+          "WrittenCells": 34,
+          "Candidates": 101,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 27,
+            "Petal": 7
+          }
+        },
+        "actual_dimensions_m": [
+          0.4,
+          0.6000000000000001,
+          0.6000000000000001
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 34,
+        "material_counts": {
+          "Leaves": 27,
+          "Petal": 7
+        },
+        "palette": {
+          "Leaves": [
+            4283917882,
+            4284576321,
+            4285234759,
+            4285893198
+          ],
+          "Petal": [
+            4290222253,
+            4291537087,
+            4292786385
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -29,
+          "y": -2,
+          "z": -58
+        }
+      }
+    ],
+    "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+  },
+  "generation_version": {
+    "plant": 1,
+    "rock": 2,
+    "catalog": 3
+  },
+  "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+}

@@ -1,0 +1,186 @@
+{
+  "utc": "2026-10-27T09:25:59.182917+00:00",
+  "scope": "FrozenVersion1 actual14fb32 population with numerical rendering substitutes; no frustum/GPU/wholeStart claim.Three alternating repetitions per budget plus a separate exact-placement/detail audit pair. No settings changed.",
+  "budgets": {
+    "32000000": {
+      "timed_runs": 3,
+      "median_cpu_seconds": 1.5939654,
+      "median_scheduling_iterations": 1007,
+      "matrix_payload_range_bytes": [
+        14781760,
+        15339712
+      ],
+      "shared_mesh_payload_bytes": 436717216,
+      "batch_triangles": 31995100,
+      "resident_instances": 22469,
+      "resident_cells": 1715,
+      "trees_published": 11296,
+      "trees_3d_mesh": 388,
+      "placement_sha256": "fe2fa93b2e50e698e2089bbc246cbbbf55ac52dbe72c34b96eb36b3379f1ea36",
+      "kind_lod_distribution": [
+        {
+          "kind": 0,
+          "lod": 0,
+          "instances": 136,
+          "triangles": 14730416
+        },
+        {
+          "kind": 2,
+          "lod": 1,
+          "instances": 296,
+          "triangles": 63888
+        },
+        {
+          "kind": 2,
+          "lod": 0,
+          "instances": 54,
+          "triangles": 40800
+        },
+        {
+          "kind": 1,
+          "lod": 0,
+          "instances": 950,
+          "triangles": 677956
+        },
+        {
+          "kind": 1,
+          "lod": 1,
+          "instances": 2516,
+          "triangles": 676754
+        },
+        {
+          "kind": 2,
+          "lod": 2,
+          "instances": 720,
+          "triangles": 48820
+        },
+        {
+          "kind": 1,
+          "lod": 2,
+          "instances": 2639,
+          "triangles": 246952
+        },
+        {
+          "kind": 0,
+          "lod": 1,
+          "instances": 204,
+          "triangles": 10643162
+        },
+        {
+          "kind": 0,
+          "lod": 2,
+          "instances": 48,
+          "triangles": 4815884
+        },
+        {
+          "kind": 2,
+          "lod": 3,
+          "instances": 927,
+          "triangles": 28652
+        },
+        {
+          "kind": 0,
+          "lod": 3,
+          "instances": 6145,
+          "triangles": 12290
+        },
+        {
+          "kind": 0,
+          "lod": 4,
+          "instances": 4763,
+          "triangles": 9526
+        }
+      ]
+    },
+    "40000000": {
+      "timed_runs": 3,
+      "median_cpu_seconds": 1.5647634,
+      "median_scheduling_iterations": 1025,
+      "matrix_payload_range_bytes": [
+        14727360,
+        15322304
+      ],
+      "shared_mesh_payload_bytes": 436717216,
+      "batch_triangles": 39993630,
+      "resident_instances": 22469,
+      "resident_cells": 1715,
+      "trees_published": 11296,
+      "trees_3d_mesh": 606,
+      "placement_sha256": "fe2fa93b2e50e698e2089bbc246cbbbf55ac52dbe72c34b96eb36b3379f1ea36",
+      "kind_lod_distribution": [
+        {
+          "kind": 0,
+          "lod": 0,
+          "instances": 136,
+          "triangles": 14730416
+        },
+        {
+          "kind": 2,
+          "lod": 1,
+          "instances": 296,
+          "triangles": 63888
+        },
+        {
+          "kind": 2,
+          "lod": 0,
+          "instances": 54,
+          "triangles": 40800
+        },
+        {
+          "kind": 1,
+          "lod": 0,
+          "instances": 950,
+          "triangles": 677956
+        },
+        {
+          "kind": 1,
+          "lod": 1,
+          "instances": 2516,
+          "triangles": 676754
+        },
+        {
+          "kind": 2,
+          "lod": 2,
+          "instances": 720,
+          "triangles": 48820
+        },
+        {
+          "kind": 1,
+          "lod": 2,
+          "instances": 2639,
+          "triangles": 246952
+        },
+        {
+          "kind": 0,
+          "lod": 1,
+          "instances": 408,
+          "triangles": 16776048
+        },
+        {
+          "kind": 0,
+          "lod": 2,
+          "instances": 62,
+          "triangles": 6681964
+        },
+        {
+          "kind": 2,
+          "lod": 3,
+          "instances": 927,
+          "triangles": 28652
+        },
+        {
+          "kind": 0,
+          "lod": 3,
+          "instances": 5927,
+          "triangles": 11854
+        },
+        {
+          "kind": 0,
+          "lod": 4,
+          "instances": 4763,
+          "triangles": 9526
+        }
+      ]
+    }
+  }
+}

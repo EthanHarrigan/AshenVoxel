@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "assertions": 546,
+  "scope": "Isolated copy of actual mesher with ownership-domain filtering only. CPU Mesh shim; exact expanded face geometry/RGB/material/AO versus stock mesher restricted to emitted cells. Guard stays in source for neighbor/AO reads. Does not prove old shared upper mesh AO agrees with changed lower row, nor native stitching/wind/LOD.",
+  "rows": [
+    {
+      "label": "synthetic cut1",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 377,
+      "excluded_guard_cell_faces": 3029
+    },
+    {
+      "label": "synthetic cut15",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 1577,
+      "excluded_guard_cell_faces": 1829
+    },
+    {
+      "label": "synthetic cut16",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 1661,
+      "excluded_guard_cell_faces": 1745
+    },
+    {
+      "label": "synthetic cut17",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 1745,
+      "excluded_guard_cell_faces": 1661
+    },
+    {
+      "label": "synthetic cut29",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 2753,
+      "excluded_guard_cell_faces": 653
+    },
+    {
+      "label": "synthetic cut30",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 2837,
+      "excluded_guard_cell_faces": 569
+    },
+    {
+      "label": "synthetic cut31",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 2921,
+      "excluded_guard_cell_faces": 485
+    },
+    {
+      "label": "synthetic cut32",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 3005,
+      "excluded_guard_cell_faces": 401
+    },
+    {
+      "label": "actual mapped root10",
+      "chunks": 43,
+      "unmasked_quads": 9542,
+      "masked_quads": 8460,
+      "excluded_guard_cell_faces": 1532
+    },
+    {
+      "label": "actual mapped root11",
+      "chunks": 43,
+      "unmasked_quads": 9929,
+      "masked_quads": 8806,
+      "excluded_guard_cell_faces": 1629
+    }
+  ],
+  "fixture": "Frozen bounded runtime-v2 two-row-seam outputs, each independently matched by its builder against these cells/RGB",
+  "input_sha256": {
+    "expected-10.bin": "324dfc2375fc7c8e097876c4ce700f69368286a1e4999d8de5dd376a822ae75b",
+    "expected-11.bin": "c16071c202a1b554c3ac0b3bf638ed469d689a5ce262cafee64e289a57ab70e8"
+  },
+  "checker_assembly_sha256": "3f163bef7f4685e3c06ab2e55971132d044cc15f27032746f6df98a491717bc8",
+  "checker_source_provenance_sha256": "3e7f8cf7ab2e0c973a737a215fcf84411b9811c5abc71e74ee3f5f5529f96b07"
+}

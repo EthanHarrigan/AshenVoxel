@@ -1,0 +1,5 @@
+{
+  "status": "FAIL_PRESERVED",
+  "cause": "Old4000 synthetic-frame bound reached while asynchronous bootstrap still had work under concurrent native test load. Updated harness retains12000-frame and90-second wall-clock limits; subsequent31-check suite passed.",
+  "runtime_snapshot": "native-final/source-hashes.json"
+}

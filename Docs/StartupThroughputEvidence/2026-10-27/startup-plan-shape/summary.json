@@ -1,0 +1,971 @@
+{
+  "utc": "2026-10-27T12:41:06.040960+00:00",
+  "status": "Read-only audit found existing192-cap planner imbalance; no runtime changes",
+  "data_sha256": {
+    "ExplorationMacro.bytes": "3a307d7dcebc47e0d1831e75a7cd73346480d3386b27aae9600c71dd2051c98b",
+    "ExplorationFine.bytes": "0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb",
+    "ExplorationMacro.climate.bytes": "e81d209a9bf1959c9d6749b93ab96c91c903bf1583fe6dbd33651ecf87306684",
+    "ExplorationFine.climate.bytes": "3c5b1be873732c2a46fec105a4a9c00649d5348c3546c5226ea4a1dbd5297069",
+    "ExplorationBiomes.bytes": "de5217131a618329a2cc9df3bdb8db1a8bf69c15a5f979934deef6991c47d2cc"
+  },
+  "planner_sha256": "31f2f4bafeb44ad064c1c2e1702ebb700c051ec40e0a1a28de5777603522d88f",
+  "runs": [
+    {
+      "run": "20261027-123752-271277-production-StartupPlanShapeProgram",
+      "status": "FAIL",
+      "checks": 724,
+      "error": "System.Exception: Unbalanced neighbors\r\n   at Program.Main(String[] args)"
+    },
+    {
+      "run": "20261027-123822-127790-production-StartupPlanShapeProgram",
+      "status": "FAIL",
+      "checks": 1089,
+      "error": "System.Exception: Existing planner reported 36 directed adjacent pairs differing by more than one LOD level; diagnostics preserved per plan.\r\n   at Program.Main(String[] args)"
+    },
+    {
+      "run": "20261027-123939-552925-production-StartupPlanShapeProgram",
+      "status": "FAIL",
+      "checks": 1089,
+      "error": "System.Exception: Existing planner reported 68 directed adjacent pairs differing by more than one LOD level; diagnostics preserved per plan.\r\n   at Program.Main(String[] args)"
+    }
+  ],
+  "plans": [
+    {
+      "maximum_tiles": 64,
+      "desired_tiles": 63,
+      "pending_tiles": 63,
+      "initial_plan_ms": 14.3156,
+      "near_level": 8,
+      "near_tile_m": 6553.6,
+      "near_initial_spacing_m": 819.2,
+      "levels": [
+        {
+          "level": 8,
+          "tiles": 4,
+          "tile_m": 6553.6,
+          "initial_spacing_m": 819.2
+        },
+        {
+          "level": 9,
+          "tiles": 15,
+          "tile_m": 13107.2,
+          "initial_spacing_m": 1638.4
+        },
+        {
+          "level": 10,
+          "tiles": 12,
+          "tile_m": 26214.4,
+          "initial_spacing_m": 3276.8
+        },
+        {
+          "level": 11,
+          "tiles": 12,
+          "tile_m": 52428.8,
+          "initial_spacing_m": 6553.6
+        },
+        {
+          "level": 12,
+          "tiles": 12,
+          "tile_m": 104857.6,
+          "initial_spacing_m": 13107.2
+        },
+        {
+          "level": 13,
+          "tiles": 8,
+          "tile_m": 209715.2,
+          "initial_spacing_m": 26214.4
+        }
+      ],
+      "sampled_coverage_points": 360,
+      "adjacent_directed_pairs": 262,
+      "float_missed_adjacencies": 28,
+      "unbalanced_neighbors": [],
+      "has_active_before_any_build": false
+    },
+    {
+      "maximum_tiles": 192,
+      "desired_tiles": 192,
+      "pending_tiles": 192,
+      "initial_plan_ms": 6.5764,
+      "near_level": 0,
+      "near_tile_m": 25.6,
+      "near_initial_spacing_m": 3.2,
+      "levels": [
+        {
+          "level": 0,
+          "tiles": 12,
+          "tile_m": 25.6,
+          "initial_spacing_m": 3.2
+        },
+        {
+          "level": 1,
+          "tiles": 13,
+          "tile_m": 51.2,
+          "initial_spacing_m": 6.4
+        },
+        {
+          "level": 2,
+          "tiles": 20,
+          "tile_m": 102.4,
+          "initial_spacing_m": 12.8
+        },
+        {
+          "level": 4,
+          "tiles": 12,
+          "tile_m": 409.6,
+          "initial_spacing_m": 51.2
+        },
+        {
+          "level": 3,
+          "tiles": 10,
+          "tile_m": 204.8,
+          "initial_spacing_m": 25.6
+        },
+        {
+          "level": 5,
+          "tiles": 28,
+          "tile_m": 819.2,
+          "initial_spacing_m": 102.4
+        },
+        {
+          "level": 6,
+          "tiles": 16,
+          "tile_m": 1638.4,
+          "initial_spacing_m": 204.8
+        },
+        {
+          "level": 8,
+          "tiles": 10,
+          "tile_m": 6553.6,
+          "initial_spacing_m": 819.2
+        },
+        {
+          "level": 7,
+          "tiles": 2,
+          "tile_m": 3276.8,
+          "initial_spacing_m": 409.6
+        },
+        {
+          "level": 9,
+          "tiles": 17,
+          "tile_m": 13107.2,
+          "initial_spacing_m": 1638.4
+        },
+        {
+          "level": 10,
+          "tiles": 15,
+          "tile_m": 26214.4,
+          "initial_spacing_m": 3276.8
+        },
+        {
+          "level": 11,
+          "tiles": 15,
+          "tile_m": 52428.8,
+          "initial_spacing_m": 6553.6
+        },
+        {
+          "level": 12,
+          "tiles": 15,
+          "tile_m": 104857.6,
+          "initial_spacing_m": 13107.2
+        },
+        {
+          "level": 13,
+          "tiles": 7,
+          "tile_m": 209715.2,
+          "initial_spacing_m": 26214.4
+        }
+      ],
+      "sampled_coverage_points": 360,
+      "adjacent_directed_pairs": 860,
+      "float_missed_adjacencies": 232,
+      "unbalanced_neighbors": [
+        {
+          "a": "0:-744,-400",
+          "b": "2:-186,-101",
+          "a_size": 25.6,
+          "b_size": 102.4,
+          "floating_detected": false,
+          "finer_parent": "1:-372,-200",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "2:-186,-101",
+          "b": "0:-744,-400",
+          "a_size": 102.4,
+          "b_size": 25.6,
+          "floating_detected": false,
+          "finer_parent": "1:-372,-200",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "2:-186,-101",
+          "b": "0:-743,-400",
+          "a_size": 102.4,
+          "b_size": 25.6,
+          "floating_detected": false,
+          "finer_parent": "1:-372,-200",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "0:-743,-400",
+          "b": "2:-186,-101",
+          "a_size": 25.6,
+          "b_size": 102.4,
+          "floating_detected": false,
+          "finer_parent": "1:-372,-200",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "2:-188,-100",
+          "b": "4:-48,-25",
+          "a_size": 102.4,
+          "b_size": 409.6,
+          "floating_detected": false,
+          "finer_parent": "3:-94,-50",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "2:-188,-101",
+          "b": "4:-48,-26",
+          "a_size": 102.4,
+          "b_size": 409.6,
+          "floating_detected": false,
+          "finer_parent": "3:-94,-51",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "2:-188,-99",
+          "b": "4:-48,-25",
+          "a_size": 102.4,
+          "b_size": 409.6,
+          "floating_detected": false,
+          "finer_parent": "3:-94,-50",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "2:-188,-102",
+          "b": "4:-48,-26",
+          "a_size": 102.4,
+          "b_size": 409.6,
+          "floating_detected": false,
+          "finer_parent": "3:-94,-51",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "2:-188,-98",
+          "b": "4:-48,-25",
+          "a_size": 102.4,
+          "b_size": 409.6,
+          "floating_detected": false,
+          "finer_parent": "3:-94,-49",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "4:-48,-25",
+          "b": "2:-188,-100",
+          "a_size": 409.6,
+          "b_size": 102.4,
+          "floating_detected": false,
+          "finer_parent": "3:-94,-50",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "4:-48,-25",
+          "b": "2:-188,-99",
+          "a_size": 409.6,
+          "b_size": 102.4,
+          "floating_detected": false,
+          "finer_parent": "3:-94,-50",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "4:-48,-25",
+          "b": "2:-188,-98",
+          "a_size": 409.6,
+          "b_size": 102.4,
+          "floating_detected": false,
+          "finer_parent": "3:-94,-49",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "4:-48,-25",
+          "b": "2:-188,-97",
+          "a_size": 409.6,
+          "b_size": 102.4,
+          "floating_detected": false,
+          "finer_parent": "3:-94,-49",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "4:-48,-26",
+          "b": "2:-188,-101",
+          "a_size": 409.6,
+          "b_size": 102.4,
+          "floating_detected": false,
+          "finer_parent": "3:-94,-51",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "4:-48,-26",
+          "b": "2:-188,-102",
+          "a_size": 409.6,
+          "b_size": 102.4,
+          "floating_detected": false,
+          "finer_parent": "3:-94,-51",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "2:-187,-97",
+          "b": "5:-24,-12",
+          "a_size": 102.4,
+          "b_size": 819.2,
+          "floating_detected": true,
+          "finer_parent": "3:-94,-49",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "2:-186,-97",
+          "b": "5:-24,-12",
+          "a_size": 102.4,
+          "b_size": 819.2,
+          "floating_detected": true,
+          "finer_parent": "3:-93,-49",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "3:-92,-49",
+          "b": "5:-23,-12",
+          "a_size": 204.8,
+          "b_size": 819.2,
+          "floating_detected": true,
+          "finer_parent": "4:-46,-25",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "2:-188,-97",
+          "b": "4:-48,-25",
+          "a_size": 102.4,
+          "b_size": 409.6,
+          "floating_detected": false,
+          "finer_parent": "3:-94,-49",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "2:-188,-97",
+          "b": "5:-24,-12",
+          "a_size": 102.4,
+          "b_size": 819.2,
+          "floating_detected": true,
+          "finer_parent": "3:-94,-49",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "2:-185,-97",
+          "b": "5:-24,-12",
+          "a_size": 102.4,
+          "b_size": 819.2,
+          "floating_detected": true,
+          "finer_parent": "3:-93,-49",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "5:-24,-12",
+          "b": "2:-187,-97",
+          "a_size": 819.2,
+          "b_size": 102.4,
+          "floating_detected": true,
+          "finer_parent": "3:-94,-49",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "5:-24,-12",
+          "b": "2:-186,-97",
+          "a_size": 819.2,
+          "b_size": 102.4,
+          "floating_detected": true,
+          "finer_parent": "3:-93,-49",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "5:-24,-12",
+          "b": "2:-188,-97",
+          "a_size": 819.2,
+          "b_size": 102.4,
+          "floating_detected": true,
+          "finer_parent": "3:-94,-49",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "5:-24,-12",
+          "b": "2:-185,-97",
+          "a_size": 819.2,
+          "b_size": 102.4,
+          "floating_detected": true,
+          "finer_parent": "3:-93,-49",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "5:-23,-12",
+          "b": "3:-92,-49",
+          "a_size": 819.2,
+          "b_size": 204.8,
+          "floating_detected": true,
+          "finer_parent": "4:-46,-25",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "5:-23,-12",
+          "b": "3:-91,-49",
+          "a_size": 819.2,
+          "b_size": 204.8,
+          "floating_detected": true,
+          "finer_parent": "4:-46,-25",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "3:-91,-49",
+          "b": "5:-23,-12",
+          "a_size": 204.8,
+          "b_size": 819.2,
+          "floating_detected": true,
+          "finer_parent": "4:-46,-25",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "6:-12,-5",
+          "b": "8:-3,-1",
+          "a_size": 1638.4,
+          "b_size": 6553.6,
+          "floating_detected": true,
+          "finer_parent": "7:-6,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "6:-13,-5",
+          "b": "8:-4,-1",
+          "a_size": 1638.4,
+          "b_size": 6553.6,
+          "floating_detected": true,
+          "finer_parent": "7:-7,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "6:-11,-5",
+          "b": "8:-3,-1",
+          "a_size": 1638.4,
+          "b_size": 6553.6,
+          "floating_detected": true,
+          "finer_parent": "7:-6,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "6:-14,-5",
+          "b": "8:-4,-1",
+          "a_size": 1638.4,
+          "b_size": 6553.6,
+          "floating_detected": true,
+          "finer_parent": "7:-7,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "6:-10,-5",
+          "b": "8:-3,-1",
+          "a_size": 1638.4,
+          "b_size": 6553.6,
+          "floating_detected": true,
+          "finer_parent": "7:-5,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "8:-3,-1",
+          "b": "6:-12,-5",
+          "a_size": 6553.6,
+          "b_size": 1638.4,
+          "floating_detected": true,
+          "finer_parent": "7:-6,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "8:-3,-1",
+          "b": "6:-11,-5",
+          "a_size": 6553.6,
+          "b_size": 1638.4,
+          "floating_detected": true,
+          "finer_parent": "7:-6,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "8:-3,-1",
+          "b": "6:-10,-5",
+          "a_size": 6553.6,
+          "b_size": 1638.4,
+          "floating_detected": true,
+          "finer_parent": "7:-5,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "8:-3,-1",
+          "b": "6:-9,-5",
+          "a_size": 6553.6,
+          "b_size": 1638.4,
+          "floating_detected": true,
+          "finer_parent": "7:-5,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "8:-4,-1",
+          "b": "6:-13,-5",
+          "a_size": 6553.6,
+          "b_size": 1638.4,
+          "floating_detected": true,
+          "finer_parent": "7:-7,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "8:-4,-1",
+          "b": "6:-14,-5",
+          "a_size": 6553.6,
+          "b_size": 1638.4,
+          "floating_detected": true,
+          "finer_parent": "7:-7,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "7:-8,-3",
+          "b": "9:-3,-1",
+          "a_size": 3276.8,
+          "b_size": 13107.2,
+          "floating_detected": false,
+          "finer_parent": "8:-4,-2",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "6:-9,-5",
+          "b": "8:-3,-1",
+          "a_size": 1638.4,
+          "b_size": 6553.6,
+          "floating_detected": true,
+          "finer_parent": "7:-5,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "6:-9,-5",
+          "b": "8:-2,-2",
+          "a_size": 1638.4,
+          "b_size": 6553.6,
+          "floating_detected": true,
+          "finer_parent": "7:-5,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "8:-2,-2",
+          "b": "6:-9,-5",
+          "a_size": 6553.6,
+          "b_size": 1638.4,
+          "floating_detected": true,
+          "finer_parent": "7:-5,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "8:-2,-2",
+          "b": "6:-9,-7",
+          "a_size": 6553.6,
+          "b_size": 1638.4,
+          "floating_detected": true,
+          "finer_parent": "7:-5,-4",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "8:-2,-2",
+          "b": "6:-9,-6",
+          "a_size": 6553.6,
+          "b_size": 1638.4,
+          "floating_detected": true,
+          "finer_parent": "7:-5,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "8:-2,-2",
+          "b": "6:-9,-8",
+          "a_size": 6553.6,
+          "b_size": 1638.4,
+          "floating_detected": true,
+          "finer_parent": "7:-5,-4",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "6:-11,-8",
+          "b": "8:-3,-3",
+          "a_size": 1638.4,
+          "b_size": 6553.6,
+          "floating_detected": false,
+          "finer_parent": "7:-6,-4",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "9:-3,-1",
+          "b": "7:-8,-3",
+          "a_size": 13107.2,
+          "b_size": 3276.8,
+          "floating_detected": false,
+          "finer_parent": "8:-4,-2",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "9:-3,-1",
+          "b": "7:-8,-4",
+          "a_size": 13107.2,
+          "b_size": 3276.8,
+          "floating_detected": false,
+          "finer_parent": "8:-4,-2",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "5:-24,-16",
+          "b": "8:-3,-3",
+          "a_size": 819.2,
+          "b_size": 6553.6,
+          "floating_detected": false,
+          "finer_parent": "6:-12,-8",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "5:-23,-16",
+          "b": "8:-3,-3",
+          "a_size": 819.2,
+          "b_size": 6553.6,
+          "floating_detected": false,
+          "finer_parent": "6:-12,-8",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "5:-25,-16",
+          "b": "8:-4,-3",
+          "a_size": 819.2,
+          "b_size": 6553.6,
+          "floating_detected": false,
+          "finer_parent": "6:-13,-8",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "5:-26,-16",
+          "b": "8:-4,-3",
+          "a_size": 819.2,
+          "b_size": 6553.6,
+          "floating_detected": false,
+          "finer_parent": "6:-13,-8",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "6:-14,-8",
+          "b": "8:-4,-3",
+          "a_size": 1638.4,
+          "b_size": 6553.6,
+          "floating_detected": false,
+          "finer_parent": "7:-7,-4",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "8:-3,-3",
+          "b": "6:-11,-8",
+          "a_size": 6553.6,
+          "b_size": 1638.4,
+          "floating_detected": false,
+          "finer_parent": "7:-6,-4",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "8:-3,-3",
+          "b": "5:-24,-16",
+          "a_size": 6553.6,
+          "b_size": 819.2,
+          "floating_detected": false,
+          "finer_parent": "6:-12,-8",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "8:-3,-3",
+          "b": "5:-23,-16",
+          "a_size": 6553.6,
+          "b_size": 819.2,
+          "floating_detected": false,
+          "finer_parent": "6:-12,-8",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "8:-3,-3",
+          "b": "6:-10,-8",
+          "a_size": 6553.6,
+          "b_size": 1638.4,
+          "floating_detected": false,
+          "finer_parent": "7:-5,-4",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "8:-3,-3",
+          "b": "6:-9,-8",
+          "a_size": 6553.6,
+          "b_size": 1638.4,
+          "floating_detected": false,
+          "finer_parent": "7:-5,-4",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "6:-10,-8",
+          "b": "8:-3,-3",
+          "a_size": 1638.4,
+          "b_size": 6553.6,
+          "floating_detected": false,
+          "finer_parent": "7:-5,-4",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "8:-4,-3",
+          "b": "5:-25,-16",
+          "a_size": 6553.6,
+          "b_size": 819.2,
+          "floating_detected": false,
+          "finer_parent": "6:-13,-8",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "8:-4,-3",
+          "b": "5:-26,-16",
+          "a_size": 6553.6,
+          "b_size": 819.2,
+          "floating_detected": false,
+          "finer_parent": "6:-13,-8",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "8:-4,-3",
+          "b": "6:-14,-8",
+          "a_size": 6553.6,
+          "b_size": 1638.4,
+          "floating_detected": false,
+          "finer_parent": "7:-7,-4",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "7:-8,-4",
+          "b": "9:-3,-1",
+          "a_size": 3276.8,
+          "b_size": 13107.2,
+          "floating_detected": false,
+          "finer_parent": "8:-4,-2",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        },
+        {
+          "a": "6:-9,-7",
+          "b": "8:-2,-2",
+          "a_size": 1638.4,
+          "b_size": 6553.6,
+          "floating_detected": true,
+          "finer_parent": "7:-5,-4",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "6:-9,-6",
+          "b": "8:-2,-2",
+          "a_size": 1638.4,
+          "b_size": 6553.6,
+          "floating_detected": true,
+          "finer_parent": "7:-5,-3",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "6:-9,-8",
+          "b": "8:-2,-2",
+          "a_size": 1638.4,
+          "b_size": 6553.6,
+          "floating_detected": true,
+          "finer_parent": "7:-5,-4",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": true
+        },
+        {
+          "a": "6:-9,-8",
+          "b": "8:-3,-3",
+          "a_size": 1638.4,
+          "b_size": 6553.6,
+          "floating_detected": false,
+          "finer_parent": "7:-5,-4",
+          "parent_integer_adjacent": true,
+          "parent_float_adjacent": false
+        }
+      ],
+      "has_active_before_any_build": false
+    },
+    {
+      "maximum_tiles": 512,
+      "desired_tiles": 510,
+      "pending_tiles": 510,
+      "initial_plan_ms": 14.858,
+      "near_level": 0,
+      "near_tile_m": 25.6,
+      "near_initial_spacing_m": 3.2,
+      "levels": [
+        {
+          "level": 0,
+          "tiles": 56,
+          "tile_m": 25.6,
+          "initial_spacing_m": 3.2
+        },
+        {
+          "level": 1,
+          "tiles": 42,
+          "tile_m": 51.2,
+          "initial_spacing_m": 6.4
+        },
+        {
+          "level": 2,
+          "tiles": 42,
+          "tile_m": 102.4,
+          "initial_spacing_m": 12.8
+        },
+        {
+          "level": 3,
+          "tiles": 34,
+          "tile_m": 204.8,
+          "initial_spacing_m": 25.6
+        },
+        {
+          "level": 4,
+          "tiles": 36,
+          "tile_m": 409.6,
+          "initial_spacing_m": 51.2
+        },
+        {
+          "level": 5,
+          "tiles": 44,
+          "tile_m": 819.2,
+          "initial_spacing_m": 102.4
+        },
+        {
+          "level": 6,
+          "tiles": 42,
+          "tile_m": 1638.4,
+          "initial_spacing_m": 204.8
+        },
+        {
+          "level": 7,
+          "tiles": 38,
+          "tile_m": 3276.8,
+          "initial_spacing_m": 409.6
+        },
+        {
+          "level": 8,
+          "tiles": 35,
+          "tile_m": 6553.6,
+          "initial_spacing_m": 819.2
+        },
+        {
+          "level": 9,
+          "tiles": 40,
+          "tile_m": 13107.2,
+          "initial_spacing_m": 1638.4
+        },
+        {
+          "level": 10,
+          "tiles": 31,
+          "tile_m": 26214.4,
+          "initial_spacing_m": 3276.8
+        },
+        {
+          "level": 11,
+          "tiles": 33,
+          "tile_m": 52428.8,
+          "initial_spacing_m": 6553.6
+        },
+        {
+          "level": 12,
+          "tiles": 37,
+          "tile_m": 104857.6,
+          "initial_spacing_m": 13107.2
+        }
+      ],
+      "sampled_coverage_points": 360,
+      "adjacent_directed_pairs": 2170,
+      "float_missed_adjacencies": 570,
+      "unbalanced_neighbors": [],
+      "has_active_before_any_build": false
+    }
+  ],
+  "finding": "Exact integer TileKey adjacency finds68 directed/34 unique unbalanced neighbors in192-cap plan at actual spawn.64/512 plans have none in this sample, but floating adjacency misses legitimate neighbors in all three.",
+  "mechanism": "Parents use floating meter-coordinate equality during split closure.52 of68 final unbalanced directed pairs have an integer-adjacent finer parent that floating Adjacent does not recognize.",
+  "quality_tradeoff": "Blind64-tile initial cap leaves near6553.6m tile with819.2m initial grid versus25.6m tile/3.2m grid at192; reject automatic adoption without shape/error-aware study.",
+  "limits": [
+    "One actual spawn/20km; 360 sampled XZ coverage points per plan, not exhaustive world proof.",
+    "No geometry built/uploaded and no visual crack, Start speed, FPS or memory result.",
+    "Planner source is unchanged from earlier frozen baseline; this is not introduced by flight-refinement-1.",
+    "Initial configure/plan milliseconds include first-use warm-up and are not a controlled speed comparison."
+  ],
+  "next": "Coordinate a separate planner correctness fix; do not mix into flight timer patch. No smaller initial-plan policy adopted."
+}

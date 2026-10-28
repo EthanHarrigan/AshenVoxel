@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "C:\Users\ethan\Downloads\AshenVoxel\Tools\check_exploration_release.py", line 91, in <module>
+    main()
+  File "C:\Users\ethan\Downloads\AshenVoxel\Tools\check_exploration_release.py", line 60, in main
+    raise RuntimeError('Stale/missing evidence: ' + name + ' -> ' + relative)
+RuntimeError: Stale/missing evidence: Docs/exploration-field-validation.json -> Assets/AshenVoxel/Core/Materials.cs

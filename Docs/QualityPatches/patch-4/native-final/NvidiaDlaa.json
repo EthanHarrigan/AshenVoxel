@@ -1,0 +1,13 @@
+{
+    "mode": "NvidiaDlaa",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "unity": "6000.3.27f1",
+    "status": "NVIDIA DLAA · native resolution",
+    "frames": 16,
+    "valid_features": 1,
+    "input_width": 1280,
+    "input_height": 720,
+    "output_width": 1280,
+    "output_height": 720,
+    "pixel_energy": 96710712
+}

@@ -1,0 +1,729 @@
+{
+  "status": "PASS",
+  "scope": ".NET CPU full-authority recipe replay and exact AVPM4 hard plus stick span equality; no Unity/render/FPS claim",
+  "assertions": 2725660,
+  "records": [
+    {
+      "id": 0,
+      "cells": 3395,
+      "hard_cells": 1024,
+      "cell_sha256": "35bde1d1cd0f3902edf93025c01ef6c5ba3b47a35c296aede3ec8c22f33fa077",
+      "elapsed_ms": 134
+    },
+    {
+      "id": 1,
+      "cells": 3408,
+      "hard_cells": 1047,
+      "cell_sha256": "a41e209f5508c5ae8dc73e08fe35ac21b471fa7cac88a08d2f59ed456bc6fb11",
+      "elapsed_ms": 93
+    },
+    {
+      "id": 2,
+      "cells": 22983,
+      "hard_cells": 2804,
+      "cell_sha256": "4757d30c140c6c4e3748102eba1c947a6e6ac8baecca0d3af0350bb11cafcab9",
+      "elapsed_ms": 175
+    },
+    {
+      "id": 3,
+      "cells": 23152,
+      "hard_cells": 2965,
+      "cell_sha256": "5c5381fb25883923d9132296e4ecc898730425eb879166d46e838b5329204762",
+      "elapsed_ms": 54
+    },
+    {
+      "id": 4,
+      "cells": 6874,
+      "hard_cells": 1031,
+      "cell_sha256": "1117989d5e8aff8c509a36f26f79a17c8bf7488dfd00fc7952024d2f87cb3357",
+      "elapsed_ms": 17
+    },
+    {
+      "id": 5,
+      "cells": 6682,
+      "hard_cells": 1082,
+      "cell_sha256": "194c582ad17679053288cc2e73c25c445c4e216c94795ca0bb5a5a1ce060951c",
+      "elapsed_ms": 16
+    },
+    {
+      "id": 6,
+      "cells": 47257,
+      "hard_cells": 4642,
+      "cell_sha256": "7f343214f87b06c78a0c280cd9ebfb19cbeb7da9c0a2c4e3a1a24386457a3203",
+      "elapsed_ms": 88
+    },
+    {
+      "id": 7,
+      "cells": 45450,
+      "hard_cells": 5066,
+      "cell_sha256": "5eb4d8d04d5227429ef60265d4cbbcc7921ba2691c74277b657f182169774415",
+      "elapsed_ms": 103
+    },
+    {
+      "id": 8,
+      "cells": 66957,
+      "hard_cells": 12758,
+      "cell_sha256": "df3950c4df00073c4a015d2037589f829b94968c7b64c35ddde91998faa00654",
+      "elapsed_ms": 165
+    },
+    {
+      "id": 9,
+      "cells": 68590,
+      "hard_cells": 13562,
+      "cell_sha256": "b72b484467e1829ebe5aeba4c8ded00155a5c803ef9ebf6e474af17bfee221cc",
+      "elapsed_ms": 166
+    },
+    {
+      "id": 10,
+      "cells": 1111103,
+      "hard_cells": 380993,
+      "cell_sha256": "90a3543895e57170202f758bf97248e9af164ec19b2861fecabab86bfdc856f6",
+      "elapsed_ms": 1829
+    },
+    {
+      "id": 11,
+      "cells": 1159639,
+      "hard_cells": 411904,
+      "cell_sha256": "4b119bcd14b4779e480379e1359f9eacc1152773e014208e6f95cc45792f2043",
+      "elapsed_ms": 2431
+    },
+    {
+      "id": 12,
+      "cells": 7363,
+      "hard_cells": 1576,
+      "cell_sha256": "5e07ce5b7277a70a783a3c7d7657fbe5d08f6c013f9e26dad2c924fbeeee47ad",
+      "elapsed_ms": 43
+    },
+    {
+      "id": 13,
+      "cells": 7620,
+      "hard_cells": 1599,
+      "cell_sha256": "bbdecfe40689f641366827ff4f34f6b96fb80f952883baec8e0463450c16312f",
+      "elapsed_ms": 43
+    },
+    {
+      "id": 14,
+      "cells": 50442,
+      "hard_cells": 5258,
+      "cell_sha256": "58216fe474711bea037c0489f0d52edb43ff387f5f175be7960bec5037607ae5",
+      "elapsed_ms": 159
+    },
+    {
+      "id": 15,
+      "cells": 51228,
+      "hard_cells": 5423,
+      "cell_sha256": "79ef6587ed66e833994bde4ce55713646d520668364d38407ee4d52c68c599a4",
+      "elapsed_ms": 204
+    },
+    {
+      "id": 100,
+      "cells": 170,
+      "hard_cells": 0,
+      "cell_sha256": "644d2ae8de1859c5ae68caf62ce83aca1fcc97a9bb4d9ac5fb27e2c1fe9706a2",
+      "elapsed_ms": 6
+    },
+    {
+      "id": 101,
+      "cells": 175,
+      "hard_cells": 0,
+      "cell_sha256": "884b616e1b4dd3055377c0fb8531d8d76a1daae425aaa26fce9d9df9b1825f68",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 102,
+      "cells": 510,
+      "hard_cells": 115,
+      "cell_sha256": "71ac1a662f62b8ac4f5038e3bdb89277dde386987d8026138103bd3f955667bc",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 103,
+      "cells": 497,
+      "hard_cells": 115,
+      "cell_sha256": "994f55195ed0970e5e352cebc2df9da2a40ddff62b9d05e8f37638b484d7278a",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 104,
+      "cells": 56,
+      "hard_cells": 0,
+      "cell_sha256": "36f90bc8750a6bedd8a948934597bbe9d3eef1f86828f0de4de2ab303b23a2c2",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 105,
+      "cells": 53,
+      "hard_cells": 0,
+      "cell_sha256": "e02ad562a9877ace80ac544425c7a6f50e138749e38f059fd8ccb9db239dd151",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 106,
+      "cells": 176,
+      "hard_cells": 0,
+      "cell_sha256": "d0bb0a335c43217ebb0489f26ea6cbdc484b923da3c02f65800e5fb771c5d6b8",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 107,
+      "cells": 162,
+      "hard_cells": 0,
+      "cell_sha256": "5ecee524efc2b4de975c7fb5ea13ce5bd74346fcde2f9c14445cb5f62b856706",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 108,
+      "cells": 42,
+      "hard_cells": 0,
+      "cell_sha256": "01946273354451c5fd4f390353a3ce91dc3c7df76da6ce1e08cae7f13bd9e708",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 109,
+      "cells": 44,
+      "hard_cells": 0,
+      "cell_sha256": "05bdaacc4a7e652d5ec4b7b209e268832e33447e517a76c246cbd0edc6b2ac24",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 110,
+      "cells": 33,
+      "hard_cells": 0,
+      "cell_sha256": "e5c415c8efe00c0d9e93fd58c770c501ff79a76c5e086d87cc4c495660217e38",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 111,
+      "cells": 36,
+      "hard_cells": 0,
+      "cell_sha256": "e4e9b8ae0325a71512c8b68f788eb3859f54c1d4a9137ac1e0a9da7dfe8c4adb",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 112,
+      "cells": 48,
+      "hard_cells": 0,
+      "cell_sha256": "b447652da5e181ca29c0477750c3df4f764342da1ddbf023a422cc3418c34f77",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 113,
+      "cells": 46,
+      "hard_cells": 0,
+      "cell_sha256": "687f80623313e3197a97ff07737536b2ca985f418e37c8e9ae52767f587cbcc9",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 114,
+      "cells": 74,
+      "hard_cells": 0,
+      "cell_sha256": "42ab56aefdac13dc6b8e525b7c42c9698aec3c7729c6b44dbe6c444169656f11",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 115,
+      "cells": 69,
+      "hard_cells": 0,
+      "cell_sha256": "682ec92eb16bf42cead167893f93b6b04fa3ecd6c7d30d3e7992366e88815a9b",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 116,
+      "cells": 67,
+      "hard_cells": 0,
+      "cell_sha256": "b326637e9519518dd612d79cd0b4ce875cb19cc599a97d7437808fe26ad81a34",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 117,
+      "cells": 68,
+      "hard_cells": 0,
+      "cell_sha256": "7800c209ced840c26cef8d868bc3e7632e530b9e55306058940741b1ac5bc2b6",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 118,
+      "cells": 48,
+      "hard_cells": 0,
+      "cell_sha256": "5f742ad88905ffe96f44939859f96a09ead73fa9e9a02efd8230549fec22a242",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 119,
+      "cells": 49,
+      "hard_cells": 0,
+      "cell_sha256": "af02b1e19609342fe7c0aba1f0b08d125f750274e7f899cafa03eaf7edb0474c",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 120,
+      "cells": 1,
+      "hard_cells": 0,
+      "cell_sha256": "ee3804c27da248f500cfdca719c9e20ee8771b31741c65f2e2d108779cc6de4c",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 121,
+      "cells": 1,
+      "hard_cells": 0,
+      "cell_sha256": "9d23d1137fb5d074465cd1246e93448a9f3ac1d71ce62e65e78fbaefaa8827ef",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 122,
+      "cells": 1,
+      "hard_cells": 0,
+      "cell_sha256": "48be3dd27482b953f5fc39ddfd19a9ff050540686b74b7547d41711977494261",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 200,
+      "cells": 152,
+      "hard_cells": 152,
+      "cell_sha256": "6271c16755c7f78e05ee7fc8124b59c316deefc2d017f5b4753495a33ea1a08f",
+      "elapsed_ms": 7
+    },
+    {
+      "id": 201,
+      "cells": 1547,
+      "hard_cells": 1547,
+      "cell_sha256": "eb3c1779b167f1b321d7979f1b15e7db5c88d8cf5fac17a51f7aeb87427e8288",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 202,
+      "cells": 75,
+      "hard_cells": 75,
+      "cell_sha256": "ea540bee402319b0a0464697516e5e33d66db5833a3dcce1b9cbdee989c6a8f9",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 203,
+      "cells": 433,
+      "hard_cells": 433,
+      "cell_sha256": "eed645574277476d50ca7868d9b78a51bcdce7b30bb438aa662ca606e993d212",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 204,
+      "cells": 122,
+      "hard_cells": 122,
+      "cell_sha256": "f7771c08170035025e31d7f8931f6842bedf41bb104a598f42e65d80218f24e9",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 205,
+      "cells": 1144,
+      "hard_cells": 1144,
+      "cell_sha256": "1bf5a5cc74b9d5dc47eddcb2b970f9982a3bf2683e2a6f6c826c5417479cded7",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 206,
+      "cells": 80,
+      "hard_cells": 80,
+      "cell_sha256": "a97eaf2fa12daa221237bb11b036c41136d432168a15ac6b95929e7e5895897f",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 207,
+      "cells": 873,
+      "hard_cells": 873,
+      "cell_sha256": "a3558a810b159cadb7c3f3d2729347fc3b581c9efda480a275f7c231b0c82863",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 208,
+      "cells": 189,
+      "hard_cells": 189,
+      "cell_sha256": "ae2b9f03966d57d0151a99d18b186734a0b863a3ac7e56f78ddc28499e3a525d",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 209,
+      "cells": 1991,
+      "hard_cells": 1991,
+      "cell_sha256": "49e87164a9996d774bbdbd513e4d0b29cb644959a260ee059a167c2578765b5c",
+      "elapsed_ms": 2
+    },
+    {
+      "id": 210,
+      "cells": 152,
+      "hard_cells": 152,
+      "cell_sha256": "6c47ce95e04cf7589a8e3ced2ffbdcbc607909f54de3dcc49172100eea44f5c8",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 211,
+      "cells": 1523,
+      "hard_cells": 1523,
+      "cell_sha256": "348d86967981b67085b97d8d442a0f958f1f1c22d4c5e5ae31c5bf2646d29456",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 212,
+      "cells": 152,
+      "hard_cells": 152,
+      "cell_sha256": "0149bb74337151801a12656fddad70d289cd9375b6efc1caf06e75b1b0fea74b",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 213,
+      "cells": 1540,
+      "hard_cells": 1540,
+      "cell_sha256": "b96c1c1742c196d423c83beb172affeed54a85b42a6cb25b33d0a319ab12e161",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 214,
+      "cells": 75,
+      "hard_cells": 75,
+      "cell_sha256": "1c86f74dcf60ac8fc769165c88a2816c1fe26575dfdddfd9df9e7d5958b5b0b3",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 215,
+      "cells": 430,
+      "hard_cells": 430,
+      "cell_sha256": "3b1bbe596bae1e4595a0640e3d92c303482b6e0f3a82148af1a171ee0f2170a4",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 216,
+      "cells": 122,
+      "hard_cells": 122,
+      "cell_sha256": "430d692c94635b6c439547bc116e147a42daedc05e853881b1dbb79a1a506199",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 217,
+      "cells": 1135,
+      "hard_cells": 1135,
+      "cell_sha256": "6aace66258d5a4a93de5aeabe710dafd4fa6f6344a442fc6e9fb37bdefdb8615",
+      "elapsed_ms": 2
+    },
+    {
+      "id": 218,
+      "cells": 82,
+      "hard_cells": 82,
+      "cell_sha256": "22d4af0445d5c35af6f73c035c208eb1a4a9ae6bc4d7eb2fee089e28e2c16251",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 219,
+      "cells": 874,
+      "hard_cells": 874,
+      "cell_sha256": "dbd3db9a6f3ea517234cd5df5ed5e89589cd32848f7647c7e2e761b837328264",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 220,
+      "cells": 189,
+      "hard_cells": 189,
+      "cell_sha256": "87677e1dfb3b587349338a1080444873326ad3bf8f52c1094236d4f7dd2764b4",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 221,
+      "cells": 1977,
+      "hard_cells": 1977,
+      "cell_sha256": "86fb130a40d1b31d040aab9bda718be6116892f697b45e65ed6f4733c8ed225f",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 222,
+      "cells": 152,
+      "hard_cells": 152,
+      "cell_sha256": "1003a667e849213862d2e08d76b613dfea4bb8057824e4c30df065fb03aedfc6",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 223,
+      "cells": 1524,
+      "hard_cells": 1524,
+      "cell_sha256": "1360de0a5146547b42976f993dcc95ed23066ebe8cf65a6f0c505aed2c0f5d19",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 224,
+      "cells": 152,
+      "hard_cells": 152,
+      "cell_sha256": "97bd58b93fa30d25fb423a8e999179aefb46d7c4591ab858eac4bb8a7afc15ce",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 225,
+      "cells": 1521,
+      "hard_cells": 1521,
+      "cell_sha256": "d71135a13b68a877cdfbe01cf520680cff4e7ea480cd19a410eea24c74259814",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 226,
+      "cells": 75,
+      "hard_cells": 75,
+      "cell_sha256": "8c1b5a23d5649a1da9035af26f13835e0fe2cff42fe4e1e0eeee7a329796a458",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 227,
+      "cells": 430,
+      "hard_cells": 430,
+      "cell_sha256": "76179d24e6cc2fa4321bb3431718d5d2a6d4a6ef45d26a87c46aaa95b2d058cc",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 228,
+      "cells": 122,
+      "hard_cells": 122,
+      "cell_sha256": "f147078e93f753f24b7e04c7485059943a3038cab6b17be93f8c5807072cad15",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 229,
+      "cells": 1113,
+      "hard_cells": 1113,
+      "cell_sha256": "641c0b730d3b739491e0b89b3164b854584a8b22529116ece70806e43de62481",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 230,
+      "cells": 80,
+      "hard_cells": 80,
+      "cell_sha256": "378124141e9740365f249ae7d8c3e4fb86c39df91b33a9c8317e782333c5dd17",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 231,
+      "cells": 863,
+      "hard_cells": 863,
+      "cell_sha256": "103dbc9bb252b8a61e5133fe04c86af9a22b8fa2cb865d7983964bd79c97e025",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 232,
+      "cells": 189,
+      "hard_cells": 189,
+      "cell_sha256": "8832230097547a7cd2b766197641bcf303d2d5ef6e0feb17eabd7e8a2948d1db",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 233,
+      "cells": 1971,
+      "hard_cells": 1971,
+      "cell_sha256": "e894bdc2ac7b1143d4323044271e69be71b0430a21b7193ce28af75461259d9a",
+      "elapsed_ms": 2
+    },
+    {
+      "id": 234,
+      "cells": 152,
+      "hard_cells": 152,
+      "cell_sha256": "080035425311ba2707cfe44321b5771a311e835ae63d673b6b8a48af2523ff41",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 235,
+      "cells": 1504,
+      "hard_cells": 1504,
+      "cell_sha256": "8e777fff38a036980f18587e8036270751422b047a5a400ec2d15c122e95f5f6",
+      "elapsed_ms": 2
+    },
+    {
+      "id": 236,
+      "cells": 147,
+      "hard_cells": 147,
+      "cell_sha256": "fe6a18b02a7492e90a4df8787386e35b4e5f00adee5b572bc2081e6d71803066",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 237,
+      "cells": 1509,
+      "hard_cells": 1509,
+      "cell_sha256": "e6280b2707a7e157a5057fa4e64ddb74d3db488b17aab72ece52173499278146",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 238,
+      "cells": 75,
+      "hard_cells": 75,
+      "cell_sha256": "b0e8e6b5d4740d61a45b9cea6f4046a2d4b1bcb56a7e3cd13725bc153644b448",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 239,
+      "cells": 395,
+      "hard_cells": 395,
+      "cell_sha256": "23423974f8d0478cc861840e03ecc80b68bfb1d9dde050bfe9a469104d52e1cf",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 240,
+      "cells": 119,
+      "hard_cells": 119,
+      "cell_sha256": "862806fd064fa3ab004fb0aa75801e487e998b88e6d68bef7f87506eb096f546",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 241,
+      "cells": 1105,
+      "hard_cells": 1105,
+      "cell_sha256": "272a5165c8be11b64909f37e6db88be60a510a295cb1247365cdf37a5999b4ac",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 242,
+      "cells": 80,
+      "hard_cells": 80,
+      "cell_sha256": "6f9abd6edd2810294b0a4092863ece543ee165b1a36a906c01e505183ce53edf",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 243,
+      "cells": 857,
+      "hard_cells": 857,
+      "cell_sha256": "6a39db13acdfaba0508dec7b6558c7042ec91f68f85937826179b60d0de3a9df",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 244,
+      "cells": 181,
+      "hard_cells": 181,
+      "cell_sha256": "82103f5b1d864aa3ebf4475873c5b7c6d9d26f6b6baafec58972bfb9ac5b6bbc",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 245,
+      "cells": 1940,
+      "hard_cells": 1940,
+      "cell_sha256": "f129774208b138626b88b53cc10dc09fffc43c551685d978c96f9ec176f8f92c",
+      "elapsed_ms": 2
+    },
+    {
+      "id": 246,
+      "cells": 146,
+      "hard_cells": 146,
+      "cell_sha256": "3ed9cc800d6e0660aef482a2761394455db39da6198797cca30961acec2ebbb4",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 247,
+      "cells": 1476,
+      "hard_cells": 1476,
+      "cell_sha256": "a81b9f3b47ef231e35f2a81d931a1aec08afbf07a47fa42ffb94809401c93ae2",
+      "elapsed_ms": 2
+    },
+    {
+      "id": 248,
+      "cells": 146,
+      "hard_cells": 146,
+      "cell_sha256": "27896a40db18d01f7f67e75ed2f0a38a40443eed5cef29940894cc5bcd0117f9",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 249,
+      "cells": 1507,
+      "hard_cells": 1507,
+      "cell_sha256": "73f5f21bdb351807168ab7f750312ce98374d351236aa55ccbfecda4a3005152",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 250,
+      "cells": 75,
+      "hard_cells": 75,
+      "cell_sha256": "2d33f3cdb09f06803062e2543bd5206eabd0fc81e13d86942e7734316498fd08",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 251,
+      "cells": 431,
+      "hard_cells": 431,
+      "cell_sha256": "09f5679641d5d21925d0f49396831be81cba5a513343bf0991576b5140394526",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 252,
+      "cells": 121,
+      "hard_cells": 121,
+      "cell_sha256": "ef9d55a3768973bba29248ab23408151a800793608c423673782fcc82949b3e1",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 253,
+      "cells": 1100,
+      "hard_cells": 1100,
+      "cell_sha256": "8a2c5586af0b7ab9219404cec41843e74a608a4d37cb6dd59f272de067667cd5",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 254,
+      "cells": 78,
+      "hard_cells": 78,
+      "cell_sha256": "a14a2cab60fbf96e02e7c7b8f60585a33f82601009c4f95cb75cd81b4a4574da",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 255,
+      "cells": 860,
+      "hard_cells": 860,
+      "cell_sha256": "66b281ecbe3bfaf2d10b787461994449a04b0ed225056692079ccbf3235f89a7",
+      "elapsed_ms": 1
+    },
+    {
+      "id": 256,
+      "cells": 185,
+      "hard_cells": 185,
+      "cell_sha256": "8f0c0dc38aab16258dfa8652691c09635288ff4cd51b30133282f48244369746",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 257,
+      "cells": 1944,
+      "hard_cells": 1944,
+      "cell_sha256": "290b4f8f2452fe33544203697d5e64a2cafb654fdcc57424c0b5b862843d1fbf",
+      "elapsed_ms": 2
+    },
+    {
+      "id": 258,
+      "cells": 146,
+      "hard_cells": 146,
+      "cell_sha256": "b26d36308335e8cb5f9361afa762236ca5960fdf10fffaab1199c45421e9f541",
+      "elapsed_ms": 0
+    },
+    {
+      "id": 259,
+      "cells": 1475,
+      "hard_cells": 1475,
+      "cell_sha256": "6505ea56d54c8ab890a88302a3eda655120dc5f6f7d57776a5f2557bc245c697",
+      "elapsed_ms": 2
+    }
+  ],
+  "source_sha256": {
+    "Assets\\AshenVoxel\\Core\\Details\\PlantGenerator.cs": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+    "Assets\\AshenVoxel\\Core\\Details\\PlantModel.cs": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2",
+    "Assets\\AshenVoxel\\Core\\EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+    "Assets\\AshenVoxel\\Core\\Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+    "Assets\\AshenVoxel\\Core\\Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+    "Assets\\AshenVoxel\\Core\\Materials.cs": "ab945a1f679e57f81dca05fc3fe4a70e2e0e0d35ce51f2d1457d99e8660baf85",
+    "Assets\\AshenVoxel\\Core\\Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+    "Assets\\AshenVoxel\\Core\\Rocks\\RockGenerator.cs": "006a8434c519bb996e85c4b05e0f188efe49a0a56e68d84ae6b9804f1e78425e",
+    "Assets\\AshenVoxel\\Core\\Rocks\\RockProfile.cs": "20152a9dbd0661143a400c1c2b7a69e97755e65342e3352239847b1dc752afc3",
+    "Assets\\AshenVoxel\\Core\\Rocks\\RockShapeGeometry.cs": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69",
+    "Assets\\AshenVoxel\\Core\\Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+    "Assets\\AshenVoxel\\Core\\Trees\\TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+    "Assets\\AshenVoxel\\Core\\Trees\\TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+    "Assets\\AshenVoxel\\Core\\Trees\\TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+    "Assets\\AshenVoxel\\Core\\VertexAppearance.cs": "3ccdc0517c6e3e1db6d2f5680cc07b36b8b3ca1a4fb0273e621eb3a3d867a2ad",
+    "Assets\\AshenVoxel\\Core\\VoxelColor.cs": "18387e0d5aedcb078e5f3ac6860908bbc1c6578a9bdbd295cbf6f4ea7a9550e9",
+    "Assets\\AshenVoxel\\Core\\VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+    "Assets\\AshenVoxel\\Core\\VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+    "Assets\\AshenVoxel\\Core\\WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+    "Assets\\AshenVoxel\\Exploration\\NaturalTreeTemplate.cs": "3a701ff1391fd05baa50a12f8e9d0e9ea1975c35fd7df1735d752447f1fb33a1",
+    "Assets\\AshenVoxel\\Exploration\\NaturalTreePhysics.cs": "5a98e9d0465e9cb8e1120a27aad611ac683b5d8b8e3b12714bd1342fa8f50784",
+    "Assets\\_Validation\\FiniteMatterSlice\\Runtime\\LocalizedMatter.cs": "9623200a9e9b28c8692a7da9fbe396d306bcf22c3a250611fd14405d6156b23e",
+    "Assets\\AshenVoxel\\WorldScaleData\\ExplorationPrototypePack.cs": "1d1ed0696a32c6cbd4a85399b2f083e5b466bb5215b054e4ffe907f876008230",
+    "Tools\\NaturalMatterChecks\\Program.cs": "fb99556dcfe3eed332a441aa46cdf7263cefcdaf66b6d3c23191e127e239df84",
+    "Tools\\NaturalMatterChecks\\RegistryShim.cs": "c12ec8ed2e819720397ae508ea4ee654019e800a31c8cc38c7a42fad43262dc7",
+    "Assets\\AshenVoxel\\Exploration\\VegetationTreeMatter.cs": "d323e064d75438ec52eaf482250ccfdc3cb7922da38b761df0ea387f96d3150f"
+  },
+  "generated_utc": "2026-10-28T04:50:32.823355+00:00"
+}

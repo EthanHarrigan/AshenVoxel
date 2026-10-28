@@ -1,0 +1,23 @@
+{
+  "name": "AshenVoxel.Exploration.Editor",
+  "references": [
+    "AshenVoxel.Exploration",
+    "AshenVoxel.WorldScaleRuntime",
+    "AshenVoxel.WorldScaleData",
+    "AshenVoxel.Core",
+    "Unity.RenderPipelines.Universal.Runtime",
+    "Unity.RenderPipelines.Core.Runtime",
+    "AshenVoxel.Rendering",
+    "AshenVoxel.FiniteMatter"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "versionDefines": [
+    {
+      "name": "com.unity.modules.nvidia",
+      "expression": "1.0.0",
+      "define": "ASHEN_NVIDIA_MODULE"
+    }
+  ]
+}

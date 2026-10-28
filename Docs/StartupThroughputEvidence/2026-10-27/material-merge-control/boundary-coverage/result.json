@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "tile": "rear-lod-coverage, level9,8columns,13107.2m extent",
+  "scope": "One changed tile with largest observed area discrepancy. Each face decomposed into horizontal sample strips and10cm vertical integer intervals, preserving orientation and plane; full multiplicity compared against direct sampled-height/halo/seam-floor oracle. Colors and intentional material changes excluded. Canonical coverage equal; not bit-identical float tessellation or native visual proof.",
+  "baseline_control_canonical_coverage_equal": true,
+  "rows": [
+    {
+      "variant": "baseline",
+      "faces": 487,
+      "top_cells": 64,
+      "side_boundary_strips": 144,
+      "canonical_sha256": "003f488518f88659ea48f68b1ee7be5aa94b07be2997de18b0927259c1dae267",
+      "max_coordinate_snap_error_m": 0.00041503906140860636,
+      "no_missing_or_duplicate_canonical_coverage": true,
+      "hole_and_duplicate_sensitivity_checks": true,
+      "faces_sha256": "da1cc5600b195eaa245d0d7b042b7239c07c4fb6f4d963556fe72e7380e3d538"
+    },
+    {
+      "variant": "control",
+      "faces": 485,
+      "top_cells": 64,
+      "side_boundary_strips": 144,
+      "canonical_sha256": "003f488518f88659ea48f68b1ee7be5aa94b07be2997de18b0927259c1dae267",
+      "max_coordinate_snap_error_m": 0.00041503906140860636,
+      "no_missing_or_duplicate_canonical_coverage": true,
+      "hole_and_duplicate_sensitivity_checks": true,
+      "faces_sha256": "4412d6816d581cc8ffed3cebe66e1a69f21bc9f2c8e4f39aac11a8872d22f02d"
+    }
+  ],
+  "checker_sha256": "14086a1a589a6534ad6fa1bbe3dae190d18d0ae476544398ca718c47c3c81239",
+  "probe_sha256": "cce1d83e52c03a29cd1bbe5838847865ca63bddde54c31ee451061e756c83c5d",
+  "source_manifest_sha256": "1176766b0d21a325afb28d5b8bba8d8a97ccfa3b680578498859eb223728d422",
+  "utc": "2026-10-27T10:52:55.439711+00:00"
+}

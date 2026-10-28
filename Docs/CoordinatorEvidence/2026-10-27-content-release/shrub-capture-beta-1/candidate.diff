@@ -1,0 +1,737 @@
+--- Assets/AshenVoxel/Exploration/VegetationShrubMatter.cs main
++++ Assets/AshenVoxel/Exploration/VegetationShrubMatter.cs candidate
+@@ -0,0 +1,117 @@
++using System;
++using AshenVoxel.WorldScale;
++
++namespace AshenVoxel.Exploration
++{
++    public interface IShrubMatterOwner
++    {
++        // Called at the same main-thread boundary as the instanced batch swap.
++        void PublishShrubOwnership(bool active);
++        bool CanPublishShrubOwnership(bool active);
++        bool BlocksBody(double x0,double y0,double z0,double x1,double y1,double z1);
++        double WeightedSoftVoxels(WorldPoint feet,double radius,double height);
++        bool TryGetSupportHeight(double x,double z,double radius,double low,double high,out double height);
++    }
++    public sealed partial class VegetationStreaming
++    {
++        public sealed class ShrubLease
++        {
++            public PopulationKey Cell {get;internal set;}
++            public PopulationInstance Instance {get;internal set;}
++            public long Epoch {get;internal set;}
++            public long Token {get;internal set;}
++            public bool Active {get;internal set;}
++            public bool Closed {get;internal set;}
++            internal bool WantHidden;
++            internal bool Restoring;
++            internal object OwnerCell;
++            internal string Source;
++            internal IShrubMatterOwner Owner;
++        }
++        ShrubLease shrubLease;long shrubToken;
++        bool shrubBuildHidden;long shrubBuildToken;
++        public bool TryReserveShrub(WorldPoint point,int candidates,IShrubMatterOwner owner,out ShrubLease lease,out string reason)
++        {
++            lease=null;reason="No nearby loaded shrub102/103";
++            if(!Ready||owner==null||shrubLease!=null||candidates<1||candidates>1024||rootField==null||shrubToken==long.MaxValue||Math.Abs(point.X)>1e12||Math.Abs(point.Z)>1e12){reason="Shrub slot busy or registry not ready";return false;}
++            CachedCell selected=null;PopulationInstance best=default;double closest=36;int visited=0;
++            long x0=(long)Math.Floor((point.X-8)/16),x1=(long)Math.Floor((point.X+8)/16),z0=(long)Math.Floor((point.Z-8)/16),z1=(long)Math.Floor((point.Z+8)/16);
++            for(long z=z0;z<=z1;z++)for(long x=x0;x<=x1;x++)if(cells.TryGetValue(new PopulationKey(x,z,2),out var cell)&&cell.Published)
++                foreach(var instance in cell.Data.Instances)
++                {
++                    if(++visited>candidates){reason="Selection count limit; request rejected intact";return false;}
++                    if((instance.PrototypeId!=102&&instance.PrototypeId!=103)||instance.Scale!=1)continue;
++                    double dx=point.X-instance.Position.X,dz=point.Z-instance.Position.Z,dy=point.Y-instance.Position.Y;
++                    double distance=dx*dx+dz*dz+dy*dy;
++                    if(distance>=closest)continue;closest=distance;selected=cell;best=instance;
++                }
++            if(selected==null)return false;
++            lease=new ShrubLease{Cell=selected.Data.Key,Instance=best,Epoch=selected.Epoch,OwnerCell=selected,Owner=owner,Source=rootField.SourceIdentity,Token=++shrubToken};
++            shrubLease=lease;reason="Complete payload reserved; original remains authoritative";return true;
++        }
++        bool ShrubCurrent(ShrubLease lease)=>lease!=null&&!lease.Closed&&ReferenceEquals(shrubLease,lease)&&
++            cells.TryGetValue(lease.Cell,out var cell)&&ReferenceEquals(cell,lease.OwnerCell)&&cell.Epoch==lease.Epoch&&rootField!=null&&rootField.SourceIdentity==lease.Source;
++        public bool RequestShrubOwnership(ShrubLease lease)
++        {
++            if(!ShrubCurrent(lease))return false;lease.WantHidden=true;RestartShrubMatrices();return true;
++        }
++        public void RestoreShrub(ShrubLease lease)
++        {
++            if(!ReferenceEquals(shrubLease,lease)||lease.Closed)return;
++            if(!lease.Active&&!lease.WantHidden){CloseShrub();return;}
++            lease.Restoring=true;
++            if(!lease.Active||lease.Owner.CanPublishShrubOwnership(false)){lease.WantHidden=false;RestartShrubMatrices();}
++        }
++        void RestartShrubMatrices()
++        {
++            buildingMatrices=false;coverageReserve=0;finalizing=false;ReleaseNextBatches();ReleaseBuildingPages();matrixCells.Clear();finalizePages.Clear();matricesDirty=true;
++        }
++        bool ShrubRetains(PopulationKey key)=>shrubLease!=null&&!shrubLease.Closed&&shrubLease.Cell.Equals(key);
++        static bool SameShrub(ShrubLease lease,PopulationCell cell,PopulationInstance instance)=>lease!=null&&lease.Cell.Equals(cell.Key)&&
++            lease.Instance.StableKey==instance.StableKey&&lease.Instance.PrototypeId==instance.PrototypeId&&lease.Instance.Position.X==instance.Position.X&&
++            lease.Instance.Position.Y==instance.Position.Y&&lease.Instance.Position.Z==instance.Position.Z&&lease.Instance.YawDegrees==instance.YawDegrees&&instance.Scale==1;
++        bool SkipShrubNext(PopulationCell cell,PopulationInstance instance)=>shrubBuildHidden&&shrubLease!=null&&shrubBuildToken==shrubLease.Token&&SameShrub(shrubLease,cell,instance);
++        bool SkipShrubCurrent(PopulationCell cell,PopulationInstance instance)=>shrubLease!=null&&shrubLease.Active&&SameShrub(shrubLease,cell,instance);
++        void CaptureShrubSelection(){shrubBuildHidden=ShrubCurrent(shrubLease)&&shrubLease.WantHidden;shrubBuildToken=shrubLease?.Token??0;}
++        bool ValidateShrubSelection()
++        {
++            var lease=shrubLease;if(lease==null||lease.Token!=shrubBuildToken)return !shrubBuildHidden;
++            if(shrubBuildHidden&&!lease.Active&&(!ShrubCurrent(lease)||!lease.Owner.CanPublishShrubOwnership(true)))
++            {lease.WantHidden=false;lease.Restoring=true;return false;}
++            if(!shrubBuildHidden&&lease.Active&&!lease.Owner.CanPublishShrubOwnership(false))
++            {lease.WantHidden=true;lease.Restoring=true;return false;}
++            return true;
++        }
++        void PublishShrubSelection()
++        {
++            var lease=shrubLease;if(lease==null||lease.Token!=shrubBuildToken)return;
++            if(shrubBuildHidden)
++            {
++                if(!lease.Active){lease.Active=true;lease.Owner.PublishShrubOwnership(true);}
++            }
++            else if(lease.Active||lease.Restoring)CloseShrub();
++        }
++        void CloseShrub()
++        {
++            var lease=shrubLease;if(lease==null)return;shrubLease=null;lease.Active=false;lease.Closed=true;lease.WantHidden=false;
++            lease.Owner.PublishShrubOwnership(false);lease.Owner=null;lease.OwnerCell=null;
++        }
++        void TickShrubLease()
++        {
++            var lease=shrubLease;if(lease==null)return;
++            if(lease.Restoring)
++            {if(lease.WantHidden&&(!lease.Active||lease.Owner.CanPublishShrubOwnership(false))){lease.WantHidden=false;RestartShrubMatrices();}return;}
++            if(!ShrubCurrent(lease)){RestoreShrub(lease);return;}
++            double dx=observer.X-lease.Instance.Position.X,dz=observer.Z-lease.Instance.Position.Z;
++            if(dx*dx+dz*dz>24*24&&lease.WantHidden)RestoreShrub(lease);
++        }
++        public bool BlocksBody(double x0,double y0,double z0,double x1,double y1,double z1)
++        {
++            if(BlocksBodyExcludingShrub(x0,y0,z0,x1,y1,z1))return true;
++            return shrubLease!=null&&shrubLease.Active&&shrubLease.Owner.BlocksBody(x0,y0,z0,x1,y1,z1);
++        }
++        double ShrubSoft(WorldPoint feet,double radius,double height)=>shrubLease!=null&&shrubLease.Active?shrubLease.Owner.WeightedSoftVoxels(feet,radius,height):0;
++        void ShrubSupport(double x,double z,double radius,double low,double high,ref double height)
++        {if(shrubLease!=null&&shrubLease.Active&&shrubLease.Owner.TryGetSupportHeight(x,z,radius,low,high,out double own))height=Math.Max(height,own);}
++    }
++}
+--- Assets/AshenVoxel/Exploration/VegetationShrubMatter.cs.meta main
++++ Assets/AshenVoxel/Exploration/VegetationShrubMatter.cs.meta candidate
+@@ -0,0 +1,2 @@
++fileFormatVersion: 2
++guid: c973a39f59634852bd178728fbf1ff44
+--- Assets/AshenVoxel/Exploration/ExplorationShrubMatter.cs main
++++ Assets/AshenVoxel/Exploration/ExplorationShrubMatter.cs candidate
+@@ -0,0 +1,244 @@
++using System;
++using System.Collections.Generic;
++using System.Security.Cryptography;
++using AshenVoxel.Core;
++using AshenVoxel.Core.Experimental;
++using AshenVoxel.Exploration.Experimental;
++using AshenVoxel.Rendering;
++using AshenVoxel.WorldScale;
++using UnityEngine;
++using UnityEngine.InputSystem;
++
++namespace AshenVoxel.Exploration
++{
++    // One genuine currently-published shrub. Private cargo never leaves this
++    // explicit rollback session; original instance is restored on release.
++    [DefaultExecutionOrder(260)]
++    public sealed class ExplorationShrubMatter:MonoBehaviour,IShrubMatterOwner
++    {
++        const string PackPin="41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa";
++        ExplorationBootstrap boot;VegetationStreaming population;VegetationStreaming.ShrubLease lease;
++        VoxelWorld world;LocalizedMatter matter;ChunkWorldRenderer cache;
++        GameObject root;Mesh debrisMesh;MeshFilter debrisFilter;
++        readonly List<Int3> source=new List<Int3>(512);
++        readonly Dictionary<Int3,MaterialId> originalMaterial=new Dictionary<Int3,MaterialId>(512);
++        readonly List<Vector3> vertices=new List<Vector3>(12288),normals=new List<Vector3>(12288);
++        readonly List<Color32> colors=new List<Color32>(12288);readonly List<int> indices=new List<int>(18432);
++        bool active,requested,suction,retiring,packChecked,packValid;float clock;
++        double co,si;WorldPoint position;int initial,removalCursor;
++        string status="U: break nearby existing shrub | I: suction | O: restore";
++        public bool ShowBetaHud=true;
++        public string Status=>status;
++        public long OwnedCells
++        {get{if(world==null||matter==null)return 0;long total=matter.DebrisCount+matter.CreditedCells;foreach(var chunk in world.Chunks.Values)total+=chunk.NonAirCount;return total;}}
++        public static ExplorationShrubMatter Attach(ExplorationBootstrap boot)
++        {
++            if(boot==null)throw new ArgumentNullException(nameof(boot));var result=boot.GetComponent<ExplorationShrubMatter>();
++            if(result==null){result=boot.gameObject.AddComponent<ExplorationShrubMatter>();result.boot=boot;}return result;
++        }
++        bool CheckPack()
++        {
++            if(packChecked)return packValid;packChecked=true;
++            if(boot.ActiveSettings==null||boot.ActiveSettings.PrototypePack==null)return false;
++            byte[] bytes=boot.ActiveSettings.PrototypePack.bytes;
++            using(var sha=SHA256.Create())packValid=BitConverter.ToString(sha.ComputeHash(bytes)).Replace("-","").ToLowerInvariant()==PackPin;
++            return packValid;
++        }
++        public bool BreakNearby()
++        {
++            if(boot==null||!boot.Ready||boot.Player==null||lease!=null||retiring)return false;
++            if(!CheckPack()){status="Canonical shrub pack differs; transfer refused";return false;}
++            population=boot.Population;
++            if(population==null||!population.TryReserveShrub(boot.Player.Feet,512,this,out lease,out status))return false;
++            try
++            {
++                position=lease.Instance.Position;double angle=lease.Instance.YawDegrees*Math.PI/180;co=Math.Cos(angle);si=Math.Sin(angle);
++                world=ShrubMatterTemplate.Replay(lease.Instance.PrototypeId,out var generated);
++                initial=generated.WrittenCells;
++                if(initial!=(lease.Instance.PrototypeId==102?510:497))throw new InvalidOperationException("Canonical whole-cell count changed");
++                source.Clear();foreach(var pair in world.Chunks)for(int i=0;i<Chunk.Volume;i++)if(pair.Value.Cells[i]!=MaterialId.Air)
++                {var p=Chunk.Decode(i);source.Add(new Int3(pair.Key.x*16+p.x,pair.Key.y*16+p.y,pair.Key.z*16+p.z));}
++                if(source.Count!=initial)throw new InvalidOperationException("Source ownership count mismatch");
++                source.Sort((a,b)=>{int c=b.y.CompareTo(a.y);if(c==0)c=a.z.CompareTo(b.z);return c==0?a.x.CompareTo(b.x):c;});
++                foreach(var cell in source)originalMaterial.Add(cell,world.Get(cell));
++                matter=new LocalizedMatter(world,new Int3(24,1,24),new Int3(55,31,55),512,512,64);
++                matter.AdditionalOccupancy=(cell,excluded)=>DestinationBlocked(cell);
++                // Inactive prepared data is not gameplay ownership. Do not move
++                // the player into a newly hard shrub on the publication boundary.
++                var feet=boot.Player.Feet;
++                if(BlocksBody(feet.X-.4,feet.Y,feet.Z-.4,feet.X+.4,feet.Y+1.9,feet.Z+.4))throw new InvalidOperationException("Step clear of the shrub before breaking it");
++                root=new GameObject("Experimental existing shrub "+lease.Instance.StableKey);root.transform.SetParent(boot.transform,false);root.SetActive(false);
++                cache=root.AddComponent<ChunkWorldRenderer>();cache.GenerateColliders=false;cache.Initialize(world);
++                var debris=new GameObject("512-cell shared debris cache");debris.transform.SetParent(root.transform,false);
++                debrisFilter=debris.AddComponent<MeshFilter>();debris.AddComponent<MeshRenderer>().sharedMaterial=cache.SurfaceMaterial;
++                debrisMesh=new Mesh{name="Existing-shrub debris"};debrisMesh.MarkDynamic();debrisFilter.sharedMesh=debrisMesh;
++                SyncOrigin();status="Preparing complete shrub; original remains visible/collidable";return true;
++            }
++            catch(Exception error){status="Transfer refused: "+error.Message;population.RestoreShrub(lease);return false;}
++        }
++        void Local(double x,double y,double z,out double a,out double b,out double c)
++        {double dx=x-position.X,dz=z-position.Z;a=dx*co-dz*si+4;b=y-position.Y+.4;c=dx*si+dz*co+4;}
++        void Global(Int3 cell,out double x,out double y,out double z)
++        {double a=(cell.x+.5)*.1-4,c=(cell.z+.5)*.1-4;x=position.X+a*co+c*si;y=position.Y+(cell.y+.5)*.1-.4;z=position.Z-a*si+c*co;}
++        void SyncOrigin()
++        {
++            if(root==null||boot==null||boot.Vista==null)return;var origin=boot.Vista.RenderOrigin;
++            double x=position.X-4*co-4*si-origin.X,y=position.Y-.4-origin.Y,z=position.Z+4*si-4*co-origin.Z;
++            // Streaming restores the one leased source at24m; this larger bound
++            // only protects conversion during teleports, with retained ownership.
++            if(Math.Abs(x)>10000||Math.Abs(y)>10000||Math.Abs(z)>10000){Restore();return;}
++            root.transform.SetPositionAndRotation(new Vector3((float)x,(float)y,(float)z),Quaternion.Euler(0,lease.Instance.YawDegrees,0));
++        }
++        void Update()
++        {
++            if(boot==null||!boot.Ready)return;var keys=Keyboard.current;
++            if(boot.Player!=null&&boot.Player.InputEnabled&&keys!=null)
++            {if(keys.uKey.wasPressedThisFrame)BreakNearby();if(keys.iKey.wasPressedThisFrame)succionToggle();if(keys.oKey.wasPressedThisFrame)Restore();}
++            if(cache!=null&&!retiring)
++            {
++                cache.RebuildBudget(2);
++                if(!requested&&cache.PendingChunks==0){requested=true;if(!population.RequestShrubOwnership(lease)){status="Stale instance; transfer refused";Restore();}}
++            }
++        }
++        void succionToggle(){suction=!suction;}
++        void LateUpdate(){SyncOrigin();}
++        public bool CanPublishShrubOwnership(bool value)
++        {
++            if(boot==null||boot.Player==null)return !value;
++            var feet=boot.Player.Feet;
++            if(value)return !retiring&&root!=null&&cache!=null&&cache.PendingChunks==0&&
++                !BlocksBody(feet.X-.4,feet.Y,feet.Z-.4,feet.X+.4,feet.Y+1.9,feet.Z+.4);
++            BoundsLocal(feet.X-.4,feet.Y,feet.Z-.4,feet.X+.4,feet.Y+1.9,feet.Z+.4,out double a,out double b,out double c,out double d,out double e,out double f);
++            foreach(var pair in originalMaterial)if(MaterialCatalog.BlocksActorBody(pair.Value)&&Overlap(pair.Key,a,b,c,d,e,f))return false;
++            return true;
++        }
++        public void PublishShrubOwnership(bool value)
++        {
++            if(value)
++            {
++                // No work/allocation here except the bounded brush command. Mesh
++                // was ready before the streamer accepted suppression.
++                active=true;root.SetActive(true);SyncOrigin();
++                removalCursor=0;
++                status="Whole shrub breakup:512-cell cap; I pulls to your hand";
++            }
++            else
++            {
++                active=false;if(root!=null)root.SetActive(false);matter?.Dispose();matter=null;world=null;cache=null;
++                if(debrisMesh!=null)Destroy(debrisMesh);debrisMesh=null;if(root!=null)Destroy(root);root=null;
++                source.Clear();originalMaterial.Clear();lease=null;requested=false;retiring=false;initial=0;removalCursor=0;
++            }
++        }
++        public void Restore()
++        {if(lease==null)return;retiring=true;status="Restore queued; private owner stays authoritative until batch swap";population.RestoreShrub(lease);}
++        bool PlayerCollector(out Int3 collector)
++        {
++            collector=default;if(boot.Player==null)return false;
++            var eye=boot.Player.Eye;double yaw=boot.Player.Yaw*Math.PI/180;
++            Local(eye.X+Math.Sin(yaw)*.55,eye.Y,eye.Z+Math.Cos(yaw)*.55,out double x,out double y,out double z);
++            if(x<2.4||x>=5.6||z<2.4||z>=5.6||y<.1||y>=3.2)return false;
++            collector=new Int3((int)Math.Floor(x/.1),(int)Math.Floor(y/.1),(int)Math.Floor(z/.1));return true;
++        }
++        bool DestinationBlocked(Int3 cell)
++        {
++            if(world.Get(cell)!=MaterialId.Air)return false; // Existing source can be withdrawn even at its original terrain overlap.
++            Global(cell,out double x,out double y,out double z);
++            double ground=boot.WorldField.Sample(x,z).HeightMeters;
++            if(y-.05<Math.Ceiling(ground*10)/10-1e-6)return true;
++            var feet=boot.Player.Feet;
++            double half=.05*(Math.Abs(co)+Math.Abs(si));
++            if(x+half>feet.X-.32&&x-half<feet.X+.32&&z+half>feet.Z-.32&&z-half<feet.Z+.32&&y+.05>feet.Y&&y-.05<feet.Y+1.8)return true;
++            return population.BlocksBodyExcludingShrub(x-half+1e-6,y-.05+1e-6,z-half+1e-6,x+half-1e-6,y+.05-1e-6,z+half-1e-6);
++        }
++        void FixedUpdate()
++        {
++            if(!active||retiring||matter==null)return;
++            Int3 collector=default;bool pull=suction&&PlayerCollector(out collector);
++            // Reuse the already bounded complete source list, not a large brush
++            // full of air. Each tiny existing brush inspects at most8 candidates.
++            // One active command plus remaining source indices is the whole queue.
++            int candidates=0,writes=0;
++            for(int commands=0;commands<16&&removalCursor<source.Count;commands++)
++            {
++                if(!matter.Pending)
++                {
++                    var cell=source[removalCursor];
++                    if(world.Get(cell)==MaterialId.Air){removalCursor++;continue;}
++                    double cellSize=world.VoxelSize;
++                    if(!matter.TryBeginRemoval((cell.x+.5)*cellSize,(cell.y+.5)*cellSize,(cell.z+.5)*cellSize,.001,100))break;
++                }
++                matter.Step(256-candidates,16-writes);candidates+=matter.LastCandidates;writes+=matter.LastMutations;
++                if(!matter.Pending)removalCursor++;else break;
++                if(candidates==256||writes==16)break;
++            }
++            matter.StepDebris(32,pull,collector);
++            clock+=Time.fixedDeltaTime;if(clock>=.05f){clock=0;RebuildDebris();}
++            if(OwnedCells!=initial){status="CONSERVATION FAILURE; motion frozen";retiring=true;Debug.LogError(status);}
++            else status="Shrub "+lease.Instance.PrototypeId+": owned "+OwnedCells+"/"+initial+"; source queue "+(source.Count-removalCursor)+"; debris "+matter.DebrisCount+"/512; cargo "+matter.CreditedCells+(suction&&!pull?"; move hand inside local shrub region":"");
++        }
++        void BoundsLocal(double x0,double y0,double z0,double x1,double y1,double z1,out double a,out double b,out double c,out double d,out double e,out double f)
++        {
++            Local((x0+x1)*.5,(y0+y1)*.5,(z0+z1)*.5,out double x,out double y,out double z);
++            double hx=(x1-x0)*.5,hz=(z1-z0)*.5,ex=Math.Abs(co)*hx+Math.Abs(si)*hz,ez=Math.Abs(si)*hx+Math.Abs(co)*hz;
++            a=x-ex;b=y-(y1-y0)*.5;c=z-ez;d=x+ex;e=y+(y1-y0)*.5;f=z+ez;
++        }
++        bool Overlap(Int3 cell,double a,double b,double c,double d,double e,double f)=>d>cell.x*.1+1e-8&&a<(cell.x+1)*.1-1e-8&&e>cell.y*.1+1e-8&&b<(cell.y+1)*.1-1e-8&&f>cell.z*.1+1e-8&&c<(cell.z+1)*.1-1e-8;
++        public bool BlocksBody(double x0,double y0,double z0,double x1,double y1,double z1)
++        {
++            if(world==null)return false;BoundsLocal(x0,y0,z0,x1,y1,z1,out double a,out double b,out double c,out double d,out double e,out double f);
++            foreach(var cell in source)if(MaterialCatalog.BlocksActorBody(world.Get(cell))&&Overlap(cell,a,b,c,d,e,f))return true;
++            if(matter!=null)foreach(var voxel in matter.Debris)if(MaterialCatalog.BlocksActorBody(voxel.Matter.Material)&&Overlap(voxel.Cell,a,b,c,d,e,f))return true;
++            return false;
++        }
++        public double WeightedSoftVoxels(WorldPoint feet,double radius,double height)
++        {
++            if(world==null)return 0;BoundsLocal(feet.X-radius,feet.Y,feet.Z-radius,feet.X+radius,feet.Y+height,feet.Z+radius,out double a,out double b,out double c,out double d,out double e,out double f);
++            double total=0;
++            double Volume(Int3 cell)=>Math.Max(0,Math.Min(d,(cell.x+1)*.1)-Math.Max(a,cell.x*.1))*Math.Max(0,Math.Min(e,(cell.y+1)*.1)-Math.Max(b,cell.y*.1))*Math.Max(0,Math.Min(f,(cell.z+1)*.1)-Math.Max(c,cell.z*.1))*1000;
++            foreach(var cell in source)if(world.Get(cell)==MaterialId.Leaves)total+=Volume(cell);
++            if(matter!=null)foreach(var voxel in matter.Debris)if(voxel.Matter.Material==MaterialId.Leaves)total+=Volume(voxel.Cell);
++            double extent=radius*(Math.Abs(co)+Math.Abs(si));return extent==0?0:total*radius*radius/(extent*extent);
++        }
++        public bool TryGetSupportHeight(double x,double z,double radius,double low,double high,out double height)
++        {
++            double top=double.NegativeInfinity;Local(x,0,z,out double a,out _,out double c);
++            void Consider(Int3 cell,MaterialId material)
++            {
++                if(!MaterialCatalog.BlocksActorBody(material))return;
++                double dx=a-Math.Max(cell.x*.1,Math.Min((cell.x+1)*.1,a)),dz=c-Math.Max(cell.z*.1,Math.Min((cell.z+1)*.1,c));
++                double y=position.Y+(cell.y+1)*.1-.4;
++                if(dx*dx+dz*dz<=radius*radius+1e-10&&y>=low-1e-7&&y<=high+1e-7)top=Math.Max(top,y);
++            }
++            if(world!=null){foreach(var cell in source)Consider(cell,world.Get(cell));if(matter!=null)foreach(var voxel in matter.Debris)Consider(voxel.Cell,voxel.Matter.Material);}
++            height=top;return !double.IsNegativeInfinity(top);
++        }
++        void RebuildDebris()
++        {
++            vertices.Clear();normals.Clear();colors.Clear();indices.Clear();
++            foreach(var voxel in matter.Debris)
++            {
++                uint color=voxel.Matter.Tint==0?VoxelColor.Base(voxel.Matter.Material):voxel.Matter.Tint;
++                var rgba=new Color32((byte)(color>>16),(byte)(color>>8),(byte)color,VertexAppearance.Pack(voxel.Matter.Material,3));
++                for(int axis=0;axis<3;axis++)for(int sign=-1;sign<=1;sign+=2)
++                {
++                    int start=vertices.Count,u=(axis+1)%3,v=(axis+2)%3;
++                    for(int corner=0;corner<4;corner++)
++                    {var point=new Vector3(voxel.Cell.x,voxel.Cell.y,voxel.Cell.z);point[axis]+=sign>0?1:0;point[u]+=(corner==1||corner==2)?1:0;point[v]+=corner>=2?1:0;var normal=Vector3.zero;normal[axis]=sign;vertices.Add(point*.1f);normals.Add(normal);colors.Add(rgba);}
++                    indices.Add(start);indices.Add(start+(sign>0?1:3));indices.Add(start+2);indices.Add(start);indices.Add(start+2);indices.Add(start+(sign>0?3:1));
++                }
++            }
++            debrisMesh.Clear();debrisMesh.SetVertices(vertices);debrisMesh.SetNormals(normals);debrisMesh.SetColors(colors);debrisMesh.SetTriangles(indices,0);debrisMesh.RecalculateBounds();
++        }
++        void OnGUI()
++        {
++            if(!ShowBetaHud||boot==null||!boot.Ready)return;
++            GUI.Box(new Rect(12,Screen.height-260,730,100),"EXPERIMENTAL actual shrub breakup — session rollback; no mature tree felling");
++            GUI.Label(new Rect(24,Screen.height-234,705,22),status);
++            if(GUI.Button(new Rect(24,Screen.height-207,200,28),"U: Break nearby shrub"))BreakNearby();
++            if(GUI.Button(new Rect(234,Screen.height-207,180,28),suction?"I: Suction ON":"I: Suction OFF"))succionToggle();
++            if(GUI.Button(new Rect(424,Screen.height-207,220,28),"O: Restore + discard cargo"))Restore();
++        }
++        void OnDisable(){Restore();}
++        void OnDestroy(){Restore();}
++    }
++}
+--- Assets/AshenVoxel/Exploration/ExplorationShrubMatter.cs.meta main
++++ Assets/AshenVoxel/Exploration/ExplorationShrubMatter.cs.meta candidate
+@@ -0,0 +1,2 @@
++fileFormatVersion: 2
++guid: dc75f266f6bc41bf88a4aaaaa923a073
+--- Assets/AshenVoxel/Exploration/ShrubMatterTemplate.cs main
++++ Assets/AshenVoxel/Exploration/ShrubMatterTemplate.cs candidate
+@@ -0,0 +1,26 @@
++using System;
++using System.Collections.Generic;
++using AshenVoxel.Core;
++using AshenVoxel.Core.Details;
++
++namespace AshenVoxel.Exploration.Experimental
++{
++    // Complete replay of the two shipped shrub recipes, never mesh voxelization.
++    // Call only after matching the pack + generator preimages in the manifest.
++    // Does not claim an instance lease, suppress static draws, or award cargo.
++    public static class ShrubMatterTemplate
++    {
++        public const int MaximumCells=4096;
++        public static readonly Int3 ExportAnchor=new Int3(40,4,40);
++        public static VoxelWorld Replay(int prototypeId,out PlantResult result)
++        {
++            if(prototypeId!=102&&prototypeId!=103)throw new ArgumentOutOfRangeException(nameof(prototypeId));
++            int seed=prototypeId==102?714103:271828;
++            var world=new VoxelWorld(80,64,80,.1f,seed);
++            result=PlantGenerator.Generate(world,PlantPresets.For(PlantKind.Shrub).With(fruitProbability:.35),ExportAnchor,seed,
++                new PlantGenerationBudget(250000,MaximumCells));
++            if(result.Truncated||result.WrittenCells==0)throw new InvalidOperationException("Complete canonical shrub required; reject without instance transfer.");
++            return world;
++        }
++    }
++}
+--- Assets/AshenVoxel/Exploration/ShrubMatterTemplate.cs.meta main
++++ Assets/AshenVoxel/Exploration/ShrubMatterTemplate.cs.meta candidate
+@@ -0,0 +1,2 @@
++fileFormatVersion: 2
++guid: 38857a2627b54aed940988360bbb204d
+--- Assets/AshenVoxel/Exploration/VegetationStreaming.cs main
++++ Assets/AshenVoxel/Exploration/VegetationStreaming.cs candidate
+@@ -175,7 +175,7 @@
+                 catch(Exception e){Status="Prototype loading failed: "+e.Message;Ready=false;loading=null;throw;}
+                 LastWorkMilliseconds=Ms(Now-started);return;
+             }
+-            TickRoots();
++            TickRoots();TickShrubLease();
+             float treeDensity=Clamp(TreeDensity,0,2),plantDensity=Clamp(PlantDensity,0,2),rockDensity=Clamp(RockDensity,0,2);
+             if(treeDensity!=lastTreeDensity||plantDensity!=lastPlantDensity||rockDensity!=lastRockDensity)ReconfigureDensity();
+             lastTreeDensity=treeDensity;lastPlantDensity=plantDensity;lastRockDensity=rockDensity;
+@@ -221,7 +221,7 @@
+             AddDesired(0,Clamp(TreeDistance,64,4000));AddDesired(1,Clamp(RockDistance,64,800));AddDesired(2,Clamp(GroundCoverDistance,20,128));
+             if(ResidentInstances<EffectiveInstanceLimit*.75)deferred.Clear();
+             deferred.RemoveWhere(k=>!desired.Contains(k)||Distance(k)<128*128);
+-            remove.Clear();foreach(var pair in cells)if(!desired.Contains(pair.Key))remove.Add(pair.Key);
++            remove.Clear();foreach(var pair in cells)if(!desired.Contains(pair.Key)&&!ShrubRetains(pair.Key))remove.Add(pair.Key);
+             foreach(PopulationKey key in remove){ResidentInstances-=cells[key].Data.Instances.Length;cells.Remove(key);matricesDirty=true;}
+             queue.Clear();queued.Clear();foreach(PopulationKey key in desired)if(!cells.ContainsKey(key)&&!deferred.Contains(key)){queue.Add(key);queued.Add(key);}
+             queue.Sort((a,b)=>Distance(b).CompareTo(Distance(a)));
+@@ -249,19 +249,19 @@
+             while(ResidentInstances+incoming>EffectiveInstanceLimit&&cells.Count>0)
+             {
+                 PopulationKey far=default;double maximum=-1;bool found=false;
+-                foreach(var pair in cells){double d=Distance(pair.Key);if(d>maximum&&d>64*64){maximum=d;far=pair.Key;found=true;}}
++                foreach(var pair in cells){double d=Distance(pair.Key);if(d>maximum&&d>64*64&&!ShrubRetains(pair.Key)){maximum=d;far=pair.Key;found=true;}}
+                 if(!found)break;ResidentInstances-=cells[far].Data.Instances.Length;cells.Remove(far);deferred.Add(far);matricesDirty=true;
+             }
+         }
+         void BeginMatrices()
+         {
+-            ReleaseNextBatches();CaptureRootSelection();
++            ReleaseNextBatches();CaptureRootSelection();CaptureShrubSelection();
+             matrixCells.Clear();foreach(var cell in cells.Values)matrixCells.Add(cell);
+             matrixCells.Sort((a,b)=>Distance(a.Data.Key).CompareTo(Distance(b.Data.Key)));
+             // Reserve the actual cheapest representation of every captured entry, including hard props.
+             coverageReserve=0;
+             if(impostorMaterial!=null)foreach(var cell in matrixCells)foreach(var instance in cell.Data.Instances)
+-                if(models.TryGetValue(instance.PrototypeId,out Model model))coverageReserve+=RootTriangleCost(model,model.Meshes.Length-1,SelectedRoot(cell.Data,instance,true));
++                if(!SkipShrubNext(cell.Data,instance)&&models.TryGetValue(instance.PrototypeId,out Model model))coverageReserve+=RootTriangleCost(model,model.Meshes.Length-1,SelectedRoot(cell.Data,instance,true));
+             matrixCell=matrixInstance=0;ReleaseBuildingPages();buildingMatrices=true;matricesDirty=false;buildTriangles=0;buildDemotions=0;finalizing=false;finalizePage=finalizeOffset=0;finalizePages.Clear();
+             lastMatrixX=observer.X;lastMatrixY=observer.Y;lastMatrixZ=observer.Z;
+         }
+@@ -273,6 +273,7 @@
+                 PopulationCell cell=matrixCells[matrixCell].Data;
+                 if(matrixInstance>=cell.Instances.Length){matrixCell++;matrixInstance=0;continue;}
+                 PopulationInstance instance=cell.Instances[matrixInstance++];visited++;
++                if(SkipShrubNext(cell,instance))continue;
+                 if(!models.TryGetValue(instance.PrototypeId,out Model model))continue;
+                 // Retire this entry before range filtering; skipped entries must release their reservation too.
+                 if(impostorMaterial!=null)coverageReserve-=RootTriangleCost(model,model.Meshes.Length-1,SelectedRoot(cell,instance,true));
+@@ -299,9 +300,9 @@
+                 batch.Mesh=page.Mesh;batch.Submesh=page.Submesh;batch.CountsInstance=page.CountsInstance;batch.ModelId=page.Key.Model;batch.Lod=page.Key.Lod;batch.Count=count;batch.Bounds=page.Bounds;batch.Shadows=page.Key.Lod<=(model.Data.Kind==0?TreeShadowLod:model.Data.Kind==2?RockShadowLod:GroundCoverShadowLod);batch.TriangleCount=page.Triangles;nextBatches.Add(batch);finalizeOffset+=count;finished++;
+             }
+             if(finalizePage<finalizePages.Count)return;
+-            if(!CommitRootSelection())
++            if(!ValidateShrubSelection()||!CommitRootSelection())
+             {ReleaseNextBatches();ReleaseBuildingPages();matrixCells.Clear();finalizePages.Clear();finalizing=false;buildingMatrices=false;matricesDirty=true;rootNext=null;return;}
+-            ReleaseBatches();var previous=batches;batches=nextBatches;nextBatches=previous;
++            ReleaseBatches();var previous=batches;batches=nextBatches;nextBatches=previous;PublishShrubSelection();
+             foreach(CachedCell captured in matrixCells)if(cells.TryGetValue(captured.Data.Key,out CachedCell current)&&object.ReferenceEquals(current,captured))captured.Published=true;
+             BudgetDemotions=buildDemotions;ReleaseBuildingPages();matrixCells.Clear();finalizePages.Clear();finalizing=false;buildingMatrices=false;
+         }
+@@ -374,7 +375,7 @@
+             }
+             return true;
+         }
+-        public bool BlocksBody(double x0,double y0,double z0,double x1,double y1,double z1)
++        public bool BlocksBodyExcludingShrub(double x0,double y0,double z0,double x1,double y1,double z1)
+         {
+             GlobalQuery(x0,z0,0);GlobalQuery(x1,z1,0);
+             if(x0>=x1||z0>=z1||y0>=y1||double.IsNaN(y0)||double.IsNaN(y1)||double.IsInfinity(y0)||double.IsInfinity(y1)||x1-x0>10||z1-z0>10||y1-y0>10)throw new ArgumentOutOfRangeException("body query");
+@@ -385,6 +386,7 @@
+                 for(long cz=cz0;cz<=cz1;cz++)for(long cx=cx0;cx<=cx1;cx++)if(cells.TryGetValue(new PopulationKey(cx,cz,layer),out CachedCell cell))foreach(PopulationInstance instance in cell.Data.Instances)
+                 {
+                     if(!models.TryGetValue(instance.PrototypeId,out Model model)||!model.Data.HasCollision)continue;
++                    if(SkipShrubCurrent(cell.Data,instance))continue;
+                     var p=model.Data;var root=SelectedRoot(cell.Data,instance,false);double radius=(root?.Cpu.Collision.Radius??p.Radius)*1.415;
+                     if(x1<=instance.Position.X-radius||x0>=instance.Position.X+radius||z1<=instance.Position.Z-radius||z0>=instance.Position.Z+radius||y1<=instance.Position.Y+(root?.Cpu.Collision.MinY??p.MinY)||y0>=instance.Position.Y+p.MaxY)continue;
+                     double angle=instance.YawDegrees*Math.PI/180,co=Math.Cos(angle),si=Math.Sin(angle);
+@@ -400,7 +402,7 @@
+             GlobalQuery(feet.X,feet.Z,radius,2);
+             if(radius==0)return 0;
+             if(double.IsNaN(feet.Y)||double.IsInfinity(feet.Y)||height<=0||height>5)throw new ArgumentOutOfRangeException("soft body query");
+-            double total=0;
++            double total=ShrubSoft(feet,radius,height);
+             // Query only nearby existing tree/plant cells. Horizon graphics never
+             // register here, and no query allocates or touches a Unity collider.
+             for(int layer=0;layer<=2;layer+=2)
+@@ -410,6 +412,7 @@
+                 for(long z=z0;z<=z1;z++)for(long x=x0;x<=x1;x++)if(cells.TryGetValue(new PopulationKey(x,z,layer),out CachedCell cell))foreach(PopulationInstance instance in cell.Data.Instances)
+                 {
+                     if(!models.TryGetValue(instance.PrototypeId,out Model model)||!model.Data.HasResistance)continue;
++                    if(SkipShrubCurrent(cell.Data,instance))continue;
+                     var p=model.Data;var root=SelectedRoot(cell.Data,instance,false);double dx=feet.X-instance.Position.X,dz=feet.Z-instance.Position.Z,y=feet.Y-instance.Position.Y;
+                     if(Math.Abs(dx)>p.Radius*1.415+radius||Math.Abs(dz)>p.Radius*1.415+radius||y>=p.MaxY||y+height<=(root?.Cpu.Collision.MinY??p.MinY))continue;
+                     double angle=instance.YawDegrees*Math.PI/180,co=Math.Cos(angle),si=Math.Sin(angle),extent=radius*(Math.Abs(co)+Math.Abs(si));
+@@ -432,11 +435,13 @@
+                 for(long iz=z0;iz<=z1;iz++)for(long ix=x0;ix<=x1;ix++)if(cells.TryGetValue(new PopulationKey(ix,iz,layer),out CachedCell cell))foreach(PopulationInstance instance in cell.Data.Instances)
+                 {
+                     if(!models.TryGetValue(instance.PrototypeId,out Model model)||!model.Data.HasCollision)continue;
++                    if(SkipShrubCurrent(cell.Data,instance))continue;
+                     var p=model.Data;var root=SelectedRoot(cell.Data,instance,false);if(Math.Abs(x-instance.Position.X)>p.Radius*1.415+radius||Math.Abs(z-instance.Position.Z)>p.Radius*1.415+radius||maxY<instance.Position.Y+(root?.Cpu.Collision.MinY??p.MinY)||minY>instance.Position.Y+p.MaxY)continue;
+                     double angle=instance.YawDegrees*Math.PI/180,co=Math.Cos(angle),si=Math.Sin(angle),dx=x-instance.Position.X,dz=z-instance.Position.Z;
+                     double local;bool supported=root!=null?root.Cpu.Collision.SupportLocal(dx*co-dz*si,dx*si+dz*co,radius,minY-instance.Position.Y,maxY-instance.Position.Y,out local):p.SupportLocal(dx*co-dz*si,dx*si+dz*co,radius,minY-instance.Position.Y,maxY-instance.Position.Y,out local);if(supported)height=Math.Max(height,instance.Position.Y+local);
+                 }
+             }
++            ShrubSupport(x,z,radius,minY,maxY,ref height);
+             return !double.IsNegativeInfinity(height);
+         }
+         static void GlobalQuery(double x,double z,double radius,double maxRadius=5)
+@@ -452,7 +457,7 @@
+             remove.Clear();
+             foreach(var pair in cells)
+             {
+-                PopulationKey key=pair.Key;double size=key.SizeMeters;
++                PopulationKey key=pair.Key;if(ShrubRetains(key))continue;double size=key.SizeMeters;
+                 if((key.X+1)*size<=minimumX||key.X*size>=maximumX||(key.Z+1)*size<=minimumZ||key.Z*size>=maximumZ||Distance(key)<=512*512)continue;
+                 remove.Add(key);
+             }
+@@ -472,13 +477,14 @@
+             // Quality edits must not create/delete a trunk inside the current body.
+             // Keep the published near neighborhood stable until normal eviction;
+             // far cells adopt the changed density immediately as they rebuild.
+-            remove.Clear();foreach(var pair in cells)if(Distance(pair.Key)>64*64)remove.Add(pair.Key);
++            remove.Clear();foreach(var pair in cells)if(Distance(pair.Key)>64*64&&!ShrubRetains(pair.Key))remove.Add(pair.Key);
+             foreach(PopulationKey key in remove){ResidentInstances-=cells[key].Data.Instances.Length;cells.Remove(key);}
+             desired.Clear();deferred.Clear();queue.Clear();queued.Clear();buildingMatrices=false;coverageReserve=0;finalizing=false;
+             ReleaseNextBatches();finalizePages.Clear();ReleaseBuildingPages();matrixCells.Clear();matricesDirty=true;lastPlanX=lastPlanZ=lastMatrixX=double.PositiveInfinity;lastPlanAt=0;
+         }
+         public void RefreshPopulation()
+         {
++            CloseShrub();
+             cells.Clear();desired.Clear();deferred.Clear();queue.Clear();queued.Clear();ReleaseBatches();ReleaseNextBatches();finalizePages.Clear();finalizing=false;ReleaseBuildingPages();matrixCells.Clear();ResidentInstances=0;BudgetOmittedSoftInstances=0;buildingMatrices=false;matricesDirty=true;lastPlanX=lastPlanZ=lastMatrixX=double.PositiveInfinity;lastPlanAt=0;
+         }
+         void ReleaseBatches(){foreach(Batch batch in batches)batchPool.Push(batch);batches.Clear();}
+@@ -486,6 +492,7 @@
+         void ReleaseBuildingPages(){foreach(Page page in buildingPages.Values){page.Matrices.Clear();page.HasBounds=false;pagePool.Push(page);}buildingPages.Clear();}
+         public void DisposeRuntime()
+         {
++            CloseShrub();
+             DisposeRoots();
+             Horizon?.Dispose();Horizon=null;
+             if(loading is IDisposable disposable)disposable.Dispose();loading=null;
+--- Assets/AshenVoxel/Exploration/ExplorationBetaMatter.cs main
++++ Assets/AshenVoxel/Exploration/ExplorationBetaMatter.cs candidate
+@@ -20,6 +20,7 @@
+         public FallingAggregateActor Actor {get;private set;}
+         public ChunkWorldRenderer Terrain {get;private set;}
+         public bool SuctionEnabled;
++        public bool ShowBetaHud=true;
+         public long PublishedStaticRevision {get;private set;}
+         public float MaximumRotationDegrees {get;private set;}
+         public bool ConservationIntact => initialized&&OwnedCells==InitialMatterCells;
+@@ -47,7 +48,7 @@
+         }
+         GameObject Child(string label){var go=new GameObject(label);go.transform.SetParent(transform,false);return go;}
+         void Start(){if(boot==null){state="Attach through ExplorationBootstrap required";enabled=false;}}
+-        bool Place()
++        public bool Place()
+         {
+             if(initialized||!boot.Ready||boot.Player==null||boot.Vista==null)return false;
+             var eye=boot.Player.Eye;double yaw=boot.Player.Yaw*Math.PI/180;
+@@ -206,7 +207,7 @@
+         }
+         void OnGUI()
+         {
+-            if(boot==null||!boot.Ready)return;
++            if(!ShowBetaHud||boot==null||!boot.Ready)return;
+             GUI.Box(new Rect(12,Screen.height-152,620,140),"EXPERIMENTAL placed branch — 72 cells; authored trees unchanged");
+             GUI.Label(new Rect(24,Screen.height-124,590,24),state);
+             if(!initialized)
+--- Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs main
++++ Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs candidate
+@@ -40,7 +40,7 @@
+             b.Player.ResetAt(previousFeet,previousFlying);b.ActiveSettings.FieldOfView=previousFov;
+             b.Vista.SetObserverPose(b.Player.Eye,previousRotation);b.SetSettingsPanel(false,previousInput);reviewing=false;
+         }
+-        static ExplorationBootstrap captureBoot;static Behaviour captureMatter;
++        static ExplorationBootstrap captureBoot;static ExplorationBetaMatter captureMatter;static ExplorationShrubMatter captureShrub;static bool captureShrubHud;
+         static bool captureHud,captureInput,capturePanel,captureMatterEnabled;
+         static string frameOutput;static int captureAfterFrame;static bool frameRequested;static double captureDeadline;
+         static readonly System.Reflection.FieldInfo Hud=typeof(ExplorationBootstrap).GetField("showHud",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic);
+@@ -49,11 +49,12 @@
+         static void CaptureFrame()=>BeginCleanFrame("mountain-game-"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss"));
+         static void BeginCleanFrame(string label)
+         {
+-            var b=Current();if(frameOutput!=null||b==null||!b.Ready||Hud==null||Panel==null)return;
++            var b=Current();if(sequenceOutput!=null||frameOutput!=null||b==null||!b.Ready||Hud==null||Panel==null)return;
+             if(label.Length<1||label.Length>80||System.Text.RegularExpressions.Regex.IsMatch(label,"[^a-zA-Z0-9_-]"))return;
+             captureBoot=b;captureHud=(bool)Hud.GetValue(b);capturePanel=(bool)Panel.GetValue(b);captureInput=b.Player.InputEnabled;
+-            captureMatter=b.GetComponent<ExplorationBetaMatter>();captureMatterEnabled=captureMatter!=null&&captureMatter.enabled;
+-            Hud.SetValue(b,false);b.SetSettingsPanel(false,false);if(captureMatter!=null)captureMatter.enabled=false;
++            captureMatter=b.GetComponent<ExplorationBetaMatter>();captureMatterEnabled=captureMatter!=null&&captureMatter.ShowBetaHud;
++            captureShrub=b.GetComponent<ExplorationShrubMatter>();captureShrubHud=captureShrub!=null&&captureShrub.ShowBetaHud;
++            Hud.SetValue(b,false);b.SetSettingsPanel(false,false);if(captureMatter!=null)captureMatter.ShowBetaHud=false;if(captureShrub!=null)captureShrub.ShowBetaHud=false;
+             frameOutput="Logs/MountainReviewFrames/"+label;Directory.CreateDirectory(frameOutput);
+             captureAfterFrame=Time.frameCount+8;captureDeadline=EditorApplication.timeSinceStartup+15;frameRequested=false;
+         }
+@@ -68,7 +69,8 @@
+         static void RestoreCapture()
+         {
+             if(captureBoot!=null){Hud.SetValue(captureBoot,captureHud);captureBoot.SetSettingsPanel(capturePanel,captureInput);}
+-            if(captureMatter!=null)captureMatter.enabled=captureMatterEnabled;
++            if(captureMatter!=null)captureMatter.ShowBetaHud=captureMatterEnabled;
++            if(captureShrub!=null)captureShrub.ShowBetaHud=captureShrubHud;captureShrub=null;
+             frameOutput=null;captureBoot=null;captureMatter=null;frameRequested=false;
+         }
+         static void TickCleanFrame()
+@@ -87,9 +89,14 @@
+         }
+         static void ReviewTick()
+         {
+-            TickCleanFrame();
++            TickFeatureSequence();TickCleanFrame();
++            const string workerRequest=".terrain-cache/release-idle-import-workers.request";
++            if(!Application.isPlaying&&!EditorApplication.isCompiling&&!EditorApplication.isUpdating&&File.Exists(workerRequest)){File.Delete(workerRequest);ReleaseIdleImportWorkers();}
+             var b=Current();if(!Application.isPlaying){reviewing=false;return;}
+             if(b==null||!b.Ready||EditorApplication.isCompiling)return;
++            const string featureRequest=".terrain-cache/feature-capture.request";
++            if(sequenceOutput==null&&frameOutput==null&&File.Exists(featureRequest))
++            {string feature=File.ReadAllText(featureRequest).Trim();File.Delete(featureRequest);if(feature=="valley")ValleyFrame();else if(feature=="branch")RecordBranch();else if(feature=="bees")RecordBees();}
+             const string frameRequest=".terrain-cache/mountain-clean-frame.request";
+             if(frameOutput==null&&File.Exists(frameRequest)){string label=File.ReadAllText(frameRequest).Trim();File.Delete(frameRequest);BeginCleanFrame(label);}
+             const string request=".terrain-cache/mountain-review.request";
+@@ -99,6 +106,90 @@
+             try{ExplorationTerrainDiagnostic.Capture(b,output+"/sample-"+((int)(EditorApplication.timeSinceStartup-started)).ToString("D3"));}
+             catch(Exception e){Debug.LogWarning("Mountain diagnostics: "+e.Message);}
+         }
++
++        [MenuItem("Ashen Voxel/Exploration/Beta/Frame mountain valley (Play)")]
++        static void ValleyFrame()
++        {
++            var b=Current();if(!Application.isPlaying||b==null||!b.Ready)return;
++            b.SetSettingsPanel(false,false);b.ActiveSettings.FieldOfView=70;b.Vista.MainCamera.fieldOfView=70;
++            var eye=b.Player.Eye;var target=new WorldPoint(-69120,5300,-22400);
++            var direction=new Vector3((float)(target.X-eye.X),(float)(target.Y-eye.Y),(float)(target.Z-eye.Z));
++            b.Vista.SetObserverPose(eye,Quaternion.LookRotation(direction.normalized,Vector3.up));b.Vista.ResetObserverMotion();b.Vista.ForceReplan();
++        }
++        [MenuItem("Ashen Voxel/Exploration/Beta/Release idle import workers (Edit)")]
++        static void ReleaseIdleImportWorkers()
++        {
++            if(Application.isPlaying||EditorApplication.isCompiling||EditorApplication.isUpdating)return;
++            int original=AssetDatabase.DesiredWorkerCount;string error="";
++            try{AssetDatabase.DesiredWorkerCount=0;AssetDatabase.ForceToDesiredWorkerCount();}
++            catch(Exception e){error=e.Message;}
++            finally{AssetDatabase.DesiredWorkerCount=original;}
++            Directory.CreateDirectory("Logs/FeatureCapture");
++            File.WriteAllText("Logs/FeatureCapture/import-worker-release.json",JsonUtility.ToJson(new WorkerRecord{utc=DateTime.UtcNow.ToString("o"),originalDesired=original,restoredDesired=AssetDatabase.DesiredWorkerCount,error=error},true));
++        }
++        [Serializable]sealed class WorkerRecord{public string utc,error;public int originalDesired,restoredDesired;}
++        [Serializable]sealed class SequenceSample
++        {public string file;public double elapsedSeconds;public int gameFrame,beeActors,debris;public long owned,cargo,aggregate;public bool conservation,cutAccepted,suction;public float maximumRotation;}
++        [Serializable]sealed class SequenceRecord
++        {public string utc,kind,source,mode="Actual native ScreenCapture frame sequence; real elapsed timing; no image generation or simulation time override";public bool newlyPlaced;public SequenceSample[] frames;}
++        static string sequenceOutput,sequenceKind;static ExplorationBootstrap sequenceBoot;static double sequenceStart,nextSequenceFrame;static bool sequenceCut,sequencePlaced;
++        static readonly System.Collections.Generic.List<SequenceSample> sequenceSamples=new System.Collections.Generic.List<SequenceSample>(80);
++        static WorldPoint sequenceFeet;static bool sequenceFlying;static Quaternion sequenceRotation;static float sequenceFov;
++        [MenuItem("Ashen Voxel/Exploration/Beta/Record placed branch fall and suction (Play)")]
++        static void RecordBranch()=>BeginFeatureSequence("placed-branch");
++        [MenuItem("Ashen Voxel/Exploration/Beta/Record existing bee patch (Play)")]
++        static void RecordBees()=>BeginFeatureSequence("bees");
++        static void BeginFeatureSequence(string kind)
++        {
++            var b=Current();if(!Application.isPlaying||b==null||!b.Ready||sequenceOutput!=null||frameOutput!=null)return;
++            var matter=b.GetComponent<ExplorationBetaMatter>();sequencePlaced=false;
++            captureBoot=b;captureHud=(bool)Hud.GetValue(b);capturePanel=(bool)Panel.GetValue(b);captureInput=b.Player.InputEnabled;
++            sequenceFeet=b.Player.Feet;sequenceFlying=b.Player.Motor.Flying;sequenceRotation=b.Vista.MainCamera.transform.rotation;sequenceFov=b.ActiveSettings.FieldOfView;
++            if(kind=="bees")
++            {
++                var bee=b.BeePatch;var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
++                if(bee==null||bee.GetType().GetField("owner",flags).GetValue(bee)==null){Debug.LogWarning("Bee recording unavailable: "+(bee==null?"not initialized":bee.Status));return;}
++                double x=(double)bee.GetType().GetField("anchorX",flags).GetValue(bee),y=(double)bee.GetType().GetField("anchorY",flags).GetValue(bee),z=(double)bee.GetType().GetField("anchorZ",flags).GetValue(bee);
++                b.SetSettingsPanel(false,false);b.Player.ResetAt(new WorldPoint(x+1.1,y+.45-b.Player.Motor.ViewHeight,z+1.1),true);
++                var eye=b.Player.Eye;b.Vista.SetObserverPose(eye,Quaternion.LookRotation(new Vector3((float)(x-eye.X),(float)(y+.15-eye.Y),(float)(z-eye.Z)),Vector3.up));b.ActiveSettings.FieldOfView=45;b.Vista.MainCamera.fieldOfView=45;
++            }
++            else
++            {
++                if(matter==null)return;sequencePlaced=matter.Place();if(matter.World==null)return;
++                b.SetSettingsPanel(false,false);b.ActiveSettings.FieldOfView=60;b.Vista.MainCamera.fieldOfView=60;
++                b.Vista.SetObserverPose(b.Player.Eye,Quaternion.Euler(8,b.Player.Yaw,0));
++            }
++            captureMatter=matter;captureMatterEnabled=matter!=null&&matter.ShowBetaHud;
++            captureShrub=b.GetComponent<ExplorationShrubMatter>();captureShrubHud=captureShrub!=null&&captureShrub.ShowBetaHud;
++            Hud.SetValue(b,false);b.SetSettingsPanel(false,false);if(matter!=null)matter.ShowBetaHud=false;if(captureShrub!=null)captureShrub.ShowBetaHud=false;
++            sequenceBoot=b;sequenceKind=kind;sequenceOutput="Logs/FeatureCapture/"+kind+"-"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss");Directory.CreateDirectory(sequenceOutput);
++            sequenceStart=EditorApplication.timeSinceStartup;nextSequenceFrame=.25;sequenceCut=false;sequenceSamples.Clear();
++        }
++        static void TickFeatureSequence()
++        {
++            if(sequenceOutput==null)return;
++            if(!Application.isPlaying||sequenceBoot==null){sequenceOutput=null;RestoreCapture();return;}
++            double elapsed=EditorApplication.timeSinceStartup-sequenceStart;var matter=sequenceBoot.GetComponent<ExplorationBetaMatter>();
++            if(sequenceKind=="placed-branch"&&matter!=null)
++            {if(elapsed>=.9&&!sequenceCut&&elapsed<2.5)sequenceCut=matter.CutSupport();if(elapsed>=3) matter.SuctionEnabled=true;}
++            if(elapsed<8&&sequenceSamples.Count<80&&elapsed>=nextSequenceFrame)
++            {
++                nextSequenceFrame=elapsed+.1;string file="frame-"+sequenceSamples.Count.ToString("D3")+".png";
++                ScreenCapture.CaptureScreenshot(Path.GetFullPath(sequenceOutput+"/"+file),1);
++                sequenceSamples.Add(new SequenceSample{file=file,elapsedSeconds=elapsed,gameFrame=Time.frameCount,beeActors=sequenceBoot.BeePatch?.DrawnActors??0,
++                    owned=matter?.OwnedCells??0,cargo=matter?.Matter?.CreditedCells??0,debris=matter?.Matter?.DebrisCount??0,aggregate=matter?.Actor?.Aggregate.Remaining??0,
++                    conservation=matter!=null&&matter.ConservationIntact,cutAccepted=sequenceCut,suction=matter!=null&&matter.SuctionEnabled,maximumRotation=matter?.MaximumRotationDegrees??0});
++            }
++            if(elapsed<8.2)return;
++            bool complete=true;foreach(var sample in sequenceSamples)if(!CompletePng(sequenceOutput+"/"+sample.file)){complete=false;break;}
++            if(!complete&&elapsed<12)return;
++            File.WriteAllText(sequenceOutput+"/sequence.json",JsonUtility.ToJson(new SequenceRecord{utc=DateTime.UtcNow.ToString("o"),kind=sequenceKind,source=sequenceBoot.WorldField.SourceIdentity,newlyPlaced=sequencePlaced,frames=sequenceSamples.ToArray()},true));
++            Debug.Log("FEATURE_SEQUENCE "+sequenceOutput+" frames="+sequenceSamples.Count+" complete="+complete);
++            sequenceBoot.ActiveSettings.FieldOfView=sequenceFov;sequenceBoot.Vista.MainCamera.fieldOfView=sequenceFov;
++            sequenceBoot.Player.ResetAt(sequenceFeet,sequenceFlying);sequenceBoot.Vista.SetObserverPose(sequenceBoot.Player.Eye,sequenceRotation);
++            sequenceOutput=null;sequenceBoot=null;RestoreCapture();
++        }
++
+         static ExplorationBootstrap Current()=>UnityEngine.Object.FindFirstObjectByType<ExplorationBootstrap>();
+         [MenuItem("Ashen Voxel/Exploration/Beta/Open in-game settings (Play)")]
+         static void Settings(){var b=Current();if(Application.isPlaying&&b!=null)b.SetSettingsPanel(true);}
+--- Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs main
++++ Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs candidate
+@@ -149,6 +149,7 @@
+             Player.CapturePointerOnEnable=true;Ready=true;Player.SetInputEnabled(!settingsOpen);
+             bees=worldObject.AddComponent<AshenVoxel.WildlifeDraft.ExplorationBeePatch>();bees.Initialize(this);
+             AshenVoxel.Exploration.ExplorationBetaMatter.Attach(this);
++            AshenVoxel.Exploration.ExplorationShrubMatter.Attach(this);
+             Status="Explore";
+         }
+         static void Require(TextAsset asset,string label){if(asset==null)throw new InvalidDataException("Missing bundled "+label+" data. Use the complete Play project archive.");}

@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-27T11:43:09.156664+00:00",
+  "status": "CPU-only fast elevated travel experiment; NOT INSTALLED",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "f609db6e1bf116d81a063e926dd24a3f8157acf939c04e4325ca9ad1f5a4de55",
+      "sha256": "f609db6e1bf116d81a063e926dd24a3f8157acf939c04e4325ca9ad1f5a4de55"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+      "before": "66626530b591492e92ea2771b50e7a6acf3c8c789211ddcc42bacdf37d3976b9",
+      "sha256": "66626530b591492e92ea2771b50e7a6acf3c8c789211ddcc42bacdf37d3976b9"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "before": "15a24d325bc62db2dbe517ee5b2e6bd916f877d6b6d9b966dc2d964831a8d393",
+      "sha256": "5d7e2903cabc71af4618582951fa47fa35897c00c6ce91bd13db14831093c321"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+      "before": "5d132d061fa7f855e480f20e2aaa7af174684085dd1b0349313399f5426a3700",
+      "sha256": "48c0e689eb7f3c06160d631bbcfe7f83c735379b032890e23c56bf448791f9fb"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "4bd6abd85ad8fe18d83e6ca22c6f03a3b944f29fef52a117fc5444e889d1da47",
+      "sha256": "ae000ab710d8cf872859743d1703996195ba16462ca306e417c0c68e0e1d5e50"
+    }
+  ]
+}

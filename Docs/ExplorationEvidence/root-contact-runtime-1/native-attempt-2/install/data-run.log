@@ -1,0 +1,15 @@
+Root-contact data check DATA_ONLY_PASS: C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels/.terrain-cache\root-contact-native-data\20261027T121241954Z
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.RootContactNativePreview:ValidateOnly ()
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.RootPreviewTriggerV2:Poll () (at Assets/AshenVoxel/Exploration/Editor/RootPreviewTrigger_20261027_v2.cs:33)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/RootPreviewTrigger_20261027_v2.cs Line: 33)
+

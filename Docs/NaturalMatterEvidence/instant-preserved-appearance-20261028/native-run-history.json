@@ -1,0 +1,59 @@
+[
+  {
+    "path": "Logs\\NaturalMatterAppearance\\20261028-044651-842\\result.json",
+    "status": "FAIL",
+    "error": "System.ArgumentNullException: Value cannot be null.\r\nParameter name: value\r\n  at UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) [0x00018] in <1da36a9af21a4683ad40e96b14222e63>:0 \r\n  at UnityEngine.MaterialPropertyBlock.SetTextureImpl (System.Int32 name, UnityEngine.Texture value) [0x00003] in <1da36a9af21a4683ad40e96b14222e63>:0 \r\n  at UnityEngine.MaterialPropertyBlock.SetTexture (System.String name, UnityEngine.Texture value) [0x00008] in <1da36a9af21a4683ad40e96b14222e63>:0 \r\n  at AshenVoxel.Exploration.Experimental.NaturalMatterRenderer.DrawBorrowed (UnityEngine.Vector3 origin) [0x000ad] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\NaturalMatterRenderer.cs:297 \r\n  at AshenVoxel.Exploration.Experimental.NaturalMatterRenderer.Tick (UnityEngine.Vector3 renderOriginOffset) [0x001ba] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\NaturalMatterRenderer.cs:158 \r\n  at AshenVoxel.Exploration.Editor.NaturalMatterAppearanceChecks+Probe.Tick () [0x000b7] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Editor\\NaturalMatterAppearanceChecks.cs:81 \r\n  at AshenVoxel.Exploration.Editor.NaturalMatterAppearanceChecks.Poll () [0x0002b] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Editor\\NaturalMatterAppearanceChecks.cs:32 ",
+    "source_sha256": [
+      "Assets/AshenVoxel/Rendering/WorldSurface.shader 643e6961aea6fd87679e9cf11da749e5b6179f0ed2f64ed5b90d0e439a7fbdb8",
+      "Assets/AshenVoxel/Rendering/GreedyChunkMesher.cs a7fa57da979a55e7ad37361ee77e0ffd45d4110eded3c3c2b28d065d5ff4713b",
+      "Assets/AshenVoxel/Exploration/NaturalMatterRenderer.cs 32f068225aef422276a0d5fd288bafcc5a9181c1ee5aa27e00e6758fb76ae91a",
+      "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs 5a98e9d0465e9cb8e1120a27aad611ac683b5d8b8e3b12714bd1342fa8f50784"
+    ]
+  },
+  {
+    "path": "Logs\\NaturalMatterAppearance\\20261028-044736-697\\result.json",
+    "status": "FAIL",
+    "error": "System.Exception: Appearance mismatch 9680 pixels / 0 visible at stage 4\r\n  at AshenVoxel.Exploration.Editor.NaturalMatterAppearanceChecks+Probe.Tick () [0x005ed] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Editor\\NaturalMatterAppearanceChecks.cs:98 \r\n  at AshenVoxel.Exploration.Editor.NaturalMatterAppearanceChecks.Poll () [0x0002b] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Editor\\NaturalMatterAppearanceChecks.cs:32 ",
+    "source_sha256": [
+      "Assets/AshenVoxel/Rendering/WorldSurface.shader 643e6961aea6fd87679e9cf11da749e5b6179f0ed2f64ed5b90d0e439a7fbdb8",
+      "Assets/AshenVoxel/Rendering/GreedyChunkMesher.cs a7fa57da979a55e7ad37361ee77e0ffd45d4110eded3c3c2b28d065d5ff4713b",
+      "Assets/AshenVoxel/Exploration/NaturalMatterRenderer.cs afe8fc3bb9ab6ba067008d5a0ebc37ad6484c5857c8684f9eeedc2d464b5c1a0",
+      "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs 5a98e9d0465e9cb8e1120a27aad611ac683b5d8b8e3b12714bd1342fa8f50784"
+    ]
+  },
+  {
+    "path": "Logs\\NaturalMatterAppearance\\20261028-044950-014\\result.json",
+    "status": "FAIL",
+    "error": "System.Exception: Appearance mismatch 593 pixels / 9680 visible at stage 4\r\n  at AshenVoxel.Exploration.Editor.NaturalMatterAppearanceChecks+Probe.Tick () [0x005ed] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Editor\\NaturalMatterAppearanceChecks.cs:98 \r\n  at AshenVoxel.Exploration.Editor.NaturalMatterAppearanceChecks.Poll () [0x0002b] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Editor\\NaturalMatterAppearanceChecks.cs:32 ",
+    "source_sha256": [
+      "Assets/AshenVoxel/Rendering/WorldSurface.shader 643e6961aea6fd87679e9cf11da749e5b6179f0ed2f64ed5b90d0e439a7fbdb8",
+      "Assets/AshenVoxel/Rendering/GreedyChunkMesher.cs a7fa57da979a55e7ad37361ee77e0ffd45d4110eded3c3c2b28d065d5ff4713b",
+      "Assets/AshenVoxel/Exploration/NaturalMatterRenderer.cs afe8fc3bb9ab6ba067008d5a0ebc37ad6484c5857c8684f9eeedc2d464b5c1a0",
+      "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs 5a98e9d0465e9cb8e1120a27aad611ac683b5d8b8e3b12714bd1342fa8f50784"
+    ]
+  },
+  {
+    "path": "Logs\\NaturalMatterAppearance\\20261028-045121-220\\result.json",
+    "status": "FAIL",
+    "error": "System.TimeoutException: Appearance fixture exceeded15 seconds\r\n  at AshenVoxel.Exploration.Editor.NaturalMatterAppearanceChecks+Probe.Tick () [0x00017] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Editor\\NaturalMatterAppearanceChecks.cs:77 \r\n  at AshenVoxel.Exploration.Editor.NaturalMatterAppearanceChecks.Poll () [0x0002b] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Editor\\NaturalMatterAppearanceChecks.cs:32 ",
+    "source_sha256": [
+      "Assets/AshenVoxel/Rendering/WorldSurface.shader 643e6961aea6fd87679e9cf11da749e5b6179f0ed2f64ed5b90d0e439a7fbdb8",
+      "Assets/AshenVoxel/Rendering/GreedyChunkMesher.cs a7fa57da979a55e7ad37361ee77e0ffd45d4110eded3c3c2b28d065d5ff4713b",
+      "Assets/AshenVoxel/Exploration/NaturalMatterRenderer.cs afe8fc3bb9ab6ba067008d5a0ebc37ad6484c5857c8684f9eeedc2d464b5c1a0",
+      "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs 5a98e9d0465e9cb8e1120a27aad611ac683b5d8b8e3b12714bd1342fa8f50784",
+      "Assets/AshenVoxel/Exploration/Editor/NaturalMatterAppearanceChecks.cs 353bf5805a7b3f2fb992d0c5c02c138f7cb0d9a8e9ace8c504265d2a7c9d7ea1"
+    ]
+  },
+  {
+    "path": "Logs\\NaturalMatterAppearance\\20261028-045525-872\\result.json",
+    "status": "PASS",
+    "error": "",
+    "source_sha256": [
+      "Assets/AshenVoxel/Rendering/WorldSurface.shader 643e6961aea6fd87679e9cf11da749e5b6179f0ed2f64ed5b90d0e439a7fbdb8",
+      "Assets/AshenVoxel/Rendering/GreedyChunkMesher.cs a7fa57da979a55e7ad37361ee77e0ffd45d4110eded3c3c2b28d065d5ff4713b",
+      "Assets/AshenVoxel/Exploration/NaturalMatterRenderer.cs afe8fc3bb9ab6ba067008d5a0ebc37ad6484c5857c8684f9eeedc2d464b5c1a0",
+      "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs 5a98e9d0465e9cb8e1120a27aad611ac683b5d8b8e3b12714bd1342fa8f50784",
+      "Assets/AshenVoxel/Exploration/Editor/NaturalMatterAppearanceChecks.cs 56f30676c1f9d160d87cb7f1da255a2d9e8d7fcefe4b14b0a0d18f8befd874a0"
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-27T17:12:15.195910+00:00",
+  "status": "INSTALLED_COMPILED_EXPERIMENT_OFF",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs",
+      "before": "55712c21aa0066bf1a6231f52069ae33203e19bf5978f75eae53d9a9499887b4",
+      "sha256": "9cc6b6fe875725b6fc7a5de191b47da91efd2465df0e5adf31d869801717806f"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationController.cs",
+      "before": "411c3feb0d03b04cd1277b3afefe122b56babb8636e13b011a11d3b390d1ccf2",
+      "sha256": "cd014dd2ea7f3146021acbed997209ed48ef3f7dcf06476a71302c558ee8723d"
+    }
+  ],
+  "compiler_errors": [],
+  "assembly_reload_complete": true,
+  "native_play": "Not yet tested for movement candidate; shared beta Play pending",
+  "default_enabled": false
+}

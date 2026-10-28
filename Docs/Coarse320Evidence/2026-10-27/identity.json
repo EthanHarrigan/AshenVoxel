@@ -1,0 +1,17 @@
+{
+  "schema": "ashen-coarse-overview-bake-v1",
+  "generator_version": "learned-lowfreq-overview-v1",
+  "native_job_world_id": "0647786260a982ef6793a9e77fac850f0d9e23b8ae8ec3319fe6978b6538c84a",
+  "baseline_world_id": "14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4",
+  "baseline_height_sha256": "3a307d7dcebc47e0d1831e75a7cd73346480d3386b27aae9600c71dd2051c98b",
+  "baseline_climate_sha256": "e81d209a9bf1959c9d6749b93ab96c91c903bf1583fe6dbd33651ecf87306684",
+  "world_width_m": 299520.0,
+  "world_depth_m": 149760.0,
+  "spacing_m": 320.0,
+  "block_nodes": 64,
+  "source_sha256": {
+    "coarse_overview.py": "2374b13b4100d17c9c3676fe2a06d72858fa8d5624cfa89c05ebd4497dc16a68",
+    "bake_coarse_overview.py": "8d8c6fcfd5767a3c68f95c4c8fc76777d13b64f097cc90c6b3639e0132443947"
+  },
+  "bake_id": "653a72959be6e6ec9abb8e9643c685b2c690c183768a109f2110ede02b7dfb99"
+}

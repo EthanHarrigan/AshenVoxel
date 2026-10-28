@@ -1,0 +1,18 @@
+{
+  "native_snapshot_sha256": "1d6cc907f0c0de831e5ab24410dfe00c6e72e84aa3c6ab01922a15aa54881fb8",
+  "available_commit_bytes_observed": 8282525696,
+  "commit_reserve_bytes_observed": 2147483648,
+  "default_640m_payload_bytes_each": 912600,
+  "old_16_resident_payload_bytes": 14601600,
+  "trial_32_resident_payload_bytes": 29203200,
+  "additional_resident_payload_bytes": 14601600,
+  "additional_payload_mib": 13.9251708984375,
+  "percent_observed_headroom": 0.17629405009937682,
+  "proposal": "Controlled32patch/32MiB beforeConfigure photo trial justified; candidate default remains16/16.",
+  "replay_feasible_selected_cores": {
+    "old_reservation_bug": 16,
+    "fixed_cap16": 14,
+    "fixed_cap32": 30
+  },
+  "limits": "Known source payload only. Extra decode time, transport buffers, retained immutable snapshots, managed overhead, terrain/collision/GPU mesh changes and concurrent system activity are not included.12GB GPU capacity is not available VRAM. No FPS or visual-quality prediction."
+}

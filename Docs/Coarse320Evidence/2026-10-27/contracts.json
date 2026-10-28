@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "scope": "Engine-free coordinate/filter contract checks; not model quality evidence.",
+  "checks": [
+    "upstream half-pixel registration at signed coordinates",
+    "physical-meter affine field survives filter including negative heights",
+    "finite halo output independent of column partition",
+    "finite halo output independent of row partition",
+    "reject unsupported spacing 5.0",
+    "reject unsupported spacing 79.0",
+    "reject unsupported spacing 81.0",
+    "reject unsupported spacing 1281.0",
+    "existing atlas format round-trip and extents",
+    "truncated atlas rejected",
+    "corrupt atlas rejected"
+  ],
+  "source_sha256": {
+    "check_coarse_overview.py": "9441d71ce80bdfbf2e1750ed6d847fdbae3eee9d7f90637ac361ea07ad5e0c3a",
+    "coarse_overview.py": "2374b13b4100d17c9c3676fe2a06d72858fa8d5624cfa89c05ebd4497dc16a68"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-27T18:06:36.561108+00:00",
+  "exitcode": 0,
+  "output": "",
+  "source_sha256": "106ebceb460ce264bdd4014c52d3e918f6cb7d0869d5ba40a2c513ec9a65836c",
+  "meta_sha256": "092d8ff4adcd98a6ec0a45eb35bcdaea5928ae1c424d3dcac9722e8b673e2814",
+  "references_sha256": {
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\AshenVoxel.Core.dll": "f481e3aa2ac74f1f13934d1680460ec11d9820cbdb32521d464d72830a9baf44",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\AshenVoxel.WorldScaleData.dll": "8662664947c85207aec5153fa95599ed15eeda081ee11372ee6fde170cf8da44",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\AshenVoxel.WorldScaleRuntime.dll": "7797f3ebcb86dfdfde7472a0d5a7936afc44922201e68a06b5cfc2e6ca3313a0",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\AshenVoxel.Exploration.dll": "65f1492bcf14a36e9833ca02dea7b5d0b772c85346d3b1af25a1a64b29297765",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\AshenVoxel.Rendering.dll": "28db2792660f68e532953982b57570a9bcc3ede9efa66c625ebcadbce187c705"
+  },
+  "scope": "Single readonly Editor diagnostic helper against actual current installed runtime/Unity APIs. No Editor execution or native capture performed by this lane."
+}

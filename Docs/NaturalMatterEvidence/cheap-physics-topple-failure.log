@@ -1,0 +1,4 @@
+Unhandled exception. System.Exception: actual tall birch visibly topples before release
+   at Program.Check(Boolean ok, String message)
+   at Program.RealBirch(Boolean slope)
+   at Program.Main(String[] args)

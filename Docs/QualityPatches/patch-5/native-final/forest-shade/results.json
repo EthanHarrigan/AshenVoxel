@@ -1,0 +1,27 @@
+{
+    "status": "PASS",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "views": [
+        {
+            "name": "sun-facing",
+            "pixels": 52232,
+            "p10": 30,
+            "median": 87,
+            "mean": 88.22872951447389
+        },
+        {
+            "name": "backlit",
+            "pixels": 52232,
+            "p10": 21,
+            "median": 45,
+            "mean": 45.15521136468065
+        },
+        {
+            "name": "sky-fill-only",
+            "pixels": 52232,
+            "p10": 20,
+            "median": 41,
+            "mean": 38.11663348139072
+        }
+    ]
+}

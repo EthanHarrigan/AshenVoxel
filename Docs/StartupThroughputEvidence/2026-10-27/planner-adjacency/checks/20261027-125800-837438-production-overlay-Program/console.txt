@@ -1,0 +1,55 @@
+PASS 10cm global cells floor correctly around negative and exact boundaries
+PASS signed chunk division uses floor not truncation
+PASS double subtraction preserves detail before Unityfloat conversion at continental coordinates
+PASS signed64bit world keys hash and compare without coordinate packing loss
+PASS nonfinite global position rejected
+PASS global cell overflow rejected
+PASS invalid chunk divisor rejected
+PASS atlas clones channel inputs to remain immutable
+PASS world extent is centered and reaches source endpoints
+PASS atlas heights interpolate bilinearly in meters
+PASS forest override retains imported source biome
+PASS forest override leaves source water as water
+PASS beyond finite imported landmass returns explicit water
+PASS horizontal landmass scaling preserves independent altitude
+PASS vertical scaling independent and source biome restored when override disabled
+PASS source identity includes map transform and biome override
+PASS AVWFCRC32 matches independent standard IEEE golden vector
+PASS AVWF header layout matches external converter contract
+PASS nonseekable atlas roundtrip keeps caller stream open
+PASS atlas save bytes stable after load
+PASS corrupt atlas checksum rejected
+PASS truncated atlas rejected
+PASS future atlas schema rejected despite valid checksum
+PASS atlas dimensions validated before channel allocation
+PASS nonbinary land mask rejected despite valid checksum
+PASS nonfinite atlas height rejected despite valid checksum
+PASS valid-checksum trailing atlas bytes rejected
+PASS oversize atlas rejected before cloning
+PASS default atlas field honors imported physical aspect and extent
+PASS conservative atlas rectangle bounds retain a narrow peak missed by nine corner/center samples
+PASS block min/max queries equal independent exhaustive range scans over100 rectangles
+PASS LOD refines the actual needle summit at player altitude instead of coarsening it as valley floor
+PASS analytic fallback supplies multi-thousand-meter mountain terrain
+PASS analytic field is stable under random sample order and repeated seed
+PASS different world seeds alter terrain
+PASS analytic landmass has ocean beyond its continental footprint
+PASS stone below6500m terrain is implicit without deep chunk allocation
+PASS sampling empty sky and deep stone creates no edit residency
+PASS sparse air excavation overrides implicit stone
+PASS edited cells preserve intrinsic tint separately from material
+PASS edit capacity reports failure instead of evicting unsaved state
+PASS reset restores generator truth without altering neighboring edits
+PASS air cannot retain pigment
+PASS quadtree tile residency remains bounded
+PASS adjacentLODleaf levels differ by at most one even at capacity
+PASS quadtree leaf interiors do not overlap
+PASS selected roots cover entire32km horizon disk without tile gaps
+PASS LODplan stable for identical camera and settings
+PASS LODcapacity leaves observable refinement backlog and retains coarse coverage
+PASS altitude-aware refinement does not fully refine valleys15km below camera
+PASS conservative3Dheight bounds cull terrain beyond far range vertically
+PASS globalLODkeys support negative continental coordinates without float accumulation
+PASS field heights exceeding conservative visibility bounds are rejected
+PASS invalidLODtilecapacity rejected
+All 54 world-scale checks passed.

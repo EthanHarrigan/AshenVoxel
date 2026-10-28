@@ -1,0 +1,67 @@
+{
+  "name": "redwood-0",
+  "species": "Redwood",
+  "seed": 714103,
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    264,
+    1005,
+    264
+  ],
+  "bounds_min_m": [
+    4.2,
+    0.1,
+    3.8000000000000003
+  ],
+  "bounds_max_m": [
+    21.900000000000002,
+    73.8,
+    22.6
+  ],
+  "center_m": [
+    13.2,
+    0.3,
+    13.2
+  ],
+  "fruit_enabled": false,
+  "branch_count": 2016,
+  "voxel_candidates": 13625002,
+  "foliage_clusters": 2947,
+  "truncated": false,
+  "truncation_reason": "None",
+  "material_counts": {
+    "Stone": 69696,
+    "Dirt": 66574,
+    "Grass": 59013,
+    "Litter": 5787,
+    "Wood": 378643,
+    "Leaves": 730475
+  },
+  "parameters": {
+    "Height": 75,
+    "TrunkRadius": 2.2,
+    "CrownRadius": 8,
+    "BranchLevels": 3,
+    "BranchCount": 56,
+    "BranchAngle": 94,
+    "ApicalDominance": 0.98,
+    "Tropism": 0.2,
+    "FoliageDensity": 0.87,
+    "LeafClusterRadius": 0.8,
+    "FruitProbability": 0,
+    "Variation": 0.52,
+    "Age": 1,
+    "WhorlSize": 1,
+    "CrownStart": 0.43,
+    "ConeTaper": 0.64,
+    "BranchDroop": 0.24,
+    "Gnarl": 0.055,
+    "RootFlare": 0.95,
+    "ForkAngle": 31,
+    "BarkRelief": 0.3,
+    "BarkRidgeCount": 13,
+    "BarkColor": "FF85513B",
+    "LeafColor": "FF486648",
+    "FruitColor": "FFA73E28"
+  }
+}

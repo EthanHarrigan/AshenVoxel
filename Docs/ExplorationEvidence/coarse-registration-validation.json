@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "checks": 8,
+  "scope": "Pinned upstream climate method with test ramp, no weights; registration regression not terrain generation",
+  "upstream_commit": "e8dcb4b1a834ab2f6b1a6f5256ed7c9f2f3e8230",
+  "cases": [
+    {
+      "native_pixel": -512,
+      "measured_temperature_c": 19.750194549560547,
+      "expected_coarse_coordinate": -2.498046875,
+      "old_registration_error_world_m": 637.5
+    },
+    {
+      "native_pixel": -256,
+      "measured_temperature_c": 19.850194931030273,
+      "expected_coarse_coordinate": -1.498046875,
+      "old_registration_error_world_m": 637.5
+    },
+    {
+      "native_pixel": 0,
+      "measured_temperature_c": 19.9501953125,
+      "expected_coarse_coordinate": -0.498046875,
+      "old_registration_error_world_m": 637.5
+    },
+    {
+      "native_pixel": 64,
+      "measured_temperature_c": 19.975194931030273,
+      "expected_coarse_coordinate": -0.248046875,
+      "old_registration_error_world_m": 637.5
+    },
+    {
+      "native_pixel": 128,
+      "measured_temperature_c": 20.000194549560547,
+      "expected_coarse_coordinate": 0.001953125,
+      "old_registration_error_world_m": 637.5
+    },
+    {
+      "native_pixel": 255,
+      "measured_temperature_c": 20.0498046875,
+      "expected_coarse_coordinate": 0.498046875,
+      "old_registration_error_world_m": 637.5
+    },
+    {
+      "native_pixel": 256,
+      "measured_temperature_c": 20.050195693969727,
+      "expected_coarse_coordinate": 0.501953125,
+      "old_registration_error_world_m": 637.5
+    },
+    {
+      "native_pixel": 512,
+      "measured_temperature_c": 20.150196075439453,
+      "expected_coarse_coordinate": 1.501953125,
+      "old_registration_error_world_m": 637.5
+    }
+  ],
+  "source_sha256": {
+    "Tools/ExplorationBake/check_coarse_registration.py": "241773f65d89a13a45bdda9ee7cd12593a5675425e3191e387e1790ab65bc689"
+  }
+}

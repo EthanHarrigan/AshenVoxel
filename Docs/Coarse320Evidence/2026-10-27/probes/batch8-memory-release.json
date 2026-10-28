@@ -1,0 +1,54 @@
+{
+  "scope": "Actual learned 320m overview probe; no full decoder or renderer",
+  "job_world_id": "0647786260a982ef6793a9e77fac850f0d9e23b8ae8ec3319fe6978b6538c84a",
+  "batch": 8,
+  "queries": [
+    {
+      "name": "valley",
+      "seconds": 118.5591287999996,
+      "height_range": [
+        -3970.33740234375,
+        7683.1083984375
+      ],
+      "memory_release": {
+        "before": {
+          "allocated": 1047504896,
+          "reserved": 1881145344,
+          "commit": 1650688000
+        },
+        "after": {
+          "allocated": 1047504896,
+          "reserved": 1096810496,
+          "commit": 2334855168
+        }
+      },
+      "commit_after": 2334855168
+    },
+    {
+      "name": "adjacent",
+      "seconds": 89.15130090000457,
+      "height_range": [
+        -4164.83935546875,
+        2023.5968017578125
+      ],
+      "memory_release": {
+        "before": {
+          "allocated": 1047504896,
+          "reserved": 1849688064,
+          "commit": 4781699072
+        },
+        "after": {
+          "allocated": 1047504896,
+          "reserved": 1096810496,
+          "commit": 5276409856
+        }
+      },
+      "commit_after": 5276409856
+    }
+  ],
+  "commit_before_load": 5120704512,
+  "load_seconds": 8.245673199999146,
+  "commit_after_load": 2391494656,
+  "status": "PASS",
+  "elapsed_seconds": 216.68947919999482
+}

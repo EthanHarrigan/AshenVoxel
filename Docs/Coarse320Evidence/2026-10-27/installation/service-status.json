@@ -1,0 +1,9 @@
+{
+  "ready": true,
+  "world_id": "14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4",
+  "spacing_m": 5.0,
+  "native_model_world_id": "5ae14923b2978e7394046e920ffaf0a6e91ad60f69a6f9be4ba02fb1489889d7",
+  "queued": 0,
+  "running": null,
+  "backend": "upstream-pretrained/physical-nonnegative-v1/canonical-owner-v1"
+}

@@ -1,0 +1,18 @@
+{
+  "scope": "Windows .NET8 CPU build worker using numerical Unity substitutes, same immutable mature redwood snapshot, not Unity frames or interaction latency",
+  "source_result": "paired-final/result.json",
+  "checks": 89,
+  "paired_samples": 11,
+  "baseline_median_ms": 24.6102,
+  "current_median_ms": 14.5274,
+  "median_reduction_percent": 40.97000430715719,
+  "geometry_and_owner_mask_sha256": "b391cf44c27118010f1ea5a5276e8dcd94fd7e29ea75bc29cbbe2d18627f5554",
+  "jit_policy": "System.Runtime.TieredCompilation=false; both implementations optimize before execution",
+  "retained_preliminary_runs": "Earlier unpaired results were sensitive to process/machine conditions; first paired run used tiered JIT and is not the final comparison. All retained, none relabelled.",
+  "patch_group_passes_before": 117,
+  "patch_group_passes_after": 13,
+  "halo_lookups_before": 682344,
+  "halo_lookups_after": 75816,
+  "published_vertices": 16596,
+  "same_full_snapshot_candidates": 2319278
+}

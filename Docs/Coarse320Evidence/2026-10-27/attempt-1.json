@@ -1,0 +1,16 @@
+{
+  "status": "MEMORY_WAIT",
+  "total_blocks": 120,
+  "completed_blocks": 55,
+  "bake_id": "653a72959be6e6ec9abb8e9643c685b2c690c183768a109f2110ede02b7dfb99",
+  "load_seconds": 6.843433799993363,
+  "new_blocks": 55,
+  "elapsed_seconds": 904.8228153999953,
+  "sum_chunk_generation_seconds": 882.0821523999184,
+  "available_commit_bytes": 2046173184,
+  "last_block": [
+    192,
+    576
+  ],
+  "last_block_seconds": 12.527165999999852
+}

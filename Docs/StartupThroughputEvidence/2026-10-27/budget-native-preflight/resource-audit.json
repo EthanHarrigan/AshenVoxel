@@ -1,0 +1,63 @@
+{
+  "processesClosed": 0,
+  "finding": "No proven completed fixture orphan. All native Unity Editor processes belong to the still-open main Editor family; retained Python service is not owned by this lane. Dominant visible private allocations are user main Editor, its import workers, and existing service, plus other apps/system commit. Private-byte totals do not equal exact total system commit.",
+  "commitLimitBytes": 44494094336,
+  "ownRecordedPidSearch": "No PID/start identity entries found in startup-throughput/progressive-lod JSON evidence. Native Run32 preflight explicitly launched=false.",
+  "processes": [
+    {
+      "mainProjectArgument": true,
+      "parentPid": 25416,
+      "privateBytes": 8947863552,
+      "startUtc": "2026-10-27T04:31:01.8688970Z",
+      "closed": false,
+      "role": "User main Editor; protected",
+      "assetImportWorker": false,
+      "pid": 23204
+    },
+    {
+      "mainProjectArgument": true,
+      "parentPid": 23204,
+      "privateBytes": 1288179712,
+      "startUtc": "2026-10-27T05:14:48.9881309Z",
+      "closed": false,
+      "role": "Main Editor asset import worker; protected, not a completed fixture",
+      "assetImportWorker": true,
+      "pid": 20088
+    },
+    {
+      "mainProjectArgument": true,
+      "parentPid": 23204,
+      "privateBytes": 1302171648,
+      "startUtc": "2026-10-27T05:14:49.0365043Z",
+      "closed": false,
+      "role": "Main Editor asset import worker; protected, not a completed fixture",
+      "assetImportWorker": true,
+      "pid": 24392
+    },
+    {
+      "mainProjectArgument": false,
+      "parentPid": 23900,
+      "privateBytes": 790528,
+      "startUtc": "2026-10-27T05:26:36.2480359Z",
+      "closed": false,
+      "role": "Existing Python terrain-service family; ownership outside this lane, protected",
+      "assetImportWorker": false,
+      "pid": 26736
+    },
+    {
+      "mainProjectArgument": false,
+      "parentPid": 26736,
+      "privateBytes": 3460108288,
+      "startUtc": "2026-10-27T05:26:36.2603594Z",
+      "closed": false,
+      "role": "Existing Python terrain-service family; ownership outside this lane, protected",
+      "assetImportWorker": false,
+      "pid": 25188
+    }
+  ],
+  "committedBytes": 39324405760,
+  "nativeRetry": false,
+  "scope": "Read-only process and own-record audit; no process control or system setting changes",
+  "utc": "2026-10-27T10:43:11.2407699Z",
+  "headroomBytes": 5169688576
+}

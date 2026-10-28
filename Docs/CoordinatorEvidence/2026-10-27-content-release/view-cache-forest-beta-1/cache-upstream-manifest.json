@@ -1,0 +1,108 @@
+{
+  "id": "height-proxy-worker-cache-1",
+  "status": "FROZEN UNINSTALLED",
+  "utc": "2026-10-27T21:09:03.855117+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "d63c7eeb00738bebd9522d1bc6b546626a6b73ecdd3417c6819a48061c88d276",
+      "sha256": "4fdfa88f0a1b608a8e33ecad7b37f83ee31202b21b16839305fa93ef08e6abdb"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/HeightProxyDiskCache.cs",
+      "before": null,
+      "sha256": "7853e036d4412cdfb4abc6805faa72ec8869bf1ec055f15a9ca3f2dbadca83ab"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/HeightProxyDiskCache.cs.meta",
+      "before": null,
+      "sha256": "42aacc2d703d31e44b0dbdaae4b1329aae0fcfb18457e5454f544795043a649b"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs",
+      "before": "fa270bc21c1f1612bd8af36624aa47992cf292d0ffc9e0942528b0c0630ee980",
+      "sha256": "c933498128d5394ecf83ac783896911b03d1295935fa38c9cddbff627e7872b2"
+    }
+  ],
+  "protected": {
+    "Assets/AshenVoxel/WorldScaleRuntime/GroundCoverShowcase.cs": {
+      "expected": "295667e330d9aa9dc2bd31dbee75dff921b0a682162a88501324a1b0d3671903",
+      "actual": "295667e330d9aa9dc2bd31dbee75dff921b0a682162a88501324a1b0d3671903",
+      "unchanged": true
+    },
+    "Assets/AshenVoxel/WorldScaleRuntime/RemoteTerrainField.cs": {
+      "expected": "9476f5365cec348f543b59d28c3bc90b8941af7748bf96075052c51b7183109e",
+      "actual": "9476f5365cec348f543b59d28c3bc90b8941af7748bf96075052c51b7183109e",
+      "unchanged": true
+    },
+    "Assets/AshenVoxel/WorldScaleRuntime/VisualWater.cs": {
+      "expected": "6c8a56e97e2acf2f3c25f305e98164680e2ab40e38946b64b86081f1bfc3494f",
+      "actual": "6c8a56e97e2acf2f3c25f305e98164680e2ab40e38946b64b86081f1bfc3494f",
+      "unchanged": true
+    },
+    "Assets/AshenVoxel/WorldScaleRuntime/WorkshopCamera.cs": {
+      "expected": "0978fbefe148ae9d4b7ac36c582a9eaee77ea6019f711329148285eb8850ca01",
+      "actual": "0978fbefe148ae9d4b7ac36c582a9eaee77ea6019f711329148285eb8850ca01",
+      "unchanged": true
+    },
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs": {
+      "expected": "d9d0c48ed812e76f782fee945e057796bc230d1f0a4bd79a2a935f8d823a582c",
+      "actual": "d9d0c48ed812e76f782fee945e057796bc230d1f0a4bd79a2a935f8d823a582c",
+      "unchanged": true
+    },
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs": {
+      "expected": "4d0db66d4d52556fc6004f12803148e20bf29671ee20665bcb0d7bce2a4967fe",
+      "actual": "4d0db66d4d52556fc6004f12803148e20bf29671ee20665bcb0d7bce2a4967fe",
+      "unchanged": true
+    },
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerMemory.cs": {
+      "expected": "20a0adda253646f3f14126fe0c02d0faac7e46f26e9d006d6e9894dd4e567b31",
+      "actual": "20a0adda253646f3f14126fe0c02d0faac7e46f26e9d006d6e9894dd4e567b31",
+      "unchanged": true
+    },
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": {
+      "expected": "db72cebbbfdfdef5b87d09b825e884f2e9c63bf55c629f9d4bea679b2d17d4ef",
+      "actual": "db72cebbbfdfdef5b87d09b825e884f2e9c63bf55c629f9d4bea679b2d17d4ef",
+      "unchanged": true
+    },
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": {
+      "expected": "20c3108ed0d7a3b12717e1d5b6ca29f9cbc847405dfadfbc7fdb429444cccc3e",
+      "actual": "20c3108ed0d7a3b12717e1d5b6ca29f9cbc847405dfadfbc7fdb429444cccc3e",
+      "unchanged": true
+    },
+    "Assets/AshenVoxel/WorldScaleData/SurfaceProfile.cs": {
+      "expected": "255a9049ed90b0585f523d51b5f82647eda3a46e8cb6ef1a4f9f7913d1453922",
+      "actual": "255a9049ed90b0585f523d51b5f82647eda3a46e8cb6ef1a4f9f7913d1453922",
+      "unchanged": true
+    },
+    "Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs": {
+      "expected": "a66ea39db657d365ebb3b897df72ee7146a28caee652270a7da789e062a2832b",
+      "actual": "a66ea39db657d365ebb3b897df72ee7146a28caee652270a7da789e062a2832b",
+      "unchanged": true
+    },
+    "Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs.meta": {
+      "expected": "cd1997e7385b02a901c2f4649485442f4dadaab4b797fafc1dc17963ce91f717",
+      "actual": "cd1997e7385b02a901c2f4649485442f4dadaab4b797fafc1dc17963ce91f717",
+      "unchanged": true
+    },
+    "Assets/Scenes/Exploration.unity": {
+      "expected": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+      "actual": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+      "unchanged": true
+    },
+    "Assets/AshenVoxel/Settings/ExplorationSettings.asset": {
+      "expected": "605f1f5cc1b27de83cd24246bbc4222faee6e3cee83acdec67a0a53f379ad82a",
+      "actual": "605f1f5cc1b27de83cd24246bbc4222faee6e3cee83acdec67a0a53f379ad82a",
+      "unchanged": true
+    }
+  },
+  "upstream": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\height-proxy-disk-cache-1",
+  "upstream_manifest_sha256": "4c8abec62255ccb44654545cbbdd626402b06243d4a9ab79a0b897778d5abe1d",
+  "checks": {
+    "narrow_runtime_25": "checks/focus-20261027-210511-283834/result.json",
+    "affected_api2": "checks/api-20261027-210511-280327/result.json"
+  },
+  "controls": "Separate uninstalled/uncompiled merge proposals only; not included in payload/check claims. See controls-proposal.json.",
+  "scope": "One current runtime partial plus exact upstream3files; defaultoff/lazy1GiB lifetimecache in existingTask.Run. Source/matter/contact/guard/uploadunchanged. NoMAIN/native/settings/options writes.",
+  "native_status": "NOT RUN; coordinator owns guarded install and cold/warm/source-change acceptance. No active-viewRAM/VRAM/FPS/Start gain claimed."
+}

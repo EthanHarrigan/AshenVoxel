@@ -1,0 +1,67 @@
+{
+  "name": "pine-0",
+  "species": "Pine",
+  "seed": 714103,
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    130,
+    212,
+    130
+  ],
+  "bounds_min_m": [
+    3.1,
+    0.2,
+    2.8000000000000003
+  ],
+  "bounds_max_m": [
+    10.3,
+    14.3,
+    10
+  ],
+  "center_m": [
+    6.5,
+    0.3,
+    6.5
+  ],
+  "fruit_enabled": false,
+  "branch_count": 1397,
+  "voxel_candidates": 1324395,
+  "foliage_clusters": 1591,
+  "truncated": false,
+  "truncation_reason": "None",
+  "material_counts": {
+    "Stone": 16900,
+    "Dirt": 16900,
+    "Grass": 16508,
+    "Litter": 331,
+    "Wood": 5258,
+    "Leaves": 44693
+  },
+  "parameters": {
+    "Height": 14,
+    "TrunkRadius": 0.35,
+    "CrownRadius": 3.2,
+    "BranchLevels": 3,
+    "BranchCount": 50,
+    "BranchAngle": 88,
+    "ApicalDominance": 0.94,
+    "Tropism": 0.18,
+    "FoliageDensity": 0.66,
+    "LeafClusterRadius": 0.48,
+    "FruitProbability": 0,
+    "Variation": 0.42,
+    "Age": 1,
+    "WhorlSize": 5,
+    "CrownStart": 0.22,
+    "ConeTaper": 1.15,
+    "BranchDroop": 0.18,
+    "Gnarl": 0.1,
+    "RootFlare": 0.24,
+    "ForkAngle": 40,
+    "BarkRelief": 0,
+    "BarkRidgeCount": 12,
+    "BarkColor": "FF6B4B34",
+    "LeafColor": "FF36543B",
+    "FruitColor": "FFA73E28"
+  }
+}

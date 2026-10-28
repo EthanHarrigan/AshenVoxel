@@ -1,0 +1,2 @@
+
+Spawn settings readback matches saved values. Project integrity PASS:231 assets/13 assemblies via python -X utf8 Tools/check_project.py. Initial plain-python run failed on Windows cp1252 decoding; UTF-8 rerun passed. Next-Play location not exercised; current Play not restarted.

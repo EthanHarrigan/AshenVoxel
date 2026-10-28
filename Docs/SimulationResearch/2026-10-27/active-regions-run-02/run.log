@@ -1,0 +1,16 @@
+Completed sparse pair 0
+Completed sparse pair 1
+Completed sparse pair 2
+Completed sparse pair 3
+Completed sparse pair 4
+Completed dense pair 0
+Completed dense pair 1
+Completed dense pair 2
+Completed dense pair 3
+Completed dense pair 4
+Completed dispersed pair 0
+Completed dispersed pair 1
+Completed dispersed pair 2
+Completed dispersed pair 3
+Completed dispersed pair 4
+PASS 399165 assertions; 41 measured records. CPU-only; no runtime integration.

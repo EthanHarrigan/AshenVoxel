@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-27T12:37:45.371804+00:00",
+  "status": "AUTOMATED_PASS_BUT_VISUAL_ACCEPTANCE_PARTIAL",
+  "automated_report": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-native\\20261027T123437369Z\\report.json",
+  "native_scene_and_mesh_rendering_executed": true,
+  "first_authored_view_blank": true,
+  "image_unique_color_counts": {
+    "10-authored.png": 1,
+    "10-grounded.png": 4952,
+    "11-authored.png": 5919,
+    "11-grounded.png": 6033
+  },
+  "valid_views": [
+    "10-grounded.png",
+    "11-authored.png",
+    "11-grounded.png"
+  ],
+  "all4_comparison_acceptance": false,
+  "originals_unchanged": true,
+  "all6_restore_flags": true,
+  "owned2files_removed": true,
+  "private_growth_gib": 0.431793212890625,
+  "minimum_commit_gib": 3.8430023193359375,
+  "observed_seconds": 4.7075062999999995,
+  "guard_measurement": "Checkpoints only; not continuous peak or frame-time evidence",
+  "no_automatic_retry": true
+}

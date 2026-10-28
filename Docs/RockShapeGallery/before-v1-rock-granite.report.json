@@ -1,0 +1,325 @@
+{
+  "created_utc": "2026-10-26T19:58:47.215994+00:00",
+  "image": "Docs/RockShapeGallery/before-v1-rock-granite.png",
+  "image_sha256": "3564bffcafb2bbddaa766e9d04820b24801659370aed98e00c3dc4daf1b2bc64",
+  "export_name": "rock-granite",
+  "input_sha256": "841ef0bbe36b37cdd1d9eea70651784a6ac274bec2eae01dfd80a0d9efc571eb",
+  "source_provenance": {
+    "created_utc": "2026-10-26T19:30:00.125137+00:00",
+    "sdk": "8.0.427",
+    "source_sha256": {
+      "Assets/AshenVoxel/Core/Details/PlantGenerator.cs": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+      "Assets/AshenVoxel/Core/Details/PlantModel.cs": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2",
+      "Assets/AshenVoxel/Core/EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+      "Assets/AshenVoxel/Core/Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+      "Assets/AshenVoxel/Core/Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+      "Assets/AshenVoxel/Core/Materials.cs": "0342f83df63737d241289e0c86931ebe501cd0c090cf2c773316cc170ef9afd3",
+      "Assets/AshenVoxel/Core/Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+      "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs": "1ce2880b16bca2b54c6abb582b902d11819daba81d91a74e39cef8b47e02c2f9",
+      "Assets/AshenVoxel/Core/Rocks/RockProfile.cs": "8d38e605f125775fb0474f86bed32270bb272ad61c792372a9dd94d085a79885",
+      "Assets/AshenVoxel/Core/Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+      "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+      "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+      "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+      "Assets/AshenVoxel/Core/VoxelColor.cs": "b1392b24b7d0b3d966ac7cf35f438de7db384639397444d508ed28e95e8899c6",
+      "Assets/AshenVoxel/Core/VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+      "Assets/AshenVoxel/Core/VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+      "Assets/AshenVoxel/Core/WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+      "Tools/GroundCoverPreview/ExportGroundCover.cs": "3d261e4a05791daf4cc7f5ac4f4cdf834d83f86f36fc9f5d2e7f6050f67457a5"
+    },
+    "tool_sha256": "556b008f2095b8ceae69309dcde5fc21e2e17c27f107e6e88d177e3d2bfb3a38",
+    "note": "Actual C# procedural plant/rock specimens on10cm voxel grid. Authored arrangements and lighting fixtures are explicit; not Unity or ecological world scatter.",
+    "exports": {
+      "plant-cactus.bin": "f2ae7856f2ff541db41e8315e3043994d9d5d1377ea029a3e2e4d158081bfbcc",
+      "plant-grasstuft.bin": "065e31903b0bc6597d2ae7c9358924eebc78ea7925b9ed98a7c6ff5d6408cbd3",
+      "plant-broadleafherb.json": "ed5c30a2e89acb0d0a9d0a0f28bb74b7df222243541b3c34a9ff48c8e4201ab2",
+      "plant-fern.bin": "d010fe1a8e4c1fd0268e7c08a8f4a54c08f8e7ec5ef0ea14005411fed523891e",
+      "plant-cactus.json": "c438e1bab03ac0f9e4fa44ef32e4482ea83922d0e38635275445a123429bc722",
+      "plant-shrub.bin": "2aa2251fc9a365dd5470db4639ae0246a7765c528431b2a043b45251e85db2e3",
+      "rock-granite.bin": "841ef0bbe36b37cdd1d9eea70651784a6ac274bec2eae01dfd80a0d9efc571eb",
+      "plant-cushion.json": "b50a3c18348ed4294f3e4601cdb6346c150bb4e4f404769148fc2da0f0959c75",
+      "plant-shrub.json": "1dc1f1f213b77be571210d7260224598e01ac4b04d00b2a040a1a24991e9d5f3",
+      "plant-flower.json": "7de5f625205fc0881d88fde64ffce71c67e2beaff0e1f60d0aa47cf4492012e4",
+      "rock-granite.json": "b16a616f81b860c207e40f16fa6a4471f773f619a8e6531440800473129ad611",
+      "berry-shrub.bin": "28ac8a7f861da19a8e574a73c05cb392bcfb2e22d6b3d227cef1e7a35d8e0c4d",
+      "dry-floor.json": "af2a3c0ff56cbb2f76b03b23c96598884427712257a2265c30873e1249624ce9",
+      "plant-mushroom.json": "07dfe9aad7de43a7b47c438e6b4d2d9c94ed81b9061ae8152df24061e044e6be",
+      "rock-sandstone.bin": "755794ce37e2a3deaef4e39441d9e0f9347580ce752075e41d518403e4bb7d69",
+      "plant-reed.bin": "a19a68b50032e1d9a90931cbfb9bb16d756380e9d0ad2a8be1b097f413c329bc",
+      "dry-floor.bin": "fa11112ddc7512f2b087637e9907e8f1b9fe515f2cd3b85e11c2c07c96c2b8ec",
+      "micro-plants.bin": "edeeda4149175b22b9ea6ccfca33afbd172929acb9240e5901c422e99e9f4765",
+      "rock-limestone.bin": "27189c107de4a72d027fa609e4c4e06a1766a30640b6d646343755b363b12543",
+      "plant-succulent.bin": "569ac3718603319c455ae094572188676e3b17c67078fa01cd7ec8e80e08a41d",
+      "rock-stone.json": "cbfce8c1fb8f0e70a986138cbc4b0ac1ce675707294b8ac8d7e544aa0540b501",
+      "plant-cushion.bin": "2febbf1a39fe47b9209f7fd7f514c6e736b88c58289abef27ef29b7e6b9cdf8b",
+      "rock-limestone.json": "da17afc65372bbc162cdb975be240bed31c4cc3ff9700e2cad9f7b95d8cd2df8",
+      "rock-sandstone.json": "f8016cc7c781bfb0520c6a45cd38ec3070672fbe6ffe53bdfaa4d00500d706fc",
+      "rock-stone.bin": "b5b68777e229112be47fd2a900ab98a02912f3697f8764687df0fae2a1b77d60",
+      "berry-shrub.json": "f5649d3306c3479416d26dc19ad3c9b301abd7bf6da6b892e519554cd99a27d5",
+      "rock-shale.json": "c651cdde7805f2fffe95965b97b7d409b3bf60887a9e269dc7948c4665d7a37a",
+      "micro-plants.json": "aadfd0c5e7e97cb3ddacda68fd898268c7bb77884b71418c993ddb08356311f5",
+      "forest-floor.json": "8fd05cd62bc1319f1ef32031002cb808e251d41ed9e4f4f53ab71d7a2aeee19e",
+      "plant-flower.bin": "7e8a0f31211f431b4fe29a727ae660d06c681e20bf3d735e35d474d73ab9a6d3",
+      "plant-grasstuft.json": "53066618d7ed27f28c6c5be423a0d376d32d53b04872ebf5e7f1b6a128849dbc",
+      "plant-broadleafherb.bin": "158fcae347c7390f89836856d026630eafa79adaaa8cf35cee30001ab64fe429",
+      "plant-succulent.json": "8a4f63ff60e7e8df282db6b74c49c925d1c9bd471e5d40f487c789952ca3409e",
+      "plant-fern.json": "a9b5decb4584d071545acd7fb5c5a5ebdb6f5f15c3c24b886e93fb4b6da5da7c",
+      "forest-floor.bin": "ad5d15025de6e3c32503711da7f9982211381f03ce241307fd42a3d4e5c32549",
+      "plant-mushroom.bin": "70da42d9cd1273e2802a3311b88f3a080eeab080eab107af27f668f2d7419f20",
+      "rock-shale.bin": "54b276fdfd43cb9a06fb6ddec6d7a7d82cd77b838efdf1378c25c93fa7466554",
+      "plant-reed.json": "09979a0521068ac915be969b41127b8d6578c6a27b0719dbc0f78ea150581f39"
+    }
+  },
+  "tool_sha256": "4e1bdcc24de82a848402fab3a18c0f21ad77c6ed10121a2ee34d4b108d09da19",
+  "geometry_tool_sha256": "433ff10a31b436dbbeb7d9eb9685c6d6c73f3ed5324ee8dc2a82bb92b08dd192",
+  "renderer": "Mitsuba 3.9.1",
+  "drjit": "1.5.0",
+  "threads": 4,
+  "spp": 64,
+  "render_seed": 42,
+  "voxel_m": 0.10000000149011612,
+  "vertices": 21272,
+  "triangles": 10636,
+  "exposed_quads": 5318,
+  "camera_origin_m": [
+    6.534073593282684,
+    10.176325508750333,
+    -9.350353813859059
+  ],
+  "camera_target_m": [
+    4.35,
+    0.516,
+    1.1500000000000001
+  ],
+  "fov": 39,
+  "elapsed_seconds": 1.706,
+  "metadata": {
+    "name": "rock-granite",
+    "voxel_m": 0.1,
+    "dimensions_cells": [
+      92,
+      16,
+      23
+    ],
+    "occupied_cells": 7788,
+    "bounds_min_m": [
+      0.2,
+      0,
+      0.1
+    ],
+    "bounds_max_m": [
+      8.5,
+      1.2000000000000002,
+      2.2
+    ],
+    "material_counts": {
+      "Gravel": 1502,
+      "Granite": 6286
+    },
+    "scene": {
+      "category": "rock",
+      "label": "Granite",
+      "seeds": [
+        714103,
+        271828,
+        161803
+      ],
+      "specimens": [
+        {
+          "name": "Granite",
+          "seed": 714103,
+          "profile": {
+            "Identity": "rock-v1/catalog-v3/11/714103/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False",
+            "Material": 11,
+            "Seed": 714103,
+            "MaxCandidates": 500000,
+            "MaxWrittenCells": 100000,
+            "WidthMeters": 2.2,
+            "HeightMeters": 1.3,
+            "DepthMeters": 1.85,
+            "BuriedDepthMeters": 0.2,
+            "Weathering": 0.82,
+            "JointStrength": 0.3,
+            "OverwriteExisting": false
+          },
+          "result": {
+            "CandidateCount": 2135,
+            "ColumnEvaluations": 483,
+            "ShapeCells": 1992,
+            "WrittenCells": 1992,
+            "ClippedCells": 0,
+            "BlockedCells": 0,
+            "UnchangedCells": 0,
+            "Truncated": false,
+            "HasMatter": true,
+            "BoundsMinCellInclusive": {
+              "x": 55,
+              "y": 6,
+              "z": 56
+            },
+            "BoundsMaxCellInclusive": {
+              "x": 74,
+              "y": 16,
+              "z": 72
+            }
+          },
+          "actual_dimensions_m": [
+            2,
+            1.1,
+            1.7000000000000002
+          ],
+          "generated_cells": 1992,
+          "material_counts": {
+            "Granite": 1992
+          },
+          "palette": {
+            "Granite": [
+              4287005053,
+              4287399811,
+              4287860105
+            ]
+          },
+          "packed_offset_cells": {
+            "x": -51,
+            "y": -6,
+            "z": -53
+          }
+        },
+        {
+          "name": "Granite",
+          "seed": 271828,
+          "profile": {
+            "Identity": "rock-v1/catalog-v3/11/271828/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False",
+            "Material": 11,
+            "Seed": 271828,
+            "MaxCandidates": 500000,
+            "MaxWrittenCells": 100000,
+            "WidthMeters": 2.2,
+            "HeightMeters": 1.3,
+            "DepthMeters": 1.85,
+            "BuriedDepthMeters": 0.2,
+            "Weathering": 0.82,
+            "JointStrength": 0.3,
+            "OverwriteExisting": false
+          },
+          "result": {
+            "CandidateCount": 2295,
+            "ColumnEvaluations": 483,
+            "ShapeCells": 2169,
+            "WrittenCells": 2169,
+            "ClippedCells": 0,
+            "BlockedCells": 0,
+            "UnchangedCells": 0,
+            "Truncated": false,
+            "HasMatter": true,
+            "BoundsMinCellInclusive": {
+              "x": 54,
+              "y": 6,
+              "z": 56
+            },
+            "BoundsMaxCellInclusive": {
+              "x": 73,
+              "y": 17,
+              "z": 72
+            }
+          },
+          "actual_dimensions_m": [
+            2,
+            1.2000000000000002,
+            1.7000000000000002
+          ],
+          "generated_cells": 2169,
+          "material_counts": {
+            "Granite": 2169
+          },
+          "palette": {
+            "Granite": [
+              4286150002,
+              4286544760,
+              4287005053,
+              4287399811,
+              4287860105,
+              4288255119
+            ]
+          },
+          "packed_offset_cells": {
+            "x": -21,
+            "y": -6,
+            "z": -53
+          }
+        },
+        {
+          "name": "Granite",
+          "seed": 161803,
+          "profile": {
+            "Identity": "rock-v1/catalog-v3/11/161803/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False",
+            "Material": 11,
+            "Seed": 161803,
+            "MaxCandidates": 500000,
+            "MaxWrittenCells": 100000,
+            "WidthMeters": 2.2,
+            "HeightMeters": 1.3,
+            "DepthMeters": 1.85,
+            "BuriedDepthMeters": 0.2,
+            "Weathering": 0.82,
+            "JointStrength": 0.3,
+            "OverwriteExisting": false
+          },
+          "result": {
+            "CandidateCount": 2256,
+            "ColumnEvaluations": 483,
+            "ShapeCells": 2125,
+            "WrittenCells": 2125,
+            "ClippedCells": 0,
+            "BlockedCells": 0,
+            "UnchangedCells": 0,
+            "Truncated": false,
+            "HasMatter": true,
+            "BoundsMinCellInclusive": {
+              "x": 54,
+              "y": 6,
+              "z": 56
+            },
+            "BoundsMaxCellInclusive": {
+              "x": 74,
+              "y": 16,
+              "z": 72
+            }
+          },
+          "actual_dimensions_m": [
+            2.1,
+            1.1,
+            1.7000000000000002
+          ],
+          "generated_cells": 2125,
+          "material_counts": {
+            "Granite": 2125
+          },
+          "palette": {
+            "Granite": [
+              4286150002,
+              4286544760,
+              4287005053,
+              4287399811,
+              4287860105,
+              4288255119
+            ]
+          },
+          "packed_offset_cells": {
+            "x": 8,
+            "y": -6,
+            "z": -53
+          }
+        }
+      ],
+      "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+    },
+    "generation_version": {
+      "plant": 1,
+      "rock": 1,
+      "catalog": 3
+    },
+    "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+  },
+  "note": "Exact actual generated occupied voxel faces and stored sRGB pigments. Camera, sky and key are offline lighting fixtures. Not Unity appearance, GPU evidence, neural terrain or ecological scatter."
+}

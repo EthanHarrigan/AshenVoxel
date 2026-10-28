@@ -1,0 +1,315 @@
+{
+  "created_utc": "2026-10-26T20:02:32.787627+00:00",
+  "image": "Docs/RockShapeGallery/shape-cluster.png",
+  "image_sha256": "bbd1859b5cf60ed5e0fb769230441261a7de381081419afaff57749f90b27dc1",
+  "export_name": "shape-cluster",
+  "input_sha256": "5d7413af8260cd1854f88da950f6a723c81237ef2dc6df3788b9dcb77438cd93",
+  "source_provenance": {
+    "created_utc": "2026-10-26T20:01:47.409317+00:00",
+    "sdk": "8.0.427",
+    "source_sha256": {
+      "Assets/AshenVoxel/Core/Details/PlantGenerator.cs": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+      "Assets/AshenVoxel/Core/Details/PlantModel.cs": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2",
+      "Assets/AshenVoxel/Core/EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+      "Assets/AshenVoxel/Core/Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+      "Assets/AshenVoxel/Core/Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+      "Assets/AshenVoxel/Core/Materials.cs": "0342f83df63737d241289e0c86931ebe501cd0c090cf2c773316cc170ef9afd3",
+      "Assets/AshenVoxel/Core/Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+      "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs": "02657f6243d7cd173cb88883edd771e020910c2afce447d9d8c70a3f0ee802cb",
+      "Assets/AshenVoxel/Core/Rocks/RockProfile.cs": "f92cca9d29263eada1c0284994b270f1b9b1d41e30e4b6bef8957bdf3e2c67c0",
+      "Assets/AshenVoxel/Core/Rocks/RockShapeGeometry.cs": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69",
+      "Assets/AshenVoxel/Core/Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+      "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+      "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+      "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+      "Assets/AshenVoxel/Core/VoxelColor.cs": "b1392b24b7d0b3d966ac7cf35f438de7db384639397444d508ed28e95e8899c6",
+      "Assets/AshenVoxel/Core/VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+      "Assets/AshenVoxel/Core/VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+      "Assets/AshenVoxel/Core/WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+      "Tools/GroundCoverPreview/ExportGroundCover.cs": "e54fe6256847dc637a55a19682113d4dd92f00ac42c49caf306a059d927e00f6"
+    },
+    "tool_sha256": "7e6a8a6f69b513b66f180d26507c843b13cd443a464167f75107b95ca9312ea3",
+    "mode": "shapes",
+    "note": "Actual C# procedural plant/rock specimens on10cm voxel grid. Authored arrangements and lighting fixtures are explicit; not Unity or ecological world scatter.",
+    "exports": {
+      "shape-splitoutcrop.bin": "d5ebe226bb1e0737fa358d9b7fa6daa3ee1c83e566c967221c3a8423dc94fdf5",
+      "shape-slab.json": "9f9a5ae894f381cf104a302af554f80126851c145a8cb0b76687ccc20e4db700",
+      "shape-wedge.bin": "f545f8a9fa5576a6cfce500385816c19a7020ad754df4c546dd303c5d58d0909",
+      "shape-wedge.json": "96c65c464f421535c11a778c63ed5d2cfccc496aba1ecf1491eebd9f89f1bcab",
+      "shape-cluster.json": "645aa025df39dac96bc83dd6f07998c9251be1a68c7b8a560d2cf88a880e696b",
+      "shape-spire.json": "d386bfb4e23203efae9cbe020e9c05098e0f50e4fd3e9331f29cbe37650e9ab9",
+      "shape-splitoutcrop.json": "554cd55edf0ed55cfdc5c4aba0e89e2f152b3a1b3b497f694f632fa3be693ae4",
+      "shape-slab.bin": "c245572aa3dcf754cbeec85e377aefc44ac41d7d880644455f97d8267149fc01",
+      "shape-cluster.bin": "5d7413af8260cd1854f88da950f6a723c81237ef2dc6df3788b9dcb77438cd93",
+      "shape-angularboulder.bin": "f8d2efac8e5311c091ff5aaeba7257e04f3b8c4f291cb37f12919aa75888a19b",
+      "shape-angularboulder.json": "cb72d2ee575e760fa904f098073fe11eec8f061e8c4dabe286e27229bae0bc5f",
+      "shape-spire.bin": "7a9c03f130cd7d95d51d1296f9bef37f0e9a3c87fa4df6e2f37104e368bf39a4"
+    }
+  },
+  "tool_sha256": "4e1bdcc24de82a848402fab3a18c0f21ad77c6ed10121a2ee34d4b108d09da19",
+  "geometry_tool_sha256": "433ff10a31b436dbbeb7d9eb9685c6d6c73f3ed5324ee8dc2a82bb92b08dd192",
+  "renderer": "Mitsuba 3.9.1",
+  "drjit": "1.5.0",
+  "threads": 4,
+  "spp": 64,
+  "render_seed": 42,
+  "voxel_m": 0.10000000149011612,
+  "vertices": 25144,
+  "triangles": 12572,
+  "exposed_quads": 6286,
+  "camera_origin_m": [
+    6.471395690762191,
+    10.24925017067892,
+    -9.189402359433611
+  ],
+  "camera_target_m": [
+    4.3,
+    0.645,
+    1.2500000000000002
+  ],
+  "fov": 39,
+  "elapsed_seconds": 1.799,
+  "metadata": {
+    "name": "shape-cluster",
+    "voxel_m": 0.1,
+    "dimensions_cells": [
+      91,
+      19,
+      25
+    ],
+    "occupied_cells": 7700,
+    "bounds_min_m": [
+      0.2,
+      0,
+      0.1
+    ],
+    "bounds_max_m": [
+      8.4,
+      1.5,
+      2.4000000000000004
+    ],
+    "material_counts": {
+      "Gravel": 1782,
+      "Granite": 5918
+    },
+    "scene": {
+      "category": "rock-shape",
+      "label": "Cluster / same granite",
+      "seeds": [
+        714103,
+        271828,
+        161803
+      ],
+      "specimens": [
+        {
+          "name": "Granite",
+          "seed": 714103,
+          "profile": {
+            "Shape": 6,
+            "ResolvedShape": 6,
+            "Identity": "rock-v2/catalog-v3/11/714103/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False/shape=Cluster/resolved=Cluster",
+            "Material": 11,
+            "Seed": 714103,
+            "MaxCandidates": 500000,
+            "MaxWrittenCells": 100000,
+            "WidthMeters": 2.2,
+            "HeightMeters": 1.3,
+            "DepthMeters": 1.85,
+            "BuriedDepthMeters": 0.2,
+            "Weathering": 0.82,
+            "JointStrength": 0.3,
+            "OverwriteExisting": false
+          },
+          "result": {
+            "ResolvedShape": 6,
+            "CandidateCount": 1816,
+            "ColumnEvaluations": 483,
+            "ShapeCells": 1741,
+            "WrittenCells": 1741,
+            "ClippedCells": 0,
+            "BlockedCells": 0,
+            "UnchangedCells": 0,
+            "Truncated": false,
+            "HasMatter": true,
+            "BoundsMinCellInclusive": {
+              "x": 55,
+              "y": 6,
+              "z": 56
+            },
+            "BoundsMaxCellInclusive": {
+              "x": 72,
+              "y": 20,
+              "z": 73
+            }
+          },
+          "actual_dimensions_m": [
+            1.8,
+            1.5,
+            1.8
+          ],
+          "requested_shape": "Cluster",
+          "resolved_shape": "Cluster",
+          "generated_cells": 1741,
+          "material_counts": {
+            "Granite": 1741
+          },
+          "palette": {
+            "Granite": [
+              4287005053,
+              4287399811,
+              4287860105
+            ]
+          },
+          "packed_offset_cells": {
+            "x": -51,
+            "y": -6,
+            "z": -53
+          }
+        },
+        {
+          "name": "Granite",
+          "seed": 271828,
+          "profile": {
+            "Shape": 6,
+            "ResolvedShape": 6,
+            "Identity": "rock-v2/catalog-v3/11/271828/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False/shape=Cluster/resolved=Cluster",
+            "Material": 11,
+            "Seed": 271828,
+            "MaxCandidates": 500000,
+            "MaxWrittenCells": 100000,
+            "WidthMeters": 2.2,
+            "HeightMeters": 1.3,
+            "DepthMeters": 1.85,
+            "BuriedDepthMeters": 0.2,
+            "Weathering": 0.82,
+            "JointStrength": 0.3,
+            "OverwriteExisting": false
+          },
+          "result": {
+            "ResolvedShape": 6,
+            "CandidateCount": 2286,
+            "ColumnEvaluations": 483,
+            "ShapeCells": 2194,
+            "WrittenCells": 2194,
+            "ClippedCells": 0,
+            "BlockedCells": 0,
+            "UnchangedCells": 0,
+            "Truncated": false,
+            "HasMatter": true,
+            "BoundsMinCellInclusive": {
+              "x": 53,
+              "y": 6,
+              "z": 56
+            },
+            "BoundsMaxCellInclusive": {
+              "x": 74,
+              "y": 20,
+              "z": 72
+            }
+          },
+          "actual_dimensions_m": [
+            2.2,
+            1.5,
+            1.7000000000000002
+          ],
+          "requested_shape": "Cluster",
+          "resolved_shape": "Cluster",
+          "generated_cells": 2194,
+          "material_counts": {
+            "Granite": 2194
+          },
+          "palette": {
+            "Granite": [
+              4286150002,
+              4286544760,
+              4287005053,
+              4287399811,
+              4287860105,
+              4288255119
+            ]
+          },
+          "packed_offset_cells": {
+            "x": -22,
+            "y": -6,
+            "z": -52
+          }
+        },
+        {
+          "name": "Granite",
+          "seed": 161803,
+          "profile": {
+            "Shape": 6,
+            "ResolvedShape": 6,
+            "Identity": "rock-v2/catalog-v3/11/161803/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False/shape=Cluster/resolved=Cluster",
+            "Material": 11,
+            "Seed": 161803,
+            "MaxCandidates": 500000,
+            "MaxWrittenCells": 100000,
+            "WidthMeters": 2.2,
+            "HeightMeters": 1.3,
+            "DepthMeters": 1.85,
+            "BuriedDepthMeters": 0.2,
+            "Weathering": 0.82,
+            "JointStrength": 0.3,
+            "OverwriteExisting": false
+          },
+          "result": {
+            "ResolvedShape": 6,
+            "CandidateCount": 2062,
+            "ColumnEvaluations": 483,
+            "ShapeCells": 1983,
+            "WrittenCells": 1983,
+            "ClippedCells": 0,
+            "BlockedCells": 0,
+            "UnchangedCells": 0,
+            "Truncated": false,
+            "HasMatter": true,
+            "BoundsMinCellInclusive": {
+              "x": 55,
+              "y": 6,
+              "z": 55
+            },
+            "BoundsMaxCellInclusive": {
+              "x": 74,
+              "y": 20,
+              "z": 73
+            }
+          },
+          "actual_dimensions_m": [
+            2,
+            1.5,
+            1.9000000000000001
+          ],
+          "requested_shape": "Cluster",
+          "resolved_shape": "Cluster",
+          "generated_cells": 1983,
+          "material_counts": {
+            "Granite": 1983
+          },
+          "palette": {
+            "Granite": [
+              4286544760,
+              4287005053,
+              4287399811,
+              4287860105,
+              4288255119
+            ]
+          },
+          "packed_offset_cells": {
+            "x": 7,
+            "y": -6,
+            "z": -52
+          }
+        }
+      ],
+      "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+    },
+    "generation_version": {
+      "plant": 1,
+      "rock": 2,
+      "catalog": 3
+    },
+    "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+  },
+  "note": "Exact actual generated occupied voxel faces and stored sRGB pigments. Camera, sky and key are offline lighting fixtures. Not Unity appearance, GPU evidence, neural terrain or ecological scatter."
+}

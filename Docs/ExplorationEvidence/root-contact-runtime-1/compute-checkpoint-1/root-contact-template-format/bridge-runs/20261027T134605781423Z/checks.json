@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "assertions": 336508,
+  "models": [
+    {
+      "model": 10,
+      "steps": 793,
+      "retained_mesh_bytes": 1589976,
+      "shared_template_elements": 178150,
+      "temporary_conversion_elements": 124972,
+      "peak_declared_composite_elements": 4762808
+    },
+    {
+      "model": 11,
+      "steps": 810,
+      "retained_mesh_bytes": 1644512,
+      "shared_template_elements": 190246,
+      "temporary_conversion_elements": 133452,
+      "peak_declared_composite_elements": 4664068
+    }
+  ],
+  "scope": "Trusted companion files through immutable managed template assembly and composite reducer/mesher, all10 exact recorded lower meshes; compact root fixture input, no fulltree generation, Unity, native or production adoption."
+}

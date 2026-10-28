@@ -1,0 +1,43 @@
+{
+  "info": {
+    "version": "1.156.0",
+    "description": "Synthetic schema fixture matching Azgaar Full JSON; not an exported user map",
+    "exportedAt": "2026-10-26T00:00:00.000Z",
+    "mapName": "Synthetic Four Cells",
+    "width": 10,
+    "height": 5,
+    "seed": "synthetic-fixture",
+    "mapId": 1
+  },
+  "settings": {
+    "distanceUnit": "km",
+    "distanceScale": 1,
+    "heightUnit": "m",
+    "heightExponent": 2
+  },
+  "pack": {
+    "cells": [
+      {"i":0,"p":[2.5,1.25],"h":10,"biome":0,"v":[0,1,4,3],"c":[1,2]},
+      {"i":1,"p":[7.5,1.25],"h":20,"biome":6,"v":[1,2,5,4],"c":[0,3]},
+      {"i":2,"p":[2.5,3.75],"h":60,"biome":9,"v":[3,4,7,6],"c":[0,3]},
+      {"i":3,"p":[7.5,3.75],"h":100,"biome":11,"v":[4,5,8,7],"c":[1,2]}
+    ],
+    "vertices": [
+      {"i":0,"p":[0,0]},
+      {"i":1,"p":[5,0]},
+      {"i":2,"p":[10,0]},
+      {"i":3,"p":[0,2.5]},
+      {"i":4,"p":[5,2.5]},
+      {"i":5,"p":[10,2.5]},
+      {"i":6,"p":[0,5]},
+      {"i":7,"p":[5,5]},
+      {"i":8,"p":[10,5]}
+    ],
+    "biomes": [
+      {"i":0,"name":"Marine","color":"#466eab"},
+      {"i":6,"name":"Temperate deciduous forest","color":"#5d7341"},
+      {"i":9,"name":"Taiga","color":"#4b6b45"},
+      {"i":11,"name":"Glacier","color":"#dfeaf0"}
+    ]
+  }
+}

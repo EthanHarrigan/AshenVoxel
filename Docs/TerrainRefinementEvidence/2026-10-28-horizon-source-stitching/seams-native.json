@@ -1,0 +1,33 @@
+{
+    "status": "PASS",
+    "error": "",
+    "unity": "6000.3.27f1",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "scope": "Native Edit-mode production exact seam meshes and URP GroundSurface; synthetic curved unequal-resolution/contact-cut fixtures with top-only production terrain triangles (skirts omitted diagnostically). Oblique geometry/depth occlusion coverage, not full-world/FPS acceptance.",
+    "seam_pixels": [
+        8823,
+        26215
+    ],
+    "filled_gap_pixels": [
+        679,
+        4139
+    ],
+    "unfilled_gap_pixels": [
+        0,
+        0
+    ],
+    "candidate_foreground": [
+        52495,
+        147085
+    ],
+    "shader_error": false,
+    "restored": true,
+    "seam_bytes": 73632,
+    "errors": [],
+    "source_sha256": [
+        "Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs 4d1a52114881de43093db521948032bc3f8cfed3c8540d4d7faddcc63b6b7529",
+        "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerTerrainSeams.cs 1ed7efe83b9356a131cee9174633f3b57443ac134c95ba59cd2d1300a85a0fc6",
+        "Assets/AshenVoxel/WorldScaleRuntime/GroundSurface.shader 68f0a54773d31c53f9cf1fbae5902882ccd781a5ccfca8b7344319dba6f7c94f",
+        "Assets/AshenVoxel/Exploration/Editor/TerrainSeamAppearanceChecks.cs 299975fb1adc4efad03887ee52bbc8801a9a0b908a597e8186fbb62f92a7274f"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+  "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "b37b672add703a6cae60a558a8bb3e58b69e02166ac755f7814590768ca76ec1",
+  "Assets/AshenVoxel/Exploration/ExplorationLoadingScreen.cs": "73aa944628e594046f76dd8d5e36c3a4942097ef5480d0998e86e520dc1b2ee5",
+  "Assets/AshenVoxel/Exploration/WorldLoadingProgress.cs": "3a32064681ceb8d730b51b22ba068fe1bdda65edc3742179419a9a346df9c292",
+  "Assets/AshenVoxel/Exploration/VegetationStreaming.cs": "48dbd29d88b8de17e49e812e0c95a937dbdb1466996fb446add5c9a3f4d458f0",
+  "Assets/AshenVoxel/Exploration/Editor/QualityPatchReview.cs": "f46cefecdd8f8fd0e046ada022730bcb6d97437a8ec6392d39a0ad8e8abdc770",
+  "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs": "dce728d5d78e483029f5ed8b451056a2f1aa6908b4b42e9cb26fe88aae12bb77",
+  "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerMemory.cs": "929de44695f291f0a7eca1f24a82f39c7400e225b1b3349fe066e790ce18bbbf",
+  "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs": "489e002ead05a011dd7d7f18f4d1f90120086b3eda85e5809684c46e6a57b8ad",
+  "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs": "35ca23e072f50e026ec40e6236766660676cba0b767b22bf1063bf25c701f267",
+  "Tools/LoadingChecks/Program.cs": "30d99355b77363ab927ff1ffd0bbff8efa44685d6cde5ab47301544948c5404a",
+  "Tools/LoadingChecks/run_checks.py": "ccebb60da42abd48d28b277f247539c5a4605d4e1a93ad1ace2eda1f8a95ed15",
+  "Tools/ProgressiveLod/Program.cs": "af97db7fdb3506599c5e275eed74e00fce799a3fa8a16942f8ed120e407f18a4"
+}

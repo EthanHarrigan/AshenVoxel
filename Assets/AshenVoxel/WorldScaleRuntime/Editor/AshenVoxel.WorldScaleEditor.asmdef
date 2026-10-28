@@ -1,0 +1,6 @@
+{
+  "name": "AshenVoxel.WorldScaleEditor",
+  "rootNamespace": "AshenVoxel.WorldScaleRuntime.Editor",
+  "references": ["AshenVoxel.WorldScaleRuntime"],
+  "includePlatforms": ["Editor"]
+}

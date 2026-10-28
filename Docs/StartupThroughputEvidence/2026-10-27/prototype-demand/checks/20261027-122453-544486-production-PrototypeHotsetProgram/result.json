@@ -1,0 +1,4462 @@
+{
+  "status": "PASS",
+  "checks": 46,
+  "error": null,
+  "data_sha256": {
+    "prototype_pack": "41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa",
+    "ExplorationMacro.bytes": "3a307d7dcebc47e0d1831e75a7cd73346480d3386b27aae9600c71dd2051c98b",
+    "ExplorationFine.bytes": "0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb",
+    "ExplorationMacro.climate.bytes": "e81d209a9bf1959c9d6749b93ab96c91c903bf1583fe6dbd33651ecf87306684",
+    "ExplorationFine.climate.bytes": "3c5b1be873732c2a46fec105a4a9c00649d5348c3546c5226ea4a1dbd5297069",
+    "ExplorationBiomes.bytes": "de5217131a618329a2cc9df3bdb8db1a8bf69c15a5f979934deef6991c47d2cc"
+  },
+  "scope": "Read-only actual-world prototype-demand audit. All99 records decoded once for exact metadata; no lazy loader implemented or measured. Metadata Mesh placeholders retain dimensions/triangle costs and original interaction data; render/upload/FPS are untested.",
+  "all_runtime_mesh_bytes": 436717216,
+  "results": [
+    {
+      "profile": "coordinator_smoke_small",
+      "groups": [
+        {
+          "name": "spawn16_required_cells",
+          "cells": 17,
+          "instances": 1372,
+          "summary": {
+            "label": "spawn16_required_cells",
+            "model_count": 25,
+            "ids": [
+              2,
+              3,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              120,
+              212,
+              213,
+              214,
+              215,
+              216,
+              217,
+              220,
+              221,
+              222,
+              223
+            ],
+            "all_lods_of_models_bytes": 18236648,
+            "selected_lod_bytes": 16712224,
+            "selected_plus_cheapest_fallback_bytes": 16776144,
+            "models": [
+              {
+                "id": 2,
+                "name": "Birch mature 0",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 8252888,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 3,
+                "name": "Birch mature 1",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 8317352,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 100,
+                "name": "Fern 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 116008,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 101,
+                "name": "Fern 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 119136,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 102,
+                "name": "Shrub 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 240176,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 103,
+                "name": "Shrub 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 238272,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 104,
+                "name": "GrassTuft 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 36584,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 105,
+                "name": "GrassTuft 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 37672,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 108,
+                "name": "BroadleafHerb 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 26384,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 109,
+                "name": "BroadleafHerb 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 26248,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 110,
+                "name": "Flower 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 27336,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 111,
+                "name": "Flower 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 28152,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 112,
+                "name": "Mushroom 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 11288,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 113,
+                "name": "Mushroom 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 13736,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 120,
+                "name": "Micro Mushroom",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 3264,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 212,
+                "name": "Granite AngularBoulder small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 25296,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 213,
+                "name": "Granite AngularBoulder large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 129880,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 214,
+                "name": "Granite Slab small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 16864,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 215,
+                "name": "Granite Slab large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 53312,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 216,
+                "name": "Granite Wedge small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 21896,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 217,
+                "name": "Granite Wedge large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 108800,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 220,
+                "name": "Granite SplitOutcrop small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 37128,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 221,
+                "name": "Granite SplitOutcrop large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 182512,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 222,
+                "name": "Granite Cluster small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 30464,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 223,
+                "name": "Granite Cluster large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 136000,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          "caveat": "All model interaction records for required cells; desired LOD pairs before triangle-budget demotion, not native visible-frustum culling."
+        },
+        {
+          "name": "first64_nearest_planned_cells",
+          "cells": 64,
+          "instances": 2290,
+          "summary": {
+            "label": "first64_nearest_planned_cells",
+            "model_count": 29,
+            "ids": [
+              2,
+              3,
+              10,
+              11,
+              14,
+              15,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              120,
+              212,
+              213,
+              214,
+              215,
+              216,
+              217,
+              220,
+              221,
+              222,
+              223
+            ],
+            "all_lods_of_models_bytes": 354738592,
+            "selected_lod_bytes": 92605936,
+            "selected_plus_cheapest_fallback_bytes": 92670400,
+            "models": [
+              {
+                "id": 2,
+                "name": "Birch mature 0",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 8252888,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 3,
+                "name": "Birch mature 1",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 8317352,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 10,
+                "name": "Redwood mature 0",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 150269664,
+                "selected_lods": [
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 11,
+                "name": "Redwood mature 1",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 154673480,
+                "selected_lods": [
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 14,
+                "name": "Pine mature 0",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 15548880,
+                "selected_lods": [
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 15,
+                "name": "Pine mature 1",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 16009920,
+                "selected_lods": [
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 100,
+                "name": "Fern 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 116008,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 101,
+                "name": "Fern 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 119136,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 102,
+                "name": "Shrub 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 240176,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 103,
+                "name": "Shrub 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 238272,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 104,
+                "name": "GrassTuft 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 36584,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 105,
+                "name": "GrassTuft 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 37672,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 108,
+                "name": "BroadleafHerb 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 26384,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 109,
+                "name": "BroadleafHerb 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 26248,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 110,
+                "name": "Flower 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 27336,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 111,
+                "name": "Flower 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 28152,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 112,
+                "name": "Mushroom 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 11288,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 113,
+                "name": "Mushroom 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 13736,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 120,
+                "name": "Micro Mushroom",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 3264,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 212,
+                "name": "Granite AngularBoulder small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 25296,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 213,
+                "name": "Granite AngularBoulder large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 129880,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 214,
+                "name": "Granite Slab small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 16864,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 215,
+                "name": "Granite Slab large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 53312,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 216,
+                "name": "Granite Wedge small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 21896,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 217,
+                "name": "Granite Wedge large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 108800,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 220,
+                "name": "Granite SplitOutcrop small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 37128,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 221,
+                "name": "Granite SplitOutcrop large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 182512,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 222,
+                "name": "Granite Cluster small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 30464,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 223,
+                "name": "Granite Cluster large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 136000,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          "caveat": "All model interaction records for required cells; desired LOD pairs before triangle-budget demotion, not native visible-frustum culling."
+        }
+      ],
+      "first_published": {
+        "label": "first_published_snapshot",
+        "model_count": 2,
+        "ids": [
+          2,
+          3
+        ],
+        "all_lods_of_models_bytes": 16570240,
+        "selected_lod_bytes": 15456808,
+        "selected_plus_cheapest_fallback_bytes": 15457080,
+        "models": [
+          {
+            "id": 2,
+            "name": "Birch mature 0",
+            "hard": true,
+            "resistance": true,
+            "all_lod_bytes": 8252888,
+            "selected_lods": [
+              0,
+              1
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Birch mature 1",
+            "hard": true,
+            "resistance": true,
+            "all_lod_bytes": 8317352,
+            "selected_lods": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "spawn_ready_snapshot": {
+        "label": "snapshot_when_spawn16_ready",
+        "model_count": 28,
+        "ids": [
+          2,
+          3,
+          10,
+          11,
+          14,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          120,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          220,
+          221,
+          222,
+          223
+        ],
+        "all_lods_of_models_bytes": 338728672,
+        "selected_lod_bytes": 17082008,
+        "selected_plus_cheapest_fallback_bytes": 17105128,
+        "models": [
+          {
+            "id": 2,
+            "name": "Birch mature 0",
+            "hard": true,
+            "resistance": true,
+            "all_lod_bytes": 8252888,
+            "selected_lods": [
+              0,
+              1,
+              3
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Birch mature 1",
+            "hard": true,
+            "resistance": true,
+            "all_lod_bytes": 8317352,
+            "selected_lods": [
+              0,
+              1,
+              3
+            ]
+          },
+          {
+            "id": 10,
+            "name": "Redwood mature 0",
+            "hard": true,
+            "resistance": true,
+            "all_lod_bytes": 150269664,
+            "selected_lods": [
+              3
+            ]
+          },
+          {
+            "id": 11,
+            "name": "Redwood mature 1",
+            "hard": true,
+            "resistance": true,
+            "all_lod_bytes": 154673480,
+            "selected_lods": [
+              3
+            ]
+          },
+          {
+            "id": 14,
+            "name": "Pine mature 0",
+            "hard": true,
+            "resistance": true,
+            "all_lod_bytes": 15548880,
+            "selected_lods": [
+              3
+            ]
+          },
+          {
+            "id": 100,
+            "name": "Fern 0",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 116008,
+            "selected_lods": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "id": 101,
+            "name": "Fern 1",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 119136,
+            "selected_lods": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "id": 102,
+            "name": "Shrub 0",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 240176,
+            "selected_lods": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "id": 103,
+            "name": "Shrub 1",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 238272,
+            "selected_lods": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "id": 104,
+            "name": "GrassTuft 0",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 36584,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 105,
+            "name": "GrassTuft 1",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 37672,
+            "selected_lods": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "id": 108,
+            "name": "BroadleafHerb 0",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 26384,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 109,
+            "name": "BroadleafHerb 1",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 26248,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 110,
+            "name": "Flower 0",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 27336,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 111,
+            "name": "Flower 1",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 28152,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 112,
+            "name": "Mushroom 0",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 11288,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 113,
+            "name": "Mushroom 1",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 13736,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 120,
+            "name": "Micro Mushroom",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 3264,
+            "selected_lods": [
+              0
+            ]
+          },
+          {
+            "id": 212,
+            "name": "Granite AngularBoulder small",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 25296,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 213,
+            "name": "Granite AngularBoulder large",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 129880,
+            "selected_lods": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "id": 214,
+            "name": "Granite Slab small",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 16864,
+            "selected_lods": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "id": 215,
+            "name": "Granite Slab large",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 53312,
+            "selected_lods": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "id": 216,
+            "name": "Granite Wedge small",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 21896,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 217,
+            "name": "Granite Wedge large",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 108800,
+            "selected_lods": [
+              0,
+              1,
+              3
+            ]
+          },
+          {
+            "id": 220,
+            "name": "Granite SplitOutcrop small",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 37128,
+            "selected_lods": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "id": 221,
+            "name": "Granite SplitOutcrop large",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 182512,
+            "selected_lods": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "id": 222,
+            "name": "Granite Cluster small",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 30464,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 223,
+            "name": "Granite Cluster large",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 136000,
+            "selected_lods": [
+              0,
+              1,
+              3
+            ]
+          }
+        ]
+      },
+      "first_tick": 4,
+      "ready_tick": 27,
+      "population_only_wall_ms": 56.4443,
+      "planned_cells": 241,
+      "safety_cells": 17,
+      "ResidentCells": 26,
+      "ResidentInstances": 1650,
+      "BudgetDemotions": 668,
+      "BudgetOmittedSoftInstances": 0,
+      "MatrixBufferBytes": 382976,
+      "caveat": "CPU publication scheduling with tiny metadata Mesh placeholders and all collision/resistance data. No native render/upload, source-load timing, full Bootstrap Ready or lazy-loading speedup."
+    },
+    {
+      "profile": "main_authored_settings",
+      "groups": [
+        {
+          "name": "spawn16_required_cells",
+          "cells": 17,
+          "instances": 1372,
+          "summary": {
+            "label": "spawn16_required_cells",
+            "model_count": 25,
+            "ids": [
+              2,
+              3,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              120,
+              212,
+              213,
+              214,
+              215,
+              216,
+              217,
+              220,
+              221,
+              222,
+              223
+            ],
+            "all_lods_of_models_bytes": 18236648,
+            "selected_lod_bytes": 13288288,
+            "selected_plus_cheapest_fallback_bytes": 13352208,
+            "models": [
+              {
+                "id": 2,
+                "name": "Birch mature 0",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 8252888,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 3,
+                "name": "Birch mature 1",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 8317352,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 100,
+                "name": "Fern 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 116008,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 101,
+                "name": "Fern 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 119136,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 102,
+                "name": "Shrub 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 240176,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 103,
+                "name": "Shrub 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 238272,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 104,
+                "name": "GrassTuft 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 36584,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 105,
+                "name": "GrassTuft 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 37672,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 108,
+                "name": "BroadleafHerb 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 26384,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 109,
+                "name": "BroadleafHerb 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 26248,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 110,
+                "name": "Flower 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 27336,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 111,
+                "name": "Flower 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 28152,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 112,
+                "name": "Mushroom 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 11288,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 113,
+                "name": "Mushroom 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 13736,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 120,
+                "name": "Micro Mushroom",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 3264,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 212,
+                "name": "Granite AngularBoulder small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 25296,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 213,
+                "name": "Granite AngularBoulder large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 129880,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 214,
+                "name": "Granite Slab small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 16864,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 215,
+                "name": "Granite Slab large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 53312,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 216,
+                "name": "Granite Wedge small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 21896,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 217,
+                "name": "Granite Wedge large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 108800,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 220,
+                "name": "Granite SplitOutcrop small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 37128,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 221,
+                "name": "Granite SplitOutcrop large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 182512,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 222,
+                "name": "Granite Cluster small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 30464,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 223,
+                "name": "Granite Cluster large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 136000,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              }
+            ]
+          },
+          "caveat": "All model interaction records for required cells; desired LOD pairs before triangle-budget demotion, not native visible-frustum culling."
+        },
+        {
+          "name": "first64_nearest_planned_cells",
+          "cells": 64,
+          "instances": 6521,
+          "summary": {
+            "label": "first64_nearest_planned_cells",
+            "model_count": 29,
+            "ids": [
+              2,
+              3,
+              10,
+              11,
+              14,
+              15,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              120,
+              212,
+              213,
+              214,
+              215,
+              216,
+              217,
+              220,
+              221,
+              222,
+              223
+            ],
+            "all_lods_of_models_bytes": 354738592,
+            "selected_lod_bytes": 208588776,
+            "selected_plus_cheapest_fallback_bytes": 208653240,
+            "models": [
+              {
+                "id": 2,
+                "name": "Birch mature 0",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 8252888,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 3,
+                "name": "Birch mature 1",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 8317352,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 10,
+                "name": "Redwood mature 0",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 150269664,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 11,
+                "name": "Redwood mature 1",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 154673480,
+                "selected_lods": [
+                  1
+                ]
+              },
+              {
+                "id": 14,
+                "name": "Pine mature 0",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 15548880,
+                "selected_lods": [
+                  0
+                ]
+              },
+              {
+                "id": 15,
+                "name": "Pine mature 1",
+                "hard": true,
+                "resistance": true,
+                "all_lod_bytes": 16009920,
+                "selected_lods": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "id": 100,
+                "name": "Fern 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 116008,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 101,
+                "name": "Fern 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 119136,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 102,
+                "name": "Shrub 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 240176,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 103,
+                "name": "Shrub 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 238272,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 104,
+                "name": "GrassTuft 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 36584,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 105,
+                "name": "GrassTuft 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 37672,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 108,
+                "name": "BroadleafHerb 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 26384,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 109,
+                "name": "BroadleafHerb 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 26248,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 110,
+                "name": "Flower 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 27336,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 111,
+                "name": "Flower 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 28152,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 112,
+                "name": "Mushroom 0",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 11288,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 113,
+                "name": "Mushroom 1",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 13736,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 120,
+                "name": "Micro Mushroom",
+                "hard": false,
+                "resistance": true,
+                "all_lod_bytes": 3264,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 212,
+                "name": "Granite AngularBoulder small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 25296,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 213,
+                "name": "Granite AngularBoulder large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 129880,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 214,
+                "name": "Granite Slab small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 16864,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 215,
+                "name": "Granite Slab large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 53312,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 216,
+                "name": "Granite Wedge small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 21896,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 217,
+                "name": "Granite Wedge large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 108800,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 220,
+                "name": "Granite SplitOutcrop small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 37128,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 221,
+                "name": "Granite SplitOutcrop large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 182512,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 222,
+                "name": "Granite Cluster small",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 30464,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "id": 223,
+                "name": "Granite Cluster large",
+                "hard": true,
+                "resistance": false,
+                "all_lod_bytes": 136000,
+                "selected_lods": [
+                  0,
+                  1,
+                  2
+                ]
+              }
+            ]
+          },
+          "caveat": "All model interaction records for required cells; desired LOD pairs before triangle-budget demotion, not native visible-frustum culling."
+        }
+      ],
+      "first_published": {
+        "label": "first_published_snapshot",
+        "model_count": 12,
+        "ids": [
+          2,
+          3,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          220,
+          221,
+          222,
+          223
+        ],
+        "all_lods_of_models_bytes": 17312392,
+        "selected_lod_bytes": 12434344,
+        "selected_plus_cheapest_fallback_bytes": 12456240,
+        "models": [
+          {
+            "id": 2,
+            "name": "Birch mature 0",
+            "hard": true,
+            "resistance": true,
+            "all_lod_bytes": 8252888,
+            "selected_lods": [
+              0
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Birch mature 1",
+            "hard": true,
+            "resistance": true,
+            "all_lod_bytes": 8317352,
+            "selected_lods": [
+              0
+            ]
+          },
+          {
+            "id": 212,
+            "name": "Granite AngularBoulder small",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 25296,
+            "selected_lods": [
+              0,
+              1
+            ]
+          },
+          {
+            "id": 213,
+            "name": "Granite AngularBoulder large",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 129880,
+            "selected_lods": [
+              0,
+              1
+            ]
+          },
+          {
+            "id": 214,
+            "name": "Granite Slab small",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 16864,
+            "selected_lods": [
+              0,
+              1
+            ]
+          },
+          {
+            "id": 215,
+            "name": "Granite Slab large",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 53312,
+            "selected_lods": [
+              0,
+              1
+            ]
+          },
+          {
+            "id": 216,
+            "name": "Granite Wedge small",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 21896,
+            "selected_lods": [
+              0,
+              1
+            ]
+          },
+          {
+            "id": 217,
+            "name": "Granite Wedge large",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 108800,
+            "selected_lods": [
+              0,
+              1
+            ]
+          },
+          {
+            "id": 220,
+            "name": "Granite SplitOutcrop small",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 37128,
+            "selected_lods": [
+              0,
+              1
+            ]
+          },
+          {
+            "id": 221,
+            "name": "Granite SplitOutcrop large",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 182512,
+            "selected_lods": [
+              0,
+              1
+            ]
+          },
+          {
+            "id": 222,
+            "name": "Granite Cluster small",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 30464,
+            "selected_lods": [
+              0,
+              1
+            ]
+          },
+          {
+            "id": 223,
+            "name": "Granite Cluster large",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 136000,
+            "selected_lods": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "spawn_ready_snapshot": {
+        "label": "snapshot_when_spawn16_ready",
+        "model_count": 25,
+        "ids": [
+          2,
+          3,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          120,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          220,
+          221,
+          222,
+          223
+        ],
+        "all_lods_of_models_bytes": 18236648,
+        "selected_lod_bytes": 13364040,
+        "selected_plus_cheapest_fallback_bytes": 13427960,
+        "models": [
+          {
+            "id": 2,
+            "name": "Birch mature 0",
+            "hard": true,
+            "resistance": true,
+            "all_lod_bytes": 8252888,
+            "selected_lods": [
+              0
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Birch mature 1",
+            "hard": true,
+            "resistance": true,
+            "all_lod_bytes": 8317352,
+            "selected_lods": [
+              0
+            ]
+          },
+          {
+            "id": 100,
+            "name": "Fern 0",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 116008,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 101,
+            "name": "Fern 1",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 119136,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 102,
+            "name": "Shrub 0",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 240176,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 103,
+            "name": "Shrub 1",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 238272,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 104,
+            "name": "GrassTuft 0",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 36584,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 105,
+            "name": "GrassTuft 1",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 37672,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 108,
+            "name": "BroadleafHerb 0",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 26384,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 109,
+            "name": "BroadleafHerb 1",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 26248,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 110,
+            "name": "Flower 0",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 27336,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 111,
+            "name": "Flower 1",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 28152,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 112,
+            "name": "Mushroom 0",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 11288,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 113,
+            "name": "Mushroom 1",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 13736,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 120,
+            "name": "Micro Mushroom",
+            "hard": false,
+            "resistance": true,
+            "all_lod_bytes": 3264,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 212,
+            "name": "Granite AngularBoulder small",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 25296,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 213,
+            "name": "Granite AngularBoulder large",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 129880,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 214,
+            "name": "Granite Slab small",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 16864,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 215,
+            "name": "Granite Slab large",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 53312,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 216,
+            "name": "Granite Wedge small",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 21896,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 217,
+            "name": "Granite Wedge large",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 108800,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 220,
+            "name": "Granite SplitOutcrop small",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 37128,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 221,
+            "name": "Granite SplitOutcrop large",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 182512,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "id": 222,
+            "name": "Granite Cluster small",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 30464,
+            "selected_lods": [
+              0,
+              1
+            ]
+          },
+          {
+            "id": 223,
+            "name": "Granite Cluster large",
+            "hard": true,
+            "resistance": false,
+            "all_lod_bytes": 136000,
+            "selected_lods": [
+              0,
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      "first_tick": 2,
+      "ready_tick": 33,
+      "population_only_wall_ms": 117.4155,
+      "planned_cells": 1715,
+      "safety_cells": 17,
+      "ResidentCells": 50,
+      "ResidentInstances": 4890,
+      "BudgetDemotions": 0,
+      "BudgetOmittedSoftInstances": 0,
+      "MatrixBufferBytes": 757760,
+      "caveat": "CPU publication scheduling with tiny metadata Mesh placeholders and all collision/resistance data. No native render/upload, source-load timing, full Bootstrap Ready or lazy-loading speedup."
+    }
+  ],
+  "records": [
+    {
+      "Id": 0,
+      "Name": "Birch young 0",
+      "Kind": 0,
+      "bytes": [
+        1385160,
+        438600,
+        89080,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        692580,
+        219300,
+        44540,
+        3876,
+        1088
+      ],
+      "decode_ms": 12.0323,
+      "CollisionColumns": 50,
+      "HasResistance": true
+    },
+    {
+      "Id": 1,
+      "Name": "Birch young 1",
+      "Kind": 0,
+      "bytes": [
+        1415624,
+        454104,
+        89352,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        707812,
+        227052,
+        44676,
+        3332,
+        1088
+      ],
+      "decode_ms": 3.2134,
+      "CollisionColumns": 54,
+      "HasResistance": true
+    },
+    {
+      "Id": 2,
+      "Name": "Birch mature 0",
+      "Kind": 0,
+      "bytes": [
+        5873160,
+        1836136,
+        543320,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        2936580,
+        918068,
+        271660,
+        10948,
+        1632
+      ],
+      "decode_ms": 19.5228,
+      "CollisionColumns": 72,
+      "HasResistance": true
+    },
+    {
+      "Id": 3,
+      "Name": "Birch mature 1",
+      "Kind": 0,
+      "bytes": [
+        5889888,
+        1857624,
+        569568,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        2944944,
+        928812,
+        284784,
+        8568,
+        1496
+      ],
+      "decode_ms": 14.5497,
+      "CollisionColumns": 75,
+      "HasResistance": true
+    },
+    {
+      "Id": 4,
+      "Name": "Oak young 0",
+      "Kind": 0,
+      "bytes": [
+        1864560,
+        587520,
+        170816,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        932280,
+        293760,
+        85408,
+        3468,
+        680
+      ],
+      "decode_ms": 3.9337,
+      "CollisionColumns": 53,
+      "HasResistance": true
+    },
+    {
+      "Id": 5,
+      "Name": "Oak young 1",
+      "Kind": 0,
+      "bytes": [
+        1851640,
+        597448,
+        175712,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        925820,
+        298724,
+        87856,
+        3128,
+        1088
+      ],
+      "decode_ms": 6.217,
+      "CollisionColumns": 44,
+      "HasResistance": true
+    },
+    {
+      "Id": 6,
+      "Name": "Oak mature 0",
+      "Kind": 0,
+      "bytes": [
+        8453080,
+        2138600,
+        701216,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        4226540,
+        1069300,
+        350608,
+        21352,
+        1428
+      ],
+      "decode_ms": 18.5912,
+      "CollisionColumns": 162,
+      "HasResistance": true
+    },
+    {
+      "Id": 7,
+      "Name": "Oak mature 1",
+      "Kind": 0,
+      "bytes": [
+        7948520,
+        2113712,
+        705432,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        3974260,
+        1056856,
+        352716,
+        21828,
+        952
+      ],
+      "decode_ms": 15.5405,
+      "CollisionColumns": 168,
+      "HasResistance": true
+    },
+    {
+      "Id": 8,
+      "Name": "Redwood young 0",
+      "Kind": 0,
+      "bytes": [
+        14176504,
+        4072656,
+        1147296,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        7088252,
+        2036328,
+        573648,
+        24276,
+        1904
+      ],
+      "decode_ms": 27.5648,
+      "CollisionColumns": 312,
+      "HasResistance": true
+    },
+    {
+      "Id": 9,
+      "Name": "Redwood young 1",
+      "Kind": 0,
+      "bytes": [
+        14457888,
+        4194920,
+        1195984,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        7228944,
+        2097460,
+        597992,
+        23732,
+        1700
+      ],
+      "decode_ms": 28.1243,
+      "CollisionColumns": 317,
+      "HasResistance": true
+    },
+    {
+      "Id": 10,
+      "Name": "Redwood mature 0",
+      "Kind": 0,
+      "bytes": [
+        117532696,
+        25288792,
+        7447904,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        58766348,
+        12644396,
+        3723952,
+        259964,
+        11560
+      ],
+      "decode_ms": 170.8993,
+      "CollisionColumns": 5816,
+      "HasResistance": true
+    },
+    {
+      "Id": 11,
+      "Name": "Redwood mature 1",
+      "Kind": 0,
+      "bytes": [
+        121104328,
+        25927448,
+        7641432,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        60552164,
+        12963724,
+        3820716,
+        281928,
+        12172
+      ],
+      "decode_ms": 151.7676,
+      "CollisionColumns": 6143,
+      "HasResistance": true
+    },
+    {
+      "Id": 12,
+      "Name": "Pine young 0",
+      "Kind": 0,
+      "bytes": [
+        2702320,
+        791520,
+        144296,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        1351160,
+        395760,
+        72148,
+        4760,
+        2176
+      ],
+      "decode_ms": 3.5276,
+      "CollisionColumns": 41,
+      "HasResistance": true
+    },
+    {
+      "Id": 13,
+      "Name": "Pine young 1",
+      "Kind": 0,
+      "bytes": [
+        2765152,
+        832864,
+        146744,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        1382576,
+        416432,
+        73372,
+        6052,
+        2108
+      ],
+      "decode_ms": 3.8016,
+      "CollisionColumns": 56,
+      "HasResistance": true
+    },
+    {
+      "Id": 14,
+      "Name": "Pine mature 0",
+      "Kind": 0,
+      "bytes": [
+        11389320,
+        3273656,
+        885632,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        5694660,
+        1636828,
+        442816,
+        17136,
+        1904
+      ],
+      "decode_ms": 14.166,
+      "CollisionColumns": 63,
+      "HasResistance": true
+    },
+    {
+      "Id": 15,
+      "Name": "Pine mature 1",
+      "Kind": 0,
+      "bytes": [
+        11693688,
+        3391024,
+        924936,
+        136,
+        136
+      ],
+      "decoded_geometry_bytes": [
+        5846844,
+        1695512,
+        462468,
+        17680,
+        1904
+      ],
+      "decode_ms": 15.5529,
+      "CollisionColumns": 70,
+      "HasResistance": true
+    },
+    {
+      "Id": 100,
+      "Name": "Fern 0",
+      "Kind": 1,
+      "bytes": [
+        76704,
+        27200,
+        8568,
+        3536
+      ],
+      "decoded_geometry_bytes": [
+        38352,
+        13600,
+        4284,
+        1768
+      ],
+      "decode_ms": 0.3376,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 101,
+      "Name": "Fern 1",
+      "Kind": 1,
+      "bytes": [
+        77248,
+        28832,
+        9656,
+        3400
+      ],
+      "decoded_geometry_bytes": [
+        38624,
+        14416,
+        4828,
+        1700
+      ],
+      "decode_ms": 0.2088,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 102,
+      "Name": "Shrub 0",
+      "Kind": 1,
+      "bytes": [
+        155720,
+        59976,
+        17408,
+        7072
+      ],
+      "decoded_geometry_bytes": [
+        77860,
+        29988,
+        8704,
+        3536
+      ],
+      "decode_ms": 0.4864,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 103,
+      "Name": "Shrub 1",
+      "Kind": 1,
+      "bytes": [
+        156128,
+        58344,
+        17408,
+        6392
+      ],
+      "decoded_geometry_bytes": [
+        78064,
+        29172,
+        8704,
+        3196
+      ],
+      "decode_ms": 1.9797,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 104,
+      "Name": "GrassTuft 0",
+      "Kind": 1,
+      "bytes": [
+        23256,
+        7616,
+        2856,
+        2856
+      ],
+      "decoded_geometry_bytes": [
+        11628,
+        3808,
+        1428,
+        1428
+      ],
+      "decode_ms": 0.122,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 105,
+      "Name": "GrassTuft 1",
+      "Kind": 1,
+      "bytes": [
+        22984,
+        8432,
+        3672,
+        2584
+      ],
+      "decoded_geometry_bytes": [
+        11492,
+        4216,
+        1836,
+        1292
+      ],
+      "decode_ms": 2.2143,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 106,
+      "Name": "Reed 0",
+      "Kind": 1,
+      "bytes": [
+        62152,
+        25160,
+        7752,
+        2312
+      ],
+      "decoded_geometry_bytes": [
+        31076,
+        12580,
+        3876,
+        1156
+      ],
+      "decode_ms": 0.1695,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 107,
+      "Name": "Reed 1",
+      "Kind": 1,
+      "bytes": [
+        62696,
+        20808,
+        5576,
+        2720
+      ],
+      "decoded_geometry_bytes": [
+        31348,
+        10404,
+        2788,
+        1360
+      ],
+      "decode_ms": 0.1619,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 108,
+      "Name": "BroadleafHerb 0",
+      "Kind": 1,
+      "bytes": [
+        15368,
+        6120,
+        2448,
+        2448
+      ],
+      "decoded_geometry_bytes": [
+        7684,
+        3060,
+        1224,
+        1224
+      ],
+      "decode_ms": 0.081,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 109,
+      "Name": "BroadleafHerb 1",
+      "Kind": 1,
+      "bytes": [
+        15096,
+        6256,
+        2448,
+        2448
+      ],
+      "decoded_geometry_bytes": [
+        7548,
+        3128,
+        1224,
+        1224
+      ],
+      "decode_ms": 0.081,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 110,
+      "Name": "Flower 0",
+      "Kind": 1,
+      "bytes": [
+        14416,
+        6120,
+        3400,
+        3400
+      ],
+      "decoded_geometry_bytes": [
+        7208,
+        3060,
+        1700,
+        1700
+      ],
+      "decode_ms": 0.0786,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 111,
+      "Name": "Flower 1",
+      "Kind": 1,
+      "bytes": [
+        14008,
+        6528,
+        3808,
+        3808
+      ],
+      "decoded_geometry_bytes": [
+        7004,
+        3264,
+        1904,
+        1904
+      ],
+      "decode_ms": 0.0879,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 112,
+      "Name": "Mushroom 0",
+      "Kind": 1,
+      "bytes": [
+        5304,
+        2720,
+        1632,
+        1632
+      ],
+      "decoded_geometry_bytes": [
+        2652,
+        1360,
+        816,
+        816
+      ],
+      "decode_ms": 0.0534,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 113,
+      "Name": "Mushroom 1",
+      "Kind": 1,
+      "bytes": [
+        7072,
+        3400,
+        1632,
+        1632
+      ],
+      "decoded_geometry_bytes": [
+        3536,
+        1700,
+        816,
+        816
+      ],
+      "decode_ms": 0.0608,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 114,
+      "Name": "Cactus 0",
+      "Kind": 1,
+      "bytes": [
+        23392,
+        8840,
+        3128,
+        2040
+      ],
+      "decoded_geometry_bytes": [
+        11696,
+        4420,
+        1564,
+        1020
+      ],
+      "decode_ms": 0.0828,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 115,
+      "Name": "Cactus 1",
+      "Kind": 1,
+      "bytes": [
+        23800,
+        8840,
+        2312,
+        2312
+      ],
+      "decoded_geometry_bytes": [
+        11900,
+        4420,
+        1156,
+        1156
+      ],
+      "decode_ms": 0.0787,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 116,
+      "Name": "Succulent 0",
+      "Kind": 1,
+      "bytes": [
+        24616,
+        8568,
+        3400,
+        2176
+      ],
+      "decoded_geometry_bytes": [
+        12308,
+        4284,
+        1700,
+        1088
+      ],
+      "decode_ms": 0.0908,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 117,
+      "Name": "Succulent 1",
+      "Kind": 1,
+      "bytes": [
+        24616,
+        8160,
+        3264,
+        2176
+      ],
+      "decoded_geometry_bytes": [
+        12308,
+        4080,
+        1632,
+        1088
+      ],
+      "decode_ms": 0.0882,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 118,
+      "Name": "Cushion 0",
+      "Kind": 1,
+      "bytes": [
+        9928,
+        4352,
+        1768,
+        1768
+      ],
+      "decoded_geometry_bytes": [
+        4964,
+        2176,
+        884,
+        884
+      ],
+      "decode_ms": 0.0645,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 119,
+      "Name": "Cushion 1",
+      "Kind": 1,
+      "bytes": [
+        11016,
+        3944,
+        1768,
+        1768
+      ],
+      "decoded_geometry_bytes": [
+        5508,
+        1972,
+        884,
+        884
+      ],
+      "decode_ms": 0.0572,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 120,
+      "Name": "Micro Mushroom",
+      "Kind": 1,
+      "bytes": [
+        816,
+        816,
+        816,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        408,
+        408,
+        408,
+        408
+      ],
+      "decode_ms": 0.0164,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 121,
+      "Name": "Micro BroadleafHerb",
+      "Kind": 1,
+      "bytes": [
+        816,
+        816,
+        816,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        408,
+        408,
+        408,
+        408
+      ],
+      "decode_ms": 0.0197,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 122,
+      "Name": "Micro Flower",
+      "Kind": 1,
+      "bytes": [
+        816,
+        816,
+        816,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        408,
+        408,
+        408,
+        408
+      ],
+      "decode_ms": 0.018,
+      "CollisionColumns": 0,
+      "HasResistance": true
+    },
+    {
+      "Id": 200,
+      "Name": "Stone AngularBoulder small",
+      "Kind": 2,
+      "bytes": [
+        18360,
+        5304,
+        816,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        9180,
+        2652,
+        408,
+        408
+      ],
+      "decode_ms": 0.0658,
+      "CollisionColumns": 39,
+      "HasResistance": false
+    },
+    {
+      "Id": 201,
+      "Name": "Stone AngularBoulder large",
+      "Kind": 2,
+      "bytes": [
+        93568,
+        26656,
+        6664,
+        2448
+      ],
+      "decoded_geometry_bytes": [
+        46784,
+        13328,
+        3332,
+        1224
+      ],
+      "decode_ms": 0.2144,
+      "CollisionColumns": 180,
+      "HasResistance": false
+    },
+    {
+      "Id": 202,
+      "Name": "Stone Slab small",
+      "Kind": 2,
+      "bytes": [
+        10608,
+        3672,
+        1768,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        5304,
+        1836,
+        884,
+        408
+      ],
+      "decode_ms": 0.0568,
+      "CollisionColumns": 30,
+      "HasResistance": false
+    },
+    {
+      "Id": 203,
+      "Name": "Stone Slab large",
+      "Kind": 2,
+      "bytes": [
+        34816,
+        10472,
+        5984,
+        1768
+      ],
+      "decoded_geometry_bytes": [
+        17408,
+        5236,
+        2992,
+        884
+      ],
+      "decode_ms": 0.1201,
+      "CollisionColumns": 131,
+      "HasResistance": false
+    },
+    {
+      "Id": 204,
+      "Name": "Stone Wedge small",
+      "Kind": 2,
+      "bytes": [
+        14824,
+        5440,
+        816,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        7412,
+        2720,
+        408,
+        408
+      ],
+      "decode_ms": 0.0633,
+      "CollisionColumns": 40,
+      "HasResistance": false
+    },
+    {
+      "Id": 205,
+      "Name": "Stone Wedge large",
+      "Kind": 2,
+      "bytes": [
+        81192,
+        22848,
+        8704,
+        3128
+      ],
+      "decoded_geometry_bytes": [
+        40596,
+        11424,
+        4352,
+        1564
+      ],
+      "decode_ms": 0.1829,
+      "CollisionColumns": 179,
+      "HasResistance": false
+    },
+    {
+      "Id": 206,
+      "Name": "Stone Spire small",
+      "Kind": 2,
+      "bytes": [
+        14960,
+        5168,
+        1632,
+        1632
+      ],
+      "decoded_geometry_bytes": [
+        7480,
+        2584,
+        816,
+        816
+      ],
+      "decode_ms": 0.0678,
+      "CollisionColumns": 20,
+      "HasResistance": false
+    },
+    {
+      "Id": 207,
+      "Name": "Stone Spire large",
+      "Kind": 2,
+      "bytes": [
+        76160,
+        19040,
+        7072,
+        2176
+      ],
+      "decoded_geometry_bytes": [
+        38080,
+        9520,
+        3536,
+        1088
+      ],
+      "decode_ms": 0.1546,
+      "CollisionColumns": 78,
+      "HasResistance": false
+    },
+    {
+      "Id": 208,
+      "Name": "Stone SplitOutcrop small",
+      "Kind": 2,
+      "bytes": [
+        25568,
+        7480,
+        2448,
+        1632
+      ],
+      "decoded_geometry_bytes": [
+        12784,
+        3740,
+        1224,
+        816
+      ],
+      "decode_ms": 0.0789,
+      "CollisionColumns": 47,
+      "HasResistance": false
+    },
+    {
+      "Id": 209,
+      "Name": "Stone SplitOutcrop large",
+      "Kind": 2,
+      "bytes": [
+        131376,
+        35224,
+        10744,
+        4760
+      ],
+      "decoded_geometry_bytes": [
+        65688,
+        17612,
+        5372,
+        2380
+      ],
+      "decode_ms": 0.3046,
+      "CollisionColumns": 214,
+      "HasResistance": false
+    },
+    {
+      "Id": 210,
+      "Name": "Stone Cluster small",
+      "Kind": 2,
+      "bytes": [
+        20128,
+        6800,
+        1768,
+        1768
+      ],
+      "decoded_geometry_bytes": [
+        10064,
+        3400,
+        884,
+        884
+      ],
+      "decode_ms": 0.0806,
+      "CollisionColumns": 41,
+      "HasResistance": false
+    },
+    {
+      "Id": 211,
+      "Name": "Stone Cluster large",
+      "Kind": 2,
+      "bytes": [
+        94112,
+        29920,
+        9248,
+        3672
+      ],
+      "decoded_geometry_bytes": [
+        47056,
+        14960,
+        4624,
+        1836
+      ],
+      "decode_ms": 0.2058,
+      "CollisionColumns": 193,
+      "HasResistance": false
+    },
+    {
+      "Id": 212,
+      "Name": "Granite AngularBoulder small",
+      "Kind": 2,
+      "bytes": [
+        18360,
+        5304,
+        816,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        9180,
+        2652,
+        408,
+        408
+      ],
+      "decode_ms": 0.0632,
+      "CollisionColumns": 39,
+      "HasResistance": false
+    },
+    {
+      "Id": 213,
+      "Name": "Granite AngularBoulder large",
+      "Kind": 2,
+      "bytes": [
+        93296,
+        27064,
+        7072,
+        2448
+      ],
+      "decoded_geometry_bytes": [
+        46648,
+        13532,
+        3536,
+        1224
+      ],
+      "decode_ms": 0.1952,
+      "CollisionColumns": 180,
+      "HasResistance": false
+    },
+    {
+      "Id": 214,
+      "Name": "Granite Slab small",
+      "Kind": 2,
+      "bytes": [
+        10608,
+        3672,
+        1768,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        5304,
+        1836,
+        884,
+        408
+      ],
+      "decode_ms": 0.0564,
+      "CollisionColumns": 30,
+      "HasResistance": false
+    },
+    {
+      "Id": 215,
+      "Name": "Granite Slab large",
+      "Kind": 2,
+      "bytes": [
+        35088,
+        10472,
+        5984,
+        1768
+      ],
+      "decoded_geometry_bytes": [
+        17544,
+        5236,
+        2992,
+        884
+      ],
+      "decode_ms": 0.1205,
+      "CollisionColumns": 131,
+      "HasResistance": false
+    },
+    {
+      "Id": 216,
+      "Name": "Granite Wedge small",
+      "Kind": 2,
+      "bytes": [
+        14824,
+        5440,
+        816,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        7412,
+        2720,
+        408,
+        408
+      ],
+      "decode_ms": 0.0629,
+      "CollisionColumns": 40,
+      "HasResistance": false
+    },
+    {
+      "Id": 217,
+      "Name": "Granite Wedge large",
+      "Kind": 2,
+      "bytes": [
+        74664,
+        22304,
+        8704,
+        3128
+      ],
+      "decoded_geometry_bytes": [
+        37332,
+        11152,
+        4352,
+        1564
+      ],
+      "decode_ms": 0.1754,
+      "CollisionColumns": 179,
+      "HasResistance": false
+    },
+    {
+      "Id": 218,
+      "Name": "Granite Spire small",
+      "Kind": 2,
+      "bytes": [
+        14824,
+        5168,
+        1632,
+        1632
+      ],
+      "decoded_geometry_bytes": [
+        7412,
+        2584,
+        816,
+        816
+      ],
+      "decode_ms": 0.0633,
+      "CollisionColumns": 20,
+      "HasResistance": false
+    },
+    {
+      "Id": 219,
+      "Name": "Granite Spire large",
+      "Kind": 2,
+      "bytes": [
+        76704,
+        19312,
+        7072,
+        2176
+      ],
+      "decoded_geometry_bytes": [
+        38352,
+        9656,
+        3536,
+        1088
+      ],
+      "decode_ms": 0.1508,
+      "CollisionColumns": 78,
+      "HasResistance": false
+    },
+    {
+      "Id": 220,
+      "Name": "Granite SplitOutcrop small",
+      "Kind": 2,
+      "bytes": [
+        25568,
+        7480,
+        2448,
+        1632
+      ],
+      "decoded_geometry_bytes": [
+        12784,
+        3740,
+        1224,
+        816
+      ],
+      "decode_ms": 0.0851,
+      "CollisionColumns": 47,
+      "HasResistance": false
+    },
+    {
+      "Id": 221,
+      "Name": "Granite SplitOutcrop large",
+      "Kind": 2,
+      "bytes": [
+        131920,
+        35088,
+        10744,
+        4760
+      ],
+      "decoded_geometry_bytes": [
+        65960,
+        17544,
+        5372,
+        2380
+      ],
+      "decode_ms": 0.2494,
+      "CollisionColumns": 214,
+      "HasResistance": false
+    },
+    {
+      "Id": 222,
+      "Name": "Granite Cluster small",
+      "Kind": 2,
+      "bytes": [
+        20128,
+        6800,
+        1768,
+        1768
+      ],
+      "decoded_geometry_bytes": [
+        10064,
+        3400,
+        884,
+        884
+      ],
+      "decode_ms": 0.0695,
+      "CollisionColumns": 41,
+      "HasResistance": false
+    },
+    {
+      "Id": 223,
+      "Name": "Granite Cluster large",
+      "Kind": 2,
+      "bytes": [
+        94112,
+        29104,
+        9112,
+        3672
+      ],
+      "decoded_geometry_bytes": [
+        47056,
+        14552,
+        4556,
+        1836
+      ],
+      "decode_ms": 0.204,
+      "CollisionColumns": 193,
+      "HasResistance": false
+    },
+    {
+      "Id": 224,
+      "Name": "Limestone AngularBoulder small",
+      "Kind": 2,
+      "bytes": [
+        19176,
+        5712,
+        816,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        9588,
+        2856,
+        408,
+        408
+      ],
+      "decode_ms": 0.0683,
+      "CollisionColumns": 39,
+      "HasResistance": false
+    },
+    {
+      "Id": 225,
+      "Name": "Limestone AngularBoulder large",
+      "Kind": 2,
+      "bytes": [
+        95472,
+        28424,
+        6936,
+        2312
+      ],
+      "decoded_geometry_bytes": [
+        47736,
+        14212,
+        3468,
+        1156
+      ],
+      "decode_ms": 0.206,
+      "CollisionColumns": 180,
+      "HasResistance": false
+    },
+    {
+      "Id": 226,
+      "Name": "Limestone Slab small",
+      "Kind": 2,
+      "bytes": [
+        10744,
+        3672,
+        1768,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        5372,
+        1836,
+        884,
+        408
+      ],
+      "decode_ms": 0.0579,
+      "CollisionColumns": 30,
+      "HasResistance": false
+    },
+    {
+      "Id": 227,
+      "Name": "Limestone Slab large",
+      "Kind": 2,
+      "bytes": [
+        36992,
+        11560,
+        6256,
+        2312
+      ],
+      "decoded_geometry_bytes": [
+        18496,
+        5780,
+        3128,
+        1156
+      ],
+      "decode_ms": 0.1233,
+      "CollisionColumns": 131,
+      "HasResistance": false
+    },
+    {
+      "Id": 228,
+      "Name": "Limestone Wedge small",
+      "Kind": 2,
+      "bytes": [
+        16048,
+        5848,
+        816,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        8024,
+        2924,
+        408,
+        408
+      ],
+      "decode_ms": 0.0603,
+      "CollisionColumns": 40,
+      "HasResistance": false
+    },
+    {
+      "Id": 229,
+      "Name": "Limestone Wedge large",
+      "Kind": 2,
+      "bytes": [
+        79968,
+        22168,
+        9248,
+        3128
+      ],
+      "decoded_geometry_bytes": [
+        39984,
+        11084,
+        4624,
+        1564
+      ],
+      "decode_ms": 0.1836,
+      "CollisionColumns": 179,
+      "HasResistance": false
+    },
+    {
+      "Id": 230,
+      "Name": "Limestone Spire small",
+      "Kind": 2,
+      "bytes": [
+        15640,
+        5712,
+        1632,
+        1632
+      ],
+      "decoded_geometry_bytes": [
+        7820,
+        2856,
+        816,
+        816
+      ],
+      "decode_ms": 0.0632,
+      "CollisionColumns": 20,
+      "HasResistance": false
+    },
+    {
+      "Id": 231,
+      "Name": "Limestone Spire large",
+      "Kind": 2,
+      "bytes": [
+        76432,
+        18904,
+        6528,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        38216,
+        9452,
+        3264,
+        408
+      ],
+      "decode_ms": 2.5095,
+      "CollisionColumns": 78,
+      "HasResistance": false
+    },
+    {
+      "Id": 232,
+      "Name": "Limestone SplitOutcrop small",
+      "Kind": 2,
+      "bytes": [
+        26384,
+        8024,
+        2448,
+        1632
+      ],
+      "decoded_geometry_bytes": [
+        13192,
+        4012,
+        1224,
+        816
+      ],
+      "decode_ms": 0.0688,
+      "CollisionColumns": 47,
+      "HasResistance": false
+    },
+    {
+      "Id": 233,
+      "Name": "Limestone SplitOutcrop large",
+      "Kind": 2,
+      "bytes": [
+        130832,
+        35904,
+        10608,
+        5032
+      ],
+      "decoded_geometry_bytes": [
+        65416,
+        17952,
+        5304,
+        2516
+      ],
+      "decode_ms": 0.2137,
+      "CollisionColumns": 214,
+      "HasResistance": false
+    },
+    {
+      "Id": 234,
+      "Name": "Limestone Cluster small",
+      "Kind": 2,
+      "bytes": [
+        20944,
+        7208,
+        1768,
+        1768
+      ],
+      "decoded_geometry_bytes": [
+        10472,
+        3604,
+        884,
+        884
+      ],
+      "decode_ms": 0.0466,
+      "CollisionColumns": 41,
+      "HasResistance": false
+    },
+    {
+      "Id": 235,
+      "Name": "Limestone Cluster large",
+      "Kind": 2,
+      "bytes": [
+        94520,
+        30736,
+        10064,
+        3672
+      ],
+      "decoded_geometry_bytes": [
+        47260,
+        15368,
+        5032,
+        1836
+      ],
+      "decode_ms": 0.179,
+      "CollisionColumns": 193,
+      "HasResistance": false
+    },
+    {
+      "Id": 236,
+      "Name": "Sandstone AngularBoulder small",
+      "Kind": 2,
+      "bytes": [
+        18904,
+        5576,
+        816,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        9452,
+        2788,
+        408,
+        408
+      ],
+      "decode_ms": 0.0465,
+      "CollisionColumns": 39,
+      "HasResistance": false
+    },
+    {
+      "Id": 237,
+      "Name": "Sandstone AngularBoulder large",
+      "Kind": 2,
+      "bytes": [
+        103088,
+        28696,
+        6800,
+        2584
+      ],
+      "decoded_geometry_bytes": [
+        51544,
+        14348,
+        3400,
+        1292
+      ],
+      "decode_ms": 0.1887,
+      "CollisionColumns": 180,
+      "HasResistance": false
+    },
+    {
+      "Id": 238,
+      "Name": "Sandstone Slab small",
+      "Kind": 2,
+      "bytes": [
+        11560,
+        3672,
+        1768,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        5780,
+        1836,
+        884,
+        408
+      ],
+      "decode_ms": 0.0349,
+      "CollisionColumns": 30,
+      "HasResistance": false
+    },
+    {
+      "Id": 239,
+      "Name": "Sandstone Slab large",
+      "Kind": 2,
+      "bytes": [
+        36584,
+        10336,
+        5440,
+        1496
+      ],
+      "decoded_geometry_bytes": [
+        18292,
+        5168,
+        2720,
+        748
+      ],
+      "decode_ms": 0.0859,
+      "CollisionColumns": 131,
+      "HasResistance": false
+    },
+    {
+      "Id": 240,
+      "Name": "Sandstone Wedge small",
+      "Kind": 2,
+      "bytes": [
+        16184,
+        5576,
+        816,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        8092,
+        2788,
+        408,
+        408
+      ],
+      "decode_ms": 0.043,
+      "CollisionColumns": 40,
+      "HasResistance": false
+    },
+    {
+      "Id": 241,
+      "Name": "Sandstone Wedge large",
+      "Kind": 2,
+      "bytes": [
+        81328,
+        21760,
+        8296,
+        2856
+      ],
+      "decoded_geometry_bytes": [
+        40664,
+        10880,
+        4148,
+        1428
+      ],
+      "decode_ms": 0.1655,
+      "CollisionColumns": 179,
+      "HasResistance": false
+    },
+    {
+      "Id": 242,
+      "Name": "Sandstone Spire small",
+      "Kind": 2,
+      "bytes": [
+        17816,
+        5576,
+        1904,
+        1904
+      ],
+      "decoded_geometry_bytes": [
+        8908,
+        2788,
+        952,
+        952
+      ],
+      "decode_ms": 0.0513,
+      "CollisionColumns": 20,
+      "HasResistance": false
+    },
+    {
+      "Id": 243,
+      "Name": "Sandstone Spire large",
+      "Kind": 2,
+      "bytes": [
+        85952,
+        19720,
+        7752,
+        1904
+      ],
+      "decoded_geometry_bytes": [
+        42976,
+        9860,
+        3876,
+        952
+      ],
+      "decode_ms": 0.1393,
+      "CollisionColumns": 78,
+      "HasResistance": false
+    },
+    {
+      "Id": 244,
+      "Name": "Sandstone SplitOutcrop small",
+      "Kind": 2,
+      "bytes": [
+        27064,
+        6256,
+        1632,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        13532,
+        3128,
+        816,
+        408
+      ],
+      "decode_ms": 0.0567,
+      "CollisionColumns": 47,
+      "HasResistance": false
+    },
+    {
+      "Id": 245,
+      "Name": "Sandstone SplitOutcrop large",
+      "Kind": 2,
+      "bytes": [
+        148920,
+        37944,
+        11832,
+        4080
+      ],
+      "decoded_geometry_bytes": [
+        74460,
+        18972,
+        5916,
+        2040
+      ],
+      "decode_ms": 0.2392,
+      "CollisionColumns": 214,
+      "HasResistance": false
+    },
+    {
+      "Id": 246,
+      "Name": "Sandstone Cluster small",
+      "Kind": 2,
+      "bytes": [
+        20400,
+        6120,
+        816,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        10200,
+        3060,
+        408,
+        408
+      ],
+      "decode_ms": 0.0738,
+      "CollisionColumns": 41,
+      "HasResistance": false
+    },
+    {
+      "Id": 247,
+      "Name": "Sandstone Cluster large",
+      "Kind": 2,
+      "bytes": [
+        103088,
+        30464,
+        10200,
+        3808
+      ],
+      "decoded_geometry_bytes": [
+        51544,
+        15232,
+        5100,
+        1904
+      ],
+      "decode_ms": 0.2221,
+      "CollisionColumns": 193,
+      "HasResistance": false
+    },
+    {
+      "Id": 248,
+      "Name": "Shale AngularBoulder small",
+      "Kind": 2,
+      "bytes": [
+        18088,
+        5304,
+        1360,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        9044,
+        2652,
+        680,
+        408
+      ],
+      "decode_ms": 0.066,
+      "CollisionColumns": 39,
+      "HasResistance": false
+    },
+    {
+      "Id": 249,
+      "Name": "Shale AngularBoulder large",
+      "Kind": 2,
+      "bytes": [
+        101728,
+        30056,
+        7480,
+        2856
+      ],
+      "decoded_geometry_bytes": [
+        50864,
+        15028,
+        3740,
+        1428
+      ],
+      "decode_ms": 0.242,
+      "CollisionColumns": 180,
+      "HasResistance": false
+    },
+    {
+      "Id": 250,
+      "Name": "Shale Slab small",
+      "Kind": 2,
+      "bytes": [
+        11288,
+        3944,
+        2176,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        5644,
+        1972,
+        1088,
+        408
+      ],
+      "decode_ms": 0.0616,
+      "CollisionColumns": 30,
+      "HasResistance": false
+    },
+    {
+      "Id": 251,
+      "Name": "Shale Slab large",
+      "Kind": 2,
+      "bytes": [
+        35768,
+        10880,
+        6392,
+        2584
+      ],
+      "decoded_geometry_bytes": [
+        17884,
+        5440,
+        3196,
+        1292
+      ],
+      "decode_ms": 0.1363,
+      "CollisionColumns": 131,
+      "HasResistance": false
+    },
+    {
+      "Id": 252,
+      "Name": "Shale Wedge small",
+      "Kind": 2,
+      "bytes": [
+        15504,
+        5440,
+        1360,
+        816
+      ],
+      "decoded_geometry_bytes": [
+        7752,
+        2720,
+        680,
+        408
+      ],
+      "decode_ms": 0.0634,
+      "CollisionColumns": 40,
+      "HasResistance": false
+    },
+    {
+      "Id": 253,
+      "Name": "Shale Wedge large",
+      "Kind": 2,
+      "bytes": [
+        80376,
+        22712,
+        8704,
+        3536
+      ],
+      "decoded_geometry_bytes": [
+        40188,
+        11356,
+        4352,
+        1768
+      ],
+      "decode_ms": 0.2231,
+      "CollisionColumns": 179,
+      "HasResistance": false
+    },
+    {
+      "Id": 254,
+      "Name": "Shale Spire small",
+      "Kind": 2,
+      "bytes": [
+        16184,
+        5848,
+        2448,
+        1632
+      ],
+      "decoded_geometry_bytes": [
+        8092,
+        2924,
+        1224,
+        816
+      ],
+      "decode_ms": 0.061,
+      "CollisionColumns": 20,
+      "HasResistance": false
+    },
+    {
+      "Id": 255,
+      "Name": "Shale Spire large",
+      "Kind": 2,
+      "bytes": [
+        84456,
+        21760,
+        8432,
+        1904
+      ],
+      "decoded_geometry_bytes": [
+        42228,
+        10880,
+        4216,
+        952
+      ],
+      "decode_ms": 0.197,
+      "CollisionColumns": 78,
+      "HasResistance": false
+    },
+    {
+      "Id": 256,
+      "Name": "Shale SplitOutcrop small",
+      "Kind": 2,
+      "bytes": [
+        28968,
+        7616,
+        3128,
+        1632
+      ],
+      "decoded_geometry_bytes": [
+        14484,
+        3808,
+        1564,
+        816
+      ],
+      "decode_ms": 0.089,
+      "CollisionColumns": 47,
+      "HasResistance": false
+    },
+    {
+      "Id": 257,
+      "Name": "Shale SplitOutcrop large",
+      "Kind": 2,
+      "bytes": [
+        149328,
+        40664,
+        12376,
+        5304
+      ],
+      "decoded_geometry_bytes": [
+        74664,
+        20332,
+        6188,
+        2652
+      ],
+      "decode_ms": 0.3001,
+      "CollisionColumns": 214,
+      "HasResistance": false
+    },
+    {
+      "Id": 258,
+      "Name": "Shale Cluster small",
+      "Kind": 2,
+      "bytes": [
+        20672,
+        6800,
+        2312,
+        1768
+      ],
+      "decoded_geometry_bytes": [
+        10336,
+        3400,
+        1156,
+        884
+      ],
+      "decode_ms": 0.0493,
+      "CollisionColumns": 41,
+      "HasResistance": false
+    },
+    {
+      "Id": 259,
+      "Name": "Shale Cluster large",
+      "Kind": 2,
+      "bytes": [
+        104312,
+        31960,
+        11152,
+        3944
+      ],
+      "decoded_geometry_bytes": [
+        52156,
+        15980,
+        5576,
+        1972
+      ],
+      "decode_ms": 0.1849,
+      "CollisionColumns": 193,
+      "HasResistance": false
+    }
+  ],
+  "source_sha256": {
+    "Assets/AshenVoxel/Core/Details/PlantGenerator.cs": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+    "Assets/AshenVoxel/Core/Details/PlantModel.cs": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2",
+    "Assets/AshenVoxel/Core/EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+    "Assets/AshenVoxel/Core/Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+    "Assets/AshenVoxel/Core/Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+    "Assets/AshenVoxel/Core/Materials.cs": "ab945a1f679e57f81dca05fc3fe4a70e2e0e0d35ce51f2d1457d99e8660baf85",
+    "Assets/AshenVoxel/Core/Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+    "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs": "006a8434c519bb996e85c4b05e0f188efe49a0a56e68d84ae6b9804f1e78425e",
+    "Assets/AshenVoxel/Core/Rocks/RockProfile.cs": "20152a9dbd0661143a400c1c2b7a69e97755e65342e3352239847b1dc752afc3",
+    "Assets/AshenVoxel/Core/Rocks/RockShapeGeometry.cs": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69",
+    "Assets/AshenVoxel/Core/Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+    "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+    "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+    "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+    "Assets/AshenVoxel/Core/VertexAppearance.cs": "3ccdc0517c6e3e1db6d2f5680cc07b36b8b3ca1a4fb0273e621eb3a3d867a2ad",
+    "Assets/AshenVoxel/Core/VoxelColor.cs": "18387e0d5aedcb078e5f3ac6860908bbc1c6578a9bdbd295cbf6f4ea7a9550e9",
+    "Assets/AshenVoxel/Core/VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+    "Assets/AshenVoxel/Core/VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+    "Assets/AshenVoxel/Core/WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+    "Assets/AshenVoxel/WorldScaleData/ClimateArchive.cs": "126995205fe788f26b2a516fce894d1dce732dea75ed9db37b14cb58bfe303d9",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationAtlasField.cs": "bac586c5a6d6e52a51d3776a8d4283d39fb10c47288be783b90770db598c8c39",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs": "55712c21aa0066bf1a6231f52069ae33203e19bf5978f75eae53d9a9499887b4",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationPopulation.cs": "ed0dc9bee43813cac4ad0532cfc0270fac0b2c83dbb6ea6eb324ce8721724a27",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs": "1d1ed0696a32c6cbd4a85399b2f083e5b466bb5215b054e4ffe907f876008230",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs": "7d7f3794bf4574d1d0011c185f8de959d9dc7f7d6b3d96cf55f587e1328ac588",
+    "Assets/AshenVoxel/WorldScaleData/ForestBiomes.cs": "6d775df485aab75bf6f507f46477ff60a82c74be0834af21d9b078ed04d4ee55",
+    "Assets/AshenVoxel/WorldScaleData/GroundCoverScatter.cs": "3a1ce33ae049b07c752e82e01b61cc75de0071c1fef7f8373ee83782309b78e5",
+    "Assets/AshenVoxel/WorldScaleData/HeightAtlas.cs": "e7ee57295416134833db7e9e8dfc86e73d6a779561b6adde73a91801b11a43b7",
+    "Assets/AshenVoxel/WorldScaleData/ImplicitMatter.cs": "c063bf46a0a905cf3b7edd1ad383e89b8e74d649b5597f2efd9f6ea1bcab2eb5",
+    "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs": "31f2f4bafeb44ad064c1c2e1702ebb700c051ec40e0a1a28de5777603522d88f",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs": "4e873a75acd0f67f22a2b85e2caf407d6851cc3fd870441947fee5a9629bed90",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceProfile.cs": "05711037d0af7676befcfa1bf056bb6186eb4d1f7c465a84d72d56c0872baff8",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceWorldField.cs": "614c9bc4c516ba6f164deb628f024554552c988e46e1b7e1d6e513968f67722a",
+    "Assets/AshenVoxel/WorldScaleData/TerrainDetailField.cs": "8393d97d95a2d4deffda3db93d8b077cfa7223bb98f1e2c55b97f8242d17ac1b",
+    "Assets/AshenVoxel/WorldScaleData/VoxelLodSurface.cs": "e63bae6ad045b11103783061ee132eb7d43ba7cb0f798df851f67eb1e0155ae3",
+    "Assets/AshenVoxel/WorldScaleData/VoxelTerrainPage.cs": "f8b274d2288ead310432d170f55b5d48e9bc829085f4631ac655854822e0b337",
+    "Assets/AshenVoxel/WorldScaleData/WorldCoordinates.cs": "227e9cffedc4c23135e3486d229caad68fe20be39bbc8495d3d07af3d889dd82",
+    "Assets/AshenVoxel/WorldScaleData/WorldFields.cs": "750af4d4b9113607f005052a0b39f1d7e17f1f9f09b78a5a1557393304fa2339",
+    "Assets/AshenVoxel/Rendering/ChunkWorldRenderer.cs": "7a066cce60e92789eb66193b81fbc19c56081a654ca96ba0b36dab8880e29300",
+    "Assets/AshenVoxel/Rendering/GreedyChunkMesher.cs": "2afabf136e51512566fed42c369eb3408d6a1a53dbaf09558d48f031d978da0c",
+    "Assets/AshenVoxel/Rendering/MaterialOpticsProfile.cs": "503af3d272a0d334cf2e9d8db0fc7196ff6ad21e7d881e598014abfd77411551",
+    "Assets/AshenVoxel/WorldScaleRuntime/GroundCoverShowcase.cs": "295667e330d9aa9dc2bd31dbee75dff921b0a682162a88501324a1b0d3671903",
+    "Assets/AshenVoxel/WorldScaleRuntime/RemoteTerrainField.cs": "9476f5365cec348f543b59d28c3bc90b8941af7748bf96075052c51b7183109e",
+    "Assets/AshenVoxel/WorldScaleRuntime/VisualWater.cs": "6c8a56e97e2acf2f3c25f305e98164680e2ab40e38946b64b86081f1bfc3494f",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorkshopCamera.cs": "0978fbefe148ae9d4b7ac36c582a9eaee77ea6019f711329148285eb8850ca01",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs": "5d7e2903cabc71af4618582951fa47fa35897c00c6ce91bd13db14831093c321",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs": "48c0e689eb7f3c06160d631bbcfe7f83c735379b032890e23c56bf448791f9fb",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs": "eed51be61cb87f04752b0c8fc438f176539b3f31c686cf81a0d1a07c23097329",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "f609db6e1bf116d81a063e926dd24a3f8157acf939c04e4325ca9ad1f5a4de55",
+    "Assets/AshenVoxel/Exploration/ExplorationController.cs": "411c3feb0d03b04cd1277b3afefe122b56babb8636e13b011a11d3b390d1ccf2",
+    "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs": "72879000eed2a41b927d4c237a2751d17f345d236181ff15ea4fa9695ab0d9a6",
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": "66626530b591492e92ea2771b50e7a6acf3c8c789211ddcc42bacdf37d3976b9",
+    "Assets/AshenVoxel/Exploration/ExplorationUpscaling.cs": "445d78dcd7937eb3789665eb63618c25dbb64a71c1768a4abc7032693cc997d5",
+    "Assets/AshenVoxel/Exploration/ExplorationVisualQuality.cs": "fa5464e5ad9ca073d8fb9c6da089bcc70400aed0a5e10bf24d796f90310a05ab",
+    "Assets/AshenVoxel/Exploration/ExplorationVoxelTerrain.cs": "4dbd10a43c9fa29b99aec1f137e82977698b8c8c63794e3f6f1351cf4bfcb95f",
+    "Assets/AshenVoxel/Exploration/ExplorationWind.cs": "62ebdd37ffd5b818a33483b1fb1063e8e0b9af8de7451958b5daba6db39c4b4e",
+    "Assets/AshenVoxel/Exploration/ForestBillboard.cs": "eb5369d8adaba81a00aa8236536a0f9ec483201b0ff170f0a7bbedc6624fc44b",
+    "Assets/AshenVoxel/Exploration/ForestGpuRenderer.cs": "42f992e64008d07f06ba3f6abb2ec536b608800b856e48b70317516904c25fc1",
+    "Assets/AshenVoxel/Exploration/ForestHorizon.cs": "f9fd3e21b7c724f11031f25b4cd34f3746ae45a94c6743266490cafea81f002f",
+    "Assets/AshenVoxel/Exploration/VegetationStreaming.cs": "5048632bc8a14276501758f22b4f8347c1a195d936dee359ae84aa571f629bb7",
+    "Tools/ExplorationSmokeChecks/UnityShim.cs": "c7319ece597c8f13b78c7d49954c9980471c2703168689e45c9fb3dbc6071b57",
+    "Tools/StartupThroughput/PrototypeHotsetProgram.cs": "c6b66ab6b5c5a0a075dea55ba6f7de2aa04d48af289ed19af552126f13c2b80b"
+  },
+  "source_paths": {
+    "Assets/AshenVoxel/Core/Details/PlantGenerator.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Details\\PlantGenerator.cs",
+    "Assets/AshenVoxel/Core/Details/PlantModel.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Details\\PlantModel.cs",
+    "Assets/AshenVoxel/Core/EnvironmentColors.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\EnvironmentColors.cs",
+    "Assets/AshenVoxel/Core/Generation.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Generation.cs",
+    "Assets/AshenVoxel/Core/Int3.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Int3.cs",
+    "Assets/AshenVoxel/Core/Materials.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Materials.cs",
+    "Assets/AshenVoxel/Core/Persistence.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Persistence.cs",
+    "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Rocks\\RockGenerator.cs",
+    "Assets/AshenVoxel/Core/Rocks/RockProfile.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Rocks\\RockProfile.cs",
+    "Assets/AshenVoxel/Core/Rocks/RockShapeGeometry.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Rocks\\RockShapeGeometry.cs",
+    "Assets/AshenVoxel/Core/Simulation.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Simulation.cs",
+    "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Trees\\TreeGenerator.cs",
+    "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Trees\\TreeModel.cs",
+    "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Trees\\TreePresets.cs",
+    "Assets/AshenVoxel/Core/VertexAppearance.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\VertexAppearance.cs",
+    "Assets/AshenVoxel/Core/VoxelColor.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\VoxelColor.cs",
+    "Assets/AshenVoxel/Core/VoxelRaycast.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\VoxelRaycast.cs",
+    "Assets/AshenVoxel/Core/VoxelWorld.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\VoxelWorld.cs",
+    "Assets/AshenVoxel/Core/WorldEdits.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\WorldEdits.cs",
+    "Assets/AshenVoxel/WorldScaleData/ClimateArchive.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ClimateArchive.cs",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationAtlasField.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationAtlasField.cs",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationMovement.cs",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationPopulation.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationPopulation.cs",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationPrototypePack.cs",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationRefinementField.cs",
+    "Assets/AshenVoxel/WorldScaleData/ForestBiomes.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ForestBiomes.cs",
+    "Assets/AshenVoxel/WorldScaleData/GroundCoverScatter.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\GroundCoverScatter.cs",
+    "Assets/AshenVoxel/WorldScaleData/HeightAtlas.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\HeightAtlas.cs",
+    "Assets/AshenVoxel/WorldScaleData/ImplicitMatter.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ImplicitMatter.cs",
+    "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\LodPlanner.cs",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\SurfaceMaterialSampler.cs",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceProfile.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\SurfaceProfile.cs",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceWorldField.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\SurfaceWorldField.cs",
+    "Assets/AshenVoxel/WorldScaleData/TerrainDetailField.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\TerrainDetailField.cs",
+    "Assets/AshenVoxel/WorldScaleData/VoxelLodSurface.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\VoxelLodSurface.cs",
+    "Assets/AshenVoxel/WorldScaleData/VoxelTerrainPage.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\VoxelTerrainPage.cs",
+    "Assets/AshenVoxel/WorldScaleData/WorldCoordinates.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\WorldCoordinates.cs",
+    "Assets/AshenVoxel/WorldScaleData/WorldFields.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\WorldFields.cs",
+    "Assets/AshenVoxel/Rendering/ChunkWorldRenderer.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Rendering\\ChunkWorldRenderer.cs",
+    "Assets/AshenVoxel/Rendering/GreedyChunkMesher.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Rendering\\GreedyChunkMesher.cs",
+    "Assets/AshenVoxel/Rendering/MaterialOpticsProfile.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Rendering\\MaterialOpticsProfile.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/GroundCoverShowcase.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\GroundCoverShowcase.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/RemoteTerrainField.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\RemoteTerrainField.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/VisualWater.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\VisualWater.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorkshopCamera.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\WorkshopCamera.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorer.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorerIntegration.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorerVoxels.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationBootstrap.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationController.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationController.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationLiveRefinement.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationSettings.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationUpscaling.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationUpscaling.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationVisualQuality.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationVisualQuality.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationVoxelTerrain.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationVoxelTerrain.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationWind.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationWind.cs",
+    "Assets/AshenVoxel/Exploration/ForestBillboard.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ForestBillboard.cs",
+    "Assets/AshenVoxel/Exploration/ForestGpuRenderer.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ForestGpuRenderer.cs",
+    "Assets/AshenVoxel/Exploration/ForestHorizon.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ForestHorizon.cs",
+    "Assets/AshenVoxel/Exploration/VegetationStreaming.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+    "Tools/ExplorationSmokeChecks/UnityShim.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Tools\\ExplorationSmokeChecks\\UnityShim.cs",
+    "Tools/StartupThroughput/PrototypeHotsetProgram.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Tools\\StartupThroughput\\PrototypeHotsetProgram.cs"
+  },
+  "source_mode": "production",
+  "program_args": [
+    "C:/Users/ethan/Downloads/AshenVoxel"
+  ],
+  "overlay_dir": null,
+  "overlay_files": [],
+  "generated_utc": "2026-10-27T12:24:56.705624+00:00",
+  "source_snapshot": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-122453-544486-production-PrototypeHotsetProgram\\source",
+  "runner_sha256": "7636a10ae175a6a737016b7a59df0d62ebf92f7825b1daa22fa72aaf9702213d"
+}

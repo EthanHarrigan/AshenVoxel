@@ -1,0 +1,11 @@
+{
+  "utc": "2026-10-28T05:51:31.102961+00:00",
+  "files": {
+    "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs": "669ad900e2e5fa67e822520461a025cfb794e248ae2cb77d864f85b836616a77",
+    "Assets/AshenVoxel/Exploration/ExplorationNaturalTreeMatter.cs": "f6c12abd583b8eafc8f7c802cfedf01d5b5859b78bf16d3aa6dc6ebbf557f17c",
+    "Assets/AshenVoxel/Exploration/NaturalMatterBreakInput.cs": "aba73d136abe30589f7789fc1225d0189211caa9bbe8005561db5c7869a66d63",
+    "Assets/AshenVoxel/Exploration/NaturalMatterRenderer.cs": "3683e24da7325a176583bae60ee7e4f803e4447fee19787ec37983bab5af44ca",
+    "Tools/CheapMatterChecks/Program.cs": "1f8f4828aff5864f33a75775d28514f0d69caefb913f13b15d155a97d0a1e424",
+    "Tools/BreakInputChecks/Program.cs": "c76b5b0b8a1787d1c7f5bb737d93f52a8ca2647b8159731af5692af8bc907089"
+  }
+}

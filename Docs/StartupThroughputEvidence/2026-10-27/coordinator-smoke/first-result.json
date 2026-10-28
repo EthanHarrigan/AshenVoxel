@@ -1,0 +1,16 @@
+{
+    "marker": "coordinator-smoke-v1",
+    "run": "bounded-startup-20261027-1140",
+    "stopReason": "UI ended owned smoke",
+    "pid": 23204,
+    "startTicks": 639286722618688970,
+    "baselinePrivate": 0,
+    "minimumHeadroom": 4696027136,
+    "peakPrivate": 0,
+    "minHeadroomSeen": 3384672256,
+    "started": 25758.6538027,
+    "readyAt": 8.580645199999708,
+    "began": true,
+    "finished": true,
+    "originalPaused": false
+}

@@ -1,0 +1,33 @@
+PASS format1 migration preserves AO and explicit material/legacy identity
+PASS format2 migration preserves AO and explicit material/legacy identity
+PASS format3 migration preserves AO and explicit material/legacy identity
+PASS format4 migration preserves AO and explicit material/legacy identity
+PASS format4 rejects unknown material even with valid CRC
+PASS format4 rejects air render faces even with valid CRC
+PASS format4 rejects geometry exceeding allocation limits
+PASS format4 rejects truncated compressed payload
+PASS global population cells repeat exact prototype selection and positions
+PASS adjacent cells have disjoint candidate ownership
+PASS negative ownership bounds preserve physical10cm cell scale without instance scaling
+PASS request order never changes cell RNG state
+PASS temperate forests select coherent oak or birch regions instead of mixing all trees
+PASS young forest patches are denser than mature open patches
+PASS source taiga retains pine dominance despite forest display override
+PASS warm wet temperate rainforest can select redwood stands
+PASS source biome1 does not receive inappropriate forest trees
+PASS source biome2 does not receive inappropriate forest trees
+PASS source biome10 does not receive inappropriate forest trees
+PASS source biome11 does not receive inappropriate forest trees
+PASS source biome13 does not receive inappropriate forest trees
+PASS tree density zero removes trees without changing terrain
+PASS understory selects actual plant prototype variants and preserves voxel scale
+PASS rock family/material/size are independent baked10cm variants
+PASS unknown population layers reject
+PASS unsupported global cell keys reject before loops
+PASS one leaf voxel supplies exactly one overlap unit
+PASS same-volume stick supplies four leaf-equivalent overlap units
+PASS fractional body contact scales resistance by intersected volume
+PASS leaf/stick density never becomes a blocking surface or support
+PASS published pack uses version4 material-aware exact-quads plus separate body/resistance spans and99 records
+Unhandled exception. System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Program.Main(String[] args)

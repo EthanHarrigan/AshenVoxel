@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-27T20:46:52.075004+00:00",
+  "editor_log_offset": 661918,
+  "protected": {
+    "Assets/Scenes/Exploration.unity": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+    "Assets/AshenVoxel/Exploration/Samples/exploration-world.json": "85ff39810a717cc35db248d9c48b38af52839346e392c32ba707f67e6df94ea3",
+    "Assets/AshenVoxel/Exploration/Prototypes/ExplorationPrototypes.bytes": "41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerMemory.cs": "20a0adda253646f3f14126fe0c02d0faac7e46f26e9d006d6e9894dd4e567b31",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs": "4d0db66d4d52556fc6004f12803148e20bf29671ee20665bcb0d7bce2a4967fe"
+  },
+  "options_sha256": "a971d9170fe3dfcea5acfc46a4894b3ffc512927e6c9402f660a6660110e74ca"
+}

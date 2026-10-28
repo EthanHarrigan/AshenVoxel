@@ -1,0 +1,8 @@
+{
+  "initial_check": "FAIL before checkpoint/doc writes: world_id was incorrectly used as JSON file SHA256",
+  "world_id": "14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4",
+  "actual_file_sha256": "85ff39810a717cc35db248d9c48b38af52839346e392c32ba707f67e6df94ea3",
+  "unchanged_vs_prior_frozen_snapshot": true,
+  "prior_snapshot_sha256": "e4d48a41dd58ce1b4b8731bffbe1f3131e019a93ab74ddab5f8d7036c104ba91",
+  "runtime_or_world_edits_to_resolve": false
+}

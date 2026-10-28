@@ -1,0 +1,9 @@
+{
+  "pinvoke_methods": 0,
+  "dll_sha256": "6ce2f0253812596ee4038c8033db2280b2be1a95006b7031263f54591383d4d8",
+  "assembly_references": [
+    "netstandard"
+  ],
+  "scope": "Read-only PE metadata",
+  "unity_namespace_definitions": 0
+}

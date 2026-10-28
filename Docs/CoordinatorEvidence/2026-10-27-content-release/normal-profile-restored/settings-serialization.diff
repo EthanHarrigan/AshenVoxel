@@ -1,0 +1,26 @@
+--- recorded-original
++++ current-serialized-defaults
+@@ -53,6 +53,8 @@
+   EnableVoxelTerrain: 1
+   VoxelTargetPixels: 1.5
+   VoxelFullDetailRadius: 100
++  VoxelDetailBudgetMB: 1536
++  VoxelContactBudgetMB: 1024
+   ViewDistanceKm: 30
+   FarHorizonKm: 0
+   MaximumTerrainTiles: 512
+@@ -61,12 +63,14 @@
+   NearTerrainQuads: 64
+   TerrainBuildMilliseconds: 2
+   TerrainSampleWork: 256
++  WindStrength: 1
+   TreeDensity: 1
+   GroundCoverDensity: 1
+   FullTreeDetailMeters: 100
+   RedwoodFullDetailMeters: 40
+   MediumTreeDetailMeters: 300
+   TreeDistanceMeters: 1400
++  EnableGroundedRoots: 0
+   EnableForestHorizon: 1
+   ForestFollowsTerrainView: 1
+   UseGpuForestHorizon: 1

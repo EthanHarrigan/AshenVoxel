@@ -1,0 +1,106 @@
+{
+  "utc": "2026-10-27T13:38:14.536625+00:00",
+  "status": "ISOLATED CANDIDATE; NOT INSTALLED",
+  "api": {
+    "managed": "UploadPreparation.PrepareCanonical(PrototypeMeshData,int lod,string sourceIdentity,UploadLimits) and PrepareLower(IReadOnlyList<MeshData>,int lod,string compositeIdentity,UploadLimits) return immutable owned PreparedMesh; invalid inputs/capacity throw before returning any output.",
+    "unity": "UnityMeshUpload(coordinatorMainThreadId).TryCreate(PreparedMesh,string name,float windPaddingMeters,Func<bool> isCurrent,out Mesh complete,out string failure). Pass actual Awake/Start thread ID. Never pass an existing Mesh; method creates one new unpublished object only.",
+    "parts": "Canonical UpperPart=0, AuthoredBasePart=1; fallback draws both. Admitted grounded instance draws upper0 + derived LowerPart=0. Never globally disable authored base in a shared mesh."
+  },
+  "coordinates": {
+    "factors": [
+      1,
+      2,
+      4,
+      16,
+      64
+    ],
+    "cuts_local_cells": [
+      30,
+      32,
+      36,
+      60,
+      124
+    ],
+    "original_anchor": [
+      235,
+      4,
+      235
+    ],
+    "sparse_fine_y_shift": 1024,
+    "combined_anchor": [
+      235,
+      1028,
+      235
+    ],
+    "transform": "gridVertex=round(MeshData.position/(.1f*factor)); localCells=gridVertex*factor-anchor; position=localCells*.1f. Reject nonfinite/offgrid (>0.001 grid-cell residual)/short-overflow/upper-owned vertices. Use same original instance TRS; never add chunk child transform.",
+    "shading": "Axial normals and all RGB/material/AO bytes copied exactly. Canonical cut crossing must have identical packed colors/normals across all four vertices. Nonuniform crossings rejected, not interpolated. Noncrossing original AO diagonal/indices retained."
+  },
+  "trusted_contract": [
+    "Call on one owner lane with no concurrent mutation of decoded PrototypeMeshData or chunk collection; MeshData itself is immutable.",
+    "Initial supported IDs10/11 and reader.FormatVersion==4 gate belongs in Load; valid packed bytes alone do not certify model identity or an arbitrary seam.",
+    "Composite identity must cover pack/template/context/reducer/terrain/pose/owner/edit revisions and chunk set. Preparation hashes supplied identity and bounded chunk identities; it does not certify caller provenance.",
+    "All CPU buffers are validated/allocated before a native Mesh is created. Current callback runs before conversion, before native allocation and after upload. Callback is trusted pure/bounded; caller must check again at matrix/collision transaction.",
+    "Upload uses main-thread identity as an explicit caller assertion, not automatic Unity-thread detection. Wrong thread rejected before Unity call. Failure after creation calls runtime Object.Destroy; native destruction is deferred, so reservation cannot be released immediately.",
+    "The creator returns complete but unpublished render resources. It does not perform matrix publication, collision switch, cache leases or native reservation accounting."
+  ],
+  "bounds_and_accounting": {
+    "limits": "Caller provides max vertices, indices and28V+4I element bytes; absolute ceilings8M vertices/12M indices/512MiB, lower<=128chunks and4096chars per identity. Limits are rejection ceilings, not default runtime reservations.",
+    "canonical": "Prepared arrays use28V+4I element bytes. Source decoded arrays remain caller-owned; frozen split temporarily holds22bytes per crossing for appended packed vertices plus its small scratch. Index arrays transfer into PreparedMesh without duplicating them. One native VBO serves both index parts.",
+    "lower": "Input MeshData arrays, transformed packed scratch(11V bytes plus shared output indices), PreparedMesh(28V+4I) can coexist. Metadata/CLR overhead/GC backlog excluded. No full tree generated.",
+    "upload": "PreparedMesh and an additional28V+4I Unity-compatible managed buffer set coexist before upload. Native buffers add their own payload/overhead. UploadMeshData(true) is not a physical residency measurement. Include all three stages and failed/deferred-destroy resources in admission.",
+    "bounds": "Prepared bounds computed from all output positions; Unity creator pads by caller supplied existing wind maximum, validated0..16m. World/page union bounds must include both upper and lower.",
+    "scheduling": "Whole-prototype split/validation and whole-LOD conversion remain synchronous. This candidate is NOT a budgeted loader continuation or2ms guarantee; final production loader must reserve/schedule these costs."
+  },
+  "production_hooks": [
+    {
+      "file": "VegetationStreaming.cs",
+      "line": 45,
+      "delta": "Model stores optional prepared split metadata/per-part triangles perLOD; only supported pack/model IDs. PageKey/Batch gain representation-part/submesh selector and derived mesh owner. Do not key per-instance lower meshes solely by model/LOD/page."
+    },
+    {
+      "file": "VegetationStreaming.cs",
+      "line": 103,
+      "delta": "Keep treeLOD>=3 impostor branch unchanged. Prepare/upload split only on actual mesh branch before source arrays are released at129. On any rejection retain full canonical existing path and collision."
+    },
+    {
+      "file": "VegetationStreaming.cs",
+      "line": 240,
+      "delta": "Snapshot complete root bindings/leases together with matrix cells. Reserve cheapest complete representation coverage; charge upper+authored base or upper+actual lower, including every draw/shadow."
+    },
+    {
+      "file": "VegetationStreaming.cs",
+      "line": 271,
+      "delta": "Page keys must separate base/upper/lower; fallback matrices included in upper+authored base, active grounded included in upper+complete derived lower. Avoid counting twice as unique visible population when stats now count parts."
+    },
+    {
+      "file": "VegetationStreaming.cs",
+      "line": 293,
+      "delta": "Swap render batches and immutable gameplay binding map together, then retire old leases. Recheck full source/context/template/owner revision. No under-body collision replacement."
+    },
+    {
+      "file": "VegetationStreaming.cs",
+      "line": 328,
+      "delta": "RenderMeshInstanced uses batch.SubmeshIndex instead of constant0. No global SetSubMesh disable or shader clipping."
+    },
+    {
+      "file": "VegetationStreaming.cs",
+      "line": 140,
+      "delta": "Rebase all active/next lower matrices and bounds. Dispose/cancel uncommitted work on current existing invalidation lifecycle; preserve committed resources through batch retirement."
+    }
+  ],
+  "validation": {
+    "report": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-upload-prototype\\report.json",
+    "report_sha256": "bba1960640bcc07416ab607913d50903fbfb2fcd7ea20ca21ad7b00867948e76",
+    "assertions": 3984,
+    "synthetic_cases": 125,
+    "api": "Separate Core/WorldScale/ArrayMesher/Preparation/UnityUpload assembly C#9 netstandard2.1 compile against installed Unity6000.3.27f1 CoreModule; no Unity process or Mesh API executed.",
+    "coverage": "All5cuts/all6normals/below/above/on/crossing ownership; exact partition area/normal/material/AO and indices; rejection of AO/RGB crossings, invalid layout/material/winding/overlap, capacity; all5 lower transforms through actual ArrayRootMesher on tinyone-cell fixtures; no fulltree or pack reads."
+  },
+  "remaining": [
+    "Main-thread upload execution/native memory/time and destruction behavior",
+    "Incremental loader staging with actual allocations admitted",
+    "Composite/interaction/cache source binding and atomic render/collision lifecycle",
+    "Wind/shadow/motion/depth and billboard transitions",
+    "Production integration/Play travel/rebase/density/source tests"
+  ]
+}

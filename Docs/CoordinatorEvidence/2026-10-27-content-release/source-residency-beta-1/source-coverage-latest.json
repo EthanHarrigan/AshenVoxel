@@ -1,0 +1,241 @@
+{
+  "utc": "2026-10-27T22:28:58.205369+00:00",
+  "diagnostic": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs\\MountainReviewFrames\\valley-source32-late\\terrain-20261027-221910-595.json",
+  "source_limit": 32,
+  "resident": 32,
+  "selected": 30,
+  "ready": 30,
+  "held": 0,
+  "selected_ready_area_km2": 12.288,
+  "published_core_area_km2": 13.1072,
+  "camera": [
+    -40954.96880764632,
+    1984.2649999761584,
+    -13453.1573951418
+  ],
+  "extent": {
+    "minimum_x": -44160.0,
+    "maximum_x": -39040.0,
+    "minimum_z": -17280.0,
+    "maximum_z": -12800.0
+  },
+  "projected_xz_points": [
+    {
+      "ahead_m": 250,
+      "side": -0.5,
+      "x": -41206.11224922752,
+      "z": -13640.52684843469,
+      "published_core": true,
+      "full_live_blend": true,
+      "source_spacing_m": 5
+    },
+    {
+      "ahead_m": 250,
+      "side": 0,
+      "x": -41024.72104586332,
+      "z": -13693.22952027031,
+      "published_core": true,
+      "full_live_blend": true,
+      "source_spacing_m": 5
+    },
+    {
+      "ahead_m": 250,
+      "side": 0.5,
+      "x": -40843.32984249912,
+      "z": -13745.932192105929,
+      "published_core": true,
+      "full_live_blend": true,
+      "source_spacing_m": 5
+    },
+    {
+      "ahead_m": 500,
+      "side": -0.5,
+      "x": -41457.255690808706,
+      "z": -13827.896301727584,
+      "published_core": true,
+      "full_live_blend": true,
+      "source_spacing_m": 5
+    },
+    {
+      "ahead_m": 500,
+      "side": 0,
+      "x": -41094.47328408032,
+      "z": -13933.30164539882,
+      "published_core": true,
+      "full_live_blend": true,
+      "source_spacing_m": 5
+    },
+    {
+      "ahead_m": 500,
+      "side": 0.5,
+      "x": -40731.69087735193,
+      "z": -14038.706989070057,
+      "published_core": true,
+      "full_live_blend": true,
+      "source_spacing_m": 5
+    },
+    {
+      "ahead_m": 1000,
+      "side": -0.5,
+      "x": -41959.5425739711,
+      "z": -14202.635208313368,
+      "published_core": true,
+      "full_live_blend": true,
+      "source_spacing_m": 5
+    },
+    {
+      "ahead_m": 1000,
+      "side": 0,
+      "x": -41233.97776051432,
+      "z": -14413.445895655841,
+      "published_core": false,
+      "full_live_blend": false,
+      "source_spacing_m": 1280
+    },
+    {
+      "ahead_m": 1000,
+      "side": 0.5,
+      "x": -40508.412947057535,
+      "z": -14624.256582998314,
+      "published_core": false,
+      "full_live_blend": false,
+      "source_spacing_m": 1280
+    },
+    {
+      "ahead_m": 2000,
+      "side": -0.5,
+      "x": -42964.11634029588,
+      "z": -14952.113021484935,
+      "published_core": true,
+      "full_live_blend": true,
+      "source_spacing_m": 5
+    },
+    {
+      "ahead_m": 2000,
+      "side": 0,
+      "x": -41512.98671338231,
+      "z": -15373.73439616988,
+      "published_core": true,
+      "full_live_blend": true,
+      "source_spacing_m": 5
+    },
+    {
+      "ahead_m": 2000,
+      "side": 0.5,
+      "x": -40061.85708646875,
+      "z": -15795.355770854827,
+      "published_core": true,
+      "full_live_blend": true,
+      "source_spacing_m": 5
+    },
+    {
+      "ahead_m": 3000,
+      "side": -0.5,
+      "x": -43968.69010662064,
+      "z": -15701.590834656503,
+      "published_core": false,
+      "full_live_blend": false,
+      "source_spacing_m": 1280
+    },
+    {
+      "ahead_m": 3000,
+      "side": 0,
+      "x": -41791.9956662503,
+      "z": -16334.022896683922,
+      "published_core": true,
+      "full_live_blend": true,
+      "source_spacing_m": 5
+    },
+    {
+      "ahead_m": 3000,
+      "side": 0.5,
+      "x": -39615.301225879964,
+      "z": -16966.454958711343,
+      "published_core": false,
+      "full_live_blend": false,
+      "source_spacing_m": 1280
+    },
+    {
+      "ahead_m": 4000,
+      "side": -0.5,
+      "x": -44973.26387294542,
+      "z": -16451.06864782807,
+      "published_core": false,
+      "full_live_blend": false,
+      "source_spacing_m": 1280
+    },
+    {
+      "ahead_m": 4000,
+      "side": 0,
+      "x": -42071.0046191183,
+      "z": -17294.311397197962,
+      "published_core": false,
+      "full_live_blend": false,
+      "source_spacing_m": 1280
+    },
+    {
+      "ahead_m": 4000,
+      "side": 0.5,
+      "x": -39168.74536529118,
+      "z": -18137.554146567854,
+      "published_core": false,
+      "full_live_blend": false,
+      "source_spacing_m": 1280
+    },
+    {
+      "ahead_m": 6000,
+      "side": -0.5,
+      "x": -46982.41140559497,
+      "z": -17950.024274171206,
+      "published_core": false,
+      "full_live_blend": false,
+      "source_spacing_m": 1280
+    },
+    {
+      "ahead_m": 6000,
+      "side": 0,
+      "x": -42629.022524854285,
+      "z": -19214.888398226045,
+      "published_core": false,
+      "full_live_blend": false,
+      "source_spacing_m": 1280
+    },
+    {
+      "ahead_m": 6000,
+      "side": 0.5,
+      "x": -38275.6336441136,
+      "z": -20479.752522280884,
+      "published_core": false,
+      "full_live_blend": false,
+      "source_spacing_m": 1280
+    },
+    {
+      "ahead_m": 10000,
+      "side": -0.5,
+      "x": -51000.706470894074,
+      "z": -20947.935526857476,
+      "published_core": false,
+      "full_live_blend": false,
+      "source_spacing_m": 1280
+    },
+    {
+      "ahead_m": 10000,
+      "side": 0,
+      "x": -43745.05833632627,
+      "z": -23056.04240028221,
+      "published_core": false,
+      "full_live_blend": false,
+      "source_spacing_m": 1280
+    },
+    {
+      "ahead_m": 10000,
+      "side": 0.5,
+      "x": -36489.41020175847,
+      "z": -25164.149273706946,
+      "published_core": false,
+      "full_live_blend": false,
+      "source_spacing_m": 1280
+    }
+  ],
+  "notes": "No whole-valley or whole-view5m claim. Distant western peak is outside this source window. Samples classify source metadata only; coarse/fine render seams and unfinished mesh demand remain."
+}

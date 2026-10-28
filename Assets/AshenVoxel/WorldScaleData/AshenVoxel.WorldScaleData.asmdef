@@ -1,0 +1,6 @@
+{
+  "name": "AshenVoxel.WorldScaleData",
+  "rootNamespace": "AshenVoxel.WorldScale",
+  "references": ["AshenVoxel.Core"],
+  "noEngineReferences": true
+}

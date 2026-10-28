@@ -1,0 +1,67 @@
+{
+  "name": "birch-0",
+  "species": "Birch",
+  "seed": 714103,
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    110,
+    160,
+    110
+  ],
+  "bounds_min_m": [
+    2.5,
+    0.2,
+    2.7
+  ],
+  "bounds_max_m": [
+    8.5,
+    10.200000000000001,
+    8.4
+  ],
+  "center_m": [
+    5.5,
+    0.3,
+    5.5
+  ],
+  "fruit_enabled": false,
+  "branch_count": 1150,
+  "voxel_candidates": 524964,
+  "foliage_clusters": 682,
+  "truncated": false,
+  "truncation_reason": "None",
+  "material_counts": {
+    "Stone": 12100,
+    "Dirt": 12100,
+    "Grass": 11661,
+    "Litter": 421,
+    "Wood": 2806,
+    "Leaves": 19809
+  },
+  "parameters": {
+    "Height": 10,
+    "TrunkRadius": 0.18,
+    "CrownRadius": 2.5,
+    "BranchLevels": 4,
+    "BranchCount": 20,
+    "BranchAngle": 51,
+    "ApicalDominance": 0.7,
+    "Tropism": 0.12,
+    "FoliageDensity": 0.72,
+    "LeafClusterRadius": 0.3,
+    "FruitProbability": 0,
+    "Variation": 0.62,
+    "Age": 1,
+    "WhorlSize": 1,
+    "CrownStart": 0.35,
+    "ConeTaper": 0,
+    "BranchDroop": 0.76,
+    "Gnarl": 0.2,
+    "RootFlare": 0.12,
+    "ForkAngle": 31,
+    "BarkRelief": 0,
+    "BarkRidgeCount": 12,
+    "BarkColor": "FFC8C7B2",
+    "LeafColor": "FF667D43",
+    "FruitColor": "FFA73E28"
+  }
+}

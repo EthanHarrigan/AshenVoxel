@@ -1,0 +1,106 @@
+{
+  "status": "PASS",
+  "created_utc": "2026-10-26T10:30:48.887280+00:00",
+  "scope": "Actual pinned pretrained model through the canonical bridge; not Unity or gameplay FPS.",
+  "checks": {
+    "actual_pretrained_backend": true,
+    "all_float_channels_finite": true,
+    "cached_response_bit_exact": true,
+    "canonical_overlap_height_bit_exact": true,
+    "canonical_overlap_climate_bit_exact": true,
+    "owner_disk_recreation_bit_exact": true,
+    "avwf_baked": true
+  },
+  "timings_seconds": {
+    "prepare": 5.5141811889989185,
+    "first_canonical_region": 185.01108424399717,
+    "response_cache_repeat": 7.566199928987771e-05,
+    "overlap_from_owner_disk": 0.0011427559948060662
+  },
+  "job": {
+    "spec": {
+      "schema": "ashen-diffusion-job-v1",
+      "upstream_commit": "e8dcb4b1a834ab2f6b1a6f5256ed7c9f2f3e8230",
+      "model": "xandergos/terrain-diffusion-30m",
+      "model_revision": "9ef8030cb805b433b98ec25c5dddefbac07a9e26",
+      "seed": 714103,
+      "spacing_m": 30.0,
+      "precision": "fp32",
+      "device": "cpu",
+      "pipeline_cache_bytes": 268435456,
+      "runtime_versions": {
+        "python": "3.12.14",
+        "torch": "2.14.1+cpu",
+        "torchvision": "0.29.1+cpu",
+        "diffusers": "0.42.0",
+        "infinite-tensor": "0.4.0",
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "scikit-image": "0.26.0",
+        "rasterio": "1.5.2",
+        "h5py": "3.16.0",
+        "safetensors": "0.8.0"
+      },
+      "sampling_policy": "canonical-owner-v1",
+      "owner_samples": 256,
+      "owner_halo": 32,
+      "owner_disk_cache_bytes": 536870912,
+      "torch_threads": 4,
+      "T": 2,
+      "latents_batch_size": [
+        1
+      ],
+      "statistics": {
+        "path": "/workspace/infinite-diffusion-smoke/pipeline_data.json",
+        "sha256": "e3132c3ef0c65d8613615f9278ffe23bbd9363ddcd87f1cc6f18456bcc9efe5c"
+      },
+      "response_cache_bytes": 134217728,
+      "max_region_side": 1024,
+      "max_cached_regions": 256,
+      "max_region_samples": 262144,
+      "queue_capacity": 8,
+      "conditioning_snr": [
+        0.2,
+        0.2,
+        1.0,
+        0.2,
+        1.0
+      ],
+      "conditioning": null,
+      "height_units": "meters",
+      "row_axis": "global_z",
+      "column_axis": "global_x",
+      "climate_channels": [
+        "temperature_c",
+        "temperature_std_c",
+        "precipitation_mm",
+        "precipitation_cv_percent",
+        "beta"
+      ],
+      "biome_policy": "preserve_imported_or_unclassified_zero",
+      "land_policy": "generated_height_at_or_above_zero",
+      "coast_policy": "soft_model_conditioning"
+    },
+    "world_id": "a5575739d5d761843a5c32af9d49f35b9fd1dfc7a54f93f0d62d34fba32dbf5a",
+    "upstream_source": "/workspace/reference-code/terrain-diffusion",
+    "model_dir": "/workspace/infinite-diffusion-smoke/model",
+    "note": "Prepared inference job; this manifest is not generated terrain or evidence of executed weights."
+  },
+  "avwf_sha256": "8ff49309bec1ca8afba94345ce31587780f9079bbfe6b836d2ced67f8ffebd45",
+  "response_sha256": "8a15c4b805a1b312491c2da6077d16b0f82869204f2514ae582b8624482b21f9",
+  "height_min_m": 1194.4822998046875,
+  "height_max_m": 1514.0501708984375,
+  "climate_shape": [
+    5,
+    33,
+    33
+  ],
+  "native_spacing_m": 30,
+  "source_sha256": {
+    "bridge.py": "88e693d01f898151a32ea7c3d735ee2ae0bbc8d4f7f2b65f0d0a88f81e9439ad",
+    "check_real_bridge.py": "6b191b7e8857f037909e8d9b28a794c0df8e17497c40babe39492bddba9b9fdd",
+    "model-manifest.json": "2bbbb7106fd8b62b9a8b0c354d5bff56d02e0f471a2069d2abca5cb35115d1a5"
+  },
+  "peak_rss_kib": 2955692,
+  "limits": "Actual test covers one canonical owner, overlapping requests and verified disk replay. Adjacent owner geometry, GPU/runtime changes, far LOD, Unity and model-cache eviction/recompute remain separate tests."
+}

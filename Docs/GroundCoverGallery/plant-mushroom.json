@@ -1,0 +1,258 @@
+{
+  "name": "plant-mushroom",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    47,
+    8,
+    11
+  ],
+  "occupied_cells": 652,
+  "bounds_min_m": [
+    0.2,
+    0,
+    0.1
+  ],
+  "bounds_max_m": [
+    4,
+    0.6000000000000001,
+    1
+  ],
+  "material_counts": {
+    "Litter": 504,
+    "Fungus": 148
+  },
+  "scene": {
+    "category": "plant",
+    "label": "Mushroom",
+    "seeds": [
+      714103,
+      271828,
+      161803
+    ],
+    "specimens": [
+      {
+        "name": "Mushroom",
+        "seed": 714103,
+        "profile": {
+          "Kind": 6,
+          "HeightMeters": 0.35,
+          "RadiusMeters": 0.28,
+          "Density": 1,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 1,
+          "PaletteSteps": 4,
+          "FoliageColor": 4292925108,
+          "WoodColor": 4284829754,
+          "AccentColor": 4289285175
+        },
+        "result": {
+          "Kind": 6,
+          "Seed": 714103,
+          "RequestedMinCell": {
+            "x": 58,
+            "y": 4,
+            "z": 58
+          },
+          "RequestedMaxCell": {
+            "x": 70,
+            "y": 12,
+            "z": 70
+          },
+          "MinCell": {
+            "x": 62,
+            "y": 4,
+            "z": 62
+          },
+          "MaxCell": {
+            "x": 66,
+            "y": 7,
+            "z": 66
+          },
+          "WrittenCells": 48,
+          "Candidates": 86,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Fungus": 48
+          }
+        },
+        "actual_dimensions_m": [
+          0.5,
+          0.4,
+          0.5
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 48,
+        "material_counts": {
+          "Fungus": 48
+        },
+        "palette": {
+          "Fungus": [
+            4288759860,
+            4290926399,
+            4292925108
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -58,
+          "y": -2,
+          "z": -59
+        }
+      },
+      {
+        "name": "Mushroom",
+        "seed": 271828,
+        "profile": {
+          "Kind": 6,
+          "HeightMeters": 0.35,
+          "RadiusMeters": 0.28,
+          "Density": 1,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 1,
+          "PaletteSteps": 4,
+          "FoliageColor": 4292925108,
+          "WoodColor": 4284829754,
+          "AccentColor": 4289285175
+        },
+        "result": {
+          "Kind": 6,
+          "Seed": 271828,
+          "RequestedMinCell": {
+            "x": 58,
+            "y": 4,
+            "z": 58
+          },
+          "RequestedMaxCell": {
+            "x": 70,
+            "y": 12,
+            "z": 70
+          },
+          "MinCell": {
+            "x": 62,
+            "y": 4,
+            "z": 62
+          },
+          "MaxCell": {
+            "x": 66,
+            "y": 7,
+            "z": 66
+          },
+          "WrittenCells": 46,
+          "Candidates": 84,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Fungus": 46
+          }
+        },
+        "actual_dimensions_m": [
+          0.5,
+          0.4,
+          0.5
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 46,
+        "material_counts": {
+          "Fungus": 46
+        },
+        "palette": {
+          "Fungus": [
+            4288759860,
+            4290926399,
+            4292925108
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -44,
+          "y": -2,
+          "z": -59
+        }
+      },
+      {
+        "name": "Mushroom",
+        "seed": 161803,
+        "profile": {
+          "Kind": 6,
+          "HeightMeters": 0.35,
+          "RadiusMeters": 0.28,
+          "Density": 1,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 1,
+          "PaletteSteps": 4,
+          "FoliageColor": 4292925108,
+          "WoodColor": 4284829754,
+          "AccentColor": 4289285175
+        },
+        "result": {
+          "Kind": 6,
+          "Seed": 161803,
+          "RequestedMinCell": {
+            "x": 58,
+            "y": 4,
+            "z": 58
+          },
+          "RequestedMaxCell": {
+            "x": 70,
+            "y": 12,
+            "z": 70
+          },
+          "MinCell": {
+            "x": 61,
+            "y": 4,
+            "z": 62
+          },
+          "MaxCell": {
+            "x": 66,
+            "y": 7,
+            "z": 66
+          },
+          "WrittenCells": 54,
+          "Candidates": 92,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Fungus": 54
+          }
+        },
+        "actual_dimensions_m": [
+          0.6000000000000001,
+          0.4,
+          0.5
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 54,
+        "material_counts": {
+          "Fungus": 54
+        },
+        "palette": {
+          "Fungus": [
+            4288759860,
+            4290926399,
+            4292925108
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -29,
+          "y": -2,
+          "z": -59
+        }
+      }
+    ],
+    "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+  },
+  "generation_version": {
+    "plant": 1,
+    "rock": 2,
+    "catalog": 3
+  },
+  "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+}

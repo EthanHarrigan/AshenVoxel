@@ -1,0 +1,10 @@
+--- a/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
++++ b/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
+@@ -312,6 +312,7 @@
+         void SetVoxelTravelDeferral(bool value)
+         {
+             if(voxelTravelDeferring==value)return;
++            voxelSlowSince=-1;
+             voxelTravelDeferring=value;voxelRefinementScanPending=true;
+             if(!value){voxelFastSince=-1;ForceReplan();}
+         }

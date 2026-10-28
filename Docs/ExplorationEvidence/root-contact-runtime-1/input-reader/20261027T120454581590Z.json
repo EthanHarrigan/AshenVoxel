@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-27T12:04:55.765074+00:00",
+  "scope": "Engine-free .NET CPU checks; helper compiled C#9 against netstandard2.1. No Unity/native execution or Assets edits.",
+  "expected_manifest_entries": 14,
+  "source_input_sha256": {
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-native-data-checks\\RootPreviewData.cs": "4ec349eab0efae77f1b0d853cf03c343d16578c9caf16215a386b50d6c8cd5d4",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-native-data-checks\\Checks.cs": "334b86feef0e4a896950302d2661452d75d8753f30527fa128414cfa1ca42f8a",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-native-data-checks\\run.py": "af0899afccbf6f992fa774bbe10dff494ca8c6a9aec7cdf0852affd96917c3de",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-mesh-prototype\\native-inputs.tsv": "61514aaa28edd5640db936cae4670c8fbaa5ad0adf099cfcdec27c2b1f2c953d",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-mesh-prototype\\native-sites.bin": "f68a55c2731e80e92117f2187584710ee51185021fa798e5a31e284f84d03765",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\sites.json": "17375673127de2d1651d3744972abdede8aa47b622c17ec957d8d0c6288051bd"
+  },
+  "sources_inputs_unchanged": true,
+  "returncode": 0,
+  "helper_dll_sha256": "3ca4dffa82f2ffd25961bb17f9f5aa9cae219e66b728d8df9a22db57c84c639d",
+  "checks": 148
+}

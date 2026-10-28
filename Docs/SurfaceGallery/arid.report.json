@@ -1,0 +1,128 @@
+{
+  "image": "Docs/SurfaceGallery/arid.png",
+  "image_sha256": "4cc53a81d68ed0f88ba6a21bc0c2fee6db9a1f3d9ef5ff41f76c34bada55b225",
+  "input_sha256": "06e63c1ade22dea74bcd93a49f50b8a216cfc6aca8d2ee846324f5f2b08bb15d",
+  "source_provenance": {
+    "created_utc": "2026-10-26T16:55:36.454307+00:00",
+    "sdk": "8.0.427",
+    "source_sha256": {
+      "Assets/AshenVoxel/Core/EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+      "Assets/AshenVoxel/Core/Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+      "Assets/AshenVoxel/Core/Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+      "Assets/AshenVoxel/Core/Materials.cs": "ac929724f38bd3351903c806a54318607fddcfdbece1d4fd8fbe658e85524b77",
+      "Assets/AshenVoxel/Core/Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+      "Assets/AshenVoxel/Core/Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+      "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+      "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+      "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+      "Assets/AshenVoxel/Core/VoxelColor.cs": "5af05eb1f7f4be4827af684b422a878dcb967253c77958cde2c338c4bfc3669a",
+      "Assets/AshenVoxel/Core/VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+      "Assets/AshenVoxel/Core/VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+      "Assets/AshenVoxel/Core/WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+      "Assets/AshenVoxel/WorldScaleData/ClimateArchive.cs": "126995205fe788f26b2a516fce894d1dce732dea75ed9db37b14cb58bfe303d9",
+      "Assets/AshenVoxel/WorldScaleData/HeightAtlas.cs": "e7ee57295416134833db7e9e8dfc86e73d6a779561b6adde73a91801b11a43b7",
+      "Assets/AshenVoxel/WorldScaleData/ImplicitMatter.cs": "c063bf46a0a905cf3b7edd1ad383e89b8e74d649b5597f2efd9f6ea1bcab2eb5",
+      "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs": "31f2f4bafeb44ad064c1c2e1702ebb700c051ec40e0a1a28de5777603522d88f",
+      "Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs": "4e873a75acd0f67f22a2b85e2caf407d6851cc3fd870441947fee5a9629bed90",
+      "Assets/AshenVoxel/WorldScaleData/SurfaceProfile.cs": "05711037d0af7676befcfa1bf056bb6186eb4d1f7c465a84d72d56c0872baff8",
+      "Assets/AshenVoxel/WorldScaleData/SurfaceWorldField.cs": "614c9bc4c516ba6f164deb628f024554552c988e46e1b7e1d6e513968f67722a",
+      "Assets/AshenVoxel/WorldScaleData/WorldCoordinates.cs": "227e9cffedc4c23135e3486d229caad68fe20be39bbc8495d3d07af3d889dd82",
+      "Assets/AshenVoxel/WorldScaleData/WorldFields.cs": "750af4d4b9113607f005052a0b39f1d7e17f1f9f09b78a5a1557393304fa2339",
+      "Tools/SurfacePreview/ExportSurfaces.cs": "85e9c29db9c0c6054734043e0a9d6f3f16acc04bbf41a8259dc9e635fa29b4b2"
+    },
+    "note": "Controlled synthetic fixtures of actual C# surface classification and10cm matter. Not Unity or neural terrain output.",
+    "exports": {
+      "arid.bin": "06e63c1ade22dea74bcd93a49f50b8a216cfc6aca8d2ee846324f5f2b08bb15d",
+      "forest.json": "a8ca5803440108107027971ffaad9f2fd58df52549b9ceb3a7faddc686dc2530",
+      "pale-shore.bin": "c4318c0ecc8be542b280611045f00219b0564c3453f6e8c409e224329efd2832",
+      "alpine.json": "34cd50977503aa46d85b115cd1a7a811b2a7edda1e9b6753122742f2b354bd4a",
+      "arid.json": "4f9b35bd1e6ac2a8950494312cc69984e1ca61cccd9538da90b62aa4ceae4384",
+      "source-provenance.json": "fbef2b67963a3231162c0b3872c789ce33ff038a5549bdaf44d96abb3685095a",
+      "forest.bin": "d5069210df96580b9bc9286953fc2e8b1b739fb61e0446a12ba2b44ab2f7b390",
+      "black-shore.bin": "fbf623bd00e7ba90e5cd4bdb6603015ef64f178b299c562ddbcb7629f3c106a4",
+      "black-shore.json": "6f7ab51991a2c167bf81fca7bc70159301f8d4eb024398f2a74c8c21fd7b09b2",
+      "alpine.bin": "299734a452fda90448f956eaf6bf5fb29629c18a5d732c4c087ec25410a09c44",
+      "pale-shore.json": "e0a8fd7a8b00beaa7cc1d675b45049cfe48fcb37fa4ff75a7707e6d53d558eee"
+    }
+  },
+  "tool_sha256": "96949566bcd46502b770bdd5c25cd773cd67bec86eb5baf33e16a32fe9ffe955",
+  "spp": 64,
+  "width": 1100,
+  "height": 900,
+  "threads": 4,
+  "render_seed": 42,
+  "renderer": "Mitsuba 3.9.1",
+  "triangles": 274132,
+  "exposed_quads": 137066,
+  "camera_origin_m": [
+    33.540048924993414,
+    15.726955733408095,
+    -24.161607458324035
+  ],
+  "camera_target_m": [
+    9.600000000000001,
+    4.063854975077973,
+    9.600000000000001
+  ],
+  "fov": 39,
+  "elapsed_seconds": 3.5532568440030445,
+  "meta": {
+    "name": "arid",
+    "fixture_kind": "Controlled synthetic field/profile exercising the actual shared sampler; NOT Ceteviles or neural output",
+    "source_identity": "CONTROLLED-SURFACE-FIXTURE/arid/v1/surface-v1/catalog-v2/714103/0/4200/2.4/False/0.7/0.2/0/rock=13/wind=36.86989764584402/sun=287.3540246362613/climate=30,0,80,70,-0.0065",
+    "voxel_m": 0.1,
+    "dimensions_cells": [
+      192,
+      105,
+      192
+    ],
+    "world_origin_m": [
+      0,
+      154.70000000000002,
+      0
+    ],
+    "bounds_min_m": [
+      0,
+      0,
+      0
+    ],
+    "bounds_max_m": [
+      19.200000000000003,
+      9.450825523437146,
+      19.200000000000003
+    ],
+    "seed": 714103,
+    "material_counts": {
+      "Sandstone": 1610133,
+      "Gravel": 227293,
+      "Dirt": 14156,
+      "Sand": 254597
+    },
+    "cutaway_removed_cells": 54542,
+    "water_plane": false,
+    "water_local_height_m": -154.70000000000002,
+    "snow": {
+      "minimum_m": 0,
+      "maximum_m": 0,
+      "distinct_depths": 1,
+      "covered_columns": 0,
+      "total_columns": 36864
+    },
+    "profile": {
+      "MaxSnowDepthMeters": 2.4,
+      "WindStrength": 0.7,
+      "WindAzimuthDegrees": 36.86989764584402,
+      "SolarAzimuthDegrees": 287.3540246362613,
+      "forced_rock": "Sandstone",
+      "climate": {
+        "TemperatureC": 30,
+        "SeasonalityC": 0,
+        "PrecipitationMm": 80,
+        "PrecipitationCvPercent": 70,
+        "LapseRateCPerMeter": -0.0065
+      }
+    },
+    "note": "Matter created with SurfaceMaterialSampler.SampleMatter and VoxelWorld.Set; optional water is a separate illustrative offline surface, not a solid material or the URP shader."
+  },
+  "note": "Exact generated10cm matter from a controlled synthetic field/profile. Offline CPU light, not Unity. Water is a separate illustrative dielectric plane, not the URP shader or fluid simulation."
+}

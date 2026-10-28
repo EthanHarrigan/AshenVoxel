@@ -1,0 +1,41 @@
+4324 assertions; 1068 failures (40 messages retained); 15 plans; normal predicate 0 bytes/12.35ms
+FAIL Reject unsupported level before shift -1
+FAIL Reject unsupported level before shift 25
+FAIL Reject unsupported level before shift 64
+FAIL Reject null tile exception type NullReferenceException
+FAIL mixed-level edge 3 forward
+FAIL mixed-level edge 3 reverse
+FAIL mixed-level edge 4 forward
+FAIL mixed-level edge 4 reverse
+FAIL mixed-level edge 6 forward
+FAIL mixed-level edge 6 reverse
+FAIL mixed-level edge 12 forward
+FAIL mixed-level edge 12 reverse
+FAIL mixed-level edge 15 forward
+FAIL mixed-level edge 15 reverse
+FAIL mixed-level corner 15 forward
+FAIL mixed-level corner 15 reverse
+FAIL mixed-level edge 17 forward
+FAIL mixed-level edge 17 reverse
+FAIL mixed-level edge 18 forward
+FAIL mixed-level edge 18 reverse
+FAIL mixed-level edge 20 forward
+FAIL mixed-level edge 20 reverse
+FAIL mixed-level edge 21 forward
+FAIL mixed-level edge 21 reverse
+FAIL mixed-level corner 21 forward
+FAIL mixed-level corner 21 reverse
+FAIL mixed-level edge 23 forward
+FAIL mixed-level edge 23 reverse
+FAIL mixed-level edge 25 forward
+FAIL mixed-level edge 25 reverse
+FAIL mixed-level corner 27 forward
+FAIL mixed-level corner 27 reverse
+FAIL mixed-level edge 36 forward
+FAIL mixed-level edge 36 reverse
+FAIL mixed-level edge 40 forward
+FAIL mixed-level edge 40 reverse
+FAIL mixed-level corner 42 forward
+FAIL mixed-level corner 42 reverse
+FAIL mixed-level edge 44 forward
+FAIL mixed-level edge 44 reverse

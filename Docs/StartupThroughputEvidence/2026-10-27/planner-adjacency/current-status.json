@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-27T13:20:59.195499+00:00",
+  "installed": true,
+  "current": "install/installed.json",
+  "status": "Single-file guarded integration approved after review; native compile/reload and mesh regression PASS",
+  "render_plan_revision": "planner-adjacency-1/1651adfb",
+  "revision_scope": "Deployment/evidence identity for changed render-plan topology; no new source generator or serialized format identity.",
+  "world_scale_installed_source_check": "checks/20261027-131916-728357-production-Program/result.json",
+  "earlier_candidate_status_is_historical": [
+    "summary.json",
+    "capacity-checkpoint.json"
+  ],
+  "limits": [
+    "Correctness fix, not a measured Start/FPS gain. Existing512/30km recorded plan and576samples unchanged.",
+    "At192 cap, actual-spawn initial near grid3.2m becomes12.8m at20km or25.6m at30km. No cap or priority workaround.",
+    "Exact dyadic adjacency does not repair floating render-meter endpoint membership at very large coordinates.",
+    "Predicate handles signed64 keys/levels0..24; planner still limits camera coordinates to +/-1e12m and does not promise arbitrary-key rendering.",
+    "Extreme overflow fallback allocates an exception; normal measured path has zero allocation.",
+    "No native world-scale Play or mountainous-flight/FPS acceptance in this install. Native slot returned to coordinator."
+  ]
+}

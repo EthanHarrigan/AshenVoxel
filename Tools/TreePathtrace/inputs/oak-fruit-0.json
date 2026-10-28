@@ -1,0 +1,68 @@
+{
+  "name": "oak-fruit-0",
+  "species": "Oak",
+  "seed": 714103,
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    152,
+    147,
+    152
+  ],
+  "bounds_min_m": [
+    3.8000000000000003,
+    0.2,
+    3.1
+  ],
+  "bounds_max_m": [
+    11.8,
+    9.1,
+    12.4
+  ],
+  "center_m": [
+    7.6,
+    0.3,
+    7.6
+  ],
+  "fruit_enabled": true,
+  "branch_count": 593,
+  "voxel_candidates": 770882,
+  "foliage_clusters": 400,
+  "truncated": false,
+  "truncation_reason": "None",
+  "material_counts": {
+    "Stone": 23104,
+    "Dirt": 23104,
+    "Grass": 22583,
+    "Litter": 359,
+    "Wood": 4640,
+    "Leaves": 42382,
+    "Fruit": 154
+  },
+  "parameters": {
+    "Height": 9,
+    "TrunkRadius": 0.52,
+    "CrownRadius": 4,
+    "BranchLevels": 4,
+    "BranchCount": 10,
+    "BranchAngle": 71,
+    "ApicalDominance": 0.24,
+    "Tropism": 0.22,
+    "FoliageDensity": 0.86,
+    "LeafClusterRadius": 0.43,
+    "FruitProbability": 0.4,
+    "Variation": 0.72,
+    "Age": 1,
+    "WhorlSize": 1,
+    "CrownStart": 0.28,
+    "ConeTaper": 0,
+    "BranchDroop": 0.12,
+    "Gnarl": 0.73,
+    "RootFlare": 0.52,
+    "ForkAngle": 41,
+    "BarkRelief": 0,
+    "BarkRidgeCount": 12,
+    "BarkColor": "FF594637",
+    "LeafColor": "FF5C7338",
+    "FruitColor": "FF78552F"
+  }
+}

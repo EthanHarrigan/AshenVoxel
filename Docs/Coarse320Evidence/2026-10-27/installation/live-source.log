@@ -1,0 +1,49 @@
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(48,44): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(49,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(50,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(57,42): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+PASS travel predicts six seconds ahead independently of camera heading
+PASS stationary and slow movement preserve view demand
+PASS teleports and stale motion samples never create predicted travel corridors
+PASS near rear and side source cells precede distant visible detail even without airborne neighborhood permission
+PASS near coverage remains bounded and current source remains first
+PASS gameplay matter hold protects even distant source from retirement
+PASS distant unload returns dirty influence bounds while in-flight snapshots retain their exact source
+PASS runtime unloading honors the active gameplay matter hold
+PASS runtime retirement emits the actual distant influence rectangle
+PASS runtime unloading retires only one distant source per planning interval and reports it
+PASS blend plus query/prop guard blocks a patch whose core alone appears outside512m
+PASS published payload is an owned immutable grid independent of its transport cache
+PASS far publication emits its full influence/query/prop bounds outside the protected player disk
+PASS one atomic publication changes only far samples and preserves captured old state
+PASS authored map biome categories survive neural patch blending
+PASS active fine detail and its5m source resolution are explicitly queryable
+PASS a decoded patch cannot retire while the observer stands in its influence
+PASS safe retirement is atomic and previously captured immutable geometry work remains valid
+PASS revision advances while content identity returns exactly to the restored base source
+PASS snapshot identity mismatch is rejected before retaining samples
+PASS a different model world cannot be activated
+PASS a different physical sample lattice cannot be activated
+PASS unequal lapse rates are adjusted to final blended elevation before physical climate mixing
+PASS smooth patch blend reaches the unchanged base continuously at its influence edge
+PASS overlapping unit weights normalize without overshooting either decoded layer
+PASS fully decoded overlapping climates normalize after elevation correction
+PASS point-query conservative bounds contain base and patch extrema with finite roundoff margin
+PASS disk-to-influence AABB test accepts safe diagonal patches without a wasteful enclosing union
+PASS bounded LRU evicts only safe old payloads and emits separate non-unioned dirty rectangles
+PASS full protected cache refuses atomically instead of changing ground or partially retiring payloads
+PASS oversized patch refuses before resident payload exceeds byte budget
+PASS concurrent readers retain coherent immutable states during100 bounded replacements
+PASS runtime refinement admits the declared detail/service identity independently of the baked overview identity
+PASS disabled optional client immediately exposes actual bundled decoded terrain without network setup
+PASS resized horizontal map refuses untransformed server coordinates despite matching baked world ID
+PASS vertical height changes refuse unscaled remote patches while the resized baked world remains available
+PASS unavailable optional service leaves the same bundled world usable and reports its status
+PASS terminal transport failure disposes and schedules retry before the disconnected early return
+PASS verticalScale3 macro extrema derive legal LOD bounds instead of failing below -12000m
+PASS incremental mesh begins on a captured source snapshot
+PASS publication during a multi-frame mesh never mixes old and new terrain rows
+PASS regional refresh retains complete active terrain while scheduling changed source meshes
+PASS regional dirty metadata remains bounded by active plus desired caches after long travel
+PASS observer pose synchronously rebases the visible sea plane with camera and terrain before another Update
+All 44 exploration live refinement checks passed

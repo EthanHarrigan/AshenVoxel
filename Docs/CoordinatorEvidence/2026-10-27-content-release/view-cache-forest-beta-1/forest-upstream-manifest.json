@@ -1,0 +1,53 @@
+{
+  "id": "dense-forest-canopy-1",
+  "status": "FROZEN_CANDIDATE_CPU_API_PASSED_NOT_INSTALLED",
+  "generated_utc": "2026-10-27T20:50:07.143588+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ForestHorizon.cs",
+      "before": "f9fd3e21b7c724f11031f25b4cd34f3746ae45a94c6743266490cafea81f002f",
+      "after": "e550e9a4b213cda5593498f8490e38c0dd10460209a902a6eff5dae5713e4330",
+      "main_still_preimage": true
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestHorizonGpu.shader",
+      "before": "8baf14bc7f5f483940671cd20a8d1218abed1402ed5919c68355dab604c9a81b",
+      "after": "0ce14007ff51a78defc3a7f44971d06b4a659e58e5b1f5b78ea6cdca826af1a6",
+      "main_still_preimage": true
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestHorizonCull.compute",
+      "before": "69dd6e6ecefd7509bf13c15c818e4df4bed928e0b3063e1fd27fca1dcd48ca86",
+      "after": "dde95023d033542a122d5c9a10f2fa51fe12391d7625e9fb113f01f2ee7a8c4b",
+      "main_still_preimage": true
+    }
+  ],
+  "protected_dependency_sha256": {
+    "Assets/AshenVoxel/Exploration/ForestGpuRenderer.cs": "42f992e64008d07f06ba3f6abb2ec536b608800b856e48b70317516904c25fc1",
+    "Assets/AshenVoxel/Exploration/ForestBillboard.cs": "eb5369d8adaba81a00aa8236536a0f9ec483201b0ff170f0a7bbedc6624fc44b",
+    "Assets/AshenVoxel/Exploration/ForestImpostorLighting.hlsl": "4a7e2b67fae374b889ac5182b4fe7b76deea19526eb486e6d2643edf656e1a85",
+    "Assets/AshenVoxel/Exploration/ForestImpostor.shader": "9d96d4ffb7383c49c72b3fb09bac046d3a802e77ca0820899743e7101aa99c85",
+    "Assets/AshenVoxel/Exploration/Resources/ForestAtlasVersion.txt": "cb120b80cbc6188dfc7235b5601c4a4930d2c5ef005c97333bfa02fa7491f3ef",
+    "Assets/AshenVoxel/Exploration/Resources/ForestImpostor.mat": "205b3356823c5f3b26d07a92ffab0a43b0d7ee14166d3faf29fa791e9237c740"
+  },
+  "focused_checks": 13,
+  "check_summary": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\dense-forest-canopy-1\\checks\\20261027-204827-322436/summary.json",
+  "native_acceptance": "OPEN: coordinator only",
+  "controls": {
+    "samples_per_axis": 12,
+    "max_samples": 36864,
+    "max_tiles": 256,
+    "max_patch_width_m": 2048,
+    "height_envelope": [
+      0.86,
+      1.14
+    ],
+    "column_height_factor": [
+      0.88,
+      1.0
+    ],
+    "density_coefficient": 3.2,
+    "existing_external_control": "TreeDensity"
+  },
+  "scope": "No MAIN/import/native/GPU/UI/queue operations; no new assets/agents"
+}

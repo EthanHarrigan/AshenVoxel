@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "exitcode": 0,
+  "output": "",
+  "scope": "One focused C#9 API compile with actual main installed assemblies + installed Unity6000.3.27f1; not native execution",
+  "utc": "2026-10-27T17:17:33.429795+00:00",
+  "source_sha256": {
+    "preimages\\LocalizedMatter.cs": "9623200a9e9b28c8692a7da9fbe396d306bcf22c3a250611fd14405d6156b23e",
+    "preimages\\FallingAggregate.cs": "369890c297906ffe668089a1b3c2f63b822c84ece0f5ac38fde2db87f216110a",
+    "preimages\\FallingAggregateActor.cs": "b788c82a74bd3a562d21e6272b444be9f26c5516d966cc143b5945fde0750dfe",
+    "ExplorationBetaMatter.cs": "13089bf2ade4107d471999300f48b7bc5d809a04752aebb7f1398bbbdc67277b"
+  },
+  "reference_sha256": {
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\AshenVoxel.Core.dll": "f481e3aa2ac74f1f13934d1680460ec11d9820cbdb32521d464d72830a9baf44",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\AshenVoxel.Rendering.dll": "28db2792660f68e532953982b57570a9bcc3ede9efa66c625ebcadbce187c705",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\AshenVoxel.WorldScaleData.dll": "8662664947c85207aec5153fa95599ed15eeda081ee11372ee6fde170cf8da44",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\AshenVoxel.WorldScaleRuntime.dll": "4368a23d2a69ba5c44555605d56ff17c7d294e42a58f6e78ec811f6babf6dc37",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\AshenVoxel.Exploration.dll": "bdb6539843cc9f37927f0c7e8476f78c17fc0f6bf5c76a5d92e7c392e7e20461",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Library\\ScriptAssemblies\\Unity.InputSystem.dll": "e0cca68a81cd3403eb43be02156a7ebf8691c1e8b663a1c18b2d91a7a4186e67"
+  }
+}

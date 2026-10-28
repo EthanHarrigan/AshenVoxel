@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-27T22:47:42.697733+00:00",
+  "source_sha256": {
+    "Assets/AshenVoxel/Exploration/Editor/DlssNativeCheck.cs": "26a73038697a5335f427fa24b9e8a43a8894b001e0b243faf65ab097d5859bc9",
+    "Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs": "2dcff11f2c1cc869905108d1e1fe9d07e6c8c0ad743b9ec2ebb3b3c32f8e9748",
+    "Assets/AshenVoxel/Exploration/Editor/ExplorationCapture.cs": "9a6c38f9df49bbdda2e5a244fde93a92e81da8f292dd40e17f28758b4e6c55d2",
+    "Assets/AshenVoxel/Exploration/Editor/ExplorationPackageRefresh.cs": "44df230a463e54535f8d7a2781dc24575ddf8c806c52809248ca59679dd69e66",
+    "Assets/AshenVoxel/Exploration/Editor/ExplorationProjectSetup.cs": "433924ad9d8fd11e07ee5f7c2f2839e024138a6a7d4944a0b63dccfcfdbc95d1",
+    "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs": "1cd1dd13bc43584bab095a32f19a5e4b580d41f4e349c3ec9f76eb5a00a01563",
+    "Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs": "82dc53fd066b71f0591aa128cdcffb92394e070e163cc58d70152e8b25eb6af8",
+    "Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs": "e12234de1eda74ca2c9defca4ba763a237deaee2e838aee4fe6758dee3866809",
+    "Assets/AshenVoxel/Exploration/Editor/ForestShadeNativeCheck.cs": "c9218def07dbae78bf09f00ea3402767decd2ed03b46b14c25a6448dd813988b",
+    "Assets/AshenVoxel/Exploration/Editor/MaterialOpticsEditor.cs": "f76a850ca98e9fe6b04c63460a69571accbf56b018109b4f40197f1267b47538",
+    "Assets/AshenVoxel/Exploration/Editor/MaterialOpticsNativeCheck.cs": "2810d70a2ab61de8e3f05170ec624e70802924de0cbd6fcee81574da9702bcb1",
+    "Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs": "3ce501b02c91fccf2aa356691e3972199f1ea6047c1f6b9f72e2a1019806ae9d",
+    "Assets/AshenVoxel/Exploration/Editor/QualityPatchReview.cs": "62931466b329f3bb09fce794e795892d3fe1f65c69bb06adcb5197737e8571a9",
+    "Assets/AshenVoxel/Exploration/Editor/WindNativeCheck.cs": "d0c26aea959f05b1deff68afd87a3dfccaf1a84d85fba3e35e5630f2c2de1b39"
+  },
+  "scope": "Only affected full Exploration runtime and Editor assemblies, actual current native Data/Runtime refs; no new broad suite, no HLSL/native claim."
+}

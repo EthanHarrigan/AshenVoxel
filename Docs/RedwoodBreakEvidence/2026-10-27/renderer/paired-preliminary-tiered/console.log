@@ -1,0 +1,93 @@
+PASS two coherent cubes emit ten exposed faces
+PASS small matter retains10cm appearance in nine bounded objects
+PASS source geometry stays canonical despite initial yaw
+PASS idle origin/rotation updates rewrite no mesh vertices
+PASS visibility disables all ordinary rigid draws
+PASS dispose releases bounded rigid objects and meshes
+PASS actual renderer submits dormant parcel despite empty motion list
+PASS actual renderer retires collected dormant parcel exactly once
+PASS sparse large source retries coarser render bins without dropping authoritative matter
+PASS large source aimed edit accepted
+PASS large source exposes exact10cm cells beside latest cut while distant geometry stays coarse
+PASS fixture cut accepted
+PASS partial support membership is never captured as a complete render revision
+PASS fixture publishes one rigid section
+PASS detached section receives local rigid geometry
+PASS falling rigid section moves only its transform
+PASS loose visual samples cap4096 in valid1023-instance batches
+PASS visual sampling never deletes or collects matter
+PASS million-cell initial cache scans only on worker and publishes one nonempty source upload
+PASS main Tick performs no whole-tree cell traversal
+METRIC million-cell capture_ms=1.1077 worker_ms=68.7519
+PASS snapshot edit fixture
+PASS captured membership remains immutable after source mutation
+PASS revision invalidation fixture
+PASS completed stale worker is not published after a newer edit
+PASS revision diagnostics count cancelled stale work and one current publication
+PASS replacement revision publishes only remaining source cell
+PASS reassignment never publishes cancelled prior-owner geometry
+PASS disposed pending worker never uploads or publishes
+PASS worker failure is observed and never publishes invalid geometry
+PASS reassignment clears prior worker failure safely
+PASS borrowed intact source is immediately ready with no scan, mesh upload or worker
+PASS borrowed drawing keeps actual original mesh and selected submesh without coarse replacement
+PASS borrowed intact material retains source wind policy
+PASS borrowed original mask remains disabled until matching patches are ready
+PASS removed chunk and unchanged owner boundary publish exact patches with matching mask atomically
+PASS fully removed chunks skip empty mesher passes while remaining owner keeps exact halo
+PASS uniform neighbor receives newly exposed cut cap across sixteen-cell boundary
+PASS dispose releases owned mask while preserving borrowed mesh and material
+PASS uniform detached upper chunk reuses original mesh through island owner mask
+PASS falling borrowed geometry disables foliage wind without modifying source material
+PASS exact mixed patch equals original greedy vertices normals intrinsic colors corner AO and material interface indices
+PASS mixed source/island chunk keeps both owner halos and skips groups with no interior cells
+PASS accepted cut immediately identifies its local meter sphere for cosmetic feedback
+PASS pending cut acknowledgement remains visible beyond one second without publication
+PASS feedback never modifies shared source material or falling section materials
+PASS feedback preserves authoritative matter counts revision and intrinsic pigments
+PASS publication starts a short fade rather than dropping acknowledgement immediately
+PASS published cut feedback fades over120ms
+PASS completed feedback clears after fade
+PASS fast publication retains a minimum visible acknowledgement
+PASS hiding session clears break feedback
+PASS reassignment cannot carry feedback into another session
+PASS disposal clears pending feedback
+PASS patch face cap retains original visible appearance and reports failure instead of coarsening
+PASS actual million-cell mature redwood is immediately ready on borrowed path without geometry replacement
+PASS actual mature redwood first sphere fits exact chunk-mask and patch caps without coarsening
+PASS actual first bark sphere preserves attached-tree ownership and exact matter counts
+METRIC actual_redwood={"cells":1159639,"size_x":470,"size_y":978,"size_z":470,"removed":38,"mask_bytes":55800,"patch_vertices":16596,"patch_chunks":13,"capture_ms":0.3717,"worker_ms":18.3638,"worker_candidates":2319278}
+PASS attached redwood rebuild samples one owner group per patch instead of all nine
+PASS repeated redwood patch geometry and ownership digest is stable 0
+PASS repeated redwood patch geometry and ownership digest is stable 1
+PASS repeated redwood patch geometry and ownership digest is stable 2
+PASS repeated redwood patch geometry and ownership digest is stable 3
+PASS repeated redwood patch geometry and ownership digest is stable 4
+PASS repeated redwood patch geometry and ownership digest is stable 5
+PASS repeated redwood patch geometry and ownership digest is stable 6
+PASS repeated redwood patch geometry and ownership digest is stable 7
+PASS repeated redwood patch geometry and ownership digest is stable 8
+METRIC repeated_redwood={"samples_ms":[14.198,13.9236,13.9226,14.8524,14.6816,13.7744,20.4993,15.097,16.4491],"p50_ms":14.6816,"minimum_ms":13.7744,"maximum_ms":20.4993,"geometry_sha256":"b391cf44c27118010f1ea5a5276e8dcd94fd7e29ea75bc29cbbe2d18627f5554"}
+PASS paired original/current redwood exact geometry mask digest 0 True
+PASS paired original/current redwood exact geometry mask digest 0 False
+PASS paired original/current redwood exact geometry mask digest 1 False
+PASS paired original/current redwood exact geometry mask digest 1 True
+PASS paired original/current redwood exact geometry mask digest 2 True
+PASS paired original/current redwood exact geometry mask digest 2 False
+PASS paired original/current redwood exact geometry mask digest 3 False
+PASS paired original/current redwood exact geometry mask digest 3 True
+PASS paired original/current redwood exact geometry mask digest 4 True
+PASS paired original/current redwood exact geometry mask digest 4 False
+PASS paired original/current redwood exact geometry mask digest 5 False
+PASS paired original/current redwood exact geometry mask digest 5 True
+PASS paired original/current redwood exact geometry mask digest 6 True
+PASS paired original/current redwood exact geometry mask digest 6 False
+PASS paired original/current redwood exact geometry mask digest 7 False
+PASS paired original/current redwood exact geometry mask digest 7 True
+PASS paired original/current redwood exact geometry mask digest 8 True
+PASS paired original/current redwood exact geometry mask digest 8 False
+PASS paired original/current redwood exact geometry mask digest 9 False
+PASS paired original/current redwood exact geometry mask digest 9 True
+PASS paired original/current redwood exact geometry mask digest 10 True
+PASS paired original/current redwood exact geometry mask digest 10 False
+METRIC paired_redwood={"order":"alternating baseline/current per pair; two warmups; same immutable captured snapshot","baseline_samples_ms":[39.4672,40.6309,40.3905,33.2431,32.825,33.5638,34.2683,33.9166,33.4309,33.1101,32.8752],"current_samples_ms":[14.8665,14.2649,20.6491,35.9283,11.8828,11.9492,12.1457,12.3539,12.0457,12.0978,16.0844],"baseline_p50_ms":33.5638,"current_p50_ms":12.3539,"geometry_sha256":"b391cf44c27118010f1ea5a5276e8dcd94fd7e29ea75bc29cbbe2d18627f5554"}

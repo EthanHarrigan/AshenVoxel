@@ -1,0 +1,65 @@
+{
+  "identity": "movement-feel-1",
+  "status": "ISOLATED CANDIDATE; NOT INSTALLED; NO NATIVE RUN",
+  "generated_utc": "2026-10-27T17:02:39.087067+00:00",
+  "runtime_files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs",
+      "preimage_sha256": "55712c21aa0066bf1a6231f52069ae33203e19bf5978f75eae53d9a9499887b4",
+      "candidate_sha256": "9cc6b6fe875725b6fc7a5de191b47da91efd2465df0e5adf31d869801717806f",
+      "current_main_sha256": "55712c21aa0066bf1a6231f52069ae33203e19bf5978f75eae53d9a9499887b4",
+      "main_matches_preimage": true
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationController.cs",
+      "preimage_sha256": "411c3feb0d03b04cd1277b3afefe122b56babb8636e13b011a11d3b390d1ccf2",
+      "candidate_sha256": "cd014dd2ea7f3146021acbed997209ed48ef3f7dcf06476a71302c558ee8723d",
+      "current_main_sha256": "411c3feb0d03b04cd1277b3afefe122b56babb8636e13b011a11d3b390d1ccf2",
+      "main_matches_preimage": true
+    }
+  ],
+  "tests": {
+    "baseline_after_shim_repair": 127,
+    "candidate": 242,
+    "api": "Real Unity6000.3.27f1 API references: four complete dependency assemblies plus actual controller only; unrelated Exploration assembly sources excluded. C#9/.NETStandard2.1. No native import, shader or play test.",
+    "dotnet_tiered_compilation": "0 for final CPU fixture"
+  },
+  "cost": {
+    "scope": "Alternating five-repeat .NET controlled flat-field moving fixture; not native frame time",
+    "iterations": 12000,
+    "median_ms": {
+      "legacy": 9.6521,
+      "candidate": 10.3497
+    },
+    "median_us_per_tick": {
+      "legacy": 0.8043416666666667,
+      "candidate": 0.862475
+    },
+    "managed_bytes_per_12000_ticks": 0,
+    "substeps_per_12000_ticks": 48000
+  },
+  "defaults": {
+    "enabled": false,
+    "walk_m_s": 4,
+    "sprint_m_s": 7,
+    "flight_m_s": 40,
+    "flight_boost_m_s": 160,
+    "ground_acceleration_m_s2": 32,
+    "ground_braking_m_s2": 24,
+    "sprint_release_braking_m_s2": 10,
+    "air_acceleration_m_s2": 6,
+    "coyote_s": 0.09,
+    "jump_buffer_s": 0.1,
+    "crouch_height_m": 1.05,
+    "slide_minimum_m_s": 5,
+    "slide_braking_m_s2": 3
+  },
+  "gates": [
+    "Reconcile live main hashes and concurrent controller edits before integration",
+    "Whole-project native Unity import/compilation with current root/wildlife dependencies",
+    "Same-seed fixed-route A/B Play and pointer/focus/input checks",
+    "Native CPU/frame-time percentiles on same scene/route",
+    "Subjective traversal and comfort acceptance",
+    "Independent cliff-edge-slide candidate reconciliation remains outside this patch"
+  ]
+}

@@ -1,0 +1,20 @@
+PASS official Unity API compile: Core
+PASS official Unity API compile: WorldScaleData
+PASS official Unity API compile: Rendering
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(48,44): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(49,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(50,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(57,42): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+PASS official Unity API compile: WorldScaleRuntime
+PASS official Unity API compile: FiniteMatter
+Assets\AshenVoxel\Exploration\ExplorationOverviewRefinement.cs(29,105): warning CS0649: Field 'ExplorationOverviewRefinement.JobState.completed_rows' is never assigned to, and will always have its default value 0
+Assets\AshenVoxel\Exploration\ExplorationOverviewRefinement.cs(29,61): warning CS0649: Field 'ExplorationOverviewRefinement.JobState.request_id' is never assigned to, and will always have its default value null
+Assets\AshenVoxel\Exploration\ExplorationOverviewRefinement.cs(30,84): warning CS0649: Field 'ExplorationOverviewRefinement.BakedIdentity.native_model_world_id' is never assigned to, and will always have its default value null
+Assets\AshenVoxel\Exploration\ExplorationOverviewRefinement.cs(29,82): warning CS0649: Field 'ExplorationOverviewRefinement.JobState.state' is never assigned to, and will always have its default value null
+Assets\AshenVoxel\Exploration\ExplorationOverviewRefinement.cs(29,72): warning CS0649: Field 'ExplorationOverviewRefinement.JobState.source_id' is never assigned to, and will always have its default value null
+Assets\AshenVoxel\Exploration\ExplorationOverviewRefinement.cs(28,64): warning CS0649: Field 'ExplorationOverviewRefinement.ProviderState.ready' is never assigned to, and will always have its default value false
+Assets\AshenVoxel\Exploration\ExplorationOverviewRefinement.cs(28,84): warning CS0649: Field 'ExplorationOverviewRefinement.ProviderState.source_id' is never assigned to, and will always have its default value null
+Assets\AshenVoxel\Exploration\ExplorationOverviewRefinement.cs(28,94): warning CS0649: Field 'ExplorationOverviewRefinement.ProviderState.native_model_world_id' is never assigned to, and will always have its default value null
+Assets\AshenVoxel\Exploration\ExplorationOverviewRefinement.cs(30,66): warning CS0649: Field 'ExplorationOverviewRefinement.BakedIdentity.generator_version' is never assigned to, and will always have its default value null
+Assets\AshenVoxel\Exploration\ExplorationOverviewRefinement.cs(29,88): warning CS0649: Field 'ExplorationOverviewRefinement.JobState.error' is never assigned to, and will always have its default value null
+PASS official Unity API compile: Exploration

@@ -1,0 +1,219 @@
+{
+  "status": "PASS",
+  "scope": ".NET CPU approximate debris; not native Unity/render/FPS",
+  "assertions": 132230,
+  "records": [
+    {
+      "test": "2.5m punch; 1m/2m/edge/inside/assist/miss; yaw and center priority",
+      "cases": 42
+    },
+    {
+      "test": "sphere brush; soft microplants; external native pose and contact gate",
+      "radius": 0.25
+    },
+    {
+      "test": "real birch flat",
+      "count": 3395,
+      "island_max": 3375,
+      "first_release_age": 5.2500134,
+      "minimum_up": -0.11695522,
+      "cargo": 3376,
+      "source": 19
+    },
+    {
+      "test": "real birch slope",
+      "count": 3395,
+      "island_max": 3375,
+      "first_release_age": 5.116678,
+      "minimum_up": -0.13264799,
+      "cargo": 3376,
+      "source": 19
+    },
+    {
+      "test": "budget1",
+      "frames": 1050
+    },
+    {
+      "test": "queued lowbudget cuts",
+      "frames": 118,
+      "source": 3,
+      "individual": 3
+    },
+    {
+      "test": "twelve disconnected sections delayed mesh gate",
+      "frames": 145,
+      "waited": true,
+      "movedWhileWaiting": true,
+      "source": 1,
+      "individual": 13
+    },
+    {
+      "test": "100000 connected upper cells adaptive parcels",
+      "count": 100002,
+      "weight": 25,
+      "representatives": 4001,
+      "peakRepresentatives": 4001,
+      "logical": 100001,
+      "partialRetained": true,
+      "frames": 12794,
+      "source": 1,
+      "cargo": 100001,
+      "resolvedCargo": 100001,
+      "resolvedSource": 1,
+      "total_cpu_ms": 130.5613
+    },
+    {
+      "test": "weighted parcel",
+      "weight": 1,
+      "representatives": 28,
+      "logical": 28,
+      "cargo": 28
+    },
+    {
+      "test": "weighted parcel",
+      "weight": 2,
+      "representatives": 15,
+      "logical": 28,
+      "cargo": 28
+    },
+    {
+      "test": "weighted parcel",
+      "weight": 4,
+      "representatives": 8,
+      "logical": 28,
+      "cargo": 28
+    },
+    {
+      "test": "weighted parcel",
+      "weight": 7,
+      "representatives": 5,
+      "logical": 28,
+      "cargo": 28
+    },
+    {
+      "test": "all 76 tree and rock initial support"
+    },
+    {
+      "test": "3395 birch perf settled weight4",
+      "count": 3395,
+      "representatives_at_start": 867,
+      "body_budget": 8192,
+      "representative_visit_bound_frames": 1,
+      "individual": 3376,
+      "island": 0,
+      "physics_debt": 0,
+      "supplied_seconds": 3.9999999999999907,
+      "cargo": 0,
+      "p50_ms": 0.0029,
+      "p95_ms": 0.0054,
+      "max_ms": 0.024,
+      "allocated_bytes": 0
+    },
+    {
+      "test": "12000 debris perf settled weight4",
+      "count": 12002,
+      "representatives_at_start": 3001,
+      "body_budget": 8192,
+      "representative_visit_bound_frames": 1,
+      "individual": 12001,
+      "island": 0,
+      "physics_debt": 0,
+      "supplied_seconds": 3.9999999999999907,
+      "cargo": 0,
+      "p50_ms": 0.0189,
+      "p95_ms": 0.0247,
+      "max_ms": 0.0348,
+      "allocated_bytes": 0
+    },
+    {
+      "test": "12000 debris perf active air weight4",
+      "count": 12002,
+      "representatives_at_start": 3001,
+      "body_budget": 8192,
+      "representative_visit_bound_frames": 1,
+      "individual": 12001,
+      "island": 0,
+      "physics_debt": 0,
+      "supplied_seconds": 3.9999999999999907,
+      "cargo": 0,
+      "p50_ms": 0.032,
+      "p95_ms": 0.0511,
+      "max_ms": 0.0774,
+      "allocated_bytes": 0
+    },
+    {
+      "test": "12000 debris perf suction first120 weight4",
+      "count": 12002,
+      "representatives_at_start": 3001,
+      "body_budget": 8192,
+      "representative_visit_bound_frames": 1,
+      "individual": 0,
+      "island": 0,
+      "physics_debt": 0,
+      "supplied_seconds": 1.9999999999999978,
+      "cargo": 12001,
+      "p50_ms": 0,
+      "p95_ms": 0.0505,
+      "max_ms": 0.0809,
+      "allocated_bytes": 136
+    },
+    {
+      "test": "12000 debris perf active air weight1",
+      "count": 12002,
+      "representatives_at_start": 12001,
+      "body_budget": 8192,
+      "representative_visit_bound_frames": 2,
+      "individual": 12001,
+      "island": 0,
+      "physics_debt": 0,
+      "supplied_seconds": 3.9999999999999907,
+      "cargo": 0,
+      "p50_ms": 0.0803,
+      "p95_ms": 0.1288,
+      "max_ms": 0.2078,
+      "allocated_bytes": 0
+    },
+    {
+      "test": "3395 birch perf settled weight1",
+      "count": 3395,
+      "representatives_at_start": 3376,
+      "body_budget": 8192,
+      "representative_visit_bound_frames": 1,
+      "individual": 3376,
+      "island": 0,
+      "physics_debt": 0,
+      "supplied_seconds": 3.9999999999999907,
+      "cargo": 0,
+      "p50_ms": 0.0208,
+      "p95_ms": 0.0224,
+      "max_ms": 0.0302,
+      "allocated_bytes": 0
+    }
+  ],
+  "source_sha256": {
+    "Assets\\AshenVoxel\\Core\\Details\\PlantGenerator.cs": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+    "Assets\\AshenVoxel\\Core\\Details\\PlantModel.cs": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2",
+    "Assets\\AshenVoxel\\Core\\EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+    "Assets\\AshenVoxel\\Core\\Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+    "Assets\\AshenVoxel\\Core\\Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+    "Assets\\AshenVoxel\\Core\\Materials.cs": "ab945a1f679e57f81dca05fc3fe4a70e2e0e0d35ce51f2d1457d99e8660baf85",
+    "Assets\\AshenVoxel\\Core\\Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+    "Assets\\AshenVoxel\\Core\\Rocks\\RockGenerator.cs": "006a8434c519bb996e85c4b05e0f188efe49a0a56e68d84ae6b9804f1e78425e",
+    "Assets\\AshenVoxel\\Core\\Rocks\\RockProfile.cs": "20152a9dbd0661143a400c1c2b7a69e97755e65342e3352239847b1dc752afc3",
+    "Assets\\AshenVoxel\\Core\\Rocks\\RockShapeGeometry.cs": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69",
+    "Assets\\AshenVoxel\\Core\\Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+    "Assets\\AshenVoxel\\Core\\Trees\\TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+    "Assets\\AshenVoxel\\Core\\Trees\\TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+    "Assets\\AshenVoxel\\Core\\Trees\\TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+    "Assets\\AshenVoxel\\Core\\VertexAppearance.cs": "3ccdc0517c6e3e1db6d2f5680cc07b36b8b3ca1a4fb0273e621eb3a3d867a2ad",
+    "Assets\\AshenVoxel\\Core\\VoxelColor.cs": "18387e0d5aedcb078e5f3ac6860908bbc1c6578a9bdbd295cbf6f4ea7a9550e9",
+    "Assets\\AshenVoxel\\Core\\VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+    "Assets\\AshenVoxel\\Core\\VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+    "Assets\\AshenVoxel\\Core\\WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+    "Assets\\AshenVoxel\\Exploration\\NaturalTreeTemplate.cs": "794afd4148a203c4ac8dbc4883d91c124e8cf1639455b2276b09c9964f9a9dd1",
+    "Assets\\AshenVoxel\\Exploration\\NaturalTreePhysics.cs": "3edb4d9c7001ee3a31304cccf47eafe5fa5c9f077c24f6de7615e22c683a0286",
+    "Assets\\_Validation\\FiniteMatterSlice\\Runtime\\LocalizedMatter.cs": "9623200a9e9b28c8692a7da9fbe396d306bcf22c3a250611fd14405d6156b23e",
+    "Tools\\CheapMatterChecks\\Program.cs": "b6382293650020fdb0cc5d14ced415c24692c0f2e21767fff2847db4f736bf10"
+  },
+  "generated_utc": "2026-10-28T03:49:28.492762+00:00"
+}

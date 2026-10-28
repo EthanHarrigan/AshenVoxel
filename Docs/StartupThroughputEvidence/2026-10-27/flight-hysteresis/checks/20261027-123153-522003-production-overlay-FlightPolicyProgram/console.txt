@@ -1,0 +1,46 @@
+PASS ordinary80m/s motion remains unchanged
+PASS brief speed spikes do not enter deferral
+PASS entry hysteresis waits for sustained fast travel
+PASS hysteresis band retains the existing state at120m/s
+PASS stationary arrival releases immediately while moving-speed hysteresis remains
+PASS stationary destination wakes refinement and requests current plan within0.35s virtual time
+PASS sustained640m/s elevated travel enters deferral
+PASS moving below exit speed releases after the first slow interval
+PASS fast reentry is reached without an extra already-deferred fast sample
+PASS fast reentry starts a fresh slow interval instead of reusing the previous exit timestamp
+PASS same-state notification preserves the new slow interval before its deadline
+PASS repeated same-state notifications do not postpone slow exit indefinitely
+PASS sustained640m/s elevated travel enters deferral
+PASS direction reversal restores detail immediately
+PASS reversal recovery hold prevents immediate reentry
+PASS sustained640m/s elevated travel enters deferral
+PASS descent releases deferred contacts/detail immediately
+PASS fast ground movement never defers safe contact work
+PASS sustained640m/s elevated travel enters deferral
+PASS stale planner bounds disable deferral
+PASS sustained640m/s elevated travel enters deferral
+PASS unknown terrain enclosure disables deferral
+PASS sustained640m/s elevated travel enters deferral
+PASS floating-origin rebase does not alter global velocity
+PASS stationary rebases cannot create false high-speed travel
+PASS sustained640m/s elevated travel enters deferral
+PASS long sampling gap fails open to normal detail work
+PASS sustained640m/s elevated travel enters deferral
+PASS actual controller ResetAt releases transit and resets velocity before teleport arrival
+PASS stationary teleport destination does not inherit fast-flight state
+PASS sustained640m/s elevated travel enters deferral
+PASS successful controller respawn resets deferred motion
+PASS sustained640m/s elevated travel enters deferral
+PASS stopped turn-in-place retains normal refinement and requests view replanning
+PASS sustained640m/s elevated travel enters deferral
+PASS held fine-detail request does not block a32-column coverage improvement
+PASS existing queue selects eligible32-column work while retaining finer request
+PASS only-held queue backs off without discarding its request
+PASS coarse coverage is always eligible
+PASS source refresh bypasses travel deferral
+PASS destination recovery resumes the retained exact quality request
+PASS large negative global coordinates retain correct velocity across natural rebases
+PASS large-coordinate stationary destination releases transit
+MOTION_ALLOCATION 0 bytes; terrain queries 0
+PASS 10000 stationary motion updates allocate nothing and make no terrain queries
+PASS clear/shutdown resets motion state and owned queues

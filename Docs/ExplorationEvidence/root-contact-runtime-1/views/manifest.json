@@ -1,0 +1,50 @@
+{
+  "scope": "Offline CPU rendering of the exact fixtures independently matched cell/RGB by the frozen bounded C# builder. Actual canonical upper wood retained. Left baseline crop reused from identical earlier camera/data. No Unity/native/runtime integration.",
+  "builder_sha256": "0154d84bb0f3ff2f7638ffe55c389f813237a4d438545a3f7a4d53902e314b8a",
+  "renderer_sha256": "8ec2c5b1d433388a87e3d9d675e7f623b024e4b2253e0d1b968dd829f0cc99ac",
+  "driver_sha256": "c18062fc4f750e3ae16ba3b530e454f8cf1bd1920403881a226c1b4a8d938dec",
+  "rows": [
+    {
+      "id": 10,
+      "fixture_sha256": "324dfc2375fc7c8e097876c4ce700f69368286a1e4999d8de5dd376a822ae75b",
+      "wood_cells": 349919,
+      "added_cells": 1676,
+      "removed_cells": 32750,
+      "lower_cells": 51454,
+      "disconnected_lower_cells": 0,
+      "max_basal_gap_m": 0,
+      "max_basal_burial_m": 0.2509227710905293,
+      "gap_columns": 0,
+      "burial_quantiles_m": [
+        0.050922771090540664,
+        0.050922771090540664,
+        0.1509227710905634,
+        0.2509227710905293
+      ],
+      "upper_geometry_and_tint_unchanged": true
+    },
+    {
+      "id": 11,
+      "fixture_sha256": "c16071c202a1b554c3ac0b3bf638ed469d689a5ce262cafee64e289a57ab70e8",
+      "wood_cells": 379493,
+      "added_cells": 1660,
+      "removed_cells": 34071,
+      "lower_cells": 52979,
+      "disconnected_lower_cells": 0,
+      "max_basal_gap_m": 0,
+      "max_basal_burial_m": 0.2821021844439997,
+      "gap_columns": 0,
+      "burial_quantiles_m": [
+        0.08210218444395423,
+        0.08210218444395423,
+        0.18210218444397697,
+        0.2821021844439997
+      ],
+      "upper_geometry_and_tint_unchanged": true
+    }
+  ],
+  "image_sha256": {
+    "site-10-side.png": "6ce7f37884e9506c480f9cf51ff559f3022490ec02f7c3e2a3032e5e70e99c27",
+    "site-11-side.png": "d4a5b26e252ff78e27177469c311a75fe0e6d5739873878299476cc3dfe16e88"
+  }
+}

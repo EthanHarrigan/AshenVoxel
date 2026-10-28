@@ -1,0 +1,7 @@
+{
+  "utc": "2026-10-27T11:42:39.803258+00:00",
+  "before": "d201f6ff001bb683a930e14e2f085691de94e49cbc149972b97cd9b0155ed9a4",
+  "after": "698c52ccc7c8813d568dd5cee9019d64333d5757b1aab453ec952cbcc52023f7",
+  "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\preimages\\guard-v1.cs",
+  "reason": "Unity Mono Process private counter returned0; use fail-closed native current-process private counter; API compile PASS, actual native execution not yet verified"
+}

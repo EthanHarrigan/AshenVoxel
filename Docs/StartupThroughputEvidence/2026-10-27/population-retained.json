@@ -1,0 +1,155 @@
+{
+  "scope": "Actual population code/pack with numerical renderer substitutes. Frames are scheduling iterations, not native FPS; 60Hz floors are arithmetic.",
+  "actual_source": true,
+  "frames": 1033,
+  "seconds": 1.7510721,
+  "models_frame": 70,
+  "models_ms": 875.734,
+  "models_frame_floor_60hz": 1.1666666666666667,
+  "first_visible_frame": 74,
+  "near_ready_frame": 111,
+  "near_ready_ms": 1016.316,
+  "ResidentCells": 1715,
+  "ResidentInstances": 22469,
+  "PendingCells": 0,
+  "VisibleInstances": 19398,
+  "VisibleTriangles": 31995100,
+  "BudgetDemotions": 1922,
+  "MeshBytes": 436717216,
+  "MatrixBufferBytes": 15711424,
+  "trees": 11734,
+  "drawnTrees": 11296,
+  "draws": [
+    {
+      "lod": 0,
+      "batches": 89,
+      "instances": 1140,
+      "triangles": 15449172
+    },
+    {
+      "lod": 1,
+      "batches": 279,
+      "instances": 3016,
+      "triangles": 11383804
+    },
+    {
+      "lod": 2,
+      "batches": 430,
+      "instances": 3407,
+      "triangles": 5111656
+    },
+    {
+      "lod": 3,
+      "batches": 339,
+      "instances": 7072,
+      "triangles": 40942
+    },
+    {
+      "lod": 4,
+      "batches": 83,
+      "instances": 4763,
+      "triangles": 9526
+    }
+  ],
+  "deferred_cells": 0,
+  "CellsBuilt": 1715,
+  "MatrixVisits": 405002,
+  "MatrixRebuilds": 34,
+  "cells_per_cpu_second": 979.3999915822998,
+  "p95_tick_ms": 3.6026,
+  "max_tick_ms": 246.3236,
+  "rings": [
+    {
+      "radius": 128,
+      "want": 23,
+      "loaded": 23,
+      "published": 23,
+      "empty": 0
+    },
+    {
+      "radius": 256,
+      "want": 68,
+      "loaded": 68,
+      "published": 68,
+      "empty": 0
+    },
+    {
+      "radius": 512,
+      "want": 233,
+      "loaded": 233,
+      "published": 233,
+      "empty": 15
+    },
+    {
+      "radius": 768,
+      "want": 502,
+      "loaded": 502,
+      "published": 502,
+      "empty": 57
+    },
+    {
+      "radius": 1024,
+      "want": 870,
+      "loaded": 870,
+      "published": 870,
+      "empty": 117
+    },
+    {
+      "radius": 1400,
+      "want": 1593,
+      "loaded": 1593,
+      "published": 1593,
+      "empty": 263
+    }
+  ],
+  "rows": [
+    {
+      "frame": 0,
+      "ms": 24.52,
+      "Ready": false,
+      "ResidentCells": 0,
+      "ResidentInstances": 0,
+      "PendingCells": 0,
+      "VisibleInstances": 0,
+      "CellsBuilt": 0,
+      "MatrixVisits": 0,
+      "MatrixRebuilds": 0
+    },
+    {
+      "frame": 300,
+      "ms": 1386.2798,
+      "Ready": true,
+      "ResidentCells": 370,
+      "ResidentInstances": 13693,
+      "PendingCells": 1345,
+      "VisibleInstances": 10420,
+      "CellsBuilt": 370,
+      "MatrixVisits": 73178,
+      "MatrixRebuilds": 17
+    },
+    {
+      "frame": 600,
+      "ms": 1536.6955,
+      "Ready": true,
+      "ResidentCells": 966,
+      "ResidentInstances": 18213,
+      "PendingCells": 749,
+      "VisibleInstances": 14687,
+      "CellsBuilt": 966,
+      "MatrixVisits": 200015,
+      "MatrixRebuilds": 24
+    },
+    {
+      "frame": 900,
+      "ms": 1692.927,
+      "Ready": true,
+      "ResidentCells": 1563,
+      "ResidentInstances": 21653,
+      "PendingCells": 152,
+      "VisibleInstances": 18151,
+      "CellsBuilt": 1563,
+      "MatrixVisits": 338660,
+      "MatrixRebuilds": 31
+    }
+  ]
+}

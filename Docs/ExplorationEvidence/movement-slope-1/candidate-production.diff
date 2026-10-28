@@ -1,0 +1,46 @@
+--- a/Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs
++++ b/Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs
+@@ -21,6 +21,10 @@
+         public bool IsReady(double x,double z,double radius)=>true;
+         public bool BlocksBody(double x0,double y0,double z0,double x1,double y1,double z1)=>false;
+         public bool TryGetSupportHeight(double x,double z,double radius,double minimumHeight,double maximumHeight,out double height){height=0;return false;}
++    }
++    public interface IExplorationGroundSlope
++    {
++        bool TryGetGroundGradient(double x,double z,out double gradientX,out double gradientZ);
+     }
+     public interface IExplorationCollision
+     {
+@@ -227,6 +231,7 @@
+         }
+         bool Gradient(double x,double z,out double gx,out double gz)
+         {
++            if(Collision is IExplorationGroundSlope slope)return slope.TryGetGroundGradient(x,z,out gx,out gz);
+             const double probe=.3;gx=gz=0;
+             if(!Ground(x+probe,z,out double e)||!Ground(x-probe,z,out double w)||!Ground(x,z+probe,out double n)||!Ground(x,z-probe,out double s))return false;
+             gx=(e-w)/(probe*2);gz=(n-s)/(probe*2);return true;
+--- a/Assets/AshenVoxel/WorldScaleData/VoxelTerrainPage.cs
++++ b/Assets/AshenVoxel/WorldScaleData/VoxelTerrainPage.cs
+@@ -111,7 +111,7 @@
+ 
+     /// <summary>Body contact uses the same globally fixed cell centres and occupied
+     /// top faces as voxel conversion, independent of mesh readiness or LOD.</summary>
+-    public sealed class VoxelTerrainCollision:IExplorationCollision,IExplorationResistance
++    public sealed class VoxelTerrainCollision:IExplorationCollision,IExplorationResistance,IExplorationGroundSlope
+     {
+         readonly IExplorationCollision props;
+         readonly IWorldField surface;
+@@ -123,6 +123,13 @@
+             WorldCell cell=WorldCell.FromMeters(new WorldPoint(x,0,z));
+             height=VoxelTerrainPage.SurfaceTop(surface.Sample(cell.Center.X,cell.Center.Z).HeightMeters);return true;
+         }
++        public bool TryGetGroundGradient(double x,double z,out double gradientX,out double gradientZ)
++        {
++            const double probe=.3;
++            gradientX=(surface.Sample(x+probe,z).HeightMeters-surface.Sample(x-probe,z).HeightMeters)/(2*probe);
++            gradientZ=(surface.Sample(x,z+probe).HeightMeters-surface.Sample(x,z-probe).HeightMeters)/(2*probe);
++            return !double.IsNaN(gradientX)&&!double.IsInfinity(gradientX)&&!double.IsNaN(gradientZ)&&!double.IsInfinity(gradientZ);
++        }
+         public bool OverlapsBody(WorldPoint feet,double radius,double height)=>props.OverlapsBody(feet,radius,height);
+         public bool TryGetSupportHeight(double x,double z,double radius,double minimumHeight,double maximumHeight,out double height)=>props.TryGetSupportHeight(x,z,radius,minimumHeight,maximumHeight,out height);
+         public double WeightedSoftVoxels(WorldPoint feet,double radius,double height)=>props is IExplorationResistance resistance?resistance.WeightedSoftVoxels(feet,radius,height):0;

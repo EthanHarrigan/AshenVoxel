@@ -1,0 +1,16 @@
+{
+  "generated_utc": "2026-10-27T07:07:51.139520+00:00",
+  "baseline": "installed startup-lod-1",
+  "baseline_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs": "c6fba94eb04f3cd580d5af5211a17ae6f0534495261fbfe3e9d3aa1a1d83e8c8",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs": "847b218247a97e974101f7ac6e55fdcb35ff86d4c107acd3a2b91f894bd04a1a",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs": "b050c02ede81aa97bf491d02dea5fe47b0fa45fbc59b9480bda09ba0c49060a9",
+    "Assets/AshenVoxel/WorldScaleData/VoxelLodSurface.cs": "e63bae6ad045b11103783061ee132eb7d43ba7cb0f798df851f67eb1e0155ae3"
+  },
+  "candidate_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs": "9aae54f5dd9cde50cfa908b76190eee37167da4c2fc38a010845f54c00d4553e"
+  },
+  "changed_files": [
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs"
+  ]
+}

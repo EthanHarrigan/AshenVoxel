@@ -1,0 +1,146 @@
+{
+  "utc": "2026-10-27T10:19:57.854956+00:00",
+  "installed": false,
+  "native_verified": false,
+  "pack_sha256": "41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa",
+  "all_99_full_geometry_and_interaction_digests_match": true,
+  "variants": {
+    "baseline": {
+      "fresh_processes": 3,
+      "first_process_decode_median_ms": 510.3398000000003,
+      "warm_decode_median_ms": 368.16710000000023,
+      "warm_allocated_bytes": 273499808.0,
+      "phase_medians_ms": {
+        "inflateMs": 78.37040000000002,
+        "crcMs": 54.44935000000001,
+        "meshMs": 229.69455000000005,
+        "columnsMs": 5.364250000000003
+      },
+      "worst_warm_record_ms": 130.7637
+    },
+    "bounds": {
+      "fresh_processes": 1,
+      "first_process_decode_median_ms": 494.58330000000024,
+      "warm_decode_median_ms": 370.8150999999999,
+      "warm_allocated_bytes": 273499808.0,
+      "phase_medians_ms": {
+        "inflateMs": 79.02275,
+        "crcMs": 54.416,
+        "meshMs": 232.14890000000003,
+        "columnsMs": 5.370949999999999
+      },
+      "worst_warm_record_ms": 129.5486
+    },
+    "combined": {
+      "fresh_processes": 1,
+      "first_process_decode_median_ms": 495.0504000000002,
+      "warm_decode_median_ms": 378.31539999999984,
+      "warm_allocated_bytes": 261473768.0,
+      "phase_medians_ms": {
+        "inflateMs": 77.37109999999998,
+        "crcMs": 54.64830000000001,
+        "meshMs": 240.1929,
+        "columnsMs": 5.852099999999998
+      },
+      "worst_warm_record_ms": 142.0053
+    },
+    "crc": {
+      "fresh_processes": 1,
+      "first_process_decode_median_ms": 473.58560000000017,
+      "warm_decode_median_ms": 329.56880000000024,
+      "warm_allocated_bytes": 273499808.0,
+      "phase_medians_ms": {
+        "inflateMs": 79.05700000000002,
+        "crcMs": 13.291499999999994,
+        "meshMs": 231.0537,
+        "columnsMs": 5.4872499999999995
+      },
+      "worst_warm_record_ms": 124.6114
+    },
+    "fast": {
+      "fresh_processes": 3,
+      "first_process_decode_median_ms": 437.2753,
+      "warm_decode_median_ms": 276.5175999999999,
+      "warm_allocated_bytes": 273499808.0,
+      "phase_medians_ms": {
+        "inflateMs": 78.5812,
+        "crcMs": 13.480349999999998,
+        "meshMs": 178.98485000000002,
+        "columnsMs": 5.376450000000002
+      },
+      "worst_warm_record_ms": 96.5361
+    },
+    "nocopy": {
+      "fresh_processes": 1,
+      "first_process_decode_median_ms": 506.26739999999995,
+      "warm_decode_median_ms": 383.8433499999999,
+      "warm_allocated_bytes": 261473768.0,
+      "phase_medians_ms": {
+        "inflateMs": 76.86330000000001,
+        "crcMs": 54.28859999999999,
+        "meshMs": 247.37055000000004,
+        "columnsMs": 5.647249999999999
+      },
+      "worst_warm_record_ms": 145.255
+    },
+    "unrolled": {
+      "fresh_processes": 1,
+      "first_process_decode_median_ms": 465.26500000000027,
+      "warm_decode_median_ms": 319.5322,
+      "warm_allocated_bytes": 273499808.0,
+      "phase_medians_ms": {
+        "inflateMs": 79.64595000000003,
+        "crcMs": 54.940899999999985,
+        "meshMs": 179.32140000000007,
+        "columnsMs": 5.3407000000000036
+      },
+      "worst_warm_record_ms": 116.8981
+    }
+  },
+  "checks": {
+    "population": {
+      "status": "PASS",
+      "checks": 144
+    },
+    "decoder-oracles": {
+      "status": "PASS",
+      "checks": 6635
+    },
+    "api": {
+      "status": "PASS",
+      "assemblies": 5
+    },
+    "upload-initial-rejected": {
+      "status": "PASS"
+    },
+    "upload-lookup-1": {
+      "status": "PASS"
+    },
+    "upload-lookup-2": {
+      "status": "PASS"
+    },
+    "upload-lookup-3": {
+      "status": "PASS"
+    },
+    "invocation-missing-metadata": {
+      "status": "FAIL"
+    }
+  },
+  "upload_cpu_only": {
+    "vertices_audited_per_run": 12844496,
+    "ordinary_mesh_payload_bytes": 436717216,
+    "packed_mesh_payload_bytes": 333961248,
+    "ordinary_warm_conversion_median_ms": 93.59090000000018,
+    "packed_warm_conversion_median_ms": 65.47270000000024,
+    "ordinary_warm_allocated_bytes": 359688448,
+    "packed_warm_allocated_bytes": 256899040,
+    "native_vertex_layout_not_implemented_or_verified": true
+  },
+  "limitations": [
+    "First-process decode includes JIT but excludes pack file read and reader construction; OS disk cache not flushed.",
+    "Cumulative .NET allocations and arithmetic mesh payload are not resident RAM/VRAM.",
+    "Fixed CRC table increases storage by7168 bytes plus small array headers.",
+    "Original compile failure was probe instrumentation method/property typo; one later test invocation omitted its bake-metadata argument. Both private failure directories retained.",
+    "No full Start/FPS/native speedup claimed; largest records remain atomic above2ms."
+  ]
+}

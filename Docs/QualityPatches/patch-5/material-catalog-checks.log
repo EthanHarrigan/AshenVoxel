@@ -1,0 +1,56 @@
+PASS catalog revision4 has25 append-only material entries
+PASS historical IDs0..10 remain identical, including Basalt atStone1 and Fruit10
+PASS persisted material IDs11..21 retain their values; tissues/web append22..24 without aliases or reuse
+PASS enum and catalog have complete one-to-one coverage
+PASS all materials have names, valid physical cues and opaque base colors
+PASS unknown future material IDs are invalid
+PASS catalog rejects unknown IDs
+PASS palette rejects unknown IDs
+PASS rock tool resistance distinguishes hard granite/basalt from softer sedimentary stone
+PASS coherent rocks and ice remain solid static material rather than loose grains
+PASS loose sediment, snow and peat participate in the shared granular approximation
+PASS organic peat and mineral/snow flammability remain distinct
+PASS snow, ice and rock retain distinct density cues
+PASS 1221 historical material/seed/position colors match the pre-update published Core golden hash
+PASS Granite intrinsic palette is repeatable, opaque and spatially varied
+PASS Granite zero variation preserves exact base color
+PASS Limestone intrinsic palette is repeatable, opaque and spatially varied
+PASS Limestone zero variation preserves exact base color
+PASS Sandstone intrinsic palette is repeatable, opaque and spatially varied
+PASS Sandstone zero variation preserves exact base color
+PASS Shale intrinsic palette is repeatable, opaque and spatially varied
+PASS Shale zero variation preserves exact base color
+PASS Gravel intrinsic palette is repeatable, opaque and spatially varied
+PASS Gravel zero variation preserves exact base color
+PASS Clay intrinsic palette is repeatable, opaque and spatially varied
+PASS Clay zero variation preserves exact base color
+PASS BlackSand intrinsic palette is repeatable, opaque and spatially varied
+PASS BlackSand zero variation preserves exact base color
+PASS Snow intrinsic palette is repeatable, opaque and spatially varied
+PASS Snow zero variation preserves exact base color
+PASS Ice intrinsic palette is repeatable, opaque and spatially varied
+PASS Ice zero variation preserves exact base color
+PASS Silt intrinsic palette is repeatable, opaque and spatially varied
+PASS Silt zero variation preserves exact base color
+PASS Peat intrinsic palette is repeatable, opaque and spatially varied
+PASS Peat zero variation preserves exact base color
+PASS Fungus intrinsic palette is repeatable, opaque and spatially varied
+PASS Fungus zero variation preserves exact base color
+PASS Petal intrinsic palette is repeatable, opaque and spatially varied
+PASS Petal zero variation preserves exact base color
+PASS Web intrinsic palette is repeatable, opaque and spatially varied
+PASS Web zero variation preserves exact base color
+PASS artist base-color override remains independent from material identity
+PASS color sampler rejects nonfinite variation
+PASS color sampler rejects invalid cell scale
+PASS all new material identities and tints survive current snapshot roundtrip
+PASS new-material snapshot serialization is stable after load
+PASS append-only materials retain snapshot Format2 rather than inventing an incompatible container
+PASS unknown material payload rejected even with a repaired valid CRC
+PASS legacy fixture retains bytes written by the prior published Core
+PASS old material/color snapshots load with their exact historical IDs and appearance
+PASS digging power removes softer rocks while preserving harder granite and basalt
+PASS new granular materials settle under the one-candidate work budget
+PASS gravity conserves every new grain material and its paired intrinsic color
+PASS suspended ice and granite do not silently become granular particles
+All 55 material checks passed.

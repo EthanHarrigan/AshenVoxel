@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "generated_utc": "2026-10-27T02:55:05.504203+00:00",
+  "scope": "Release evidence freshness/coverage audit, not a new behavior test or native Unity run",
+  "audited_file_hash_entries": 409,
+  "official_api_current_source_files": 60,
+  "reports": [
+    {
+      "path": "Docs/exploration-field-validation.json",
+      "sha256": "51eb9015ff9ceec6eaee4018175783ed90b8fd386125fd886383d507a25fe37e",
+      "checks": 28,
+      "audited_file_entries": 35,
+      "scope": "Actual engine-free static neural atlas blend/units/categorical transform; not Unity or fresh inference"
+    },
+    {
+      "path": "Docs/exploration-population-validation.json",
+      "sha256": "0ce69e5ed8687a59f4179ee5556fc326ec5f0055f5ed85beab996786b3a78657",
+      "checks": 130,
+      "audited_file_entries": 35,
+      "scope": "Actual engine-free population and exact-quad prototype decoder; not Unity/player/GPU verification"
+    },
+    {
+      "path": "Docs/exploration-streaming-validation.json",
+      "sha256": "16cfb98e0f277d7c9ea3cbd7ab7559bc23b2324301fc27a561b26ef712506200",
+      "checks": 24,
+      "audited_file_entries": 37,
+      "scope": "Actual VegetationStreaming executed with numerical Unity substitutes and real99-model pack; no native Unity/GPU/FPS claim"
+    },
+    {
+      "path": "Docs/exploration-movement-validation.json",
+      "sha256": "1f33ca48b5e036b0d1ad8c6c93e693f51f2c2acebaacd00ad293b897c0be0fca",
+      "checks": 62,
+      "audited_file_entries": 37,
+      "scope": "Actual engine-free movement plus actual input/controller code with Unity substitutes; not native Unity controller/play/render testing"
+    },
+    {
+      "path": "Docs/exploration-smoke-validation.json",
+      "sha256": "2545a753d0791bff3a6ffa0ac62ac602dd5bd140064beb2a36f46d65ff22ece9",
+      "checks": 31,
+      "audited_file_entries": 54,
+      "scope": "Actual bootstrap/settings/controller/vista/population/live-disabled logic with numerical Unity substitutes and real bundled neural/prototype assets; not native Unity/HLSL/GPU/FPS"
+    },
+    {
+      "path": "Docs/exploration-live-validation.json",
+      "sha256": "fbab11a492397afe9cc63c82a429f006d6d6c6b7d572b43fab86bf5589945b7d",
+      "checks": 39,
+      "audited_file_entries": 49,
+      "scope": "Actual engine-free terrain compositor and runtime C# with Unity API substitutes; controlled safety fixtures and bundled actual learned terrain. Not native Unity, URP visual testing or an FPS measurement."
+    },
+    {
+      "path": "Docs/world-explorer-validation.json",
+      "sha256": "a5c70c42fdbeb1dd821a86e92c71f99ccaf34e27969e438cd7c02ce70d1818e3",
+      "checks": 86,
+      "audited_file_entries": 43,
+      "scope": "Actual runtime C# with Unity API substitutes; Python-producer/C#-consumer fake transport fixture. Not native Unity, Editor, URP or real-model execution."
+    },
+    {
+      "path": "Docs/exploration-setup-validation.json",
+      "sha256": "250c13a9ae8844b2cc526a627c72e3c6dbf6246cc52978433708eb9367658398",
+      "checks": 28,
+      "audited_file_entries": 14,
+      "scope": "Static scene/settings GUID bindings, imported metadata and data integrity; no native Unity asset deserialization or playtest"
+    },
+    {
+      "path": "Docs/shading-validation.json",
+      "sha256": "e6cea7756473a60444483cf905c7f816bc4e7c68178a74b9e996b223ad2bd3be",
+      "checks": 22,
+      "audited_file_entries": 3,
+      "scope": "Static shader/material contracts, not HLSL compilation or native Unity rendering"
+    },
+    {
+      "path": "Docs/exploration-world-survey.json",
+      "sha256": "7efb32a06602e26602149ddd7c6da9c066932d51cddf6e493f57443d70804988",
+      "checks": null,
+      "audited_file_entries": 42,
+      "scope": "Actual shipped immutable learned world and default surface/population data; static walkability/real hard-prop clearance, not native Unity movement or visual validation"
+    },
+    {
+      "path": "Docs/ExplorationEvidence/real-unity-api-validation.json",
+      "sha256": "38540c3eb8036be43250f62c197cd59635aa48378f26d699ae6e3f41ddb38b6e",
+      "checks": null,
+      "audited_file_entries": 53,
+      "scope": "Roslyn C#9 compilation against actual official Unity NetStandard2.1 reference profile and6000.3.27f1 Managed moduleDLLs and compiled unmodifiedofficialInputSystem1.17.0sources. NoUnityEditor/native/runtime/HLSL execution. Playerconditional compile; optionalInputUI adapters excluded."
+    },
+    {
+      "path": "Docs/ExplorationEvidence/real-unity-editor-api-validation.json",
+      "sha256": "f22219828ba43c3079c47c4ca20b56bceeabe42398a23f7593af347b5d009cca",
+      "checks": null,
+      "audited_file_entries": 7,
+      "scope": "Editor C#9/API compile against actual Unity unity-4.8 framework reference profile, official Editor modules and official bundled 3D URP template ScriptAssemblies; no nativeEditor/import/HLSLexecution. No DLLsource shims. Separate project assembly references follow asmdefs."
+    }
+  ],
+  "native_editor_import": "NOT EXECUTED",
+  "native_shader_compilation": "NOT EXECUTED",
+  "native_play_mode_and_gpu_performance": "NOT EXECUTED",
+  "windows_launcher": "NOT EXECUTED",
+  "terrain_fidelity": "Actual1280m learned coarse whole world;5m decoded5115m starter;optional guarded live5m;near0.5-1m height proxies;10cm props/local matter"
+}

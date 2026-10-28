@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "checks": 27,
+  "generated_utc": "2026-10-27T06:40:41.584169+00:00",
+  "scope": "Static shader/material contracts only; separate native material optics evidence is in QualityPatches/patch-5",
+  "passed": [
+    "forward, shadow, depth, camera-normal and motion passes exist",
+    "ForwardLit retains uniform-scale instancing variants",
+    "ShadowCaster retains uniform-scale instancing variants",
+    "DepthOnly retains uniform-scale instancing variants",
+    "DepthNormals retains uniform-scale instancing variants",
+    "MotionVectors retains uniform-scale instancing variants",
+    "shared vertex reads per-instance transforms",
+    "all five passes inherit one identical material layout",
+    "all object passes apply anchored material coverage with shared camera and shadow policies",
+    "fragment spherical harmonics receive the instance identity",
+    "authored opaque sRGB colors are decoded",
+    "optional surface grain follows object coordinates across origin rebasing",
+    "vertex and screen occlusion combine without double multiplication",
+    "direct lighting uses the URP dielectric BRDF API",
+    "camera normals support URP octahedral encoding",
+    "forward, shadow, depth and normal passes share wind positions and analytic normals",
+    "motion vectors use current and previous nonjittered wind with explicit static rebase history",
+    "Resources material retains instancing in builds",
+    "default material adds no independent cell noise",
+    "terrain supplies camera normals as well as color, depth and shadows",
+    "all terrain passes inherit one shared material layout",
+    "voxel cutout indexing has an explicit bounded readiness grid",
+    "color, shadow, depth and normal fragments use identical completed-page cutouts",
+    "terrain consumes screen AO instead of only writing its source normals",
+    "terrain normal packing matches the object normal pass",
+    "terrain coverage wraps its world anchor across floating-origin phase rollover",
+    "terrain shares anchored view coverage across camera passes and separate shadow coverage"
+  ],
+  "source_sha256": {
+    "Assets\\AshenVoxel\\Rendering\\WorldSurface.shader": "79959309d848d4c8950eb8bb4035832fc8fea2166fa38a74f96417f621185416",
+    "Assets\\AshenVoxel\\Rendering\\Resources\\VoxelSurface.mat": "cfc2e6731047272d471add840629f104bed8f7c60cf115a867b4b7990440f2e3",
+    "Assets\\AshenVoxel\\WorldScaleRuntime\\GroundSurface.shader": "68f0a54773d31c53f9cf1fbae5902882ccd781a5ccfca8b7344319dba6f7c94f"
+  }
+}

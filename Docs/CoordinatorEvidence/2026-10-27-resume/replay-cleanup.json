@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-27T13:33:15.529543+00:00",
+  "log_offset": 849320,
+  "status": "EXACT4_OWNED_FILES_REMOVED_WITH_READABLE_BACKUPS",
+  "files": [
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Runtime\\BoundedFlightReplay.cs.meta",
+      "sha256": "0780978975f045f68ea151249c92bd0a13fd159516ef0130f8d983bb088e10f7",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\replay-cleanup-backups\\Assets\\_Validation\\CoordinatorSmoke\\Runtime\\BoundedFlightReplay.cs.meta",
+      "readable_verified": true
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Runtime\\BoundedFlightReplay.cs",
+      "sha256": "c11cee0de3574d524221a516928b8395465d9efc87eec0c83453f045c692747e",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\replay-cleanup-backups\\Assets\\_Validation\\CoordinatorSmoke\\Runtime\\BoundedFlightReplay.cs",
+      "readable_verified": true
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\BoundedFlightReplayTrigger.cs.meta",
+      "sha256": "cf0a654ed8dd2a2b47e7d4786195290d392adf1405d257d4714e61cad1e207ce",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\replay-cleanup-backups\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\BoundedFlightReplayTrigger.cs.meta",
+      "readable_verified": true
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\BoundedFlightReplayTrigger.cs",
+      "sha256": "58732a4ad76a7c62f9df4d6568d3a84ae6ad3795df4a0b30446adb90d67fd348",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\replay-cleanup-backups\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\BoundedFlightReplayTrigger.cs",
+      "readable_verified": true
+    }
+  ],
+  "removed": [
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Runtime\\BoundedFlightReplay.cs.meta",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Runtime\\BoundedFlightReplay.cs",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\BoundedFlightReplayTrigger.cs.meta",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\BoundedFlightReplayTrigger.cs"
+  ],
+  "protected_unchanged": true,
+  "original_scene_restored_in_UI": true,
+  "verified_utc": "2026-10-27T13:38:55.440714+00:00",
+  "native_cleanup_reload": "PASS_NO_CSHARP_SHADER_ERRORS",
+  "current_editor_idle": true,
+  "protected7_and_original3_unchanged": true,
+  "no_live_guard_or_replay_marker": true,
+  "empty_owned_folder": {
+    "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Runtime",
+    "meta": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\_Validation\\CoordinatorSmoke\\Runtime.meta",
+    "sha256": "c7e01625a679bffff683f50c05e9d4fb02922e896e0ae81585b45f6ce29d4798",
+    "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\replay-cleanup-backups\\Runtime.folder.meta",
+    "empty_verified": true
+  }
+}

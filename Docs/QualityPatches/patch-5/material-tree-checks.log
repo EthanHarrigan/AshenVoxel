@@ -1,0 +1,326 @@
+Compiling with .NET SDK 8.0.407
+Birch generated 10.0m; 524962 candidates; 684 clusters; None
+PASS Birch mature preset completes within default budgets and domain
+PASS Birch emits substantial wood, foliage and scaffold
+PASS Birch every six-connected wood component is ground anchored
+PASS Birch every foliage component connects to wood
+PASS Birch restrained persistent multi-scale leaf palette
+PASS Birch reported cell stats match actual authoritative world
+PASS Birch candidate cap respected
+PASS Birch ordered skeleton has valid attachments, monotone taper and no reverse-thickening child joints
+PASS Birch recursive fork cross sections fit within parent tip area
+PASS birch includes white mature bark and dark lenticels/twigs
+PASS identical genome/seed reproduces exact material and packed appearance
+PASS individual seed changes actual scaffold and material appearance
+PASS age changes physical growth scale independently of species preset
+Oak generated 8.9m; 770728 candidates; 404 clusters; None
+PASS Oak mature preset completes within default budgets and domain
+PASS Oak emits substantial wood, foliage and scaffold
+PASS Oak every six-connected wood component is ground anchored
+PASS Oak every foliage component connects to wood
+PASS Oak restrained persistent multi-scale leaf palette
+PASS Oak reported cell stats match actual authoritative world
+PASS Oak candidate cap respected
+PASS Oak ordered skeleton has valid attachments, monotone taper and no reverse-thickening child joints
+PASS Oak recursive fork cross sections fit within parent tip area
+PASS optional oak acorns are attached to supported foliage
+PASS oak fruit palette is brown acorn-like rather than red orchard fruit
+PASS colored branches leaves and acorns survive snapshot round trip
+Redwood generated 73.8m; 13624984 candidates; 2935 clusters; None
+PASS Redwood mature preset completes within default budgets and domain
+PASS Redwood emits substantial wood, foliage and scaffold
+PASS Redwood every six-connected wood component is ground anchored
+PASS Redwood every foliage component connects to wood
+PASS Redwood restrained persistent multi-scale leaf palette
+PASS Redwood reported cell stats match actual authoritative world
+PASS Redwood candidate cap respected
+PASS Redwood ordered skeleton has valid attachments, monotone taper and no reverse-thickening child joints
+PASS Redwood recursive fork cross sections fit within parent tip area
+PASS redwood represents a mature 60-100m coast redwood rather than a scaled sapling
+PASS redwood breast-height wood section has plausible mature diameter including buttresses
+PASS basal flare narrows into the tapered mature bole in physical meters
+PASS redwood outer boundary retains actual 10cm-readable longitudinal bark relief above the root collar
+PASS outer redwood buttresses join local ground as solid wedges rather than suspended radial legs
+PASS mature redwood has high open bole, sweeping branches and a layered substantial crown
+Pine generated 14.0m; 1324395 candidates; 1593 clusters; None
+PASS Pine mature preset completes within default budgets and domain
+PASS Pine emits substantial wood, foliage and scaffold
+PASS Pine every six-connected wood component is ground anchored
+PASS Pine every foliage component connects to wood
+PASS Pine restrained persistent multi-scale leaf palette
+PASS Pine reported cell stats match actual authoritative world
+PASS Pine candidate cap respected
+PASS Pine ordered skeleton has valid attachments, monotone taper and no reverse-thickening child joints
+PASS Pine recursive fork cross sections fit within parent tip area
+PASS voxel budget 100 explicitly truncates without exceeding cap
+PASS budget 100 cannot leave disconnected partial wood shells or floating foliage
+PASS voxel budget 500 explicitly truncates without exceeding cap
+PASS budget 500 cannot leave disconnected partial wood shells or floating foliage
+PASS voxel budget 2000 explicitly truncates without exceeding cap
+PASS budget 2000 cannot leave disconnected partial wood shells or floating foliage
+PASS voxel budget 10000 explicitly truncates without exceeding cap
+PASS budget 10000 cannot leave disconnected partial wood shells or floating foliage
+PASS branch budget truncates explicitly and retains rooted matter
+PASS foliage cluster budget is explicit and bounded
+PASS clipped domain reports world-boundary truncation
+PASS zero foliage creates no unsupported fruit
+PASS With preserves immutable preset while changing requested controls
+PASS artists can combine advanced habits beyond four species presets
+PASS bark relief changes authoritative material silhouette rather than only painting color
+PASS bark relief scales physically and ridge count remains independently editable
+PASS redwood buttresses retain lower surface-seeking root ends when ground lies below the collar
+PASS rejects nonfinite physical dimensions
+PASS rejects runaway recursive branch depth
+PASS rejects invalid growth age
+PASS rejects ambiguous transparent tree palette
+PASS rejects negative radial bark relief
+PASS rejects unbounded radial ridge count
+PASS rejects zero voxel budget
+{
+  "status": "PASS",
+  "checks": 73,
+  "scope": "Actual engine-independent tree generator; not Unity or botanical ground-truth",
+  "generator_version": 5,
+  "voxel_m": 0.1,
+  "seed": 714103,
+  "species": [
+    {
+      "Species": "Birch",
+      "Wood": 2806,
+      "Leaves": 19803,
+      "Fruit": 0,
+      "Segments": 1150,
+      "Clusters": 684,
+      "LeafColors": 24,
+      "WhiteBark": 210,
+      "DarkBark": 2596,
+      "Components": 1,
+      "GroundedComponents": 1,
+      "AllFoliageSupported": true,
+      "EveryFruitTouchesLeaf": true,
+      "Height": 10.000000149011612,
+      "Width": 6.000000089406967,
+      "Milliseconds": 456.0576,
+      "Candidates": 524962,
+      "Truncation": "None",
+      "Hash": 5041443543690388230,
+      "AllocatedChunks": 125,
+      "MaterialBytes": 512000,
+      "TintBytes": 1064960
+    },
+    {
+      "Species": "Oak",
+      "Wood": 4640,
+      "Leaves": 42141,
+      "Fruit": 0,
+      "Segments": 593,
+      "Clusters": 404,
+      "LeafColors": 24,
+      "WhiteBark": 0,
+      "DarkBark": 4640,
+      "Components": 1,
+      "GroundedComponents": 1,
+      "AllFoliageSupported": true,
+      "EveryFruitTouchesLeaf": true,
+      "Height": 8.900000132620335,
+      "Width": 9.300000138580799,
+      "Milliseconds": 637.9346,
+      "Candidates": 770728,
+      "Truncation": "None",
+      "Hash": 14453786292552483802,
+      "AllocatedChunks": 220,
+      "MaterialBytes": 901120,
+      "TintBytes": 1720320
+    },
+    {
+      "Species": "Redwood",
+      "Wood": 378643,
+      "Leaves": 732413,
+      "Fruit": 0,
+      "Segments": 2016,
+      "Clusters": 2935,
+      "LeafColors": 24,
+      "WhiteBark": 0,
+      "DarkBark": 29559,
+      "Components": 1,
+      "GroundedComponents": 1,
+      "AllFoliageSupported": true,
+      "EveryFruitTouchesLeaf": true,
+      "Height": 73.8000010997057,
+      "Width": 18.80000028014183,
+      "Milliseconds": 11340.3464,
+      "Candidates": 13624984,
+      "Truncation": "None",
+      "Hash": 11912535568841318173,
+      "AllocatedChunks": 1761,
+      "MaterialBytes": 7213056,
+      "TintBytes": 23511040
+    },
+    {
+      "Species": "Pine",
+      "Wood": 5258,
+      "Leaves": 45194,
+      "Fruit": 0,
+      "Segments": 1397,
+      "Clusters": 1593,
+      "LeafColors": 24,
+      "WhiteBark": 0,
+      "DarkBark": 1645,
+      "Components": 1,
+      "GroundedComponents": 1,
+      "AllFoliageSupported": true,
+      "EveryFruitTouchesLeaf": true,
+      "Height": 14.000000208616257,
+      "Width": 7.300000108778477,
+      "Milliseconds": 1121.6737,
+      "Candidates": 1324395,
+      "Truncation": "None",
+      "Hash": 3830136002411286074,
+      "AllocatedChunks": 186,
+      "MaterialBytes": 761856,
+      "TintBytes": 1458176
+    }
+  ],
+  "redwood_cross_sections": [
+    {
+      "HeightM": 0.5,
+      "WoodCells": 3790,
+      "EquivalentDiameterM": 6.946638048984339,
+      "MinRadiusM": 2.675000039860606,
+      "MaxRadiusM": 5.4250000808387995
+    },
+    {
+      "HeightM": 1.3,
+      "WoodCells": 2263,
+      "EquivalentDiameterM": 5.367812567150915,
+      "MinRadiusM": 2.1250000316649675,
+      "MaxRadiusM": 3.7250000555068254
+    },
+    {
+      "HeightM": 3,
+      "WoodCells": 1352,
+      "EquivalentDiameterM": 4.148999777999814,
+      "MinRadiusM": 1.9250000286847353,
+      "MaxRadiusM": 2.350000035017729
+    },
+    {
+      "HeightM": 6,
+      "WoodCells": 1154,
+      "EquivalentDiameterM": 3.8331690262933615,
+      "MinRadiusM": 1.8000000268220901,
+      "MaxRadiusM": 2.1000000312924385
+    },
+    {
+      "HeightM": 15,
+      "WoodCells": 766,
+      "EquivalentDiameterM": 3.1229817808200298,
+      "MinRadiusM": 1.4750000219792128,
+      "MaxRadiusM": 1.700000025331974
+    },
+    {
+      "HeightM": 25,
+      "WoodCells": 471,
+      "EquivalentDiameterM": 2.4488688071078655,
+      "MinRadiusM": 1.1250000167638063,
+      "MaxRadiusM": 1.3500000201165676
+    }
+  ],
+  "budget_cutoffs": [
+    {
+      "Species": "Birch",
+      "Wood": 8,
+      "Leaves": 0,
+      "Fruit": 0,
+      "Segments": 1008,
+      "Clusters": 0,
+      "LeafColors": 0,
+      "WhiteBark": 8,
+      "DarkBark": 0,
+      "Components": 1,
+      "GroundedComponents": 1,
+      "AllFoliageSupported": true,
+      "EveryFruitTouchesLeaf": true,
+      "Height": 0.800000011920929,
+      "Width": 0.10000000149011612,
+      "Milliseconds": 0,
+      "Candidates": 80,
+      "Truncation": "VoxelBudget",
+      "Hash": 14694038671919988194,
+      "AllocatedChunks": 36,
+      "MaterialBytes": 147456,
+      "TintBytes": 16384
+    },
+    {
+      "Species": "Birch",
+      "Wood": 78,
+      "Leaves": 0,
+      "Fruit": 0,
+      "Segments": 1008,
+      "Clusters": 0,
+      "LeafColors": 0,
+      "WhiteBark": 11,
+      "DarkBark": 67,
+      "Components": 1,
+      "GroundedComponents": 1,
+      "AllFoliageSupported": true,
+      "EveryFruitTouchesLeaf": true,
+      "Height": 5.000000074505806,
+      "Width": 0.7000000104308128,
+      "Milliseconds": 0,
+      "Candidates": 496,
+      "Truncation": "VoxelBudget",
+      "Hash": 7976668261732483801,
+      "AllocatedChunks": 40,
+      "MaterialBytes": 163840,
+      "TintBytes": 81920
+    },
+    {
+      "Species": "Birch",
+      "Wood": 358,
+      "Leaves": 0,
+      "Fruit": 0,
+      "Segments": 1008,
+      "Clusters": 0,
+      "LeafColors": 0,
+      "WhiteBark": 11,
+      "DarkBark": 347,
+      "Components": 1,
+      "GroundedComponents": 1,
+      "AllFoliageSupported": true,
+      "EveryFruitTouchesLeaf": true,
+      "Height": 5.000000074505806,
+      "Width": 2.400000035762787,
+      "Milliseconds": 0,
+      "Candidates": 1999,
+      "Truncation": "VoxelBudget",
+      "Hash": 1101354025346381293,
+      "AllocatedChunks": 43,
+      "MaterialBytes": 176128,
+      "TintBytes": 131072
+    },
+    {
+      "Species": "Birch",
+      "Wood": 1186,
+      "Leaves": 55,
+      "Fruit": 0,
+      "Segments": 1008,
+      "Clusters": 17,
+      "LeafColors": 12,
+      "WhiteBark": 11,
+      "DarkBark": 1175,
+      "Components": 1,
+      "GroundedComponents": 1,
+      "AllFoliageSupported": true,
+      "EveryFruitTouchesLeaf": true,
+      "Height": 5.000000074505806,
+      "Width": 2.8000000417232513,
+      "Milliseconds": 0,
+      "Candidates": 10000,
+      "Truncation": "VoxelBudget",
+      "Hash": 11553528760478547454,
+      "AllocatedChunks": 50,
+      "MaterialBytes": 204800,
+      "TintBytes": 245760
+    }
+  ]
+}

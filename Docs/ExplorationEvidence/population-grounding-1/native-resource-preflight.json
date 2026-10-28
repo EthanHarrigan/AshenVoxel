@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-27T09:45:14.4169811Z",
+  "scope": "Read-only local Windows CIM/process/Editor heartbeat; no launch or cleanup",
+  "commit_headroom_bytes": 4851101696,
+  "commit_headroom_GiB": 4.518,
+  "minimum_initial_commit_headroom_GiB": 5.5,
+  "resource_gate": "NOT MET",
+  "physical_available_GiB": 10.604,
+  "sibling_native_test_process_present": false,
+  "main_editor_pid": 23204,
+  "main_editor_private_GiB": 8.676,
+  "main_editor_heartbeat_utc": "2026-10-27T09:45:12.9679791Z",
+  "main_playing": false,
+  "main_compiling": false,
+  "coordinator_native_install_hold": true,
+  "action": "Retain test/install hold; do not alter user applications, terrain service or OS settings. Recheck after coordinator reconciliation."
+}

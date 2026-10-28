@@ -1,0 +1,90 @@
+[
+  {
+    "site_id": 10,
+    "original_seam": {
+      "seam_upper_cells": 1344,
+      "seam_lower_cells": 1352,
+      "unsupported_upper_cells": 0,
+      "max_unsupported_horizontal_cells": 0
+    },
+    "before_splice": {
+      "seam_upper_cells": 1344,
+      "seam_lower_cells": 1282,
+      "unsupported_upper_cells": 62,
+      "max_unsupported_horizontal_cells": 2
+    },
+    "after_base_splice": {
+      "seam_upper_cells": 1344,
+      "seam_lower_cells": 1344,
+      "unsupported_upper_cells": 0,
+      "max_unsupported_horizontal_cells": 0
+    },
+    "after_conforming_splice": {
+      "seam_upper_cells": 1344,
+      "seam_lower_cells": 1344,
+      "unsupported_upper_cells": 0,
+      "max_unsupported_horizontal_cells": 0
+    },
+    "canonical_shaft_cells_restored": 1794,
+    "max_base_displacement_m": 1.6,
+    "wood_cells": 349918,
+    "added_cells": 1704,
+    "removed_cells": 32779,
+    "lower_cells": 51453,
+    "disconnected_lower_cells": 0,
+    "max_basal_gap_m": 0,
+    "max_basal_burial_m": 0.2509227710905293,
+    "gap_columns": 0,
+    "burial_quantiles_m": [
+      0.050922771090540664,
+      0.050922771090540664,
+      0.1509227710905634,
+      0.2509227710905293
+    ],
+    "upper_geometry_and_tint_unchanged": true
+  },
+  {
+    "site_id": 11,
+    "original_seam": {
+      "seam_upper_cells": 1441,
+      "seam_lower_cells": 1446,
+      "unsupported_upper_cells": 0,
+      "max_unsupported_horizontal_cells": 0
+    },
+    "before_splice": {
+      "seam_upper_cells": 1441,
+      "seam_lower_cells": 1379,
+      "unsupported_upper_cells": 62,
+      "max_unsupported_horizontal_cells": 2
+    },
+    "after_base_splice": {
+      "seam_upper_cells": 1441,
+      "seam_lower_cells": 1441,
+      "unsupported_upper_cells": 0,
+      "max_unsupported_horizontal_cells": 0
+    },
+    "after_conforming_splice": {
+      "seam_upper_cells": 1441,
+      "seam_lower_cells": 1441,
+      "unsupported_upper_cells": 0,
+      "max_unsupported_horizontal_cells": 0
+    },
+    "canonical_shaft_cells_restored": 2011,
+    "max_base_displacement_m": 1.4000000000000001,
+    "wood_cells": 379487,
+    "added_cells": 1682,
+    "removed_cells": 34099,
+    "lower_cells": 52973,
+    "disconnected_lower_cells": 0,
+    "max_basal_gap_m": 0,
+    "max_basal_burial_m": 0.2821021844439997,
+    "gap_columns": 0,
+    "burial_quantiles_m": [
+      0.08210218444395423,
+      0.08210218444395423,
+      0.18210218444397697,
+      0.2821021844439997
+    ],
+    "upper_geometry_and_tint_unchanged": true
+  }
+]

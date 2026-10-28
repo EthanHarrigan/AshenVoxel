@@ -1,0 +1,9 @@
+{
+  "base_snapshot": "../../baseline-source",
+  "overrides": "source",
+  "overridden_files": [
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs"
+  ],
+  "all_hashes": "result.json/source_sha256"
+}

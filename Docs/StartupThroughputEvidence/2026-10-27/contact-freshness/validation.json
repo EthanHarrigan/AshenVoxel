@@ -1,0 +1,47 @@
+{
+  "utc": "2026-10-27T10:17:16.216517+00:00",
+  "installed": false,
+  "native_verified": false,
+  "reports": {
+    "original-reproduction": {
+      "status": "FAIL",
+      "checks": 31,
+      "realWorkerTicks": 10,
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-101423-782099-production-ContactFreshnessProgram\\result.json"
+    },
+    "expanded-baseline": {
+      "status": "FAIL",
+      "checks": 32,
+      "realWorkerTicks": 10,
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-101552-698722-production-ContactFreshnessProgram\\result.json"
+    },
+    "freshness": {
+      "status": "PASS",
+      "checks": 32,
+      "realWorkerTicks": 10,
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-101554-401557-production-overlay-ContactFreshnessProgram\\result.json"
+    },
+    "contact-capacity": {
+      "status": "PASS",
+      "checks": 10,
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-101517-758247-production-overlay-ContactCapacityProgram\\result.json"
+    },
+    "progressive": {
+      "status": "PASS",
+      "checks": 30,
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-101517-758247-production-overlay-progressive\\result.json"
+    },
+    "existing": {
+      "status": "PASS",
+      "checks": 19,
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-101517-779401-production-overlay-existing\\result.json"
+    },
+    "api": {
+      "status": "PASS",
+      "assemblies": 5,
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-101517-757238-production-overlay-api\\result.json"
+    }
+  },
+  "baseline_failure_count": 4,
+  "scope": "Synthetic byte admission and real worker cancellation, not native full-world or peak memory proof. One SourceRevision integer per cache Surface; no new queue, worker or cap."
+}

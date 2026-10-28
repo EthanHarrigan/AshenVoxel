@@ -1,0 +1,10 @@
+{
+  "utc": "2026-10-27T19:57:20.540549+00:00",
+  "original_sha256": "a971d9170fe3dfcea5acfc46a4894b3ffc512927e6c9402f660a6660110e74ca",
+  "temporary_sha256": "8bb05384e55635891204df95505a5ca839bf2a1adb92285aa8e230c0c6c193f9",
+  "status": "Original saved options restored exactly; live photo session remains in verified broad/proxy modes",
+  "spawn_evidence": "Docs/SpawnEvidence/20261027-173730; actual authored custom spawn, no camera teleport",
+  "asset_sha256": "d92bc27e1481bdcf5091f2c21e41f4136527a808f638402cf4c866b2ef41d6d6",
+  "restored_utc": "2026-10-27T19:58:49.988154+00:00",
+  "native_evidence": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs\\MountainReviewFrames\\valley-saved-spawn-current\\terrain-20261027-195816-684.json"
+}

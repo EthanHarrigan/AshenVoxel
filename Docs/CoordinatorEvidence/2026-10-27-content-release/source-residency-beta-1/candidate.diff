@@ -1,0 +1,318 @@
+--- before/Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs
++++ candidate/Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs
+@@ -91,7 +91,7 @@
+         {
+             TickFeatureSequence();TickCleanFrame();
+             const string workerRequest=".terrain-cache/release-idle-import-workers.request";
+-            if(!Application.isPlaying&&!EditorApplication.isCompiling&&!EditorApplication.isUpdating&&File.Exists(workerRequest)){File.Delete(workerRequest);ReleaseIdleImportWorkers();}
++            if(!EditorApplication.isCompiling&&!EditorApplication.isUpdating&&File.Exists(workerRequest)&&(!Application.isPlaying||Current()?.Ready==true)){File.Delete(workerRequest);ReleaseIdleImportWorkers();}
+             var b=Current();if(!Application.isPlaying){reviewing=false;return;}
+             if(b==null||!b.Ready||EditorApplication.isCompiling)return;
+             const string featureRequest=".terrain-cache/feature-capture.request";
+@@ -116,10 +116,10 @@
+             var direction=new Vector3((float)(target.X-eye.X),(float)(target.Y-eye.Y),(float)(target.Z-eye.Z));
+             b.Vista.SetObserverPose(eye,Quaternion.LookRotation(direction.normalized,Vector3.up));b.Vista.ResetObserverMotion();b.Vista.ForceReplan();
+         }
+-        [MenuItem("Ashen Voxel/Exploration/Beta/Release idle import workers (Edit)")]
++        [MenuItem("Ashen Voxel/Exploration/Beta/Release idle import workers (idle Editor)")]
+         static void ReleaseIdleImportWorkers()
+         {
+-            if(Application.isPlaying||EditorApplication.isCompiling||EditorApplication.isUpdating)return;
++            if(EditorApplication.isCompiling||EditorApplication.isUpdating||(Application.isPlaying&&Current()?.Ready!=true))return;
+             int original=AssetDatabase.DesiredWorkerCount;string error="";
+             try{AssetDatabase.DesiredWorkerCount=0;AssetDatabase.ForceToDesiredWorkerCount();}
+             catch(Exception e){error=e.Message;}
+@@ -135,8 +135,7 @@
+         static string sequenceOutput,sequenceKind;static ExplorationBootstrap sequenceBoot;static double sequenceStart,nextSequenceFrame;static bool sequenceCut,sequencePlaced;
+         static readonly System.Collections.Generic.List<SequenceSample> sequenceSamples=new System.Collections.Generic.List<SequenceSample>(80);
+         static WorldPoint sequenceFeet;static bool sequenceFlying;static Quaternion sequenceRotation;static float sequenceFov;
+-        [MenuItem("Ashen Voxel/Exploration/Beta/Record placed branch fall and suction (Play)")]
+-        static void RecordBranch()=>BeginFeatureSequence("placed-branch");
++        static void RecordBranch()=>Debug.LogWarning("Placed-branch demo recording retired. Natural tree interaction is the requested feature.");
+         [MenuItem("Ashen Voxel/Exploration/Beta/Record existing bee patch (Play)")]
+         static void RecordBees()=>BeginFeatureSequence("bees");
+         [MenuItem("Ashen Voxel/Exploration/Beta/Record existing shrub breakup and collection (Play)")]
+@@ -205,9 +204,8 @@
+             double elapsed=EditorApplication.timeSinceStartup-sequenceStart;var matter=sequenceBoot.GetComponent<ExplorationBetaMatter>();
+             var shrub=sequenceBoot.GetComponent<ExplorationShrubMatter>();
+             if(sequenceKind=="existing-shrub"&&shrub!=null)
+-            {if(elapsed>=1&&!sequenceCut&&elapsed<3)sequenceCut=shrub.BreakNearby();if(elapsed>=4)shrub.SuctionEnabled=true;}
+-            if(sequenceKind=="placed-branch"&&matter!=null)
+-            {if(elapsed>=.9&&!sequenceCut&&elapsed<2.5)sequenceCut=matter.CutSupport();if(elapsed>=3) matter.SuctionEnabled=true;}
++            {if(elapsed>=1&&!sequenceCut&&elapsed<3)sequenceCut=shrub.BreakNearby();}
++            // Recording never enables suction. Collection requires an explicit player action.
+             if(elapsed<8&&sequenceSamples.Count<80&&elapsed>=nextSequenceFrame)
+             {
+                 nextSequenceFrame=elapsed+.1;string file="frame-"+sequenceSamples.Count.ToString("D3")+".png";
+--- before/Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs
++++ candidate/Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs
+@@ -83,13 +83,20 @@
+             if(live?.WorldField==null)return Array.Empty<SourcePatchRow>();var coverage=live.WorldField.CapturePublishedCoverage();var rows=new SourcePatchRow[coverage.Length];
+             for(int i=0;i<rows.Length;i++){var p=coverage[i];rows[i]=new SourcePatchRow{key=p.Key,identity=p.SourceIdentity,minimumX=p.CoreBounds.MinimumX,minimumZ=p.CoreBounds.MinimumZ,maximumX=p.CoreBounds.MaximumX,maximumZ=p.CoreBounds.MaximumZ,influenceMinimumX=p.InfluenceBounds.MinimumX,influenceMinimumZ=p.InfluenceBounds.MinimumZ,influenceMaximumX=p.InfluenceBounds.MaximumX,influenceMaximumZ=p.InfluenceBounds.MaximumZ,spacing=p.SpacingMeters,payloadBytes=p.PayloadBytes,lastUse=p.LastUse};}return rows;
+         }
++        [Serializable] sealed class SourceDemandRow
++        {public string key,reason;public double minimumX,minimumZ,maximumX,maximumZ;public int priority;public bool ready,selected,current,completed;}
++        static SourceDemandRow[] SelectedSourceRows(ExplorationLiveRefinement live)
++        {if(live==null)return Array.Empty<SourceDemandRow>();var input=live.CaptureSelectedSourceDemand();var rows=new SourceDemandRow[input.Length];for(int i=0;i<rows.Length;i++){var p=input[i];rows[i]=new SourceDemandRow{key=p.Key,minimumX=p.Core.MinimumX,minimumZ=p.Core.MinimumZ,maximumX=p.Core.MaximumX,maximumZ=p.Core.MaximumZ,priority=p.Priority,ready=p.Ready,selected=true};}return rows;}
++        static SourceDemandRow[] RequestSourceRows(ExplorationLiveRefinement live)
++        {if(live==null)return Array.Empty<SourceDemandRow>();var input=live.CaptureSourceRequests();var rows=new SourceDemandRow[input.Length];for(int i=0;i<rows.Length;i++){var p=input[i];rows[i]=new SourceDemandRow{key=p.Key,minimumX=p.Core.MinimumX,minimumZ=p.Core.MinimumZ,maximumX=p.Core.MaximumX,maximumZ=p.Core.MaximumZ,priority=p.Priority,selected=p.Selected,current=p.Current,completed=p.Completed,reason=p.Reason};}return rows;}
+         [Serializable] sealed class CaptureData
+ 
+         {
+ 
++            public SourceDemandRow[] selectedSourceDemand,sourceRequests;public string[] mandatorySourceKeys;public long sourcePayloadLimitBytes,mandatorySourceBytes;public int sourcePatchLimit,sourceCapacityDeferred,sourcePriorityDeferred;public float contactRadiusMeters;
+             public SourcePatchRow[] sourcePatches;public int selectedSourceCells,readySelectedSourceCells,missingSelectedSourceCells,heldSourceRequests;public double selectedSourceCoreArea,readySourceCoreArea;public bool diskCacheApplied;public long diskCacheHits,diskCacheMisses,diskCacheWrites,diskCacheWriteFailures,diskCacheOwnedBytes;public int diskCacheRecords;public string diskCacheStatus;
+             public double sourceResolutionMeters;public int sourceResidentPatches,sourcePendingRequests;public string sourceStartupStatus,sourceCurrentStatus;
+-            public string diagnosticVersion="terrain-convergence-5-source-cache",utc,unity,sourceIdentity,bootStatus,terrainStatus,limitReason,lastBuildError;
++            public string diagnosticVersion="terrain-convergence-6-residency",utc,unity,sourceIdentity,bootStatus,terrainStatus,limitReason,lastBuildError;
+ 
+             public string appliedPreset,selectedPreset,notes;
+ 
+@@ -151,6 +158,7 @@
+ 
+             var d=new CaptureData{utc=DateTime.UtcNow.ToString("o"),unity=Application.unityVersion,frame=Time.frameCount,playing=Application.isPlaying,
+ 
++                selectedSourceDemand=SelectedSourceRows(boot.LiveRefinement),sourceRequests=RequestSourceRows(boot.LiveRefinement),mandatorySourceKeys=boot.LiveRefinement?.CaptureMandatorySourceKeys()??Array.Empty<string>(),sourcePayloadLimitBytes=boot.LiveRefinement?.WorldField?.MaximumResidentPayloadBytes??0,sourcePatchLimit=boot.LiveRefinement?.WorldField?.MaximumResidentPatches??0,mandatorySourceBytes=boot.LiveRefinement?.MandatoryResidentPayloadBytes??0,sourceCapacityDeferred=boot.LiveRefinement?.CapacityDeferredCells??0,sourcePriorityDeferred=boot.LiveRefinement?.PriorityCapacityDeferredCells??0,contactRadiusMeters=w.VoxelFullDetailRadius,
+                 sourcePatches=SourceRows(boot.LiveRefinement),selectedSourceCells=boot.LiveRefinement?.DesiredSourceCells??0,readySelectedSourceCells=boot.LiveRefinement?.ReadyDesiredSourceCells??0,missingSelectedSourceCells=boot.LiveRefinement?.MissingDesiredSourceCells??0,heldSourceRequests=boot.LiveRefinement?.HeldCompletedRequests??0,selectedSourceCoreArea=boot.LiveRefinement?.DesiredCoreAreaSquareMeters??0,readySourceCoreArea=boot.LiveRefinement?.ReadyCoreAreaSquareMeters??0,
+                 diskCacheApplied=boot.AppliedHeightProxyDiskCache,diskCacheHits=w.HeightProxyDiskCacheHits,diskCacheMisses=w.HeightProxyDiskCacheMisses,diskCacheWrites=w.HeightProxyDiskCacheWrites,diskCacheWriteFailures=w.HeightProxyDiskCacheWriteFailures,diskCacheOwnedBytes=w.HeightProxyDiskCacheOwnedBytes,diskCacheRecords=w.HeightProxyDiskCacheRecords,diskCacheStatus=w.HeightProxyDiskCacheStatus,
+                 sourceResolutionMeters=boot.LiveRefinement==null?double.NaN:boot.LiveRefinement.ResolutionMetersAt(eye.X,eye.Z),
+--- before/Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs
++++ candidate/Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs
+@@ -61,6 +61,8 @@
+         public bool AppliedDistantHeightProxies=>appliedDistantHeightProxies;
+         bool appliedHeightProxyDiskCache;
+         public bool AppliedHeightProxyDiskCache=>appliedHeightProxyDiskCache;
++        public bool AppliedExpandedSourceWindow=>LiveRefinement!=null&&LiveRefinement.WorldField!=null&&LiveRefinement.WorldField.MaximumResidentPatches==32;
++        public bool SourceWindowRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&LiveRefinement!=null&&LiveRefinement.WorldField!=null&&ActiveSettings.ExpandedLiveSourceWindow!=AppliedExpandedSourceWindow;
+         public bool HeightProxyDiskCacheRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedHeightProxyDiskCache!=ActiveSettings.EnableHeightProxyDiskCache;
+         public bool TerrainRepresentationRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedDistantHeightProxies!=ActiveSettings.ExperimentalDistantHeightProxies;
+         public bool GeologyRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedBroadLithology!=ActiveSettings.ExperimentalBroadLithology;
+@@ -115,6 +117,7 @@
+             ApplyVistaSettings(false);
+             Vista.ShowResearchHud=false;
+             LiveRefinement=worldObject.AddComponent<ExplorationLiveRefinement>();
++            if(ActiveSettings.ExpandedLiveSourceWindow){LiveRefinement.MaximumPatches=32;LiveRefinement.MaximumPayloadBytes=32L*1024*1024;}
+             WorldField=LiveRefinement.Configure(Source,Vista,ActiveSettings.DiffusionEndpoint,enabled:ActiveSettings.EnableLiveRefinement);
+             if(ActiveSettings.EnableLiveRefinement&&LiveRefinement.ResolutionMetersAt(spawn.X,spawn.Z)>5.000001)
+             {
+@@ -185,7 +188,7 @@
+             if(ActiveSettings.StartFlying)Player.ResetAt(new WorldPoint(spawn.X,spawn.Y+2,spawn.Z),true);
+             Player.CapturePointerOnEnable=true;Ready=true;Player.SetInputEnabled(!settingsOpen);
+             bees=worldObject.AddComponent<AshenVoxel.WildlifeDraft.ExplorationBeePatch>();bees.Initialize(this);
+-            betaMatter=AshenVoxel.Exploration.ExplorationBetaMatter.Attach(this);
++            betaMatter=null; // Placed-stick demo is not natural tree gameplay; keep it out of the playable scene.
+             AshenVoxel.Exploration.ExplorationShrubMatter.Attach(this);
+             Status="Explore";
+         }
+@@ -391,7 +394,9 @@
+             GUILayout.Label(optionsNotice,text);
+             bool live=GUILayout.Toggle(ActiveSettings.EnableLiveRefinement,"Use local InfiniteDiffusion refinement service");
+             if(live!=ActiveSettings.EnableLiveRefinement){ActiveSettings.EnableLiveRefinement=live;LiveRefinement.SetEnabled(live);}
+-            if(LiveRefinement!=null){GUILayout.Label(LiveRefinement.Status,text);GUILayout.Label(SourceStartupStatus,text);}
++            bool expandedSource=GUILayout.Toggle(ActiveSettings.ExpandedLiveSourceWindow,"Expanded learned source neighborhood (32cells/32MiB, next Play)");
++            if(expandedSource!=ActiveSettings.ExpandedLiveSourceWindow){ActiveSettings.ExpandedLiveSourceWindow=expandedSource;optionsNotice="Source neighborhood selected. Save, then restart Play.";}
++            if(LiveRefinement!=null){GUILayout.Label(LiveRefinement.Status,text);GUILayout.Label(SourceStartupStatus,text);GUILayout.Label("Source budget applied: "+LiveRefinement.WorldField.MaximumResidentPatches+" cells / "+LiveRefinement.WorldField.MaximumResidentPayloadBytes/1048576+" MiB"+(SourceWindowRestartPending?" - restart pending":"")+". Not full-view coverage.",text);}
+             double weight=Source.FineWeightAt(Player.Feet.X,Player.Feet.Z);
+             bool liveDetail=LiveRefinement!=null&&LiveRefinement.HasActiveDetail(Player.Feet.X,Player.Feet.Z);
+             double resolution=LiveRefinement!=null?LiveRefinement.ResolutionMetersAt(Player.Feet.X,Player.Feet.Z):Source.ModelResolutionMeters(Player.Feet.X,Player.Feet.Z);
+@@ -464,6 +469,7 @@
+             public int terrainRepresentationOptionsVersion;public bool distantHeightProxies;
+             public int heightProxyDiskCacheOptionsVersion;public bool heightProxyDiskCache;
+             public int contactRadiusOptionsVersion;public float contactRadius;
++            public int sourceCoverageOptionsVersion;public bool expandedSourceCoverage;
+         }
+         string OptionsPath=>Path.Combine(Application.persistentDataPath,"exploration-options.json");
+         void SaveOptions()
+@@ -479,6 +485,7 @@
+                 o.terrainRepresentationOptionsVersion=1;o.distantHeightProxies=ActiveSettings.ExperimentalDistantHeightProxies;
+                 o.heightProxyDiskCacheOptionsVersion=1;o.heightProxyDiskCache=ActiveSettings.EnableHeightProxyDiskCache;
+                 o.contactRadiusOptionsVersion=1;o.contactRadius=ActiveSettings.VoxelFullDetailRadius;
++                o.sourceCoverageOptionsVersion=1;o.expandedSourceCoverage=ActiveSettings.ExpandedLiveSourceWindow;
+                 Directory.CreateDirectory(Application.persistentDataPath);File.WriteAllText(OptionsPath,JsonUtility.ToJson(o,true));optionsNotice="Options saved."+(TerrainQualityRestartPending||GroundedRootsRestartPending||GeologyRestartPending||TerrainRepresentationRestartPending||HeightProxyDiskCacheRestartPending?" Terrain quality/grounded bases/rock style/representation apply after restarting Play.":"");
+             }
+             catch(Exception exception){optionsNotice="Could not save options: "+exception.Message;}
+@@ -505,6 +512,7 @@
+                 if(o.terrainRepresentationOptionsVersion==1)s.ExperimentalDistantHeightProxies=o.distantHeightProxies;
+                 if(o.heightProxyDiskCacheOptionsVersion==1)s.EnableHeightProxyDiskCache=o.heightProxyDiskCache;
+                 if(o.contactRadiusOptionsVersion==1&&!float.IsNaN(o.contactRadius))s.VoxelFullDetailRadius=Mathf.Clamp(o.contactRadius,16,160);
++                if(o.sourceCoverageOptionsVersion==1)s.ExpandedLiveSourceWindow=o.expandedSourceCoverage;
+             }
+             catch(Exception exception){optionsNotice="Saved options ignored: "+exception.Message;}
+         }
+--- before/Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs
++++ candidate/Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs
+@@ -62,6 +62,51 @@
+             if(destination.HasValue&&Math.Abs(dx)<=1e9&&Math.Abs(dz)<=1e9)Add(tx,tz,true);
+             result.Sort((a,b)=>{int p=a.Priority.CompareTo(b.Priority);if(p!=0)return p;int s=a.Score.CompareTo(b.Score);return s!=0?s:string.CompareOrdinal(a.Key,b.Key);});return result.ToArray();
+         }
++        public static long EstimatePayloadBytes(ExplorationRefinementBounds core,double blend)
++        {
++            Finite(blend,nameof(blend));if(blend<32||blend>256)throw new ArgumentOutOfRangeException(nameof(blend));
++            double pad=blend+SurfaceProfile.SampleRadiusMax;
++            long x0=(long)Math.Floor((core.MinimumX-pad)/5)-1,z0=(long)Math.Floor((core.MinimumZ-pad)/5)-1;
++            long cols=(long)Math.Ceiling((core.MaximumX+pad)/5)+2-x0,rows=(long)Math.Ceiling((core.MaximumZ+pad)/5)+2-z0;
++            if(cols<2||rows<2||cols>4096||rows>4096||cols*rows>262144)throw new ArgumentOutOfRangeException(nameof(core));
++            return checked(cols*rows*24);
++        }
++        static bool Covers(ExplorationPublishedPatchInfo p,ExplorationSourceDemandCell cell)
++            =>p.SpacingMeters<=5&&p.CoreBounds.MinimumX<=cell.Core.MinimumX&&p.CoreBounds.MinimumZ<=cell.Core.MinimumZ&&p.CoreBounds.MaximumX>=cell.Core.MaximumX&&p.CoreBounds.MaximumZ>=cell.Core.MaximumZ;
++        /// <summary>Reserve mandatory resident footprints BEFORE buying demand.
++        /// A selected core already covered by a reserved patch is charged once.</summary>
++        public static ExplorationSourceDemandCell[] SelectForResidentCapacity(ExplorationSourceDemandCell[] eligible,
++            ExplorationPublishedPatchInfo[] published,int maximumPatches,long maximumBytes,double blend,Func<string,bool> canEvict,
++            out string[] mandatoryKeys,out long mandatoryBytes,out int deferred,out int priorityDeferred)
++        {
++            if(eligible==null||eligible.Length>MaximumScannedCells||published==null||published.Length>32||maximumPatches<1||maximumPatches>32||maximumBytes<1||canEvict==null)throw new ArgumentException("Bounded source selection inputs");
++            var reserved=new HashSet<string>();var mandatory=new List<string>(32);long bytes=0;int slots=0;
++            foreach(var patch in published)if(!canEvict(patch.Key)&&reserved.Add(patch.Key))
++            {mandatory.Add(patch.Key);slots++;bytes+=patch.PayloadBytes;}
++            mandatoryKeys=mandatory.ToArray();mandatoryBytes=bytes;deferred=priorityDeferred=0;
++            int effectiveCapacity=Math.Min(maximumPatches,(int)Math.Min(32,maximumBytes/EstimatePayloadBytes(new ExplorationRefinementBounds(0,0,640,640),blend)));
++            int nearQuota=Math.Max(1,(effectiveCapacity-2)*2/3),nearSlots=0;
++            var selected=new List<ExplorationSourceDemandCell>(32);var seen=new HashSet<string>();
++            foreach(var cell in eligible)
++            {
++                if(!seen.Add(cell.Key))continue;
++                if(selected.Count>=maximumPatches){deferred++;if(cell.Priority<=1)priorityDeferred++;continue;}
++                if(cell.Priority==2&&nearSlots>=nearQuota){deferred++;continue;}
++                string footprint=cell.Key;long cost=EstimatePayloadBytes(cell.Core,blend);bool covered=false;
++                // Prefer already-reserved coverage, including a mandatory patch,
++                // before charging an otherwise evictable enclosing published grid.
++                foreach(var patch in published)if(Covers(patch,cell)&&reserved.Contains(patch.Key)){footprint=patch.Key;cost=patch.PayloadBytes;covered=true;break;}
++                if(!covered)foreach(var patch in published)if(Covers(patch,cell)){footprint=patch.Key;cost=patch.PayloadBytes;break;}
++                bool charged=reserved.Contains(footprint);
++                if(!charged&&(slots>=maximumPatches||cost>maximumBytes-bytes))
++                {deferred++;if(cell.Priority<=1)priorityDeferred++;continue;}
++                // Mandatory content can already occupy the entire cap. Its own
++                // ready core still belongs in demand; it must never be double charged.
++                selected.Add(cell);if(!charged){reserved.Add(footprint);slots++;bytes+=cost;}
++                if(cell.Priority==2)nearSlots++;
++            }
++            return selected.ToArray();
++        }
+         public static bool CanAdmitRetainingCoverage(ExplorationPublishedPatchInfo[] published,string incomingKey,long incomingBytes,
+             int maximumPatches,long maximumBytes,ISet<string> retainedKeys,IReadOnlyList<ExplorationSourceDemandCell> desired,Func<string,bool> canEvict)
+         {
+@@ -86,6 +131,18 @@
+         }
+     }
+ 
++
++    public readonly struct ExplorationSelectedSourceInfo
++    {
++        public readonly string Key;public readonly ExplorationRefinementBounds Core;public readonly int Priority;public readonly bool Ready;
++        internal ExplorationSelectedSourceInfo(ExplorationSourceDemandCell cell,bool ready){Key=cell.Key;Core=cell.Core;Priority=cell.Priority;Ready=ready;}
++    }
++    public readonly struct ExplorationSourceRequestInfo
++    {
++        public readonly string Key,Reason;public readonly ExplorationRefinementBounds Core;public readonly int Priority;public readonly bool Selected,Current,Completed;
++        internal ExplorationSourceRequestInfo(string key,ExplorationRefinementBounds core,int priority,bool selected,bool current,bool completed,string reason)
++        {Key=key;Core=core;Priority=priority;Selected=selected;Current=current;Completed=completed;Reason=reason;}
++    }
+ 
+     /// <summary>Optional asynchronous decoded terrain extension. Every successful
+     /// publication is an immutable grid with explicit player/query/prop protection.
+@@ -109,9 +166,27 @@
+         public int HeldCompletedRequests {get{int count=0;foreach(var item in work)if(item.Complete!=null&&item.Desired)count++;return count;}}
+         public int BundledCandidateCells {get;private set;}
+         public int CapacityDeferredCells {get;private set;}
++        public int PriorityCapacityDeferredCells {get;private set;}
++        public int MandatoryResidentPatches=>mandatorySourceKeys.Length;
++        public long MandatoryResidentPayloadBytes {get;private set;}
++        // Read from the main thread, like Tick. Copies are bounded32/32/2.
++        public ExplorationSelectedSourceInfo[] CaptureSelectedSourceDemand()
++        {var result=new ExplorationSelectedSourceInfo[desired.Count];for(int i=0;i<result.Length;i++)result[i]=new ExplorationSelectedSourceInfo(desired[i],IsReady(desired[i].Core));return result;}
++        public string[] CaptureMandatorySourceKeys()=>(string[])mandatorySourceKeys.Clone();
++        public ExplorationSourceRequestInfo[] CaptureSourceRequests()
++        {
++            var result=new ExplorationSourceRequestInfo[work.Count];
++            for(int i=0;i<result.Length;i++)
++            {
++                var item=work[i];bool complete=item.Complete!=null;
++                string reason=!item.Desired?"Stale request draining.":!complete?"Model request/copy in progress.":item.HoldReason??"Completed; awaiting publication check.";
++                result[i]=new ExplorationSourceRequestInfo(item.Key,item.Core,item.Priority,item.Desired,item.Current,complete,reason);
++            }
++            return result;
++        }
+         public double DesiredCoreAreaSquareMeters=>DesiredSourceCells*640.0*640;
+         public double ReadyCoreAreaSquareMeters=>ReadyDesiredSourceCells*640.0*640;
+-        public string SourceCoverageStatus=>"Selected640m source cells "+ReadyDesiredSourceCells+"/"+DesiredSourceCells+" at5m; "+MissingDesiredSourceCells+" missing, "+HeldCompletedRequests+" completed/held, "+CapacityDeferredCells+" selection/capacity deferred. Far terrain outside these cells may use macro source.";
++        public string SourceCoverageStatus=>"Selected640m source cells "+ReadyDesiredSourceCells+"/"+DesiredSourceCells+" at5m; "+MissingDesiredSourceCells+" missing, "+HeldCompletedRequests+" completed/held, "+CapacityDeferredCells+" selection/capacity deferred, "+PriorityCapacityDeferredCells+" current/destination deferred; "+MandatoryResidentPatches+" mandatory resident patches reserved. Far terrain outside these cells may use macro source.";
+         public string Status {get;private set;}="Live decoding is off; bundled learned terrain is ready.";
+         public event Action<ExplorationRefinementBounds> RegionChanged;
+         sealed class Work
+@@ -128,6 +203,7 @@
+         readonly List<Work> work=new List<Work>(2);
+         readonly List<ExplorationSourceDemandCell> desired=new List<ExplorationSourceDemandCell>(16);
+         readonly HashSet<string> desiredKeys=new HashSet<string>();
++        string[] mandatorySourceKeys=Array.Empty<string>();
+         readonly Dictionary<string,float> retries=new Dictionary<string,float>();
+         ExplorationAtlasField baked;
+         WorldExplorer vista;
+@@ -143,7 +219,7 @@
+             if(source==null)throw new ArgumentNullException(nameof(source));
+             if(renderer==null)throw new ArgumentNullException(nameof(renderer));
+             StopClient();baked=source;vista=renderer;this.endpoint=endpoint;
+-            nextRequests=nextStatus=0;retries.Clear();desired.Clear();desiredKeys.Clear();DemandCandidateCells=ReadyDesiredSourceCells=BundledCandidateCells=CapacityDeferredCells=0;DiscardedStaleResults=0;CurrentAreaStatus="No current-area demand yet.";
++            nextRequests=nextStatus=0;retries.Clear();desired.Clear();desiredKeys.Clear();DemandCandidateCells=ReadyDesiredSourceCells=BundledCandidateCells=CapacityDeferredCells=PriorityCapacityDeferredCells=0;mandatorySourceKeys=Array.Empty<string>();MandatoryResidentPayloadBytes=0;DiscardedStaleResults=0;CurrentAreaStatus="No current-area demand yet.";
+             compatible=Math.Abs(source.WorldWidthMeters-source.OriginalWidthMeters)<.001&&Math.Abs(source.WorldDepthMeters-source.OriginalDepthMeters)<.001&&Math.Abs(source.VerticalScale-1)<1e-7;
+             if(TileMeters!=ExplorationSourceDemandPlanner.CellMeters||double.IsNaN(BlendMeters)||BlendMeters<32||BlendMeters>256||double.IsNaN(LookAheadMeters)||LookAheadMeters<1024||LookAheadMeters>10000)
+                 throw new ArgumentOutOfRangeException("Live tile/blend/look-ahead controls");
+@@ -248,13 +324,6 @@
+             return baked.FineWeightAt(influence.MinimumX,influence.MinimumZ)>=.999999&&baked.FineWeightAt(influence.MaximumX,influence.MaximumZ)>=.999999&&
+                 baked.FineWeightAt(influence.MinimumX,influence.MaximumZ)>=.999999&&baked.FineWeightAt(influence.MaximumX,influence.MinimumZ)>=.999999;
+         }
+-        static long ExpectedPayload(ExplorationRefinementBounds core,double blend)
+-        {
+-            double pad=blend+SurfaceProfile.SampleRadiusMax;
+-            long x0=(long)Math.Floor((core.MinimumX-pad)/5)-1,z0=(long)Math.Floor((core.MinimumZ-pad)/5)-1;
+-            long cols=(long)Math.Ceiling((core.MaximumX+pad)/5)+2-x0,rows=(long)Math.Ceiling((core.MaximumZ+pad)/5)+2-z0;
+-            return checked(cols*rows*24);
+-        }
+         bool RequiredBounds(ExplorationRefinementBounds core,out ExplorationRefinementBounds required)
+         {
+             required=core.Expanded(BlendMeters+SurfaceProfile.SampleRadiusMax+10);
+@@ -286,21 +355,21 @@
+             }
+             catch(Exception){ } // Missing bounds retain the narrower protected demand.
+             var candidates=ExplorationSourceDemandPlanner.Build(observer,heading.x,heading.z,LookAheadMeters,baked.WorldWidthMeters,baked.WorldDepthMeters,deferCurrentArea,wider,halfAngle,destination,desiredKeys);
+-            DemandCandidateCells=candidates.Length;desired.Clear();desiredKeys.Clear();BundledCandidateCells=CapacityDeferredCells=0;
+-            long reserved=0;int retainedSlots=0,nearSlots=0;
+-            int effectiveCapacity=Math.Min(WorldField.MaximumResidentPatches,(int)(WorldField.MaximumResidentPayloadBytes/ExpectedPayload(new ExplorationRefinementBounds(0,0,640,640),BlendMeters)));
+-            int nearQuota=Math.Max(1,(effectiveCapacity-2)*2/3);
++            DemandCandidateCells=candidates.Length;BundledCandidateCells=0;
++            var eligible=new List<ExplorationSourceDemandCell>(candidates.Length);
+             foreach(var cell in candidates)
+             {
+                 if(!RequiredBounds(cell.Core,out _))continue;
+                 if(FullyBaked(cell.Core)){BundledCandidateCells++;continue;}
+-                bool current=cell.Current;
+-                if(!current&&!wider&&cell.Core.Expanded(BlendMeters+QueryAndPropGuardMeters).DistanceSquared(observer.X,observer.Z)<=ProtectedRadiusMeters*ProtectedRadiusMeters)continue;
+-                if(cell.Priority==2&&nearSlots>=nearQuota){CapacityDeferredCells++;continue;}
+-                long cost=ExpectedPayload(cell.Core,BlendMeters);
+-                if(retainedSlots>=WorldField.MaximumResidentPatches||reserved+cost>WorldField.MaximumResidentPayloadBytes){CapacityDeferredCells++;continue;}
+-                desired.Add(cell);desiredKeys.Add(cell.Key);reserved+=cost;retainedSlots++;if(cell.Priority==2)nearSlots++;
+-            }
++                if(!cell.Current&&!wider&&cell.Core.Expanded(BlendMeters+QueryAndPropGuardMeters).DistanceSquared(observer.X,observer.Z)<=ProtectedRadiusMeters*ProtectedRadiusMeters)continue;
++                eligible.Add(cell);
++            }
++            var selected=ExplorationSourceDemandPlanner.SelectForResidentCapacity(eligible.ToArray(),WorldField.CapturePublishedCoverage(),
++                WorldField.MaximumResidentPatches,WorldField.MaximumResidentPayloadBytes,BlendMeters,key=>WorldField.CanEvictPublishedPatch(key,observer,policy),
++                out string[] mandatory,out long mandatoryBytes,out int deferred,out int priorityDeferred);
++            mandatorySourceKeys=mandatory;MandatoryResidentPayloadBytes=mandatoryBytes;CapacityDeferredCells=deferred;PriorityCapacityDeferredCells=priorityDeferred;
++            desired.Clear();desiredKeys.Clear();foreach(var cell in selected){desired.Add(cell);desiredKeys.Add(cell.Key);}
++            if(priorityDeferred>0)CurrentAreaStatus="Current/destination source demand waits for mandatory resident capacity; protected detail is retained.";
+             foreach(var item in work){item.Desired=false;item.Current=false;}
+             foreach(var cell in desired)
+             {
+--- before/Assets/AshenVoxel/Exploration/ExplorationSettings.cs
++++ candidate/Assets/AshenVoxel/Exploration/ExplorationSettings.cs
+@@ -49,6 +49,8 @@
+         [Range(100,2000)] public float FineBlendMeters=512;
+         [Tooltip("Optional original-model service. Off keeps the bundled learned world completely offline; enable in F1 after starting the local provider.")]
+         public bool EnableLiveRefinement;
++        [Tooltip("Next Play:32 learned source cells/32MiB instead of16/16. Cold decoding can take longer; still not whole-view5m.")]
++        public bool ExpandedLiveSourceWindow=false;
+         public string DiffusionEndpoint="http://127.0.0.1:8787";
+         public bool UseRecommendedSpawn=true;
+         public double SpawnX,SpawnY=10,SpawnZ;

@@ -1,0 +1,11 @@
+--- MAIN/Assets/AshenVoxel/WorldScaleData/TerrainDetailField.cs
++++ candidate/TerrainDetailField.cs
+@@ -10,6 +10,8 @@
+         public const int Version=1;
+         public const double MaximumDisplacementMeters=.63;
+         readonly IWorldFieldBounds basis;
++        /// <summary>Read-only source for validating supported wrapper order without dropping relief.</summary>
++        public IWorldField BaseField=>basis;
+         public int Seed {get;}
+         public string SourceIdentity=>basis.SourceIdentity+"/surface-relief-v1/seed="+Seed.ToString(CultureInfo.InvariantCulture);
+         public TerrainDetailField(IWorldField source,int seed)

@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "scope": "Actual pinned pretrained coarse-network rerun with corrected cell-center registration; existing full canonical fine model outputs unchanged",
+  "elapsed_seconds": 78.26099180300662,
+  "world_id": "cb7bb688e7a5056fcabec160a3f12ccc9347a6953f33e21c5c898c07844ef418",
+  "previous_macro_sha256": "10ed6d5fc81399cdbec91ce5f5a7add190d150b87ba130ffccdd34c2151027e8",
+  "macro": {
+    "height_file": "ExplorationMacro.bytes",
+    "climate_file": "ExplorationMacro.climate.bytes",
+    "height_sha256": "3a0914829de19f5beab9b49ec17ee676e37d959446f9a78217c7ba0f994b7a4a",
+    "climate_sha256": "eeda28ecbcaaf4e8c41d5772e8ff073de069f79dc9910e2b9afa3e753023c7ef",
+    "columns": 235,
+    "rows": 118,
+    "origin_x_m": -149760.0,
+    "origin_z_m": -74880.0,
+    "extent_x_m": 299520.0,
+    "extent_z_m": 149760.0,
+    "spacing_m": 1280.0,
+    "height_range_m": [
+      -5261.54248046875,
+      7776.50341796875
+    ],
+    "climate_ranges": [
+      [
+        -50.46182632446289,
+        29.52536392211914
+      ],
+      [
+        1.663769245147705,
+        18.904155731201172
+      ],
+      [
+        0.0,
+        9289.0556640625
+      ],
+      [
+        0.0,
+        100.97766876220703
+      ],
+      [
+        -0.012000000104308128,
+        0.0
+      ]
+    ],
+    "source_identity": {
+      "provider": "InfiniteDiffusion",
+      "backend": "upstream-pretrained/coarse-network",
+      "world_id": "cb7bb688e7a5056fcabec160a3f12ccc9347a6953f33e21c5c898c07844ef418",
+      "upstream_commit": "e8dcb4b1a834ab2f6b1a6f5256ed7c9f2f3e8230",
+      "model_revision": "9ef8030cb805b433b98ec25c5dddefbac07a9e26",
+      "seed": 714103,
+      "resolution_stage": "coarse-network",
+      "world_meters_per_native_sample": 5.0,
+      "world_spacing_m": 1280.0,
+      "native_to_world_xz": 0.16666666666666666,
+      "vertical_height_scale": 1.0,
+      "height_units": "meters",
+      "climate_rectification_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 6263,
+        "3": 18,
+        "4": 0
+      },
+      "coarse_feature_coordinate": "(native_pixel+0.5)/256-0.5"
+    },
+    "elapsed_seconds": 72.59674071900372
+  },
+  "fine_sha256": "4ec7b876a6d6b0a47ff0dc8e43245c1b9a4be4878b10d1ce089b92042aa4bad3",
+  "source_sha256": {
+    "Tools/ExplorationBake/bake_exploration.py": "08e041b0670988bd60114793dc3bbbd63b0d2e4e50f0b251b0ae38c19a44d0ec",
+    "Tools/ExplorationBake/refresh_macro.py": "208882e235194d947dbc75ac46a0b726f4e96d7ed18892f3d2646aab0d6c50d3",
+    "Tools/DiffusionBridge/bridge.py": "a54ad8a3033e6a45632a96b9c694968ed342ef3b3351d6ebe23fd1d9100e1aef"
+  }
+}

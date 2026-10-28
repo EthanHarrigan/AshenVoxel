@@ -1,0 +1,42 @@
+--- installed/Assets/AshenVoxel/Exploration/VegetationStreaming.cs
++++ candidate/Assets/AshenVoxel/Exploration/VegetationStreaming.cs
+@@ -95,8 +95,12 @@
+         }
+         IEnumerator Load(byte[] bytes)
+         {
++            Dictionary<int,PopulationGrounding> grounding=null;
+             using(var reader=new ExplorationPrototypeReader(bytes))
+             {
++                // Older packs lack exact material IDs; keep their supported
++                // center placement instead of rejecting every hard prop.
++                if(reader.FormatVersion>=4)grounding=new Dictionary<int,PopulationGrounding>();
+                 while(reader.TryRead(out ExplorationPrototype data))
+                 {
+                     var model=new Model{Data=data,Meshes=new Mesh[data.LodCount],Triangles=new int[data.LodCount]};models.Add(data.Id,model);
+@@ -126,6 +130,7 @@
+                         Status="Loading "+data.Name+" · LOD "+(lod+1)+"/"+data.LodCount+" · "+models.Count+"/"+reader.Count+" models";
+                         yield return null;
+                     }
++                    if(grounding!=null&&(data.Kind==0||data.Kind==2))grounding.Add(data.Id,PopulationGrounding.FromPrototype(data));
+                     data.ReleaseMeshData();maximumRadius=Math.Max(maximumRadius,data.Radius*1.415f+2);maximumHeight=Math.Max(maximumHeight,data.MaxY);
+                 }
+             }
+@@ -135,6 +140,9 @@
+                 foreach(var pair in models)if(pair.Value.Data.Kind==0){prototypes.Add(pair.Key,pair.Value.Data);sprites.Add(pair.Key,pair.Value.Meshes[3]);}
+                 Horizon=new ForestHorizon(surface,populationSeed,impostorMaterial,prototypes,sprites,UseGpuForestHorizon);
+             }
++            // Freeze actual-shape placement metadata only after all prototypes
++            // loaded; never expose a partially populated grounding registry.
++            population=new ExplorationPopulation(surface,populationSeed,grounding);
+             Ready=true;matricesDirty=true;Status="Shared voxel prototypes ready.";
+         }
+         public void SetObserver(WorldPoint eyeGlobal,WorldPoint renderOrigin)
+@@ -186,7 +194,7 @@
+                         {if(models.TryGetValue(instance.PrototypeId,out Model model)&&model.Data.HasCollision)hard.Add(instance);else soft.Add(instance);}
+                         if(hard.Count>capacity){Status="Near hard-prop population is waiting for a larger instance budget.";break;}
+                         soft.Sort((a,b)=>a.StableKey.CompareTo(b.StableKey));int keep=Math.Min(soft.Count,capacity-hard.Count);
+-                        for(int i=0;i<keep;i++)hard.Add(soft[i]);BudgetOmittedSoftInstances+=soft.Count-keep;data=new PopulationCell(data.Key,hard.ToArray(),data.SampledCandidates);
++                        for(int i=0;i<keep;i++)hard.Add(soft[i]);BudgetOmittedSoftInstances+=soft.Count-keep;data=new PopulationCell(data.Key,hard.ToArray(),data.SampledCandidates,data.GroundingRejectedCandidates);
+                     }
+                 }
+                 cells.Add(key,new CachedCell{Data=data});ResidentInstances+=data.Instances.Length;matricesDirty=true;

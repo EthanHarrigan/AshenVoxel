@@ -1,0 +1,28 @@
+Releasing render texture that is set to be RenderTexture.active!
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.RenderTexture:Release ()
+AshenVoxel.Exploration.Editor.RootContactNativePreview:Run ()
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.RootPreviewTriggerV3:Poll () (at Assets/AshenVoxel/Exploration/Editor/RootPreviewTrigger_20261027_v3.cs:33)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+[Assets/AshenVoxel/Exploration/Editor/RootPreviewTrigger_20261027_v3.cs line 33]
+
+Root-contact native preview PASS: C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels/.terrain-cache\root-contact-native\20261027T123437369Z
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.RootContactNativePreview:Run ()
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.RootPreviewTriggerV3:Poll () (at Assets/AshenVoxel/Exploration/Editor/RootPreviewTrigger_20261027_v3.cs:33)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/RootPreviewTrigger_20261027_v3.cs Line: 33)
+
+[Licensing::Client] Successfully resolved entitlement details

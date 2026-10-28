@@ -1,0 +1,10 @@
+{
+  "id": "source-observation-1",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs",
+      "before": "cb43da64db5f19e829e9441f4c2b8e6dfdb268ee1a9cf34c0719fc7c00b4ed18",
+      "sha256": "e02b7962584e06f9764b62ea5d41c0ba6ee2122a1afc608efe654986c0efb6bb"
+    }
+  ]
+}

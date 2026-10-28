@@ -1,0 +1,61 @@
+{
+  "utc": "2026-10-27T13:21:28.489439+00:00",
+  "status": "4_OWNED_FILES_STAGED_NOT_ARMED_NOT_PLAYED",
+  "headroom_bytes": 4409978880,
+  "log_offset": 822554,
+  "files": [
+    {
+      "path": "Assets/_Validation/CoordinatorSmoke/Runtime/BoundedFlightReplay.cs.meta",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\replay-payload\\Runtime\\BoundedFlightReplay.cs.meta",
+      "sha256": "0780978975f045f68ea151249c92bd0a13fd159516ef0130f8d983bb088e10f7",
+      "preimage": "MUST_BE_ABSENT"
+    },
+    {
+      "path": "Assets/_Validation/CoordinatorSmoke/Runtime/BoundedFlightReplay.cs",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\replay-payload\\Runtime\\BoundedFlightReplay.cs",
+      "sha256": "c11cee0de3574d524221a516928b8395465d9efc87eec0c83453f045c692747e",
+      "preimage": "MUST_BE_ABSENT"
+    },
+    {
+      "path": "Assets/_Validation/CoordinatorSmoke/Editor/BoundedFlightReplayTrigger.cs.meta",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\replay-payload\\Editor\\BoundedFlightReplayTrigger.cs.meta",
+      "sha256": "cf0a654ed8dd2a2b47e7d4786195290d392adf1405d257d4714e61cad1e207ce",
+      "preimage": "MUST_BE_ABSENT"
+    },
+    {
+      "path": "Assets/_Validation/CoordinatorSmoke/Editor/BoundedFlightReplayTrigger.cs",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\replay-payload\\Editor\\BoundedFlightReplayTrigger.cs",
+      "sha256": "58732a4ad76a7c62f9df4d6568d3a84ae6ad3795df4a0b30446adb90d67fd348",
+      "preimage": "MUST_BE_ABSENT"
+    }
+  ],
+  "protected_runtime": {
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationBootstrap.cs": "f609db6e1bf116d81a063e926dd24a3f8157acf939c04e4325ca9ad1f5a4de55",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationController.cs": "411c3feb0d03b04cd1277b3afefe122b56babb8636e13b011a11d3b390d1ccf2",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationSettings.cs": "66626530b591492e92ea2771b50e7a6acf3c8c789211ddcc42bacdf37d3976b9",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorer.cs": "5d7e2903cabc71af4618582951fa47fa35897c00c6ce91bd13db14831093c321",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorerIntegration.cs": "48c0e689eb7f3c06160d631bbcfe7f83c735379b032890e23c56bf448791f9fb",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorerVoxels.cs": "464c5661cfd1f91624e77aeb68f1119d66ac439f23a54e78f8b31c5b0e2132b9",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\LodPlanner.cs": "1651adfb2a1a9f589fc18ae96b8651ed608f546c7f79c666e237788b2c5dfc67"
+  },
+  "originals": [
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Settings\\ExplorationSettings.asset",
+      "sha256": "38a9b5b822c4e61418597114703af58cf51847e69f80fd9940494c9e55738664",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\preimages\\0\\ExplorationSettings.asset",
+      "read_verified": true
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\Scenes\\Exploration.unity",
+      "sha256": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\preimages\\1\\Exploration.unity",
+      "read_verified": true
+    },
+    {
+      "path": "C:\\Users\\ethan\\AppData\\LocalLow\\Ashen Voxel\\Ashen Voxel Exploration\\exploration-options.json",
+      "sha256": "93dc85a8d103b3de75587116507cbbd8de4b21029eeb2643cd0ba43c7451c231",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\preimages\\2\\exploration-options.json",
+      "read_verified": true
+    }
+  ]
+}

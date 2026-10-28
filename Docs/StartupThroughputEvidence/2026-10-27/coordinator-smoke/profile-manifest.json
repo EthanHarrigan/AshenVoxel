@@ -1,0 +1,90 @@
+{
+  "utc": "2026-10-27T11:31:45.965606+00:00",
+  "status": "PREPARED_NOT_INSTALLED_OR_PLAYED",
+  "files": [
+    {
+      "path": "Assets\\_Validation\\CoordinatorSmoke\\CoordinatorSmokeSettings.asset",
+      "sha256": "379f3703d672f425a4cd82712ebd31730562a96fc33df7aedf797661e795969f"
+    },
+    {
+      "path": "Assets\\_Validation\\CoordinatorSmoke\\CoordinatorSmokeSettings.asset.meta",
+      "sha256": "5f6c88314d941ff04765aabce5713ca3b6fae64bdf4a387b6c0642ea15fbf0b8"
+    },
+    {
+      "path": "Assets\\_Validation\\CoordinatorSmoke\\ExplorationSmoke_20261027.unity",
+      "sha256": "57db94a4cd62cf8c9c015c47e0e49b6b47a4a6b4587f7995a5677d45ba647dc6"
+    },
+    {
+      "path": "Assets\\_Validation\\CoordinatorSmoke\\ExplorationSmoke_20261027.unity.meta",
+      "sha256": "53ece4c144a2bd3f895187d3aacdfd0fcf7aeb747d6bda270d4aef0e753f77f2"
+    },
+    {
+      "path": "Assets\\_Validation\\CoordinatorSmoke\\Editor\\CoordinatorSmokeGuard.cs",
+      "sha256": "d201f6ff001bb683a930e14e2f085691de94e49cbc149972b97cd9b0155ed9a4"
+    },
+    {
+      "path": "Assets\\_Validation\\CoordinatorSmoke\\Editor\\CoordinatorSmokeGuard.cs.meta",
+      "sha256": "0fd62788269bbbec5824c4f31a7610ba3db13af93a0ead903cf6b2cb52b01eaf"
+    }
+  ],
+  "originals": [
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Settings\\ExplorationSettings.asset",
+      "sha256": "38a9b5b822c4e61418597114703af58cf51847e69f80fd9940494c9e55738664",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\preimages\\0\\ExplorationSettings.asset",
+      "read_verified": true
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\Scenes\\Exploration.unity",
+      "sha256": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\preimages\\1\\Exploration.unity",
+      "read_verified": true
+    },
+    {
+      "path": "C:\\Users\\ethan\\AppData\\LocalLow\\Ashen Voxel\\Ashen Voxel Exploration\\exploration-options.json",
+      "sha256": "93dc85a8d103b3de75587116507cbbd8de4b21029eeb2643cd0ba43c7451c231",
+      "backup": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\preimages\\2\\exploration-options.json",
+      "read_verified": true
+    }
+  ],
+  "profile": {
+    "m_Name": "CoordinatorSmokeSettings_20261027",
+    "VoxelFullDetailRadius": 16,
+    "VoxelTargetPixels": 8,
+    "ViewDistanceKm": 20,
+    "FarHorizonKm": 0,
+    "MaximumTerrainTiles": 192,
+    "EnableLiveRefinement": 0,
+    "EnableForestHorizon": 0,
+    "TreeDistanceMeters": 500,
+    "GroundCoverDistanceMeters": 20,
+    "RockDistanceMeters": 64,
+    "MaximumResidentInstances": 4096,
+    "FullTreeDetailMeters": 20,
+    "RedwoodFullDetailMeters": 6,
+    "MediumTreeDetailMeters": 100,
+    "VegetationTriangleBudget": 1000000,
+    "PopulationBuildMilliseconds": 0.5,
+    "TerrainBuildMilliseconds": 0.5,
+    "TerrainSampleWork": 32,
+    "FieldOfView": 75,
+    "FlightSpeed": 4,
+    "FlightBoost": 1,
+    "ShadowDistanceMeters": 50,
+    "Upscaling": 0,
+    "VoxelDetailBudgetMB": 64,
+    "VoxelContactBudgetMB": 128,
+    "LoadSavedOptions": false
+  },
+  "scope": "Copied test scene/settings; original scene/settings/prefs/world/pack unchanged. Native guard only stops exact armed test scene/currentPID/starttime; never starts Play or kills Editor.",
+  "memory_plan": {
+    "initial_headroom_GiB": 3.5,
+    "own_private_growth_abort_GiB": 1.5,
+    "global_headroom_abort_GiB": 2,
+    "intended_reserve_GiB": 1.5,
+    "atomic_overshoot_allowance_GiB": 0.5,
+    "timeout_s": 60,
+    "terrain_payload": "64MiB detail +separate bounded coarse reserve +128MiB contact",
+    "limitations": "Admission payload not RAM/VRAM bound. Hypothesis-constrained existing-session trial; guard checks only between native atomic operations. Graphics-driver allocation is a proxy, not VRAM residency."
+  }
+}

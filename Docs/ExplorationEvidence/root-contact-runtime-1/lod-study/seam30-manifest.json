@@ -1,0 +1,11 @@
+{
+  "utc": "2026-10-27T12:13:45.248381+00:00",
+  "scope": "FROZEN seam30 supplemental evidence; original helper/report and main inputs unchanged",
+  "sha256": {
+    "AllLodChecks.cs": "36ec957e23d7679cfe6ca100fbdccd467d8577703bfd7dcd434d006dc0b79ffd",
+    "run.py": "7aeb17af127a40ad45ea97c3daec508e45ab34de6ce849ab1ab21779ff103dab",
+    "all-lods.json": "7422a39ddbefcd9940f73570a99142d7399610f8a054cc19af70b1dc3129ca44",
+    "provenance.json": "7870486cbb418cc22e9c82c831d3a14501d543223c7567248a800720798164bf",
+    "README.md": "22022104b33bc0ad268643c12a7630871352230c3c4a22fe23ff9924a51abbf8"
+  }
+}

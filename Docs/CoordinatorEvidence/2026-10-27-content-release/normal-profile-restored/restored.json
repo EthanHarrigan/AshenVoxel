@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-27T17:12:15.195910+00:00",
+  "status": "NORMAL_SCENE_AND_SAVED_PROFILE_RESTORED_READY_OBSERVED_THEN_STOPPED",
+  "scene": "Assets/Scenes/Exploration.unity",
+  "ui": "CUA title/hierarchy normal Exploration, Walking HUD and actual rendered world observed. Stop confirmed by no-cameras/Playmode Off; no dirty scene marker.",
+  "identities": [
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Settings\\ExplorationSettings.asset",
+      "prior_sha256": "38a9b5b822c4e61418597114703af58cf51847e69f80fd9940494c9e55738664",
+      "current_sha256": "a29a4afc820bbdefa7ecb228999b69c3bf95fbee79d1aa684f64f42a58aad112"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\Scenes\\Exploration.unity",
+      "prior_sha256": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+      "current_sha256": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626"
+    },
+    {
+      "path": "C:\\Users\\ethan\\AppData\\LocalLow\\Ashen Voxel\\Ashen Voxel Exploration\\exploration-options.json",
+      "prior_sha256": "93dc85a8d103b3de75587116507cbbd8de4b21029eeb2643cd0ba43c7451c231",
+      "current_sha256": "93dc85a8d103b3de75587116507cbbd8de4b21029eeb2643cd0ba43c7451c231"
+    }
+  ],
+  "limits": "Native startup/profile observation only; no exact Ready latency, valley convergence, GPU timing or roots/bees acceptance. Manual normal-profile run, not a pass of the copied low-budget guard.",
+  "runtime_snapshot": "normal-profile-ready.json"
+}

@@ -1,0 +1,35 @@
+PASS global relief is deterministic and bounded across positive and negative world coordinates
+PASS world-wide earth forms have visible variation and walkable adjacent10cm slopes
+PASS relief exists far outside the decoded spawn square
+PASS derived geometry records its explicit version and seed
+PASS ocean and exact coastline remain unchanged
+PASS physical climate follows the shared displaced height
+PASS distant detailed meshes match the same implicit terrain height used by contact/collision
+PASS culling bounds include the complete relief displacement
+PASS full tile resolves individual10cm columns beyond the former22m square
+PASS flat top lies on exact global10cm occupancy boundary
+PASS greedy top faces cover entire tile once and reduce matching pigment regions
+PASS flat tops retain exact outward orientation and unoccluded corners
+PASS flat internal and buried faces are absent
+PASS every face carries existing opaque material pigment and nonzero area
+PASS mountain altitude never allocates buried mountain volume
+PASS negative coordinates and fine heights match the actual implicit matter/collision authority
+PASS slopes contain exposed voxel risers instead of interpolated triangles
+PASS fine slopes preserve occlusion corners during greedy meshing
+PASS exposed cliff walls use geological material below the cover
+PASS material bands and boundary closure remain bounded
+PASS far LOD aggregates horizontal cells while retaining10cm vertical heights
+PASS coarser LOD boundary closures extend beneath conservative neighbor floor
+PASS obsolete work cancels cooperatively before allocating geometry
+PASS non-dyadic sampling cannot silently break the global voxel grid
+PASS quality profile requests full near resolution
+PASS smaller pixel target never reduces detail
+PASS offscreen cache stays coarser while camera-facing detail is prioritized
+PASS startup produces complete coarse voxel coverage before refinement
+PASS conservative view priority distinguishes front and rear terrain
+PASS vertical camera view retains all heading candidates
+PASS side merging exactly preserves unit-face coverage, winding, material, pigment and wetness
+PASS 1024 coplanar side faces collapse to16 exact appearance rectangles
+PASS real slope and flat conversion reduce side geometry without discarding cells
+PASS coarse AO averages10cm crevices instead of darkening entire large aggregate faces
+All 34 world voxel LOD checks passed.

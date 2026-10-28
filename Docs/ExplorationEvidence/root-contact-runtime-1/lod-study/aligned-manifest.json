@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-27T12:16:48.875436+00:00",
+  "status": "FROZEN supplemental CPU evidence",
+  "seam30_all_lods": false,
+  "seams32_48_64_all_coarse_lods": false,
+  "observed_common_seam60_all_lods": true,
+  "original_seam30_unchanged": true,
+  "runtime_new_base_compatibility": "NOT VERIFIED; original cut contours differ by LOD",
+  "sha256": {
+    "AlignedSeamChecks.cs": "8bc36633eec29a7487756c4fa81055bd171bdcf5c0bc4d6f38a74076e9d772ec",
+    "aligned_run.py": "85075d56da11dad89312c2b1e7092b981891449336e1cfc4d062ea6d906ad8d1",
+    "aligned-seams.json": "b9f8b139c762af82da3a30c02162a5e50615961aa8fa5073fd99a2539ef50c59",
+    "aligned-provenance.json": "5bb7b426dc90340a6afe043fb907b34c9ee86ccc2e990db624840329406423b1",
+    "CommonSeamChecks.cs": "522fa028587ef0cd8631b76b98653a2f91f92c24ffe172196e8c119ff82554d7",
+    "common_run.py": "a4f4b10af572dd146b6c88774c33cf898a3a687ff3d852a8f376e838f052d17a",
+    "common-seam60.json": "6dd9d59f8df38f053b7767ed703499682a53c9defcaa152e2f16647a91fcdffc",
+    "common-provenance.json": "f6ce758cb376137372b0c096be53f0db45d05b02ac25350722c64ce436368203",
+    "ALIGNED_RESULTS.md": "8e3e1ed936ac1b88ddf91bba95e07415218ea23ae19392fec324047152933aa9",
+    "seam30-manifest.json": "b01c94fc409a6e3c83a279147c7b624e05bbd8ba5c434c43120beb0a15483ad6"
+  }
+}

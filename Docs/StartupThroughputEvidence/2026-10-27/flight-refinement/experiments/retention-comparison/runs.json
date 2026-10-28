@@ -1,0 +1,26 @@
+[
+  {
+    "repeat": 0,
+    "variant": "altitude-retain",
+    "run": "20261027-120237-374853-production-overlay-RetentionWorkerRouteProgram",
+    "status": "PASS"
+  },
+  {
+    "repeat": 0,
+    "variant": "flight-v4",
+    "run": "20261027-120258-303329-production-overlay-RetentionWorkerRouteProgram",
+    "status": "PASS"
+  },
+  {
+    "repeat": 1,
+    "variant": "flight-v4",
+    "run": "20261027-120317-878476-production-overlay-RetentionWorkerRouteProgram",
+    "status": "PASS"
+  },
+  {
+    "repeat": 1,
+    "variant": "altitude-retain",
+    "run": "20261027-120337-738903-production-overlay-RetentionWorkerRouteProgram",
+    "status": "PASS"
+  }
+]

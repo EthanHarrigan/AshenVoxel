@@ -1,0 +1,118 @@
+{
+  "utc": "2026-10-27T10:02:06.110177+00:00",
+  "id": "capacity-lod-1",
+  "installed": true,
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "before": "847b218247a97e974101f7ac6e55fdcb35ff86d4c107acd3a2b91f894bd04a1a",
+      "sha256": "0d7d76771373134623fa9c13cc2e00f2830763c7658cfb3cf05701d71a8e0834"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+      "before": "b050c02ede81aa97bf491d02dea5fe47b0fa45fbc59b9480bda09ba0c49060a9",
+      "sha256": "5d132d061fa7f855e480f20e2aaa7af174684085dd1b0349313399f5426a3700"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "9aae54f5dd9cde50cfa908b76190eee37167da4c2fc38a010845f54c00d4553e",
+      "sha256": "b9e7964405642f84fd276644c2ecf726dac536ab756d2ffc1d92a2e31be6e20d"
+    }
+  ],
+  "native_compile_reload": "PASS",
+  "mesh_regression": "PASS",
+  "new_native_process": false,
+  "runtime_play_or_fps_verified": false,
+  "heartbeat": {
+    "playing": false,
+    "changing": false,
+    "compiling": false,
+    "ready": false,
+    "utc": "2026-10-27T10:02:06.0335585Z",
+    "population": {
+      "utc": "2026-10-27T10:02:06.0335585Z",
+      "error": "",
+      "status": "",
+      "source": "",
+      "horizon_error": "",
+      "present": false,
+      "boot_failed": false,
+      "ready": false,
+      "observer_valid": false,
+      "camera_valid": false,
+      "horizon_present": false,
+      "horizon_gpu": false,
+      "horizon_enabled": false,
+      "loaded_models": 0,
+      "resident_cells": 0,
+      "resident_instances": 0,
+      "pending_cells": 0,
+      "draw_calls": 0,
+      "visible_instances": 0,
+      "shadow_instances": 0,
+      "budget_demotions": 0,
+      "omitted_soft": 0,
+      "visible_triangles": 0,
+      "work_ms": 0.0,
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "origin_x": 0.0,
+      "origin_y": 0.0,
+      "origin_z": 0.0,
+      "camera_forward_x": 0.0,
+      "camera_forward_y": 0.0,
+      "camera_forward_z": 0.0,
+      "camera_far": 0.0,
+      "tree_distance": 0.0,
+      "plant_distance": 0.0,
+      "rock_distance": 0.0,
+      "tree_density": 0.0,
+      "plant_density": 0.0,
+      "triangle_budget": 0,
+      "instance_limit": 0,
+      "building_matrices": -1,
+      "finalizing": -1,
+      "matrix_cell": -1,
+      "matrix_instance": -1,
+      "matrix_cells": -1,
+      "finalize_page": -1,
+      "finalize_pages": -1,
+      "batches": -1,
+      "deferred_cells": -1,
+      "scanned_cells": 0,
+      "cell_scan_available": false,
+      "cell_scan_truncated": false,
+      "cells_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "published_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "empty_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "instances_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "horizon_pending": 0,
+      "horizon_resident": 0,
+      "horizon_draws": 0,
+      "horizon_visible": 0,
+      "horizon_worker_pending": false,
+      "horizon_visible_available": false,
+      "horizon_published_far": 0.0,
+      "horizon_farthest": 0.0
+    }
+  },
+  "preimage_inventory": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\startup-throughput\\capacity-preimages-1\\inventory.json",
+  "compiler_warning": "Existing CS0618 in DlssNativeCheck; no compile errors."
+}

@@ -1,0 +1,24 @@
+.terrain-cache\progressive-lod\runs\20261027-120237-374853-production-overlay-RetentionWorkerRouteProgram\source\Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(48,44): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+.terrain-cache\progressive-lod\runs\20261027-120237-374853-production-overlay-RetentionWorkerRouteProgram\source\Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(49,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+.terrain-cache\progressive-lod\runs\20261027-120237-374853-production-overlay-RetentionWorkerRouteProgram\source\Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(50,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+.terrain-cache\progressive-lod\runs\20261027-120237-374853-production-overlay-RetentionWorkerRouteProgram\source\Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(57,42): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+STOP initial elevated: 197 ticks / 3042.1 ms CPU wall
+STOP fast outbound stop: 170 ticks / 2603.6 ms CPU wall
+LEG fast outbound: expensive 1, retired 1
+PASS same-position stop restores complete destination detail
+STOP stopped180turn: 20 ticks / 307.2 ms CPU wall
+PASS stopped turn refines its new view
+LEG fast reverse return: expensive 2, retired 2
+STOP immediate direction reversal stop: 151 ticks / 2342.4 ms CPU wall
+LEG immediate direction reversal: expensive 1, retired 1
+PASS reversal destination recovers
+LEG pre-descent transit: expensive 1, retired 1
+STOP ground descent arrival: 165 ticks / 2540.2 ms CPU wall
+PASS ground contact ready after descent
+STOP ordinary ground travel stop: 33 ticks / 514.3 ms CPU wall
+LEG ordinary ground travel: expensive 40, retired 34
+PASS ordinary ground route never enters travel deferral
+PASS stationary destination does not rebuild
+PASS shutdown releases caches and worker
+
+C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\progressive-lod\runs\20261027-120237-374853-production-overlay-RetentionWorkerRouteProgram\result.json

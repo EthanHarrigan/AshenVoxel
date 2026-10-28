@@ -1,0 +1,31 @@
+Exception: Cannot isolate native fixture scene
+  at AshenVoxel.Exploration.Editor.RootContactNativePreview.Run () [0x001fe] in <65f70d73e64b4daca02f7bdcb886f633>:0 
+UnityEngine.DebugLogHandler:Internal_LogException_Injected(Exception, IntPtr)
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+AshenVoxel.Exploration.Editor.RootContactNativePreview:Run()
+System.Reflection.RuntimeMethodInfo:InternalInvoke(RuntimeMethodInfo, Object, Object[], Exception&)
+System.Reflection.RuntimeMethodInfo:Invoke(Object, BindingFlags, Binder, Object[], CultureInfo)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+AshenVoxel.Exploration.Editor.RootPreviewTriggerV2:Poll() (at Assets\AshenVoxel\Exploration\Editor\RootPreviewTrigger_20261027_v2.cs:33)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/RootPreviewTrigger_20261027_v2.cs Line: 33)
+
+Root-contact native preview FAIL: C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels/.terrain-cache\root-contact-native\20261027T121401096Z
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.RootContactNativePreview:Run ()
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.RootPreviewTriggerV2:Poll () (at Assets/AshenVoxel/Exploration/Editor/RootPreviewTrigger_20261027_v2.cs:33)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/RootPreviewTrigger_20261027_v2.cs Line: 33)
+

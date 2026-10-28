@@ -1,0 +1,1 @@
+PASS native full Exploration play, three settled voxel views and native mesh regression. No interactive/FPS acceptance.

@@ -1,0 +1,24 @@
+{
+  "timestamp_collision": {
+    "utc_prefix": "20261027-120142-300480",
+    "action": "parallel same-program runs collided before one launched",
+    "error": "FileExistsError WinError183",
+    "resolution": "run identical program labels sequentially; no runtime change"
+  },
+  "missing_enclosure_fixture": {
+    "run": "20261027-120151-873498-production-overlay-ContactReplanFlightProgram",
+    "reason": "one desired tile omitted negative neighboring contact enclosures; conservative unknown-bound urgency correctly preempted far work",
+    "resolution": "fixture supplies complete3x3 enclosures; runtime unchanged"
+  },
+  "threshold_failure": {
+    "run": "20261027-115054-270177-production-overlay-FlightControllerProgram",
+    "reason": "160m/s exact entry threshold repeatedly reset by float-time derivative at actual default boost",
+    "resolution": "separate128/96 variant"
+  },
+  "allocation_assertion": {
+    "failed_run": "20261027-120527-310409-production-overlay-FlightPolicyProgram",
+    "diagnostic_pass": "20261027-120605-683108-production-overlay-FlightPolicyProgram",
+    "cause": "not established; exact initial byte/query deltas absent",
+    "runtime_changes_between_runs": false
+  }
+}

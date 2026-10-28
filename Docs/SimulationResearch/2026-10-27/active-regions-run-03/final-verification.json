@@ -1,0 +1,9 @@
+{
+  "checked_utc": "2026-10-28T05:06:54.714061+00:00",
+  "local_links": "PASS",
+  "missing": [],
+  "compiled_inputs_changed_since_run03": {},
+  "gameplay_integration": "NOT PERFORMED",
+  "native_execution": "NOT PERFORMED",
+  "core_suite": "91 PASS; see core-checks.log"
+}

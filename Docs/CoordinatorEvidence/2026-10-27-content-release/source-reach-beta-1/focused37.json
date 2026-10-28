@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "api_source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task\\source-integration-1\\checks\\api-20261027-204403-784812",
+  "utc": "2026-10-27T20:44:08.471130+00:00",
+  "source_sha256": {
+    "FocusedChecks.cs": "2692b769d4a6593786c3f1fa4549cfce2129f719a7eb9eb0b8710b622f2125b5",
+    "candidate\\Assets\\AshenVoxel\\Exploration\\ExplorationLiveRefinement.cs": "aca9cd5f7a4d4058ab394421f265d2b94740ca956eb0ecdee254b36a4d08cc88"
+  },
+  "scope": "Actual candidate field and scheduler; synthetic height/climate and controlled transport/Unity time. No HTTP, inference, native lifecycle or visual acceptance."
+}

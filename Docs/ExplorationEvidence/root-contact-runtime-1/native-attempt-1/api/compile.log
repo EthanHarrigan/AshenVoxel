@@ -1,0 +1,9 @@
+.terrain-cache\root-contact-mesh-prototype\RootContactNativePreview.cs(36,86): warning CS0649: Field 'RootContactNativePreview.Site.yaw' is never assigned to, and will always have its default value 0
+.terrain-cache\root-contact-mesh-prototype\RootContactNativePreview.cs(25,66): warning CS0649: Field 'RootContactNativePreview.Identity.sha256' is never assigned to, and will always have its default value null
+.terrain-cache\root-contact-mesh-prototype\RootContactNativePreview.cs(36,73): warning CS0649: Field 'RootContactNativePreview.Site.z' is never assigned to, and will always have its default value 0
+.terrain-cache\root-contact-mesh-prototype\RootContactNativePreview.cs(36,54): warning CS0649: Field 'RootContactNativePreview.Site.id' is never assigned to, and will always have its default value 0
+.terrain-cache\root-contact-mesh-prototype\RootContactNativePreview.cs(37,58): warning CS0649: Field 'RootContactNativePreview.Sites.sites' is never assigned to, and will always have its default value null
+.terrain-cache\root-contact-mesh-prototype\RootContactNativePreview.cs(36,71): warning CS0649: Field 'RootContactNativePreview.Site.x' is never assigned to, and will always have its default value 0
+.terrain-cache\root-contact-mesh-prototype\RootContactNativePreview.cs(26,63): warning CS0649: Field 'RootContactNativePreview.Inputs.files' is never assigned to, and will always have its default value null
+.terrain-cache\root-contact-mesh-prototype\RootContactNativePreview.cs(25,61): warning CS0649: Field 'RootContactNativePreview.Identity.path' is never assigned to, and will always have its default value null
+.terrain-cache\root-contact-mesh-prototype\RootContactNativePreview.cs(36,75): warning CS0649: Field 'RootContactNativePreview.Site.original_y' is never assigned to, and will always have its default value 0

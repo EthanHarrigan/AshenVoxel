@@ -1,0 +1,20 @@
+{
+  "id": "coarse320-next-launch-20261028",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.bytes",
+      "sha256": "50b4265dc3e19d9b3e7dd179e9d7241ae90aa0e94ab47b1cf6cc04318408bc70",
+      "before": "3a307d7dcebc47e0d1831e75a7cd73346480d3386b27aae9600c71dd2051c98b"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.climate.bytes",
+      "sha256": "a73e7b03be8dfdb22bacd4da711640a7f18a0d1a6a8a903389b02275b9bc1040",
+      "before": "e81d209a9bf1959c9d6749b93ab96c91c903bf1583fe6dbd33651ecf87306684"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/exploration-world.json",
+      "sha256": "99a27dd5d16fa85b09748d89606940c8e13194db8ad25004dd7663712aa4a896",
+      "before": "85ff39810a717cc35db248d9c48b38af52839346e392c32ba707f67e6df94ea3"
+    }
+  ]
+}

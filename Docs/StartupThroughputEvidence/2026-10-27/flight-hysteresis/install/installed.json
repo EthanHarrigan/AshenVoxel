@@ -1,0 +1,122 @@
+{
+  "utc": "2026-10-27T12:58:00.288990+00:00",
+  "id": "flight-hysteresis-1",
+  "installed": true,
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "eed51be61cb87f04752b0c8fc438f176539b3f31c686cf81a0d1a07c23097329",
+      "sha256": "464c5661cfd1f91624e77aeb68f1119d66ac439f23a54e78f8b31c5b0e2132b9"
+    }
+  ],
+  "native_compile_reload": "PASS",
+  "mesh_regression": "PASS",
+  "protected_unchanged": {
+    "Assets/AshenVoxel/Settings/ExplorationSettings.asset": "38a9b5b822c4e61418597114703af58cf51847e69f80fd9940494c9e55738664",
+    "Assets/Scenes/Exploration.unity": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+    "C:\\Users\\ethan\\AppData\\LocalLow\\Ashen Voxel\\Ashen Voxel Exploration\\exploration-options.json": "93dc85a8d103b3de75587116507cbbd8de4b21029eeb2643cd0ba43c7451c231",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "f609db6e1bf116d81a063e926dd24a3f8157acf939c04e4325ca9ad1f5a4de55",
+    "Assets/AshenVoxel/Exploration/ExplorationController.cs": "411c3feb0d03b04cd1277b3afefe122b56babb8636e13b011a11d3b390d1ccf2",
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": "66626530b591492e92ea2771b50e7a6acf3c8c789211ddcc42bacdf37d3976b9",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs": "5d7e2903cabc71af4618582951fa47fa35897c00c6ce91bd13db14831093c321",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs": "48c0e689eb7f3c06160d631bbcfe7f83c735379b032890e23c56bf448791f9fb"
+  },
+  "new_native_process": false,
+  "Play_started": false,
+  "native_mountainous_flight_verified": false,
+  "warnings": [
+    "Existing DlssNativeCheck.cs obsolete API warning",
+    "DLSSIUpscaler null-options pipeline warning"
+  ],
+  "heartbeat": {
+    "playing": false,
+    "changing": false,
+    "compiling": false,
+    "ready": false,
+    "utc": "2026-10-27T12:57:58.5154394Z",
+    "population": {
+      "utc": "2026-10-27T12:57:58.5154394Z",
+      "error": "",
+      "status": "",
+      "source": "",
+      "horizon_error": "",
+      "present": false,
+      "boot_failed": false,
+      "ready": false,
+      "observer_valid": false,
+      "camera_valid": false,
+      "horizon_present": false,
+      "horizon_gpu": false,
+      "horizon_enabled": false,
+      "loaded_models": 0,
+      "resident_cells": 0,
+      "resident_instances": 0,
+      "pending_cells": 0,
+      "draw_calls": 0,
+      "visible_instances": 0,
+      "shadow_instances": 0,
+      "budget_demotions": 0,
+      "omitted_soft": 0,
+      "visible_triangles": 0,
+      "work_ms": 0.0,
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "origin_x": 0.0,
+      "origin_y": 0.0,
+      "origin_z": 0.0,
+      "camera_forward_x": 0.0,
+      "camera_forward_y": 0.0,
+      "camera_forward_z": 0.0,
+      "camera_far": 0.0,
+      "tree_distance": 0.0,
+      "plant_distance": 0.0,
+      "rock_distance": 0.0,
+      "tree_density": 0.0,
+      "plant_density": 0.0,
+      "triangle_budget": 0,
+      "instance_limit": 0,
+      "building_matrices": -1,
+      "finalizing": -1,
+      "matrix_cell": -1,
+      "matrix_instance": -1,
+      "matrix_cells": -1,
+      "finalize_page": -1,
+      "finalize_pages": -1,
+      "batches": -1,
+      "deferred_cells": -1,
+      "scanned_cells": 0,
+      "cell_scan_available": false,
+      "cell_scan_truncated": false,
+      "cells_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "published_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "empty_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "instances_by_layer": [
+        0,
+        0,
+        0
+      ],
+      "horizon_pending": 0,
+      "horizon_resident": 0,
+      "horizon_draws": 0,
+      "horizon_visible": 0,
+      "horizon_worker_pending": false,
+      "horizon_visible_available": false,
+      "horizon_published_far": 0.0,
+      "horizon_farthest": 0.0
+    }
+  },
+  "preimage_inventory": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\startup-throughput\\flight-hysteresis-preimages-1\\inventory.json"
+}

@@ -1,0 +1,41 @@
+{
+  "created_utc": "2026-10-26T15:57:00.160519+00:00",
+  "source_sha256": {
+    "Assets/AshenVoxel/Core/EnvironmentColors.cs": "f410806283c80873829f03d713c2ccc78b6a881ea4ae394e5021c450f9206253",
+    "Assets/AshenVoxel/Core/Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+    "Assets/AshenVoxel/Core/Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+    "Assets/AshenVoxel/Core/Materials.cs": "ea1c07d1683b5474dbfd133c0dffd8d50614f4aa915c7ce883085cbbc933a4fa",
+    "Assets/AshenVoxel/Core/Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+    "Assets/AshenVoxel/Core/Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+    "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+    "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+    "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+    "Assets/AshenVoxel/Core/VoxelColor.cs": "421a8fe122d3fbfa98fe54b41f77b67a079b656bde1c3d59869791e5a4179814",
+    "Assets/AshenVoxel/Core/VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+    "Assets/AshenVoxel/Core/VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+    "Assets/AshenVoxel/Core/WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+    "Assets/AshenVoxel/WorldScaleData/HeightAtlas.cs": "e7ee57295416134833db7e9e8dfc86e73d6a779561b6adde73a91801b11a43b7",
+    "Assets/AshenVoxel/WorldScaleData/ImplicitMatter.cs": "7878e76f2041138ec39a0dabcae9aea7233af4ebe370f6d8a4e4b75563c42cf2",
+    "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs": "31f2f4bafeb44ad064c1c2e1702ebb700c051ec40e0a1a28de5777603522d88f",
+    "Assets/AshenVoxel/WorldScaleData/WorldCoordinates.cs": "227e9cffedc4c23135e3486d229caad68fe20be39bbc8495d3d07af3d889dd82",
+    "Assets/AshenVoxel/WorldScaleData/WorldFields.cs": "750af4d4b9113607f005052a0b39f1d7e17f1f9f09b78a5a1557393304fa2339",
+    "Assets/AshenVoxel/WorldScaleRuntime/RemoteTerrainField.cs": "b87141f59efa29cf3af3519838ece0805eeaf60a41ee0b5b2cffe3479fafb7db",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs": "9e3f75bcfd902e7604502e79e78eb1e1c845e76067d8301b6c1c4600771c0611",
+    "Tools/WorldExplorerChecks/UnityShim.cs": "5d9a303db149896f0306ff4bcc03d41e8d116bf2e87b0b19ac6ac74557b98a38",
+    "Tools/AuthoringChecks/ProfileShim.cs": "27cf31dfa21e476c128441a8e78260646e63208ccaa2335b77a4ced3095a8f5b",
+    "Tools/WorldViews/ExportWorldViews.cs": "04e3740d247e31a81cbdea194e80358062ec40fbc544978a08861f44f6ab405e"
+  },
+  "asset_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/Samples/Ceteviles.bytes": "4948a84fcd979f496dbc630307d0b441c70bc307a8accdf7e8786edac727d990",
+    "Assets/AshenVoxel/WorldScaleRuntime/Samples/CetevilesNeural.bytes": "f72e6e4b4568de7ba3495bfb2934af0f300cfdb56b032cc7d0a00e84c2f19fb2",
+    "Assets/AshenVoxel/WorldScaleRuntime/Samples/NeuralTerrain.bytes": "8ff49309bec1ca8afba94345ce31587780f9079bbfe6b836d2ced67f8ffebd45"
+  },
+  "binary_sha256": {
+    "ceteviles-observer": "ee1cd7f86159979c123032afe5a7167d5ab37795c3dc6f8942ca7178b335ac8e",
+    "neural-study": "2f82a04cf7077c8ce7959e6952fe6891d50077c5039eb9e78f1439f7e0f9a0fc",
+    "analytic-observer": "27606b52c6e568966a3f032c50755445e2eee467dfb63a10fbe0635cf3769e7d",
+    "analytic-high": "3a0b75e4276ba70611b74a6433d2e190452afe55f9ea79e22552de099119021a"
+  },
+  "sdk": "8.0.427",
+  "note": "Actual current C# field/planner/mesh source; API substitutes for data extraction, not Unity screenshots."
+}

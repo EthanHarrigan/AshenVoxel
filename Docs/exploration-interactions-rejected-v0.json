@@ -1,0 +1,9 @@
+{
+  "status": "REJECTED",
+  "scope": "First offline interaction-cache candidate, never delivered as a release",
+  "observation": "Thickness-only classification removed all hard spans from all four birch prototypes and both young pine prototypes.",
+  "observed_birch_hard_cell_counts": [0, 0, 0, 0],
+  "reason": "Slender upright trunks must remain blocking; peripheral shoots may be sticks.",
+  "correction": "Retain the continuously tracked upright wood leader in addition to the thick-core/attachment test.",
+  "evidence_limit": "Diagnostic summary retained from the actual first conversion output; the rejected candidate was superseded locally and has no release identity. Final counts and tool hash are recorded in exploration-interactions-bake.json."
+}

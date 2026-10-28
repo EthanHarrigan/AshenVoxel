@@ -1,0 +1,70 @@
+{
+  "utc": "2026-10-27T09:32:33.561333+00:00",
+  "status": "CPU candidate frozen; not release-ready",
+  "source_sha256": {
+    "Assets/AshenVoxel/WorldScaleData/PopulationGrounding.cs": "1929dd173ae050fc45c97b689e1d6f0ff33792fb3415c61d8e7ef88c55af7cfe",
+    "Assets/AshenVoxel/WorldScaleData/PopulationGrounding.cs.meta": "2a29e6f752b84409a41b861b96d50aa743097a1a7c6f38f6a0c96e2435b4ca64",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationPopulation.cs": "53579b5026cb4b62f8bbac908849129db1dd70042266f044c2ddd6ee424fb70d",
+    "Tools/ExplorationPopulationChecks/Program.cs": "a5dac88a6ab9995ae4bc893fc64ce81a721fae1663697bafdd8e9eae16a42bb3"
+  },
+  "scope": "DEV data-layer candidate only. Immutable actual AVPM4 metadata; no mesh/material/pack/terrain-generator changes. Main untouched by this work. Runtime wiring, combined checks, native screenshots/Play acceptance pending coordinator.",
+  "policy": {
+    "population_version": 2,
+    "legacy_without_registry_version": 1,
+    "maximum_support_points": 32,
+    "actual_maximum_points": 26,
+    "footprint": "Convex hull per actual low basal bottom level + nearest real column center + one actual tallest basal-column center. Precomputed from LOD0 explicit Wood/rock quads before release.",
+    "transform": "DownwardY only; preserveX/Z/yaw/scale/prototype/stableKey; same instance used by collision/render. Flat retained exactly. Adjusted cases include0.1m extra burial.",
+    "target": "min(originalY,min(lower(smooth datum,10cm SurfaceTop)-local bottom)); tree bareground, rock surface including snow.",
+    "sink_cap": "min(8m,actual footprint radius*tan(42deg tree/43deg rock)+2*0.63m relief+0.1m quantization). Reject excessive footprint relief too.",
+    "exposure": "Only1-2 explicitly marked real column centers certify a roof remains min(0.2m,20percent material height) above the corresponding quantized terraincell, including snow. Hullcorners cannot certify exposure. Conservative witness policy; not all rock geometry searched at placement time.",
+    "query_bounds": "At most32 support/witness locations total. Witness surface evaluation replaces its old single height query: trees<=60 logicalHeightField.Sample calls+2climate calls; rocks<=480height+32climate calls using SurfaceMaterialSampler documented15-height upper bound. No extra location queries.",
+    "unsupported": "Absent/unsupported metadata rejects explicitly in grounded mode; hull never truncated. Per-cell GroundingRejectedCandidates observable.",
+    "provenance": "Effective generation version, seed, densities, policy, SHA256 of sorted immutable grounding metadata, and surface/source identity."
+  },
+  "validation": {
+    "population_checks": 159,
+    "netstandard21": true,
+    "flat": "76models x4height phases retained exactly",
+    "slopes": "76models x20/40degrees xX/Z/45degree slope azimuth x0/37/91yaw; negativepositions; accepted full basal faces measured0m max quantized gap.",
+    "rejection_cases": [
+      "unsupported >32 hull",
+      "explicit200m cliff SinkLimit",
+      "insufficient actualroof exposure",
+      "subcellcornerdip with all material buried under actual voxelterrain",
+      "missing registry entries"
+    ],
+    "determinism": [
+      "candidate keys/transforms",
+      "copied registry after caller mutation",
+      "metadata identity independent of insertion order",
+      "effective density in provenance"
+    ]
+  },
+  "actual_world": {
+    "world_id": "14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4",
+    "selection": "16 steepest tree/rock placements from3x3 cells around fixed historical patch5 camera, not live observer",
+    "before_witness_accepted": 10,
+    "before_center_exposure_correction_accepted": 11,
+    "after_center_exposure_correction_accepted": 12,
+    "after_center_exposure_correction_rejected": 4,
+    "rejection_reasons": {
+      "InsufficientExposure": 4
+    },
+    "max_gap_after_m": 0,
+    "all_accepted_have_exposed_actual_hard_columns": true,
+    "all_adjusted_have_verified_quantized_column_center_witness": true,
+    "max_sink_accepted_m": 0.9279622134020542,
+    "max_height_queries_per_candidate": 176,
+    "max_climate_queries_per_candidate": 16,
+    "max_observed_cpu_ms": 0.0791,
+    "timing_scope": "warmed Windows.NET, not Unity frame budgets"
+  },
+  "limitations": [
+    "Hull+interior witnesses cannot guarantee all arbitrary nonlinear pits/cliffs between samples.",
+    "4 of8 steep selected rocks conservatively rejected for insufficient sampled exposure; do not silently lower the threshold.",
+    "Uphill burial increases when wide upright roots are lowered; no per-instance root deformation.",
+    "Prototype preprocessing is bounded but must be included in startup/upload profiling.",
+    "Native rendering, LOD changes, collision feel and vegetation horizon consistency remain unverified."
+  ]
+}

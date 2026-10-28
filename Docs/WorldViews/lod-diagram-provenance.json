@@ -1,0 +1,36 @@
+{
+  "tool_sha256": "67aae3e22f7d99f5a3f4e1155a955d726bfe5992d5a8a5d8e335b809cce7b706",
+  "inputs": {
+    "analytic-observer.json": "e6ceca977cbe600dbe20a199e3d157643023b61e929c2b6552884f69b0d291ba",
+    "analytic-high.json": "c6f9414d8b7b1c6f7a53847c3704b56ef06991fa1e6aec4a974b07cfe2669277"
+  },
+  "images": {
+    "lod-layout.png": "dec491fc0dc64402a07b2ffce20e3dd020665a33271d8929a9cb8d8aaa81bad4",
+    "lod-altitude-comparison.png": "8d8c50ef04f1b107de961d16b817c571fca33b00043687caec7236e544191dca"
+  },
+  "counts": {
+    "near_levels": {
+      "0": 40,
+      "1": 26,
+      "2": 35,
+      "3": 37,
+      "4": 36,
+      "5": 24,
+      "6": 35,
+      "7": 37,
+      "8": 36,
+      "9": 36,
+      "10": 36,
+      "11": 4
+    },
+    "high_levels": {
+      "5": 56,
+      "6": 70,
+      "7": 71,
+      "8": 73,
+      "9": 72,
+      "10": 40
+    }
+  },
+  "note": "Exact exported C# leaf rectangles; simple distance-ring labels added for inspection."
+}

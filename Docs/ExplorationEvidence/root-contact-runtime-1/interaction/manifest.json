@@ -1,0 +1,174 @@
+{
+  "cases": [
+    {
+      "name": "actual-10",
+      "root_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\v2-expected-10.bin",
+      "context_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\wood-10-baseline.bin",
+      "oracle_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\actual-10-oracle.bin",
+      "kind": "actual-bounded-builder",
+      "stats": {
+        "hard": 50100,
+        "stick": 10,
+        "context_only": 1344,
+        "leader_added": 0,
+        "leader_rows": 30
+      },
+      "id": 10
+    },
+    {
+      "name": "actual-11",
+      "root_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\v2-expected-11.bin",
+      "context_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\wood-11-baseline.bin",
+      "oracle_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\actual-11-oracle.bin",
+      "kind": "actual-bounded-builder",
+      "stats": {
+        "hard": 51535,
+        "stick": 3,
+        "context_only": 1441,
+        "leader_added": 0,
+        "leader_rows": 30
+      },
+      "id": 11
+    },
+    {
+      "name": "thin-shoot",
+      "root_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\thin-shoot-root.bin",
+      "context_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\thin-shoot-context.bin",
+      "oracle_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\thin-shoot-oracle.bin",
+      "kind": "synthetic-policy-only",
+      "stats": {
+        "hard": 30,
+        "stick": 9,
+        "context_only": 1,
+        "leader_added": 30,
+        "leader_rows": 30
+      }
+    },
+    {
+      "name": "thick-trunk",
+      "root_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\thick-trunk-root.bin",
+      "context_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\thick-trunk-context.bin",
+      "oracle_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\thick-trunk-oracle.bin",
+      "kind": "synthetic-policy-only",
+      "stats": {
+        "hard": 825,
+        "stick": 3,
+        "context_only": 25,
+        "leader_added": 0,
+        "leader_rows": 30
+      }
+    },
+    {
+      "name": "leader-drift",
+      "root_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-drift-root.bin",
+      "context_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-drift-context.bin",
+      "oracle_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-drift-oracle.bin",
+      "kind": "synthetic-policy-only",
+      "stats": {
+        "hard": 30,
+        "stick": 0,
+        "context_only": 1,
+        "leader_added": 30,
+        "leader_rows": 30
+      }
+    },
+    {
+      "name": "leader-remote-stop",
+      "root_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-remote-stop-root.bin",
+      "context_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-remote-stop-context.bin",
+      "oracle_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-remote-stop-oracle.bin",
+      "kind": "synthetic-policy-only",
+      "stats": {
+        "hard": 1,
+        "stick": 2,
+        "context_only": 0,
+        "leader_added": 1,
+        "leader_rows": 1
+      }
+    },
+    {
+      "name": "leader-empty-stop",
+      "root_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-empty-stop-root.bin",
+      "context_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-empty-stop-context.bin",
+      "oracle_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-empty-stop-oracle.bin",
+      "kind": "synthetic-policy-only",
+      "stats": {
+        "hard": 1,
+        "stick": 1,
+        "context_only": 0,
+        "leader_added": 1,
+        "leader_rows": 1
+      }
+    },
+    {
+      "name": "leader-tie",
+      "root_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-tie-root.bin",
+      "context_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-tie-context.bin",
+      "oracle_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-tie-oracle.bin",
+      "kind": "synthetic-policy-only",
+      "stats": {
+        "hard": 3,
+        "stick": 3,
+        "context_only": 0,
+        "leader_added": 3,
+        "leader_rows": 3
+      }
+    },
+    {
+      "name": "leader-jump4",
+      "root_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-jump4-root.bin",
+      "context_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-jump4-context.bin",
+      "oracle_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-jump4-oracle.bin",
+      "kind": "synthetic-policy-only",
+      "stats": {
+        "hard": 3,
+        "stick": 0,
+        "context_only": 0,
+        "leader_added": 3,
+        "leader_rows": 3
+      }
+    },
+    {
+      "name": "leader-fractional",
+      "root_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-fractional-root.bin",
+      "context_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-fractional-context.bin",
+      "oracle_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\leader-fractional-oracle.bin",
+      "kind": "synthetic-policy-only",
+      "stats": {
+        "hard": 5,
+        "stick": 2,
+        "context_only": 0,
+        "leader_added": 5,
+        "leader_rows": 3
+      }
+    },
+    {
+      "name": "context32-required",
+      "root_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\context32-required-root.bin",
+      "context_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\context32-required-context.bin",
+      "oracle_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\context32-required-oracle.bin",
+      "kind": "synthetic-policy-only",
+      "stats": {
+        "hard": 1,
+        "stick": 0,
+        "context_only": 9,
+        "leader_added": 0,
+        "leader_rows": 0
+      }
+    },
+    {
+      "name": "context32-missing-control",
+      "root_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\context32-missing-control-root.bin",
+      "context_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\context32-missing-control-context.bin",
+      "oracle_path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\context32-missing-control-oracle.bin",
+      "kind": "synthetic-policy-only",
+      "stats": {
+        "hard": 0,
+        "stick": 1,
+        "context_only": 9,
+        "leader_added": 0,
+        "leader_rows": 0
+      }
+    }
+  ]
+}

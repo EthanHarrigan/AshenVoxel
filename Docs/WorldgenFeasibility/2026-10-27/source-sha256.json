@@ -1,0 +1,83 @@
+{
+  "scope": "Source inspection only; no new inference, Unity execution or performance measurements",
+  "client_date": "2026-10-27",
+  "observed_at_utc": "2026-10-28T03:51:33.9579035Z",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/WorldFields.cs",
+      "sha256": "750af4d4b9113607f005052a0b39f1d7e17f1f9f09b78a5a1557393304fa2339"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationAtlasField.cs",
+      "sha256": "bac586c5a6d6e52a51d3776a8d4283d39fb10c47288be783b90770db598c8c39"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs",
+      "sha256": "c033e382c22ec106d529a4cd45c104f0193ec42f59a59b0091e07279bd6928a2"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/TerrainDetailField.cs",
+      "sha256": "8dded99e67d7f0512882a870e77af1b0400b4b7411e1fe0128cd305199160323"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs",
+      "sha256": "c933498128d5394ecf83ac783896911b03d1295935fa38c9cddbff627e7872b2"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/VoxelLodSurface.cs",
+      "sha256": "e63bae6ad045b11103783061ee132eb7d43ba7cb0f798df851f67eb1e0155ae3"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "sha256": "35ca23e072f50e026ec40e6236766660676cba0b767b22bf1063bf25c701f267"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerMemory.cs",
+      "sha256": "929de44695f291f0a7eca1f24a82f39c7400e225b1b3349fe066e790ce18bbbf"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs",
+      "sha256": "2a71b81f0845456c14bafa46abc2b7a70773c05fa347c25f0f0c38ff8dcb07a7"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "sha256": "b37b672add703a6cae60a558a8bb3e58b69e02166ac755f7814590768ca76ec1"
+    },
+    {
+      "path": "Tools/DiffusionBridge/bridge.py",
+      "sha256": "a54ad8a3033e6a45632a96b9c694968ed342ef3b3351d6ebe23fd1d9100e1aef"
+    },
+    {
+      "path": "Tools/DiffusionBridge/prepare_azgaar.py",
+      "sha256": "106def4d811343c2ca24f0ef9ed44a3ce4e810aad9a8feb696f55a05bb58a061"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/exploration-world.json",
+      "sha256": "85ff39810a717cc35db248d9c48b38af52839346e392c32ba707f67e6df94ea3"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.bytes",
+      "sha256": "3a307d7dcebc47e0d1831e75a7cd73346480d3386b27aae9600c71dd2051c98b"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.climate.bytes",
+      "sha256": "e81d209a9bf1959c9d6749b93ab96c91c903bf1583fe6dbd33651ecf87306684"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.bytes",
+      "sha256": "0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.climate.bytes",
+      "sha256": "3c5b1be873732c2a46fec105a4a9c00649d5348c3546c5226ea4a1dbd5297069"
+    },
+    {
+      "path": ".terrain-cache/world-job-gpu.json",
+      "sha256": "022c0dfd4bab47b31b1bd9eeb1e6d2396c0546ca35ef3a38c7c9dc522f144373"
+    },
+    {
+      "path": ".terrain-cache/terrain-diffusion/terrain_diffusion/inference/world_pipeline.py",
+      "sha256": "9bcb496cd61a7a1aa2d1e75c4279be2b387db860ff6eec1f27fa12eebaf977f0"
+    }
+  ]
+}

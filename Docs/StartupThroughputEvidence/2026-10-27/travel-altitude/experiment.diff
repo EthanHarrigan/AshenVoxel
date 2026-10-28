@@ -1,0 +1,45 @@
+--- a/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs
++++ b/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs
+@@ -300,6 +300,7 @@
+                 revision++; ClearTerrain(); coarseStartup = ExternalNavigation;
+             }
+             plannedBaseTileSize = baseSize;
++            voxelPlanBoundsRevision = revision;
+             limitedSplits = plan.PendingSplits;
+             desired.Clear(); desiredTiles.Clear(); pending.Clear(); refining.Clear();
+             var sorted = new List<LodTile>(plan.Tiles);
+--- a/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
++++ b/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
+@@ -271,11 +271,30 @@
+             pending.Enqueue(new Work(best.Tile,revision,true,quads:next,progressive:true));
+             VoxelRefinementBuilds++;
+         }
++        int voxelPlanBoundsRevision=-1;
+         bool HasUrgentContactWork()
+         {
+-            // Protect the near32m ring before sharing the single build slot.
+-            foreach(Work work in contactPending)if(DistanceSquared(work.Tile)<=32*32)return true;
++            foreach(Work work in contactPending)if(ContactWorkIsUrgent(work.Tile))return true;
+             return false;
++        }
++        bool ContactWorkIsUrgent(LodTile tile)
++        {
++            double distance=DistanceSquared(tile);
++            if(distance>32*32)return false;
++            // Reuse immutable planner enclosures, never query the field here.
++            // Unknown/stale bounds retain the original arrival-safe priority.
++            if(voxelPlanBoundsRevision!=revision||!(BareField(field) is IWorldFieldBounds))return true;
++            for(int level=0;level<=14;level++)
++            {
++                long divisor=1L<<level;
++                var key=new TileKey((long)Math.Floor((double)tile.Key.X/divisor),(long)Math.Floor((double)tile.Key.Z/divisor),level);
++                if(!desiredTiles.TryGetValue(key,out LodTile enclosure))continue;
++                // The contact grid and planner share aligned25.6m base tiles.
++                // One cell pads the continuous bounds for voxel quantization.
++                double dy=Math.Max(enclosure.MinimumHeight-.1-cameraY,Math.Max(0,cameraY-enclosure.MaximumHeight-.1));
++                return distance+dy*dy<=32*32;
++            }
++            return true;
+         }
+         void WakeAdmissibleVoxelRefinements(long previousDetailBytes)
+         {

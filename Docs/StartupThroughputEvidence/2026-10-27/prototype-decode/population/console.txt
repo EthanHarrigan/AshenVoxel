@@ -1,0 +1,145 @@
+PASS format1 migration preserves AO and explicit material/legacy identity
+PASS format2 migration preserves AO and explicit material/legacy identity
+PASS format3 migration preserves AO and explicit material/legacy identity
+PASS format4 migration preserves AO and explicit material/legacy identity
+PASS format4 rejects unknown material even with valid CRC
+PASS format4 rejects air render faces even with valid CRC
+PASS format4 rejects geometry exceeding allocation limits
+PASS format4 rejects truncated compressed payload
+PASS global population cells repeat exact prototype selection and positions
+PASS adjacent cells have disjoint candidate ownership
+PASS negative ownership bounds preserve physical10cm cell scale without instance scaling
+PASS request order never changes cell RNG state
+PASS temperate forests select coherent oak or birch regions instead of mixing all trees
+PASS young forest patches are denser than mature open patches
+PASS source taiga retains pine dominance despite forest display override
+PASS warm wet temperate rainforest can select redwood stands
+PASS source biome1 does not receive inappropriate forest trees
+PASS source biome2 does not receive inappropriate forest trees
+PASS source biome10 does not receive inappropriate forest trees
+PASS source biome11 does not receive inappropriate forest trees
+PASS source biome13 does not receive inappropriate forest trees
+PASS tree density zero removes trees without changing terrain
+PASS understory selects actual plant prototype variants and preserves voxel scale
+PASS rock family/material/size are independent baked10cm variants
+PASS unknown population layers reject
+PASS unsupported global cell keys reject before loops
+PASS one leaf voxel supplies exactly one overlap unit
+PASS same-volume stick supplies four leaf-equivalent overlap units
+PASS fractional body contact scales resistance by intersected volume
+PASS leaf/stick density never becomes a blocking surface or support
+PASS published pack uses version4 material-aware exact-quads plus separate body/resistance spans and99 records
+PASS Birch young 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Birch young 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Birch mature 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Birch mature 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Oak young 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Oak young 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Oak mature 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Oak mature 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Redwood young 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Redwood young 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Redwood mature 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Redwood mature 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Pine young 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Pine young 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Pine mature 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Pine mature 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Fern 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Fern 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Shrub 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Shrub 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS GrassTuft 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS GrassTuft 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Reed 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Reed 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS BroadleafHerb 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS BroadleafHerb 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Flower 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Flower 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Mushroom 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Mushroom 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Cactus 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Cactus 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Succulent 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Succulent 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Cushion 0 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Cushion 1 expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Micro Mushroom expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Micro BroadleafHerb expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Micro Flower expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Stone AngularBoulder small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Stone AngularBoulder large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Stone Slab small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Stone Slab large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Stone Wedge small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Stone Wedge large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Stone Spire small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Stone Spire large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Stone SplitOutcrop small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Stone SplitOutcrop large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Stone Cluster small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Stone Cluster large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Granite AngularBoulder small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Granite AngularBoulder large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Granite Slab small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Granite Slab large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Granite Wedge small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Granite Wedge large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Granite Spire small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Granite Spire large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Granite SplitOutcrop small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Granite SplitOutcrop large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Granite Cluster small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Granite Cluster large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Limestone AngularBoulder small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Limestone AngularBoulder large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Limestone Slab small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Limestone Slab large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Limestone Wedge small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Limestone Wedge large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Limestone Spire small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Limestone Spire large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Limestone SplitOutcrop small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Limestone SplitOutcrop large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Limestone Cluster small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Limestone Cluster large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Sandstone AngularBoulder small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Sandstone AngularBoulder large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Sandstone Slab small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Sandstone Slab large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Sandstone Wedge small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Sandstone Wedge large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Sandstone Spire small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Sandstone Spire large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Sandstone SplitOutcrop small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Sandstone SplitOutcrop large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Sandstone Cluster small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Sandstone Cluster large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Shale AngularBoulder small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Shale AngularBoulder large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Shale Slab small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Shale Slab large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Shale Wedge small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Shale Wedge large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Shale Spire small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Shale Spire large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Shale SplitOutcrop small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Shale SplitOutcrop large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Shale Cluster small expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS Shale Cluster large expanded positions/normals/RGB/AO/indices match the original mesher bytes exactly
+PASS all full-resolution,near,mid andfar prototype LODs are present
+PASS visible fern tissue is passable and supplies no false support
+PASS actual fern cells produce resistance after visual data is released
+PASS thin woody plant stems pass and contribute stronger stick resistance
+PASS exact young-birch wood remains a hard obstacle after releasing render geometry
+PASS wood collision columns expose real support heights
+PASS distant local queries cannot alias packed negative column keys
+PASS nonfinite body query rejects before integer casts
+PASS inverted body query rejects
+PASS unbounded support radius rejects
+PASS unknown prototype magic rejects
+PASS valid compressed records require the original checksum
+PASS trailing pack data rejects
+PASS mature redwood prototypes retain realistic75m-class scale
+All 144 exploration population checks passed.

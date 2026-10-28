@@ -1,0 +1,53 @@
+{
+  "scope": "Sum of per-tile medians, equal weight for eight locations; not a world workload distribution",
+  "modes": {
+    "1": {
+      "native_sum_tile_medians": {
+        "generation_ms": 4863.308499999999,
+        "sampling_ms": 1463.9170000000001,
+        "merge_ms": 3004.5851,
+        "expand_ms": 415.61940000000004,
+        "mesh_upload_ms": 66.503,
+        "pack_ms": 44.9013,
+        "quad_upload_ms": 8.332200000000002
+      },
+      "dotnet_allocated_bytes_40_builds": 6394300272
+    },
+    "0": {
+      "native_sum_tile_medians": {
+        "generation_ms": 2589.5086,
+        "sampling_ms": 1443.759,
+        "merge_ms": 805.9958999999999,
+        "expand_ms": 426.6650000000001,
+        "mesh_upload_ms": 73.9838,
+        "pack_ms": 44.7364,
+        "quad_upload_ms": 15.2003
+      },
+      "dotnet_allocated_bytes_40_builds": 614288808
+    },
+    "2": {
+      "native_sum_tile_medians": {
+        "generation_ms": 2105.4278,
+        "sampling_ms": 847.4513999999999,
+        "merge_ms": 857.0983,
+        "expand_ms": 425.5545000000001,
+        "mesh_upload_ms": 75.50470000000001,
+        "pack_ms": 45.17040000000001,
+        "quad_upload_ms": 13.991200000000003
+      },
+      "dotnet_allocated_bytes_40_builds": 614351976
+    },
+    "4": {
+      "native_sum_tile_medians": {
+        "generation_ms": 1756.9939000000002,
+        "sampling_ms": 467.61479999999995,
+        "merge_ms": 869.9672,
+        "expand_ms": 428.4936000000001,
+        "mesh_upload_ms": 75.5939,
+        "pack_ms": 43.8267,
+        "quad_upload_ms": 13.7965
+      },
+      "dotnet_allocated_bytes_40_builds": 614388368
+    }
+  }
+}

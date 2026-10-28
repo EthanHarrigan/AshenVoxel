@@ -1,0 +1,32 @@
+{
+  "id": "source-residency-beta-1",
+  "utc": "2026-10-27T21:55:53.950282+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs",
+      "before": "f9e89cad9f1791d063619fda75bfe4d2652513a38bc9e08053b617a35314cccc",
+      "sha256": "ec4bacefa951d9961759dbdafc4518f765be87e6e7026d21634a11397cd3342f"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs",
+      "before": "58e0e0f1a53278be77fed53ddc4bdad8e5a17e1204cfe1536ff3646725d3389b",
+      "sha256": "1cd1dd13bc43584bab095a32f19a5e4b580d41f4e349c3ec9f76eb5a00a01563"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "2e60c6c86692d113e9e449a7846a0710dbf3bd3046c8f7b650ad75f82feeabf8",
+      "sha256": "0d17fadfaa2a6ef36247e14486f9c3312c59c5da4be9985ad11be221c2a946f4"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs",
+      "before": "0c2f90d59475aabd4d3668ddd78e813a09ed16db4c091ffae6986ca978ad131e",
+      "sha256": "542046572b5f9d4e714fc7fbf060709210b24d93ce3353a618708213e9f99f0a"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+      "before": "8e707af51a4ba63ff9ec18c76461980a137d319bf14e36f3a41a7933e311266e",
+      "sha256": "3b80bb4ff5d1ba3b457cfe3db6048c62c314e161e90eeb10b1aeddeb66945f1a"
+    }
+  ],
+  "scope": "Mandatory source footprint reservation, explicit default-off32cell/32MiB opt-in, source request diagnostics. Retires placed-stick default hook/recorder and timed replay suction. Allows explicit supported idle import worker release in Ready Play; no OS setting/process kill. Source safety/Field/hash/collision unchanged."
+}

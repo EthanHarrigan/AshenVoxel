@@ -1,0 +1,142 @@
+{
+  "utc": "2026-10-27T15:41:45.815941+00:00",
+  "status": "CONTENT_BATCH_IMPORTED_NOT_ARMED",
+  "files": [
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Runtime/LocalizedMatter.cs",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\physics-candidate-v2\\LocalizedMatter.cs",
+      "sha256": "9623200a9e9b28c8692a7da9fbe396d306bcf22c3a250611fd14405d6156b23e"
+    },
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Runtime/LocalizedMatter.cs.meta",
+      "sha256": "014657800db26b284e68005030bb9a1ccd0469535a7956c1a3f2c3e1b3b93570",
+      "generated": true
+    },
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Runtime/FallingAggregate.cs",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\physics-candidate-v2\\FallingAggregate.cs",
+      "sha256": "369890c297906ffe668089a1b3c2f63b822c84ece0f5ac38fde2db87f216110a"
+    },
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Runtime/FallingAggregate.cs.meta",
+      "sha256": "6795a6b5211f0545d8aaf65176d1c03261d4763c1bbc8e09fe4a7fba2b0390ab",
+      "generated": true
+    },
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Runtime/FallingAggregateActor.cs",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\physics-candidate-v2\\FallingAggregateActor.cs",
+      "sha256": "b788c82a74bd3a562d21e6272b444be9f26c5516d966cc143b5945fde0750dfe"
+    },
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Runtime/FallingAggregateActor.cs.meta",
+      "sha256": "d1e3b14cc0f816d84114369431ca03895c80eba8dc2f07a390018e1bafcd4e26",
+      "generated": true
+    },
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Runtime/FiniteMatterSliceOwner.cs",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\physics-candidate-v2\\FiniteMatterSliceOwner.cs",
+      "sha256": "920ce6502eb4180c03cf62fc00f1e073112969295ec555e61b8097bdb7994c6b"
+    },
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Runtime/FiniteMatterSliceOwner.cs.meta",
+      "sha256": "68d86f4ee81c7f95ae272664685ac8f0e217e11e9e44957888940aabed3f0a98",
+      "generated": true
+    },
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Runtime/AshenVoxel.FiniteMatter.asmdef",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\physics-candidate-v2\\AshenVoxel.FiniteMatter.asmdef",
+      "sha256": "91791c11b3033bac47900a4ddacbb1ebd923ac3ed4df584bc0ad343872cc440e"
+    },
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Runtime/AshenVoxel.FiniteMatter.asmdef.meta",
+      "sha256": "a01ad99090b2383858fc4e4b04badd5e6d0818f3307e5a8bfc354ee1f875dccd",
+      "generated": true
+    },
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Editor/FiniteMatterSliceMenu.cs",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\physics-candidate-v2\\FiniteMatterSliceMenu.cs",
+      "sha256": "624e4e819deec986ce34b28665a0edf6cacfab249cd92d3943f5338cd789b436"
+    },
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Editor/FiniteMatterSliceMenu.cs.meta",
+      "sha256": "b8cf541d37b1103d3df81b99f19cf1b2cd0d4dd1abf84e17481f4411098569ba",
+      "generated": true
+    },
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Editor/AshenVoxel.FiniteMatter.Editor.asmdef",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\physics-candidate-v2\\AshenVoxel.FiniteMatter.Editor.asmdef",
+      "sha256": "286a521f5cd3ebda9b973cfa6305bd284a0080cbac8710649dedab9fc4803bbb"
+    },
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Editor/AshenVoxel.FiniteMatter.Editor.asmdef.meta",
+      "sha256": "2af65b8f493e9963e3b95801a36ead2a5aadadc257dc7ee6f18dbbbc2b86af08",
+      "generated": true
+    },
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Editor/BatchPhysicsProbe.cs",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\physics-candidate-v2\\BatchPhysicsProbe.cs",
+      "sha256": "e403008cb776987cf6f8f818c3c0b7788784095fd08eefc0fa1ca5fe5fa0cb5e"
+    },
+    {
+      "path": "Assets/_Validation/FiniteMatterSlice/Editor/BatchPhysicsProbe.cs.meta",
+      "sha256": "c0557371dde42acb2fd274ad8cf96c1c8224fce52ac098fe49c78f339733b49f",
+      "generated": true
+    },
+    {
+      "path": "Assets/_Validation/CoordinatorSmoke/Editor/BatchBeeProbe.cs",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\BatchBeeProbe.cs",
+      "sha256": "4593ab93d5efc3ec54218a2db8f03ab561e0b8906d0e4da08db186de6cf1f65c"
+    },
+    {
+      "path": "Assets/_Validation/CoordinatorSmoke/Editor/BatchBeeProbe.cs.meta",
+      "sha256": "6f38cf077361b9b2b11db85e8df0c5a0e18f5388155cfd06442f6844de038fd3",
+      "generated": true
+    },
+    {
+      "path": "Assets/_Validation/CoordinatorSmoke/CoordinatorSmokeSettings.asset",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\smoke-retired-assets\\Assets\\_Validation\\CoordinatorSmoke\\CoordinatorSmokeSettings.asset",
+      "sha256": "379f3703d672f425a4cd82712ebd31730562a96fc33df7aedf797661e795969f"
+    },
+    {
+      "path": "Assets/_Validation/CoordinatorSmoke/CoordinatorSmokeSettings.asset.meta",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\smoke-retired-assets\\Assets\\_Validation\\CoordinatorSmoke\\CoordinatorSmokeSettings.asset.meta",
+      "sha256": "5f6c88314d941ff04765aabce5713ca3b6fae64bdf4a387b6c0642ea15fbf0b8"
+    },
+    {
+      "path": "Assets/_Validation/CoordinatorSmoke/Editor/CoordinatorSmokeGuard.cs",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\smoke-retired-assets\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\CoordinatorSmokeGuard.cs",
+      "sha256": "698c52ccc7c8813d568dd5cee9019d64333d5757b1aab453ec952cbcc52023f7"
+    },
+    {
+      "path": "Assets/_Validation/CoordinatorSmoke/Editor/CoordinatorSmokeGuard.cs.meta",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\smoke-retired-assets\\Assets\\_Validation\\CoordinatorSmoke\\Editor\\CoordinatorSmokeGuard.cs.meta",
+      "sha256": "0fd62788269bbbec5824c4f31a7610ba3db13af93a0ead903cf6b2cb52b01eaf"
+    },
+    {
+      "path": "Assets/_Validation/CoordinatorSmoke/Editor.meta",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\smoke-retired-assets\\Assets\\_Validation\\CoordinatorSmoke\\Editor.meta",
+      "sha256": "06e691ad2d3d518c716d52bee146476aca6f83a0c94fa2e5328c46af9876e131"
+    },
+    {
+      "path": "Assets/_Validation/CoordinatorSmoke/ExplorationSmoke_20261027.unity",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\smoke-retired-assets\\Assets\\_Validation\\CoordinatorSmoke\\ExplorationSmoke_20261027.unity",
+      "sha256": "57db94a4cd62cf8c9c015c47e0e49b6b47a4a6b4587f7995a5677d45ba647dc6"
+    },
+    {
+      "path": "Assets/_Validation/CoordinatorSmoke/ExplorationSmoke_20261027.unity.meta",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\smoke-retired-assets\\Assets\\_Validation\\CoordinatorSmoke\\ExplorationSmoke_20261027.unity.meta",
+      "sha256": "53ece4c144a2bd3f895187d3aacdfd0fcf7aeb747d6bda270d4aef0e753f77f2"
+    },
+    {
+      "path": "Assets/_Validation/CoordinatorSmoke.meta",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\smoke-retired-assets\\Assets\\_Validation\\CoordinatorSmoke.meta",
+      "sha256": "7804bfc938c5f11ba589472b5c3db328b0c008634696d3b4877d2da4c0f3d1ce"
+    },
+    {
+      "path": "Assets/_Validation.meta",
+      "source": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\main-smoke\\smoke-retired-assets\\Assets\\_Validation.meta",
+      "sha256": "4492b9a04e8049a24f7e4a3a342fc34f2aad97ea91a99badcfdb9a1db5382899"
+    }
+  ],
+  "log_offset": 902043
+}

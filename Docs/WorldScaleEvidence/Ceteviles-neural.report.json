@@ -1,0 +1,165 @@
+{
+  "created_utc": "2026-10-26T10:41:05.639816+00:00",
+  "job": {
+    "spec": {
+      "schema": "ashen-diffusion-job-v1",
+      "upstream_commit": "e8dcb4b1a834ab2f6b1a6f5256ed7c9f2f3e8230",
+      "model": "xandergos/terrain-diffusion-30m",
+      "model_revision": "9ef8030cb805b433b98ec25c5dddefbac07a9e26",
+      "seed": 714103,
+      "spacing_m": 30.0,
+      "precision": "fp32",
+      "device": "cpu",
+      "pipeline_cache_bytes": 268435456,
+      "runtime_versions": {
+        "python": "3.12.14",
+        "torch": "2.14.1+cpu",
+        "torchvision": "0.29.1+cpu",
+        "diffusers": "0.42.0",
+        "infinite-tensor": "0.4.0",
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "scikit-image": "0.26.0",
+        "rasterio": "1.5.2",
+        "h5py": "3.16.0",
+        "safetensors": "0.8.0"
+      },
+      "sampling_policy": "canonical-owner-v1",
+      "owner_samples": 256,
+      "owner_halo": 32,
+      "owner_disk_cache_bytes": 536870912,
+      "torch_threads": 4,
+      "T": 2,
+      "latents_batch_size": [
+        1
+      ],
+      "statistics": {
+        "path": "/workspace/infinite-diffusion-smoke/pipeline_data.json",
+        "sha256": "e3132c3ef0c65d8613615f9278ffe23bbd9363ddcd87f1cc6f18456bcc9efe5c"
+      },
+      "response_cache_bytes": 134217728,
+      "max_region_side": 1024,
+      "max_cached_regions": 256,
+      "max_region_samples": 262144,
+      "queue_capacity": 8,
+      "conditioning_snr": [
+        0.35,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "conditioning": {
+        "coarse_spacing_m": 7680.0,
+        "origin_i": -61,
+        "origin_j": -118,
+        "periodic": false,
+        "padding_cells": 64,
+        "channels": [
+          {
+            "channel": 0,
+            "path": "/workspace/world-generation-artifacts/conditioning/elevation_m.npy",
+            "sha256": "b9a47a746f39cbe8829eaee385c75a681da4df4ea064e7f9fa924346708fb401",
+            "units": "m"
+          },
+          {
+            "channel": 1,
+            "path": "/workspace/world-generation-artifacts/conditioning/temperature_c.npy",
+            "sha256": "8e102a1013314a37a1763bcbaaa91f1bf20f19977df0c200409552a86f2fd202",
+            "units": "degC"
+          },
+          {
+            "channel": 2,
+            "path": "/workspace/world-generation-artifacts/conditioning/temperature_std_c.npy",
+            "sha256": "76fd33f1c421790fe496e4dc6ed5c4f7c8ee4a83e291583c17b122753fcc5a5c",
+            "units": "degC"
+          },
+          {
+            "channel": 3,
+            "path": "/workspace/world-generation-artifacts/conditioning/precipitation_mm.npy",
+            "sha256": "cdaa2f9e9290702476895d6949333229d32af3acd16014c7ffbbc8d18a774440",
+            "units": "mm/year"
+          },
+          {
+            "channel": 4,
+            "path": "/workspace/world-generation-artifacts/conditioning/precipitation_cv_pct.npy",
+            "sha256": "820aebbc64932cfb260c7d96e5b3f40fea9a2370bbb72934728423201fcfcfda",
+            "units": "percent"
+          }
+        ],
+        "provenance": {
+          "producer": "ashen-azgaar-native-lattice-v1",
+          "upstream_commit": "e8dcb4b1a834ab2f6b1a6f5256ed7c9f2f3e8230",
+          "source_sha256": "103f9b9d364b884dd532cd4e41effa83a327fd5a60ce0ba69cd612cd9a470d61",
+          "source_file": "Ceteviles Full 2026-09-15-23-05 Sand-Sea-ready.json",
+          "physical_origin_x_m": -900000.0,
+          "physical_origin_z_m": -463007.8125,
+          "physical_width_m": 1800000.0,
+          "physical_depth_m": 926015.625,
+          "coverage_origin_x_m": -906240.0,
+          "coverage_origin_z_m": -468480.0,
+          "coverage_width_m": 1812480.0,
+          "coverage_depth_m": 936960.0,
+          "conditioning_pixel_centers": "global coarse cell index plus0.5, rowZ/columnX",
+          "native_query_origin": "row_i0/col_j0 are global native pixels;64-cell padding is placed before original origin, not an added world offset",
+          "climate_assumptions": "grid.prec*100 annualmm; seasonality/CV are upstream biome heuristics",
+          "recommended_fork_snr": [
+            0.35,
+            0.2,
+            0.2,
+            0.2,
+            0.2
+          ],
+          "authored_summit_or_coast_postprocess": "not applied; this is soft upstream conditioning"
+        },
+        "source_biome": {
+          "path": "/workspace/world-generation-artifacts/conditioning/source_biome.npy",
+          "sha256": "00676f1eef13c9381df4fca098e90e5fc0610ea8b9d8f4ce712db22cd608859f"
+        }
+      },
+      "height_units": "meters",
+      "row_axis": "global_z",
+      "column_axis": "global_x",
+      "climate_channels": [
+        "temperature_c",
+        "temperature_std_c",
+        "precipitation_mm",
+        "precipitation_cv_percent",
+        "beta"
+      ],
+      "biome_policy": "preserve_imported_or_unclassified_zero",
+      "land_policy": "generated_height_at_or_above_zero",
+      "coast_policy": "soft_model_conditioning"
+    },
+    "world_id": "ff0d60df1cd5b4a2de775eaac32011f16e8fa429109b99601638bae5ebf9f977",
+    "upstream_source": "/workspace/reference-code/terrain-diffusion",
+    "model_dir": "/workspace/infinite-diffusion-smoke/model",
+    "note": "Prepared inference job; this manifest is not generated terrain or evidence of executed weights."
+  },
+  "region_metadata": {
+    "backend": "upstream-pretrained/canonical-owner-v1",
+    "climate_channels": [
+      "temperature_c",
+      "temperature_std_c",
+      "precipitation_mm",
+      "precipitation_cv_percent",
+      "beta"
+    ],
+    "height_units": "meters",
+    "layout": "height_f32_planar,climate5_f32_planar,source_biome_u8,land_u8",
+    "origin_x_m": -442080.0,
+    "origin_z_m": -250080.0,
+    "schema": "ashen-terrain-region-v1",
+    "spacing_m": 30.0,
+    "window": {
+      "col0": -14736,
+      "cols": 33,
+      "row0": -8336,
+      "rows": 33
+    },
+    "world_id": "ff0d60df1cd5b4a2de775eaac32011f16e8fa429109b99601638bae5ebf9f977"
+  },
+  "avwf_sha256": "f72e6e4b4568de7ba3495bfb2934af0f300cfdb56b032cc7d0a00e84c2f19fb2",
+  "climate_sha256": "8046102ce9732846c72fb3ba8e6bcbd60d3ab385f492d08c8820b988c0f2c425",
+  "note": "Actual provider output. Inspect backend field; fake test backends are not neural inference."
+}

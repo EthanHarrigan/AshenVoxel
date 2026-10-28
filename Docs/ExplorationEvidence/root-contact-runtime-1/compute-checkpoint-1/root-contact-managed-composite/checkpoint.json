@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-27T13:48:30.639652+00:00",
+  "status": "FROZEN pure managed compute adapter; no runtime/native adoption",
+  "source_sha256": "32d7948cb2232263d809a5c3d266b6ae264255e525009bb72450c4d358c514b5",
+  "report": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-managed-composite\\runs\\20261027T134408961318Z\\report.json",
+  "report_sha256": "b3acea0da2b99b7bd350d81d3a9ba187a0095fe070f8a6332aa44ed564f6e940",
+  "manifest_sha256": "5c0bea44160fab9c241baef8f812c34d93ec9278a5382dcacb2ec193b1380085",
+  "preserved_compile_failure": "runs/20261027T134352164276Z",
+  "sha256": {
+    "ManagedComposite.cs": "32d7948cb2232263d809a5c3d266b6ae264255e525009bb72450c4d358c514b5",
+    "Checks.cs": "a7d43049720aeab7f2e87f2c9c9f2577584735d47927d05db102b30a874f0209",
+    "run.py": "4402a4443742c47bb5683eb9f998064f4f7c59e584a465af513be66bb8d2c173",
+    "README.md": "31bfd993a63919c7885c50fca1486383702e0de259bf9d2b79a351b1d70706a9",
+    "freeze.py": "4a7257ce6970fde67b99c5489fa69e2e2bb38d2f2e2f7d92ab52856db1dcd91a"
+  },
+  "scope": "All10 exact lower meshes;164394 assertions; immutable outputs, sequential private coarse world, explicit declared array accounting."
+}

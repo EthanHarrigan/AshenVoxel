@@ -1,0 +1,50 @@
+.terrain-cache\progressive-lod\runs\20261028-040730-108849-production-progressive\source\Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(48,44): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+.terrain-cache\progressive-lod\runs\20261028-040730-108849-production-progressive\source\Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(49,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+.terrain-cache\progressive-lod\runs\20261028-040730-108849-production-progressive\source\Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(50,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+.terrain-cache\progressive-lod\runs\20261028-040730-108849-production-progressive\source\Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(57,42): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+PASS local contact floor publishes while distant startup coverage remains pending
+PASS startup100m preference is deferred behind a bounded small arrival contact neighborhood
+PASS commit pause drains completed worker ownership and performs no unsafe upload
+PASS pressure releases reusable scratch while retaining exact pending work and urgent local floor
+PASS real headroom recovery completes remaining coarse coverage without bypassing readiness
+PASS Maximum4096 request starts with at most128 whole-view tiles
+PASS coarse first plan covers the requested30km perimeter without shortening view distance
+PASS all bounded first-plan meshes actually publish together at8 columns
+PASS first full coverage restores the exact requested4096 limit and split tuning
+PASS requested larger plan returns while the complete first coverage stays active during replacement
+PASS completed negative-coordinate subtree and new frontier publish before unrelated pending coverage
+PASS atomic replacement retains exactly one surface per old footprint with bounded per-frame checks/publications
+PASS coarsening replaces every overlapping child atomically before the rest of the plan completes
+PASS frontier travel preserves active/desired residency bound and disjoint coverage
+PASS frontier travel preserves active/desired residency bound and disjoint coverage
+PASS frontier travel preserves active/desired residency bound and disjoint coverage
+PASS frontier travel preserves active/desired residency bound and disjoint coverage
+PASS frontier travel preserves active/desired residency bound and disjoint coverage
+PASS frontier travel preserves active/desired residency bound and disjoint coverage
+PASS frontier travel preserves active/desired residency bound and disjoint coverage
+PASS frontier travel preserves active/desired residency bound and disjoint coverage
+PASS frontier travel preserves active/desired residency bound and disjoint coverage
+PASS frontier travel preserves active/desired residency bound and disjoint coverage
+PASS frontier travel preserves active/desired residency bound and disjoint coverage
+PASS frontier travel preserves active/desired residency bound and disjoint coverage
+PASS completed subtree waits for its neighboring closure rather than creating a greater-than2:1 edge
+PASS dependent neighboring replacements publish together with no overlap or unbalanced edge while unrelated frontier remains pending
+PASS a commit-blocked8-column outer tile holds the16-column global barrier without erasing its demand
+PASS sweep HUD counts both outer levels and honest incomplete-rung progress
+PASS actual worker publications advance every required direction one rung before starting the next sweep
+PASS camera rotation neither lowers outer targets nor restarts completed sweep meshes
+PASS pixel-satisfied distant tiles stop below256 instead of paying for a forced maximum
+PASS active fallback surface gains a sweep rung before its pending replacement plan completes
+PASS source-dirty active fallback refreshes at its preserved rung before ordinary sweep upgrades
+PASS swept fallback retires without resurrecting or overlapping its completed replacement
+PASS initial bounded coverage publishes all8-column tiles
+PASS initial coverage opens the refinement phase
+PASS outer terrain progressively publishes8,16,32,64,128,256 columns
+PASS outer rear terrain earns the same camera-independent pixel target as the front
+PASS visible pixel-limited terrain advances beyond the previous128 ceiling
+PASS large replacement retains exact queued demand and still obeys unchanged commit safety reserve
+Unhandled exception. System.Exception: Timeout: downshift past commit-deferred upgrade queue=1 pending=4
+   at Program.Until(WorldExplorer w, Func`1 done, String context)
+   at Program.Main(String[] args)
+
+C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\progressive-lod\runs\20261028-040730-108849-production-progressive\result.json

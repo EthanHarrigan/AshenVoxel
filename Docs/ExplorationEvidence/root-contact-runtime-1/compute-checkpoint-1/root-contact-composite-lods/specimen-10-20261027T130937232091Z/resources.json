@@ -1,0 +1,108 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "stop_reason": null,
+  "preflight_commit_headroom_bytes": 4569264128,
+  "elapsed_seconds": 4.7810000000026776,
+  "sample_interval_seconds": 0.25,
+  "max_observed_private_bytes": 300085248,
+  "min_observed_commit_headroom_bytes": 4320260096,
+  "samples": [
+    {
+      "seconds": 0.01600000000325963,
+      "private_bytes": 397312,
+      "commit_headroom_bytes": 4569264128
+    },
+    {
+      "seconds": 0.26600000000325963,
+      "private_bytes": 13799424,
+      "commit_headroom_bytes": 4533276672
+    },
+    {
+      "seconds": 0.5160000000032596,
+      "private_bytes": 18509824,
+      "commit_headroom_bytes": 4453163008
+    },
+    {
+      "seconds": 0.7660000000032596,
+      "private_bytes": 55902208,
+      "commit_headroom_bytes": 4369211392
+    },
+    {
+      "seconds": 1.0160000000032596,
+      "private_bytes": 55902208,
+      "commit_headroom_bytes": 4565209088
+    },
+    {
+      "seconds": 1.2660000000032596,
+      "private_bytes": 58884096,
+      "commit_headroom_bytes": 4559884288
+    },
+    {
+      "seconds": 1.5160000000032596,
+      "private_bytes": 60919808,
+      "commit_headroom_bytes": 4559945728
+    },
+    {
+      "seconds": 1.7660000000032596,
+      "private_bytes": 64753664,
+      "commit_headroom_bytes": 4556914688
+    },
+    {
+      "seconds": 2.0160000000032596,
+      "private_bytes": 69656576,
+      "commit_headroom_bytes": 4562771968
+    },
+    {
+      "seconds": 2.2660000000032596,
+      "private_bytes": 98107392,
+      "commit_headroom_bytes": 4532879360
+    },
+    {
+      "seconds": 2.5160000000032596,
+      "private_bytes": 197472256,
+      "commit_headroom_bytes": 4433403904
+    },
+    {
+      "seconds": 2.7660000000032596,
+      "private_bytes": 239104000,
+      "commit_headroom_bytes": 4391038976
+    },
+    {
+      "seconds": 3.0160000000032596,
+      "private_bytes": 243404800,
+      "commit_headroom_bytes": 4389928960
+    },
+    {
+      "seconds": 3.2660000000032596,
+      "private_bytes": 250847232,
+      "commit_headroom_bytes": 4381671424
+    },
+    {
+      "seconds": 3.5160000000032596,
+      "private_bytes": 272293888,
+      "commit_headroom_bytes": 4354613248
+    },
+    {
+      "seconds": 3.7810000000026776,
+      "private_bytes": 290537472,
+      "commit_headroom_bytes": 4337618944
+    },
+    {
+      "seconds": 4.0310000000026776,
+      "private_bytes": 263524352,
+      "commit_headroom_bytes": 4362723328
+    },
+    {
+      "seconds": 4.2810000000026776,
+      "private_bytes": 300085248,
+      "commit_headroom_bytes": 4320260096
+    },
+    {
+      "seconds": 4.5310000000026776,
+      "private_bytes": 282116096,
+      "commit_headroom_bytes": 4335902720
+    }
+  ],
+  "scope": "Owned one-specimen CPU child only. Sampled memory can miss/overshoot peaks. No automatic retry."
+}

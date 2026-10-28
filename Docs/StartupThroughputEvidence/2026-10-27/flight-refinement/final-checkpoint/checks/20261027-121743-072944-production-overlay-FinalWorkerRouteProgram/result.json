@@ -1,0 +1,4751 @@
+{
+  "status": "PASS",
+  "error": null,
+  "checks": 7,
+  "candidate": false,
+  "frames": 1264,
+  "wall_ms": 19697.0704,
+  "fixture": {
+    "bounded_plan_tiles": 9,
+    "level": 5,
+    "plan_source": "fixed conservative flat enclosures; real ApplyPlan and queue/geometry paths",
+    "virtual_tick_seconds": 0.05,
+    "wall_yield_ms": 2,
+    "quota_detail_mib": 256,
+    "quota_contact_mib": 256
+  },
+  "maxFar": 17,
+  "maxContact": 21,
+  "maxWorkers": 1,
+  "maxUploads": 1,
+  "maxFarBytes": 43028160,
+  "maxContactBytes": 23334000,
+  "maxScratch": 7340032,
+  "travelDeferredTicks": 0,
+  "results": [
+    {
+      "phase": "initial elevated",
+      "recovery_virtual_ticks": 198,
+      "deferral_release_tick": 1,
+      "terrain_ready_tick": 26,
+      "first_new_fine_detail_tick": 106,
+      "cpu_wall_ms": 3079.9204,
+      "far": 9,
+      "contacts": 21,
+      "far_bytes": 38385000,
+      "contact_bytes": 23334000
+    },
+    {
+      "phase": "fast outbound stop",
+      "recovery_virtual_ticks": 166,
+      "deferral_release_tick": 1,
+      "terrain_ready_tick": 2,
+      "first_new_fine_detail_tick": 90,
+      "cpu_wall_ms": 2595.4183,
+      "far": 9,
+      "contacts": 21,
+      "far_bytes": 38403600,
+      "contact_bytes": 22795560
+    },
+    {
+      "phase": "fast outbound",
+      "travel_virtual_ticks": 128,
+      "including_recovery_ticks": 294,
+      "held_virtual_ticks": 0,
+      "cpu_wall_ms_including_recovery": 4601.7989,
+      "publications": 1,
+      "contacts": 1,
+      "far_by_columns": {},
+      "expensive_publications": 1,
+      "expensive_retired_by_end": 1,
+      "retired_mesh_payload_bytes": 1070160,
+      "note": "Retired by stationary destination convergence"
+    },
+    {
+      "phase": "stopped180turn",
+      "recovery_virtual_ticks": 19,
+      "deferral_release_tick": 1,
+      "terrain_ready_tick": 1,
+      "first_new_fine_detail_tick": 10,
+      "cpu_wall_ms": 293.6615,
+      "far": 9,
+      "contacts": 21,
+      "far_bytes": 24598920,
+      "contact_bytes": 22795560
+    },
+    {
+      "phase": "fast reverse return",
+      "travel_virtual_ticks": 128,
+      "including_recovery_ticks": 128,
+      "held_virtual_ticks": 0,
+      "cpu_wall_ms_including_recovery": 1987.6199,
+      "publications": 2,
+      "contacts": 2,
+      "far_by_columns": {},
+      "expensive_publications": 2,
+      "expensive_retired_by_end": 2,
+      "retired_mesh_payload_bytes": 2183400,
+      "note": "Retired by immediate reversal point; later loss not included"
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "recovery_virtual_ticks": 152,
+      "deferral_release_tick": 1,
+      "terrain_ready_tick": 2,
+      "first_new_fine_detail_tick": 90,
+      "cpu_wall_ms": 2371.1054,
+      "far": 9,
+      "contacts": 21,
+      "far_bytes": 29063640,
+      "contact_bytes": 22987440
+    },
+    {
+      "phase": "immediate direction reversal",
+      "travel_virtual_ticks": 64,
+      "including_recovery_ticks": 216,
+      "held_virtual_ticks": 0,
+      "cpu_wall_ms_including_recovery": 3369.0576,
+      "publications": 1,
+      "contacts": 1,
+      "far_by_columns": {},
+      "expensive_publications": 1,
+      "expensive_retired_by_end": 1,
+      "retired_mesh_payload_bytes": 1149480,
+      "note": "Retired by stationary destination convergence"
+    },
+    {
+      "phase": "pre-descent transit",
+      "travel_virtual_ticks": 64,
+      "including_recovery_ticks": 64,
+      "held_virtual_ticks": 0,
+      "cpu_wall_ms_including_recovery": 998.5068,
+      "publications": 1,
+      "contacts": 1,
+      "far_by_columns": {},
+      "expensive_publications": 1,
+      "expensive_retired_by_end": 1,
+      "retired_mesh_payload_bytes": 1092480,
+      "note": "Retired by immediate reversal point; later loss not included"
+    },
+    {
+      "phase": "ground descent arrival",
+      "recovery_virtual_ticks": 164,
+      "deferral_release_tick": 1,
+      "terrain_ready_tick": 1,
+      "first_new_fine_detail_tick": 80,
+      "cpu_wall_ms": 2548.5291,
+      "far": 9,
+      "contacts": 21,
+      "far_bytes": 43028160,
+      "contact_bytes": 22795560
+    },
+    {
+      "phase": "ordinary ground travel stop",
+      "recovery_virtual_ticks": 31,
+      "deferral_release_tick": 1,
+      "terrain_ready_tick": 1,
+      "first_new_fine_detail_tick": -1,
+      "cpu_wall_ms": 483.273,
+      "far": 9,
+      "contacts": 16,
+      "far_bytes": 43028160,
+      "contact_bytes": 17405280
+    },
+    {
+      "phase": "ordinary ground travel",
+      "travel_virtual_ticks": 128,
+      "including_recovery_ticks": 159,
+      "held_virtual_ticks": 0,
+      "cpu_wall_ms_including_recovery": 2476.0892,
+      "publications": 39,
+      "contacts": 39,
+      "far_by_columns": {},
+      "expensive_publications": 39,
+      "expensive_retired_by_end": 33,
+      "retired_mesh_payload_bytes": 36203520,
+      "note": "Retired by stationary destination convergence"
+    }
+  ],
+  "worker_samples": [
+    {
+      "phase": "initial elevated",
+      "key": "5:0,0",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.0598
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:0,-1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 6.4944
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:-1,0",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.298
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:-1,-1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.3864
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:1,0",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.3676
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:0,1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.3703
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:1,-1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.3743
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:1,1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.3182
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:-1,1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.3728
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:0,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 81.0012
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:0,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 61.8289
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:-1,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 61.9479
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:1,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 57.1929
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:0,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 56.9205
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:-1,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 57.2686
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:1,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.611
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:-1,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.0411
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:1,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.9793
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:0,0",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.7729
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:0,-2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.5599
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:-2,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.8293
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:0,-1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.7568
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:2,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 24.9752
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:0,2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.4094
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:-1,0",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 6.7448
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:-1,-2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.0932
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:-2,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 16.6996
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:-1,-1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8777
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:1,-2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.2757
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:-2,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 16.8398
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:0,0",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.5559
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:2,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 18.1601
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:-1,2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.1309
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:0,-1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.5253
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:2,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 16.5102
+    },
+    {
+      "phase": "initial elevated",
+      "key": "0:1,2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 16.7596
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:-1,0",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.4565
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:-1,-1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.5221
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:1,0",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8825
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:0,1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8392
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:1,-1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8769
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:0,0",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 6.9066
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:0,-1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.3984
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:-1,0",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 6.961
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:-1,-1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.3121
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:1,1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8865
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:0,0",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 26.3375
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:0,-1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 32.6244
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:-1,0",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 28.2814
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:-1,-1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 31.7579
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:-1,1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8427
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:1,0",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.7349
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:0,1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.682
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:1,-1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 10.1499
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:1,1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 9.0795
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:1,0",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.1956
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:0,1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.3575
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:1,-1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 6.8259
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:1,1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.4037
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:1,0",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 25.4941
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:0,1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 32.5176
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:1,-1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 31.8339
+    },
+    {
+      "phase": "initial elevated",
+      "key": "5:1,1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 31.6412
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:3,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 18.7589
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:5,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.8867
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:7,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.4121
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:10,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.6929
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:12,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.3746
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:15,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.766
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:17,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.8413
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:20,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.6162
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:22,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.6279
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:25,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 24.573
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:27,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 16.2907
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:30,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.1939
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:32,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.3475
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:35,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.5802
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:37,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.9602
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:40,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 16.8947
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:42,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.2609
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:45,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.1459
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:47,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 24.9575
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:50,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.5564
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:52,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.3705
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:55,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 25.0377
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:57,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.3711
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:60,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.3336
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:62,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.9895
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:65,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.9696
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:67,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.0447
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:70,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.6017
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:72,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.4103
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:75,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.6084
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:77,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.4354
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:80,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.0708
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:82,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 23.0703
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:85,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.1793
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:87,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.6144
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:90,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.5313
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:92,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.245
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:95,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 23.3657
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:97,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 26.2781
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:100,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.2393
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:102,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.3771
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:105,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.9771
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:107,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.7825
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:110,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.6646
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:112,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.5968
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:115,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 24.896
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:117,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.0351
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:120,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 18.5516
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:122,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 23.6305
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:125,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.3993
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:127,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.1627
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:130,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.1118
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:132,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.9545
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:135,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.761
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:137,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.4428
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:140,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.7464
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:142,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.0918
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:145,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.0986
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:147,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.997
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:150,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.8159
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:152,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 16.7948
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:155,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.0844
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:157,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 18.006
+    },
+    {
+      "phase": "fast outbound",
+      "key": "0:160,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.0823
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:159,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.8378
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:160,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.2408
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:160,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.6624
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:161,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.1693
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:159,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.1772
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:159,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.706
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:161,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.5332
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:161,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.8282
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:5,0",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1172
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:158,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.7578
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:160,-2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.6023
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:4,0",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1333
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:162,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.1558
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:160,2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.1486
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:5,-1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1135
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:158,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.043
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:159,-2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.3088
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:4,-1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1189
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:158,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.2821
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:161,-2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.3179
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:5,1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.0852
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:162,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.588
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:159,2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 18.2843
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:6,0",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1181
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:162,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.9351
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "0:161,2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.8077
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:6,-1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1266
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:6,1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1131
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:4,1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1139
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:5,0",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8194
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:4,0",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8144
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:5,-1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8245
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:4,-1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 1.1633
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:5,0",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.4025
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:4,0",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.465
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:5,-1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.5227
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:4,-1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.5514
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:5,1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.7924
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:6,0",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.7804
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:6,-1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.7576
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:5,0",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.8313
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:4,0",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 8.6435
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:5,-1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.7818
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:4,-1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.7082
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:6,1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.7888
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:5,0",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 33.4658
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:4,0",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 28.4506
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:5,-1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 29.1787
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:4,-1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 28.5852
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:4,1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8275
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:5,1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.685
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:6,0",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.4688
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:6,-1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.5052
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:6,1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.3312
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:5,1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.7738
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:6,0",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 8.5314
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:6,-1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 9.4358
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:6,1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.4436
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:5,1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 29.3432
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:6,0",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 30.2613
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:6,-1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 28.3874
+    },
+    {
+      "phase": "fast outbound stop",
+      "key": "5:6,1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 25.7003
+    },
+    {
+      "phase": "stopped180turn",
+      "key": "5:5,1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.6637
+    },
+    {
+      "phase": "stopped180turn",
+      "key": "5:6,0",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.7818
+    },
+    {
+      "phase": "stopped180turn",
+      "key": "5:6,-1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.741
+    },
+    {
+      "phase": "stopped180turn",
+      "key": "5:6,1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.7845
+    },
+    {
+      "phase": "stopped180turn",
+      "key": "5:4,1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.5667
+    },
+    {
+      "phase": "stopped180turn",
+      "key": "5:4,1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.2987
+    },
+    {
+      "phase": "stopped180turn",
+      "key": "5:4,1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 29.7409
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:157,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.7156
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:155,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.1413
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:152,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.4333
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:149,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.0103
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:146,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.5353
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:144,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.8206
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:141,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 16.5434
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:139,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.2658
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:136,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.3873
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:134,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 26.1794
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:131,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.7904
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:129,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.8149
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:126,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.0599
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:124,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.7054
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:121,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 23.8096
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:119,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.6671
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:116,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.5267
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:114,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.962
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:111,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.7529
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:109,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 23.7916
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:106,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 25.1281
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:104,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.7872
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:101,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.2051
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:99,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.2243
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:96,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.163
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:94,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.6291
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:91,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 18.2333
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:89,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 23.432
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:86,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.6976
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:84,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.9118
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:81,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.4997
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:79,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.3524
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:76,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.4711
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:74,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.8316
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:71,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 18.9067
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:69,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.5322
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:66,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.3462
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:64,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.9369
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:61,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.1991
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:59,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.0332
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:56,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.3381
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:54,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.0605
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:51,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.5215
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:49,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.4626
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:46,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.6453
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:44,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.1982
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:41,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.539
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:39,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.7443
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:36,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.5194
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:34,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.8896
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:31,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.185
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:29,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.1604
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:26,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.919
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:24,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.984
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:21,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.5661
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:19,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.409
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:16,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.0818
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:14,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.2216
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:11,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.9162
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:9,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.2321
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:6,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.8953
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:4,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.4258
+    },
+    {
+      "phase": "fast reverse return",
+      "key": "0:1,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 24.2746
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:2,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.4868
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:5,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.3391
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:7,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 18.5602
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:10,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.0037
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:12,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.2491
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:15,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.5994
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:17,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.4574
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:20,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.9811
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:22,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.717
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:25,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.7805
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:27,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.6129
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:30,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 24.9498
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:32,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.0419
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:35,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.8628
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:37,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.9211
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:40,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.7791
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:42,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.6982
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:45,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 24.8076
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:47,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.2349
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:50,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.7457
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:52,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.1218
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:55,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.9384
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:57,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.8859
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:60,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.5019
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:62,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.3537
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:65,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.2956
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:67,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.5584
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:70,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.9088
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:72,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.6563
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:75,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.9113
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:77,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 16.9727
+    },
+    {
+      "phase": "immediate direction reversal",
+      "key": "0:80,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 23.1895
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:79,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 24.593
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:80,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.5245
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:81,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.0294
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:80,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.8865
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:79,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 23.3277
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:81,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 25.646
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:79,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.3076
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:81,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.9458
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:2,0",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.111
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:78,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 18.3245
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:80,-2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.6095
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:2,-1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1212
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:80,2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.0632
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:82,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.4542
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:3,0",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1208
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:78,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.1424
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:79,-2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.9066
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:3,-1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1062
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:78,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 16.2112
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:81,-2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 16.3864
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:2,1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.0842
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:79,2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.2411
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:82,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.2458
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:3,1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1268
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:81,2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.0491
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "0:82,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.5686
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:1,0",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1041
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:1,-1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1018
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:1,1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1153
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:2,0",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.859
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:2,-1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 1.2499
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:3,0",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.9535
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:3,-1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8849
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:2,0",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.2946
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:2,-1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.3029
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:2,1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8021
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:3,1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8856
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:2,0",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 8.0725
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:2,-1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.8112
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:3,0",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.6227
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:3,-1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.6441
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:1,0",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.7734
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:1,-1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.824
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:2,0",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 29.4088
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:2,-1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 30.6077
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:2,1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.7391
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:3,0",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 9.305
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:3,-1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 8.2164
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:3,1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.5557
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:1,1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8086
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:2,1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.978
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:3,0",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 30.0364
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:3,-1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 30.8786
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:3,1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 8.0154
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:2,1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 30.6729
+    },
+    {
+      "phase": "immediate direction reversal stop",
+      "key": "5:3,1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 34.0134
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:83,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.137
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:85,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.5139
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:87,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 23.0868
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:90,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.9657
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:92,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.8459
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:95,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 16.9325
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:97,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.0774
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:100,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.0774
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:102,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.2184
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:105,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.4807
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:107,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 18.8215
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:110,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.4551
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:112,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.1141
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:115,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.3791
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:117,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.6805
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:120,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.5878
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:122,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 15.3852
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:125,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.6722
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:127,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.3636
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:130,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.1321
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:132,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 27.054
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:135,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.9078
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:137,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.9993
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:140,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.5579
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:142,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.1338
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:145,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.5451
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:147,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.9554
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:150,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.6099
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:152,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.3086
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:155,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 23.703
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:157,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 24.0153
+    },
+    {
+      "phase": "pre-descent transit",
+      "key": "0:160,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 18.7556
+    },
+    {
+      "phase": "descent",
+      "key": "0:159,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.957
+    },
+    {
+      "phase": "descent",
+      "key": "0:160,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.736
+    },
+    {
+      "phase": "descent",
+      "key": "0:160,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 23.5591
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:161,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.4273
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:159,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.1164
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:159,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.7294
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:161,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.8365
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:161,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.1458
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:5,0",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1163
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:158,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 24.8092
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:160,-2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.1977
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:4,0",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.0939
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:162,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 22.0783
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:160,2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.2241
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:5,-1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.0942
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:158,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.7346
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:159,-2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.4617
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:4,-1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1096
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:158,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.5467
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:161,-2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.4477
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:5,1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1151
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:162,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 18.4125
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:159,2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.5625
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:6,0",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1193
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:162,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.8627
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "0:161,2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.2659
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:4,1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1319
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:6,-1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.104
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:6,1",
+      "contact": false,
+      "columns": 8,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.1127
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:5,0",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 1.0432
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:4,0",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.6505
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:5,-1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8016
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:4,-1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.7984
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:5,0",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.4555
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:4,0",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.376
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:5,-1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.6193
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:4,-1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.657
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:5,0",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.8273
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:4,0",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.3063
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:5,-1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 8.1642
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:4,-1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 6.9024
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:5,1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8027
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:6,0",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.7368
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:4,1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8031
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:6,-1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.8098
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:6,1",
+      "contact": false,
+      "columns": 32,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 0.7528
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:5,0",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 29.3431
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:4,0",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 29.075
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:5,-1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 26.0227
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:4,-1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 27.516
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:5,1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.7451
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:6,0",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.3788
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:4,1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.758
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:6,-1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.611
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:6,1",
+      "contact": false,
+      "columns": 64,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 2.5141
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:5,1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.884
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:6,0",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.7484
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:4,1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.6247
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:6,-1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 8.2257
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:6,1",
+      "contact": false,
+      "columns": 128,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 7.9556
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:5,1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 29.0899
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:6,0",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 27.1737
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:4,1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 31.9098
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:6,-1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 29.0901
+    },
+    {
+      "phase": "ground descent arrival",
+      "key": "5:6,1",
+      "contact": false,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 30.516
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:163,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.1499
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:163,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.3328
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:163,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.3497
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:164,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.9295
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:164,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.6725
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:164,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.9307
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:165,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.4381
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:165,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.8528
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:166,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.899
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:166,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.016
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:167,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.3338
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:167,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.8731
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:168,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.9524
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:168,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.0201
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:169,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.6863
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:169,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.9269
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:170,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.8073
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:170,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.5453
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:170,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.3651
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:171,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.2205
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:171,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 15.6325
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:172,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.0845
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:172,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.4443
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:173,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.931
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:173,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.0508
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:174,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.5674
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:174,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 15.9762
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:175,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.0234
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:175,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.5412
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:176,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.5558
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:176,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.4941
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:177,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.129
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:177,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.1537
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:178,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.0073
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:178,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 21.1966
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:178,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.8636
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:179,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.1131
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:179,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.015
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:180,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.8591
+    },
+    {
+      "phase": "ordinary ground travel",
+      "key": "0:180,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.726
+    },
+    {
+      "phase": "ordinary ground travel stop",
+      "key": "0:180,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.6333
+    },
+    {
+      "phase": "ordinary ground travel stop",
+      "key": "0:181,0",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.906
+    },
+    {
+      "phase": "ordinary ground travel stop",
+      "key": "0:179,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.7693
+    },
+    {
+      "phase": "ordinary ground travel stop",
+      "key": "0:181,-1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.0236
+    },
+    {
+      "phase": "ordinary ground travel stop",
+      "key": "0:181,1",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 17.5112
+    },
+    {
+      "phase": "ordinary ground travel stop",
+      "key": "0:180,-2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.0238
+    },
+    {
+      "phase": "ordinary ground travel stop",
+      "key": "0:180,2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.2197
+    },
+    {
+      "phase": "ordinary ground travel stop",
+      "key": "0:179,-2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 19.3216
+    },
+    {
+      "phase": "ordinary ground travel stop",
+      "key": "0:179,2",
+      "contact": true,
+      "columns": 256,
+      "completed": true,
+      "cancellation_requested": false,
+      "worker_wall_ms": 20.0535
+    }
+  ],
+  "scope": "Small .NET/shim topology-route experiment. Real builds/publications/cache retirement, synthetic flat source. Virtual tick recovery and CPU wall time are reported separately; neither is native input latency, FPS or world-generation throughput. Retired published detail is a waste proxy, not all canceled CPU work.",
+  "source_sha256": {
+    "Assets/AshenVoxel/Core/Details/PlantGenerator.cs": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+    "Assets/AshenVoxel/Core/Details/PlantModel.cs": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2",
+    "Assets/AshenVoxel/Core/EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+    "Assets/AshenVoxel/Core/Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+    "Assets/AshenVoxel/Core/Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+    "Assets/AshenVoxel/Core/Materials.cs": "ab945a1f679e57f81dca05fc3fe4a70e2e0e0d35ce51f2d1457d99e8660baf85",
+    "Assets/AshenVoxel/Core/Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+    "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs": "006a8434c519bb996e85c4b05e0f188efe49a0a56e68d84ae6b9804f1e78425e",
+    "Assets/AshenVoxel/Core/Rocks/RockProfile.cs": "20152a9dbd0661143a400c1c2b7a69e97755e65342e3352239847b1dc752afc3",
+    "Assets/AshenVoxel/Core/Rocks/RockShapeGeometry.cs": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69",
+    "Assets/AshenVoxel/Core/Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+    "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+    "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+    "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+    "Assets/AshenVoxel/Core/VertexAppearance.cs": "3ccdc0517c6e3e1db6d2f5680cc07b36b8b3ca1a4fb0273e621eb3a3d867a2ad",
+    "Assets/AshenVoxel/Core/VoxelColor.cs": "18387e0d5aedcb078e5f3ac6860908bbc1c6578a9bdbd295cbf6f4ea7a9550e9",
+    "Assets/AshenVoxel/Core/VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+    "Assets/AshenVoxel/Core/VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+    "Assets/AshenVoxel/Core/WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+    "Assets/AshenVoxel/WorldScaleData/ClimateArchive.cs": "126995205fe788f26b2a516fce894d1dce732dea75ed9db37b14cb58bfe303d9",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationAtlasField.cs": "bac586c5a6d6e52a51d3776a8d4283d39fb10c47288be783b90770db598c8c39",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs": "55712c21aa0066bf1a6231f52069ae33203e19bf5978f75eae53d9a9499887b4",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationPopulation.cs": "ed0dc9bee43813cac4ad0532cfc0270fac0b2c83dbb6ea6eb324ce8721724a27",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs": "1d1ed0696a32c6cbd4a85399b2f083e5b466bb5215b054e4ffe907f876008230",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs": "7d7f3794bf4574d1d0011c185f8de959d9dc7f7d6b3d96cf55f587e1328ac588",
+    "Assets/AshenVoxel/WorldScaleData/ForestBiomes.cs": "6d775df485aab75bf6f507f46477ff60a82c74be0834af21d9b078ed04d4ee55",
+    "Assets/AshenVoxel/WorldScaleData/GroundCoverScatter.cs": "3a1ce33ae049b07c752e82e01b61cc75de0071c1fef7f8373ee83782309b78e5",
+    "Assets/AshenVoxel/WorldScaleData/HeightAtlas.cs": "e7ee57295416134833db7e9e8dfc86e73d6a779561b6adde73a91801b11a43b7",
+    "Assets/AshenVoxel/WorldScaleData/ImplicitMatter.cs": "c063bf46a0a905cf3b7edd1ad383e89b8e74d649b5597f2efd9f6ea1bcab2eb5",
+    "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs": "31f2f4bafeb44ad064c1c2e1702ebb700c051ec40e0a1a28de5777603522d88f",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs": "4e873a75acd0f67f22a2b85e2caf407d6851cc3fd870441947fee5a9629bed90",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceProfile.cs": "05711037d0af7676befcfa1bf056bb6186eb4d1f7c465a84d72d56c0872baff8",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceWorldField.cs": "614c9bc4c516ba6f164deb628f024554552c988e46e1b7e1d6e513968f67722a",
+    "Assets/AshenVoxel/WorldScaleData/TerrainDetailField.cs": "8393d97d95a2d4deffda3db93d8b077cfa7223bb98f1e2c55b97f8242d17ac1b",
+    "Assets/AshenVoxel/WorldScaleData/VoxelLodSurface.cs": "e63bae6ad045b11103783061ee132eb7d43ba7cb0f798df851f67eb1e0155ae3",
+    "Assets/AshenVoxel/WorldScaleData/VoxelTerrainPage.cs": "f8b274d2288ead310432d170f55b5d48e9bc829085f4631ac655854822e0b337",
+    "Assets/AshenVoxel/WorldScaleData/WorldCoordinates.cs": "227e9cffedc4c23135e3486d229caad68fe20be39bbc8495d3d07af3d889dd82",
+    "Assets/AshenVoxel/WorldScaleData/WorldFields.cs": "750af4d4b9113607f005052a0b39f1d7e17f1f9f09b78a5a1557393304fa2339",
+    "Assets/AshenVoxel/Rendering/ChunkWorldRenderer.cs": "7a066cce60e92789eb66193b81fbc19c56081a654ca96ba0b36dab8880e29300",
+    "Assets/AshenVoxel/Rendering/GreedyChunkMesher.cs": "2afabf136e51512566fed42c369eb3408d6a1a53dbaf09558d48f031d978da0c",
+    "Assets/AshenVoxel/Rendering/MaterialOpticsProfile.cs": "503af3d272a0d334cf2e9d8db0fc7196ff6ad21e7d881e598014abfd77411551",
+    "Assets/AshenVoxel/WorldScaleRuntime/GroundCoverShowcase.cs": "295667e330d9aa9dc2bd31dbee75dff921b0a682162a88501324a1b0d3671903",
+    "Assets/AshenVoxel/WorldScaleRuntime/RemoteTerrainField.cs": "9476f5365cec348f543b59d28c3bc90b8941af7748bf96075052c51b7183109e",
+    "Assets/AshenVoxel/WorldScaleRuntime/VisualWater.cs": "6c8a56e97e2acf2f3c25f305e98164680e2ab40e38946b64b86081f1bfc3494f",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorkshopCamera.cs": "0978fbefe148ae9d4b7ac36c582a9eaee77ea6019f711329148285eb8850ca01",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs": "15a24d325bc62db2dbe517ee5b2e6bd916f877d6b6d9b966dc2d964831a8d393",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs": "5d132d061fa7f855e480f20e2aaa7af174684085dd1b0349313399f5426a3700",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs": "e419354f2a69a7ed0a99c831673e11dff48953d55e2f6daf9a0466b8c02a5fb4",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "f609db6e1bf116d81a063e926dd24a3f8157acf939c04e4325ca9ad1f5a4de55",
+    "Assets/AshenVoxel/Exploration/ExplorationController.cs": "bcbdaa0ee9a7550d0439209ed839cc69c85c794a5156906dc9deed3d9a8894aa",
+    "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs": "72879000eed2a41b927d4c237a2751d17f345d236181ff15ea4fa9695ab0d9a6",
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": "66626530b591492e92ea2771b50e7a6acf3c8c789211ddcc42bacdf37d3976b9",
+    "Assets/AshenVoxel/Exploration/ExplorationUpscaling.cs": "445d78dcd7937eb3789665eb63618c25dbb64a71c1768a4abc7032693cc997d5",
+    "Assets/AshenVoxel/Exploration/ExplorationVisualQuality.cs": "fa5464e5ad9ca073d8fb9c6da089bcc70400aed0a5e10bf24d796f90310a05ab",
+    "Assets/AshenVoxel/Exploration/ExplorationVoxelTerrain.cs": "4dbd10a43c9fa29b99aec1f137e82977698b8c8c63794e3f6f1351cf4bfcb95f",
+    "Assets/AshenVoxel/Exploration/ExplorationWind.cs": "62ebdd37ffd5b818a33483b1fb1063e8e0b9af8de7451958b5daba6db39c4b4e",
+    "Assets/AshenVoxel/Exploration/ForestBillboard.cs": "eb5369d8adaba81a00aa8236536a0f9ec483201b0ff170f0a7bbedc6624fc44b",
+    "Assets/AshenVoxel/Exploration/ForestGpuRenderer.cs": "42f992e64008d07f06ba3f6abb2ec536b608800b856e48b70317516904c25fc1",
+    "Assets/AshenVoxel/Exploration/ForestHorizon.cs": "f9fd3e21b7c724f11031f25b4cd34f3746ae45a94c6743266490cafea81f002f",
+    "Assets/AshenVoxel/Exploration/VegetationStreaming.cs": "5048632bc8a14276501758f22b4f8347c1a195d936dee359ae84aa571f629bb7",
+    "Tools/ExplorationSmokeChecks/UnityShim.cs": "c7319ece597c8f13b78c7d49954c9980471c2703168689e45c9fb3dbc6071b57",
+    ".terrain-cache/startup-throughput/flight-refinement-1/final-comparison/FinalWorkerRouteProgram.cs": "97cb626397c9f2ec1506d6ea579780cc98c11462002b722bc5dc41c165a5e2c0"
+  },
+  "source_paths": {
+    "Assets/AshenVoxel/Core/Details/PlantGenerator.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Details\\PlantGenerator.cs",
+    "Assets/AshenVoxel/Core/Details/PlantModel.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Details\\PlantModel.cs",
+    "Assets/AshenVoxel/Core/EnvironmentColors.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\EnvironmentColors.cs",
+    "Assets/AshenVoxel/Core/Generation.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Generation.cs",
+    "Assets/AshenVoxel/Core/Int3.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Int3.cs",
+    "Assets/AshenVoxel/Core/Materials.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Materials.cs",
+    "Assets/AshenVoxel/Core/Persistence.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Persistence.cs",
+    "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Rocks\\RockGenerator.cs",
+    "Assets/AshenVoxel/Core/Rocks/RockProfile.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Rocks\\RockProfile.cs",
+    "Assets/AshenVoxel/Core/Rocks/RockShapeGeometry.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Rocks\\RockShapeGeometry.cs",
+    "Assets/AshenVoxel/Core/Simulation.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Simulation.cs",
+    "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Trees\\TreeGenerator.cs",
+    "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Trees\\TreeModel.cs",
+    "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\Trees\\TreePresets.cs",
+    "Assets/AshenVoxel/Core/VertexAppearance.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\VertexAppearance.cs",
+    "Assets/AshenVoxel/Core/VoxelColor.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\VoxelColor.cs",
+    "Assets/AshenVoxel/Core/VoxelRaycast.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\VoxelRaycast.cs",
+    "Assets/AshenVoxel/Core/VoxelWorld.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\VoxelWorld.cs",
+    "Assets/AshenVoxel/Core/WorldEdits.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Core\\WorldEdits.cs",
+    "Assets/AshenVoxel/WorldScaleData/ClimateArchive.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ClimateArchive.cs",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationAtlasField.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationAtlasField.cs",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationMovement.cs",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationPopulation.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationPopulation.cs",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationPrototypePack.cs",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ExplorationRefinementField.cs",
+    "Assets/AshenVoxel/WorldScaleData/ForestBiomes.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ForestBiomes.cs",
+    "Assets/AshenVoxel/WorldScaleData/GroundCoverScatter.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\GroundCoverScatter.cs",
+    "Assets/AshenVoxel/WorldScaleData/HeightAtlas.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\HeightAtlas.cs",
+    "Assets/AshenVoxel/WorldScaleData/ImplicitMatter.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\ImplicitMatter.cs",
+    "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\LodPlanner.cs",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\SurfaceMaterialSampler.cs",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceProfile.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\SurfaceProfile.cs",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceWorldField.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\SurfaceWorldField.cs",
+    "Assets/AshenVoxel/WorldScaleData/TerrainDetailField.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\TerrainDetailField.cs",
+    "Assets/AshenVoxel/WorldScaleData/VoxelLodSurface.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\VoxelLodSurface.cs",
+    "Assets/AshenVoxel/WorldScaleData/VoxelTerrainPage.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\VoxelTerrainPage.cs",
+    "Assets/AshenVoxel/WorldScaleData/WorldCoordinates.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\WorldCoordinates.cs",
+    "Assets/AshenVoxel/WorldScaleData/WorldFields.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\WorldFields.cs",
+    "Assets/AshenVoxel/Rendering/ChunkWorldRenderer.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Rendering\\ChunkWorldRenderer.cs",
+    "Assets/AshenVoxel/Rendering/GreedyChunkMesher.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Rendering\\GreedyChunkMesher.cs",
+    "Assets/AshenVoxel/Rendering/MaterialOpticsProfile.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Rendering\\MaterialOpticsProfile.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/GroundCoverShowcase.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\GroundCoverShowcase.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/RemoteTerrainField.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\RemoteTerrainField.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/VisualWater.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\VisualWater.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorkshopCamera.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\WorkshopCamera.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\startup-throughput\\flight-refinement-1\\final-comparison\\baseline\\Assets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorer.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\startup-throughput\\flight-refinement-1\\final-comparison\\baseline\\Assets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorerIntegration.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\startup-throughput\\flight-refinement-1\\final-comparison\\baseline\\Assets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorerVoxels.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\startup-throughput\\flight-refinement-1\\final-comparison\\baseline\\Assets\\AshenVoxel\\Exploration\\ExplorationBootstrap.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationController.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\startup-throughput\\flight-refinement-1\\final-comparison\\baseline\\Assets\\AshenVoxel\\Exploration\\ExplorationController.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationLiveRefinement.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\startup-throughput\\flight-refinement-1\\final-comparison\\baseline\\Assets\\AshenVoxel\\Exploration\\ExplorationSettings.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationUpscaling.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationUpscaling.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationVisualQuality.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationVisualQuality.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationVoxelTerrain.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationVoxelTerrain.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationWind.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ExplorationWind.cs",
+    "Assets/AshenVoxel/Exploration/ForestBillboard.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ForestBillboard.cs",
+    "Assets/AshenVoxel/Exploration/ForestGpuRenderer.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ForestGpuRenderer.cs",
+    "Assets/AshenVoxel/Exploration/ForestHorizon.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\ForestHorizon.cs",
+    "Assets/AshenVoxel/Exploration/VegetationStreaming.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\VegetationStreaming.cs",
+    "Tools/ExplorationSmokeChecks/UnityShim.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Tools\\ExplorationSmokeChecks\\UnityShim.cs",
+    ".terrain-cache/startup-throughput/flight-refinement-1/final-comparison/FinalWorkerRouteProgram.cs": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\startup-throughput\\flight-refinement-1\\final-comparison\\FinalWorkerRouteProgram.cs"
+  },
+  "source_mode": "production",
+  "program_args": [],
+  "overlay_dir": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\startup-throughput\\flight-refinement-1\\final-comparison\\baseline",
+  "overlay_files": [
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationController.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs"
+  ],
+  "generated_utc": "2026-10-27T12:18:03.947390+00:00",
+  "source_snapshot": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-121743-072944-production-overlay-FinalWorkerRouteProgram\\source",
+  "runner_sha256": "7636a10ae175a6a737016b7a59df0d62ebf92f7825b1daa22fa72aaf9702213d"
+}

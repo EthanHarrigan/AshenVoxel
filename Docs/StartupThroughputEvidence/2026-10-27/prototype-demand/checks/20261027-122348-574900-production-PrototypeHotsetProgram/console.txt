@@ -1,0 +1,7 @@
+System.Exception: Invalid instancing contract
+   at UnityEngine.Graphics.RenderMeshInstanced(RenderParams p, Mesh m, Int32 submesh, Matrix4x4[] matrices, Int32 count)
+   at AshenVoxel.Exploration.VegetationStreaming.Draw(Camera camera)
+   at AshenVoxel.Exploration.VegetationStreaming.Tick(Camera camera)
+   at Program.Measure(SurfaceMaterialSampler sampler, WorldPoint eye, Boolean small)
+   at Program.Main(String[] args)
+5 checks; 99 models; 416.49MiB full payload

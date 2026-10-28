@@ -1,0 +1,12 @@
+{
+  "base_snapshot": "../../../flight-refinement/baseline-source",
+  "overrides": "source",
+  "overridden_files": [
+    "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationController.cs"
+  ],
+  "all_hashes": "result.json/source_sha256"
+}

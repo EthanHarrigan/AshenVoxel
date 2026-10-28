@@ -1,0 +1,4 @@
+{
+  "name": "AshenVoxel.FiniteMatter",
+  "references": ["AshenVoxel.Core", "AshenVoxel.Rendering"]
+}

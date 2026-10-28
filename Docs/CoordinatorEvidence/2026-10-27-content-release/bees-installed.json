@@ -1,0 +1,108 @@
+{
+  "id": "local-bees-1",
+  "utc": "2026-10-27T15:33:37.281024+00:00",
+  "status": "INSTALLED_NATIVE_CSHARP_COMPILE_RELOAD_PASS_PLAY_NOT_VERIFIED",
+  "headroom_bytes": 4450562048,
+  "log_offset": 870767,
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "f609db6e1bf116d81a063e926dd24a3f8157acf939c04e4325ca9ad1f5a4de55",
+      "sha256": "31145415cff911cb178955bdfb17fbbe561bfff9e7101abc5f6936dc5194fa94",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\scene-candidate\\payload\\ExplorationBootstrap.cs"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Wildlife/FlightPatch.cs",
+      "before": null,
+      "sha256": "db8e0b3875e41e222caddd2b032233727e92c95a5b5c1b445987702aa28b9a69",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\scene-candidate\\payload\\FlightPatch.cs"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Wildlife/FlightPatch.cs.meta",
+      "before": null,
+      "sha256": "6bcf6b65cb9f3910c1df5796c581630b2653cb9ce45ae5cb41bc61e50a7663ba",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\scene-candidate\\payload\\FlightPatch.cs.meta"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Wildlife/HabitatEnvelope.cs",
+      "before": null,
+      "sha256": "d6fba9b4e27fa1616d1bacf92652384aa30dda613797d6dd12f961a0b0c7621c",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\scene-candidate\\payload\\HabitatEnvelope.cs"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Wildlife/HabitatEnvelope.cs.meta",
+      "before": null,
+      "sha256": "a5abe31f36cef3e7c76bf3cb2b57d9a1a746a1c0e8f74c346d74852d7a254228",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\scene-candidate\\payload\\HabitatEnvelope.cs.meta"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Wildlife/HabitatGridCertificate.cs",
+      "before": null,
+      "sha256": "78c57c03e1692b47b3f26df7601f60fbc780a257a4242f0b8196f0f7be78b7ec",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\scene-candidate\\payload\\HabitatGridCertificate.cs"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Wildlife/HabitatGridCertificate.cs.meta",
+      "before": null,
+      "sha256": "e83a1283dbebb01c351a4481c64aa5e49a6e0e366b980b7b8934fa2d58acfffa",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\scene-candidate\\payload\\HabitatGridCertificate.cs.meta"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Wildlife/WildlifePatchRenderer.cs",
+      "before": null,
+      "sha256": "54aa56a1f17ae6c2182dfce3ea339a3116164e2014fcc44e4929ef1cdb8cf219",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\scene-candidate\\payload\\WildlifePatchRenderer.cs"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Wildlife/WildlifePatchRenderer.cs.meta",
+      "before": null,
+      "sha256": "233bd56b7221153c07770898e27c523437b87ecde922c73853420b59bc81e08c",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\scene-candidate\\payload\\WildlifePatchRenderer.cs.meta"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Wildlife/WildlifeFixedPatchOwner.cs",
+      "before": null,
+      "sha256": "8a6acebda6c0b1a9f3af1acb105d61cd4c067aeca970b85135e9b1822ca78b28",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\scene-candidate\\payload\\WildlifeFixedPatchOwner.cs"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Wildlife/WildlifeFixedPatchOwner.cs.meta",
+      "before": null,
+      "sha256": "dcceb05dd73027d48976e5745d715f62d07ed3da44cd1a7901757a73a95b9637",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\scene-candidate\\payload\\WildlifeFixedPatchOwner.cs.meta"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Wildlife/ExplorationBeePatch.cs",
+      "before": null,
+      "sha256": "328154a40ef10bf7a8394d0ace8f551796ddbb8152c633f29f386f47373feb7f",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\scene-candidate\\payload\\ExplorationBeePatch.cs"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Wildlife/ExplorationBeePatch.cs.meta",
+      "before": null,
+      "sha256": "83b9d1fd46329e7d5112361a7239ed97a58e7e531001d8e7741b57470b0f25b7",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\scene-candidate\\payload\\ExplorationBeePatch.cs.meta"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/WildlifeVertexColor.shader",
+      "before": null,
+      "sha256": "6bab681ed17598773a1b944209d320a4dec017d4d9b1cc7c2261ac43d2073aeb",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\scene-candidate\\payload\\WildlifeVertexColor.shader"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/WildlifeVertexColor.shader.meta",
+      "before": null,
+      "sha256": "67d897426eb93da88c9b5157f6cb98f2ac44da5c95e144fef969dd90e2e2b275",
+      "payload": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\wildlife-coordinator\\scene-candidate\\payload\\WildlifeVertexColor.shader.meta"
+    }
+  ],
+  "preimages": {
+    "main\\Assets\\AshenVoxel\\Exploration\\ExplorationBootstrap.cs": "f609db6e1bf116d81a063e926dd24a3f8157acf939c04e4325ca9ad1f5a4de55",
+    "staging\\Assets\\AshenVoxel\\Exploration\\ExplorationBootstrap.cs": "f609db6e1bf116d81a063e926dd24a3f8157acf939c04e4325ca9ad1f5a4de55"
+  },
+  "verified_utc": "2026-10-27T15:35:35.327019+00:00",
+  "original3_unchanged": true,
+  "other6_runtime_unchanged": true,
+  "editor_idle": true,
+  "shader_render_animation_acceptance": false
+}

@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffeb12f447a94819b38645484e111bf1, type: 3}
+  m_Name: ExplorationSettings
+  m_EditorClassIdentifier: 
+  MacroWorld: {fileID: 4900000, guid: a22f230477264837ab438a4adc304596, type: 3}
+  MacroClimate: {fileID: 4900000, guid: acfd81e732cc45f186374e7821232884, type: 3}
+  FineWorld: {fileID: 4900000, guid: 90e990a41736404dae55876f6cc4fa72, type: 3}
+  FineClimate: {fileID: 4900000, guid: 5d2edfcd5fac4eb08d73335c0f8f6b56, type: 3}
+  SourceBiomes: {fileID: 4900000, guid: 9588d69db2e7432c90f8ec6fc7ca709e, type: 3}
+  WorldMetadata: {fileID: 4900000, guid: d02fbacc752b4aa89c49dc74c5f4ebfe, type: 3}
+  PrototypePack: {fileID: 4900000, guid: 7041d8570f694b2082e91a3261d73533, type: 3}
+  Seed: 714103
+  EnableSurfaceRelief: 1
+  UseImportedDimensions: 1
+  WorldWidthMeters: 299520
+  WorldDepthMeters: 149760
+  VerticalScale: 1
+  FineBlendMeters: 512
+  EnableLiveRefinement: 0
+  DiffusionEndpoint: http://127.0.0.1:8787
+  UseRecommendedSpawn: 0
+  SpawnX: -40954.96880764632
+  SpawnY: 1861.4649999761584
+  SpawnZ: -13458.490728475133
+  SpawnYaw: -163.798939
+  SpawnPitch: 24.8000388
+  WalkSpeed: 4
+  SprintSpeed: 7
+  FlightSpeed: 40
+  FlightBoost: 4
+  FieldOfView: 75
+  MouseSensitivity: 0.1
+  EyeSmoothing: 20
+  StartFlying: 0
+  AllowNoClipToggle: 1
+  BodyRadius: 0.28
+  BodyHeight: 1.8
+  EyeHeight: 1.65
+  StepHeight: 0.32
+  MaximumWalkSlope: 50
+  VegetationDragPerVoxel: 0.0008
+  MinimumVegetationSpeed: 0.65
+  EnableVoxelTerrain: 1
+  VoxelTargetPixels: 1.5
+  VoxelFullDetailRadius: 100
+  VoxelDetailBudgetMB: 1536
+  VoxelContactBudgetMB: 1024
+  ViewDistanceKm: 30
+  FarHorizonKm: 0
+  MaximumTerrainTiles: 512
+  MinimumTerrainTileMeters: 32
+  NearTerrainRadius: 96
+  NearTerrainQuads: 64
+  TerrainBuildMilliseconds: 2
+  TerrainSampleWork: 256
+  WindStrength: 1
+  TreeDensity: 1
+  GroundCoverDensity: 1
+  FullTreeDetailMeters: 100
+  RedwoodFullDetailMeters: 40
+  MediumTreeDetailMeters: 300
+  TreeDistanceMeters: 1400
+  EnableGroundedRoots: 0
+  EnableForestHorizon: 1
+  ForestFollowsTerrainView: 1
+  UseGpuForestHorizon: 1
+  UseTreeImpostors: 1
+  ForestHorizonKm: 30
+  GroundCoverDistanceMeters: 64
+  RockDistanceMeters: 220
+  MaximumResidentInstances: 40000
+  PopulationBuildMilliseconds: 2
+  VegetationTriangleBudget: 32000000
+  Upscaling: 1
+  FogEnabled: 1
+  FogMode: 3
+  FogDensity: 0.00004
+  FogColor: {r: 0.49, g: 0.59, b: 0.68, a: 1}
+  SkyColor: {r: 0.42, g: 0.53, b: 0.65, a: 1}
+  AmbientFillStrength: 1.5
+  AmbientSky: {r: 0.72, g: 0.78, b: 0.85, a: 1}
+  AmbientEquator: {r: 0.58, g: 0.66, b: 0.73, a: 1}
+  AmbientGround: {r: 0.36, g: 0.39, b: 0.32, a: 1}
+  SunColor: {r: 1, g: 0.92, b: 0.81, a: 1}
+  SunIntensity: 2.1
+  SunElevation: 36
+  SunAzimuth: 325
+  ShadowDistanceMeters: 260
+  EnableAmbientOcclusion: 1
+  ShowVisualWater: 1
+  EnableSnow: 1
+  MaximumSnowDepth: 2.4
+  TemperatureBias: 0
+  WinterFraction: 0.2
+  SeaLevel: 0

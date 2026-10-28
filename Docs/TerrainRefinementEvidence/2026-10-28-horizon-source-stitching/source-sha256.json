@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-28T05:39:01.342168+00:00",
+  "source_sha256": {
+    "Assets/AshenVoxel/Exploration/ExplorationOverviewRefinement.cs": "adab37e470d0210394180019fe5e3ae592c3e8593861f8fb3bc1b87914317be0",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "31588420cb6d5be80f9b83832660aa54abdb2184589df5e068bd9233b1be9fd4",
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": "5fea44c4012f0bccfbe6de3347ad9e5c4b2394a8cd27fb295bd0fbc2cb57d7ea",
+    "Assets/AshenVoxel/Exploration/ExplorationLoadingScreen.cs": "ba617e045a04cb6bebdbce420a99e21a95c799635259b97d7c5d019f9633a579",
+    "Assets/AshenVoxel/Exploration/WorldLoadingProgress.cs": "e17c22979cf33c48ab2d0761bd370689ed339970acf849365ca83a4208e62550",
+    "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs": "053a11c7563463cac400ed9168ab4e5bf3d9e3d4076990324f7367823563944f",
+    "Assets/AshenVoxel/Exploration/Editor/TerrainSeamAppearanceChecks.cs": "299975fb1adc4efad03887ee52bbc8801a9a0b908a597e8186fbb62f92a7274f",
+    "Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs": "4d1a52114881de43093db521948032bc3f8cfed3c8540d4d7faddcc63b6b7529",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationOverviewField.cs": "e698543414144bd79fb8267a8eed642397e34aa09640a89dc2440fbe27bbb2c5",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationOverviewDemand.cs": "0fa2272f1f2999cf896677dc4098ee1c4b5e9b473a088cf4a0adf87823361f54",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs": "2540e9869583de606a103a3636a44c2dc4e1c5dc0a7a14814b57702738a5e9a7",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs": "435abb468297d4fd9f92d243df77c9b403854738c67d69b7be59914d66116a0b",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs": "d2d67cf770839273a233ffcfac450fefed5069a5490cd71d342960e93cc9cf04",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerTerrainSeams.cs": "1ed7efe83b9356a131cee9174633f3b57443ac134c95ba59cd2d1300a85a0fc6",
+    "Tools/ExplorationBake/overview_provider.py": "02706422838244d303889c44f244946ee937615fda8e2db0ff9da637caf5e994",
+    "Tools/ExplorationBake/serve_overview.py": "b4f4dbb656827be4f6e58db7b726675cefdbfcc75fb7caf6245f2efd3a58274e",
+    "Tools/ExplorationBake/check_overview_provider.py": "540fe5166851d98eea3290df563eed1fc54a8d377d28f42213f159992915d1b3"
+  }
+}

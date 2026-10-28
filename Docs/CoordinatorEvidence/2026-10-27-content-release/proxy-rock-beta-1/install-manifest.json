@@ -1,0 +1,69 @@
+{
+  "id": "proxy-rock-beta-1",
+  "utc": "2026-10-27T19:31:21.656213+00:00",
+  "status": "FROZEN API-PASSED UNINSTALLED; no queue or native execution",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs",
+      "before": "",
+      "sha256": "fa270bc21c1f1612bd8af36624aa47992cf292d0ffc9e0942528b0c0630ee980"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs.meta",
+      "before": "",
+      "sha256": "cd1997e7385b02a901c2f4649485442f4dadaab4b797fafc1dc17963ce91f717"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "before": "a5176bba58f079150547782ca484fb3758f82cae6924e3753ea460eb2ced771c",
+      "sha256": "8cf62e84e42f80fed03cb3b61872b193dc8990cbad154c0b23f2ff32b093143a"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+      "before": "b5a2f93e7d2597a6d5e49c031e7c6c2a45502de40ddd4a31cf86ce8008f40c80",
+      "sha256": "4d0db66d4d52556fc6004f12803148e20bf29671ee20665bcb0d7bce2a4967fe"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "256086ca854878a961e6c3b3e9126ca90bdf6244a63c19550e6bc30f46fca32a",
+      "sha256": "50f1ecc710b6b3fca372b49e0916932d56c2dc46580787a731cd1213f6c9f503"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationRockRenderAccess.cs",
+      "before": "8dabd6af935aacac27dcd91dbce8cea4285e6e5d3e0a2ac1dd74960c6c797376",
+      "sha256": "500b56ddd7f721135c673f2189a79856a1cbbc99c2dd1b51ff1b956ce8b439e8"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationDistantRockPatch.cs",
+      "before": "eb264fa85032470dd09b5a5c0e2e1c5b508f670e810ff1132a28a68e9227e3e7",
+      "sha256": "7e893bcdf15850b39fab159a542af93c989cdefda8430ba89e510cc2cfd7db5f"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+      "before": "61f3f10e34a9676a572cbdf040ee8398b85b9e196c684911959998b3e639008c",
+      "sha256": "b4c821ae30b2549348b5f4f98b02c9429690b019aea6b7b5865e70cfe3d5a132"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "2f08a4c52f01b7d0df4283dabac7cfa34bf27862138878453bb23976d3bbb372",
+      "sha256": "bd577544e7f36f8eba1fe56713e0ebd10c49598ac09af629cb81bcd9b612f98f"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs",
+      "before": "8ecf23050cd2a2ae52bf145ba6cfc985728406e375bd3bf9a1e6d7ebbcf6b27c",
+      "sha256": "352a77faf52d1473fd78c82a7d76942eb621c5a846827f0f14f7a17de9d8fbe0"
+    }
+  ],
+  "upstream_terrain_manifest": "a83f6fac621cdb573f65c584026e2f4d80e3fbf23cc0cd43d4e89f495e45f71d",
+  "upstream_rock_manifest": "baab2f510436fea553e0f824b66c1bb85346351279171f6a007e114f3fa19028",
+  "protected": {
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerMemory.cs": "20a0adda253646f3f14126fe0c02d0faac7e46f26e9d006d6e9894dd4e567b31",
+    "Assets/Scenes/Exploration.unity": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626",
+    "Assets/AshenVoxel/Settings/ExplorationSettings.asset": "d92bc27e1481bdcf5091f2c21e41f4136527a808f638402cf4c866b2ef41d6d6",
+    "Assets/AshenVoxel/Exploration/ExplorationBetaMatter.cs": "b3ec3ae249157450777b536ca4dcd2db241f2203076b67358e797ba86c9d19e9"
+  },
+  "options_sha256": "a971d9170fe3dfcea5acfc46a4894b3ffc512927e6c9402f660a6660110e74ca",
+  "finalized_utc": "2026-10-27T19:32:18.560401+00:00",
+  "combined_api": "checks\\api-20261027-193137-288739\\result.json",
+  "api_sha256": "e940939096917248a8250192e2155b94b1de790197781a71ce24e1ee9f25d418"
+}

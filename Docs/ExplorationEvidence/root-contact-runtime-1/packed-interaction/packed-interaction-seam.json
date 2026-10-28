@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "scope": "Direct current live AVPM public BlocksLocal/ResistanceLocal checks for all canonical wood cells in rows30..32 against independent original/composite policy audit. Interior subcell boxes avoid neighboring-cell float boundary inclusion. No native/scene wiring tested.",
+  "results": [
+    {
+      "id": 10,
+      "body_checks": 3993,
+      "resistance_checks": 3993,
+      "rows": {
+        "30": 1344,
+        "31": 1329,
+        "32": 1320
+      },
+      "all_existing_packed_upper_roles_match_composite_oracle": true
+    },
+    {
+      "id": 11,
+      "body_checks": 4290,
+      "resistance_checks": 4290,
+      "rows": {
+        "30": 1441,
+        "31": 1428,
+        "32": 1421
+      },
+      "all_existing_packed_upper_roles_match_composite_oracle": true
+    }
+  ]
+}

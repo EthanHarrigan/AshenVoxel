@@ -1,0 +1,18 @@
+{
+    "status": "FAIL",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "pack_sha256": "41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa",
+    "error": "System.Exception: Cannot isolate native fixture scene\r\n  at AshenVoxel.Exploration.Editor.RootContactNativePreview.Run () [0x001fe] in <65f70d73e64b4daca02f7bdcb886f633>:0 ",
+    "scope": "Native shared-submesh/root fixture only, not scene integration or Play/FPS. Exact recorded10cm terrain heights/top pigments; representative subsurface pigment with neutral opaque Dirt material/AO. Actual root Wood/material/RGB and shared original upper tree. Static wind, two fixed side views.",
+    "original_scene_dirty_unchanged": true,
+    "original_scene_roots_unchanged": true,
+    "initial_private_bytes": 8976293888,
+    "max_private_bytes": 8976293888,
+    "minimum_available_commit": 4536074240,
+    "seconds": 0.1548465,
+    "last_stage": "preflight",
+    "original_active_scene_restored": true,
+    "original_lighting_unchanged": true,
+    "shader_state_restored": true,
+    "render_target_restored": true
+,"captured_views":[]}

@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "id": 0,
+      "cells": 3395,
+      "candidates": 123294,
+      "materials": {
+        "Wood": 1024,
+        "Leaves": 2371
+      },
+      "unit_material_color_faces": 10896,
+      "whole_specimen": true,
+      "truncated": false,
+      "bounds": {
+        "min": {
+          "x": 42,
+          "y": 3,
+          "z": 41
+        },
+        "max": {
+          "x": 69,
+          "y": 48,
+          "z": 70
+        }
+      },
+      "granular": 0,
+      "physics_ticks": 27,
+      "cut_cells": 1,
+      "ground_impacts": 1,
+      "source": 14,
+      "individual": 3380,
+      "cargo": 1,
+      "explicit_island_kick": false,
+      "island_kick_hits": 0,
+      "individual_kick_hits": 2,
+      "all_material_tint_keys": 53,
+      "caveat": "Actual complete tree source replay, trunk separation, data-body gravity/terrain impact/cube contacts/kick/manual collection. Flat authoritative height callback in CPU test; native real-terrain cache/publication/render remain unverified."
+    },
+    {
+      "id": 1,
+      "cells": 3408,
+      "candidates": 118325,
+      "materials": {
+        "Wood": 1047,
+        "Leaves": 2361
+      },
+      "unit_material_color_faces": 11078,
+      "whole_specimen": true,
+      "truncated": false,
+      "bounds": {
+        "min": {
+          "x": 41,
+          "y": 3,
+          "z": 42
+        },
+        "max": {
+          "x": 71,
+          "y": 49,
+          "z": 71
+        }
+      },
+      "granular": 0,
+      "physics_ticks": 36,
+      "cut_cells": 1,
+      "ground_impacts": 1,
+      "source": 16,
+      "individual": 3391,
+      "cargo": 1,
+      "explicit_island_kick": false,
+      "island_kick_hits": 0,
+      "individual_kick_hits": 5,
+      "all_material_tint_keys": 47,
+      "caveat": "Actual complete tree source replay, trunk separation, data-body gravity/terrain impact/cube contacts/kick/manual collection. Flat authoritative height callback in CPU test; native real-terrain cache/publication/render remain unverified."
+    }
+  ]
+}

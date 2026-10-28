@@ -1,0 +1,4 @@
+Unhandled exception. System.Exception: tint-only does not wake
+   at Program.Check(Boolean value, String message)
+   at Program.Equivalence()
+   at Program.Main(String[] args)

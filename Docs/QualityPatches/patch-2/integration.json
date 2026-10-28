@@ -1,0 +1,34 @@
+{
+  "patch": 2,
+  "utc": "2026-10-27T05:07:42.166909+00:00",
+  "changes": [
+    "Global deterministic surface-relief-v1 shared by render/collision/habitat",
+    "Matching source snapshot and expanded culling bounds",
+    "Current-session native capture tool; no second Editor"
+  ],
+  "before": {
+    "Assets/AshenVoxel/WorldScaleData/TerrainDetailField.cs": null,
+    "Assets/AshenVoxel/WorldScaleData/TerrainDetailField.cs.meta": null,
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": "b9f20fd1a9d4f6ce27063d7934db352212a818a673fd1607f00d62bd1a69a31a",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "07875597928bd02cfa4008b8fad7750978764f8fa02ac85c4187d81662f92f08",
+    "Assets/AshenVoxel/Settings/ExplorationSettings.asset": "0296c3385359e85d17a50d3f969acbdc59e8ffae9e54f7a61c112a2b653434a8",
+    "Assets/AshenVoxel/Exploration/Editor/QualityPatchReview.cs": null,
+    "Assets/AshenVoxel/Exploration/Editor/QualityPatchReview.cs.meta": null
+  },
+  "after": {
+    "Assets/AshenVoxel/WorldScaleData/TerrainDetailField.cs": "8393d97d95a2d4deffda3db93d8b077cfa7223bb98f1e2c55b97f8242d17ac1b",
+    "Assets/AshenVoxel/WorldScaleData/TerrainDetailField.cs.meta": "8149ab558a71c0a0fbca324f7be89e850c8e6183c65c1a68fd2585dbd006d6c5",
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": "45fd77c752f0cc426a1e400baa0a289a80a82a05367171a784b62bceaa01ff6a",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "79a1a3d07c72daa36e3e6ae2f895f73a3e3eed4e8d8e903e498cebdabe367a04",
+    "Assets/AshenVoxel/Settings/ExplorationSettings.asset": "4d5df8fd0a44fbe69317a3ca18d83847d6fda5afe995139907f0df21f7a72a03",
+    "Assets/AshenVoxel/Exploration/Editor/QualityPatchReview.cs": "c2eeb1ecdfb431a64983c1d1d8181a6f4dffbe2143eb41488536cf493026d318",
+    "Assets/AshenVoxel/Exploration/Editor/QualityPatchReview.cs.meta": "babef029dc61b58ea4c90304d2aa0710d856f87d6f410585ba409611640463a0"
+  },
+  "checks": {
+    "terrain": 34,
+    "bootstrap": 31,
+    "official_api_assemblies": 5,
+    "native": "Main Unity6000.3.27f1 DX12 Play ready, shared surface-relief-v1 source, no terrain/tree shader error.3 then22 contact tiles published while distant queue remained. Not a completed-radius or FPS claim."
+  },
+  "review_hook_sha256": "d8106bae7fdb6f2475c2835c995b7adc3682116fc74420440df86148be7bd17d"
+}

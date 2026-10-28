@@ -1,0 +1,1016 @@
+VBCSCompilerServerWatchdog: watching VBCSCompiler (PID 35664)
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.27f1 (672d562a42a7) revision 6761814'; Using compiler version '194234433'; Build Type 'Release'
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-ethan" at "2026-10-27T06:05:26.2626331Z"
+OS: 'Windows 11  (10.0.26200) Professional' Language: 'en' Physical Memory: 32689 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-10-27T06:05:26Z
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 28612, path: "C:/Program Files/Unity Hub/UnityLicensingClient_V1/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.3+d7ffd15
+  Session Id:              8bab398fd796403c8fd6e82b3f8a6194
+  Correlation Id:          3a8e8352807b5160fae04e10ccfca026
+  External correlation Id: 6597955726399605400
+  Machine Id:              ufFF3dhs8SlprCUGKkpsqsCfiLc=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-ethan" (connect: 0.00s, validation: 0.00s, handshake: 0.10s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-ethan-notifications" at "2026-10-27T06:05:26.3666384Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 2475620621758-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.01
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 0.12s
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Unity.exe
+-batchmode
+-force-d3d12
+-projectPath
+C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels
+-executeMethod
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck.Run
+-logFile
+C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels/Logs/material-optics-native-3.log
+Successfully changed project path to: C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels
+C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-remapper-allocator-initial-capacity=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [24012]  Target information:
+
+Player connection [24012]  * "[IP] 192.168.0.44 [Port] 55506 [Flags] 2 [Guid] 156512384 [EditorId] 156512384 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-3MHM656) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [24012] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [24012] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Package Manager] Connected to IPC stream "Upm-5480" after 0.4 seconds.
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Artifact Garbage Collection - Removed 4 unused hashed content files
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.27f1 (672d562a42a7)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels/Assets
+Forcing GfxDevice: Direct3D 12
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 3080 Ti (ID=0x2208)
+    Vendor:          NVIDIA
+    VRAM:            12086 MB
+    App VRAM Budget: 11318 MB
+    Driver:          32.0.16.1088
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56480
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.006822 seconds.
+- Loaded All Assemblies, in  0.665 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.562 seconds
+Domain Reload Profiling: 1219ms
+	BeginReloadAssembly (198ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (3ms)
+	RebuildCommonClasses (57ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (82ms)
+	LoadAllAssembliesAndSetupDomain (301ms)
+		LoadAssemblies (189ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (296ms)
+			TypeCache.Refresh (293ms)
+				TypeCache.ScanAssembly (272ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (563ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (512ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (63ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (103ms)
+			ProcessInitializeOnLoadAttributes (209ms)
+			ProcessInitializeOnLoadMethodAttributes (133ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 23 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.inputsystem@1.17.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.inputsystem@02433b2481ab)
+    com.unity.searcher@4.9.5 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.searcher@a463122f2c00)
+    com.unity.burst@1.8.31 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.burst@bfa84123c21a)
+    com.unity.mathematics@1.3.3 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.mathematics@19a9377c4ffa)
+    com.unity.collections@2.7.1 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.collections@88d5bf65ce66)
+    com.unity.nuget.mono-cecil@1.11.6 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.test-framework.performance@3.5.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.test-framework.performance@8b56083ec0f0)
+  Built-in packages:
+    com.unity.render-pipelines.universal@17.3.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.render-pipelines.universal@ee0b6bbace10)
+    com.unity.modules.audio@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.imgui@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.physics@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.nvidia@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.nvidia)
+    com.unity.render-pipelines.core@17.3.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.render-pipelines.core@6c7e6aba313a)
+    com.unity.shadergraph@17.3.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.shadergraph@12f2ec01e6de)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.render-pipelines.universal-config@8dc1aab4af1d)
+    com.unity.modules.uielements@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.ugui@2.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.ugui@c0ef89c047f6)
+    com.unity.modules.terrain@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.modules.ui@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.modules.hierarchycore)
+    com.unity.test-framework@1.6.0 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.test-framework@bd7f943e9647)
+    com.unity.ext.nunit@2.0.5 (location: C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Library\PackageCache\com.unity.ext.nunit@d8c07649098d)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.02 seconds
+[ScriptCompilation] Requested script compilation because: Assembly Definition File(s) changed
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels
+DisplayProgressbar: Compiling Scripts
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Data\netcorerun\netcorerun.exe "C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Data\Tools\BuildPipeline\ScriptCompilationBuildProgram.exe" "Library/Bee/1900b0aE.dag.json" "Library/Bee/1900b0aE-inputdata.json" "Library\Bee\buildprogram0.traceevents"
+WorkingDir: C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels
+ExitCode: 4 Duration: 2s381ms
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/1900b0aE-inputdata.json
+[548/698    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[549/698    2s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.dll (+2 others)
+*** Tundra requires additional run (2.30 seconds), 2 items updated, 547 evaluated
+ExitCode: 0 Duration: 1s696ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --dagfilejson="Library\Bee\1900b0aE.dag.json" --profile="Library/Bee/backend2.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/ethan/Downloads/AshenVoxel-WorldVoxels
+ExitCode: 0 Duration: 1s652ms
+Finished compiling graph: 701 nodes, 10862 flattened edges (8968 ToBuild, 106 ToUse), maximum node priority 728
+[409/698    0s] WriteText Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.rsp
+[410/698    0s] WriteResponseFile Library/Bee/artifacts/rsp/17164302524248299044.rsp
+[411/698    0s] WriteText Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.Editor.rsp
+[414/698    0s] WriteResponseFile Library/Bee/artifacts/rsp/14589263215256477137.rsp
+[548/698    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[690/698    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.dll (+2 others)
+[691/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.Exploration.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.dll, with 142 defines and 243 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[692/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.pdb
+[693/698    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.Editor.dll (+2 others)
+Assets\AshenVoxel\Exploration\Editor\DlssNativeCheck.cs(51,40): warning CS0618: 'GraphicsDeviceDebugView.dlssFeatureInfos' is obsolete: 'This property causes garbage collection and is inefficient. Use dlssFeatureInfosSpan and dlssFeatureInfoCount instead.'
+[694/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.dll
+[695/698    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.Exploration.Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.Editor.dll, with 140 defines and 279 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[696/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.Editor.pdb
+[697/698    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.Editor.dll
+*** Tundra build success (1.61 seconds), 13 items updated, 698 evaluated
+Assets\AshenVoxel\Exploration\Editor\DlssNativeCheck.cs(51,40): warning CS0618: 'GraphicsDeviceDebugView.dlssFeatureInfos' is obsolete: 'This property causes garbage collection and is inefficient. Use dlssFeatureInfosSpan and dlssFeatureInfoCount instead.'
+AssetDatabase: script compilation time: 6.438348s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  4.716 seconds
+Start importing Assets/AshenVoxel/Exploration/AshenVoxel.Exploration.asmdef using Guid(947251eb83ef4da9a83b7d3bd5a3dbd5) (AssemblyDefinitionImporter) -> (artifact id: '8e5cc05c9b036d4bad376877b7efc796') in 0.0275229 seconds
+Start importing Assets/AshenVoxel/Exploration/Editor/AshenVoxel.Exploration.Editor.asmdef using Guid(1c2104e4db00416992a9cf265d631c30) (AssemblyDefinitionImporter) -> (artifact id: '90dbc840b3cfb1ccf49166ad1539727a') in 0.0031476 seconds
+Refreshing native plugins compatible for Editor in 6.42 ms, found 0 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  3.679 seconds
+Domain Reload Profiling: 8385ms
+	BeginReloadAssembly (365ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (24ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (153ms)
+	RebuildCommonClasses (51ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (4231ms)
+		LoadAssemblies (4245ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (120ms)
+			TypeCache.Refresh (83ms)
+				TypeCache.ScanAssembly (75ms)
+			BuildScriptInfoCaches (25ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (3679ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2832ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (20ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (157ms)
+			ProcessInitializeOnLoadAttributes (2456ms)
+			ProcessInitializeOnLoadMethodAttributes (181ms)
+			AfterProcessingInitializeOnLoad (13ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (23ms)
+Start importing Assets/AshenVoxel/Rendering/MaterialOptics.hlsl using Guid(07d0f7ee3fc14424b6554637f25cb93a) (ShaderIncludeImporter) -> (artifact id: 'c88a2912353d6cc2f1d6ee52f251698f') in 0.0157364 seconds
+Start importing Assets/AshenVoxel/WorldScaleRuntime/GroundSurface.shader using Guid(b2438cbf85224031b4ba5242baa85dc8) (ShaderImporter)Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+ -> (artifact id: 'dc28d45b302d46379f8f8cbd7c425d4b') in 0.4129629 seconds
+Start importing Assets/AshenVoxel/Exploration/ForestImpostor.shader using Guid(765695a2eba67cf42985c749f9d53b2d) (ShaderImporter) -> (artifact id: 'c06ccbb73a3a3ca06c232f07837ffe0e') in 0.0323461 seconds
+Start importing Assets/AshenVoxel/Exploration/Resources/ForestHorizonGpu.shader using Guid(a9d2112f9a3adea4190c01d4e2094d63) (ShaderImporter) -> (artifact id: 'b767bcaeb5183428972fea7848675013') in 0.0231111 seconds
+Start importing Assets/AshenVoxel/Rendering/WorldSurface.shader using Guid(9c31fe8407084be6af193b223f301852) (ShaderImporter) -> (artifact id: '0762f6df0e38f3b66a5dac181f6c2315') in 0.025562 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Refreshing native plugins compatible for Editor in 0.52 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=4b02194b2b4ca4e4b8b5cd2933eb2e1a): Total: 18.813 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=7 (actual=7, local cache=0, cache server=0)
+		Asset DB Process Time: managed=7 ms, native=6475 ms
+		Asset DB Callback time: managed=349 ms, native=737 ms
+		Scripting: domain reloads=1, domain reload time=4716 ms, compile time=6443 ms, other=83 ms
+		Project Asset Count: scripts=793, non-scripts=1672
+		Asset File Changes: new=1, changed=8, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 39.108ms
+	ApplyChangesToAssetFolders: 0.673ms
+	Scan: 395.337ms
+	OnSourceAssetsModified: 1.301ms
+	CategorizeAssetsWithTransientArtifact: 785.354ms
+	ProcessAssetsWithTransientArtifactChanges: 43.624ms
+	CategorizeAssets: 86.422ms
+	ImportOutOfDateAssets: 4261.157ms (-2769.243ms without children)
+		ImportManagerImport: 568.407ms (22.566ms without children)
+			ImportInProcess: 545.222ms
+			UpdateCategorizedAssets: 0.619ms
+		CompileScripts: 6442.739ms
+		ReloadNativeAssets: 0.031ms
+		UnloadImportedAssets: 1.618ms
+		ReloadImportedAssets: 16.830ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.419ms
+		InitializingProgressBar: 0.008ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.347ms
+	PostProcessAllAssets: 1045.403ms
+	Hotreload: 4.043ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.004ms
+	UnloadStreamsBegin: 3.900ms
+	PersistCurrentRevisions: 0.133ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 2.659ms
+	Untracked: 12146.958ms
+
+Application.AssetDatabase Initial Refresh End
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Scanning for USB devices : 9.792ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-Ashen Voxel Exploration
+Unloading 20 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3651 unused Assets / (3.7 MB). Loaded Objects now: 4501.
+Memory consumption went from 178.5 MB to 174.8 MB.
+Total: 9.486900 ms (FindLiveObjects: 0.428100 ms CreateObjectMapping: 0.164900 ms MarkObjects: 6.981600 ms  DeleteObjects: 1.910700 ms)
+
+[Project] Loading completed in 24.448 seconds
+	Project init time: 				23.863 seconds
+		Template init time: 		0.000 seconds
+		Package Manager init time: 		0.446 seconds
+		Asset Database init time: 		0.557 seconds
+		Global illumination init time: 	0.003 seconds
+		Assemblies load time: 			1.262 seconds
+		Unity extensions init time: 	0.006 seconds
+		Asset Database refresh time: 	18.814 seconds
+	Scene opening time: 			0.150 seconds
+##utp:{"type":"ProjectInfo","version":2,"phase":"Immediate","time":1793081150607,"processId":5480,"projectLoad":24.4478543,"projectInit":23.8627761,"templateInit":0.0,"packageManagerInit":0.445597,"assetDatabaseInit":0.5568507,"globalIlluminationInit":0.003372,"assembliesLoad":1.2615528,"unityExtensionsInit":0.0060482,"assetDatabaseRefresh":18.8135996,"sceneOpening":0.1498156}
+##utp:{"type":"EditorInfo","version":2,"phase":"Immediate","time":1793081150608,"processId":5480,"editorVersion":"6000.3.27f1 (672d562a42a7)","branch":"6000.3/staging","buildType":"Release","platform":"Windows"}
+[Licensing::Client] Successfully resolved entitlement details
+Start Indexing on Editor startup
+[Indexing] Starting Initial Indexing for Assets
+d3d12: upload buffer was too small for the requested resource! Size: 16777216. Requested: 37748736.
+null options given to DLSSIUpscaler()
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+DLSSIUpscaler:.ctor (DLSSOptions) (at ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/DLSSIUpscaler.cs:136)
+System.Reflection.RuntimeConstructorInfo:InternalInvoke (object,object[],bool)
+System.Reflection.RuntimeConstructorInfo:DoInvoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.RuntimeConstructorInfo:Invoke (System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.RuntimeType:CreateInstanceImpl (System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[],System.Threading.StackCrawlMark&)
+System.Activator:CreateInstance (System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[])
+System.Activator:CreateInstance (System.Type,object[])
+UnityEngine.Rendering.Upscaling:.ctor (System.Collections.Generic.List`1<UnityEngine.Rendering.UpscalerOptions>) (at ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/Upscaling.cs:54)
+UnityEngine.Rendering.Universal.UniversalRenderPipeline:.ctor (UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset) (at ./Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/Runtime/UniversalRenderPipeline.cs:326)
+UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset:CreatePipeline () (at ./Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/Runtime/Data/UniversalRenderPipelineAsset.cs:831)
+UnityEngine.Rendering.RenderPipelineAsset:InternalCreatePipeline ()
+UnityEngine.Rendering.RenderPipelineManager:TryPrepareRenderPipeline (UnityEngine.Rendering.RenderPipelineAsset)
+UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,UnityEngine.Object,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle)
+UnityEngine.Camera:Render ()
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:48)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/DLSSIUpscaler.cs Line: 136)
+
+Captured forest prototype 0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+Captured forest prototype 1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+Captured forest prototype 2
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+Captured forest prototype 3
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+Captured forest prototype 4
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+Captured forest prototype 5
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+Captured forest prototype 6
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+Captured forest prototype 7
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+Captured forest prototype 8
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+Captured forest prototype 9
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+d3d12: upload buffer was too small for the requested resource! Size: 37748736. Requested: 96791632.
+Captured forest prototype 10
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+d3d12: upload buffer was too small for the requested resource! Size: 97517568. Requested: 99732976.
+Captured forest prototype 11
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+Captured forest prototype 12
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+Captured forest prototype 13
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+Captured forest prototype 14
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+Captured forest prototype 15
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 53)
+
+Start importing Assets/AshenVoxel/Exploration/Resources/ForestAtlas.png using Guid(7fdfd58366740c74683f0247cd88677e) (TextureImporter) -> (artifact id: '941208db916059c8ff2bbc81127c0e60') in 1.1156147 seconds
+Refreshing native plugins compatible for Editor in 0.57 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=bec6760bcd5c8704b84502d5517a5d67): Total: 1.228 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+	Summary:
+		Imports: total=1 (actual=1, local cache=0, cache server=0)
+		Asset DB Process Time: managed=1 ms, native=1175 ms
+		Asset DB Callback time: managed=5 ms, native=45 ms
+		Scripting: domain reloads=0, domain reload time=0 ms, compile time=0 ms, other=0 ms
+		Project Asset Count: scripts=793, non-scripts=1672
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 5
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 0.002ms
+	ApplyChangesToAssetFolders: 0.100ms
+	Scan: 25.906ms
+	OnSourceAssetsModified: 0.001ms
+	CategorizeAssetsWithTransientArtifact: 0.017ms
+	ProcessAssetsWithTransientArtifactChanges: 0.081ms
+	CategorizeAssets: 22.115ms
+	ImportOutOfDateAssets: 1117.495ms (0.165ms without children)
+		ImportManagerImport: 1116.598ms (0.267ms without children)
+			ImportInProcess: 1116.307ms
+			UpdateCategorizedAssets: 0.024ms
+		ReloadNativeAssets: 0.032ms
+		UnloadImportedAssets: 0.171ms
+		ReloadImportedAssets: 0.000ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.188ms
+		InitializingProgressBar: 0.006ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.334ms
+	PostProcessAllAssets: 5.869ms
+	Hotreload: 45.011ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.091ms
+	UnloadStreamsBegin: 1.345ms
+	PersistCurrentRevisions: 0.055ms
+	UnloadStreamsEnd: 0.000ms
+	Untracked: 10.331ms
+
+Start importing Assets/AshenVoxel/Exploration/Resources/ForestAtlas.png using Guid(7fdfd58366740c74683f0247cd88677e) (TextureImporter) -> (artifact id: '941208db916059c8ff2bbc81127c0e60') in 1.0613089 seconds
+Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=0525ef0e533c6c9458d41776b3c3a70a): Total: 1.078 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+	Summary:
+		Imports: total=1 (actual=1, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=1075 ms
+		Asset DB Callback time: managed=0 ms, native=2 ms
+		Scripting: domain reloads=0, domain reload time=0 ms, compile time=0 ms, other=0 ms
+		Project Asset Count: scripts=793, non-scripts=1672
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 5
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 0.000ms
+	ApplyChangesToAssetFolders: 0.045ms
+	Scan: 8.671ms
+	OnSourceAssetsModified: 0.001ms
+	CategorizeAssetsWithTransientArtifact: 0.008ms
+	ProcessAssetsWithTransientArtifactChanges: 0.133ms
+	CategorizeAssets: 1.290ms
+	ImportOutOfDateAssets: 1062.981ms (-0.147ms without children)
+		ImportManagerImport: 1062.133ms (0.521ms without children)
+			ImportInProcess: 1061.591ms
+			UpdateCategorizedAssets: 0.021ms
+		ReloadNativeAssets: 0.029ms
+		UnloadImportedAssets: 0.193ms
+		ReloadImportedAssets: 0.303ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.187ms
+		InitializingProgressBar: 0.004ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.278ms
+	PostProcessAllAssets: 1.155ms
+	Hotreload: 1.915ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.080ms
+	UnloadStreamsBegin: 0.027ms
+	PersistCurrentRevisions: 0.055ms
+	UnloadStreamsEnd: 0.000ms
+	Untracked: 2.013ms
+
+Start importing Assets/AshenVoxel/Exploration/Resources/ForestAtlasNormals.png using Guid(14f911ec844886242b8823f4b3d4786a) (TextureImporter) -> (artifact id: '76c72003e19c2225408dca459bf5ece8') in 0.2697355 seconds
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=a849520767a058a4aa5f70a240355aaf): Total: 0.291 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/AshenVoxel/Exploration/Resources/ForestAtlasNormals.png using Guid(14f911ec844886242b8823f4b3d4786a) (TextureImporter) -> (artifact id: '76c72003e19c2225408dca459bf5ece8') in 0.29184 seconds
+Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=44e8df27155337f42adf5157c9f89d54): Total: 0.307 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+	Summary:
+		Imports: total=1 (actual=1, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=304 ms
+		Asset DB Callback time: managed=0 ms, native=1 ms
+		Scripting: domain reloads=0, domain reload time=0 ms, compile time=0 ms, other=0 ms
+		Project Asset Count: scripts=793, non-scripts=1672
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 5
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 0.001ms
+	ApplyChangesToAssetFolders: 0.046ms
+	Scan: 8.059ms
+	OnSourceAssetsModified: 0.001ms
+	CategorizeAssetsWithTransientArtifact: 0.005ms
+	ProcessAssetsWithTransientArtifactChanges: 0.028ms
+	CategorizeAssets: 0.638ms
+	ImportOutOfDateAssets: 293.859ms (-0.180ms without children)
+		ImportManagerImport: 292.955ms (0.647ms without children)
+			ImportInProcess: 292.278ms
+			UpdateCategorizedAssets: 0.030ms
+		ReloadNativeAssets: 0.041ms
+		UnloadImportedAssets: 0.168ms
+		ReloadImportedAssets: 0.335ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.210ms
+		InitializingProgressBar: 0.005ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.325ms
+	PostProcessAllAssets: 0.919ms
+	Hotreload: 1.249ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.085ms
+	UnloadStreamsBegin: 0.024ms
+	PersistCurrentRevisions: 0.071ms
+	UnloadStreamsEnd: 0.001ms
+	Untracked: 1.550ms
+
+Start importing Assets/AshenVoxel/Exploration/Resources/ForestAtlasVersion.txt using Guid(3a9d8ef38a5bd584cb940ad4fc4ad081) (TextScriptImporter) -> (artifact id: 'c061d71680b9be4e56c364273491fa8b') in 0.0025198 seconds
+Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=8b6adcaddfd57a34dbefdfd7c89ce63a): Total: 0.030 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing ProjectSettings/GraphicsSettings.asset using Guid(00000000000000006100000000000000) (LibraryAssetImporter) -> (artifact id: '06428a8d8c2e624daeb74d27a06f3acf') in 0.0028542 seconds
+Start importing Assets/AshenVoxel/Exploration/Resources/ForestImpostor.mat using Guid(f569bfb61df2ff44e834de79c171fa1d) (NativeFormatImporter)Main Object Name 'AshenVoxel/ForestImpostor' does not match filename 'ForestImpostor'
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:67)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+[Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs line 67]
+
+ -> (artifact id: '235b21b09d44d8fd129abc1343caffa6') in 0.0020787 seconds
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=35d1bf9113783d74eb30d61ef23ab7fa): Total: 0.023 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Forest atlas baked: 16 actual 10cm prototypes x 9 views; 3072 square.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestAtlasBaker:Bake () (at Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs:67)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:29)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestAtlasBaker.cs Line: 67)
+
+null options given to DLSSIUpscaler()
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+DLSSIUpscaler:.ctor (DLSSOptions) (at ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/DLSSIUpscaler.cs:136)
+System.Reflection.RuntimeConstructorInfo:InternalInvoke (object,object[],bool)
+System.Reflection.RuntimeConstructorInfo:DoInvoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.RuntimeConstructorInfo:Invoke (System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.RuntimeType:CreateInstanceImpl (System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[],System.Threading.StackCrawlMark&)
+System.Activator:CreateInstance (System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[])
+System.Activator:CreateInstance (System.Type,object[])
+UnityEngine.Rendering.Upscaling:.ctor (System.Collections.Generic.List`1<UnityEngine.Rendering.UpscalerOptions>) (at ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/Upscaling.cs:54)
+UnityEngine.Rendering.Universal.UniversalRenderPipeline:.ctor (UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset) (at ./Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/Runtime/UniversalRenderPipeline.cs:326)
+UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset:CreatePipeline () (at ./Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/Runtime/Data/UniversalRenderPipelineAsset.cs:831)
+UnityEngine.Rendering.RenderPipelineAsset:InternalCreatePipeline ()
+UnityEngine.Rendering.RenderPipelineManager:TryPrepareRenderPipeline (UnityEngine.Rendering.RenderPipelineAsset)
+UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,UnityEngine.Object,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle)
+UnityEngine.Camera:Render ()
+AshenVoxel.Exploration.Editor.MaterialOpticsNativeCheck:<Test>g__Capture|2_0 (string,AshenVoxel.Exploration.Editor.MaterialOpticsNativeCheck/<>c__DisplayClass2_0&) (at Assets/AshenVoxel/Exploration/Editor/MaterialOpticsNativeCheck.cs:27)
+AshenVoxel.Exploration.Editor.MaterialOpticsNativeCheck:Test () (at Assets/AshenVoxel/Exploration/Editor/MaterialOpticsNativeCheck.cs:33)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:30)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/DLSSIUpscaler.cs Line: 136)
+
+PASS material optics: 24 materials, opaque/half/clear GPU pixel tests and directional backlight response.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.MaterialOpticsNativeCheck:Test () (at Assets/AshenVoxel/Exploration/Editor/MaterialOpticsNativeCheck.cs:47)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:30)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/MaterialOpticsNativeCheck.cs Line: 47)
+
+Opening scene 'Assets/Scenes/Exploration.unity'
+Unloading 11 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Assets/Scenes/Exploration.unity'
+	Deserialize:            1.082 ms
+	Integration:            215.465 ms
+	Integration of assets:  0.001 ms
+	Thread Wait Time:       0.013 ms
+	Total Operation Time:   216.561 ms
+Unloading 11 unused Assets / (5.6 KB). Loaded Objects now: 4601.
+Memory consumption went from 299.2 MB to 299.2 MB.
+Total: 8.863800 ms (FindLiveObjects: 0.312300 ms CreateObjectMapping: 0.089900 ms MarkObjects: 8.376000 ms  DeleteObjects: 0.084500 ms)
+
+FOREST_GPU_PASS Compute and indirect support available; native GPU path created
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Check (bool,string) (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:17)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:26)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:63)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs Line: 17)
+
+FOREST_GPU_PASS 30km compute range/frustum excludes near, behind, offscreen and far stands
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Check (bool,string) (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:17)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:38)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:63)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs Line: 17)
+
+FOREST_GPU_PASS 100km visibility retains actual 50km and90km instances
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Check (bool,string) (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:17)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:40)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:63)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs Line: 17)
+
+FOREST_GPU_PASS Indirect GPU primitives render non-background tree pixels
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Check (bool,string) (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:17)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:44)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:63)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs Line: 17)
+
+FOREST_GPU_PASS Distant atlas normals respond to the live sun direction instead of baked light
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Check (bool,string) (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:17)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:47)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:63)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs Line: 17)
+
+FOREST_GPU_PASS Camera turn updates GPU frustum culling and resets append counter
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Check (bool,string) (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:17)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:50)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:63)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs Line: 17)
+
+FOREST_GPU_PASS Origin rebase keeps GPU source positions coherent without matrix rewrites
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Check (bool,string) (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:17)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:53)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:63)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs Line: 17)
+
+FOREST_GPU_PASS Empty publication removes old indirect instances
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Check (bool,string) (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:17)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:54)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:63)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs Line: 17)
+
+FOREST_GPU_PASS Actual indirect forward/depth/normal shader imports without errors
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Check (bool,string) (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:17)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:55)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:63)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs Line: 17)
+
+FOREST_GPU_PASS Default forest distance follows full100km terrain horizon rather than legacy forest slider
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Check (bool,string) (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:17)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:57)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:63)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs Line: 17)
+
+FOREST_GPU_PASS Explicit manual forest distance remains available
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Check (bool,string) (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:17)
+AshenVoxel.Exploration.Editor.ForestGpuChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs:58)
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:63)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/ForestGpuChecks.cs Line: 17)
+
+PASS actual C# greedy mesh: 32198 unit faces and RGB colors match independent world oracle; 128416 vertex AO values match independent neighborhood oracle across 12 worlds.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Rendering.Editor.MeshOracleChecks:Run () (at Assets/AshenVoxel/Rendering/Editor/MeshOracleChecks.cs:58)
+AshenVoxel.Rendering.Editor.MeshRegressionChecks:Run () (at Assets/AshenVoxel/Rendering/Editor/MeshRegressionChecks.cs:77)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:64)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Rendering/Editor/MeshOracleChecks.cs Line: 58)
+
+Ashen Voxel: all mesh regression checks passed.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Rendering.Editor.MeshRegressionChecks:Run () (at Assets/AshenVoxel/Rendering/Editor/MeshRegressionChecks.cs:78)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.QualityGraphicsCheck:StartFixture () (at Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs:64)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/AshenVoxel/Rendering/Editor/MeshRegressionChecks.cs Line: 78)
+
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-ethan-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-ethan channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Checking for leaked weakptr:
+  Found no leaked weakptrs.
+[Package Manager] Server process was shutdown
+##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1793081166221,"processId":5480,"allocatedMemory":13253014,"memoryLabels":[{"Default":29313},{"Permanent":15236},{"NewDelete":68563},{"Thread":4237960},{"Manager":820957},{"VertexData":8},{"Geometry":816},{"Texture":296},{"Shader":82965},{"Material":24},{"GfxDevice":58288},{"Animation":392},{"Audio":3040},{"FreeType":8},{"FontEngine":736},{"Physics":1970},{"Physics2D":16},{"Serialization":592},{"Input":14984},{"JobScheduler":33024},{"TextLib":280},{"Mono":32},{"MonoCode":64},{"ScriptingNativeRuntime":155060},{"BaseObject":1618992},{"Resource":1336},{"Renderer":3000},{"Transform":4685},{"File":3941},{"WebCam":616},{"Culling":32},{"Terrain":11394},{"Wind":24},{"STL":40},{"String":31377},{"DynamicArray":96734},{"HashMap":75420},{"Utility":2660822},{"Curl":2559},{"PoolAlloc":2248},{"AI":80},{"TypeTree":15525},{"ScriptManager":512},{"RuntimeInitializeOnLoadManager":64},{"SpriteAtlas":112},{"GI":7792},{"Director":8240},{"CloudService":10936},{"WebRequest":552},{"VR":47994},{"SceneManager":504},{"Video":208},{"LazyScriptCache":32},{"Camera":17},{"Secure":2377},{"SerializationCache":1576},{"APIUpdating":10320},{"Subsystems":336},{"VirtualTexturing":57888},{"StaticSafetyDebugInfo":278528},{"Analytics":640},{"Hierarchy":608},{"CoreStats":13112},{"Identifiers":6480},{"Gui":96},{"EditorUtility":108698},{"VersionControl":4},{"Undo":947},{"AssetDatabase":2583179},{"EditorGi":328},{"UnityConnect":29232},{"Upm":1896},{"AssetCompliance":64},{"DrivenProperties":72},{"LocalIPC":260},{"ProfilerEditor":9746},{"CoreBusinessMetrics":3498},{"Licensing":12757},{"AssetReference":32},{"IPCStream":32}]}

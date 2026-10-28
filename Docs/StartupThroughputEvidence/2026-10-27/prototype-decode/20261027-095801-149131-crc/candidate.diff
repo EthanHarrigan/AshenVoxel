@@ -1,0 +1,40 @@
+--- installed/Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs
++++ candidate/Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs
+@@ -207,9 +207,34 @@
+             }
+             return new PrototypeMeshData(positions,normals,colors,indices);
+         }
+-        static readonly uint[] CrcTable=MakeCrc();
+-        static uint[] MakeCrc(){var table=new uint[256];for(int i=0;i<256;i++){uint n=(uint)i;for(int b=0;b<8;b++)n=(n>>1)^(0xedb88320u&(uint)-(int)(n&1));table[i]=n;}return table;}
+-        public static uint Crc(byte[] bytes){uint value=0xffffffff;foreach(byte b in bytes)value=CrcTable[(value^b)&255]^(value>>8);return ~value;}
++        static readonly uint[][] CrcTables=MakeCrc();
++        static uint[][] MakeCrc()
++        {
++            var tables=new uint[8][];for(int i=0;i<8;i++)tables[i]=new uint[256];
++            for(int i=0;i<256;i++)
++            {
++                uint n=(uint)i;for(int bit=0;bit<8;bit++)n=(n>>1)^(0xedb88320u&(uint)-(int)(n&1));tables[0][i]=n;
++            }
++            for(int slice=1;slice<8;slice++)for(int i=0;i<256;i++)
++            {uint previous=tables[slice-1][i];tables[slice][i]=tables[0][previous&255]^(previous>>8);}
++            return tables;
++        }
++        public static uint Crc(byte[] bytes)
++        {
++            uint value=0xffffffff;int offset=0;
++            var t0=CrcTables[0];var t1=CrcTables[1];var t2=CrcTables[2];var t3=CrcTables[3];
++            var t4=CrcTables[4];var t5=CrcTables[5];var t6=CrcTables[6];var t7=CrcTables[7];
++            // Same reflected IEEE CRC32 and byte order; eight independent lookups
++            // shorten the dependency chain. The fixed tables total8KiB.
++            for(;offset<=bytes.Length-8;offset+=8)
++            {
++                uint first=value^(uint)(bytes[offset]|bytes[offset+1]<<8|bytes[offset+2]<<16|bytes[offset+3]<<24);
++                value=t7[first&255]^t6[(first>>8)&255]^t5[(first>>16)&255]^t4[first>>24]^
++                    t3[bytes[offset+4]]^t2[bytes[offset+5]]^t1[bytes[offset+6]]^t0[bytes[offset+7]];
++            }
++            for(;offset<bytes.Length;offset++)value=t0[(value^bytes[offset])&255]^(value>>8);
++            return ~value;
++        }
+         public void Dispose()=>input.Dispose();
+     }
+ }

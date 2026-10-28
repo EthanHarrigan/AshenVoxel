@@ -1,0 +1,78 @@
+{
+  "name": "neural-study",
+  "source_kind": "Actual Ceteviles-conditioned InfiniteDiffusion output",
+  "field_identity": "{\"backend\":\"upstream-pretrained/canonical-owner-v1\",\"height_units\":\"meters\",\"model\":\"xandergos/terrain-diffusion-30m\",\"model_revision\":\"9ef8030cb805b433b98ec25c5dddefbac07a9e26\",\"provider\":\"InfiniteDiffusion\",\"seed\":714103,\"spacing_m\":30.0,\"window\":{\"col0\":-14736,\"cols\":33,\"row0\":-8336,\"rows\":33},\"world_id\":\"ff0d60df1cd5b4a2de775eaac32011f16e8fa429109b99601638bae5ebf9f977\"}/world-map-v1/960/960/1/forest=True",
+  "seed": 714103,
+  "format": "AVWM0001: positions f32xyz; normals f32xyz; colors u8rgba; indices u32x3; vertex LOD u8",
+  "camera_origin": [
+    0,
+    3.9599609375,
+    0
+  ],
+  "camera_target": [
+    -1100,
+    -1025.14306640625,
+    1400
+  ],
+  "camera_origin_m": [
+    0,
+    3.9599609375,
+    0
+  ],
+  "camera_target_m": [
+    -1100,
+    -1025.14306640625,
+    1400
+  ],
+  "global_camera": [
+    1100,
+    6503.9599609375,
+    -1400
+  ],
+  "global_origin": [
+    1100,
+    6500,
+    -1400
+  ],
+  "world_origin_m": [
+    1100,
+    6500,
+    -1400
+  ],
+  "camera_height_above_ground_m": 7503.9599609375,
+  "far_distance_m": 10000,
+  "planned_view_distance_m": 10000,
+  "fov_degrees": 42,
+  "vertex_count": 1089,
+  "triangle_count": 2048,
+  "minimum_surface_height_m": 5145.75390625,
+  "maximum_surface_height_m": 5803.9599609375,
+  "bounds_min": [
+    -1580,
+    -1354.24609375,
+    920
+  ],
+  "bounds_max": [
+    -620,
+    -696.0400390625,
+    1880
+  ],
+  "tiles": [
+    {
+      "level": 0,
+      "x": 0,
+      "z": 0,
+      "size": 960,
+      "ox": -480,
+      "oz": -480,
+      "minY": 5145.75390625,
+      "maxY": 5803.9599609375,
+      "sample_spacing_m": 30
+    }
+  ],
+  "tile_cap": 1,
+  "pending_splits": 0,
+  "skirt_policy": "Only actual mesh surface exported for finite neural diagnostic; skirts omitted",
+  "note": "Actual C# fields, LodPlanner and WorldExplorer.BuildSurface under test Unity data substitutes; NOT native Unity output.",
+  "binary_sha256": "2f82a04cf7077c8ce7959e6952fe6891d50077c5039eb9e78f1439f7e0f9a0fc"
+}

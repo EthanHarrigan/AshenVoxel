@@ -1,0 +1,29 @@
+--- before/Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs
++++ COORDINATOR-PROPOSAL-ONLY/Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs
+@@ -119,7 +119,7 @@
+             LiveRefinement=worldObject.AddComponent<ExplorationLiveRefinement>();
+             if(ActiveSettings.ExpandedLiveSourceWindow){LiveRefinement.MaximumPatches=32;LiveRefinement.MaximumPayloadBytes=32L*1024*1024;}
+             WorldField=LiveRefinement.Configure(Source,Vista,ActiveSettings.DiffusionEndpoint,enabled:ActiveSettings.EnableLiveRefinement);
+-            if(ActiveSettings.EnableLiveRefinement&&LiveRefinement.ResolutionMetersAt(spawn.X,spawn.Z)>5.000001)
++            if(ActiveSettings.EnableLiveRefinement)
+             {
+                 // No player, population, collision, or gameplay matter exists yet.
+                 float deadline=Time.unscaledTime+Mathf.Clamp(SourceStartupWaitSeconds,0,300);
+@@ -130,13 +130,14 @@
+                 {
+                     LiveRefinement.Tick(witness,heading,ExplorationRefinementPublicationPolicy.BeforeSpawn(witness),false,null,startupHalfAngle);
+                     if(LiveRefinement.ResolutionMetersAt(spawn.X,spawn.Z)<=5.000001&&LiveRefinement.DesiredSourceCells>0&&
+-                        LiveRefinement.ReadyDesiredSourceCells>=Math.Min(4,LiveRefinement.DesiredSourceCells))break;
++                        LiveRefinement.ReadyDesiredSourceCells>=Math.Min(4,LiveRefinement.DesiredSourceCells)&&LiveRefinement.NearFrontSourceReady)break;
+                     SourceStartupStatus=LiveRefinement.Status;
+                     Status="Preparing decoded source at the saved destination. "+SourceStartupStatus;yield return null;
+                 }
+                 double resolution=LiveRefinement.ResolutionMetersAt(spawn.X,spawn.Z);
+-                SourceStartupStatus=resolution<=5.000001?"Verified5m decoded destination before population initialization; selected ready "+LiveRefinement.ReadyDesiredSourceCells+"/"+LiveRefinement.DesiredSourceCells+" cells.":
+-                    "Startup wait ended with "+resolution.ToString("F1",CultureInfo.InvariantCulture)+"m source; coarse fallback remains active. "+LiveRefinement.CurrentAreaStatus;
++                bool nearReady=LiveRefinement.NearFrontSourceReady;
++                SourceStartupStatus=resolution<=5.000001&&nearReady?"Verified5m destination and required near-front source before population initialization; near-front "+LiveRefinement.NearFrontReadyCells+"/"+LiveRefinement.NearFrontRequiredCells+" ready.":
++                    "Startup source budget ended: source here "+resolution.ToString("F1",CultureInfo.InvariantCulture)+"m; required near-front "+LiveRefinement.NearFrontReadyCells+"/"+LiveRefinement.NearFrontRequiredCells+" ready. Incomplete source remains; protected publication still waits for safe conditions.";
+                 // Keep a custom aerial height unless the new source would bury it.
+                 double ground=WorldField.Sample(spawn.X,spawn.Z).HeightMeters;
+                 if(spawn.Y<ground+2)spawn=new WorldPoint(spawn.X,ground+2,spawn.Z);

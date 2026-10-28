@@ -1,0 +1,21 @@
+{
+  "id": "mountain-review-1",
+  "utc": "2026-10-27T18:07:32.646154+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs",
+      "before": "3a88e7e960ac1db9e6aa8fe131cdf8120b23786dcd6d1247b3d93dfe12387322",
+      "sha256": "4d36230cffd2517108b4693fe8d5dfa1e2c3047a88f0bb4068c8a9da015ab8ec"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs",
+      "before": "",
+      "sha256": "106ebceb460ce264bdd4014c52d3e918f6cb7d0869d5ba40a2c513ec9a65836c"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs.meta",
+      "before": "",
+      "sha256": "092d8ff4adcd98a6ec0a45eb35bcdaea5928ae1c424d3dcac9722e8b673e2814"
+    }
+  ]
+}

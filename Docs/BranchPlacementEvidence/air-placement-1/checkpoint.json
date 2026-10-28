@@ -1,0 +1,10 @@
+{
+  "utc": "2026-10-27T17:42:57.7944826Z",
+  "source": "Assets/AshenVoxel/Exploration/ExplorationBetaMatter.cs",
+  "play": "Placement pending",
+  "preimage_sha256": "13089BF2ADE4107D471999300F48B7BC5D809A04752AEBB7F1398BBBDC67277B",
+  "change": "Eye-height floating fixture, horizontal yaw distance3m. Removed terrain slope, water, terrain readiness and population clearing gates. Existing72cells, cut, local demo floor, matter ownership unchanged.",
+  "native_compile": "Exploration.dll17:42:26UTC; domain reload completed and Play entered; no error CS in Editor log",
+  "integrity": "PASS231 assets13assemblies",
+  "sha256": "B3EC3AE249157450777B536CA4DCD2DB241F2203076B67358E797BA86C9D19E9"
+}

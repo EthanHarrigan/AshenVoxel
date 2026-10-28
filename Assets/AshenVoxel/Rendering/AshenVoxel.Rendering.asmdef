@@ -1,0 +1,7 @@
+{
+  "name": "AshenVoxel.Rendering",
+  "rootNamespace": "AshenVoxel.Rendering",
+  "references": [
+    "AshenVoxel.Core"
+  ]
+}

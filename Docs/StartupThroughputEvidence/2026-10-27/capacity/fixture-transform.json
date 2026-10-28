@@ -1,0 +1,24 @@
+{
+  "testing_only": true,
+  "substitution": {
+    "from": "const long VoxelDetailBudgetBytes=1536L*1024*1024;",
+    "to": "const long VoxelDetailBudgetBytes=10L*1024*1024;"
+  },
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "shipping_sha256": "0d7d76771373134623fa9c13cc2e00f2830763c7658cfb3cf05701d71a8e0834",
+      "fixture_sha256": "0d7d76771373134623fa9c13cc2e00f2830763c7658cfb3cf05701d71a8e0834"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+      "shipping_sha256": "5d132d061fa7f855e480f20e2aaa7af174684085dd1b0349313399f5426a3700",
+      "fixture_sha256": "5d132d061fa7f855e480f20e2aaa7af174684085dd1b0349313399f5426a3700"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "shipping_sha256": "b9e7964405642f84fd276644c2ecf726dac536ab756d2ffc1d92a2e31be6e20d",
+      "fixture_sha256": "0af4be40108d4c23f359e15f16f5aeee3a479a1a655ecb9d296d635aa91d5a05"
+    }
+  ]
+}

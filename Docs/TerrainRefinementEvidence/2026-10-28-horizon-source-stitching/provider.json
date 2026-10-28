@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "tests": 10,
+  "scope": "Injected deterministic query contract/cache/transport tests only; no actual model inference, learned quality or throughput claim",
+  "source_sha256": {
+    "coarse_overview.py": "2374b13b4100d17c9c3676fe2a06d72858fa8d5624cfa89c05ebd4497dc16a68",
+    "overview_provider.py": "02706422838244d303889c44f244946ee937615fda8e2db0ff9da637caf5e994",
+    "serve_overview.py": "b4f4dbb656827be4f6e58db7b726675cefdbfcc75fb7caf6245f2efd3a58274e",
+    "check_overview_provider.py": "540fe5166851d98eea3290df563eed1fc54a8d377d28f42213f159992915d1b3"
+  }
+}

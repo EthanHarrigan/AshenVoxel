@@ -1,0 +1,13 @@
+{
+    "mode": "NativeSmaa",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "unity": "6000.3.27f1",
+    "status": "Native resolution + SMAA",
+    "frames": 16,
+    "valid_features": 0,
+    "input_width": 0,
+    "input_height": 0,
+    "output_width": 0,
+    "output_height": 0,
+    "pixel_energy": 96769062
+}

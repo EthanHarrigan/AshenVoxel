@@ -1,0 +1,90 @@
+{
+  "id": "population-grounding-1",
+  "status": "CPU/API validated; NOT STAGED OR INSTALLED; native acceptance pending",
+  "utc": "2026-10-27T09:35:55.865499+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/PopulationGrounding.cs",
+      "before": "",
+      "sha256": "1929dd173ae050fc45c97b689e1d6f0ff33792fb3415c61d8e7ef88c55af7cfe"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/PopulationGrounding.cs.meta",
+      "before": "",
+      "sha256": "2a29e6f752b84409a41b861b96d50aa743097a1a7c6f38f6a0c96e2435b4ca64"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationPopulation.cs",
+      "before": "ed0dc9bee43813cac4ad0532cfc0270fac0b2c83dbb6ea6eb324ce8721724a27",
+      "sha256": "53579b5026cb4b62f8bbac908849129db1dd70042266f044c2ddd6ee424fb70d"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs",
+      "before": "5048632bc8a14276501758f22b4f8347c1a195d936dee359ae84aa571f629bb7",
+      "sha256": "fcfe06c2fc2cd77dd4c886dafa7abe82fd38758c5c9b001ed1ea6bd1f72cd3d1"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/QualityPatchReview.cs",
+      "before": "62931466b329f3bb09fce794e795892d3fe1f65c69bb06adcb5197737e8571a9",
+      "sha256": "21bc346f01d7279560cdbb5c3e0fdb0911971c926027bfc8ebf44c84fc97c734"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/GroundingNativeCheck.cs",
+      "before": "",
+      "sha256": "af0fa82b134bbe9e665ae77e8e5cccb537066650bfb1ae7feb38fe49379de986"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/GroundingNativeCheck.cs.meta",
+      "before": "",
+      "sha256": "cecdcad63676ae0fe5c21dc1fc20a6fac1b05edb41a86aee52685a9c6379b7cf"
+    }
+  ],
+  "tests": {
+    "population": 159,
+    "streaming": 35,
+    "exact_fallback_coverage": true,
+    "smoke": 31,
+    "runtime_api_assemblies": 5,
+    "changed_editor_api": "PASS",
+    "project_integrity_assets": 180
+  },
+  "native_required": [
+    "bounded GroundingNativeCheck.RunBatch in sibling after serialized slot release",
+    "visual inspection of actual before/after terrain+prop captures",
+    "main native import/mesh regression after guarded install",
+    "user-controlled Play slopes/collision/LOD continuity"
+  ],
+  "generation": {
+    "population": 2,
+    "legacy_AVPM1_to_3": 1,
+    "prototype_pack": "unchanged AVPM4",
+    "policy": {
+      "population_version": 2,
+      "legacy_without_registry_version": 1,
+      "maximum_support_points": 32,
+      "actual_maximum_points": 26,
+      "footprint": "Convex hull per actual low basal bottom level + nearest real column center + one actual tallest basal-column center. Precomputed from LOD0 explicit Wood/rock quads before release.",
+      "transform": "DownwardY only; preserveX/Z/yaw/scale/prototype/stableKey; same instance used by collision/render. Flat retained exactly. Adjusted cases include0.1m extra burial.",
+      "target": "min(originalY,min(lower(smooth datum,10cm SurfaceTop)-local bottom)); tree bareground, rock surface including snow.",
+      "sink_cap": "min(8m,actual footprint radius*tan(42deg tree/43deg rock)+2*0.63m relief+0.1m quantization). Reject excessive footprint relief too.",
+      "exposure": "Only1-2 explicitly marked real column centers certify a roof remains min(0.2m,20percent material height) above the corresponding quantized terraincell, including snow. Hullcorners cannot certify exposure. Conservative witness policy; not all rock geometry searched at placement time.",
+      "query_bounds": "At most32 support/witness locations total. Witness surface evaluation replaces its old single height query: trees<=60 logicalHeightField.Sample calls+2climate calls; rocks<=480height+32climate calls using SurfaceMaterialSampler documented15-height upper bound. No extra location queries.",
+      "unsupported": "Absent/unsupported metadata rejects explicitly in grounded mode; hull never truncated. Per-cell GroundingRejectedCandidates observable.",
+      "provenance": "Effective generation version, seed, densities, policy, SHA256 of sorted immutable grounding metadata, and surface/source identity."
+    }
+  },
+  "limitations": [
+    "Hull+interior witnesses cannot guarantee all arbitrary nonlinear pits/cliffs between samples.",
+    "4 of8 steep selected rocks conservatively rejected for insufficient sampled exposure; do not silently lower the threshold.",
+    "Uphill burial increases when wide upright roots are lowered; no per-instance root deformation.",
+    "Prototype preprocessing is bounded but must be included in startup/upload profiling.",
+    "Native rendering, LOD changes, collision feel and vegetation horizon consistency remain unverified."
+  ],
+  "test_source_sha256": {
+    "Tools/ExplorationPopulationChecks/Program.cs": "a5dac88a6ab9995ae4bc893fc64ce81a721fae1663697bafdd8e9eae16a42bb3",
+    "Tools/ExplorationStreamingChecks/Program.cs": "729253aef2ce7c1773764fc54a02ef6e93fb152256bb289c20b5e209ba92538e",
+    "Tools/ExplorationStreamingChecks/CoverageCheck.cs": "9a35db1511293eb10e802415a5b552efea367d0d50c0488602cdf8f9d71ee6bc"
+  },
+  "adoption_status": "BLOCKED by excessive uphill burial/near-total rock burial despite support-gap correctness",
+  "quality_review": "burial-quality-gate.json"
+}

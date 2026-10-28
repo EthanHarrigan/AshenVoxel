@@ -1,0 +1,18 @@
+STOP initial elevated: 199 ticks / 3082.6 ms CPU wall
+STOP fast outbound stop: 147 ticks / 2281.8 ms CPU wall
+LEG fast outbound: expensive 1, retired 1
+PASS same-position stop restores complete destination detail
+STOP stopped180turn: 19 ticks / 292.1 ms CPU wall
+PASS stopped turn refines its new view
+LEG fast reverse return: expensive 1, retired 1
+STOP immediate direction reversal stop: 119 ticks / 1847.8 ms CPU wall
+LEG immediate direction reversal: expensive 0, retired 0
+PASS reversal destination recovers
+LEG pre-descent transit: expensive 1, retired 1
+STOP ground descent arrival: 146 ticks / 2266.1 ms CPU wall
+PASS ground contact ready after descent
+STOP ordinary ground travel stop: 31 ticks / 483.4 ms CPU wall
+LEG ordinary ground travel: expensive 39, retired 33
+PASS ordinary ground route never enters travel deferral
+PASS stationary destination does not rebuild
+PASS shutdown releases caches and worker

@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-27T20:53:43.042817+00:00",
+  "status": "INSTALLED NATIVE COMPILE AND EXPLORATION READY",
+  "source_resolution_m": 5.0,
+  "source_startup": "Verified5m decoded destination before population initialization.",
+  "source_current_status": "Current area:5m learned source active.",
+  "camera": [
+    -40954.96880764632,
+    1984.1649999761582,
+    -13453.1573951418
+  ],
+  "applied_preset": "Maximum \u00b7 reach 1.0\u00d7 \u00b7 4096 tiles \u00b7 4096 MiB",
+  "missing_coverage": 0,
+  "quality_pending": 4092,
+  "limiting_reason": "Refining visible terrain",
+  "capture": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs\\MountainReviewFrames\\valley-source5m-refining",
+  "capture_diagnostic": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs\\MountainReviewFrames\\valley-source5m-refining\\terrain-20261027-205132-308.json",
+  "installed_sha256": {
+    "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs": "e02b7962584e06f9764b62ea5d41c0ba6ee2122a1afc608efe654986c0efb6bb",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "db72cebbbfdfdef5b87d09b825e884f2e9c63bf55c629f9d4bea679b2d17d4ef",
+    "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs": "aca9cd5f7a4d4058ab394421f265d2b94740ca956eb0ecdee254b36a4d08cc88",
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": "20c3108ed0d7a3b12717e1d5b6ca29f9cbc847405dfadfbc7fdb429444cccc3e",
+    "Assets/AshenVoxel/Exploration/VegetationShrubMatter.cs": "5e39d90108bea4e3d463ebb7e61be776f0c6a6430d58ea0fdc353df23affe900",
+    "Assets/AshenVoxel/Exploration/VegetationStreaming.cs": "8de336345203ed79abc59394f2afd06b842b1780d1041ffab694ce1dfa2e7aaa",
+    "Assets/AshenVoxel/Settings/ExplorationSettings.asset": "605f1f5cc1b27de83cd24246bbc4222faee6e3cee83acdec67a0a53f379ad82a",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs": "3eb560802045e75e26126e29baf451273f7d8be7188dba3cf37aee385d9a9fc2",
+    "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs": "3af2c8133b151228f9340927c0b065edc8e93920190222d980e7b0f38432faec",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs": "d9d0c48ed812e76f782fee945e057796bc230d1f0a4bd79a2a935f8d823a582c",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs": "d63c7eeb00738bebd9522d1bc6b546626a6b73ecdd3417c6819a48061c88d276"
+  },
+  "options_restored_sha256": "a971d9170fe3dfcea5acfc46a4894b3ffc512927e6c9402f660a6660110e74ca",
+  "native_gameplay_features": "Shrub, branch sequence, bees and grounded-root interaction still open. No FPS or target fidelity claim."
+}

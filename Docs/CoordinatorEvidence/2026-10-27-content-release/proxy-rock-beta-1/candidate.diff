@@ -1,0 +1,594 @@
+--- Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs (main)
++++ Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs (candidate)
+@@ -0,0 +1,92 @@
++using System;
++using System.Runtime.InteropServices;
++using System.Threading;
++using System.Threading.Tasks;
++using AshenVoxel.Core;
++
++namespace AshenVoxel.WorldScale
++{
++    /// <summary>Replaceable distant render cache. Shared indexed grid, quantized
++    /// sample heights and conservative skirts; never gameplay matter/collision.</summary>
++    public sealed class HeightProxySurface
++    {
++        public const int Version=1,VertexStride=24,MaximumQuads=256;
++        [StructLayout(LayoutKind.Sequential,Pack=1)]
++        public readonly struct Vertex
++        {
++            public readonly float X,Y,Z;
++            public readonly sbyte NX,NY,NZ,NW;
++            public readonly byte R,G,B,A,Roughness,Wetness,Snow,Material;
++            static sbyte Pack(double n)=>(sbyte)Math.Round(Math.Max(-1,Math.Min(1,n))*127);
++            public Vertex(float x,float y,float z,double nx,double ny,double nz,uint tint,byte rough,byte wet,MaterialId material)
++            {X=x;Y=y;Z=z;NX=Pack(nx);NY=Pack(ny);NZ=Pack(nz);NW=0;R=(byte)(tint>>16);G=(byte)(tint>>8);B=(byte)tint;A=255;
++                Roughness=rough;Wetness=wet;Snow=material==MaterialId.Snow?(byte)255:(byte)0;Material=(byte)(128+(int)material);}
++            public Vertex With(float y,double nx,double ny,double nz)=>new Vertex(X,y,Z,nx,ny,nz,0xFF000000u|((uint)R<<16)|((uint)G<<8)|B,Roughness,Wetness,(MaterialId)(Material-128));
++        }
++        readonly struct Sample
++        {
++            public readonly double Height;public readonly uint Tint;public readonly MaterialId Material;public readonly byte Rough,Wet;
++            public Sample(SurfaceColumn c)
++            {
++                Height=VoxelTerrainPage.SurfaceTop(c.SurfaceHeightMeters);Tint=c.SurfaceTint;Material=c.SurfaceMaterial;
++                double rough=Material==MaterialId.Ice ? .18 : Material==MaterialId.Snow ? .92 : Math.Max(.45,(Material==MaterialId.Mud||Material==MaterialId.Clay ? .82 : .95)-c.Wetness*.24);
++                Rough=(byte)Math.Round(rough*255);Wet=(byte)Math.Round(Math.Max(0,Math.Min(1,c.Wetness))*255);
++            }
++        }
++        public readonly int Quads;
++        public readonly double AnchorY;
++        public readonly Vertex[] Vertices;
++        public readonly int[] Indices;
++        public readonly float[] Heights;
++        public readonly float MinimumLocalY,MaximumLocalY;
++        public readonly string SourceIdentity;
++        public long MeshPayloadBytes=>Vertices.LongLength*VertexStride+Indices.LongLength*4;
++        public long ManagedResultBytes=>MeshPayloadBytes+Heights.LongLength*4;
++        HeightProxySurface(int n,double anchor,Vertex[] vertices,int[] indices,float[] heights,float lo,float hi,string identity)
++        {Quads=n;AnchorY=anchor;Vertices=vertices;Indices=indices;Heights=heights;MinimumLocalY=lo;MaximumLocalY=hi;SourceIdentity=identity;}
++
++        public static HeightProxySurface Build(SurfaceMaterialSampler sampler,LodTile tile,int n,double skirtDepth,CancellationToken cancel=default,bool parallelSampling=false)
++        {
++            if(sampler==null||tile==null)throw new ArgumentNullException();
++            if(n<8||n>MaximumQuads||(n&(n-1))!=0||tile.Key.Level<0||tile.Key.Level>14)throw new ArgumentOutOfRangeException(nameof(n));
++            Numeric.Positive(skirtDepth,nameof(skirtDepth));
++            long cells=256L<<tile.Key.Level;
++            if(Math.Abs(tile.SizeMeters-cells*.1)>1e-5||Math.Abs(tile.OriginXMeters-tile.Key.X*cells*.1)>1e-4||Math.Abs(tile.OriginZMeters-tile.Key.Z*cells*.1)>1e-4)
++                throw new ArgumentException("Height proxies require the same25.6m dyadic render grid.");
++            int pitch=n+3,stride=n+1;double spacing=tile.SizeMeters/n;
++            var samples=new Sample[pitch*pitch];int At(int x,int z)=>x+1+(z+1)*pitch;
++            void Row(int z)
++            {for(int x=-1;x<=n+1;x++){cancel.ThrowIfCancellationRequested();samples[At(x,z)]=new Sample(sampler.EvaluateColumn(tile.OriginXMeters+x*spacing,tile.OriginZMeters+z*spacing));}}
++            if(parallelSampling&&n>=128&&Environment.ProcessorCount>2)
++                Parallel.For(-1,n+2,new ParallelOptions{MaxDegreeOfParallelism=2,CancellationToken=cancel},Row);
++            else for(int z=-1;z<=n+1;z++)Row(z);
++            double anchor=samples[At(0,0)].Height;var heights=new float[stride*stride];
++            var vertices=new Vertex[stride*stride+8*stride];var indices=new int[n*n*6+n*24];
++            float lo=float.MaxValue,hi=float.MinValue;
++            for(int z=0;z<=n;z++)for(int x=0;x<=n;x++)
++            {
++                cancel.ThrowIfCancellationRequested();var s=samples[At(x,z)];
++                double dx=(samples[At(x+1,z)].Height-samples[At(x-1,z)].Height)/(2*spacing),dz=(samples[At(x,z+1)].Height-samples[At(x,z-1)].Height)/(2*spacing);
++                double inv=1/Math.Sqrt(dx*dx+dz*dz+1);float y=(float)(s.Height-anchor);int i=x+z*stride;heights[i]=y;
++                vertices[i]=new Vertex((float)(x*spacing),y,(float)(z*spacing),-dx*inv,inv,-dz*inv,s.Tint,s.Rough,s.Wet,s.Material);lo=Math.Min(lo,y);hi=Math.Max(hi,y);
++            }
++            int index=0;
++            void Tri(int a,int b,int c){indices[index++]=a;indices[index++]=b;indices[index++]=c;}
++            for(int z=0;z<n;z++)for(int x=0;x<n;x++)
++            {cancel.ThrowIfCancellationRequested();int a=x+z*stride,b=a+stride;Tri(a,b,a+1);Tri(a+1,b,b+1);}
++            int next=stride*stride;
++            for(int edge=0;edge<4;edge++)
++            {
++                int rim=next;double nx=edge==1?1:edge==3?-1:0,nz=edge==0?-1:edge==2?1:0;
++                for(int i=0;i<=n;i++)
++                {
++                    cancel.ThrowIfCancellationRequested();int a=edge==0?i:edge==1?i*stride+n:edge==2?n*stride+n-i:(n-i)*stride;
++                    Vertex top=vertices[a];float bottom=(float)(top.Y-skirtDepth);
++                    vertices[next++]=top.With(top.Y,nx,0,nz);vertices[next++]=top.With(bottom,nx,0,nz);lo=Math.Min(lo,bottom);
++                }
++                for(int i=0;i<n;i++){int a=rim+i*2;Tri(a,a+2,a+1);Tri(a+2,a+3,a+1);}
++            }
++            return new HeightProxySurface(n,anchor,vertices,indices,heights,lo,hi,sampler.SourceIdentity+"/height-proxy-cache-v"+Version+"/"+tile.Key+"/"+n);
++        }
++    }
++}
+--- Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs.meta (main)
++++ Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs.meta (candidate)
+@@ -0,0 +1,11 @@
++fileFormatVersion: 2
++guid: 1c55195184f1412fbbac225a55b25ffe
++MonoImporter:
++  externalObjects: {}
++  serializedVersion: 2
++  defaultReferences: []
++  executionOrder: 0
++  icon: {instanceID: 0}
++  userData: 
++  assetBundleName: 
++  assetBundleVariant: 
+--- Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs (main)
++++ Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs (candidate)
+@@ -89,6 +89,8 @@
+             public int Quads;
+             public float[] LocalHeights;
+             public bool VoxelColumns;
++            public bool HeightProxy;
++            public long MeshBytes;
+             public int TriangleCount;
+             public int SourceRevision;
+         }
+@@ -642,7 +644,8 @@
+             if (!surfaces.TryGetValue(key, out Surface surface)) return;
+             if (surface.Object != null) Destroy(surface.Object);
+             if (surface.Mesh != null) Destroy(surface.Mesh);
+-            if(surface.VoxelColumns){TerrainResidentMeshBytes-=SurfaceBytes(surface);voxelDetailMeshBytes-=DetailBytes(SurfaceBytes(surface));}
++            if(surface.VoxelColumns||surface.HeightProxy)
++            {TerrainResidentMeshBytes-=SurfaceBytes(surface);voxelDetailMeshBytes-=DetailBytes(SurfaceBytes(surface));if(surface.HeightProxy)HeightProxyMeshBytes-=SurfaceBytes(surface);}
+             surfaces.Remove(key);
+         }
+         void ClearTerrain()
+@@ -654,7 +657,7 @@
+             foreach (TileKey key in remove) Release(key);
+             pending.Clear(); active.Clear(); desired.Clear(); desiredTiles.Clear(); refining.Clear(); externallyDirty.Clear(); planActivationPending = false;
+             voxelCapacityQuads.Clear();voxelRetryAt=0;voxelDeferredQuads.Clear();
+-            TerrainResidentMeshBytes=voxelDetailMeshBytes=0;VoxelRefinementPendingTiles=0;voxelRefinementScanPending=false;consecutiveContactBuilds=0;
++            TerrainResidentMeshBytes=voxelDetailMeshBytes=HeightProxyMeshBytes=0;VoxelRefinementPendingTiles=0;voxelRefinementScanPending=false;consecutiveContactBuilds=0;
+         }
+         void OnGUI()
+         {
+--- Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs (main)
++++ Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs (candidate)
+@@ -104,7 +104,7 @@
+         public bool IsTerrainReady(double xMeters, double zMeters)
+         {
+             Surface surface = ActiveSurfaceAt(xMeters, zMeters);
+-            return surface != null && (!ExternalNavigation || surface.Tile.SizeMeters / surface.Quads <= Math.Max(1.001, Mathf.Clamp(MinimumTileSizeMeters,16,128)/(double)Mathf.Clamp(NearTileQuads,8,64)+.001));
++            return surface != null && !surface.HeightProxy && (!ExternalNavigation || surface.Tile.SizeMeters / surface.Quads <= Math.Max(1.001, Mathf.Clamp(MinimumTileSizeMeters,16,128)/(double)Mathf.Clamp(NearTileQuads,8,64)+.001));
+         }
+         public bool IsTerrainReadyArea(double xMeters, double zMeters, double radiusMeters = 2)
+         {
+@@ -284,7 +284,7 @@
+                     if (work.Revision != revision || !(work.Contact?contactDesired.Contains(work.Tile.Key):desired.Contains(work.Tile.Key))) continue;
+                     if (!work.Contact&&!work.Replace && surfaces.ContainsKey(work.Tile.Key)) continue;
+                     int quads=work.Contact?256:work.Quads>0?work.Quads:QuadsFor(work.Tile);
+-                    if(UseVoxelLodTerrain&&!work.Contact&&voxelCapacityQuads.TryGetValue(work.Tile.Key,out int cap))quads=Math.Min(quads,cap);
++                    if(UseVoxelLodTerrain&&!work.Contact&&!WantsHeightProxy(work.Tile)&&voxelCapacityQuads.TryGetValue(work.Tile.Key,out int cap))quads=Math.Min(quads,cap);
+                     currentBuild = new SurfaceBuild { Work = work, Steps = UseVoxelLodTerrain ? BuildVoxelSurfaceSteps(work.Tile,quads,work.Contact) : BuildSurfaceSteps(work.Tile,quads) };
+                 }
+                 LastMeshWorkUnits++;
+@@ -304,8 +304,8 @@
+                         long previousDetailBytes=voxelDetailMeshBytes;
+                         if (surfaces.ContainsKey(work.Tile.Key)) Release(work.Tile.Key);
+                         surfaces.Add(work.Tile.Key, built); refining.Remove(work.Tile.Key); externallyDirty.Remove(work.Tile.Key);
+-                        if(built.VoxelColumns)
+-                        {TerrainResidentMeshBytes+=SurfaceBytes(built);voxelDetailMeshBytes+=DetailBytes(SurfaceBytes(built));voxelRefinementScanPending=true;}
++                        if(built.VoxelColumns||built.HeightProxy)
++                        {TerrainResidentMeshBytes+=SurfaceBytes(built);voxelDetailMeshBytes+=DetailBytes(SurfaceBytes(built));if(built.HeightProxy){HeightProxyMeshBytes+=SurfaceBytes(built);voxelCapacityQuads.Remove(work.Tile.Key);}voxelRefinementScanPending=true;}
+                         WakeAdmissibleVoxelRefinements(previousDetailBytes);
+                         built.Object.SetActive(visible && !inspection);
+                     }
+@@ -391,11 +391,13 @@
+             // Visible-height queries retain the compact LocalHeights array.
+             // This derived render mesh does not need duplicate CPU vertex data.
+             mesh.UploadMeshData(true);
++            long uploadedBytes=(long)vertices.Count*44+triangles.Count*(mesh.indexFormat==UnityEngine.Rendering.IndexFormat.UInt32?4L:2L);
++            RecordTerrainUpload("Legacy height proxy",vertices.Count,triangles.Count,uploadedBytes);
+             var go = new GameObject(mesh.name); go.transform.SetParent(transform, false);
+             go.AddComponent<MeshFilter>().sharedMesh = mesh;
+             var renderer = go.AddComponent<MeshRenderer>(); renderer.sharedMaterial = EffectiveMaterial;
+             var surface = new Surface { Object = go, Mesh = mesh, Renderer = renderer, Tile = tile, AnchorY = anchor,
+-                NeuralReady = neuralReady, Quads = n, LocalHeights = localHeights, TriangleCount=triangles.Count/3 };
++                NeuralReady = neuralReady, Quads = n, LocalHeights = localHeights, TriangleCount=triangles.Count/3,MeshBytes=uploadedBytes };
+             PositionSurface(surface); go.SetActive(false); yield return surface;
+             }
+             finally { ArrayPool<TerrainVertex>.Shared.Return(columns); }
+--- Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs (main)
++++ Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs (candidate)
+@@ -13,6 +13,19 @@
+         [Header("World voxel detail")]
+         [Tooltip("Next regeneration: exposed voxel surfaces across every terrain LOD; same10cm implicit material authority.")]
+         public bool UseVoxelLodTerrain;
++        [Tooltip("Optional rendered-cache representation. Distant indexed height grids; near/contact matter and cubes remain unchanged.")]
++        public bool EnableDistantHeightProxies;
++        [Range(512,4096)] public float DistantHeightProxyMinimumMeters=768;
++        public string TerrainRepresentationMode=>!UseVoxelLodTerrain?"Legacy height proxies":EnableDistantHeightProxies?"Distant height proxies + near cubes":"Exposed voxels";
++        bool WantsHeightProxy(LodTile tile)
++        {
++            if(!UseVoxelLodTerrain||!EnableDistantHeightProxies)return false;
++            double dx=Math.Max(tile.OriginXMeters-cameraX,Math.Max(0,cameraX-tile.OriginXMeters-tile.SizeMeters));
++            double dz=Math.Max(tile.OriginZMeters-cameraZ,Math.Max(0,cameraZ-tile.OriginZMeters-tile.SizeMeters));
++            double distance=Mathf.Clamp(DistantHeightProxyMinimumMeters,512,4096);
++            return dx*dx+dz*dz>=distance*distance;
++        }
++        bool NeedsTerrainQuality(LodTile tile,Surface s)=>s.Quads<VoxelQuadsFor(tile)||s.HeightProxy!=WantsHeightProxy(tile);
+         [Range(.5f,8)] public float VoxelTargetPixels=1.5f;
+         [Range(1,20)] public float VoxelPlanSplitFactor=2.2f;
+         public bool VoxelGreedyVisibleDetail;
+@@ -166,7 +179,7 @@
+             if(best<0)throw new InvalidOperationException("No runnable contact work.");
+             Work result=contactPending[best];contactPending.RemoveAt(best);return result;
+         }
+-        static long SurfaceBytes(Surface s)=>(long)s.TriangleCount*60; // Four24-byte vertices + six4-byte indices per quad.
++        static long SurfaceBytes(Surface s)=>s.MeshBytes>0?s.MeshBytes:(long)s.TriangleCount*60;
+         void ReleaseContact(TileKey key)
+         {
+             if(!contactSurfaces.TryGetValue(key,out Surface s))return;
+@@ -251,7 +264,13 @@
+         }
+         static int Capacity(int n){int size=1024;while(size<n)size*=2;return size;}
+         public long VoxelScratchBytes=>(voxelVertices==null?0:voxelVertices.LongLength*24)+(voxelIndices==null?0:voxelIndices.LongLength*4);
+-        Task<VoxelLodSurface> voxelBuildJob;
++        sealed class TerrainBuildResult
++        {
++            public readonly VoxelLodSurface Voxels;public readonly HeightProxySurface Proxy;
++            public TerrainBuildResult(VoxelLodSurface data){Voxels=data;}
++            public TerrainBuildResult(HeightProxySurface data){Proxy=data;}
++        }
++        Task<TerrainBuildResult> voxelBuildJob;
+         CancellationTokenSource voxelBuildCancellation;
+         bool voxelBuildWaiting;
+         Vector3 plannedForward;
+@@ -317,6 +336,15 @@
+         readonly Dictionary<TileKey,DeferredVoxelRefinement> voxelDeferredQuads=new Dictionary<TileKey,DeferredVoxelRefinement>();
+         public int VoxelFaceCapacityLimitedTiles=>voxelCapacityQuads.Count;
+         public long TerrainResidentMeshBytes {get;private set;}
++        public long HeightProxyMeshBytes {get;private set;}
++        public long ExposedVoxelMeshBytes=>TerrainResidentMeshBytes-HeightProxyMeshBytes;
++        public int DistantHeightProxyTiles {get;private set;}
++        public long LastTerrainUploadBytes {get;private set;}
++        public int LastTerrainUploadVertices {get;private set;}
++        public int LastTerrainUploadIndices {get;private set;}
++        public string LastTerrainUploadRepresentation {get;private set;}
++        void RecordTerrainUpload(string kind,int vertices,int indices,long bytes)
++        {LastTerrainUploadRepresentation=kind;LastTerrainUploadVertices=vertices;LastTerrainUploadIndices=indices;LastTerrainUploadBytes=bytes;}
+         // Retain the older active plan's reserve when a smaller replacement is
+         // requested. Both cached plans remain covered until their atomic swap.
+         public int TerrainCoverageReserveTiles=>Math.Max(Mathf.Clamp(MaximumTiles,64,4096),Math.Max(active.Count,desired.Count));
+@@ -345,7 +373,7 @@
+                 // request again in the public total.
+                 int count=VoxelRefinementPendingTiles;
+                 if(count==0)return 0;
+-                bool NeedsQuality(Work work)=>!work.Contact&&surfaces.TryGetValue(work.Tile.Key,out Surface s)&&s.Quads<VoxelQuadsFor(work.Tile);
++                bool NeedsQuality(Work work)=>!work.Contact&&surfaces.TryGetValue(work.Tile.Key,out Surface s)&&NeedsTerrainQuality(work.Tile,s);
+                 foreach(Work work in pending)if(NeedsQuality(work))count--;
+                 if(currentBuild!=null&&NeedsQuality(currentBuild.Work))count--;
+                 return Math.Max(0,count);
+@@ -364,7 +392,7 @@
+                 if(VoxelGreedyVisibleDetail)wanted=VoxelLodSurface.MaximumQuads;
+                 while(wanted<256&&tile.SizeMeters/wanted*FocalPixels/Math.Max(.1,distance)>target)wanted*=2;
+             }
+-            return voxelCapacityQuads.TryGetValue(tile.Key,out int cap)?Math.Min(wanted,cap):wanted;
++            return !WantsHeightProxy(tile)&&voxelCapacityQuads.TryGetValue(tile.Key,out int cap)?Math.Min(wanted,cap):wanted;
+         }
+         void ResetVoxelRefinementAdmission()
+         {voxelDeferredQuads.Clear();voxelRefinementScanPending=true;}
+@@ -373,6 +401,8 @@
+             if(existing==null){pending.Enqueue(new Work(tile,revision,quads:8));return;}
+             if(externallyDirty.Contains(tile.Key))
+                 pending.Enqueue(new Work(tile,revision,true,quads:existing.Quads));
++            else if(existing.HeightProxy!=WantsHeightProxy(tile))
++                pending.Enqueue(new Work(tile,revision,true,quads:Math.Min(existing.Quads,VoxelQuadsFor(tile))));
+             else if(!coarseStartup&&existing.Quads>VoxelQuadsFor(tile))
+                 // Release surplus cached detail after travel/turns while retaining
+                 // the current pixel target, including for still-visible terrain.
+@@ -391,14 +421,15 @@
+                 // visible coverage rather than terrain already masked by10cm contact.
+                 if(contactPending.Count>0&&tile.Key.Level==0&&contactSurfaces.ContainsKey(tile.Key))continue;
+                 int target=VoxelQuadsFor(tile);if(voxelTravelDeferring)target=Math.Min(target,32);
+-                if(s.Quads>=target||voxelDeferredQuads.ContainsKey(tile.Key))continue;
++                bool switchRepresentation=s.HeightProxy!=WantsHeightProxy(tile);
++                if(s.Quads>=target&&!switchRepresentation||voxelDeferredQuads.ContainsKey(tile.Key))continue;
+                 // Favor near/in-view terrain; at similar distance, improve the
+                 // roughest tiles first. Scan the bounded plan, reuse its one queue.
+                 double score=(WorkPriority(tile)+tile.SizeMeters*tile.SizeMeters*.01)*s.Quads*s.Quads;
+                 // Greedy detail still publishes progressive rungs. Highest
+                 // projected error wins before spending on tiny far improvements.
+                 if(VoxelGreedyVisibleDetail)score/=tile.SizeMeters*tile.SizeMeters;
+-                if(score<priority){priority=score;best=s;next=Math.Min(target,Math.Max(32,s.Quads*2));}
++                if(score<priority){priority=score;best=s;next=switchRepresentation?Math.Min(target,s.Quads):Math.Min(target,Math.Max(32,s.Quads*2));}
+             }
+             if(best==null){voxelRefinementScanPending=false;RecordVoxelStatistics();return;}
+             pending.Enqueue(new Work(best.Tile,revision,true,quads:next,progressive:true));
+@@ -548,13 +579,13 @@
+         }
+         void RecordVoxelStatistics()
+         {
+-            VoxelLodTiles=CameraPriorityTiles=PixelTargetLimitedTiles=VoxelRefinementPendingTiles=0;TerrainTriangles=0;
++            VoxelLodTiles=DistantHeightProxyTiles=CameraPriorityTiles=PixelTargetLimitedTiles=VoxelRefinementPendingTiles=0;TerrainTriangles=0;
+             if(UseVoxelLodTerrain&&!coarseStartup)
+                 foreach(var tile in desiredTiles.Values)
+-                    if(surfaces.TryGetValue(tile.Key,out Surface existing)&&existing.Quads<VoxelQuadsFor(tile))VoxelRefinementPendingTiles++;
++                    if(surfaces.TryGetValue(tile.Key,out Surface existing)&&NeedsTerrainQuality(tile,existing))VoxelRefinementPendingTiles++;
+             foreach(TileKey key in active)if(surfaces.TryGetValue(key,out Surface s))
+             {
+-                TerrainTriangles+=s.TriangleCount;if(!s.VoxelColumns)continue;VoxelLodTiles++;
++                TerrainTriangles+=s.TriangleCount;if(!s.VoxelColumns&&!s.HeightProxy)continue;if(s.HeightProxy)DistantHeightProxyTiles++;else VoxelLodTiles++;
+                 if(InVoxelView(s.Tile))
+                 {
+                     CameraPriorityTiles++;
+@@ -575,14 +606,21 @@
+             IWorldField samples=remote==null?CaptureField(BareField(field)):!neuralReady?remote.RoughField:remote.ReadySnapshot(
+                 tile.OriginXMeters-SurfaceHalo,tile.OriginZMeters-SurfaceHalo,tile.OriginXMeters+tile.SizeMeters+SurfaceHalo,tile.OriginZMeters+tile.SizeMeters+SurfaceHalo);
+             var sampler=new SurfaceMaterialSampler(samples,CurrentSurfaceProfile);
++            bool proxy=!contact&&WantsHeightProxy(tile);
+             voxelBuildJob=Task.Run(()=>
+             {
+                 var clock=System.Diagnostics.Stopwatch.StartNew();
++                if(proxy)
++                {
++                    var surface=new SurfaceWorldField(samples,sampler.Profile,new HeightBounds(RemoteTerrainField.MinimumSupportedHeight,RemoteTerrainField.MaximumSupportedHeight));
++                    var proxyData=HeightProxySurface.Build(sampler,tile,n,SkirtDepth(surface,tile,tile.SizeMeters/n),cancel,parallelSampling:true);
++                    workerMilliseconds=clock.Elapsed.TotalMilliseconds;return new TerrainBuildResult(proxyData);
++                }
+                 // Query the complete neighboring footprint on the immutable
+                 // worker snapshot. An apron encloses different LOD boundaries.
+                 double floor=samples is IWorldFieldBounds bounded?bounded.QueryBounds(tile.OriginXMeters-tile.SizeMeters*2,tile.OriginZMeters-tile.SizeMeters*2,
+                     tile.OriginXMeters+tile.SizeMeters*3,tile.OriginZMeters+tile.SizeMeters*3).Minimum-1:RemoteTerrainField.MinimumSupportedHeight-1;
+-                VoxelLodSurface data=VoxelLodSurface.Build(sampler,tile,n,floor,cancel,parallelSampling:true);workerMilliseconds=clock.Elapsed.TotalMilliseconds;return data;
++                VoxelLodSurface data=VoxelLodSurface.Build(sampler,tile,n,floor,cancel,parallelSampling:true);workerMilliseconds=clock.Elapsed.TotalMilliseconds;return new TerrainBuildResult(data);
+             },cancel);
+             try
+             {
+@@ -590,7 +628,16 @@
+                 voxelBuildWaiting=false;
+                 if(voxelBuildJob.IsFaulted)throw voxelBuildJob.Exception.GetBaseException();
+                 if(voxelBuildJob.IsCanceled)yield break;
+-                VoxelLodSurface data=voxelBuildJob.Result;voxelBuildJob=null;LastVoxelWorkerMilliseconds=workerMilliseconds;
++                TerrainBuildResult completed=voxelBuildJob.Result;voxelBuildJob=null;LastVoxelWorkerMilliseconds=workerMilliseconds;
++                if(!contact&&proxy!=WantsHeightProxy(tile))
++                {if(desired.Contains(tile.Key))pending.Enqueue(new Work(tile,revision,true,quads:n));voxelRefinementScanPending=true;yield break;}
++                if(proxy)
++                {
++                    using(var upload=UploadHeightProxySteps(tile,completed.Proxy,neuralReady,cancel))
++                        while(upload.MoveNext())yield return upload.Current;
++                    yield break;
++                }
++                VoxelLodSurface data=completed.Voxels;
+                 long payloadBytes=(long)data.Faces.Count*120;
+                 if(contact?!AdmitContactMesh(tile.Key,payloadBytes):!AdmitVoxelMesh(tile,n,payloadBytes))yield break;
+                 while(!HasVoxelUploadHeadroom(payloadBytes)){voxelBuildWaiting=true;cancel.ThrowIfCancellationRequested();yield return null;}
+@@ -627,18 +674,43 @@
+                 var bounds=new Bounds((lo+hi)*.5f,hi-lo);
+                 mesh.SetSubMesh(0,new SubMeshDescriptor(0,indexCount){bounds=bounds,vertexCount=vertexCount},MeshUpdateFlags.DontRecalculateBounds);
+                 mesh.bounds=bounds;mesh.UploadMeshData(true);
++                RecordTerrainUpload(contact?"Contact cubes":"Exposed voxels",vertexCount,indexCount,payloadBytes);
+                 var go=new GameObject(mesh.name);go.transform.SetParent(transform,false);go.AddComponent<MeshFilter>().sharedMesh=mesh;
+                 var renderer=go.AddComponent<MeshRenderer>();
+                 if(contact&&contactMaterial==null)
+                 {contactMaterial=new Material(EffectiveMaterial);contactMaterial.SetVector("_VoxelTerrainGrid",new Vector4(0,0,0,0));}
+                 renderer.sharedMaterial=contact?contactMaterial:EffectiveMaterial;
+                 var result=new Surface{Object=go,Mesh=mesh,Renderer=renderer,Tile=tile,AnchorY=data.AnchorY,NeuralReady=neuralReady,Quads=n,
+-                    LocalHeights=data.Heights,VoxelColumns=true,TriangleCount=indexCount/3};
++                    LocalHeights=data.Heights,VoxelColumns=true,TriangleCount=indexCount/3,MeshBytes=payloadBytes};
+                 PositionSurface(result);go.SetActive(false);yield return result;
+             }
+             finally{voxelBuildCancellation?.Cancel();voxelBuildWaiting=false;}
+         }
+         static Vector3 VoxelAxis(int axis)=>axis==0?new Vector3(1,0,0):axis==1?new Vector3(0,1,0):new Vector3(0,0,1);
++        IEnumerator<Surface> UploadHeightProxySteps(LodTile tile,HeightProxySurface data,bool neuralReady,CancellationToken cancel)
++        {
++            long bytes=data.MeshPayloadBytes;
++            if(!AdmitVoxelMesh(tile,data.Quads,bytes))yield break;
++            while(!HasVoxelUploadHeadroom(bytes)){voxelBuildWaiting=true;cancel.ThrowIfCancellationRequested();yield return null;}
++            voxelBuildWaiting=false;
++            Mesh mesh=null;GameObject go=null;bool transferred=false;
++            try
++            {
++                cancel.ThrowIfCancellationRequested();mesh=new Mesh{name="Distant height proxy "+tile.Key,indexFormat=IndexFormat.UInt32};
++                mesh.SetVertexBufferParams(data.Vertices.Length,VoxelVertexLayout);mesh.SetVertexBufferData(data.Vertices,0,0,data.Vertices.Length);
++                mesh.SetIndexBufferParams(data.Indices.Length,IndexFormat.UInt32);mesh.SetIndexBufferData(data.Indices,0,0,data.Indices.Length);
++                var bounds=new Bounds(new Vector3((float)(tile.SizeMeters*.5),(data.MinimumLocalY+data.MaximumLocalY)*.5f,(float)(tile.SizeMeters*.5)),
++                    new Vector3((float)tile.SizeMeters,data.MaximumLocalY-data.MinimumLocalY,(float)tile.SizeMeters));
++                mesh.SetSubMesh(0,new SubMeshDescriptor(0,data.Indices.Length){bounds=bounds,vertexCount=data.Vertices.Length},MeshUpdateFlags.DontRecalculateBounds);
++                mesh.bounds=bounds;mesh.UploadMeshData(true);RecordTerrainUpload("Distant height proxy",data.Vertices.Length,data.Indices.Length,bytes);
++                go=new GameObject(mesh.name);go.transform.SetParent(transform,false);go.AddComponent<MeshFilter>().sharedMesh=mesh;
++                var renderer=go.AddComponent<MeshRenderer>();renderer.sharedMaterial=EffectiveMaterial;
++                var result=new Surface{Object=go,Mesh=mesh,Renderer=renderer,Tile=tile,AnchorY=data.AnchorY,NeuralReady=neuralReady,Quads=data.Quads,
++                    LocalHeights=data.Heights,HeightProxy=true,MeshBytes=bytes,TriangleCount=data.Indices.Length/3};
++                PositionSurface(result);go.SetActive(false);transferred=true;yield return result;
++            }
++            finally{if(!transferred){if(go!=null)Destroy(go);if(mesh!=null)Destroy(mesh);}}
++        }
+         void DisposeVoxelWorker()
+         {
+             voxelBuildCancellation?.Cancel();voxelBuildCancellation?.Dispose();voxelBuildCancellation=null;
+--- Assets/AshenVoxel/Exploration/VegetationRockRenderAccess.cs (main)
++++ Assets/AshenVoxel/Exploration/VegetationRockRenderAccess.cs (candidate)
+@@ -3,17 +3,17 @@
+ {
+     public sealed partial class VegetationStreaming
+     {
+-        /// <summary>Borrow one already-loaded coarse rock. The caller may draw it,
++        /// <summary>Borrow one already-loaded silhouette-preserving rock LOD. The caller may draw it,
+         /// but must never mutate/destroy it or retain it across population teardown.</summary>
+         public bool TryBorrowCoarseRock(int prototypeId,out Mesh mesh,out Material sharedMaterial,out Bounds geometryBounds,out int triangles)
+         {
+             mesh=null;sharedMaterial=null;geometryBounds=default;triangles=0;
+             if(!Ready||!models.TryGetValue(prototypeId,out var model)||model.Data.Kind!=2||model.Meshes.Length==0)return false;
+-            int lod=model.Meshes.Length-1;mesh=model.Meshes[lod];if(mesh==null||material==null)return false;
++            int lod=System.Math.Min(1,model.Meshes.Length-1);mesh=model.Meshes[lod];if(mesh==null||material==null)return false;
+             geometryBounds=mesh.bounds;
+ #if UNITY_5_3_OR_NEWER
+             // Ordinary Load pads all rock draw bounds for wind too. Recover the
+-            // actual coarse geometry bounds; padded bounds cannot seat a rock.
++            // actual geometry bounds; padded bounds cannot seat a rock.
+             geometryBounds.Expand(-ExplorationWind.MaximumDisplacementMeters*2);
+ #endif
+             if(geometryBounds.size.x<=0||geometryBounds.size.y<=0||geometryBounds.size.z<=0){mesh=null;return false;}
+--- Assets/AshenVoxel/Exploration/ExplorationDistantRockPatch.cs (main)
++++ Assets/AshenVoxel/Exploration/ExplorationDistantRockPatch.cs (candidate)
+@@ -8,10 +8,12 @@
+ namespace AshenVoxel.Exploration
+ {
+     /// <summary>Sparse exaggerated far-rock silhouettes, not physical placements.
+-    /// Reuses loaded coarse meshes/material; no new mesh, collider, asset or worker.</summary>
++    /// Reuses loaded authored meshes/material; no new mesh, collider, asset or worker.</summary>
+     public sealed class ExplorationDistantRockPatch:MonoBehaviour,IDisposable
+     {
+         public const int MaximumResident=2048,MaximumDrawn=512,MaximumModels=8,GridMeters=256;
++        public const long MaximumDrawnTriangles=300000;
++        public const string RenderPolicyIdentity="far-rock-render-lod1-300k-v1";
+         public bool ShowDistantRocks=true;
+         [Range(.25f,2)] public float SizeMultiplier=1;
+         [Range(0,.2f)] public float LargeOutcropFraction=.05f;
+@@ -23,6 +25,7 @@
+         public int DrawnRepresentatives{get;private set;}
+         public int DrawCalls{get;private set;}
+         public long DrawnTriangles{get;private set;}
++        public int TriangleBudgetSkips{get;private set;}
+         public int RejectedSites{get;private set;}
+         public int SourceResets{get;private set;}
+         public int CapacityRejected{get;private set;}
+@@ -104,14 +107,14 @@
+         {double a=Math.Max(0,Math.Min(1,(distance-1000)/600)),b=Math.Max(0,Math.Min(1,(10000-distance)/1500));a=a*a*(3-2*a);b=b*b*(3-2*b);return (float)(a*b);}
+         public void TickAfterCamera(Camera camera,WorldPoint eye,WorldPoint renderOrigin)
+         {
+-            DrawnRepresentatives=DrawCalls=0;DrawnTriangles=0;
++            DrawnRepresentatives=DrawCalls=TriangleBudgetSkips=0;DrawnTriangles=0;
+             if(disposed||camera==null||!isActiveAndEnabled)return;
+             if(!ShowDistantRocks){ClearPlans();Array.Clear(models,0,models.Length);modelCount=0;Status="Disabled";return;}
+             if(population==null||!population.Ready){ClearPlans();modelCount=0;Array.Clear(models,0,models.Length);Status="Waiting for existing rock prototypes";return;}
+             if(!Finite(eye.X)||!Finite(eye.Y)||!Finite(eye.Z)||!Finite(renderOrigin.X)||!Finite(renderOrigin.Y)||!Finite(renderOrigin.Z)||Math.Abs(eye.X)>1e9||Math.Abs(eye.Z)>1e9)return;
+             try
+             {
+-                if(!BorrowModels()){Status="Existing coarse rock models unavailable";return;}
++                if(!BorrowModels()){Status="Existing rock models unavailable";return;}
+                 string current=live.SourceIdentity;
+                 if(planning&&planSource!=current){planning=false;snapshot=null;pendingCount=0;SourceResets++;}
+                 if(!planning&&(!havePublished||current!=publishedSource||Distance2(eye,publishedEye)>512*512||publishedSize!=Bounded(SizeMultiplier,.25f,2,1)||publishedLarge!=Bounded(LargeOutcropFraction,0,.2f,.05f)||publishedEmbed!=Bounded(EmbedFraction,.45f,.8f,.6f)))BeginPlan(eye);
+@@ -149,10 +152,14 @@
+                 var bounds=new Bounds(new Vector3((float)(s.X-origin.X),(float)(s.BaseY+s.Height*fade*.5-origin.Y),(float)(s.Z-origin.Z)),new Vector3(footprint,s.Height*fade,footprint));
+                 if(!GeometryUtility.TestPlanesAABB(planes,bounds))continue;visible.Add(new Visible(i,s.Height*fade/Math.Max(1,d)));
+             }
+-            visible.Sort(Rank);int n=Math.Min(MaximumDrawn,visible.Count);
+-            for(int k=0;k<n;k++)
++            visible.Sort(Rank);int accepted=0;long submittedTriangles=0;
++            for(int k=0;k<visible.Count&&accepted<MaximumDrawn;k++)
+             {
+-                var s=published[visible[k].Index];var m=models[s.Model];double dx=s.X-eye.X,dz=s.Z-eye.Z,dy=s.BaseY+s.Height*.5-eye.Y;float fade=Fade(Math.Sqrt(dx*dx+dy*dy+dz*dz));
++                var s=published[visible[k].Index];var m=models[s.Model];
++                if(m.Mesh==null||m.Material==null||m.Triangles<1)continue;
++                if(submittedTriangles+m.Triangles>MaximumDrawnTriangles){TriangleBudgetSkips++;continue;}
++                submittedTriangles+=m.Triangles;accepted++;
++                double dx=s.X-eye.X,dz=s.Z-eye.Z,dy=s.BaseY+s.Height*.5-eye.Y;float fade=Fade(Math.Sqrt(dx*dx+dy*dy+dz*dz));
+                 var scale=new Vector3(s.Width/m.Bounds.size.x*fade,s.Height/m.Bounds.size.y*fade,s.Depth/m.Bounds.size.z*fade);
+                 double angle=s.Yaw*Math.PI/180,co=Math.Cos(angle),si=Math.Sin(angle);double lx=m.Bounds.center.x*scale.x,lz=m.Bounds.center.z*scale.z;
+                 var position=new Vector3((float)(s.X-origin.X-co*lx-si*lz),(float)(s.BaseY-origin.Y-m.Bounds.min.y*scale.y),(float)(s.Z-origin.Z+si*lx-co*lz));
+@@ -171,7 +178,7 @@
+                 Graphics.RenderMeshInstanced(render,m.Mesh,0,m.Matrices,m.Count);DrawCalls++;DrawnRepresentatives+=m.Count;DrawnTriangles+=(long)m.Triangles*m.Count;
+             }
+         }
+-        void ClearPlans(){planning=havePublished=false;publishedCount=pendingCount=cursor=0;snapshot=null;publishedSource=planSource="";visible.Clear();DrawnRepresentatives=DrawCalls=0;DrawnTriangles=0;LastBuildMilliseconds=0;RejectedSites=CapacityRejected=SourceResets=0;}
++        void ClearPlans(){planning=havePublished=false;publishedCount=pendingCount=cursor=0;snapshot=null;publishedSource=planSource="";visible.Clear();DrawnRepresentatives=DrawCalls=TriangleBudgetSkips=0;DrawnTriangles=0;LastBuildMilliseconds=0;RejectedSites=CapacityRejected=SourceResets=0;}
+         public void Dispose(){ClearPlans();Array.Clear(models,0,models.Length);modelCount=0;population=null;live=null;disposed=true;Status="Disposed";}
+         void OnDisable(){ClearPlans();Array.Clear(models,0,models.Length);modelCount=0;}
+         void OnDestroy(){Dispose();}
+--- Assets/AshenVoxel/Exploration/ExplorationSettings.cs (main)
++++ Assets/AshenVoxel/Exploration/ExplorationSettings.cs (candidate)
+@@ -109,6 +109,8 @@
+         public bool EnableGroundedRoots=false;
+         [Tooltip("Experimental broad rock formations; reduces repeating bands but can look uniform. Restart Play.")]
+         public bool ExperimentalBroadLithology=false;
++        [Tooltip("Experimental next-Play far render grid, reducing mesh payload and cubic steps. Near/contact remains cubic. Native acceptance pending.")]
++        public bool ExperimentalDistantHeightProxies=false;
+         public bool EnableForestHorizon=true;
+         [Tooltip("Forests follow the complete terrain view, including the extra coarse horizon, instead of stopping at a separate forest distance.")]
+         public bool ForestFollowsTerrainView=true;
+--- Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs (main)
++++ Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs (candidate)
+@@ -50,10 +50,12 @@
+         float nextApply;
+         string optionsNotice="";
+         TerrainQualityConfiguration appliedTerrainQuality;
+-        bool terrainQualityCaptured,appliedGroundedRoots,appliedBroadLithology;
++        bool terrainQualityCaptured,appliedGroundedRoots,appliedBroadLithology,appliedDistantHeightProxies;
+         public TerrainQualityConfiguration AppliedTerrainQuality=>appliedTerrainQuality;
+         public bool AppliedGroundedRoots=>appliedGroundedRoots;
+         public bool AppliedBroadLithology=>appliedBroadLithology;
++        public bool AppliedDistantHeightProxies=>appliedDistantHeightProxies;
++        public bool TerrainRepresentationRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedDistantHeightProxies!=ActiveSettings.ExperimentalDistantHeightProxies;
+         public bool GeologyRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedBroadLithology!=ActiveSettings.ExperimentalBroadLithology;
+         public bool GroundedRootsRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedGroundedRoots!=ActiveSettings.EnableGroundedRoots;
+         public bool TerrainQualityRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&!appliedTerrainQuality.SameRequest(ActiveSettings.ResolveTerrainQuality());
+@@ -80,7 +82,7 @@
+             ActiveSettings=Instantiate(Settings);ActiveSettings.name=Settings.name+" (current session)";
+             if(LoadSavedOptions)LoadOptions();
+             appliedTerrainQuality=ActiveSettings.ResolveTerrainQuality();terrainQualityCaptured=true;
+-            appliedGroundedRoots=ActiveSettings.EnableGroundedRoots;appliedBroadLithology=ActiveSettings.ExperimentalBroadLithology;
++            appliedGroundedRoots=ActiveSettings.EnableGroundedRoots;appliedBroadLithology=ActiveSettings.ExperimentalBroadLithology;appliedDistantHeightProxies=ActiveSettings.ExperimentalDistantHeightProxies;
+             Status="Reading the learned world…";yield return null;
+             Require(ActiveSettings.MacroWorld,"whole-world height");Require(ActiveSettings.MacroClimate,"whole-world climate");
+             Require(ActiveSettings.FineWorld,"starting-region height");Require(ActiveSettings.FineClimate,"starting-region climate");
+@@ -98,6 +100,7 @@
+             worldObject=new GameObject("InfiniteDiffusion exploration");worldObject.transform.SetParent(transform,false);
+             SetupLighting();
+             Vista=worldObject.AddComponent<WorldExplorer>();
++            Vista.EnableDistantHeightProxies=appliedDistantHeightProxies;
+             Vista.ConfigureInitialVoxelMeshBudgets(appliedTerrainQuality.DetailMiB,appliedTerrainQuality.ContactMiB);
+             ApplyVistaSettings(false);
+             Vista.ShowResearchHud=false;
+@@ -299,6 +302,9 @@
+             bool traversal=GUILayout.Toggle(Player.EnableTraversalExperiment,"Responsive traversal (experimental)");
+             if(traversal!=Player.EnableTraversalExperiment)Player.SetTraversalExperiment(traversal);
+             GUILayout.Label("Local bee patch: "+(bees==null?"preparing":bees.Status+" · drawn "+bees.DrawnActors),text);
++            bool heightProxies=GUILayout.Toggle(ActiveSettings.ExperimentalDistantHeightProxies,"Distant smooth terrain (experimental, next Play)");
++            if(heightProxies!=ActiveSettings.ExperimentalDistantHeightProxies){ActiveSettings.ExperimentalDistantHeightProxies=heightProxies;optionsNotice="Distant terrain selected. Save options, then restart Play.";}
++            GUILayout.Label("Far representation applied: "+(appliedDistantHeightProxies?"shared height grid":"exposed cubes")+(TerrainRepresentationRestartPending?" - restart pending":"")+". Lower mesh payload; smooth far cliffs, sampled colors and possible prop/seam differences. Near/contact stays cubic.",text);
+             bool geology=GUILayout.Toggle(ActiveSettings.ExperimentalBroadLithology,"Broad rock formations (experimental, next Play)");
+             if(geology!=ActiveSettings.ExperimentalBroadLithology){ActiveSettings.ExperimentalBroadLithology=geology;optionsNotice="Rock style selected. Save options, then restart Play.";}
+             GUILayout.Label("Rock style applied: "+(appliedBroadLithology?"broad":"original")+(GeologyRestartPending?" - restart pending":"")+". Reduces repeated bands; may look too uniform. Source height unchanged.",text);
+@@ -371,6 +377,7 @@
+             GUILayout.Label("Selected payload ceilings: far detail "+selected.DetailMiB+" MiB + coarse "+selectedReserve/1048576+" MiB per plan; current + next plans "+
+                 ((long)selected.DetailMiB*1048576+2*selectedReserve)/1048576+" MiB, plus contact "+selected.ContactMiB+" MiB. These are limits, not eager allocations or a safe total-memory guarantee.",text);
+             if(Vista==null)return;
++            GUILayout.Label("Representation: "+Vista.TerrainRepresentationMode+" - proxies "+Vista.DistantHeightProxyTiles+" / "+Vista.HeightProxyMeshBytes/1048576+" MiB, exposed cubes "+Vista.ExposedVoxelMeshBytes/1048576+" MiB. Last upload "+Vista.LastTerrainUploadRepresentation+" "+Vista.LastTerrainUploadBytes/1024+" KiB.",text);
+             GUILayout.Label((TerrainQualityValidationProfile?"VALIDATION/CUSTOM PROFILE · ":"")+"Applied "+Vista.MaximumTiles+" tiles · "+Vista.VoxelTargetPixels.ToString("F2")+" px · "+
+                 (Vista.VoxelGreedyVisibleDetail?"greedy visible detail":"pixel target")+" · split "+Vista.VoxelPlanSplitFactor.ToString("F1"),text);
+             GUILayout.Label("Mesh payload limits: far detail "+Vista.TerrainDetailLimitBytes/1048576+" MiB + coarse reserve "+Vista.TerrainCoveragePlanReserveBytes/1048576+
+@@ -387,6 +394,7 @@
+             public int terrainOptionsVersion,terrainQuality;
+             public int rootOptionsVersion;public bool groundedRoots;
+             public int geologyOptionsVersion;public bool broadLithology;
++            public int terrainRepresentationOptionsVersion;public bool distantHeightProxies;
+         }
+         string OptionsPath=>Path.Combine(Application.persistentDataPath,"exploration-options.json");
+         void SaveOptions()
+@@ -397,7 +405,8 @@
+                 o.terrainOptionsVersion=1;o.terrainQuality=(int)ActiveSettings.TerrainQuality;
+                 o.rootOptionsVersion=1;o.groundedRoots=ActiveSettings.EnableGroundedRoots;
+                 o.geologyOptionsVersion=1;o.broadLithology=ActiveSettings.ExperimentalBroadLithology;
+-                Directory.CreateDirectory(Application.persistentDataPath);File.WriteAllText(OptionsPath,JsonUtility.ToJson(o,true));optionsNotice="Options saved."+(TerrainQualityRestartPending||GroundedRootsRestartPending||GeologyRestartPending?" Terrain quality/grounded bases/rock style apply after restarting Play.":"");
++                o.terrainRepresentationOptionsVersion=1;o.distantHeightProxies=ActiveSettings.ExperimentalDistantHeightProxies;
++                Directory.CreateDirectory(Application.persistentDataPath);File.WriteAllText(OptionsPath,JsonUtility.ToJson(o,true));optionsNotice="Options saved."+(TerrainQualityRestartPending||GroundedRootsRestartPending||GeologyRestartPending||TerrainRepresentationRestartPending?" Terrain quality/grounded bases/rock style/representation apply after restarting Play.":"");
+             }
+             catch(Exception exception){optionsNotice="Could not save options: "+exception.Message;}
+         }
+@@ -414,6 +423,7 @@
+                 if(o.terrainOptionsVersion==1&&o.terrainQuality>=0&&o.terrainQuality<=2)s.SelectTerrainQuality((TerrainQualityPreset)o.terrainQuality);
+                 if(o.rootOptionsVersion==1)s.EnableGroundedRoots=o.groundedRoots;
+                 if(o.geologyOptionsVersion==1)s.ExperimentalBroadLithology=o.broadLithology;
++                if(o.terrainRepresentationOptionsVersion==1)s.ExperimentalDistantHeightProxies=o.distantHeightProxies;
+             }
+             catch(Exception exception){optionsNotice="Saved options ignored: "+exception.Message;}
+         }
+--- Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs (main)
++++ Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs (candidate)
+@@ -51,6 +51,7 @@
+             public long processPrivateBytes,processWorkingSetBytes,managedHeapEstimateBytes,monoUsedBytes,monoReservedBytes,unityAllocatedBytes,unityReservedBytes,retainedHeightBytes;
+             public long availableCommitBytes,commitReserveBytes;public bool memoryPressureBlocked,contactAltitudeDeferred,contactAltitudeBoundsKnown;public int altitudeHeldContactTiles,altitudeRetiredContactTiles;public double contactAltitudeCeilingMeters;
+             public int gpuMemoryCapacityMiB;
++            public bool distantHeightProxiesApplied,terrainRepresentationRestartPending;public string terrainRepresentation,lastUploadRepresentation;public int distantHeightProxyTiles,lastUploadVertices,lastUploadIndices;public long heightProxyMeshBytes,exposedVoxelMeshBytes,lastUploadBytes;
+             public bool processCountersAvailable,broadLithologyApplied,distantRocksEnabled;public int distantRockResident,distantRockDrawn;public long distantRockTriangles;public string distantRockStatus;
+             public int[] columnLevels=Levels;
+             public DistanceBucket[] distanceBuckets;
+@@ -95,6 +96,9 @@
+             if(desired==null||surfaces==null||active==null||dirty==null||deferred==null||faceCaps==null)throw new InvalidOperationException("Terrain diagnostic dictionary contract changed.");
+             using(var process=Process.GetCurrentProcess()){process.Refresh();d.processPrivateBytes=process.PrivateMemorySize64;d.processWorkingSetBytes=process.WorkingSet64;}
+             d.processCountersAvailable=d.processPrivateBytes>0;d.broadLithologyApplied=boot.AppliedBroadLithology;
++            d.distantHeightProxiesApplied=boot.AppliedDistantHeightProxies;d.terrainRepresentationRestartPending=boot.TerrainRepresentationRestartPending;
++            d.terrainRepresentation=w.TerrainRepresentationMode;d.distantHeightProxyTiles=w.DistantHeightProxyTiles;d.heightProxyMeshBytes=w.HeightProxyMeshBytes;d.exposedVoxelMeshBytes=w.ExposedVoxelMeshBytes;
++            d.lastUploadRepresentation=w.LastTerrainUploadRepresentation;d.lastUploadVertices=w.LastTerrainUploadVertices;d.lastUploadIndices=w.LastTerrainUploadIndices;d.lastUploadBytes=w.LastTerrainUploadBytes;
+             var rocks=boot.DistantRockPatch;if(rocks!=null){d.distantRocksEnabled=rocks.ShowDistantRocks;d.distantRockResident=rocks.ResidentRepresentatives;d.distantRockDrawn=rocks.DrawnRepresentatives;d.distantRockTriangles=rocks.DrawnTriangles;d.distantRockStatus=rocks.Status;}
+             d.managedHeapEstimateBytes=GC.GetTotalMemory(false);d.monoUsedBytes=UnityEngine.Profiling.Profiler.GetMonoUsedSizeLong();d.monoReservedBytes=UnityEngine.Profiling.Profiler.GetMonoHeapSizeLong();
+             d.unityAllocatedBytes=UnityEngine.Profiling.Profiler.GetTotalAllocatedMemoryLong();d.unityReservedBytes=UnityEngine.Profiling.Profiler.GetTotalReservedMemoryLong();d.gpuMemoryCapacityMiB=SystemInfo.graphicsMemorySize;

@@ -1,0 +1,239 @@
+{
+  "name": "rock-stone",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    73,
+    18,
+    23
+  ],
+  "occupied_cells": 4424,
+  "bounds_min_m": [
+    0.2,
+    0,
+    0.1
+  ],
+  "bounds_max_m": [
+    6.6000000000000005,
+    1.4000000000000001,
+    2.2
+  ],
+  "material_counts": {
+    "Gravel": 1188,
+    "Stone": 3236
+  },
+  "scene": {
+    "category": "rock",
+    "label": "Basalt",
+    "seeds": [
+      714103,
+      271828,
+      161803
+    ],
+    "specimens": [
+      {
+        "name": "Stone",
+        "seed": 714103,
+        "profile": {
+          "Shape": 0,
+          "ResolvedShape": 1,
+          "Identity": "rock-v2/catalog-v3/1/714103/1.8/1.25/1.65/0.2/0.4/0.7/500000/100000/False/shape=Auto/resolved=AngularBoulder",
+          "Material": 1,
+          "Seed": 714103,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 1.8,
+          "HeightMeters": 1.25,
+          "DepthMeters": 1.65,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.4,
+          "JointStrength": 0.7,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 1,
+          "CandidateCount": 1296,
+          "ColumnEvaluations": 361,
+          "ShapeCells": 1245,
+          "WrittenCells": 1245,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 55,
+            "y": 6,
+            "z": 57
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 70,
+            "y": 18,
+            "z": 70
+          }
+        },
+        "actual_dimensions_m": [
+          1.6,
+          1.3,
+          1.4000000000000001
+        ],
+        "requested_shape": "Auto",
+        "resolved_shape": "AngularBoulder",
+        "generated_cells": 1245,
+        "material_counts": {
+          "Stone": 1245
+        },
+        "palette": {
+          "Stone": [
+            4285494395,
+            4285823617
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -51,
+          "y": -6,
+          "z": -53
+        }
+      },
+      {
+        "name": "Stone",
+        "seed": 271828,
+        "profile": {
+          "Shape": 0,
+          "ResolvedShape": 4,
+          "Identity": "rock-v2/catalog-v3/1/271828/1.8/1.25/1.65/0.2/0.4/0.7/500000/100000/False/shape=Auto/resolved=Spire",
+          "Material": 1,
+          "Seed": 271828,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 1.8,
+          "HeightMeters": 1.25,
+          "DepthMeters": 1.65,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.4,
+          "JointStrength": 0.7,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 4,
+          "CandidateCount": 468,
+          "ColumnEvaluations": 361,
+          "ShapeCells": 443,
+          "WrittenCells": 443,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 59,
+            "y": 6,
+            "z": 59
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 68,
+            "y": 18,
+            "z": 69
+          }
+        },
+        "actual_dimensions_m": [
+          1,
+          1.3,
+          1.1
+        ],
+        "requested_shape": "Auto",
+        "resolved_shape": "Spire",
+        "generated_cells": 443,
+        "material_counts": {
+          "Stone": 443
+        },
+        "palette": {
+          "Stone": [
+            4284770928,
+            4285099894,
+            4285494395,
+            4285823617
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -30,
+          "y": -6,
+          "z": -53
+        }
+      },
+      {
+        "name": "Stone",
+        "seed": 161803,
+        "profile": {
+          "Shape": 0,
+          "ResolvedShape": 5,
+          "Identity": "rock-v2/catalog-v3/1/161803/1.8/1.25/1.65/0.2/0.4/0.7/500000/100000/False/shape=Auto/resolved=SplitOutcrop",
+          "Material": 1,
+          "Seed": 161803,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 1.8,
+          "HeightMeters": 1.25,
+          "DepthMeters": 1.65,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.4,
+          "JointStrength": 0.7,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 5,
+          "CandidateCount": 1600,
+          "ColumnEvaluations": 361,
+          "ShapeCells": 1548,
+          "WrittenCells": 1548,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 57,
+            "y": 6,
+            "z": 56
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 72,
+            "y": 19,
+            "z": 72
+          }
+        },
+        "actual_dimensions_m": [
+          1.6,
+          1.4000000000000001,
+          1.7000000000000002
+        ],
+        "requested_shape": "Auto",
+        "resolved_shape": "SplitOutcrop",
+        "generated_cells": 1548,
+        "material_counts": {
+          "Stone": 1548
+        },
+        "palette": {
+          "Stone": [
+            4284770928,
+            4285099894,
+            4285494395,
+            4285823617,
+            4286152582
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -9,
+          "y": -6,
+          "z": -53
+        }
+      }
+    ],
+    "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+  },
+  "generation_version": {
+    "plant": 1,
+    "rock": 2,
+    "catalog": 3
+  },
+  "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+}

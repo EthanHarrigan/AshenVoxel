@@ -1,0 +1,12 @@
+{
+  "status": "FROZEN_CPU_CANDIDATE",
+  "source_sha256": {
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-array-mesher\\ArrayRootMesher.cs": "6424b3bd44e09caf291ee434bbd122ebf90286e8c5b6abaa2f1382ce9895ba27",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-array-mesher\\MeshData.cs": "3e415dc9047f7c24dd01c5988dd9c8a74d963861ac741eabc09cad18443876ca",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-array-mesher\\Checks.cs": "ff602a360fb7f57605002531186a78c364003467a6f361932d6c936504a6548f",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-array-mesher\\derive.py": "156005baf2a5178de46a3eec87fe3fca07c2aecf2425feee8a10ec7c9be4a53c",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-array-mesher\\run.py": "2fc47bafb195956e7116d6d6b03ce585315fc8742bb410deefef352569cf8f97",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-array-mesher\\README.md": "30b93e449ecb97322b8c3da35894535a1102d2c5723fbeaf1564f3f40d98346e"
+  },
+  "report_sha256": "dcb023d1e49e79dd7aec17e6e13825db52cf81380ad1afd2785616fd219fffdf"
+}

@@ -1,0 +1,13 @@
+{
+  "scope": "Staged only; no Unity import, GPU or visual acceptance yet",
+  "source_sha256": {
+    "Assets/AshenVoxel/Exploration/ForestImpostor.shader": "559f0b6e9575f4c676a25278e546ee8e6a543d929b0f4835e9f43c5a05474830",
+    "Assets/AshenVoxel/Exploration/Resources/ForestHorizonGpu.shader": "85eb010c0bc3d53d325ad521d716ee2c1e8434dcb0928170537494ae0b16d418",
+    "Assets/AshenVoxel/Exploration/ForestImpostorLighting.hlsl": "b6cd2ef9259ccdec4bf47c57db7cfa18cbb176629aeb726707859c72e69ab32c"
+  },
+  "candidate_sha256": {
+    "Assets/AshenVoxel/Exploration/ForestImpostor.shader": "9d96d4ffb7383c49c72b3fb09bac046d3a802e77ca0820899743e7101aa99c85",
+    "Assets/AshenVoxel/Exploration/Resources/ForestHorizonGpu.shader": "8baf14bc7f5f483940671cd20a8d1218abed1402ed5919c68355dab604c9a81b",
+    "Assets/AshenVoxel/Exploration/ForestImpostorLighting.hlsl": "4a7e2b67fae374b889ac5182b4fe7b76deea19526eb486e6d2643edf656e1a85"
+  }
+}

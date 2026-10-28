@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-28T00:37:05.801418+00:00",
+  "status": "Implemented; isolated verification passed; full gameplay acceptance remains open",
+  "source_sha256": {
+    "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs": "fd83fc4b45d63bed3d6563297fe3edf25cd828a006ebfbab83df170831d14ad1",
+    "Assets/AshenVoxel/Exploration/NaturalMatterRenderer.cs": "6edd6f38a33120a79651a92bc69ecbebc608d5989ed5412fa3fc89a85d9f01e1",
+    "Assets/AshenVoxel/Exploration/NaturalTreeTemplate.cs": "55eea6ce15f738bc14e629f0cb0a4dc17400058cf0ad232c59d1d413a4d4f901",
+    "Assets/AshenVoxel/Exploration/ExplorationNaturalTreeMatter.cs": "1f5513e4ab256bb6bd72f103fc8e4b5a15dcdfdd30298db1c0f8f0ec5b3b80fb",
+    "Assets/AshenVoxel/Exploration/VegetationTreeMatter.cs": "456d4c9322aa7e9e54e2419d1ca7dd214ab50000a4cf54174854fb65bcc29b7b",
+    "Assets/AshenVoxel/Rendering/WorldSurface.shader": "b78fe81af69d504ebba254a53350a53b3ed56608c83e20468c45814a16aa4851",
+    "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs": "2a71b81f0845456c14bafa46abc2b7a70773c05fa347c25f0f0c38ff8dcb07a7",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs": "c033e382c22ec106d529a4cd45c104f0193ec42f59a59b0091e07279bd6928a2",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs": "b56b7761861ef07f28e79d7f20ceb5b90d8d1d92cc90904d433efc9f767f81c5",
+    "Assets/AshenVoxel/Exploration/Editor/NaturalMatterNativeCheck.cs": "f272a2e2fb5b4389aa235e74515486e53c97d4cb306613fb1eff695dda089824"
+  },
+  "native_report": "Docs\\NaturalMatterEvidence\\native\\20261028-003433-272\\result.json",
+  "limits": [
+    "One active leased prop; session-only cargo and automatic range rollback",
+    "Arbitrary terrain edits, multiple sessions and durable inventory unfinished",
+    "Full per-cell storage retained; interior compaction researched only",
+    "No full-profile FPS, million-cell native stress or automatic LMB gameplay acceptance",
+    "Bounded learned source window; not full-view5m coverage or5m accuracy"
+  ]
+}

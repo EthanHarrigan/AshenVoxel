@@ -1,0 +1,6 @@
+{
+  "utc": "2026-10-27T06:22:47.857373+00:00",
+  "project_integrity": "PASS 175 assets,11 assemblies",
+  "documentation": "PASS 91 Markdown files,394 local links",
+  "note": "Concurrent material patch5 was installed after the original performance/check snapshot; its material packing coexists with parallelSampling:true."
+}

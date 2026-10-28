@@ -1,0 +1,32 @@
+PASS movement readiness is false while shared prototypes load
+PASS all99 prototypes upload incrementally across412LOD startup yields
+PASS large genuine tree meshes have observable bytes and template material stays immutable
+PASS minimum supported residency/instance budgets eventually publish all startup collision cells
+PASS population remains inside effective cell and instance caps
+PASS near cell explicitly records visual publication independently of pending far work
+PASS new unpublished cell97m away does not freeze an already-ready player
+PASS rotated collision fixture includes an off-center asymmetric solid voxel
+PASS hard-prop collision rotates back through the exact inverse of the rendered yaw
+PASS rotated rock support uses the same local columns as its visible mesh
+PASS actual cached pages dispatch shared instanced meshes
+PASS same-call origin rebase shifts visible matrices and page bounds together
+PASS matrix-page finalization copies at most32 draw batches per call
+PASS in-progress finalized pages rebase before atomic publication too
+PASS far learned-source activation invalidates only far cells and preserves near movement readiness
+PASS 512m source-change safety guard protects current hard-prop cells
+PASS high flight does not wait for unreachable ground props
+PASS descending into unloaded forest waits before reaching tree height
+PASS off-screen nearby shadow casters remain submitted without visible model draws
+PASS continuous4m/s walking across a64m cell boundary has no readiness flicker while far cells stream
+PASS moving streamer respects residency bounds
+PASS walk endpoint is locally ready before a density-quality edit
+PASS density changes preserve published near props and cannot spawn wood inside the player
+PASS 10000 warmed actual soft-span body queries allocate no per-query managed storage
+PASS cleanup releases owned resources and leaves shared assets intact
+PASS baked-atlas marker activates the actual impostor and stand-horizon path
+PASS impostor levels reduce shared mesh residency
+PASS asynchronous 30km forest HLOD completes within the256tile/16384sample cap
+PASS origin rebase keeps distant stands published and drawable
+PASS 100km forest planning actually retains stands beyond80km rather than only raising a draw limit
+PASS 100km coverage lowers spatial detail without increasing the stand count cap
+All 31 exploration streaming checks passed.

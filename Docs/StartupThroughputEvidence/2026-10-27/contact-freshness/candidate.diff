@@ -1,0 +1,39 @@
+--- a/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs
++++ b/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs
+@@ -90,6 +90,7 @@
+             public float[] LocalHeights;
+             public bool VoxelColumns;
+             public int TriangleCount;
++            public int SourceRevision;
+         }
+         readonly struct Work
+         {
+--- a/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
++++ b/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
+@@ -41,7 +41,6 @@
+             long cx=(long)Math.Floor(cameraX/size),cz=(long)Math.Floor(cameraZ/size);
+             float radius=Mathf.Clamp(VoxelFullDetailRadius,16,160);
+             if(cx==contactCenterX&&cz==contactCenterZ&&revision==contactRevision&&radius==contactRadius)return;
+-            bool sourceChanged=contactRevision!=revision;
+             contactCenterX=cx;contactCenterZ=cz;contactRadius=radius;contactRevision=revision;
+             contactDesired.Clear();contactPending.Clear();contactDeferred.Clear();
+             int reach=(int)Math.Ceiling(radius/size)+1;
+@@ -52,7 +51,9 @@
+                 // Add one tile of travel reserve. The 16x16 mask covers the complete set.
+                 if(dx*dx+dz*dz>(radius+size)*(radius+size)||x<cx-8||x>=cx+8||z<cz-8||z>=cz+8)continue;
+                 var key=new TileKey(x,z,0);contactDesired.Add(key);
+-                if(sourceChanged||!contactSurfaces.ContainsKey(key))
++                // A deferred replacement must survive overlap/radius replans.
++                // Keeping a fallback mesh does not make its source current.
++                if(!contactSurfaces.TryGetValue(key,out Surface existing)||existing.SourceRevision!=revision)
+                 {
+                     // Height queries and bounds remain on the geometry worker.
+                     var tile=new LodTile(key,x*size,z*size,size,RemoteTerrainField.MinimumSupportedHeight,RemoteTerrainField.MaximumSupportedHeight);
+@@ -92,6 +93,7 @@
+                 // Retain the old terrain and observable request until the next move/replan.
+                 Destroy(built.Object);Destroy(built.Mesh);contactDeferred[work.Tile.Key]=bytes;return;
+             }
++            built.SourceRevision=work.Revision;
+             ReleaseContact(work.Tile.Key);contactSurfaces.Add(work.Tile.Key,built);
+             ContactMeshBytes+=bytes;ContactTriangles+=built.TriangleCount;
+             contactDeferred.Remove(work.Tile.Key);

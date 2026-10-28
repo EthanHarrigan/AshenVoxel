@@ -1,0 +1,37 @@
+{
+  "id": "source-residency-selection-1",
+  "status": "FROZEN_FOCUSED_REPLAY_API_PASS_NOT_INSTALLED",
+  "utc": "2026-10-27T21:34:51.434858+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs",
+      "before_sha256": "0c2f90d59475aabd4d3668ddd78e813a09ed16db4c091ffae6986ca978ad131e",
+      "after_sha256": "542046572b5f9d4e714fc7fbf060709210b24d93ce3353a618708213e9f99f0a"
+    }
+  ],
+  "unchanged_required_field_sha256": "26a7ff1ed745d29542d1b4327f764d6878b2f4e8581829c6cff7cc55f94f6769",
+  "focused_checks": 55,
+  "evidence": "checks\\20261027T213214053992Z\\report.json",
+  "evidence_sha256": "6b4e7f09cdc29b2dc6ec9595281f0cb13a51d40e72e2eb5795dbaa32c4eb2831",
+  "native_input": {
+    "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs\\MountainReviewFrames\\valley-source-view-cache-first\\terrain-20261027-212408-234.json",
+    "sha256": "1d6cc907f0c0de831e5ab24410dfe00c6e72e84aa3c6ab01922a15aa54881fb8",
+    "utc": "2026-10-27T21:24:08.2021009Z",
+    "observed_resident": 16,
+    "observed_selected": 16,
+    "observed_ready": 14,
+    "observed_completed_held": 2,
+    "inferred_not_directly_observed_missing_keys": [
+      "-63/-25/640",
+      "-65/-26/640"
+    ],
+    "observed_residents_unselected_by_replay_and_protected": [
+      "-64/-21/640",
+      "-65/-22/640"
+    ]
+  },
+  "configuration_unchanged": "16 patches /16MiB;32/32 photo trial is a separate proposal",
+  "main_modified": false,
+  "native_verified": false,
+  "network_used": false
+}

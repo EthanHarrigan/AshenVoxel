@@ -1,0 +1,10 @@
+{
+  "base_snapshot": "../../baseline-source",
+  "overrides": "source",
+  "overridden_files": [
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+    ".terrain-cache/startup-throughput/flight-refinement-1/worker-probe/WorkerFlightRouteProgram.cs"
+  ],
+  "all_hashes": "result.json/source_sha256"
+}

@@ -1,0 +1,84 @@
+{
+  "utc": "2026-10-27T13:42:35.109912+00:00",
+  "reviewed_revision": "Original first-PASS runs/20261027T133818719190Z only; a later parent correction is a separate revision.",
+  "findings": [
+    {
+      "severity": "P2",
+      "file": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-template-format\\TemplateBundle.cs",
+      "lines": "69..71",
+      "issue": "source.CanRead is evaluated before try; an IOException from a stream accessor escapes TryRead and bypasses its promised false/null error result.",
+      "minimal_fix": "Move stream capability access into existing try; retain null/identity checks and leave source open.",
+      "reproducer": "ReviewChecks.cs Input(throwCanRead:true); adverse-results.json final case proves exception_escaped=true."
+    }
+  ],
+  "not_bugs_under_trusted_pin_contract": [
+    "Re-signed removal of context row31 or change to a valid fixed rank can pass structural parsing. This does not bypass original expectedFileSha256: both mutations fail FileIdentity with its trusted pin. Decoder is intentionally not a canonical generator or arbitrary semantic-proof checker.",
+    "Current exact root/context/rank/fixed comparison matches reviewed input artifacts. Missing canonical context after29/30 is prevented by certified input identity, not inferable solely from sparse rows. Keep trusted full-file pins outside untrusted incoming cache bytes/manifest."
+  ],
+  "allocation_review": [
+    "Header limit checked before payload ReadBytes; oversized case stops after16bytes. Payload <=2MiB; count multiplication uses long and remaining payload checks before arrays. Root <=65536cells, <=8192columns/96rows; context<=16384; ranks<=8192; each fixed set<=65536 and all limited by same payload.",
+    "Input stream is not required seekable: only in-memory payload stream Length/Position are used. EOF trailing check can block if caller provides a never-ending source; bounded seekless reader work is not a wall-time sandbox. Production should supply a bounded local asset/MemoryStream, not an unbounded network stream.",
+    "Reader copies payload and all retained source arrays/structures. Public results expose readonly values/accessors; owned Column,Template,UpperContext clone mutable constructor inputs. No caller byte-array retention was found."
+  ],
+  "provenance_review": [
+    "export.py compares root and canonical Wood fixtures with prior cache-report SHA values, preserves explicit fixture source digests, and requires order/fixed bytes to match the selected canonical-run manifest. Checks.cs additionally compares every published root/context/order/fixed value with those original files.",
+    "The two selected canonical runs had already compared actual packed meshes and original reducer/mesh order. This decoder run preserves that evidence chain; it does not repeat full generation or independently establish new appearance semantics.",
+    "Exporter uses the prior local reports/manifests as authoring trust anchors. run.py detects changed inputs after export but should not be described as adversarial authentication of a replaced authoring manifest. Publication pins must be selected from the reviewed export manifest, not recomputed from incoming cache content."
+  ],
+  "independent_fixed_location_checks": [
+    {
+      "model": 10,
+      "fixed_records_independently_checked": 4101,
+      "rank_index_representative_location_mismatches": [],
+      "context_rows": {
+        "29": 1352,
+        "30": 1344,
+        "31": 1329,
+        "32": 1320
+      }
+    },
+    {
+      "model": 11,
+      "fixed_records_independently_checked": 4396,
+      "rank_index_representative_location_mismatches": [],
+      "context_rows": {
+        "29": 1446,
+        "30": 1441,
+        "31": 1428,
+        "32": 1421
+      }
+    }
+  ],
+  "export_inputs_still_match_recorded_digests": true,
+  "original_source_sha256": {
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Details\\PlantGenerator.cs": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Details\\PlantModel.cs": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Materials.cs": "ab945a1f679e57f81dca05fc3fe4a70e2e0e0d35ce51f2d1457d99e8660baf85",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Rocks\\RockGenerator.cs": "006a8434c519bb996e85c4b05e0f188efe49a0a56e68d84ae6b9804f1e78425e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Rocks\\RockProfile.cs": "20152a9dbd0661143a400c1c2b7a69e97755e65342e3352239847b1dc752afc3",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Rocks\\RockShapeGeometry.cs": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Trees\\TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Trees\\TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\Trees\\TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\VertexAppearance.cs": "3ccdc0517c6e3e1db6d2f5680cc07b36b8b3ca1a4fb0273e621eb3a3d867a2ad",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\VoxelColor.cs": "18387e0d5aedcb078e5f3ac6860908bbc1c6578a9bdbd295cbf6f4ea7a9550e9",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Assets\\AshenVoxel\\Core\\WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\RootContact.cs": "0154d84bb0f3ff2f7638ffe55c389f813237a4d438545a3f7a4d53902e314b8a",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\Interaction.cs": "8133a5181e77df83a94f66b6b4ae668c51e408ffce78df406a59bd01aa066f8e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-template-format\\TemplateBundle.cs": "7e1957c1a766363ae1f28ac442dfd9f102920fb8be72de017a593506ba82fdf2",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-template-format\\Checks.cs": "aed2f687b671912d4c19497534a3fcb3da4f811c262042f8cc8eec8c19d79a59",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-template-format\\run.py": "09baca5284ba9b70fbb52776917e3a31b530873fc105af88dc6cce0054929cc2",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-template-format\\export.py": "16a298ceeeffe5fa2bb1eb0b0f6518ed3e12b5fa78756590b5e8e3e07df03935",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-template-format\\export-manifest.json": "be2e55af05e403e549ccecaf59a3e689edc163cc300580f34a7d41f35066db05",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-template-format\\model-10.avrc": "2215e06929167d2ccb50957a2a22cfc11dbc3c66b1aee8f67d6250a71d9a0549",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-template-format\\model-11.avrc": "492c37ab98e15ca83ff3657f380cdc7ce69e21e8bdaade2b3a553076d6727b8a"
+  },
+  "scope": "Read-only original source review + small adverse decoder tests; all new outputs isolated here, no runtime fulltree/pack/native work."
+}

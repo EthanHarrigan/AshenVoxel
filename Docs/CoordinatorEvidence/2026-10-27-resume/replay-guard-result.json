@@ -1,0 +1,16 @@
+{
+    "marker": "coordinator-smoke-v1",
+    "run": "native-flight-20261027-132715",
+    "stopReason": "60second smoke complete",
+    "pid": 23204,
+    "startTicks": 639286722618688970,
+    "baselinePrivate": 9057595392,
+    "minimumHeadroom": 4227104768,
+    "peakPrivate": 10569371648,
+    "minHeadroomSeen": 2779496448,
+    "started": 32184.025916699997,
+    "readyAt": 8.543550800000958,
+    "began": true,
+    "finished": true,
+    "originalPaused": false
+}

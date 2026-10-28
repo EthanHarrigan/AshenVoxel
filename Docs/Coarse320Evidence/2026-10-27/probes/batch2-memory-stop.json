@@ -1,0 +1,22 @@
+{
+  "scope": "Actual learned 320m overview probe; no full decoder or renderer",
+  "job_world_id": "1b10ca387849ade3c1e520d65c5f6196fe969c978d3aae9cd91262aa9ea4695c",
+  "batch": 2,
+  "queries": [
+    {
+      "name": "valley",
+      "seconds": 47.8301097000076,
+      "height_range": [
+        -3970.306396484375,
+        7683.224609375
+      ],
+      "commit_after": 1656987648
+    }
+  ],
+  "commit_before_load": 5564383232,
+  "load_seconds": 6.953929099996458,
+  "commit_after_load": 3024388096,
+  "status": "STOPPED",
+  "error": "Insufficient commit headroom; probe stopped safely",
+  "elapsed_seconds": 54.78436029999284
+}

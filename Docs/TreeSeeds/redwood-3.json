@@ -1,0 +1,145 @@
+{
+  "created_utc": "2026-10-26T08:47:57.778802+00:00",
+  "image": "Docs/TreeSeeds/redwood-3.png",
+  "note": "Actual generated voxel data, CPU Mitsuba path-tracing lighting study; NOT Unity output or performance. No synthetic tree geometry. Ground is actual exported voxels; only camera, sky and area-light fixtures are added.",
+  "renderer": "Mitsuba 3.9.1",
+  "drjit_version": "1.5.0",
+  "numpy_version": "2.3.5",
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "image_sha256": "85a21e4f35798cfd0da3722e6a193f9070b0207097ebe2b537b07db354b2b19f",
+  "variant": "llvm_ad_rgb",
+  "width": 800,
+  "height": 1000,
+  "spp": 64,
+  "max_path_depth": 5,
+  "render_seed": 42,
+  "threads": 6,
+  "exposure": 1.3,
+  "elapsed_seconds": 5.336,
+  "export_name": "redwood-3",
+  "export_sha256": "adc4134845bab51f55c4c777ad535a563e9de5e9c76fd0d40ad84edac272a07d",
+  "voxel_m": 0.10000000149011612,
+  "exposed_quads": 955466,
+  "triangles": 1910932,
+  "source_metadata": {
+    "name": "redwood-3",
+    "species": "Redwood",
+    "seed": 741622,
+    "voxel_m": 0.1,
+    "dimensions_cells": [
+      264,
+      1005,
+      264
+    ],
+    "bounds_min_m": [
+      3.9000000000000004,
+      0.1,
+      4.3
+    ],
+    "bounds_max_m": [
+      21.400000000000002,
+      73.2,
+      22.200000000000003
+    ],
+    "center_m": [
+      13.2,
+      0.3,
+      13.2
+    ],
+    "fruit_enabled": false,
+    "branch_count": 2015,
+    "voxel_candidates": 13606968,
+    "foliage_clusters": 2960,
+    "truncated": false,
+    "truncation_reason": "None",
+    "material_counts": {
+      "Stone": 69696,
+      "Dirt": 66756,
+      "Grass": 57019,
+      "Litter": 8020,
+      "Wood": 361472,
+      "Leaves": 736345
+    },
+    "parameters": {
+      "Height": 75,
+      "TrunkRadius": 2.2,
+      "CrownRadius": 8,
+      "BranchLevels": 3,
+      "BranchCount": 56,
+      "BranchAngle": 94,
+      "ApicalDominance": 0.98,
+      "Tropism": 0.2,
+      "FoliageDensity": 0.87,
+      "LeafClusterRadius": 0.8,
+      "FruitProbability": 0,
+      "Variation": 0.52,
+      "Age": 1,
+      "WhorlSize": 1,
+      "CrownStart": 0.43,
+      "ConeTaper": 0.64,
+      "BranchDroop": 0.24,
+      "Gnarl": 0.055,
+      "RootFlare": 0.95,
+      "ForkAngle": 31,
+      "BarkRelief": 0.3,
+      "BarkRidgeCount": 13,
+      "BarkColor": "FF85513B",
+      "LeafColor": "FF486648",
+      "FruitColor": "FFA73E28"
+    }
+  },
+  "source_provenance": {
+    "source_sha256": {
+      "Assets/AshenVoxel/Core/EnvironmentColors.cs": "f410806283c80873829f03d713c2ccc78b6a881ea4ae394e5021c450f9206253",
+      "Assets/AshenVoxel/Core/Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+      "Assets/AshenVoxel/Core/Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+      "Assets/AshenVoxel/Core/Materials.cs": "ea1c07d1683b5474dbfd133c0dffd8d50614f4aa915c7ce883085cbbc933a4fa",
+      "Assets/AshenVoxel/Core/Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+      "Assets/AshenVoxel/Core/Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+      "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+      "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+      "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+      "Assets/AshenVoxel/Core/VoxelColor.cs": "421a8fe122d3fbfa98fe54b41f77b67a079b656bde1c3d59869791e5a4179814",
+      "Assets/AshenVoxel/Core/VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+      "Assets/AshenVoxel/Core/VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+      "Assets/AshenVoxel/Core/WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646"
+    },
+    "tool_sha256": {
+      "ExportTrees.cs": "a320823589f4fd4086531671ce00eea8077d764db864e8268502670ff93b66ab",
+      "render_trees.py": "9253938e013a11761285103591668b0c9f4bc978821b5f3e3963c053c7ffdb6e",
+      "fast_dda.py": "396aa87f348148f7e6da1052c34b0423c9325ead6743c21d4bcebb3b601c5e24"
+    },
+    "exported_utc": "2026-10-26T08:46:34.975244+00:00",
+    "sdk": "8.0.427",
+    "export_species": "all",
+    "export_variations": 5,
+    "note": "Actual generated data from immutable source snapshot; CPU inspection render, not Unity output."
+  },
+  "camera": {
+    "view": "full",
+    "camera_origin_m": [
+      71.66340475157077,
+      44.29256745859513,
+      -70.35232339805857
+    ],
+    "camera_target_m": [
+      12.650000000000002,
+      34.457,
+      13.250000000000002
+    ],
+    "fov_degrees": 39,
+    "sun_position_m": [
+      -120.87932411350417,
+      225.1619869837706,
+      -96.71532574053283
+    ],
+    "sun_halfsize_m": 39.27333062161887,
+    "sun_linear_radiance": [
+      42,
+      34,
+      24
+    ],
+    "sky": "procedural blue zenith / lighter horizon / dark lower hemisphere"
+  },
+  "tool_sha256": "433ff10a31b436dbbeb7d9eb9685c6d6c73f3ed5324ee8dc2a82bb92b08dd192"
+}

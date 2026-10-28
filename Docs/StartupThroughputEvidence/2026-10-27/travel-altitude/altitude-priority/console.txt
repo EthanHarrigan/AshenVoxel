@@ -1,0 +1,19 @@
+PASS same 98 pending full-resolution contacts at eye height 11.65
+PASS altitude urgency policy at eye height 11.65
+PASS first far improvement follows expected contact priority at eye height 11.65
+PASS published contacts retain10cm at eye height 11.65
+PASS same 98 pending full-resolution contacts at eye height 110
+PASS altitude urgency policy at eye height 110
+PASS first far improvement follows expected contact priority at eye height 110
+PASS published contacts retain10cm at eye height 110
+PASS same 98 pending full-resolution contacts at eye height 1010
+PASS altitude urgency policy at eye height 1010
+PASS negative-grid ancestor bounds are reused
+PASS immediate descent restores urgency without rebuilding contact plan
+PASS stale source revision keeps arrival-safe urgency
+PASS unbounded source keeps arrival-safe urgency
+PASS missing enclosure keeps arrival-safe urgency
+PASS 10000 urgency scans add no terrain queries or per-call allocations
+URGENCY_SCAN_10000_MS 20.822 bytes 40
+PASS first far improvement follows expected contact priority at eye height 1010
+PASS published contacts retain10cm at eye height 1010

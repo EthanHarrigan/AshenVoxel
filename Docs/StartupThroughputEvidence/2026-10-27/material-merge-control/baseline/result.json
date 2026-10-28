@@ -1,0 +1,3235 @@
+{
+  "status": "PASS",
+  "scope": "Windows .NET8 actual14fb32 tile microbenchmark. One tile at a time, two sampling workers, same frozen data/settings; no Unity/upload/FPS or appearance acceptance. Memory allocation is cumulative per build, not native residency.",
+  "source": "exploration-blend-v1/14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4/macro=3a307d7dcebc47e0d1831e75a7cd73346480d3386b27aae9600c71dd2051c98b/fine=0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb/width=299520/depth=149760/height=1/blend=512/source-width=299520/source-depth=149760/biomes=biome-cells-v1/14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4/9495e761e7eece02ad764bfb31bf96bb5be66ed84faca207f1100bb73df1a072/234/118/-149760/-75520/1280/surface-relief-v1/seed=714103/surface-v1/catalog-v4/714103/0/4200/2.4000000953674316/True/0.7/0.20000000298023224/0/rock=auto/wind=36.86989764584402/sun=287.3540246362613",
+  "rows": [
+    {
+      "label": "spawn-10cm-coverage",
+      "repeat": 0,
+      "key": "0:-745,-399",
+      "level": 0,
+      "columns": 8,
+      "tile_m": 25.6,
+      "cell_m": 3.2,
+      "build_ms": 0.4921,
+      "allocated_bytes": 98728,
+      "faces": 530,
+      "unmerged": 574,
+      "mesh_payload_bytes": 63600,
+      "height_sha256": "2e2923ec61e8f72605d92307530d3e4ed6a0eb44d1be876cd12adb319d7f2fe7",
+      "axis_areas_m2": [
+        4510.079970545764,
+        4510.0800881576515,
+        0,
+        655.3600195312495,
+        4611.520080904958,
+        4611.520098786352
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 8,
+          "area_m2": 8.640000305175784
+        },
+        {
+          "material": "Dirt",
+          "faces": 71,
+          "area_m2": 47.040001592636074
+        },
+        {
+          "material": "Litter",
+          "faces": 103,
+          "area_m2": 144.32000444412222
+        },
+        {
+          "material": "Grass",
+          "faces": 109,
+          "area_m2": 362.2400107955927
+        },
+        {
+          "material": "Granite",
+          "faces": 122,
+          "area_m2": 18073.28023280621
+        },
+        {
+          "material": "Gravel",
+          "faces": 27,
+          "area_m2": 90.56000269889832
+        },
+        {
+          "material": "Clay",
+          "faces": 66,
+          "area_m2": 42.240001401901196
+        },
+        {
+          "material": "Silt",
+          "faces": 24,
+          "area_m2": 130.2400038814545
+        }
+      ]
+    },
+    {
+      "label": "spawn-10cm",
+      "repeat": 0,
+      "key": "0:-745,-399",
+      "level": 0,
+      "columns": 256,
+      "tile_m": 25.6,
+      "cell_m": 0.1,
+      "build_ms": 82.8181,
+      "allocated_bytes": 16294464,
+      "faces": 74322,
+      "unmerged": 100402,
+      "mesh_payload_bytes": 8918640,
+      "height_sha256": "4131d9ff6a9aa88db6fe52c39c3ef72b45f718dbae657aa5d31c5128e58cc242",
+      "axis_areas_m2": [
+        4523.720260565016,
+        4523.72027410239,
+        0,
+        655.3600208278816,
+        4645.430294762138,
+        4645.430278286224
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 94,
+          "area_m2": 4.830000194609165
+        },
+        {
+          "material": "Dirt",
+          "faces": 562,
+          "area_m2": 16.42000070244073
+        },
+        {
+          "material": "Litter",
+          "faces": 6244,
+          "area_m2": 109.07000367149057
+        },
+        {
+          "material": "Grass",
+          "faces": 35364,
+          "area_m2": 509.90001694178574
+        },
+        {
+          "material": "Granite",
+          "faces": 10077,
+          "area_m2": 18022.9310959306
+        },
+        {
+          "material": "Gravel",
+          "faces": 13404,
+          "area_m2": 163.29000533206099
+        },
+        {
+          "material": "Clay",
+          "faces": 580,
+          "area_m2": 19.310000869035793
+        },
+        {
+          "material": "Silt",
+          "faces": 7997,
+          "area_m2": 147.91000490351502
+        }
+      ]
+    },
+    {
+      "label": "spawn-east-10cm-coverage",
+      "repeat": 0,
+      "key": "0:-744,-399",
+      "level": 0,
+      "columns": 8,
+      "tile_m": 25.6,
+      "cell_m": 3.2,
+      "build_ms": 0.4369,
+      "allocated_bytes": 98728,
+      "faces": 532,
+      "unmerged": 593,
+      "mesh_payload_bytes": 63840,
+      "height_sha256": "753a7478c9a41c33a82c87057a1b87be6a19a42a51193779d99690ba6af6dd54",
+      "axis_areas_m2": [
+        4517.440030226703,
+        4517.440010485645,
+        0,
+        655.3600195312495,
+        4518.080088157652,
+        4518.080049843785
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 12,
+          "area_m2": 11.520000343322756
+        },
+        {
+          "material": "Dirt",
+          "faces": 76,
+          "area_m2": 50.88000206470487
+        },
+        {
+          "material": "Litter",
+          "faces": 148,
+          "area_m2": 312.0000095844277
+        },
+        {
+          "material": "Grass",
+          "faces": 88,
+          "area_m2": 305.9200091171261
+        },
+        {
+          "material": "Granite",
+          "faces": 107,
+          "area_m2": 17849.28017127037
+        },
+        {
+          "material": "Clay",
+          "faces": 59,
+          "area_m2": 38.08000113487242
+        },
+        {
+          "material": "Silt",
+          "faces": 18,
+          "area_m2": 68.48000204086303
+        },
+        {
+          "material": "Gravel",
+          "faces": 24,
+          "area_m2": 90.24000268936156
+        }
+      ]
+    },
+    {
+      "label": "spawn-east-10cm",
+      "repeat": 0,
+      "key": "0:-744,-399",
+      "level": 0,
+      "columns": 256,
+      "tile_m": 25.6,
+      "cell_m": 0.1,
+      "build_ms": 77.8872,
+      "allocated_bytes": 16294464,
+      "faces": 72587,
+      "unmerged": 93768,
+      "mesh_payload_bytes": 8710440,
+      "height_sha256": "f428646b52089977792487fb57287951e48fb0d46cf74358c6d6e59294ecca46",
+      "axis_areas_m2": [
+        4523.790327961511,
+        4523.7903100395915,
+        0,
+        655.3600213503895,
+        4523.990266369115,
+        4523.990333256355
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 184,
+          "area_m2": 9.210000368356708
+        },
+        {
+          "material": "Dirt",
+          "faces": 545,
+          "area_m2": 14.710000585168617
+        },
+        {
+          "material": "Litter",
+          "faces": 17188,
+          "area_m2": 292.3700097660396
+        },
+        {
+          "material": "Grass",
+          "faces": 33290,
+          "area_m2": 450.8700146118493
+        },
+        {
+          "material": "Granite",
+          "faces": 3009,
+          "area_m2": 17742.751225736763
+        },
+        {
+          "material": "Gravel",
+          "faces": 13874,
+          "area_m2": 144.4300043117764
+        },
+        {
+          "material": "Clay",
+          "faces": 686,
+          "area_m2": 24.890001158267342
+        },
+        {
+          "material": "Silt",
+          "faces": 3811,
+          "area_m2": 71.69000244051017
+        }
+      ]
+    },
+    {
+      "label": "decoded-edge-10cm-coverage",
+      "repeat": 0,
+      "key": "0:-849,-399",
+      "level": 0,
+      "columns": 8,
+      "tile_m": 25.6,
+      "cell_m": 3.2,
+      "build_ms": 0.4283,
+      "allocated_bytes": 57744,
+      "faces": 421,
+      "unmerged": 472,
+      "mesh_payload_bytes": 50520,
+      "height_sha256": "864a8bd76f8f9799d1d03b7422c140e3355e6e2596803df91b69cd9f83a94845",
+      "axis_areas_m2": [
+        43551.04056747935,
+        43551.040882191686,
+        0,
+        655.3600195312495,
+        43635.201121711965,
+        43635.200256919874
+      ],
+      "materials": [
+        {
+          "material": "Limestone",
+          "faces": 99,
+          "area_m2": 55083.520505552304
+        },
+        {
+          "material": "Sandstone",
+          "faces": 94,
+          "area_m2": 97445.12152789111
+        },
+        {
+          "material": "Shale",
+          "faces": 20,
+          "area_m2": 21751.680792112355
+        },
+        {
+          "material": "Clay",
+          "faces": 208,
+          "area_m2": 747.5200222778287
+        }
+      ]
+    },
+    {
+      "label": "decoded-edge-10cm",
+      "repeat": 0,
+      "key": "0:-849,-399",
+      "level": 0,
+      "columns": 256,
+      "tile_m": 25.6,
+      "cell_m": 0.1,
+      "build_ms": 124.2627,
+      "allocated_bytes": 26780312,
+      "faces": 175555,
+      "unmerged": 206012,
+      "mesh_payload_bytes": 21066600,
+      "height_sha256": "67148b84059573e5672734e7746108423396ddf494645239338fb529c6f2d7d2",
+      "axis_areas_m2": [
+        43580.2305463046,
+        43580.23056709263,
+        0,
+        655.360019531925,
+        43675.130686632336,
+        43675.130648975435
+      ],
+      "materials": [
+        {
+          "material": "Limestone",
+          "faces": 1186,
+          "area_m2": 56085.470771309316
+        },
+        {
+          "material": "Sandstone",
+          "faces": 1723,
+          "area_m2": 83668.60117048261
+        },
+        {
+          "material": "Clay",
+          "faces": 171840,
+          "area_m2": 1865.5600556052834
+        },
+        {
+          "material": "Shale",
+          "faces": 806,
+          "area_m2": 33546.450470970674
+        }
+      ]
+    },
+    {
+      "label": "macro-10cm-coverage",
+      "repeat": 0,
+      "key": "0:-508,-399",
+      "level": 0,
+      "columns": 8,
+      "tile_m": 25.6,
+      "cell_m": 3.2,
+      "build_ms": 0.328,
+      "allocated_bytes": 57744,
+      "faces": 386,
+      "unmerged": 416,
+      "mesh_payload_bytes": 46320,
+      "height_sha256": "3869ce2ffb9921a4420b76edbc286253c9204d9505a5676372665239dea2b484",
+      "axis_areas_m2": [
+        5784.96001776695,
+        5784.960078420637,
+        0,
+        655.3600195312495,
+        5600.9600256585945,
+        5600.960063090323
+      ],
+      "materials": [
+        {
+          "material": "Granite",
+          "faces": 178,
+          "area_m2": 22679.680182189964
+        },
+        {
+          "material": "Clay",
+          "faces": 208,
+          "area_m2": 747.5200222778287
+        }
+      ]
+    },
+    {
+      "label": "macro-10cm",
+      "repeat": 0,
+      "key": "0:-508,-399",
+      "level": 0,
+      "columns": 256,
+      "tile_m": 25.6,
+      "cell_m": 0.1,
+      "build_ms": 91.5497,
+      "allocated_bytes": 26780312,
+      "faces": 88254,
+      "unmerged": 139480,
+      "mesh_payload_bytes": 10590480,
+      "height_sha256": "2af41255edb23681cd74cd08a118e6c1f1232d7ef11d76feb0510bb51e6b5cef",
+      "axis_areas_m2": [
+        5815.470287376993,
+        5815.470279460874,
+        0,
+        655.3600195318554,
+        5606.090241075542,
+        5606.0902318707695
+      ],
+      "materials": [
+        {
+          "material": "Granite",
+          "faces": 3583,
+          "area_m2": 22270.41101113109
+        },
+        {
+          "material": "Clay",
+          "faces": 84671,
+          "area_m2": 1228.0700481900733
+        }
+      ]
+    },
+    {
+      "label": "near-lod-coverage",
+      "repeat": 0,
+      "key": "2:-187,-100",
+      "level": 2,
+      "columns": 8,
+      "tile_m": 102.4,
+      "cell_m": 12.8,
+      "build_ms": 0.449,
+      "allocated_bytes": 98728,
+      "faces": 649,
+      "unmerged": 669,
+      "mesh_payload_bytes": 77880,
+      "height_sha256": "847b676571169c564f3a49f16243a3039c802e90c9f9fb6b2ef569f7cc1a7803",
+      "axis_areas_m2": [
+        77850.88070337303,
+        77850.88025447854,
+        0,
+        10485.760312499991,
+        78129.92120635991,
+        78129.92058055886
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 5,
+          "area_m2": 15.360000457763675
+        },
+        {
+          "material": "Dirt",
+          "faces": 87,
+          "area_m2": 243.20000982284535
+        },
+        {
+          "material": "Litter",
+          "faces": 103,
+          "area_m2": 1226.240037689211
+        },
+        {
+          "material": "Grass",
+          "faces": 115,
+          "area_m2": 6487.040193328848
+        },
+        {
+          "material": "Granite",
+          "faces": 201,
+          "area_m2": 311594.2427303886
+        },
+        {
+          "material": "Gravel",
+          "faces": 56,
+          "area_m2": 2368.000070571901
+        },
+        {
+          "material": "Clay",
+          "faces": 79,
+          "area_m2": 183.0400051689145
+        },
+        {
+          "material": "Silt",
+          "faces": 3,
+          "area_m2": 330.240009841919
+        }
+      ]
+    },
+    {
+      "label": "near-lod",
+      "repeat": 0,
+      "key": "2:-187,-100",
+      "level": 2,
+      "columns": 128,
+      "tile_m": 102.4,
+      "cell_m": 0.8,
+      "build_ms": 35.6392,
+      "allocated_bytes": 11985008,
+      "faces": 65383,
+      "unmerged": 69091,
+      "mesh_payload_bytes": 7845960,
+      "height_sha256": "bb78e256103508a9bfd4bfbd505446fecb9fdf3a1fb165710581b045c97964f7",
+      "axis_areas_m2": [
+        78362.64173283524,
+        78362.64126281114,
+        0,
+        10485.760312593568,
+        78885.761577097,
+        78885.7613521388
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 129,
+          "area_m2": 22.960000767707793
+        },
+        {
+          "material": "Dirt",
+          "faces": 3413,
+          "area_m2": 326.8000101685511
+        },
+        {
+          "material": "Litter",
+          "faces": 16912,
+          "area_m2": 3524.0801103004583
+        },
+        {
+          "material": "Grass",
+          "faces": 24963,
+          "area_m2": 7365.360219614462
+        },
+        {
+          "material": "Granite",
+          "faces": 8679,
+          "area_m2": 310513.68580006063
+        },
+        {
+          "material": "Gravel",
+          "faces": 8506,
+          "area_m2": 2461.0400733626125
+        },
+        {
+          "material": "Clay",
+          "faces": 877,
+          "area_m2": 111.1200035858156
+        },
+        {
+          "material": "Silt",
+          "faces": 1904,
+          "area_m2": 657.5200196075368
+        }
+      ]
+    },
+    {
+      "label": "middle-lod-coverage",
+      "repeat": 0,
+      "key": "5:-22,-13",
+      "level": 5,
+      "columns": 8,
+      "tile_m": 819.2,
+      "cell_m": 102.4,
+      "build_ms": 1.2538,
+      "allocated_bytes": 98728,
+      "faces": 523,
+      "unmerged": 548,
+      "mesh_payload_bytes": 62760,
+      "height_sha256": "f1c963b4d41b548f5ff285a19f0ab837dca3e6e2c78336d97063f5498daf10c2",
+      "axis_areas_m2": [
+        907284.5017695623,
+        907284.4991793832,
+        0,
+        671088.6599999995,
+        921569.2913020328,
+        921569.2938014234
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 12,
+          "area_m2": 337.92001235961925
+        },
+        {
+          "material": "Dirt",
+          "faces": 49,
+          "area_m2": 1587.2000526428224
+        },
+        {
+          "material": "Litter",
+          "faces": 59,
+          "area_m2": 64225.281916351356
+        },
+        {
+          "material": "Grass",
+          "faces": 55,
+          "area_m2": 178647.0453240967
+        },
+        {
+          "material": "Limestone",
+          "faces": 46,
+          "area_m2": 766986.2586457825
+        },
+        {
+          "material": "Sandstone",
+          "faces": 128,
+          "area_m2": 2374195.2384193414
+        },
+        {
+          "material": "Shale",
+          "faces": 70,
+          "area_m2": 763187.2163284305
+        },
+        {
+          "material": "Gravel",
+          "faces": 52,
+          "area_m2": 168243.20501403807
+        },
+        {
+          "material": "Clay",
+          "faces": 51,
+          "area_m2": 901.120026855469
+        },
+        {
+          "material": "Silt",
+          "faces": 1,
+          "area_m2": 10485.760312500002
+        }
+      ]
+    },
+    {
+      "label": "middle-lod",
+      "repeat": 0,
+      "key": "5:-22,-13",
+      "level": 5,
+      "columns": 128,
+      "tile_m": 819.2,
+      "cell_m": 6.4,
+      "build_ms": 52.6591,
+      "allocated_bytes": 11985008,
+      "faces": 104512,
+      "unmerged": 109815,
+      "mesh_payload_bytes": 12541440,
+      "height_sha256": "4ab8733e2141f9f43df6416db971f1fc482660f981413629bc59673d3c1537c0",
+      "axis_areas_m2": [
+        1000771.2176416987,
+        1000771.2217322955,
+        0,
+        671088.6599998845,
+        1057552.0152877416,
+        1057552.0176521325
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 870,
+          "area_m2": 1877.760062398909
+        },
+        {
+          "material": "Dirt",
+          "faces": 11906,
+          "area_m2": 19638.400695274835
+        },
+        {
+          "material": "Litter",
+          "faces": 15582,
+          "area_m2": 82485.12250282106
+        },
+        {
+          "material": "Grass",
+          "faces": 14731,
+          "area_m2": 205342.72611969817
+        },
+        {
+          "material": "Limestone",
+          "faces": 10644,
+          "area_m2": 1481624.3486255053
+        },
+        {
+          "material": "Sandstone",
+          "faces": 18466,
+          "area_m2": 1654617.627881883
+        },
+        {
+          "material": "Shale",
+          "faces": 12026,
+          "area_m2": 1172695.0613779784
+        },
+        {
+          "material": "Gravel",
+          "faces": 10310,
+          "area_m2": 147533.44439685895
+        },
+        {
+          "material": "Clay",
+          "faces": 9432,
+          "area_m2": 10883.200322531315
+        },
+        {
+          "material": "Silt",
+          "faces": 545,
+          "area_m2": 11037.440328941262
+        }
+      ]
+    },
+    {
+      "label": "distant-lod-coverage",
+      "repeat": 0,
+      "key": "8:-3,-1",
+      "level": 8,
+      "columns": 8,
+      "tile_m": 6553.6,
+      "cell_m": 819.2,
+      "build_ms": 0.4026,
+      "allocated_bytes": 98728,
+      "faces": 574,
+      "unmerged": 590,
+      "mesh_payload_bytes": 68880,
+      "height_sha256": "ec32f31aec3b2f12289108b1b9e9d140b336a46d9fafc1b3aa36dd5e720f65fb",
+      "axis_areas_m2": [
+        29289267.67894291,
+        29289267.442633066,
+        0,
+        42949674.239999965,
+        29832397.28290407,
+        29832397.129663132
+      ],
+      "materials": [
+        {
+          "material": "Stone",
+          "faces": 2,
+          "area_m2": 254279.6834765625
+        },
+        {
+          "material": "Mud",
+          "faces": 28,
+          "area_m2": 9584.640444335942
+        },
+        {
+          "material": "Dirt",
+          "faces": 29,
+          "area_m2": 9256.96025756836
+        },
+        {
+          "material": "Litter",
+          "faces": 59,
+          "area_m2": 4707942.540356444
+        },
+        {
+          "material": "Grass",
+          "faces": 34,
+          "area_m2": 6041845.940061043
+        },
+        {
+          "material": "Granite",
+          "faces": 94,
+          "area_m2": 51964723.91246338
+        },
+        {
+          "material": "Limestone",
+          "faces": 42,
+          "area_m2": 28125184.095660396
+        },
+        {
+          "material": "Sandstone",
+          "faces": 38,
+          "area_m2": 22666854.864483647
+        },
+        {
+          "material": "Shale",
+          "faces": 33,
+          "area_m2": 15152333.055474851
+        },
+        {
+          "material": "Gravel",
+          "faces": 19,
+          "area_m2": 4029071.480087891
+        },
+        {
+          "material": "Clay",
+          "faces": 172,
+          "area_m2": 23525786.301196344
+        },
+        {
+          "material": "Silt",
+          "faces": 6,
+          "area_m2": 1343406.1200427248
+        },
+        {
+          "material": "Peat",
+          "faces": 18,
+          "area_m2": 3362734.1801379407
+        }
+      ]
+    },
+    {
+      "label": "distant-lod",
+      "repeat": 0,
+      "key": "8:-3,-1",
+      "level": 8,
+      "columns": 128,
+      "tile_m": 6553.6,
+      "cell_m": 51.2,
+      "build_ms": 52.4775,
+      "allocated_bytes": 11985008,
+      "faces": 111318,
+      "unmerged": 113860,
+      "mesh_payload_bytes": 13358160,
+      "height_sha256": "47520caf97a2872e583af83cff1f3e166654d509d9fcd210307ca3e1822b178c",
+      "axis_areas_m2": [
+        30018422.202418096,
+        30018422.167430125,
+        0,
+        42949674.23999261,
+        30144338.37957125,
+        30144338.42112628
+      ],
+      "materials": [
+        {
+          "material": "Stone",
+          "faces": 141,
+          "area_m2": 53713.92070549004
+        },
+        {
+          "material": "Mud",
+          "faces": 4582,
+          "area_m2": 91002.883970945
+        },
+        {
+          "material": "Dirt",
+          "faces": 4906,
+          "area_m2": 107023.3631422402
+        },
+        {
+          "material": "Litter",
+          "faces": 9206,
+          "area_m2": 2374553.6711868076
+        },
+        {
+          "material": "Grass",
+          "faces": 8636,
+          "area_m2": 7464105.182448773
+        },
+        {
+          "material": "Sand",
+          "faces": 107,
+          "area_m2": 98396.1629385376
+        },
+        {
+          "material": "Granite",
+          "faces": 16471,
+          "area_m2": 45840953.08977133
+        },
+        {
+          "material": "Limestone",
+          "faces": 5923,
+          "area_m2": 23139338.503449813
+        },
+        {
+          "material": "Sandstone",
+          "faces": 8725,
+          "area_m2": 29802373.584564816
+        },
+        {
+          "material": "Shale",
+          "faces": 6188,
+          "area_m2": 21931725.125193045
+        },
+        {
+          "material": "Gravel",
+          "faces": 3925,
+          "area_m2": 3451642.9830072685
+        },
+        {
+          "material": "Clay",
+          "faces": 38601,
+          "area_m2": 25447849.71832303
+        },
+        {
+          "material": "Silt",
+          "faces": 1047,
+          "area_m2": 929551.3878286702
+        },
+        {
+          "material": "Peat",
+          "faces": 2860,
+          "area_m2": 2542965.8340267837
+        }
+      ]
+    },
+    {
+      "label": "rear-lod-coverage",
+      "repeat": 0,
+      "key": "9:-2,-2",
+      "level": 9,
+      "columns": 8,
+      "tile_m": 13107.2,
+      "cell_m": 1638.4,
+      "build_ms": 0.5414,
+      "allocated_bytes": 57744,
+      "faces": 487,
+      "unmerged": 493,
+      "mesh_payload_bytes": 58440,
+      "height_sha256": "e34aa68db4fd44799e52a3720fd641813d0fd988b25659138ea41198e2054646",
+      "axis_areas_m2": [
+        59025654.328708574,
+        59025654.33549567,
+        0,
+        171798696.95999986,
+        76332073.75384282,
+        76332074.00723644
+      ],
+      "materials": [
+        {
+          "material": "Stone",
+          "faces": 14,
+          "area_m2": 16861266.157502443
+        },
+        {
+          "material": "Mud",
+          "faces": 12,
+          "area_m2": 2690416.720168458
+        },
+        {
+          "material": "Dirt",
+          "faces": 11,
+          "area_m2": 3276.800134277345
+        },
+        {
+          "material": "Litter",
+          "faces": 10,
+          "area_m2": 3932.1601660156266
+        },
+        {
+          "material": "Grass",
+          "faces": 13,
+          "area_m2": 8054702.32004883
+        },
+        {
+          "material": "Granite",
+          "faces": 40,
+          "area_m2": 55888118.33846191
+        },
+        {
+          "material": "Limestone",
+          "faces": 49,
+          "area_m2": 77038879.68859376
+        },
+        {
+          "material": "Sandstone",
+          "faces": 44,
+          "area_m2": 64929137.014394514
+        },
+        {
+          "material": "Shale",
+          "faces": 38,
+          "area_m2": 55834870.58450684
+        },
+        {
+          "material": "Gravel",
+          "faces": 60,
+          "area_m2": 48338535.84085697
+        },
+        {
+          "material": "Clay",
+          "faces": 162,
+          "area_m2": 80643033.44005379
+        },
+        {
+          "material": "Snow",
+          "faces": 11,
+          "area_m2": 8060764.400070803
+        },
+        {
+          "material": "Silt",
+          "faces": 23,
+          "area_m2": 24167219.92032471
+        }
+      ]
+    },
+    {
+      "label": "rear-lod",
+      "repeat": 0,
+      "key": "9:-2,-2",
+      "level": 9,
+      "columns": 32,
+      "tile_m": 13107.2,
+      "cell_m": 409.6,
+      "build_ms": 3.5548,
+      "allocated_bytes": 770160,
+      "faces": 6943,
+      "unmerged": 7021,
+      "mesh_payload_bytes": 833160,
+      "height_sha256": "b395e8a4e3ba72283af799e433fb606261a2c5e9c4d66ba4565de501b7444e43",
+      "axis_areas_m2": [
+        63788852.14255586,
+        63788852.51820615,
+        0,
+        171798696.96000046,
+        81926267.7921106,
+        81926268.47715911
+      ],
+      "materials": [
+        {
+          "material": "Stone",
+          "faces": 211,
+          "area_m2": 14514708.634169318
+        },
+        {
+          "material": "Mud",
+          "faces": 89,
+          "area_m2": 849756.185333862
+        },
+        {
+          "material": "Dirt",
+          "faces": 132,
+          "area_m2": 848445.4653314205
+        },
+        {
+          "material": "Litter",
+          "faces": 112,
+          "area_m2": 1352089.640347289
+        },
+        {
+          "material": "Grass",
+          "faces": 87,
+          "area_m2": 3525918.8250805745
+        },
+        {
+          "material": "Granite",
+          "faces": 839,
+          "area_m2": 100313663.1898858
+        },
+        {
+          "material": "Limestone",
+          "faces": 401,
+          "area_m2": 44794143.536082126
+        },
+        {
+          "material": "Sandstone",
+          "faces": 633,
+          "area_m2": 73637807.33450194
+        },
+        {
+          "material": "Shale",
+          "faces": 477,
+          "area_m2": 59050230.593750596
+        },
+        {
+          "material": "Gravel",
+          "faces": 983,
+          "area_m2": 51929458.188497536
+        },
+        {
+          "material": "Clay",
+          "faces": 2416,
+          "area_m2": 80973908.32012936
+        },
+        {
+          "material": "Snow",
+          "faces": 167,
+          "area_m2": 8416624.890435189
+        },
+        {
+          "material": "Silt",
+          "faces": 390,
+          "area_m2": 22853345.96147653
+        },
+        {
+          "material": "Peat",
+          "faces": 2,
+          "area_m2": 573.4399987792967
+        },
+        {
+          "material": "BlackSand",
+          "faces": 4,
+          "area_m2": 168263.68501464845
+        }
+      ]
+    },
+    {
+      "label": "rear-lod",
+      "repeat": 1,
+      "key": "9:-2,-2",
+      "level": 9,
+      "columns": 32,
+      "tile_m": 13107.2,
+      "cell_m": 409.6,
+      "build_ms": 3.5125,
+      "allocated_bytes": 770160,
+      "faces": 6943,
+      "unmerged": 7021,
+      "mesh_payload_bytes": 833160,
+      "height_sha256": "b395e8a4e3ba72283af799e433fb606261a2c5e9c4d66ba4565de501b7444e43",
+      "axis_areas_m2": [
+        63788852.14255586,
+        63788852.51820615,
+        0,
+        171798696.96000046,
+        81926267.7921106,
+        81926268.47715911
+      ],
+      "materials": [
+        {
+          "material": "Stone",
+          "faces": 211,
+          "area_m2": 14514708.634169318
+        },
+        {
+          "material": "Mud",
+          "faces": 89,
+          "area_m2": 849756.185333862
+        },
+        {
+          "material": "Dirt",
+          "faces": 132,
+          "area_m2": 848445.4653314205
+        },
+        {
+          "material": "Litter",
+          "faces": 112,
+          "area_m2": 1352089.640347289
+        },
+        {
+          "material": "Grass",
+          "faces": 87,
+          "area_m2": 3525918.8250805745
+        },
+        {
+          "material": "Granite",
+          "faces": 839,
+          "area_m2": 100313663.1898858
+        },
+        {
+          "material": "Limestone",
+          "faces": 401,
+          "area_m2": 44794143.536082126
+        },
+        {
+          "material": "Sandstone",
+          "faces": 633,
+          "area_m2": 73637807.33450194
+        },
+        {
+          "material": "Shale",
+          "faces": 477,
+          "area_m2": 59050230.593750596
+        },
+        {
+          "material": "Gravel",
+          "faces": 983,
+          "area_m2": 51929458.188497536
+        },
+        {
+          "material": "Clay",
+          "faces": 2416,
+          "area_m2": 80973908.32012936
+        },
+        {
+          "material": "Snow",
+          "faces": 167,
+          "area_m2": 8416624.890435189
+        },
+        {
+          "material": "Silt",
+          "faces": 390,
+          "area_m2": 22853345.96147653
+        },
+        {
+          "material": "Peat",
+          "faces": 2,
+          "area_m2": 573.4399987792967
+        },
+        {
+          "material": "BlackSand",
+          "faces": 4,
+          "area_m2": 168263.68501464845
+        }
+      ]
+    },
+    {
+      "label": "rear-lod-coverage",
+      "repeat": 1,
+      "key": "9:-2,-2",
+      "level": 9,
+      "columns": 8,
+      "tile_m": 13107.2,
+      "cell_m": 1638.4,
+      "build_ms": 0.3434,
+      "allocated_bytes": 57744,
+      "faces": 487,
+      "unmerged": 493,
+      "mesh_payload_bytes": 58440,
+      "height_sha256": "e34aa68db4fd44799e52a3720fd641813d0fd988b25659138ea41198e2054646",
+      "axis_areas_m2": [
+        59025654.328708574,
+        59025654.33549567,
+        0,
+        171798696.95999986,
+        76332073.75384282,
+        76332074.00723644
+      ],
+      "materials": [
+        {
+          "material": "Stone",
+          "faces": 14,
+          "area_m2": 16861266.157502443
+        },
+        {
+          "material": "Mud",
+          "faces": 12,
+          "area_m2": 2690416.720168458
+        },
+        {
+          "material": "Dirt",
+          "faces": 11,
+          "area_m2": 3276.800134277345
+        },
+        {
+          "material": "Litter",
+          "faces": 10,
+          "area_m2": 3932.1601660156266
+        },
+        {
+          "material": "Grass",
+          "faces": 13,
+          "area_m2": 8054702.32004883
+        },
+        {
+          "material": "Granite",
+          "faces": 40,
+          "area_m2": 55888118.33846191
+        },
+        {
+          "material": "Limestone",
+          "faces": 49,
+          "area_m2": 77038879.68859376
+        },
+        {
+          "material": "Sandstone",
+          "faces": 44,
+          "area_m2": 64929137.014394514
+        },
+        {
+          "material": "Shale",
+          "faces": 38,
+          "area_m2": 55834870.58450684
+        },
+        {
+          "material": "Gravel",
+          "faces": 60,
+          "area_m2": 48338535.84085697
+        },
+        {
+          "material": "Clay",
+          "faces": 162,
+          "area_m2": 80643033.44005379
+        },
+        {
+          "material": "Snow",
+          "faces": 11,
+          "area_m2": 8060764.400070803
+        },
+        {
+          "material": "Silt",
+          "faces": 23,
+          "area_m2": 24167219.92032471
+        }
+      ]
+    },
+    {
+      "label": "distant-lod",
+      "repeat": 1,
+      "key": "8:-3,-1",
+      "level": 8,
+      "columns": 128,
+      "tile_m": 6553.6,
+      "cell_m": 51.2,
+      "build_ms": 52.4447,
+      "allocated_bytes": 11985072,
+      "faces": 111318,
+      "unmerged": 113860,
+      "mesh_payload_bytes": 13358160,
+      "height_sha256": "47520caf97a2872e583af83cff1f3e166654d509d9fcd210307ca3e1822b178c",
+      "axis_areas_m2": [
+        30018422.202418096,
+        30018422.167430125,
+        0,
+        42949674.23999261,
+        30144338.37957125,
+        30144338.42112628
+      ],
+      "materials": [
+        {
+          "material": "Stone",
+          "faces": 141,
+          "area_m2": 53713.92070549004
+        },
+        {
+          "material": "Mud",
+          "faces": 4582,
+          "area_m2": 91002.883970945
+        },
+        {
+          "material": "Dirt",
+          "faces": 4906,
+          "area_m2": 107023.3631422402
+        },
+        {
+          "material": "Litter",
+          "faces": 9206,
+          "area_m2": 2374553.6711868076
+        },
+        {
+          "material": "Grass",
+          "faces": 8636,
+          "area_m2": 7464105.182448773
+        },
+        {
+          "material": "Sand",
+          "faces": 107,
+          "area_m2": 98396.1629385376
+        },
+        {
+          "material": "Granite",
+          "faces": 16471,
+          "area_m2": 45840953.08977133
+        },
+        {
+          "material": "Limestone",
+          "faces": 5923,
+          "area_m2": 23139338.503449813
+        },
+        {
+          "material": "Sandstone",
+          "faces": 8725,
+          "area_m2": 29802373.584564816
+        },
+        {
+          "material": "Shale",
+          "faces": 6188,
+          "area_m2": 21931725.125193045
+        },
+        {
+          "material": "Gravel",
+          "faces": 3925,
+          "area_m2": 3451642.9830072685
+        },
+        {
+          "material": "Clay",
+          "faces": 38601,
+          "area_m2": 25447849.71832303
+        },
+        {
+          "material": "Silt",
+          "faces": 1047,
+          "area_m2": 929551.3878286702
+        },
+        {
+          "material": "Peat",
+          "faces": 2860,
+          "area_m2": 2542965.8340267837
+        }
+      ]
+    },
+    {
+      "label": "distant-lod-coverage",
+      "repeat": 1,
+      "key": "8:-3,-1",
+      "level": 8,
+      "columns": 8,
+      "tile_m": 6553.6,
+      "cell_m": 819.2,
+      "build_ms": 0.3987,
+      "allocated_bytes": 98728,
+      "faces": 574,
+      "unmerged": 590,
+      "mesh_payload_bytes": 68880,
+      "height_sha256": "ec32f31aec3b2f12289108b1b9e9d140b336a46d9fafc1b3aa36dd5e720f65fb",
+      "axis_areas_m2": [
+        29289267.67894291,
+        29289267.442633066,
+        0,
+        42949674.239999965,
+        29832397.28290407,
+        29832397.129663132
+      ],
+      "materials": [
+        {
+          "material": "Stone",
+          "faces": 2,
+          "area_m2": 254279.6834765625
+        },
+        {
+          "material": "Mud",
+          "faces": 28,
+          "area_m2": 9584.640444335942
+        },
+        {
+          "material": "Dirt",
+          "faces": 29,
+          "area_m2": 9256.96025756836
+        },
+        {
+          "material": "Litter",
+          "faces": 59,
+          "area_m2": 4707942.540356444
+        },
+        {
+          "material": "Grass",
+          "faces": 34,
+          "area_m2": 6041845.940061043
+        },
+        {
+          "material": "Granite",
+          "faces": 94,
+          "area_m2": 51964723.91246338
+        },
+        {
+          "material": "Limestone",
+          "faces": 42,
+          "area_m2": 28125184.095660396
+        },
+        {
+          "material": "Sandstone",
+          "faces": 38,
+          "area_m2": 22666854.864483647
+        },
+        {
+          "material": "Shale",
+          "faces": 33,
+          "area_m2": 15152333.055474851
+        },
+        {
+          "material": "Gravel",
+          "faces": 19,
+          "area_m2": 4029071.480087891
+        },
+        {
+          "material": "Clay",
+          "faces": 172,
+          "area_m2": 23525786.301196344
+        },
+        {
+          "material": "Silt",
+          "faces": 6,
+          "area_m2": 1343406.1200427248
+        },
+        {
+          "material": "Peat",
+          "faces": 18,
+          "area_m2": 3362734.1801379407
+        }
+      ]
+    },
+    {
+      "label": "middle-lod",
+      "repeat": 1,
+      "key": "5:-22,-13",
+      "level": 5,
+      "columns": 128,
+      "tile_m": 819.2,
+      "cell_m": 6.4,
+      "build_ms": 53.1993,
+      "allocated_bytes": 11985008,
+      "faces": 104512,
+      "unmerged": 109815,
+      "mesh_payload_bytes": 12541440,
+      "height_sha256": "4ab8733e2141f9f43df6416db971f1fc482660f981413629bc59673d3c1537c0",
+      "axis_areas_m2": [
+        1000771.2176416987,
+        1000771.2217322955,
+        0,
+        671088.6599998845,
+        1057552.0152877416,
+        1057552.0176521325
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 870,
+          "area_m2": 1877.760062398909
+        },
+        {
+          "material": "Dirt",
+          "faces": 11906,
+          "area_m2": 19638.400695274835
+        },
+        {
+          "material": "Litter",
+          "faces": 15582,
+          "area_m2": 82485.12250282106
+        },
+        {
+          "material": "Grass",
+          "faces": 14731,
+          "area_m2": 205342.72611969817
+        },
+        {
+          "material": "Limestone",
+          "faces": 10644,
+          "area_m2": 1481624.3486255053
+        },
+        {
+          "material": "Sandstone",
+          "faces": 18466,
+          "area_m2": 1654617.627881883
+        },
+        {
+          "material": "Shale",
+          "faces": 12026,
+          "area_m2": 1172695.0613779784
+        },
+        {
+          "material": "Gravel",
+          "faces": 10310,
+          "area_m2": 147533.44439685895
+        },
+        {
+          "material": "Clay",
+          "faces": 9432,
+          "area_m2": 10883.200322531315
+        },
+        {
+          "material": "Silt",
+          "faces": 545,
+          "area_m2": 11037.440328941262
+        }
+      ]
+    },
+    {
+      "label": "middle-lod-coverage",
+      "repeat": 1,
+      "key": "5:-22,-13",
+      "level": 5,
+      "columns": 8,
+      "tile_m": 819.2,
+      "cell_m": 102.4,
+      "build_ms": 0.6028,
+      "allocated_bytes": 98728,
+      "faces": 523,
+      "unmerged": 548,
+      "mesh_payload_bytes": 62760,
+      "height_sha256": "f1c963b4d41b548f5ff285a19f0ab837dca3e6e2c78336d97063f5498daf10c2",
+      "axis_areas_m2": [
+        907284.5017695623,
+        907284.4991793832,
+        0,
+        671088.6599999995,
+        921569.2913020328,
+        921569.2938014234
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 12,
+          "area_m2": 337.92001235961925
+        },
+        {
+          "material": "Dirt",
+          "faces": 49,
+          "area_m2": 1587.2000526428224
+        },
+        {
+          "material": "Litter",
+          "faces": 59,
+          "area_m2": 64225.281916351356
+        },
+        {
+          "material": "Grass",
+          "faces": 55,
+          "area_m2": 178647.0453240967
+        },
+        {
+          "material": "Limestone",
+          "faces": 46,
+          "area_m2": 766986.2586457825
+        },
+        {
+          "material": "Sandstone",
+          "faces": 128,
+          "area_m2": 2374195.2384193414
+        },
+        {
+          "material": "Shale",
+          "faces": 70,
+          "area_m2": 763187.2163284305
+        },
+        {
+          "material": "Gravel",
+          "faces": 52,
+          "area_m2": 168243.20501403807
+        },
+        {
+          "material": "Clay",
+          "faces": 51,
+          "area_m2": 901.120026855469
+        },
+        {
+          "material": "Silt",
+          "faces": 1,
+          "area_m2": 10485.760312500002
+        }
+      ]
+    },
+    {
+      "label": "near-lod",
+      "repeat": 1,
+      "key": "2:-187,-100",
+      "level": 2,
+      "columns": 128,
+      "tile_m": 102.4,
+      "cell_m": 0.8,
+      "build_ms": 35.7425,
+      "allocated_bytes": 11985008,
+      "faces": 65383,
+      "unmerged": 69091,
+      "mesh_payload_bytes": 7845960,
+      "height_sha256": "bb78e256103508a9bfd4bfbd505446fecb9fdf3a1fb165710581b045c97964f7",
+      "axis_areas_m2": [
+        78362.64173283524,
+        78362.64126281114,
+        0,
+        10485.760312593568,
+        78885.761577097,
+        78885.7613521388
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 129,
+          "area_m2": 22.960000767707793
+        },
+        {
+          "material": "Dirt",
+          "faces": 3413,
+          "area_m2": 326.8000101685511
+        },
+        {
+          "material": "Litter",
+          "faces": 16912,
+          "area_m2": 3524.0801103004583
+        },
+        {
+          "material": "Grass",
+          "faces": 24963,
+          "area_m2": 7365.360219614462
+        },
+        {
+          "material": "Granite",
+          "faces": 8679,
+          "area_m2": 310513.68580006063
+        },
+        {
+          "material": "Gravel",
+          "faces": 8506,
+          "area_m2": 2461.0400733626125
+        },
+        {
+          "material": "Clay",
+          "faces": 877,
+          "area_m2": 111.1200035858156
+        },
+        {
+          "material": "Silt",
+          "faces": 1904,
+          "area_m2": 657.5200196075368
+        }
+      ]
+    },
+    {
+      "label": "near-lod-coverage",
+      "repeat": 1,
+      "key": "2:-187,-100",
+      "level": 2,
+      "columns": 8,
+      "tile_m": 102.4,
+      "cell_m": 12.8,
+      "build_ms": 4.6276,
+      "allocated_bytes": 98728,
+      "faces": 649,
+      "unmerged": 669,
+      "mesh_payload_bytes": 77880,
+      "height_sha256": "847b676571169c564f3a49f16243a3039c802e90c9f9fb6b2ef569f7cc1a7803",
+      "axis_areas_m2": [
+        77850.88070337303,
+        77850.88025447854,
+        0,
+        10485.760312499991,
+        78129.92120635991,
+        78129.92058055886
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 5,
+          "area_m2": 15.360000457763675
+        },
+        {
+          "material": "Dirt",
+          "faces": 87,
+          "area_m2": 243.20000982284535
+        },
+        {
+          "material": "Litter",
+          "faces": 103,
+          "area_m2": 1226.240037689211
+        },
+        {
+          "material": "Grass",
+          "faces": 115,
+          "area_m2": 6487.040193328848
+        },
+        {
+          "material": "Granite",
+          "faces": 201,
+          "area_m2": 311594.2427303886
+        },
+        {
+          "material": "Gravel",
+          "faces": 56,
+          "area_m2": 2368.000070571901
+        },
+        {
+          "material": "Clay",
+          "faces": 79,
+          "area_m2": 183.0400051689145
+        },
+        {
+          "material": "Silt",
+          "faces": 3,
+          "area_m2": 330.240009841919
+        }
+      ]
+    },
+    {
+      "label": "macro-10cm",
+      "repeat": 1,
+      "key": "0:-508,-399",
+      "level": 0,
+      "columns": 256,
+      "tile_m": 25.6,
+      "cell_m": 0.1,
+      "build_ms": 90.7445,
+      "allocated_bytes": 26780312,
+      "faces": 88254,
+      "unmerged": 139480,
+      "mesh_payload_bytes": 10590480,
+      "height_sha256": "2af41255edb23681cd74cd08a118e6c1f1232d7ef11d76feb0510bb51e6b5cef",
+      "axis_areas_m2": [
+        5815.470287376993,
+        5815.470279460874,
+        0,
+        655.3600195318554,
+        5606.090241075542,
+        5606.0902318707695
+      ],
+      "materials": [
+        {
+          "material": "Granite",
+          "faces": 3583,
+          "area_m2": 22270.41101113109
+        },
+        {
+          "material": "Clay",
+          "faces": 84671,
+          "area_m2": 1228.0700481900733
+        }
+      ]
+    },
+    {
+      "label": "macro-10cm-coverage",
+      "repeat": 1,
+      "key": "0:-508,-399",
+      "level": 0,
+      "columns": 8,
+      "tile_m": 25.6,
+      "cell_m": 3.2,
+      "build_ms": 0.2754,
+      "allocated_bytes": 57744,
+      "faces": 386,
+      "unmerged": 416,
+      "mesh_payload_bytes": 46320,
+      "height_sha256": "3869ce2ffb9921a4420b76edbc286253c9204d9505a5676372665239dea2b484",
+      "axis_areas_m2": [
+        5784.96001776695,
+        5784.960078420637,
+        0,
+        655.3600195312495,
+        5600.9600256585945,
+        5600.960063090323
+      ],
+      "materials": [
+        {
+          "material": "Granite",
+          "faces": 178,
+          "area_m2": 22679.680182189964
+        },
+        {
+          "material": "Clay",
+          "faces": 208,
+          "area_m2": 747.5200222778287
+        }
+      ]
+    },
+    {
+      "label": "decoded-edge-10cm",
+      "repeat": 1,
+      "key": "0:-849,-399",
+      "level": 0,
+      "columns": 256,
+      "tile_m": 25.6,
+      "cell_m": 0.1,
+      "build_ms": 131.2695,
+      "allocated_bytes": 26780248,
+      "faces": 175555,
+      "unmerged": 206012,
+      "mesh_payload_bytes": 21066600,
+      "height_sha256": "67148b84059573e5672734e7746108423396ddf494645239338fb529c6f2d7d2",
+      "axis_areas_m2": [
+        43580.2305463046,
+        43580.23056709263,
+        0,
+        655.360019531925,
+        43675.130686632336,
+        43675.130648975435
+      ],
+      "materials": [
+        {
+          "material": "Limestone",
+          "faces": 1186,
+          "area_m2": 56085.470771309316
+        },
+        {
+          "material": "Sandstone",
+          "faces": 1723,
+          "area_m2": 83668.60117048261
+        },
+        {
+          "material": "Clay",
+          "faces": 171840,
+          "area_m2": 1865.5600556052834
+        },
+        {
+          "material": "Shale",
+          "faces": 806,
+          "area_m2": 33546.450470970674
+        }
+      ]
+    },
+    {
+      "label": "decoded-edge-10cm-coverage",
+      "repeat": 1,
+      "key": "0:-849,-399",
+      "level": 0,
+      "columns": 8,
+      "tile_m": 25.6,
+      "cell_m": 3.2,
+      "build_ms": 0.3454,
+      "allocated_bytes": 57744,
+      "faces": 421,
+      "unmerged": 472,
+      "mesh_payload_bytes": 50520,
+      "height_sha256": "864a8bd76f8f9799d1d03b7422c140e3355e6e2596803df91b69cd9f83a94845",
+      "axis_areas_m2": [
+        43551.04056747935,
+        43551.040882191686,
+        0,
+        655.3600195312495,
+        43635.201121711965,
+        43635.200256919874
+      ],
+      "materials": [
+        {
+          "material": "Limestone",
+          "faces": 99,
+          "area_m2": 55083.520505552304
+        },
+        {
+          "material": "Sandstone",
+          "faces": 94,
+          "area_m2": 97445.12152789111
+        },
+        {
+          "material": "Shale",
+          "faces": 20,
+          "area_m2": 21751.680792112355
+        },
+        {
+          "material": "Clay",
+          "faces": 208,
+          "area_m2": 747.5200222778287
+        }
+      ]
+    },
+    {
+      "label": "spawn-east-10cm",
+      "repeat": 1,
+      "key": "0:-744,-399",
+      "level": 0,
+      "columns": 256,
+      "tile_m": 25.6,
+      "cell_m": 0.1,
+      "build_ms": 84.1629,
+      "allocated_bytes": 16294464,
+      "faces": 72587,
+      "unmerged": 93768,
+      "mesh_payload_bytes": 8710440,
+      "height_sha256": "f428646b52089977792487fb57287951e48fb0d46cf74358c6d6e59294ecca46",
+      "axis_areas_m2": [
+        4523.790327961511,
+        4523.7903100395915,
+        0,
+        655.3600213503895,
+        4523.990266369115,
+        4523.990333256355
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 184,
+          "area_m2": 9.210000368356708
+        },
+        {
+          "material": "Dirt",
+          "faces": 545,
+          "area_m2": 14.710000585168617
+        },
+        {
+          "material": "Litter",
+          "faces": 17188,
+          "area_m2": 292.3700097660396
+        },
+        {
+          "material": "Grass",
+          "faces": 33290,
+          "area_m2": 450.8700146118493
+        },
+        {
+          "material": "Granite",
+          "faces": 3009,
+          "area_m2": 17742.751225736763
+        },
+        {
+          "material": "Gravel",
+          "faces": 13874,
+          "area_m2": 144.4300043117764
+        },
+        {
+          "material": "Clay",
+          "faces": 686,
+          "area_m2": 24.890001158267342
+        },
+        {
+          "material": "Silt",
+          "faces": 3811,
+          "area_m2": 71.69000244051017
+        }
+      ]
+    },
+    {
+      "label": "spawn-east-10cm-coverage",
+      "repeat": 1,
+      "key": "0:-744,-399",
+      "level": 0,
+      "columns": 8,
+      "tile_m": 25.6,
+      "cell_m": 3.2,
+      "build_ms": 0.3436,
+      "allocated_bytes": 98728,
+      "faces": 532,
+      "unmerged": 593,
+      "mesh_payload_bytes": 63840,
+      "height_sha256": "753a7478c9a41c33a82c87057a1b87be6a19a42a51193779d99690ba6af6dd54",
+      "axis_areas_m2": [
+        4517.440030226703,
+        4517.440010485645,
+        0,
+        655.3600195312495,
+        4518.080088157652,
+        4518.080049843785
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 12,
+          "area_m2": 11.520000343322756
+        },
+        {
+          "material": "Dirt",
+          "faces": 76,
+          "area_m2": 50.88000206470487
+        },
+        {
+          "material": "Litter",
+          "faces": 148,
+          "area_m2": 312.0000095844277
+        },
+        {
+          "material": "Grass",
+          "faces": 88,
+          "area_m2": 305.9200091171261
+        },
+        {
+          "material": "Granite",
+          "faces": 107,
+          "area_m2": 17849.28017127037
+        },
+        {
+          "material": "Clay",
+          "faces": 59,
+          "area_m2": 38.08000113487242
+        },
+        {
+          "material": "Silt",
+          "faces": 18,
+          "area_m2": 68.48000204086303
+        },
+        {
+          "material": "Gravel",
+          "faces": 24,
+          "area_m2": 90.24000268936156
+        }
+      ]
+    },
+    {
+      "label": "spawn-10cm",
+      "repeat": 1,
+      "key": "0:-745,-399",
+      "level": 0,
+      "columns": 256,
+      "tile_m": 25.6,
+      "cell_m": 0.1,
+      "build_ms": 79.4757,
+      "allocated_bytes": 16294528,
+      "faces": 74322,
+      "unmerged": 100402,
+      "mesh_payload_bytes": 8918640,
+      "height_sha256": "4131d9ff6a9aa88db6fe52c39c3ef72b45f718dbae657aa5d31c5128e58cc242",
+      "axis_areas_m2": [
+        4523.720260565016,
+        4523.72027410239,
+        0,
+        655.3600208278816,
+        4645.430294762138,
+        4645.430278286224
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 94,
+          "area_m2": 4.830000194609165
+        },
+        {
+          "material": "Dirt",
+          "faces": 562,
+          "area_m2": 16.42000070244073
+        },
+        {
+          "material": "Litter",
+          "faces": 6244,
+          "area_m2": 109.07000367149057
+        },
+        {
+          "material": "Grass",
+          "faces": 35364,
+          "area_m2": 509.90001694178574
+        },
+        {
+          "material": "Granite",
+          "faces": 10077,
+          "area_m2": 18022.9310959306
+        },
+        {
+          "material": "Gravel",
+          "faces": 13404,
+          "area_m2": 163.29000533206099
+        },
+        {
+          "material": "Clay",
+          "faces": 580,
+          "area_m2": 19.310000869035793
+        },
+        {
+          "material": "Silt",
+          "faces": 7997,
+          "area_m2": 147.91000490351502
+        }
+      ]
+    },
+    {
+      "label": "spawn-10cm-coverage",
+      "repeat": 1,
+      "key": "0:-745,-399",
+      "level": 0,
+      "columns": 8,
+      "tile_m": 25.6,
+      "cell_m": 3.2,
+      "build_ms": 0.3374,
+      "allocated_bytes": 98728,
+      "faces": 530,
+      "unmerged": 574,
+      "mesh_payload_bytes": 63600,
+      "height_sha256": "2e2923ec61e8f72605d92307530d3e4ed6a0eb44d1be876cd12adb319d7f2fe7",
+      "axis_areas_m2": [
+        4510.079970545764,
+        4510.0800881576515,
+        0,
+        655.3600195312495,
+        4611.520080904958,
+        4611.520098786352
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 8,
+          "area_m2": 8.640000305175784
+        },
+        {
+          "material": "Dirt",
+          "faces": 71,
+          "area_m2": 47.040001592636074
+        },
+        {
+          "material": "Litter",
+          "faces": 103,
+          "area_m2": 144.32000444412222
+        },
+        {
+          "material": "Grass",
+          "faces": 109,
+          "area_m2": 362.2400107955927
+        },
+        {
+          "material": "Granite",
+          "faces": 122,
+          "area_m2": 18073.28023280621
+        },
+        {
+          "material": "Gravel",
+          "faces": 27,
+          "area_m2": 90.56000269889832
+        },
+        {
+          "material": "Clay",
+          "faces": 66,
+          "area_m2": 42.240001401901196
+        },
+        {
+          "material": "Silt",
+          "faces": 24,
+          "area_m2": 130.2400038814545
+        }
+      ]
+    },
+    {
+      "label": "spawn-10cm-coverage",
+      "repeat": 2,
+      "key": "0:-745,-399",
+      "level": 0,
+      "columns": 8,
+      "tile_m": 25.6,
+      "cell_m": 3.2,
+      "build_ms": 0.3103,
+      "allocated_bytes": 98728,
+      "faces": 530,
+      "unmerged": 574,
+      "mesh_payload_bytes": 63600,
+      "height_sha256": "2e2923ec61e8f72605d92307530d3e4ed6a0eb44d1be876cd12adb319d7f2fe7",
+      "axis_areas_m2": [
+        4510.079970545764,
+        4510.0800881576515,
+        0,
+        655.3600195312495,
+        4611.520080904958,
+        4611.520098786352
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 8,
+          "area_m2": 8.640000305175784
+        },
+        {
+          "material": "Dirt",
+          "faces": 71,
+          "area_m2": 47.040001592636074
+        },
+        {
+          "material": "Litter",
+          "faces": 103,
+          "area_m2": 144.32000444412222
+        },
+        {
+          "material": "Grass",
+          "faces": 109,
+          "area_m2": 362.2400107955927
+        },
+        {
+          "material": "Granite",
+          "faces": 122,
+          "area_m2": 18073.28023280621
+        },
+        {
+          "material": "Gravel",
+          "faces": 27,
+          "area_m2": 90.56000269889832
+        },
+        {
+          "material": "Clay",
+          "faces": 66,
+          "area_m2": 42.240001401901196
+        },
+        {
+          "material": "Silt",
+          "faces": 24,
+          "area_m2": 130.2400038814545
+        }
+      ]
+    },
+    {
+      "label": "spawn-10cm",
+      "repeat": 2,
+      "key": "0:-745,-399",
+      "level": 0,
+      "columns": 256,
+      "tile_m": 25.6,
+      "cell_m": 0.1,
+      "build_ms": 79.9012,
+      "allocated_bytes": 16294528,
+      "faces": 74322,
+      "unmerged": 100402,
+      "mesh_payload_bytes": 8918640,
+      "height_sha256": "4131d9ff6a9aa88db6fe52c39c3ef72b45f718dbae657aa5d31c5128e58cc242",
+      "axis_areas_m2": [
+        4523.720260565016,
+        4523.72027410239,
+        0,
+        655.3600208278816,
+        4645.430294762138,
+        4645.430278286224
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 94,
+          "area_m2": 4.830000194609165
+        },
+        {
+          "material": "Dirt",
+          "faces": 562,
+          "area_m2": 16.42000070244073
+        },
+        {
+          "material": "Litter",
+          "faces": 6244,
+          "area_m2": 109.07000367149057
+        },
+        {
+          "material": "Grass",
+          "faces": 35364,
+          "area_m2": 509.90001694178574
+        },
+        {
+          "material": "Granite",
+          "faces": 10077,
+          "area_m2": 18022.9310959306
+        },
+        {
+          "material": "Gravel",
+          "faces": 13404,
+          "area_m2": 163.29000533206099
+        },
+        {
+          "material": "Clay",
+          "faces": 580,
+          "area_m2": 19.310000869035793
+        },
+        {
+          "material": "Silt",
+          "faces": 7997,
+          "area_m2": 147.91000490351502
+        }
+      ]
+    },
+    {
+      "label": "spawn-east-10cm-coverage",
+      "repeat": 2,
+      "key": "0:-744,-399",
+      "level": 0,
+      "columns": 8,
+      "tile_m": 25.6,
+      "cell_m": 3.2,
+      "build_ms": 0.3371,
+      "allocated_bytes": 98728,
+      "faces": 532,
+      "unmerged": 593,
+      "mesh_payload_bytes": 63840,
+      "height_sha256": "753a7478c9a41c33a82c87057a1b87be6a19a42a51193779d99690ba6af6dd54",
+      "axis_areas_m2": [
+        4517.440030226703,
+        4517.440010485645,
+        0,
+        655.3600195312495,
+        4518.080088157652,
+        4518.080049843785
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 12,
+          "area_m2": 11.520000343322756
+        },
+        {
+          "material": "Dirt",
+          "faces": 76,
+          "area_m2": 50.88000206470487
+        },
+        {
+          "material": "Litter",
+          "faces": 148,
+          "area_m2": 312.0000095844277
+        },
+        {
+          "material": "Grass",
+          "faces": 88,
+          "area_m2": 305.9200091171261
+        },
+        {
+          "material": "Granite",
+          "faces": 107,
+          "area_m2": 17849.28017127037
+        },
+        {
+          "material": "Clay",
+          "faces": 59,
+          "area_m2": 38.08000113487242
+        },
+        {
+          "material": "Silt",
+          "faces": 18,
+          "area_m2": 68.48000204086303
+        },
+        {
+          "material": "Gravel",
+          "faces": 24,
+          "area_m2": 90.24000268936156
+        }
+      ]
+    },
+    {
+      "label": "spawn-east-10cm",
+      "repeat": 2,
+      "key": "0:-744,-399",
+      "level": 0,
+      "columns": 256,
+      "tile_m": 25.6,
+      "cell_m": 0.1,
+      "build_ms": 77.22,
+      "allocated_bytes": 16294464,
+      "faces": 72587,
+      "unmerged": 93768,
+      "mesh_payload_bytes": 8710440,
+      "height_sha256": "f428646b52089977792487fb57287951e48fb0d46cf74358c6d6e59294ecca46",
+      "axis_areas_m2": [
+        4523.790327961511,
+        4523.7903100395915,
+        0,
+        655.3600213503895,
+        4523.990266369115,
+        4523.990333256355
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 184,
+          "area_m2": 9.210000368356708
+        },
+        {
+          "material": "Dirt",
+          "faces": 545,
+          "area_m2": 14.710000585168617
+        },
+        {
+          "material": "Litter",
+          "faces": 17188,
+          "area_m2": 292.3700097660396
+        },
+        {
+          "material": "Grass",
+          "faces": 33290,
+          "area_m2": 450.8700146118493
+        },
+        {
+          "material": "Granite",
+          "faces": 3009,
+          "area_m2": 17742.751225736763
+        },
+        {
+          "material": "Gravel",
+          "faces": 13874,
+          "area_m2": 144.4300043117764
+        },
+        {
+          "material": "Clay",
+          "faces": 686,
+          "area_m2": 24.890001158267342
+        },
+        {
+          "material": "Silt",
+          "faces": 3811,
+          "area_m2": 71.69000244051017
+        }
+      ]
+    },
+    {
+      "label": "decoded-edge-10cm-coverage",
+      "repeat": 2,
+      "key": "0:-849,-399",
+      "level": 0,
+      "columns": 8,
+      "tile_m": 25.6,
+      "cell_m": 3.2,
+      "build_ms": 0.3081,
+      "allocated_bytes": 57744,
+      "faces": 421,
+      "unmerged": 472,
+      "mesh_payload_bytes": 50520,
+      "height_sha256": "864a8bd76f8f9799d1d03b7422c140e3355e6e2596803df91b69cd9f83a94845",
+      "axis_areas_m2": [
+        43551.04056747935,
+        43551.040882191686,
+        0,
+        655.3600195312495,
+        43635.201121711965,
+        43635.200256919874
+      ],
+      "materials": [
+        {
+          "material": "Limestone",
+          "faces": 99,
+          "area_m2": 55083.520505552304
+        },
+        {
+          "material": "Sandstone",
+          "faces": 94,
+          "area_m2": 97445.12152789111
+        },
+        {
+          "material": "Shale",
+          "faces": 20,
+          "area_m2": 21751.680792112355
+        },
+        {
+          "material": "Clay",
+          "faces": 208,
+          "area_m2": 747.5200222778287
+        }
+      ]
+    },
+    {
+      "label": "decoded-edge-10cm",
+      "repeat": 2,
+      "key": "0:-849,-399",
+      "level": 0,
+      "columns": 256,
+      "tile_m": 25.6,
+      "cell_m": 0.1,
+      "build_ms": 123.7151,
+      "allocated_bytes": 26780248,
+      "faces": 175555,
+      "unmerged": 206012,
+      "mesh_payload_bytes": 21066600,
+      "height_sha256": "67148b84059573e5672734e7746108423396ddf494645239338fb529c6f2d7d2",
+      "axis_areas_m2": [
+        43580.2305463046,
+        43580.23056709263,
+        0,
+        655.360019531925,
+        43675.130686632336,
+        43675.130648975435
+      ],
+      "materials": [
+        {
+          "material": "Limestone",
+          "faces": 1186,
+          "area_m2": 56085.470771309316
+        },
+        {
+          "material": "Sandstone",
+          "faces": 1723,
+          "area_m2": 83668.60117048261
+        },
+        {
+          "material": "Clay",
+          "faces": 171840,
+          "area_m2": 1865.5600556052834
+        },
+        {
+          "material": "Shale",
+          "faces": 806,
+          "area_m2": 33546.450470970674
+        }
+      ]
+    },
+    {
+      "label": "macro-10cm-coverage",
+      "repeat": 2,
+      "key": "0:-508,-399",
+      "level": 0,
+      "columns": 8,
+      "tile_m": 25.6,
+      "cell_m": 3.2,
+      "build_ms": 0.3384,
+      "allocated_bytes": 57744,
+      "faces": 386,
+      "unmerged": 416,
+      "mesh_payload_bytes": 46320,
+      "height_sha256": "3869ce2ffb9921a4420b76edbc286253c9204d9505a5676372665239dea2b484",
+      "axis_areas_m2": [
+        5784.96001776695,
+        5784.960078420637,
+        0,
+        655.3600195312495,
+        5600.9600256585945,
+        5600.960063090323
+      ],
+      "materials": [
+        {
+          "material": "Granite",
+          "faces": 178,
+          "area_m2": 22679.680182189964
+        },
+        {
+          "material": "Clay",
+          "faces": 208,
+          "area_m2": 747.5200222778287
+        }
+      ]
+    },
+    {
+      "label": "macro-10cm",
+      "repeat": 2,
+      "key": "0:-508,-399",
+      "level": 0,
+      "columns": 256,
+      "tile_m": 25.6,
+      "cell_m": 0.1,
+      "build_ms": 90.8289,
+      "allocated_bytes": 26780248,
+      "faces": 88254,
+      "unmerged": 139480,
+      "mesh_payload_bytes": 10590480,
+      "height_sha256": "2af41255edb23681cd74cd08a118e6c1f1232d7ef11d76feb0510bb51e6b5cef",
+      "axis_areas_m2": [
+        5815.470287376993,
+        5815.470279460874,
+        0,
+        655.3600195318554,
+        5606.090241075542,
+        5606.0902318707695
+      ],
+      "materials": [
+        {
+          "material": "Granite",
+          "faces": 3583,
+          "area_m2": 22270.41101113109
+        },
+        {
+          "material": "Clay",
+          "faces": 84671,
+          "area_m2": 1228.0700481900733
+        }
+      ]
+    },
+    {
+      "label": "near-lod-coverage",
+      "repeat": 2,
+      "key": "2:-187,-100",
+      "level": 2,
+      "columns": 8,
+      "tile_m": 102.4,
+      "cell_m": 12.8,
+      "build_ms": 0.5048,
+      "allocated_bytes": 98728,
+      "faces": 649,
+      "unmerged": 669,
+      "mesh_payload_bytes": 77880,
+      "height_sha256": "847b676571169c564f3a49f16243a3039c802e90c9f9fb6b2ef569f7cc1a7803",
+      "axis_areas_m2": [
+        77850.88070337303,
+        77850.88025447854,
+        0,
+        10485.760312499991,
+        78129.92120635991,
+        78129.92058055886
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 5,
+          "area_m2": 15.360000457763675
+        },
+        {
+          "material": "Dirt",
+          "faces": 87,
+          "area_m2": 243.20000982284535
+        },
+        {
+          "material": "Litter",
+          "faces": 103,
+          "area_m2": 1226.240037689211
+        },
+        {
+          "material": "Grass",
+          "faces": 115,
+          "area_m2": 6487.040193328848
+        },
+        {
+          "material": "Granite",
+          "faces": 201,
+          "area_m2": 311594.2427303886
+        },
+        {
+          "material": "Gravel",
+          "faces": 56,
+          "area_m2": 2368.000070571901
+        },
+        {
+          "material": "Clay",
+          "faces": 79,
+          "area_m2": 183.0400051689145
+        },
+        {
+          "material": "Silt",
+          "faces": 3,
+          "area_m2": 330.240009841919
+        }
+      ]
+    },
+    {
+      "label": "near-lod",
+      "repeat": 2,
+      "key": "2:-187,-100",
+      "level": 2,
+      "columns": 128,
+      "tile_m": 102.4,
+      "cell_m": 0.8,
+      "build_ms": 35.8548,
+      "allocated_bytes": 11985008,
+      "faces": 65383,
+      "unmerged": 69091,
+      "mesh_payload_bytes": 7845960,
+      "height_sha256": "bb78e256103508a9bfd4bfbd505446fecb9fdf3a1fb165710581b045c97964f7",
+      "axis_areas_m2": [
+        78362.64173283524,
+        78362.64126281114,
+        0,
+        10485.760312593568,
+        78885.761577097,
+        78885.7613521388
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 129,
+          "area_m2": 22.960000767707793
+        },
+        {
+          "material": "Dirt",
+          "faces": 3413,
+          "area_m2": 326.8000101685511
+        },
+        {
+          "material": "Litter",
+          "faces": 16912,
+          "area_m2": 3524.0801103004583
+        },
+        {
+          "material": "Grass",
+          "faces": 24963,
+          "area_m2": 7365.360219614462
+        },
+        {
+          "material": "Granite",
+          "faces": 8679,
+          "area_m2": 310513.68580006063
+        },
+        {
+          "material": "Gravel",
+          "faces": 8506,
+          "area_m2": 2461.0400733626125
+        },
+        {
+          "material": "Clay",
+          "faces": 877,
+          "area_m2": 111.1200035858156
+        },
+        {
+          "material": "Silt",
+          "faces": 1904,
+          "area_m2": 657.5200196075368
+        }
+      ]
+    },
+    {
+      "label": "middle-lod-coverage",
+      "repeat": 2,
+      "key": "5:-22,-13",
+      "level": 5,
+      "columns": 8,
+      "tile_m": 819.2,
+      "cell_m": 102.4,
+      "build_ms": 0.5839,
+      "allocated_bytes": 98728,
+      "faces": 523,
+      "unmerged": 548,
+      "mesh_payload_bytes": 62760,
+      "height_sha256": "f1c963b4d41b548f5ff285a19f0ab837dca3e6e2c78336d97063f5498daf10c2",
+      "axis_areas_m2": [
+        907284.5017695623,
+        907284.4991793832,
+        0,
+        671088.6599999995,
+        921569.2913020328,
+        921569.2938014234
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 12,
+          "area_m2": 337.92001235961925
+        },
+        {
+          "material": "Dirt",
+          "faces": 49,
+          "area_m2": 1587.2000526428224
+        },
+        {
+          "material": "Litter",
+          "faces": 59,
+          "area_m2": 64225.281916351356
+        },
+        {
+          "material": "Grass",
+          "faces": 55,
+          "area_m2": 178647.0453240967
+        },
+        {
+          "material": "Limestone",
+          "faces": 46,
+          "area_m2": 766986.2586457825
+        },
+        {
+          "material": "Sandstone",
+          "faces": 128,
+          "area_m2": 2374195.2384193414
+        },
+        {
+          "material": "Shale",
+          "faces": 70,
+          "area_m2": 763187.2163284305
+        },
+        {
+          "material": "Gravel",
+          "faces": 52,
+          "area_m2": 168243.20501403807
+        },
+        {
+          "material": "Clay",
+          "faces": 51,
+          "area_m2": 901.120026855469
+        },
+        {
+          "material": "Silt",
+          "faces": 1,
+          "area_m2": 10485.760312500002
+        }
+      ]
+    },
+    {
+      "label": "middle-lod",
+      "repeat": 2,
+      "key": "5:-22,-13",
+      "level": 5,
+      "columns": 128,
+      "tile_m": 819.2,
+      "cell_m": 6.4,
+      "build_ms": 52.5854,
+      "allocated_bytes": 11985072,
+      "faces": 104512,
+      "unmerged": 109815,
+      "mesh_payload_bytes": 12541440,
+      "height_sha256": "4ab8733e2141f9f43df6416db971f1fc482660f981413629bc59673d3c1537c0",
+      "axis_areas_m2": [
+        1000771.2176416987,
+        1000771.2217322955,
+        0,
+        671088.6599998845,
+        1057552.0152877416,
+        1057552.0176521325
+      ],
+      "materials": [
+        {
+          "material": "Mud",
+          "faces": 870,
+          "area_m2": 1877.760062398909
+        },
+        {
+          "material": "Dirt",
+          "faces": 11906,
+          "area_m2": 19638.400695274835
+        },
+        {
+          "material": "Litter",
+          "faces": 15582,
+          "area_m2": 82485.12250282106
+        },
+        {
+          "material": "Grass",
+          "faces": 14731,
+          "area_m2": 205342.72611969817
+        },
+        {
+          "material": "Limestone",
+          "faces": 10644,
+          "area_m2": 1481624.3486255053
+        },
+        {
+          "material": "Sandstone",
+          "faces": 18466,
+          "area_m2": 1654617.627881883
+        },
+        {
+          "material": "Shale",
+          "faces": 12026,
+          "area_m2": 1172695.0613779784
+        },
+        {
+          "material": "Gravel",
+          "faces": 10310,
+          "area_m2": 147533.44439685895
+        },
+        {
+          "material": "Clay",
+          "faces": 9432,
+          "area_m2": 10883.200322531315
+        },
+        {
+          "material": "Silt",
+          "faces": 545,
+          "area_m2": 11037.440328941262
+        }
+      ]
+    },
+    {
+      "label": "distant-lod-coverage",
+      "repeat": 2,
+      "key": "8:-3,-1",
+      "level": 8,
+      "columns": 8,
+      "tile_m": 6553.6,
+      "cell_m": 819.2,
+      "build_ms": 0.3641,
+      "allocated_bytes": 98728,
+      "faces": 574,
+      "unmerged": 590,
+      "mesh_payload_bytes": 68880,
+      "height_sha256": "ec32f31aec3b2f12289108b1b9e9d140b336a46d9fafc1b3aa36dd5e720f65fb",
+      "axis_areas_m2": [
+        29289267.67894291,
+        29289267.442633066,
+        0,
+        42949674.239999965,
+        29832397.28290407,
+        29832397.129663132
+      ],
+      "materials": [
+        {
+          "material": "Stone",
+          "faces": 2,
+          "area_m2": 254279.6834765625
+        },
+        {
+          "material": "Mud",
+          "faces": 28,
+          "area_m2": 9584.640444335942
+        },
+        {
+          "material": "Dirt",
+          "faces": 29,
+          "area_m2": 9256.96025756836
+        },
+        {
+          "material": "Litter",
+          "faces": 59,
+          "area_m2": 4707942.540356444
+        },
+        {
+          "material": "Grass",
+          "faces": 34,
+          "area_m2": 6041845.940061043
+        },
+        {
+          "material": "Granite",
+          "faces": 94,
+          "area_m2": 51964723.91246338
+        },
+        {
+          "material": "Limestone",
+          "faces": 42,
+          "area_m2": 28125184.095660396
+        },
+        {
+          "material": "Sandstone",
+          "faces": 38,
+          "area_m2": 22666854.864483647
+        },
+        {
+          "material": "Shale",
+          "faces": 33,
+          "area_m2": 15152333.055474851
+        },
+        {
+          "material": "Gravel",
+          "faces": 19,
+          "area_m2": 4029071.480087891
+        },
+        {
+          "material": "Clay",
+          "faces": 172,
+          "area_m2": 23525786.301196344
+        },
+        {
+          "material": "Silt",
+          "faces": 6,
+          "area_m2": 1343406.1200427248
+        },
+        {
+          "material": "Peat",
+          "faces": 18,
+          "area_m2": 3362734.1801379407
+        }
+      ]
+    },
+    {
+      "label": "distant-lod",
+      "repeat": 2,
+      "key": "8:-3,-1",
+      "level": 8,
+      "columns": 128,
+      "tile_m": 6553.6,
+      "cell_m": 51.2,
+      "build_ms": 52.2203,
+      "allocated_bytes": 11985072,
+      "faces": 111318,
+      "unmerged": 113860,
+      "mesh_payload_bytes": 13358160,
+      "height_sha256": "47520caf97a2872e583af83cff1f3e166654d509d9fcd210307ca3e1822b178c",
+      "axis_areas_m2": [
+        30018422.202418096,
+        30018422.167430125,
+        0,
+        42949674.23999261,
+        30144338.37957125,
+        30144338.42112628
+      ],
+      "materials": [
+        {
+          "material": "Stone",
+          "faces": 141,
+          "area_m2": 53713.92070549004
+        },
+        {
+          "material": "Mud",
+          "faces": 4582,
+          "area_m2": 91002.883970945
+        },
+        {
+          "material": "Dirt",
+          "faces": 4906,
+          "area_m2": 107023.3631422402
+        },
+        {
+          "material": "Litter",
+          "faces": 9206,
+          "area_m2": 2374553.6711868076
+        },
+        {
+          "material": "Grass",
+          "faces": 8636,
+          "area_m2": 7464105.182448773
+        },
+        {
+          "material": "Sand",
+          "faces": 107,
+          "area_m2": 98396.1629385376
+        },
+        {
+          "material": "Granite",
+          "faces": 16471,
+          "area_m2": 45840953.08977133
+        },
+        {
+          "material": "Limestone",
+          "faces": 5923,
+          "area_m2": 23139338.503449813
+        },
+        {
+          "material": "Sandstone",
+          "faces": 8725,
+          "area_m2": 29802373.584564816
+        },
+        {
+          "material": "Shale",
+          "faces": 6188,
+          "area_m2": 21931725.125193045
+        },
+        {
+          "material": "Gravel",
+          "faces": 3925,
+          "area_m2": 3451642.9830072685
+        },
+        {
+          "material": "Clay",
+          "faces": 38601,
+          "area_m2": 25447849.71832303
+        },
+        {
+          "material": "Silt",
+          "faces": 1047,
+          "area_m2": 929551.3878286702
+        },
+        {
+          "material": "Peat",
+          "faces": 2860,
+          "area_m2": 2542965.8340267837
+        }
+      ]
+    },
+    {
+      "label": "rear-lod-coverage",
+      "repeat": 2,
+      "key": "9:-2,-2",
+      "level": 9,
+      "columns": 8,
+      "tile_m": 13107.2,
+      "cell_m": 1638.4,
+      "build_ms": 0.3207,
+      "allocated_bytes": 57744,
+      "faces": 487,
+      "unmerged": 493,
+      "mesh_payload_bytes": 58440,
+      "height_sha256": "e34aa68db4fd44799e52a3720fd641813d0fd988b25659138ea41198e2054646",
+      "axis_areas_m2": [
+        59025654.328708574,
+        59025654.33549567,
+        0,
+        171798696.95999986,
+        76332073.75384282,
+        76332074.00723644
+      ],
+      "materials": [
+        {
+          "material": "Stone",
+          "faces": 14,
+          "area_m2": 16861266.157502443
+        },
+        {
+          "material": "Mud",
+          "faces": 12,
+          "area_m2": 2690416.720168458
+        },
+        {
+          "material": "Dirt",
+          "faces": 11,
+          "area_m2": 3276.800134277345
+        },
+        {
+          "material": "Litter",
+          "faces": 10,
+          "area_m2": 3932.1601660156266
+        },
+        {
+          "material": "Grass",
+          "faces": 13,
+          "area_m2": 8054702.32004883
+        },
+        {
+          "material": "Granite",
+          "faces": 40,
+          "area_m2": 55888118.33846191
+        },
+        {
+          "material": "Limestone",
+          "faces": 49,
+          "area_m2": 77038879.68859376
+        },
+        {
+          "material": "Sandstone",
+          "faces": 44,
+          "area_m2": 64929137.014394514
+        },
+        {
+          "material": "Shale",
+          "faces": 38,
+          "area_m2": 55834870.58450684
+        },
+        {
+          "material": "Gravel",
+          "faces": 60,
+          "area_m2": 48338535.84085697
+        },
+        {
+          "material": "Clay",
+          "faces": 162,
+          "area_m2": 80643033.44005379
+        },
+        {
+          "material": "Snow",
+          "faces": 11,
+          "area_m2": 8060764.400070803
+        },
+        {
+          "material": "Silt",
+          "faces": 23,
+          "area_m2": 24167219.92032471
+        }
+      ]
+    },
+    {
+      "label": "rear-lod",
+      "repeat": 2,
+      "key": "9:-2,-2",
+      "level": 9,
+      "columns": 32,
+      "tile_m": 13107.2,
+      "cell_m": 409.6,
+      "build_ms": 3.5514,
+      "allocated_bytes": 770160,
+      "faces": 6943,
+      "unmerged": 7021,
+      "mesh_payload_bytes": 833160,
+      "height_sha256": "b395e8a4e3ba72283af799e433fb606261a2c5e9c4d66ba4565de501b7444e43",
+      "axis_areas_m2": [
+        63788852.14255586,
+        63788852.51820615,
+        0,
+        171798696.96000046,
+        81926267.7921106,
+        81926268.47715911
+      ],
+      "materials": [
+        {
+          "material": "Stone",
+          "faces": 211,
+          "area_m2": 14514708.634169318
+        },
+        {
+          "material": "Mud",
+          "faces": 89,
+          "area_m2": 849756.185333862
+        },
+        {
+          "material": "Dirt",
+          "faces": 132,
+          "area_m2": 848445.4653314205
+        },
+        {
+          "material": "Litter",
+          "faces": 112,
+          "area_m2": 1352089.640347289
+        },
+        {
+          "material": "Grass",
+          "faces": 87,
+          "area_m2": 3525918.8250805745
+        },
+        {
+          "material": "Granite",
+          "faces": 839,
+          "area_m2": 100313663.1898858
+        },
+        {
+          "material": "Limestone",
+          "faces": 401,
+          "area_m2": 44794143.536082126
+        },
+        {
+          "material": "Sandstone",
+          "faces": 633,
+          "area_m2": 73637807.33450194
+        },
+        {
+          "material": "Shale",
+          "faces": 477,
+          "area_m2": 59050230.593750596
+        },
+        {
+          "material": "Gravel",
+          "faces": 983,
+          "area_m2": 51929458.188497536
+        },
+        {
+          "material": "Clay",
+          "faces": 2416,
+          "area_m2": 80973908.32012936
+        },
+        {
+          "material": "Snow",
+          "faces": 167,
+          "area_m2": 8416624.890435189
+        },
+        {
+          "material": "Silt",
+          "faces": 390,
+          "area_m2": 22853345.96147653
+        },
+        {
+          "material": "Peat",
+          "faces": 2,
+          "area_m2": 573.4399987792967
+        },
+        {
+          "material": "BlackSand",
+          "faces": 4,
+          "area_m2": 168263.68501464845
+        }
+      ]
+    }
+  ],
+  "failures": [],
+  "private_bytes": 140763136,
+  "peak_working_set": 280322048
+}

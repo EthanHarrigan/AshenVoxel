@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-27T10:02:33.326351+00:00",
+  "status": "EXPERIMENT ONLY; NOT INSTALLED",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs",
+      "before": "1d1ed0696a32c6cbd4a85399b2f083e5b466bb5215b054e4ffe907f876008230",
+      "sha256": "74fd881fb01b2c1a93c0f617fc3ae3fdff699bd697382ff9d71d65dd9b1d6128"
+    }
+  ],
+  "source_run": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\startup-throughput\\prototype-decode\\20261027-095950-939737-fast",
+  "format_changed": false,
+  "worker_added": false,
+  "additional_crc_table_bytes": 7168
+}

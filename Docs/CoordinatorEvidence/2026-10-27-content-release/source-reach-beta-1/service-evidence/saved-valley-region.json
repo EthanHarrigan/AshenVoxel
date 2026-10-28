@@ -1,0 +1,209 @@
+{
+  "utc": "2026-10-27T20:41:42.708187+00:00",
+  "status": "PASS",
+  "scope": "One actual existing local pretrained coordinate-view request, not Unity publication or visual validation.",
+  "before": {
+    "backend": "upstream-pretrained/physical-nonnegative-v1/canonical-owner-v1",
+    "coordinate_view": "ashen-model-coordinate-view-v1",
+    "failure": null,
+    "in_flight": 0,
+    "max_region_samples": 262144,
+    "max_region_side": 1024,
+    "native_model_spacing_m": 30.0,
+    "native_model_world_id": "5ae14923b2978e7394046e920ffaf0a6e91ad60f69a6f9be4ba02fb1489889d7",
+    "note": "Original pinned pretrained canonical output; modelpixelindices unchanged, horizontalworld spacing explicit; heights remain meters.",
+    "physical_climate_policy": {
+      "cache_namespace": "physical-nonnegative-v1",
+      "input_encoding": "physical-si-v2",
+      "negative_to_zero_channels": [
+        "temperature_std_c",
+        "precipitation_mm",
+        "precipitation_cv_percent"
+      ],
+      "nonfinite_and_upper_bounds": "reject; never silently saturate",
+      "policy_id": "physical-nonnegative-v1",
+      "schema": "ashen-physical-climate-policy-v1",
+      "unchanged": "height,temperature_c,beta,all nonnegative climate values,biomes,land"
+    },
+    "physical_climate_rectification": {
+      "counter_scope": "current backend process; persisted summary records its last writing session",
+      "last_query": {
+        "height_sha256": "0809af173f4a34e55780ebc329f4006baaa7aa8b9cab415375171644e7427599",
+        "native_window": [
+          -3104,
+          -8480,
+          320,
+          320
+        ],
+        "published_physical_climate_sha256": "ded15aa78c8fac4254870968deb8c09ca95039fa847d6dacc019eb31b57a2c75",
+        "raw_physical_climate_sha256": "ded15aa78c8fac4254870968deb8c09ca95039fa847d6dacc019eb31b57a2c75",
+        "rectified_values": {
+          "precipitation_cv_percent": 0,
+          "precipitation_mm": 0,
+          "temperature_std_c": 0
+        }
+      },
+      "note": "Derived publication of original model predictions; raw hash records refer to pre-policy physical arrays, not a new model run.",
+      "policy": {
+        "cache_namespace": "physical-nonnegative-v1",
+        "input_encoding": "physical-si-v2",
+        "negative_to_zero_channels": [
+          "temperature_std_c",
+          "precipitation_mm",
+          "precipitation_cv_percent"
+        ],
+        "nonfinite_and_upper_bounds": "reject; never silently saturate",
+        "policy_id": "physical-nonnegative-v1",
+        "schema": "ashen-physical-climate-policy-v1",
+        "unchanged": "height,temperature_c,beta,all nonnegative climate values,biomes,land"
+      },
+      "query_count": 16,
+      "rectified_values": {
+        "precipitation_cv_percent": 0,
+        "precipitation_mm": 0,
+        "temperature_std_c": 0
+      }
+    },
+    "queue_capacity": 8,
+    "queued": 0,
+    "ready": true,
+    "resident_bytes": 6181574,
+    "resident_regions": 6,
+    "spacing_m": 5.0,
+    "world_depth_m": 149760.0,
+    "world_id": "14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4",
+    "world_width_m": 299520.0
+  },
+  "after": {
+    "backend": "upstream-pretrained/physical-nonnegative-v1/canonical-owner-v1",
+    "coordinate_view": "ashen-model-coordinate-view-v1",
+    "failure": null,
+    "in_flight": 0,
+    "max_region_samples": 262144,
+    "max_region_side": 1024,
+    "native_model_spacing_m": 30.0,
+    "native_model_world_id": "5ae14923b2978e7394046e920ffaf0a6e91ad60f69a6f9be4ba02fb1489889d7",
+    "note": "Original pinned pretrained canonical output; modelpixelindices unchanged, horizontalworld spacing explicit; heights remain meters.",
+    "physical_climate_policy": {
+      "cache_namespace": "physical-nonnegative-v1",
+      "input_encoding": "physical-si-v2",
+      "negative_to_zero_channels": [
+        "temperature_std_c",
+        "precipitation_mm",
+        "precipitation_cv_percent"
+      ],
+      "nonfinite_and_upper_bounds": "reject; never silently saturate",
+      "policy_id": "physical-nonnegative-v1",
+      "schema": "ashen-physical-climate-policy-v1",
+      "unchanged": "height,temperature_c,beta,all nonnegative climate values,biomes,land"
+    },
+    "physical_climate_rectification": {
+      "counter_scope": "current backend process; persisted summary records its last writing session",
+      "last_query": {
+        "height_sha256": "a69ce0e0f491a659a5d8e7cbc9420c2e7767523aa85f2c8d2a695ae2b717f745",
+        "native_window": [
+          -2848,
+          -8224,
+          320,
+          320
+        ],
+        "published_physical_climate_sha256": "4ed5053446c380f0923a3b57e04a80fc403bfe11a2c99951ff1ab7a585dbd449",
+        "raw_physical_climate_sha256": "4ed5053446c380f0923a3b57e04a80fc403bfe11a2c99951ff1ab7a585dbd449",
+        "rectified_values": {
+          "precipitation_cv_percent": 0,
+          "precipitation_mm": 0,
+          "temperature_std_c": 0
+        }
+      },
+      "note": "Derived publication of original model predictions; raw hash records refer to pre-policy physical arrays, not a new model run.",
+      "policy": {
+        "cache_namespace": "physical-nonnegative-v1",
+        "input_encoding": "physical-si-v2",
+        "negative_to_zero_channels": [
+          "temperature_std_c",
+          "precipitation_mm",
+          "precipitation_cv_percent"
+        ],
+        "nonfinite_and_upper_bounds": "reject; never silently saturate",
+        "policy_id": "physical-nonnegative-v1",
+        "schema": "ashen-physical-climate-policy-v1",
+        "unchanged": "height,temperature_c,beta,all nonnegative climate values,biomes,land"
+      },
+      "query_count": 19,
+      "rectified_values": {
+        "precipitation_cv_percent": 0,
+        "precipitation_mm": 0,
+        "temperature_std_c": 0
+      }
+    },
+    "queue_capacity": 8,
+    "queued": 0,
+    "ready": true,
+    "resident_bytes": 7211836,
+    "resident_regions": 7,
+    "spacing_m": 5.0,
+    "world_depth_m": 149760.0,
+    "world_id": "14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4",
+    "world_width_m": 299520.0
+  },
+  "request": {
+    "world_id": "14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4",
+    "row0": -2851,
+    "col0": -8227,
+    "rows": 199,
+    "cols": 199
+  },
+  "metadata": {
+    "backend": "upstream-pretrained/physical-nonnegative-v1/canonical-owner-v1",
+    "climate_channels": [
+      "temperature_c",
+      "temperature_std_c",
+      "precipitation_mm",
+      "precipitation_cv_percent",
+      "beta"
+    ],
+    "climate_encoding": "physical-si-v2",
+    "climate_value_units": [
+      "degC",
+      "degC",
+      "mm/year",
+      "percent",
+      "degC/m"
+    ],
+    "height_units": "meters",
+    "layout": "height_f32_planar,climate5_f32_planar,source_biome_u8,land_u8",
+    "origin_x_m": -41135.0,
+    "origin_z_m": -14255.0,
+    "schema": "ashen-terrain-region-v1",
+    "spacing_m": 5.0,
+    "window": {
+      "col0": -8227,
+      "cols": 199,
+      "row0": -2851,
+      "rows": 199
+    },
+    "world_id": "14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4"
+  },
+  "elapsed_seconds": 8.599516300004325,
+  "bytes": 1030260,
+  "sha256": "09298d87c1ef51b7201fc71aa95807f7a7d14d723f29dc8a340dc532e449b36f",
+  "cached_owner_files_before": [
+    "-12_-33.atdr"
+  ],
+  "required_owner_files": [
+    "-12_-33.atdr",
+    "-12_-32.atdr",
+    "-11_-33.atdr",
+    "-11_-32.atdr"
+  ],
+  "height_range": [
+    848.813232421875,
+    2502.623291015625
+  ],
+  "nearest_saved_valley_height_m": 1972.7509765625,
+  "camera_position": [
+    -40954.96880764632,
+    -13458.490728475133
+  ],
+  "script_sha256": "36da35de11d15739f78d3fe0c76b6792e65a6cfc25f84dd6859d0345c5800363"
+}

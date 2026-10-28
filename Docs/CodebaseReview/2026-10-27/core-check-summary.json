@@ -1,0 +1,12 @@
+{
+  "command": "python -X utf8 Tools/run_core_checks.py",
+  "exit_code": 0,
+  "checks_passed": 91,
+  "sdk": "8.0.407",
+  "additional_checks": [
+    "C#9/.NET Standard2.1 compile",
+    "external mutation boundary compile rejection"
+  ],
+  "scope": "Executed during this review on Windows/.NET; not Unity import/render/FPS. Terminal output observed; no old report overwritten.",
+  "source_identity": "source-sha256.json"
+}

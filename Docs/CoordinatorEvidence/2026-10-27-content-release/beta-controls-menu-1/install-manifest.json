@@ -1,0 +1,21 @@
+{
+  "id": "beta-controls-menu-1",
+  "utc": "2026-10-27T17:29:16.436841+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "3a8ba5d7971ad2325616494e7c7e2d383912b157e2a957eab977e582c7cf4399",
+      "sha256": "9b9b2a6fee9980f93a9de01d3d0b3b7a36f1a99c6a412aa7450adb881e012904"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs",
+      "before": "",
+      "sha256": "3a88e7e960ac1db9e6aa8fe131cdf8120b23786dcd6d1247b3d93dfe12387322"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs.meta",
+      "before": "",
+      "sha256": "48ef25f439a1fbb4e9bc036767d6cb10f6850ed466966660a8358ea196f3785f"
+    }
+  ]
+}

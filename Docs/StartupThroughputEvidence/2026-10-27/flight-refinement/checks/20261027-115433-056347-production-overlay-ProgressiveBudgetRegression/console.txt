@@ -1,0 +1,31 @@
+PASS initial bounded coverage publishes all8-column tiles
+PASS initial coverage opens the refinement phase
+PASS visible terrain progressively publishes8,32,64,128,256 columns
+PASS near full detail and rear bounded quality stay distinct
+PASS visible pixel-limited terrain advances beyond the previous128 ceiling
+PASS resident payload includes every live far mesh exactly once
+PASS static settled scene terminates without rebuilding tiles or allocating meshes
+PASS old complete coverage remains while replacement tiles build
+PASS travel rebases the retained terrain immediately
+PASS travel publishes complete coarse replacement before expensive quality work
+PASS unfinished quality remains observable after coverage publication
+PASS obsolete high-detail coverage is retired at replacement publication
+PASS mesh admission rejects a payload exceeding the detail limit before upload
+PASS capacity rejection retains an observable quality request
+PASS capacity-limited work backs off rather than retrying unchanged requests forever
+PASS one capacity-denied tile does not starve other refinements
+PASS steady far payload is below2GiB and both bounded plans below2.5GiB
+PASS byte admission accepts the exact ceiling and rejects one byte above it
+PASS a new plan reconsiders retained capacity requests and completes them
+PASS view turn releases rear detail and improves the newly visible tile
+PASS source invalidation retains coverage and observable replacement work
+PASS source invalidation replaces terrain with the new immutable source height
+PASS eight incomplete rapid replans retain only active plus latest desired coverage
+PASS superseded partial meshes are destroyed and byte accounting remains exact across rapid replans
+PASS latest rapid plan publishes and retires all obsolete active coverage
+PASS replanning retains an in-flight tile still needed by the new plan
+PASS all urgent32m contact tiles publish before the scheduler shares a far refinement slot
+PASS distant refinement begins while the outer contact ring still has work
+PASS fairness fixture uses a bounded small contact ring rather than a full-world allocation
+PASS shutdown cancels active work and clears meshes, deferred requests and byte accounting
+All 30 progressive terrain checks passed; travel coverage 8 ticks / 122.5ms.

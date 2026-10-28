@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa9243cb2c9a9de192c381cad362311, type: 3}
+  m_Name: Oak
+  m_EditorClassIdentifier: 
+  Species: 1
+  Seed: 715080
+  Height: 9
+  TrunkRadius: 0.52
+  CrownRadius: 4
+  Age: 1
+  BranchAngle: 71
+  BranchLevels: 4
+  BranchCount: 10
+  LeaderStrength: 0.24
+  UpwardGrowth: 0.22
+  ShapeVariation: 0.72
+  WhorlSize: 1
+  LeaderHeightFraction: 0.82
+  BranchDroop: 0.12
+  Gnarl: 0.73
+  RootFlare: 0.52
+  ForkAngle: 41
+  CrownStart: 0.28
+  ConeTaper: 0
+  FoliageStyle: 0
+  FoliageDensity: 0.86
+  LeafClusterRadius: 0.43
+  FruitProbability: 0
+  BarkStyle: 1
+  BarkRelief: 0
+  BarkRidgeCount: 12
+  BarkColor: {r: 0.34901962, g: 0.27450982, b: 0.21568628, a: 1}
+  LeafColor: {r: 0.36078432, g: 0.4509804, b: 0.21960784, a: 1}
+  FruitColor: {r: 0.47058824, g: 0.33333334, b: 0.18431373, a: 1}

@@ -1,0 +1,61 @@
+{
+  "id": "shrub-capture-beta-1",
+  "utc": "2026-10-27T19:53:06.906177+00:00",
+  "status": "Final owner-frozen7payloads + coordinator HUD/Attach/capture overlay; UNINSTALLED",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationShrubMatter.cs",
+      "before": "",
+      "sha256": "f1094604a8e8cad704c3f0920225277319257e41d6ce5103a50b504a488c2efc"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationShrubMatter.cs.meta",
+      "before": "",
+      "sha256": "ea12421942ab8780b7c4ce73c6bb10b89de6c31fb0d580b28239fddd8e5edf14"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationShrubMatter.cs",
+      "before": "",
+      "sha256": "faca70813c2a5eb8ddfabaafd1966e635f735a4fd3a2f77a0c8f9a33bef7faa2"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationShrubMatter.cs.meta",
+      "before": "",
+      "sha256": "0fa3d8a0724c52faa59a28fc6dafaf4c0f6b5e00c51c2eb43583339620acea27"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ShrubMatterTemplate.cs",
+      "before": "",
+      "sha256": "b0464dfd8bc059c1917bfb5a4256abe3da934167143c27aabba916999618c4e3"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ShrubMatterTemplate.cs.meta",
+      "before": "",
+      "sha256": "3280e820e9bc4ce0793ccb8ef7873b77984226ead93bb6fd3418be3c48933a73"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs",
+      "before": "5a9857676bbe91fdd5d744b0a62907938f6771ea95d861ce452b50ac14c75668",
+      "sha256": "3d482d24bcb27ad8e8bec6026b8246f191d45d0438624085ce185540174b9763"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBetaMatter.cs",
+      "before": "b3ec3ae249157450777b536ca4dcd2db241f2203076b67358e797ba86c9d19e9",
+      "sha256": "07abb8845adf947c10daaf3f18e764731961c79e39e324d26792c0b994a91d42"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs",
+      "before": "ae4d417aac4bd2b51b8952babc9c2693ebe9a2bc3cd0ea0ccdcf41c786bf71c5",
+      "sha256": "0fa5ccc184fecfe7300b37c575e20c8756ad719641f25c9d5e8461f74447d6a1"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "bd577544e7f36f8eba1fe56713e0ebd10c49598ac09af629cb81bcd9b612f98f",
+      "sha256": "133db5b589d2357002836332ee763b313ad641d669a78c272f152413007bb6c3"
+    }
+  ],
+  "upstream_shrub_manifest_sha256": "259c1b92e16327cc19cd11e4063a2cffe5f0337c3c2e1a1b61440f7cc06dcb51",
+  "upstream_api": "2026-10-27T19:54:16.395577+00:00",
+  "scope": "One existing full-shrub transfer, existing branch HUD/Place visibility and Editor actual-frame recording/valley framing/idle-worker release; no new demo or simulation override",
+  "owner_release": "Explicit final freeze confirmed via supported task history20:03; no edits running"
+}

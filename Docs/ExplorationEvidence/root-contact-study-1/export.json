@@ -1,0 +1,43 @@
+{
+  "world_id": "14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4",
+  "source": "exploration-blend-v1/14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4/macro=3a307d7dcebc47e0d1831e75a7cd73346480d3386b27aae9600c71dd2051c98b/fine=0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb/width=299520/depth=149760/height=1/blend=512/source-width=299520/source-depth=149760/biomes=biome-cells-v1/14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4/9495e761e7eece02ad764bfb31bf96bb5be66ed84faca207f1100bb73df1a072/234/118/-149760/-75520/1280/surface-relief-v1/seed=714103/surface-v1/catalog-v4/714103/0/4200/2.4000000953674316/True/0.7/0.20000000298023224/0/rock=auto/wind=36.86989764584402/sun=287.3540246362613",
+  "trees": [
+    {
+      "name": "wood-10-baseline.bin",
+      "seed": 714103,
+      "count": 380993,
+      "root_flare": 0.95,
+      "trunk_radius": 2.2,
+      "nominal_height": 75,
+      "elapsed_ms": 453.9067
+    },
+    {
+      "name": "wood-10-narrow.bin",
+      "seed": 714103,
+      "count": 349776,
+      "root_flare": 0.2,
+      "trunk_radius": 2.2,
+      "nominal_height": 75,
+      "elapsed_ms": 229.8659
+    },
+    {
+      "name": "wood-11-baseline.bin",
+      "seed": 271828,
+      "count": 411904,
+      "root_flare": 0.95,
+      "trunk_radius": 2.2,
+      "nominal_height": 75,
+      "elapsed_ms": 332.4622
+    },
+    {
+      "name": "wood-11-narrow.bin",
+      "seed": 271828,
+      "count": 380527,
+      "root_flare": 0.2,
+      "trunk_radius": 2.2,
+      "nominal_height": 75,
+      "elapsed_ms": 233.7695
+    }
+  ],
+  "scope": "CPU actual 10cm wood data and globally aligned terrain heights; foliage suppressed. No Unity, no runtime mutation or adoption."
+}

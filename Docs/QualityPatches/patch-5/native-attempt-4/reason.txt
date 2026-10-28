@@ -1,0 +1,1 @@
+Fixture brightness assertion failed on linear HDR target read directly into PNG. Investigating capture transfer before changing calibrated lighting. This attempt is not passing visual acceptance. Full log: Logs/material-optics-native-4.log

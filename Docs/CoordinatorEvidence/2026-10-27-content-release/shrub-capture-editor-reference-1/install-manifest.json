@@ -1,0 +1,11 @@
+{
+  "id": "shrub-capture-editor-reference-1",
+  "utc": "2026-10-27T20:28:38.980215+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/AshenVoxel.Exploration.Editor.asmdef",
+      "before": "5bbb44c6dd29488bb9ee5b9ae958699e999b942327cfe3898a01484a0cb6c7b2",
+      "sha256": "c345c2c2f326155ad1e12634d4e3e43b2ebdd583554c2c86eb7981f6e2f7dbe9"
+    }
+  ]
+}

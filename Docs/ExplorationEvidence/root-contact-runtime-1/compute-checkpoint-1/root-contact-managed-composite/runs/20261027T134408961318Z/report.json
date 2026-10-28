@@ -1,0 +1,112 @@
+{
+  "status": "PASS",
+  "assertions": 164394,
+  "seconds": 0.7541446,
+  "actual": [
+    {
+      "id": 10,
+      "seconds": 0.4527919,
+      "retained_mesh_bytes": 1589976,
+      "declared_output_element_bytes": 1591816,
+      "template_element_bytes": 176000,
+      "root_element_bytes": 801816,
+      "peak_declared_scratch_bytes": 2758412,
+      "peak_declared_total_bytes": 4760572,
+      "fixed_candidates": 4101,
+      "root_candidates": 250550,
+      "face_candidates": 362760,
+      "halo_cells_read": 437400,
+      "mesh_chunk_calls": 75,
+      "lods": [
+        {
+          "factor": 1,
+          "cut": 30,
+          "chunks": 50,
+          "retained_mesh_bytes": 1143624,
+          "sha256": "a73fe12284639d6f8a42ddc054708cf1f7763f8dde20554a317b8c0e6d6202c9"
+        },
+        {
+          "factor": 2,
+          "cut": 32,
+          "chunks": 15,
+          "retained_mesh_bytes": 328168,
+          "sha256": "d73f3b7cca51cd18d0d37407ad364b8e5d0550869e7709f9f8018a0f60ad03dc"
+        },
+        {
+          "factor": 4,
+          "cut": 36,
+          "chunks": 4,
+          "retained_mesh_bytes": 102136,
+          "sha256": "aa15e9dafe1e6975c0849a9acd8c14dfd0d6b7b1eb0efc43d288dfd48a952980"
+        },
+        {
+          "factor": 16,
+          "cut": 60,
+          "chunks": 4,
+          "retained_mesh_bytes": 13328,
+          "sha256": "05802055db39641b0c19aefc206f9226324ce9a3dfe654a4f3a4213ba73a677f"
+        },
+        {
+          "factor": 64,
+          "cut": 124,
+          "chunks": 2,
+          "retained_mesh_bytes": 2720,
+          "sha256": "e12048ef5693d9e7adb621c96388155f606809cd0d37f37ccb035f641249488b"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "seconds": 0.2341497,
+      "retained_mesh_bytes": 1644512,
+      "declared_output_element_bytes": 1646232,
+      "template_element_bytes": 188096,
+      "root_element_bytes": 824664,
+      "peak_declared_scratch_bytes": 2643296,
+      "peak_declared_total_bytes": 4661832,
+      "fixed_candidates": 4396,
+      "root_candidates": 257690,
+      "face_candidates": 373974,
+      "halo_cells_read": 408240,
+      "mesh_chunk_calls": 70,
+      "lods": [
+        {
+          "factor": 1,
+          "cut": 30,
+          "chunks": 46,
+          "retained_mesh_bytes": 1194216,
+          "sha256": "907fbc1fa6ed799339de72a4b22d6df562169d83e9552ed0f4dd52a5a0432cfd"
+        },
+        {
+          "factor": 2,
+          "cut": 32,
+          "chunks": 15,
+          "retained_mesh_bytes": 333336,
+          "sha256": "abf729edba8061073b8cd70173e524ffc681f27b29feceba0d77a88d80a5190a"
+        },
+        {
+          "factor": 4,
+          "cut": 36,
+          "chunks": 4,
+          "retained_mesh_bytes": 101864,
+          "sha256": "df55f59997adcb97cc8bc2263d9288d6dcbe5255ff2dc6dfc0480833e1fe4e43"
+        },
+        {
+          "factor": 16,
+          "cut": 60,
+          "chunks": 4,
+          "retained_mesh_bytes": 12784,
+          "sha256": "f3e9a240313f4effc315cf889b6c7a03441890a77d3280463edc644c31d68497"
+        },
+        {
+          "factor": 64,
+          "cut": 124,
+          "chunks": 1,
+          "retained_mesh_bytes": 2312,
+          "sha256": "2499c546f6c529451963070b30d301bfb8fbc239091e4fc33a18395fd77ae6aa"
+        }
+      ]
+    }
+  ],
+  "scope": "Pure managed captured-summary/root compute adapter. No Unity/shim references, tree generation, pack decoding, native or production worker/cache integration. Byte accounting is declared bounded array payload, not measured CLR reservation."
+}

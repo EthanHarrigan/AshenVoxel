@@ -1,0 +1,144 @@
+{
+  "scope": "READ-ONLY current MAIN production integration audit. No Assets/main writes, Unity/native/UI operations, runtime implementation or broad architecture change. Plans below are not installed.",
+  "population_version": 1,
+  "pack": "AVPM0004",
+  "pack_models": 99,
+  "pack_sha256": "41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa",
+  "main_files": 32,
+  "templates": [
+    {
+      "id": 10,
+      "columns": 2314,
+      "source_cells": 55061,
+      "column_fixture_bytes": 353510,
+      "canonical_context_29_through32_cells": 5345,
+      "exact_scalar_array_and_coordinate_payload_bytes": 434398,
+      "conservative_managed_reservation_estimate_bytes": 1119038,
+      "reservation_formula": "6*sourceCells +112*columns +96*contextCells +16KiB; estimated allowance for arrays/objects/dictionaries/identity, not measured CLR residency"
+    },
+    {
+      "id": 11,
+      "columns": 2390,
+      "source_cells": 58086,
+      "column_fixture_bytes": 372420,
+      "canonical_context_29_through32_cells": 5736,
+      "exact_scalar_array_and_coordinate_payload_bytes": 459412,
+      "conservative_managed_reservation_estimate_bytes": 1183236,
+      "reservation_formula": "6*sourceCells +112*columns +96*contextCells +16KiB; estimated allowance for arrays/objects/dictionaries/identity, not measured CLR residency"
+    }
+  ],
+  "total_exact_template_payload": 893810,
+  "total_estimated_template_reservation": 2302274,
+  "split_payload": [
+    {
+      "prototype_id": 10,
+      "lod": 0,
+      "cut_cells": 30,
+      "crossing_quads": 60,
+      "original_gpu_payload_bytes": 117532696,
+      "shared_split_incremental_gpu_payload_bytes": 4800,
+      "upper_triangles": 1696178,
+      "authored_base_triangles": 32364,
+      "default_runtime_uses_billboard": false
+    },
+    {
+      "prototype_id": 10,
+      "lod": 1,
+      "cut_cells": 32,
+      "crossing_quads": 6,
+      "original_gpu_payload_bytes": 25288792,
+      "shared_split_incremental_gpu_payload_bytes": 480,
+      "upper_triangles": 362538,
+      "authored_base_triangles": 9368,
+      "default_runtime_uses_billboard": false
+    },
+    {
+      "prototype_id": 10,
+      "lod": 2,
+      "cut_cells": 36,
+      "crossing_quads": 15,
+      "original_gpu_payload_bytes": 7447904,
+      "shared_split_incremental_gpu_payload_bytes": 1200,
+      "upper_triangles": 106960,
+      "authored_base_triangles": 2598,
+      "default_runtime_uses_billboard": false
+    },
+    {
+      "prototype_id": 10,
+      "lod": 3,
+      "cut_cells": 60,
+      "crossing_quads": 0,
+      "original_gpu_payload_bytes": 519928,
+      "shared_split_incremental_gpu_payload_bytes": 0,
+      "upper_triangles": 7366,
+      "authored_base_triangles": 280,
+      "default_runtime_uses_billboard": true
+    },
+    {
+      "prototype_id": 10,
+      "lod": 4,
+      "cut_cells": 124,
+      "crossing_quads": 0,
+      "original_gpu_payload_bytes": 23120,
+      "shared_split_incremental_gpu_payload_bytes": 0,
+      "upper_triangles": 286,
+      "authored_base_triangles": 54,
+      "default_runtime_uses_billboard": true
+    },
+    {
+      "prototype_id": 11,
+      "lod": 0,
+      "cut_cells": 30,
+      "crossing_quads": 59,
+      "original_gpu_payload_bytes": 121104328,
+      "shared_split_incremental_gpu_payload_bytes": 4720,
+      "upper_triangles": 1748486,
+      "authored_base_triangles": 32578,
+      "default_runtime_uses_billboard": false
+    },
+    {
+      "prototype_id": 11,
+      "lod": 1,
+      "cut_cells": 32,
+      "crossing_quads": 10,
+      "original_gpu_payload_bytes": 25927448,
+      "shared_split_incremental_gpu_payload_bytes": 800,
+      "upper_triangles": 372054,
+      "authored_base_triangles": 9252,
+      "default_runtime_uses_billboard": false
+    },
+    {
+      "prototype_id": 11,
+      "lod": 2,
+      "cut_cells": 36,
+      "crossing_quads": 9,
+      "original_gpu_payload_bytes": 7641432,
+      "shared_split_incremental_gpu_payload_bytes": 720,
+      "upper_triangles": 109790,
+      "authored_base_triangles": 2602,
+      "default_runtime_uses_billboard": false
+    },
+    {
+      "prototype_id": 11,
+      "lod": 3,
+      "cut_cells": 60,
+      "crossing_quads": 1,
+      "original_gpu_payload_bytes": 563856,
+      "shared_split_incremental_gpu_payload_bytes": 80,
+      "upper_triangles": 8006,
+      "authored_base_triangles": 288,
+      "default_runtime_uses_billboard": true
+    },
+    {
+      "prototype_id": 11,
+      "lod": 4,
+      "cut_cells": 124,
+      "crossing_quads": 0,
+      "original_gpu_payload_bytes": 24344,
+      "shared_split_incremental_gpu_payload_bytes": 0,
+      "upper_triangles": 304,
+      "authored_base_triangles": 54,
+      "default_runtime_uses_billboard": true
+    }
+  ]
+}

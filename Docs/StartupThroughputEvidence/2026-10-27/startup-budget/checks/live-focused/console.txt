@@ -1,0 +1,32 @@
+PASS shipping default quotas unchanged
+PASS bootstrap passes quotas before field/plan/build allocation
+PASS cache budgets do not change source identity
+PASS lower effective clamps are stable
+PASS upper effective clamps are stable
+PASS lower quota exposes retained detail debt
+PASS new topology coarse key remains admissible while detail debt exists
+PASS strictly smaller replacement can repay debt without requiring all other tiles to fit first
+PASS positive new detail above quota is deferred
+PASS coarsening queues one replacement and retains visible old coverage
+PASS real worker swaps coarse replacement without retiring old coverage early
+PASS bounded coarsening converges below quota without dropping active keys
+PASS larger demand stays deferred at settled low quota
+PASS static low quota does not busy-retry deferred detail
+PASS increasing quota wakes eligible far demand without moving
+PASS far shutdown clears owned accounting and debt
+PASS inactive far cache cannot justify contact retirement or hide debt
+PASS positive parent cannot cover an adjacent negative contact key
+PASS negative contact ancestor uses floor division and covers the entire aligned tile
+PASS active aligned far coverage permits farthest contact retirement
+PASS retired desired contact retains its measured obligation without immediate retry
+PASS contact allowance increase wakes the retired full-detail request
+PASS contact re-admission retains10cm detail and originating source revision
+PASS new plan starts with old complete coverage and explicit debt
+PASS new coarse topology publishes completely while previous detail exceeds quota
+PASS topology swap retires obsolete debt without holes
+PASS over-budget real contact geometry is rejected before scratch expansion or mesh publication
+PASS quota lowered during expansion is rechecked before native mesh creation
+PASS denied in-flight work leaves existing contacts and quota accounting intact
+PASS worker disposal releases scratch and async handle
+PASS far quota lowered during expansion rejects new charge before mesh upload
+PASS rejected in-flight far work preserves prior coverage and truthful debt

@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-27T22:49:03.295700+00:00",
+  "installed_hashes": {
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "1e7de6b6d1e6253e0efe539e1e14d10cca67fc5baff5cf6fe216c9b84fb15eae",
+    "Assets/AshenVoxel/Exploration/ExplorationNaturalTreeMatter.cs": "bdea2c8015c761263e7da64df952a6aafa4f15749186e53959fe10c6a98748d5",
+    "Assets/AshenVoxel/Exploration/ExplorationNaturalTreeMatter.cs.meta": "38814aed62d820461eee0a674f1079fe26928aeb5ac1860d4faf58afd687c9ce",
+    "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs": "eb4a78b85aa600e82ff15fbf96afcc099008e50784dfbf7a8ca9b4fb1d64de9c",
+    "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs.meta": "f40cc13484acf0e9dfa8a918d757028580a79a922d6d277e098bfc3bc34dad69",
+    "Assets/AshenVoxel/Exploration/NaturalTreeTemplate.cs": "7935ba5c190a5cf5e93208dc1722656571c058a34e6d7de4ad131ce56a76b33f",
+    "Assets/AshenVoxel/Exploration/NaturalTreeTemplate.cs.meta": "4797ca23af4c8876a0295844bf01f46142aabbfc579a4cf959f9cc8213901352",
+    "Assets/AshenVoxel/Exploration/VegetationTreeMatter.cs": "27e23e030394a6e0a4ec09ac89cdf11b0f97e002739968ba53bd7073b2cee091",
+    "Assets/AshenVoxel/Exploration/VegetationTreeMatter.cs.meta": "269c7f74a24e55228255ce0b3ec55844b533678ca653687f2c54f1eaa1e06ab1",
+    "Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs": "2dcff11f2c1cc869905108d1e1fe9d07e6c8c0ad743b9ec2ebb3b3c32f8e9748"
+  },
+  "native_compile": "PASS; zero CS/shader errors in post-install log; existing DLSS null-options warning remains",
+  "native_ready": "Observed 2026-10-27T22:36:34Z; normal Exploration, Normal512/1536MiB temporary test profile",
+  "interaction": "NOT accepted: no eligible young birch published within1500m of valley or original clearing. Native relocation/acquisition continuing; no fabricated tree.",
+  "controls": "T enable nearby existing young birch0/1; LMB aimed trunk cells; G explicit kick; I vacuum defaultOFF; O session restore/discard cargo",
+  "limits": "4096 cells; full3395/3408 young birch only, not mature trees; custom independent rigid-cube dynamics in shared buffers, no per-voxel Unity objects; native cost/terrain contact/conservation/rollback remain open"
+}

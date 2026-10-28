@@ -1,0 +1,16 @@
+PASS crossing invokes contact-only replan with unchanged far plan/source revision
+PASS still-desired far iterator survives contact-cell crossing
+PASS repeated contact boundary preserves same far iterator
+PASS repeated contact boundary preserves same far iterator
+PASS repeated contact boundary preserves same far iterator
+PASS repeated contact boundary preserves same far iterator
+PASS repeated contact boundary preserves same far iterator
+PASS repeated contact boundary preserves same far iterator
+PASS repeated contact boundary preserves same far iterator
+PASS repeated contact boundary preserves same far iterator
+PASS retained actual geometry completes and publishes through repeated crossings
+PASS actual default40x4 controller boost preserves far work across boundary
+PASS vertical descent keeps exact XZ contact cell and source revision
+System.Exception: same-cell vertical descent immediately preempts retained far work
+   at Program.Check(Boolean ok, String s)
+   at Program.Main(String[] args)

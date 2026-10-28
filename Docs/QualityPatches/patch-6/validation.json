@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-27T06:42:45.510306+00:00",
+  "scope": "Native DX12 small wind/opacity/real-tree shade fixtures and all changed shader passes. 31 smoke,31 streaming,5 real API assemblies,27 shader contracts. Not full-world FPS, actual temporal history acceptance or missing-vegetation scheduling fix.",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "e8647677f067ff20ecc3d6db2ba4fd3ee5892919c4cb99e9f533b993d9e2bf19",
+      "sha256": "820fd9f05e4f7522f61949c9722f97c04bb325effd69787689468d11a158d90f"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+      "before": "d5029584127a288457d48cd30507cb61a3e4253e15f251417acb82158729fa67",
+      "sha256": "1b99928293fc061bf388946f4889df166f153cd0c0c8d2e1f5efe80ea1a256fa"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationWind.cs",
+      "before": "",
+      "sha256": "62ebdd37ffd5b818a33483b1fb1063e8e0b9af8de7451958b5daba6db39c4b4e"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationWind.cs.meta",
+      "before": "",
+      "sha256": "728c38f233b1d8fbaa2d47ea80d679ed5a540109b4bcc4e6d4e44c66c2aca4b4"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ForestImpostor.shader",
+      "before": "1ece1872bbbfb8b7f4f201568002c6f0536b245caa87195e35c6e064f9ed6649",
+      "sha256": "559f0b6e9575f4c676a25278e546ee8e6a543d929b0f4835e9f43c5a05474830"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs",
+      "before": "9a300104a99249e0ab971639d5350d27c4570a919a10e051938cda071949c29c",
+      "sha256": "100879c15b273d5d81cecab68ec24df83eb1f3a351f3286727020aa066eea993"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/MaterialOpticsEditor.cs",
+      "before": "ae3b23f5719e37fac3f3632f44183e300ee8ec598c9e27e300f5242f905d4674",
+      "sha256": "f76a850ca98e9fe6b04c63460a69571accbf56b018109b4f40197f1267b47538"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/MaterialOpticsNativeCheck.cs",
+      "before": "35631a561f464afb0b17b81151f527380699dc9880efa95bda94aec18302e549",
+      "sha256": "2810d70a2ab61de8e3f05170ec624e70802924de0cbd6fcee81574da9702bcb1"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/QualityGraphicsCheck.cs",
+      "before": "3541e7f6b4240f01e3eeab0a3cce7848b75f8fb54fe5eef4d37e2d3b4d032b9f",
+      "sha256": "3ce501b02c91fccf2aa356691e3972199f1ea6047c1f6b9f72e2a1019806ae9d"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/QualityPatchReview.cs",
+      "before": "1cb7ad1df50f9f05b2477a6bad56e146286150d5f4eedd096db0d7645fbda779",
+      "sha256": "62931466b329f3bb09fce794e795892d3fe1f65c69bb06adcb5197737e8571a9"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/WindNativeCheck.cs",
+      "before": "",
+      "sha256": "d0c26aea959f05b1deff68afd87a3dfccaf1a84d85fba3e35e5630f2c2de1b39"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/WindNativeCheck.cs.meta",
+      "before": "",
+      "sha256": "21a8b47a95bd49c96fb530b897e0ffc9714a794ec6c6c01988c8914e6174b002"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestHorizonGpu.shader",
+      "before": "bfdc3332574561e31a8565983b26f71199cd9c6e68df83e03716f66f55f1dcb8",
+      "sha256": "85eb010c0bc3d53d325ad521d716ee2c1e8434dcb0928170537494ae0b16d418"
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/MaterialOptics.hlsl",
+      "before": "9d74d2afea462a3a1bde79ccbe7bb6f1ba7155039ec5792261ed59e51642e280",
+      "sha256": "f19104a070c814f84f7de4e15d4ee5130715eea49231560e5869a4497a7922ba"
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/MaterialOpticsProfile.cs",
+      "before": "a2dd1fae88124096fa4f255a605861aea0b7bee6c3de61a64e079eb1289b60ec",
+      "sha256": "503af3d272a0d334cf2e9d8db0fc7196ff6ad21e7d881e598014abfd77411551"
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/VoxelWind.hlsl",
+      "before": "",
+      "sha256": "b8fa8879116e7e2c84ce859031ccaffce02a78c06862f63f2139d6f4a9c49956"
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/VoxelWind.hlsl.meta",
+      "before": "",
+      "sha256": "80ef9f021391d86aa2f700e633e21d8cbf8fbf39183c40013b6650e3f4813719"
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/WorldSurface.shader",
+      "before": "593fe73b5e3254931597ddb896c926b7dc5423812e154f7ed986329c09dcac8c",
+      "sha256": "79959309d848d4c8950eb8bb4035832fc8fea2166fa38a74f96417f621185416"
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/Resources/MaterialOptics.asset",
+      "before": "97b4fca0dce4a46a55c25d1559732b244d8d57335366d6cad8947c243a834342",
+      "sha256": "cf9acac24e274ccda863095c43d977b40599f97c3333712808793f39f9a5cee0"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/GroundSurface.shader",
+      "before": "522d3fae30bafe9de37e200b96099b7ffcc735a154ac133a86a2eab760c8aed6",
+      "sha256": "68f0a54773d31c53f9cf1fbae5902882ccd781a5ccfca8b7344319dba6f7c94f"
+    }
+  ]
+}

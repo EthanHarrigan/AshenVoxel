@@ -1,0 +1,169 @@
+{
+  "source_set_stable_during_compile": true,
+  "changed_during_compile": [],
+  "official_template_assembly_path": "/workspace/exploration-native-check/template-refs/Editor/Data/Resources/PackageManager/ProjectTemplates/libcache/com.unity.template.3d-cross-platform-17.0.14/ScriptAssemblies",
+  "generated_utc": "2026-10-26T23:02:43.717839+00:00",
+  "status": "PASS",
+  "scope": "Roslyn C#9 compilation against actual official Unity NetStandard2.1 reference profile and6000.3.27f1 Managed moduleDLLs and compiled unmodifiedofficialInputSystem1.17.0sources. NoUnityEditor/native/runtime/HLSL execution. Playerconditional compile; optionalInputUI adapters excluded.",
+  "assemblies": {
+    "AshenVoxel.Core": {
+      "exit_code": 0,
+      "sources": 18,
+      "source_sha256": {
+        "Assets/AshenVoxel/Core/Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+        "Assets/AshenVoxel/Core/WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+        "Assets/AshenVoxel/Core/Materials.cs": "0342f83df63737d241289e0c86931ebe501cd0c090cf2c773316cc170ef9afd3",
+        "Assets/AshenVoxel/Core/EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+        "Assets/AshenVoxel/Core/VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+        "Assets/AshenVoxel/Core/Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+        "Assets/AshenVoxel/Core/Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+        "Assets/AshenVoxel/Core/VoxelColor.cs": "b1392b24b7d0b3d966ac7cf35f438de7db384639397444d508ed28e95e8899c6",
+        "Assets/AshenVoxel/Core/Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+        "Assets/AshenVoxel/Core/VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+        "Assets/AshenVoxel/Core/Rocks/RockProfile.cs": "20152a9dbd0661143a400c1c2b7a69e97755e65342e3352239847b1dc752afc3",
+        "Assets/AshenVoxel/Core/Rocks/RockShapeGeometry.cs": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69",
+        "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs": "006a8434c519bb996e85c4b05e0f188efe49a0a56e68d84ae6b9804f1e78425e",
+        "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+        "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+        "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+        "Assets/AshenVoxel/Core/Details/PlantGenerator.cs": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+        "Assets/AshenVoxel/Core/Details/PlantModel.cs": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2"
+      },
+      "references": [],
+      "warnings": 0
+    },
+    "AshenVoxel.Rendering": {
+      "exit_code": 0,
+      "sources": 2,
+      "source_sha256": {
+        "Assets/AshenVoxel/Rendering/ChunkWorldRenderer.cs": "7a066cce60e92789eb66193b81fbc19c56081a654ca96ba0b36dab8880e29300",
+        "Assets/AshenVoxel/Rendering/GreedyChunkMesher.cs": "e196729451ab29fcc087dadaa86a77248965a499dacaee242ae309f56aa39aad"
+      },
+      "references": [
+        "AshenVoxel.Core"
+      ],
+      "warnings": 0
+    },
+    "AshenVoxel.Authoring": {
+      "exit_code": 0,
+      "sources": 3,
+      "source_sha256": {
+        "Assets/AshenVoxel/Authoring/TreeShowcase.cs": "bf37776ed718fc97f5adfc1fad34d01eb2448504e91b90932a639f4cfced1cc7",
+        "Assets/AshenVoxel/Authoring/WorkshopOrbitCamera.cs": "54ff776be6d2eef6f0af6f5beb1db0293a6e7797d16068bf97ab5de4a30b8c99",
+        "Assets/AshenVoxel/Authoring/TreeProfile.cs": "4cbbab19842697b58f2e1c17b9cf962468f0cc77fc672de727dea4ebbbbbcd58"
+      },
+      "references": [
+        "AshenVoxel.Core",
+        "AshenVoxel.Rendering",
+        "Unity.InputSystem"
+      ],
+      "warnings": 0
+    },
+    "AshenVoxel.Runtime": {
+      "exit_code": 0,
+      "sources": 3,
+      "source_sha256": {
+        "Assets/AshenVoxel/Runtime/GridWalker.cs": "4579a070edbea90f469ffe8e10d97990330a9d2442255f92887a1502b69e9f5d",
+        "Assets/AshenVoxel/Runtime/CairnBoss.cs": "4c516e217c0421a8388bfd8c8abfe465a892ad9985c1beba12b07aab1b0372ae",
+        "Assets/AshenVoxel/Runtime/DemoBootstrap.cs": "77b003218d0ac37350e9c7b352f22d420db76b707bb59419578171d12a7a5298"
+      },
+      "references": [
+        "AshenVoxel.Core",
+        "AshenVoxel.Rendering",
+        "Unity.InputSystem",
+        "Unity.RenderPipelines.Core.Runtime",
+        "Unity.RenderPipelines.Universal.Runtime"
+      ],
+      "warnings": 0
+    },
+    "AshenVoxel.WorldScaleData": {
+      "exit_code": 0,
+      "sources": 16,
+      "source_sha256": {
+        "Assets/AshenVoxel/WorldScaleData/ExplorationAtlasField.cs": "bac586c5a6d6e52a51d3776a8d4283d39fb10c47288be783b90770db598c8c39",
+        "Assets/AshenVoxel/WorldScaleData/GroundCoverScatter.cs": "3a1ce33ae049b07c752e82e01b61cc75de0071c1fef7f8373ee83782309b78e5",
+        "Assets/AshenVoxel/WorldScaleData/WorldCoordinates.cs": "227e9cffedc4c23135e3486d229caad68fe20be39bbc8495d3d07af3d889dd82",
+        "Assets/AshenVoxel/WorldScaleData/SurfaceProfile.cs": "05711037d0af7676befcfa1bf056bb6186eb4d1f7c465a84d72d56c0872baff8",
+        "Assets/AshenVoxel/WorldScaleData/HeightAtlas.cs": "e7ee57295416134833db7e9e8dfc86e73d6a779561b6adde73a91801b11a43b7",
+        "Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs": "51ee55cc8c121f20689e90199c0bb5dacf2b6bf9e30234e3e31a350a54ba0ffd",
+        "Assets/AshenVoxel/WorldScaleData/SurfaceWorldField.cs": "614c9bc4c516ba6f164deb628f024554552c988e46e1b7e1d6e513968f67722a",
+        "Assets/AshenVoxel/WorldScaleData/WorldFields.cs": "750af4d4b9113607f005052a0b39f1d7e17f1f9f09b78a5a1557393304fa2339",
+        "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs": "7d7f3794bf4574d1d0011c185f8de959d9dc7f7d6b3d96cf55f587e1328ac588",
+        "Assets/AshenVoxel/WorldScaleData/ExplorationPopulation.cs": "ed0dc9bee43813cac4ad0532cfc0270fac0b2c83dbb6ea6eb324ce8721724a27",
+        "Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs": "8052f36426e5a7cd6823d25fab764862c538dbc2c4675440b2e6272c1be56e61",
+        "Assets/AshenVoxel/WorldScaleData/ImplicitMatter.cs": "c063bf46a0a905cf3b7edd1ad383e89b8e74d649b5597f2efd9f6ea1bcab2eb5",
+        "Assets/AshenVoxel/WorldScaleData/ForestBiomes.cs": "6d775df485aab75bf6f507f46477ff60a82c74be0834af21d9b078ed04d4ee55",
+        "Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs": "4e873a75acd0f67f22a2b85e2caf407d6851cc3fd870441947fee5a9629bed90",
+        "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs": "31f2f4bafeb44ad064c1c2e1702ebb700c051ec40e0a1a28de5777603522d88f",
+        "Assets/AshenVoxel/WorldScaleData/ClimateArchive.cs": "126995205fe788f26b2a516fce894d1dce732dea75ed9db37b14cb58bfe303d9"
+      },
+      "references": [
+        "AshenVoxel.Core"
+      ],
+      "warnings": 0
+    },
+    "AshenVoxel.WorldScaleRuntime": {
+      "exit_code": 0,
+      "sources": 6,
+      "source_sha256": {
+        "Assets/AshenVoxel/WorldScaleRuntime/GroundCoverShowcase.cs": "295667e330d9aa9dc2bd31dbee75dff921b0a682162a88501324a1b0d3671903",
+        "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs": "8d7b7b2b884f39389fdd82bd14f3f3a2b4f3ae90250727e3356a092ed7a974ba",
+        "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs": "80932701bed1dec61ead878759cf36a7851fafc58ac0733373aa8377a1d30734",
+        "Assets/AshenVoxel/WorldScaleRuntime/RemoteTerrainField.cs": "9476f5365cec348f543b59d28c3bc90b8941af7748bf96075052c51b7183109e",
+        "Assets/AshenVoxel/WorldScaleRuntime/WorkshopCamera.cs": "0978fbefe148ae9d4b7ac36c582a9eaee77ea6019f711329148285eb8850ca01",
+        "Assets/AshenVoxel/WorldScaleRuntime/VisualWater.cs": "6c8a56e97e2acf2f3c25f305e98164680e2ab40e38946b64b86081f1bfc3494f"
+      },
+      "references": [
+        "AshenVoxel.Core",
+        "AshenVoxel.Rendering",
+        "AshenVoxel.WorldScaleData",
+        "Unity.InputSystem"
+      ],
+      "warnings": 0
+    },
+    "AshenVoxel.Exploration": {
+      "exit_code": 0,
+      "sources": 5,
+      "source_sha256": {
+        "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": "b2d02582735d61bdcfbca69e446098fa91e5941750220d7cdf00a4a2c8943699",
+        "Assets/AshenVoxel/Exploration/ExplorationController.cs": "bcbdaa0ee9a7550d0439209ed839cc69c85c794a5156906dc9deed3d9a8894aa",
+        "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs": "72879000eed2a41b927d4c237a2751d17f345d236181ff15ea4fa9695ab0d9a6",
+        "Assets/AshenVoxel/Exploration/VegetationStreaming.cs": "3e58f9e25cd597c8f64512a79df200430b0d6d60a323ce7725592c8ed479591f",
+        "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "877df8c225413e570e9947a447043d1d5876a074a5ba996369f1bd4edb126cf3"
+      },
+      "references": [
+        "AshenVoxel.Core",
+        "AshenVoxel.Rendering",
+        "AshenVoxel.WorldScaleData",
+        "AshenVoxel.WorldScaleRuntime",
+        "Unity.InputSystem"
+      ],
+      "warnings": 0
+    }
+  },
+  "provenance": {
+    "editor_version": "6000.3.27f1",
+    "official_archive_url": "https://download.unity3d.com/download_unity/672d562a42a7/LinuxEditorInstaller/Unity-6000.3.27f1.tar.xz",
+    "official_archive_bytes": 4573113148,
+    "builtin_package_json_versions": {
+      "com.unity.render-pipelines.universal": "17.3.0",
+      "com.unity.render-pipelines.core": "17.3.0",
+      "com.unity.shadergraph": "17.3.0"
+    },
+    "runtime_reference_profile": "Official Editor/Data/NetStandard/ref/2.1.0/netstandard.dll",
+    "editor_reference_profile": "Official Editor/Data/UnityReferenceAssemblies/unity-4.8-api + Facades",
+    "input_system_runtime_source_version": "1.17.0",
+    "input_system_runtime_source_files": 401,
+    "reference_dll_sha256": {
+      "Unity.RenderPipelines.Universal.Editor.dll": "3e03339e0f375ba8014d78fe24d82b6c73cc15e5dd78415bfd607a6d4536dba8",
+      "Unity.RenderPipelines.Core.Runtime.dll": "ee1e624878502ef827e41c0b20666703dc46f217bdab7770716371ba1084132f",
+      "Unity.RenderPipelines.Universal.Runtime.dll": "2b1263387c55b566c85d8db8b351b72b9049166104d5511e4b57cb518810a931",
+      "Unity.RenderPipelines.Core.Editor.dll": "e441a75695b46cdc443857d0ebac5aa50ea7c18471172eef87282a97921d56a3"
+    },
+    "native_unity_execution": false,
+    "unity_hlsl_compilation": false,
+    "gpu_frame_or_performance_verified": false
+  },
+  "checked_source_files": 53,
+  "post_compile_current_source_hash_audit": "PASS"
+}

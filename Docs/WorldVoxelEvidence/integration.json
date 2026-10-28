@@ -1,0 +1,99 @@
+{
+  "status": "INTEGRATED",
+  "utc": "2026-10-27T04:28:58.156371+00:00",
+  "working_copy": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels",
+  "backup": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\world-voxel-pre-integration-20261026-222857",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/VoxelLodSurface.cs",
+      "before_sha256": "b95b597345fd57a7910597e48bb8106f1a82216658a4645e22a9f680c114f7af",
+      "after_sha256": "7594f012e2a491f2e1f7869b0a7186f4cb33dc3db38ac48eb1a795939dc6b672"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "before_sha256": "ea93fbafbd32ff26a12df579bcb93864acb2fc2012e6f509e71d77739d80e85e",
+      "after_sha256": "a125a45029a694ade263cc09b30cee1670a65ae359a1096c837a6e21a596dc0f"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+      "before_sha256": "e96757fe01dd428a65a6dbeb988b62a5e5ab065c1465ae6733b348cb216327b0",
+      "after_sha256": "37e98d6e1fb51193fb2bafd3cb634361f0001bc6e792c6af05e987548ae2664d"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before_sha256": "13369ec578de380526037955cdf3b504a9c35c21ff851d220ea197f4ac3835e3",
+      "after_sha256": "609a151162ce82fc7f306fa7bbd250b1eef580009c062d1100991cbfb02440d7"
+    },
+    {
+      "path": "Tools/ExplorationSmokeChecks/UnityShim.cs",
+      "before_sha256": "158b576b88f7a36b564d79721a198a10a0cc0c3f130803b06c05b460ac202d8c",
+      "after_sha256": "c7319ece597c8f13b78c7d49954c9980471c2703168689e45c9fb3dbc6071b57"
+    },
+    {
+      "path": "Tools/ExplorationSmokeChecks/Program.cs",
+      "before_sha256": "d3b85adef544f5c6b5e90164e48f0c93e80ed72e599562585a8feadd9c80a20c",
+      "after_sha256": "074b470b0057ab3c30ed7179a96370f1cc7aa917c891a1bcd44b852344fa3d5c"
+    },
+    {
+      "path": "Tools/WorldExplorerChecks/UnityShim.cs",
+      "before_sha256": "b05cde0af09485fd4672766732132a3d9a7718e1831e377429d6b1707d390411",
+      "after_sha256": "0c7d8fc1c194179f24262f02649b77ef6815c76fae2689b7bfdfc506003f1244"
+    },
+    {
+      "path": "Tools/VoxelTerrainChecks/LodProgram.cs",
+      "before_sha256": "3f3e27dc543197ce977b59ba8e4b75fb73d64ce01d5620aa44daa23c705069bd",
+      "after_sha256": "d8027fbf3d3fa51f7f8ef50824dc23a86441ab1d5ac9d473b7e5315386ddfbe1"
+    },
+    {
+      "path": "Tools/VoxelTerrainChecks/LodRuntimeProgram.cs",
+      "before_sha256": null,
+      "after_sha256": "c21d5bd8a3026a7b0cc4cfb82e70c3493a7886c4ad68147181828bcf4e65bc8d"
+    },
+    {
+      "path": "Tools/VoxelTerrainChecks/WorldNativeCheck.cs",
+      "before_sha256": null,
+      "after_sha256": "d3fa9b2d8879df624e9a4e8addf71849c9d21550736fd5bd15bed54c10b867d7"
+    },
+    {
+      "path": "Tools/VoxelTerrainChecks/WorldTerrainNativeCheck.cs",
+      "before_sha256": null,
+      "after_sha256": "5e72db193cf5ed9c54fb0d32c5039fc35e32b8b9118ffd52f5f8192f96c3439d"
+    },
+    {
+      "path": "Tools/run_voxel_lod_checks.py",
+      "before_sha256": "b0955cc345b307f0b4601fd2424fde3d15218d7d5eda8b7e2e23c7f27a525c4a",
+      "after_sha256": "b0955cc345b307f0b4601fd2424fde3d15218d7d5eda8b7e2e23c7f27a525c4a"
+    },
+    {
+      "path": "Tools/run_voxel_lod_runtime_checks.py",
+      "before_sha256": null,
+      "after_sha256": "b6415ace9214f9eaff91a2a340602235d335e5dc7cca96450dfdc84b2d1eb251"
+    },
+    {
+      "path": "Docs/WORLD_VOXEL_LODS.md",
+      "before_sha256": null,
+      "after_sha256": "9515cc81c6ee2b06ce436b9ddf90710351609cdde7618e2f9c28b23463ee858d"
+    },
+    {
+      "path": "Docs/exploration-smoke-validation.json",
+      "before_sha256": "344e92933e21e7be82ccf7a7a63747d269ee7ce62a9df7eaddc797cfeea631e1",
+      "after_sha256": "a3b4196839a8b8f1b0452cb69e3e7ff5eadd3426f47ea764fee5d73975e0d58c"
+    },
+    {
+      "path": "Docs/world-explorer-validation.json",
+      "before_sha256": "6c6a307b606c046cdd0df8dcc92fea47efadaca573d3ecc516f44d89fb3118b0",
+      "after_sha256": "2610408e0f03a0e6897c1cbde3d96cc6f8d7a8f7822c1ae8ebb4c53b5de89925"
+    },
+    {
+      "path": "Docs/exploration-live-validation.json",
+      "before_sha256": "a7012648a24d7c9bd783b8a12ac2750d08f77030dd598ef6e0a9abe01d7dde7e",
+      "after_sha256": "bd8a0764d34e74e23143bad436d22d2757daca97ada01898d68ae609a770cb2a"
+    },
+    {
+      "path": "Docs/VoxelTerrainEvidence/unity-api.json",
+      "before_sha256": "eff31fa6089c701e8340d95256e0928e8d8f8b745732e5e8eb9831a23687e43c",
+      "after_sha256": "3341aa9a8c75033dd411f427b38320f79f1702d6d8465c485c9a334586887883"
+    }
+  ],
+  "native_evidence": "native-final/validation.json"
+}

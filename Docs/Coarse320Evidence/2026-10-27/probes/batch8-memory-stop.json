@@ -1,0 +1,20 @@
+{
+  "scope": "Actual learned 320m overview probe; no full decoder or renderer",
+  "job_world_id": "0647786260a982ef6793a9e77fac850f0d9e23b8ae8ec3319fe6978b6538c84a",
+  "batch": 8,
+  "queries": [
+    {
+      "name": "valley",
+      "seconds": 15.732869400002528,
+      "height_range": [
+        -3970.33740234375,
+        7683.1083984375
+      ],
+      "commit_after": 1372610560
+    }
+  ],
+  "commit_before_load": 5722673152,
+  "load_seconds": 7.002469600003678,
+  "commit_after_load": 2976067584,
+  "elapsed_seconds": 22.735628800000995
+}

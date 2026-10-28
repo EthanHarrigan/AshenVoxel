@@ -1,0 +1,19 @@
+PASS crossing invokes contact-only replan with unchanged far plan/source revision
+PASS still-desired far iterator survives contact-cell crossing
+PASS repeated contact boundary preserves same far iterator
+PASS repeated contact boundary preserves same far iterator
+PASS repeated contact boundary preserves same far iterator
+PASS repeated contact boundary preserves same far iterator
+PASS repeated contact boundary preserves same far iterator
+PASS repeated contact boundary preserves same far iterator
+PASS repeated contact boundary preserves same far iterator
+PASS repeated contact boundary preserves same far iterator
+PASS retained actual geometry completes and publishes through repeated crossings
+PASS actual default40x4 controller boost preserves far work across boundary
+PASS vertical descent keeps exact XZ contact cell and source revision
+PASS same-cell vertical descent immediately preempts retained far work
+PASS ground arrival immediately preempts far work for physical32m contacts
+PASS next build slot serves urgent full-resolution contact
+PASS actual source-region invalidation cancels earlier-source work
+PASS far-plan removal still cancels an undesired tile
+PASS clear removes both lanes

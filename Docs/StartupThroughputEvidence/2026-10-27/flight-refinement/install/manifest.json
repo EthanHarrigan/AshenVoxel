@@ -1,0 +1,26 @@
+{
+  "id": "flight-refinement-1",
+  "utc": "2026-10-27T12:24:16.467747+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationController.cs",
+      "before": "bcbdaa0ee9a7550d0439209ed839cc69c85c794a5156906dc9deed3d9a8894aa",
+      "sha256": "411c3feb0d03b04cd1277b3afefe122b56babb8636e13b011a11d3b390d1ccf2"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "before": "15a24d325bc62db2dbe517ee5b2e6bd916f877d6b6d9b966dc2d964831a8d393",
+      "sha256": "5d7e2903cabc71af4618582951fa47fa35897c00c6ce91bd13db14831093c321"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+      "before": "5d132d061fa7f855e480f20e2aaa7af174684085dd1b0349313399f5426a3700",
+      "sha256": "48c0e689eb7f3c06160d631bbcfe7f83c735379b032890e23c56bf448791f9fb"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "4bd6abd85ad8fe18d83e6ca22c6f03a3b944f29fef52a117fc5444e889d1da47",
+      "sha256": "eed51be61cb87f04752b0c8fc438f176539b3f31c686cf81a0d1a07c23097329"
+    }
+  ]
+}

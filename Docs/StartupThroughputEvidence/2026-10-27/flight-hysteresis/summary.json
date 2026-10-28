@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-27T12:33:13.086573+00:00",
+  "status": "CPU/API checked one-line timer correction; NOT INSTALLED; quality owns native slot",
+  "candidate": {
+    "utc": "2026-10-27T12:31:53.089849+00:00",
+    "status": "Isolated one-line slow-history reset; NOT INSTALLED",
+    "files": [
+      {
+        "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+        "before": "eed51be61cb87f04752b0c8fc438f176539b3f31c686cf81a0d1a07c23097329",
+        "sha256": "464c5661cfd1f91624e77aeb68f1119d66ac439f23a54e78f8b31c5b0e2132b9"
+      }
+    ]
+  },
+  "results": [
+    {
+      "run": "20261027-123050-126910-production-FlightPolicyProgram",
+      "status": "PASS",
+      "checks": 45,
+      "assemblies": null
+    },
+    {
+      "run": "20261027-123113-135642-production-FlightPolicyProgram",
+      "status": "FAIL",
+      "checks": 9,
+      "assemblies": null
+    },
+    {
+      "run": "20261027-123153-522003-production-overlay-FlightPolicyProgram",
+      "status": "PASS",
+      "checks": 45,
+      "assemblies": null
+    },
+    {
+      "run": "20261027-123153-522003-production-overlay-api",
+      "status": "PASS",
+      "checks": null,
+      "assemblies": 5
+    }
+  ],
+  "reproduction": "Slow exit, fast reentry, then slow immediately on next sample reuses old slow timestamp and exits early.",
+  "test_refinement": "First fixture allowed extra fast samples after reentry and passed because those samples cleared the timer. Exact-transition fixture reproduces failure; both source identities preserved.",
+  "correction": "Clear voxelSlowSince only after SetVoxelTravelDeferral detects a true state change. Same-state notifications retain the running interval.",
+  "performance": "No benchmark rerun or new speed claim; existing flight results retain earlier source identities.",
+  "native_required": "Serialized existing-Editor install/compile and source/rollback/protected checks after explicit slot release; no Play/new Editor."
+}

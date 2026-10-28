@@ -1,0 +1,124 @@
+Compiling with .NET SDK 8.0.407
+PASS core compiles with C# 9 against .NET Standard 2.1 reference APIs
+PASS external assembly cannot write read-only cells or access backing storage
+PASS outside air and lazy allocation
+PASS outside write rejected
+PASS chunk addressing
+PASS all positive boundary neighbors invalidated
+PASS positive corner edit invalidates complete eight-chunk AO halo
+PASS all negative boundary neighbors invalidated
+PASS negative corner edit invalidates complete eight-chunk AO halo
+PASS edge edit invalidates four chunks including diagonal AO neighbor
+PASS interior edit dirties only owner and emits one origin event
+PASS AO halo invalidation clips negative finite-domain neighbors
+PASS idempotent write
+PASS empty chunk reclaimed and invalidated
+PASS negative floor division
+PASS one grain moves at most one cell per tick
+PASS gravity conserves mass and preserves floor
+PASS settled grains sleep
+PASS solid structure does not falsely act granular
+PASS zero budget does no work
+PASS strict candidate budget
+PASS brush material hardness
+PASS brush protects bedrock
+PASS placement preserves existing solids
+PASS DDA axis ray normalized distance
+PASS DDA enters finite domain from outside
+PASS DDA maximum reach
+PASS DDA zero direction
+PASS DDA rejects NaN
+PASS DDA max boundary and previous air cell
+PASS DDA boundary facing away ignores outward solid
+PASS ten thousand warmed DDA picks allocate zero managed bytes
+PASS snapshot round trip metadata and cells
+PASS snapshot stable serialization
+PASS historical Format1 fixture retains original golden bytes
+PASS Format1 loads default appearance and migrates to Format2 without losing cells
+PASS self-contained snapshots accept historical and current generator versions
+PASS Format2 migration also accepts self-contained historical generator versions
+PASS resaving a historical world preserves generator provenance without relabeling its cells
+PASS snapshot writes exact bytes to nonseekable stream and leaves caller stream open
+PASS snapshot propagates output failure without disposing caller stream
+PASS failed streaming write cannot load as complete snapshot
+PASS snapshot rejects nonwritable output before serialization
+PASS snapshot corruption rejected
+PASS snapshot truncation rejected
+PASS snapshot trailing bytes rejected
+PASS snapshot future version rejected
+PASS snapshot future generator rejected even with a valid checksum
+PASS packed appearance is opaqueRGB including explicit black
+PASS appearance storage allocated only for tinted chunks
+PASS color-only edits invalidate full AO halo without waking material physics
+PASS material-only idempotent edit preserves existing tint
+PASS Format2 preserves raw and effective voxel appearance
+PASS colored Format2 snapshots serialize stably after load
+PASS optional appearance channels stream identically to nonseekable destinations
+PASS Format2 rejects nonopaque appearance even with valid checksum
+PASS Format2 rejects appearance attached to air
+PASS Format2 rejects unknown appearance channel flags
+PASS world rejects nonopaque explicit tint
+PASS material change resets appearance and releases unused color channel
+PASS removal clears appearance and reclaims empty chunk
+PASS explicit default clears only its tint while preserving neighboring appearance
+PASS last cleared tint releases optional channel without removing solids
+PASS mixed chunks preserve explicit black, fruit tint and uncolored material defaults
+PASS world clear removes fruit appearance storage
+PASS expanded groundcover catalog preserves historical Fruit ID and appearance
+PASS material visibility and light transmission have independent defaults
+PASS all material IDs and four AO levels roundtrip independently of intrinsic RGB
+PASS webs remain matter but pass actor bodies
+PASS append-only web ID roundtrips existing Format2 without changing pigment alpha
+PASS granular movement conserves material mass and transports raw color
+PASS moved voxel appearance survives snapshot round trip
+PASS generation deterministic for identical seed
+PASS generator includes strata and procedural trees
+PASS continuous generated bedrock
+PASS physical terrain stable across 20cm and 10cm sampling
+PASS 10cm and 5cm default domain share exact continuous height
+PASS physical layer identities consistent at matched depths
+PASS generator rejects zero tree spacing
+PASS many-grain mass conservation across budget boundaries
+PASS one-candidate budget eventually settles without lost wakeups
+PASS fully supported grain sleeps under tiny budget
+PASS support removal wakes sleeping grain under one-candidate budget
+PASS wake scan includes only allocated chunk candidates
+PASS zero wake budget does no scan work
+PASS wake scan obeys exact candidate budget
+PASS mid-fall material snapshot resumes to rest after bounded rescan
+PASS wake scan tolerates deleted chunks and edits in new chunks
+PASS world clear cancels pending rescan safely
+DEFAULT FIXTURE: generationVersion=5; snapshotFormat=2; seed=714103; 256x128x256 cells; voxelSize=0.1m; generation=6832.0ms; chunks=1339; allocatedCellBytes=5484544; occupied=2942437
+APPEARANCE STORAGE: tintedChunks=1339; allocatedTintBytes=21938176
+  Air: 5446171
+  Stone: 2292211
+  Mud: 100328
+  Dirt: 196581
+  Litter: 121581
+  Grass: 60012
+  Wood: 58588
+  Leaves: 112528
+  Sand: 608
+  Ember: 0
+  Fruit: 0
+  Granite: 0
+  Limestone: 0
+  Sandstone: 0
+  Shale: 0
+  Gravel: 0
+  Clay: 0
+  BlackSand: 0
+  Snow: 0
+  Ice: 0
+  Silt: 0
+  Peat: 0
+  Fungus: 0
+  Petal: 0
+  Web: 0
+PASS default snapshot save auxiliary allocation stays below128KiB without destination buffer
+SAVE AUXILIARY ALLOCATION: 20408 bytes (Stream.Null destination)
+PASS full default 10cm fixture contains forest, loose sand and wet strata
+PASS all default tree wood components connect by six-neighbor paths to terrain
+PASS default forest contains substantial elevated lateral branch skeletons
+TREE STRUCTURE: groundedComponents=38/38; elevatedBranchUndersides=35634
+All 91 checks passed.

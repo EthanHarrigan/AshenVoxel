@@ -1,0 +1,1214 @@
+--- before/Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs
++++ candidate/Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs
+@@ -96,7 +96,7 @@
+             if(b==null||!b.Ready||EditorApplication.isCompiling)return;
+             const string featureRequest=".terrain-cache/feature-capture.request";
+             if(sequenceOutput==null&&frameOutput==null&&File.Exists(featureRequest))
+-            {string feature=File.ReadAllText(featureRequest).Trim();File.Delete(featureRequest);if(feature=="valley")ValleyFrame();else if(feature=="branch")RecordBranch();else if(feature=="bees")RecordBees();}
++            {string feature=File.ReadAllText(featureRequest).Trim();File.Delete(featureRequest);if(feature=="valley")ValleyFrame();else if(feature=="branch")RecordBranch();else if(feature=="bees")RecordBees();else if(feature=="shrub")RecordShrub();}
+             const string frameRequest=".terrain-cache/mountain-clean-frame.request";
+             if(frameOutput==null&&File.Exists(frameRequest)){string label=File.ReadAllText(frameRequest).Trim();File.Delete(frameRequest);BeginCleanFrame(label);}
+             const string request=".terrain-cache/mountain-review.request";
+@@ -129,7 +129,7 @@
+         }
+         [Serializable]sealed class WorkerRecord{public string utc,error;public int originalDesired,restoredDesired;}
+         [Serializable]sealed class SequenceSample
+-        {public string file;public double elapsedSeconds;public int gameFrame,beeActors,debris;public long owned,cargo,aggregate;public bool conservation,cutAccepted,suction;public float maximumRotation;}
++        {public string file;public double elapsedSeconds;public int gameFrame,beeActors,debris,shrubPrototype,sourceRemaining;public bool shrubActive;public long owned,cargo,aggregate;public bool conservation,cutAccepted,suction;public float maximumRotation;}
+         [Serializable]sealed class SequenceRecord
+         {public string utc,kind,source,mode="Actual native ScreenCapture frame sequence; real elapsed timing; no image generation or simulation time override";public bool newlyPlaced;public SequenceSample[] frames;}
+         static string sequenceOutput,sequenceKind;static ExplorationBootstrap sequenceBoot;static double sequenceStart,nextSequenceFrame;static bool sequenceCut,sequencePlaced;
+@@ -139,13 +139,46 @@
+         static void RecordBranch()=>BeginFeatureSequence("placed-branch");
+         [MenuItem("Ashen Voxel/Exploration/Beta/Record existing bee patch (Play)")]
+         static void RecordBees()=>BeginFeatureSequence("bees");
++        [MenuItem("Ashen Voxel/Exploration/Beta/Record existing shrub breakup and collection (Play)")]
++        static void RecordShrub()=>BeginFeatureSequence("existing-shrub");
++        static bool FindPublishedShrub(ExplorationBootstrap b,out PopulationInstance found)
++        {
++            found=default;double best=48*48;int seen=0;bool have=false;
++            var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
++            var cells=typeof(VegetationStreaming).GetField("cells",flags).GetValue(b.Population) as System.Collections.IDictionary;
++            if(cells==null)return false;
++            foreach(System.Collections.DictionaryEntry entry in cells)
++            {
++                var type=entry.Value.GetType();if(!(bool)type.GetField("Published",flags).GetValue(entry.Value))continue;
++                var data=type.GetField("Data",flags).GetValue(entry.Value) as PopulationCell;if(data==null)continue;
++                foreach(var instance in data.Instances)
++                {
++                    if(++seen>4096)return have;if((instance.PrototypeId!=102&&instance.PrototypeId!=103)||Math.Abs(instance.Scale-1)>1e-6)continue;
++                    double dx=instance.Position.X-b.Player.Feet.X,dz=instance.Position.Z-b.Player.Feet.Z,d=dx*dx+dz*dz;
++                    if(d<best){best=d;found=instance;have=true;}
++                }
++            }
++            return have;
++        }
+         static void BeginFeatureSequence(string kind)
+         {
+             var b=Current();if(!Application.isPlaying||b==null||!b.Ready||sequenceOutput!=null||frameOutput!=null)return;
+             var matter=b.GetComponent<ExplorationBetaMatter>();sequencePlaced=false;
+             captureBoot=b;captureHud=(bool)Hud.GetValue(b);capturePanel=(bool)Panel.GetValue(b);captureInput=b.Player.InputEnabled;
+             sequenceFeet=b.Player.Feet;sequenceFlying=b.Player.Motor.Flying;sequenceRotation=b.Vista.MainCamera.transform.rotation;sequenceFov=b.ActiveSettings.FieldOfView;
+-            if(kind=="bees")
++            if(kind=="existing-shrub")
++            {
++                var shrub=b.GetComponent<ExplorationShrubMatter>();
++                if(shrub==null||shrub.HasMatterSession||!FindPublishedShrub(b,out PopulationInstance instance))
++                {Debug.LogWarning("Shrub recording unavailable: no unowned published shrub102/103 within48m");return;}
++                double yaw=b.Player.Yaw*Math.PI/180;
++                double x=instance.Position.X-Math.Sin(yaw)*1.35,z=instance.Position.Z-Math.Cos(yaw)*1.35;
++                double ground=b.WorldField.Sample(x,z).HeightMeters;
++                b.SetSettingsPanel(false,false);b.Player.ResetAt(new WorldPoint(x,ground+.05,z),true);
++                var eye=b.Player.Eye;b.Vista.SetObserverPose(eye,Quaternion.LookRotation(new Vector3((float)(instance.Position.X-eye.X),(float)(instance.Position.Y+.35-eye.Y),(float)(instance.Position.Z-eye.Z)),Vector3.up));
++                b.ActiveSettings.FieldOfView=50;b.Vista.MainCamera.fieldOfView=50;
++            }
++            else if(kind=="bees")
+             {
+                 var bee=b.BeePatch;var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+                 if(bee==null||bee.GetType().GetField("owner",flags).GetValue(bee)==null){Debug.LogWarning("Bee recording unavailable: "+(bee==null?"not initialized":bee.Status));return;}
+@@ -170,6 +203,9 @@
+             if(sequenceOutput==null)return;
+             if(!Application.isPlaying||sequenceBoot==null){sequenceOutput=null;RestoreCapture();return;}
+             double elapsed=EditorApplication.timeSinceStartup-sequenceStart;var matter=sequenceBoot.GetComponent<ExplorationBetaMatter>();
++            var shrub=sequenceBoot.GetComponent<ExplorationShrubMatter>();
++            if(sequenceKind=="existing-shrub"&&shrub!=null)
++            {if(elapsed>=1&&!sequenceCut&&elapsed<3)sequenceCut=shrub.BreakNearby();if(elapsed>=4)shrub.SuctionEnabled=true;}
+             if(sequenceKind=="placed-branch"&&matter!=null)
+             {if(elapsed>=.9&&!sequenceCut&&elapsed<2.5)sequenceCut=matter.CutSupport();if(elapsed>=3) matter.SuctionEnabled=true;}
+             if(elapsed<8&&sequenceSamples.Count<80&&elapsed>=nextSequenceFrame)
+@@ -178,7 +214,11 @@
+                 ScreenCapture.CaptureScreenshot(Path.GetFullPath(sequenceOutput+"/"+file),1);
+                 sequenceSamples.Add(new SequenceSample{file=file,elapsedSeconds=elapsed,gameFrame=Time.frameCount,beeActors=sequenceBoot.BeePatch?.DrawnActors??0,
+                     owned=matter?.OwnedCells??0,cargo=matter?.Matter?.CreditedCells??0,debris=matter?.Matter?.DebrisCount??0,aggregate=matter?.Actor?.Aggregate.Remaining??0,
+-                    conservation=matter!=null&&matter.ConservationIntact,cutAccepted=sequenceCut,suction=matter!=null&&matter.SuctionEnabled,maximumRotation=matter?.MaximumRotationDegrees??0});
++                    conservation=sequenceKind=="existing-shrub"?shrub!=null&&(!shrub.HasMatterSession||shrub.OwnedCells==shrub.InitialCells):matter!=null&&matter.ConservationIntact,
++                    cutAccepted=sequenceCut,suction=sequenceKind=="existing-shrub"?shrub!=null&&shrub.SuctionEnabled:matter!=null&&matter.SuctionEnabled,maximumRotation=matter?.MaximumRotationDegrees??0,
++                    shrubPrototype=shrub?.SourcePrototypeId??0,sourceRemaining=shrub?.RemainingSourceCells??0,shrubActive=shrub!=null&&shrub.SessionActive});
++                if(sequenceKind=="existing-shrub"&&shrub!=null)
++                {var sample=sequenceSamples[sequenceSamples.Count-1];sample.owned=shrub.OwnedCells;sample.cargo=shrub.CargoCells;sample.debris=shrub.DebrisCount;sample.aggregate=0;}
+             }
+             if(elapsed<8.2)return;
+             bool complete=true;foreach(var sample in sequenceSamples)if(!CompletePng(sequenceOutput+"/"+sample.file)){complete=false;break;}
+@@ -187,6 +227,7 @@
+             Debug.Log("FEATURE_SEQUENCE "+sequenceOutput+" frames="+sequenceSamples.Count+" complete="+complete);
+             sequenceBoot.ActiveSettings.FieldOfView=sequenceFov;sequenceBoot.Vista.MainCamera.fieldOfView=sequenceFov;
+             sequenceBoot.Player.ResetAt(sequenceFeet,sequenceFlying);sequenceBoot.Vista.SetObserverPose(sequenceBoot.Player.Eye,sequenceRotation);
++            if(sequenceKind=="existing-shrub"&&shrub!=null)shrub.Restore(); // Explicit private-session rollback after its recording.
+             sequenceOutput=null;sequenceBoot=null;RestoreCapture();
+         }
+ 
+--- before/Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs
++++ candidate/Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs
+@@ -76,12 +76,20 @@
+ 
+         }
+ 
++        [Serializable] sealed class SourcePatchRow
++        {public string key,identity;public double minimumX,minimumZ,maximumX,maximumZ,influenceMinimumX,influenceMinimumZ,influenceMaximumX,influenceMaximumZ,spacing;public long payloadBytes,lastUse;}
++        static SourcePatchRow[] SourceRows(ExplorationLiveRefinement live)
++        {
++            if(live?.WorldField==null)return Array.Empty<SourcePatchRow>();var coverage=live.WorldField.CapturePublishedCoverage();var rows=new SourcePatchRow[coverage.Length];
++            for(int i=0;i<rows.Length;i++){var p=coverage[i];rows[i]=new SourcePatchRow{key=p.Key,identity=p.SourceIdentity,minimumX=p.CoreBounds.MinimumX,minimumZ=p.CoreBounds.MinimumZ,maximumX=p.CoreBounds.MaximumX,maximumZ=p.CoreBounds.MaximumZ,influenceMinimumX=p.InfluenceBounds.MinimumX,influenceMinimumZ=p.InfluenceBounds.MinimumZ,influenceMaximumX=p.InfluenceBounds.MaximumX,influenceMaximumZ=p.InfluenceBounds.MaximumZ,spacing=p.SpacingMeters,payloadBytes=p.PayloadBytes,lastUse=p.LastUse};}return rows;
++        }
+         [Serializable] sealed class CaptureData
+ 
+         {
+ 
++            public SourcePatchRow[] sourcePatches;public int selectedSourceCells,readySelectedSourceCells,missingSelectedSourceCells,heldSourceRequests;public double selectedSourceCoreArea,readySourceCoreArea;public bool diskCacheApplied;public long diskCacheHits,diskCacheMisses,diskCacheWrites,diskCacheWriteFailures,diskCacheOwnedBytes;public int diskCacheRecords;public string diskCacheStatus;
+             public double sourceResolutionMeters;public int sourceResidentPatches,sourcePendingRequests;public string sourceStartupStatus,sourceCurrentStatus;
+-            public string diagnosticVersion="terrain-convergence-4-source",utc,unity,sourceIdentity,bootStatus,terrainStatus,limitReason,lastBuildError;
++            public string diagnosticVersion="terrain-convergence-5-source-cache",utc,unity,sourceIdentity,bootStatus,terrainStatus,limitReason,lastBuildError;
+ 
+             public string appliedPreset,selectedPreset,notes;
+ 
+@@ -143,6 +151,8 @@
+ 
+             var d=new CaptureData{utc=DateTime.UtcNow.ToString("o"),unity=Application.unityVersion,frame=Time.frameCount,playing=Application.isPlaying,
+ 
++                sourcePatches=SourceRows(boot.LiveRefinement),selectedSourceCells=boot.LiveRefinement?.DesiredSourceCells??0,readySelectedSourceCells=boot.LiveRefinement?.ReadyDesiredSourceCells??0,missingSelectedSourceCells=boot.LiveRefinement?.MissingDesiredSourceCells??0,heldSourceRequests=boot.LiveRefinement?.HeldCompletedRequests??0,selectedSourceCoreArea=boot.LiveRefinement?.DesiredCoreAreaSquareMeters??0,readySourceCoreArea=boot.LiveRefinement?.ReadyCoreAreaSquareMeters??0,
++                diskCacheApplied=boot.AppliedHeightProxyDiskCache,diskCacheHits=w.HeightProxyDiskCacheHits,diskCacheMisses=w.HeightProxyDiskCacheMisses,diskCacheWrites=w.HeightProxyDiskCacheWrites,diskCacheWriteFailures=w.HeightProxyDiskCacheWriteFailures,diskCacheOwnedBytes=w.HeightProxyDiskCacheOwnedBytes,diskCacheRecords=w.HeightProxyDiskCacheRecords,diskCacheStatus=w.HeightProxyDiskCacheStatus,
+                 sourceResolutionMeters=boot.LiveRefinement==null?double.NaN:boot.LiveRefinement.ResolutionMetersAt(eye.X,eye.Z),
+                 sourceResidentPatches=boot.LiveRefinement?.WorldField?.ResidentPatches??0,sourcePendingRequests=boot.LiveRefinement?.PendingRequests??0,sourceStartupStatus=boot.SourceStartupStatus,sourceCurrentStatus=boot.LiveRefinement?.CurrentAreaStatus,
+                 ready=boot.Ready,failed=boot.Failed,bootStatus=boot.Status,terrainStatus=w.Status,sourceIdentity=w.TerrainField?.SourceIdentity,
+--- before/Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs
++++ candidate/Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs
+@@ -17,7 +17,7 @@
+     {
+         public ExplorationSettings Settings;
+         public bool LoadSavedOptions=true;
+-        [Range(0,300)] public float SourceStartupWaitSeconds=20;
++        [Range(0,300)] public float SourceStartupWaitSeconds=45;
+         public string SourceStartupStatus {get;private set;}="Source startup not attempted.";
+         ExplorationBetaMatter betaMatter;
+         bool publishingVerifiedAirborneSource;
+@@ -59,6 +59,9 @@
+         public bool AppliedGroundedRoots=>appliedGroundedRoots;
+         public bool AppliedBroadLithology=>appliedBroadLithology;
+         public bool AppliedDistantHeightProxies=>appliedDistantHeightProxies;
++        bool appliedHeightProxyDiskCache;
++        public bool AppliedHeightProxyDiskCache=>appliedHeightProxyDiskCache;
++        public bool HeightProxyDiskCacheRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedHeightProxyDiskCache!=ActiveSettings.EnableHeightProxyDiskCache;
+         public bool TerrainRepresentationRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedDistantHeightProxies!=ActiveSettings.ExperimentalDistantHeightProxies;
+         public bool GeologyRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedBroadLithology!=ActiveSettings.ExperimentalBroadLithology;
+         public bool GroundedRootsRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedGroundedRoots!=ActiveSettings.EnableGroundedRoots;
+@@ -87,6 +90,7 @@
+             if(LoadSavedOptions)LoadOptions();
+             appliedTerrainQuality=ActiveSettings.ResolveTerrainQuality();terrainQualityCaptured=true;
+             appliedGroundedRoots=ActiveSettings.EnableGroundedRoots;appliedBroadLithology=ActiveSettings.ExperimentalBroadLithology;appliedDistantHeightProxies=ActiveSettings.ExperimentalDistantHeightProxies;
++            appliedHeightProxyDiskCache=ActiveSettings.EnableHeightProxyDiskCache;
+             Status="Reading the learned world…";yield return null;
+             Require(ActiveSettings.MacroWorld,"whole-world height");Require(ActiveSettings.MacroClimate,"whole-world climate");
+             Require(ActiveSettings.FineWorld,"starting-region height");Require(ActiveSettings.FineClimate,"starting-region climate");
+@@ -107,6 +111,7 @@
+             Vista.enabled=false; // Defer standalone Start/Update while the pre-spawn source gate yields.
+             Vista.EnableDistantHeightProxies=appliedDistantHeightProxies;
+             Vista.ConfigureInitialVoxelMeshBudgets(appliedTerrainQuality.DetailMiB,appliedTerrainQuality.ContactMiB);
++            Vista.ConfigureHeightProxyDiskCache(appliedHeightProxyDiskCache,WorldExplorer.DefaultHeightProxyDiskCacheDirectory);
+             ApplyVistaSettings(false);
+             Vista.ShowResearchHud=false;
+             LiveRefinement=worldObject.AddComponent<ExplorationLiveRefinement>();
+@@ -117,14 +122,17 @@
+                 float deadline=Time.unscaledTime+Mathf.Clamp(SourceStartupWaitSeconds,0,300);
+                 Vector3 heading=Quaternion.Euler(ActiveSettings.SpawnPitch,ActiveSettings.SpawnYaw,0)*Vector3.forward;
+                 var witness=new WorldPoint(spawn.X,spawn.Y+ActiveSettings.EyeHeight,spawn.Z);
+-                while(Time.unscaledTime<deadline&&LiveRefinement.ResolutionMetersAt(spawn.X,spawn.Z)>5.000001)
++                double startupHalfAngle=Math.Max(15,Math.Min(85,Math.Atan(Math.Tan(ActiveSettings.FieldOfView*Math.PI/360)*Screen.width/Math.Max(1,Screen.height))*180/Math.PI));
++                while(Time.unscaledTime<deadline)
+                 {
+-                    LiveRefinement.Tick(witness,heading,ExplorationRefinementPublicationPolicy.BeforeSpawn(witness));
++                    LiveRefinement.Tick(witness,heading,ExplorationRefinementPublicationPolicy.BeforeSpawn(witness),false,null,startupHalfAngle);
++                    if(LiveRefinement.ResolutionMetersAt(spawn.X,spawn.Z)<=5.000001&&LiveRefinement.DesiredSourceCells>0&&
++                        LiveRefinement.ReadyDesiredSourceCells>=Math.Min(4,LiveRefinement.DesiredSourceCells))break;
+                     SourceStartupStatus=LiveRefinement.Status;
+                     Status="Preparing decoded source at the saved destination. "+SourceStartupStatus;yield return null;
+                 }
+                 double resolution=LiveRefinement.ResolutionMetersAt(spawn.X,spawn.Z);
+-                SourceStartupStatus=resolution<=5.000001?"Verified5m decoded destination before population initialization.":
++                SourceStartupStatus=resolution<=5.000001?"Verified5m decoded destination before population initialization; selected ready "+LiveRefinement.ReadyDesiredSourceCells+"/"+LiveRefinement.DesiredSourceCells+" cells.":
+                     "Startup wait ended with "+resolution.ToString("F1",CultureInfo.InvariantCulture)+"m source; coarse fallback remains active. "+LiveRefinement.CurrentAreaStatus;
+                 // Keep a custom aerial height unless the new source would bury it.
+                 double ground=WorldField.Sample(spawn.X,spawn.Z).HeightMeters;
+@@ -229,7 +237,8 @@
+                     var policy=matterOwned?ExplorationRefinementPublicationPolicy.HoldForGameplayMatter(observer):default;
+                     publishingVerifiedAirborneSource=!matterOwned&&Ready&&Player!=null&&Player.Motor!=null&&Player.Motor.Flying;
+                     if(publishingVerifiedAirborneSource)policy=ExplorationRefinementPublicationPolicy.AirborneWithoutGameplayMatter(observer);
+-                    try{LiveRefinement.Tick(observer,Vista.MainCamera.transform.forward,policy,Vista.VoxelTravelDetailDeferred);}
++                    double halfAngle=Math.Max(15,Math.Min(85,Math.Atan(Math.Tan(Vista.MainCamera.fieldOfView*Math.PI/360)*Vista.MainCamera.aspect)*180/Math.PI));
++                    try{LiveRefinement.Tick(observer,Vista.MainCamera.transform.forward,policy,Vista.VoxelTravelDetailDeferred,null,halfAngle);}
+                     finally{publishingVerifiedAirborneSource=false;}
+                 }
+                 #if UNITY_5_3_OR_NEWER
+@@ -344,6 +353,10 @@
+             bool heightProxies=GUILayout.Toggle(ActiveSettings.ExperimentalDistantHeightProxies,"Distant smooth terrain (experimental, next Play)");
+             if(heightProxies!=ActiveSettings.ExperimentalDistantHeightProxies){ActiveSettings.ExperimentalDistantHeightProxies=heightProxies;optionsNotice="Distant terrain selected. Save options, then restart Play.";}
+             GUILayout.Label("Far representation applied: "+(appliedDistantHeightProxies?"shared height grid":"exposed cubes")+(TerrainRepresentationRestartPending?" - restart pending":"")+". Lower mesh payload; smooth far cliffs, sampled colors and possible prop/seam differences. Near/contact stays cubic.",text);
++            bool diskCache=GUILayout.Toggle(ActiveSettings.EnableHeightProxyDiskCache,"Cache distant terrain on disk (next Play)");
++            if(diskCache!=ActiveSettings.EnableHeightProxyDiskCache){ActiveSettings.EnableHeightProxyDiskCache=diskCache;optionsNotice="Disk cache selected. Save options, then restart Play.";}
++            GUILayout.Label("Disk cache applied request: "+(appliedHeightProxyDiskCache?"on":"off")+(HeightProxyDiskCacheRestartPending?" - restart pending":"")+".1GiB local cache for smooth distant terrain; visible GPU meshes remain resident.",text);
++            if(Vista!=null)GUILayout.Label(Vista.HeightProxyDiskCacheStatus+" · hits "+Vista.HeightProxyDiskCacheHits+" · misses "+Vista.HeightProxyDiskCacheMisses+" · stored "+Vista.HeightProxyDiskCacheWrites+" · write skips "+Vista.HeightProxyDiskCacheWriteFailures+" · owned disk "+Vista.HeightProxyDiskCacheOwnedBytes/1048576+" MiB / "+Vista.HeightProxyDiskCacheRecords+" records",text);
+             bool geology=GUILayout.Toggle(ActiveSettings.ExperimentalBroadLithology,"Broad rock formations (experimental, next Play)");
+             if(geology!=ActiveSettings.ExperimentalBroadLithology){ActiveSettings.ExperimentalBroadLithology=geology;optionsNotice="Rock style selected. Save options, then restart Play.";}
+             GUILayout.Label("Rock style applied: "+(appliedBroadLithology?"broad":"original")+(GeologyRestartPending?" - restart pending":"")+". Reduces repeated bands; may look too uniform. Source height unchanged.",text);
+@@ -386,6 +399,7 @@
+             GUILayout.Label("Trees "+Population.VisibleInstances+" · triangles "+Population.VisibleTriangles+" · terrain tiles "+Vista.ResidentTiles+" · "+Population.Status,text);
+             if(VoxelTerrain!=null)GUILayout.Label(VoxelTerrain.Status+" · "+VoxelTerrain.Triangles+" triangles",text);
+             if(Vista.UseVoxelLodTerrain)GUILayout.Label("World voxel LODs: "+Vista.VoxelLodTiles+" · "+Vista.TerrainTriangles+" triangles · "+Vista.PixelTargetLimitedTiles+" tiles at detail cap · worker "+Vista.LastVoxelWorkerMilliseconds.ToString("F1")+"ms",text);
++            if(Vista.UseVoxelLodTerrain)ActiveSettings.VoxelFullDetailRadius=Slider("10cm ground display radius (collision queries stay exact)",ActiveSettings.VoxelFullDetailRadius,16,160,"m");
+             if(Vista.UseVoxelLodTerrain)GUILayout.Label("10cm ground: "+Vista.ContactTiles+" tiles ready · "+Vista.ContactPendingTiles+" pending · radius "+Vista.VoxelFullDetailRadius.ToString("F0")+"m · "+(Vista.ContactMeshBytes/1048576)+" MiB. Distant queue: "+Vista.PendingTiles,text);
+             if(Population.Horizon!=null)GUILayout.Label("Forest horizon "+(Population.HorizonDistance/1000).ToString("F0")+" km · "+Population.Horizon.ResidentStands+" stands · "+(Population.Horizon.UsingGpu?"GPU indirect":"CPU instanced")+" · queue "+Population.Horizon.PendingSamples+" · "+Population.Horizon.Error,text);
+             GUILayout.EndScrollView();
+@@ -448,6 +462,8 @@
+             public int rootOptionsVersion;public bool groundedRoots;
+             public int geologyOptionsVersion;public bool broadLithology;
+             public int terrainRepresentationOptionsVersion;public bool distantHeightProxies;
++            public int heightProxyDiskCacheOptionsVersion;public bool heightProxyDiskCache;
++            public int contactRadiusOptionsVersion;public float contactRadius;
+         }
+         string OptionsPath=>Path.Combine(Application.persistentDataPath,"exploration-options.json");
+         void SaveOptions()
+@@ -461,7 +477,9 @@
+                 o.rootOptionsVersion=1;o.groundedRoots=ActiveSettings.EnableGroundedRoots;
+                 o.geologyOptionsVersion=1;o.broadLithology=ActiveSettings.ExperimentalBroadLithology;
+                 o.terrainRepresentationOptionsVersion=1;o.distantHeightProxies=ActiveSettings.ExperimentalDistantHeightProxies;
+-                Directory.CreateDirectory(Application.persistentDataPath);File.WriteAllText(OptionsPath,JsonUtility.ToJson(o,true));optionsNotice="Options saved."+(TerrainQualityRestartPending||GroundedRootsRestartPending||GeologyRestartPending||TerrainRepresentationRestartPending?" Terrain quality/grounded bases/rock style/representation apply after restarting Play.":"");
++                o.heightProxyDiskCacheOptionsVersion=1;o.heightProxyDiskCache=ActiveSettings.EnableHeightProxyDiskCache;
++                o.contactRadiusOptionsVersion=1;o.contactRadius=ActiveSettings.VoxelFullDetailRadius;
++                Directory.CreateDirectory(Application.persistentDataPath);File.WriteAllText(OptionsPath,JsonUtility.ToJson(o,true));optionsNotice="Options saved."+(TerrainQualityRestartPending||GroundedRootsRestartPending||GeologyRestartPending||TerrainRepresentationRestartPending||HeightProxyDiskCacheRestartPending?" Terrain quality/grounded bases/rock style/representation apply after restarting Play.":"");
+             }
+             catch(Exception exception){optionsNotice="Could not save options: "+exception.Message;}
+         }
+@@ -485,6 +503,8 @@
+                 if(o.rootOptionsVersion==1)s.EnableGroundedRoots=o.groundedRoots;
+                 if(o.geologyOptionsVersion==1)s.ExperimentalBroadLithology=o.broadLithology;
+                 if(o.terrainRepresentationOptionsVersion==1)s.ExperimentalDistantHeightProxies=o.distantHeightProxies;
++                if(o.heightProxyDiskCacheOptionsVersion==1)s.EnableHeightProxyDiskCache=o.heightProxyDiskCache;
++                if(o.contactRadiusOptionsVersion==1&&!float.IsNaN(o.contactRadius))s.VoxelFullDetailRadius=Mathf.Clamp(o.contactRadius,16,160);
+             }
+             catch(Exception exception){optionsNotice="Saved options ignored: "+exception.Message;}
+         }
+--- before/Assets/AshenVoxel/Exploration/ExplorationDistantRockPatch.cs
++++ candidate/Assets/AshenVoxel/Exploration/ExplorationDistantRockPatch.cs
+@@ -14,7 +14,7 @@
+         public const int MaximumResident=2048,MaximumDrawn=512,MaximumModels=8,GridMeters=256;
+         public const long MaximumDrawnTriangles=300000;
+         public const string RenderPolicyIdentity="far-rock-render-lod1-300k-v1";
+-        public bool ShowDistantRocks=true;
++        public bool ShowDistantRocks=false;
+         [Range(.25f,2)] public float SizeMultiplier=1;
+         [Range(0,.2f)] public float LargeOutcropFraction=.05f;
+         [Range(.45f,.8f)] public float EmbedFraction=.6f;
+--- before/Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs
++++ candidate/Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs
+@@ -7,6 +7,86 @@
+ 
+ namespace AshenVoxel.Exploration
+ {
++    public readonly struct ExplorationSourceDemandCell
++    {
++        public readonly string Key;
++        public readonly ExplorationRefinementBounds Core;
++        public readonly int Priority;
++        public readonly double Score;
++        public bool Current=>Priority==0;
++        internal ExplorationSourceDemandCell(long x,long z,int priority,double score)
++        {Key=x.ToString(System.Globalization.CultureInfo.InvariantCulture)+"/"+z.ToString(System.Globalization.CultureInfo.InvariantCulture)+"/640";Core=new ExplorationRefinementBounds(x*640.0,z*640.0,(x+1)*640.0,(z+1)*640.0);Priority=priority;Score=score;}
++    }
++    /// <summary>Finite XZ view-corridor approximation, not an occlusion/visibility
++    /// oracle. Fixed640m cells, at most290 scanned, radius5120m; no world bake.</summary>
++    public static class ExplorationSourceDemandPlanner
++    {
++        public const double CellMeters=640,MaximumRadiusMeters=5120;
++        public const int MaximumScannedCells=290;
++        static void Finite(double value,string name){if(double.IsNaN(value)||double.IsInfinity(value))throw new ArgumentOutOfRangeException(name);}
++        static void Positive(double value,string name){Finite(value,name);if(value<=0)throw new ArgumentOutOfRangeException(name);}
++        public static ExplorationSourceDemandCell[] Build(WorldPoint observer,double headingX,double headingZ,double lookAheadMeters,
++            double worldWidth,double worldDepth,bool deferCurrent,bool wideNeighborhood,double halfAngleDegrees=55,WorldPoint? destination=null,ISet<string> retained=null)
++        {
++            Finite(observer.X,nameof(observer));Finite(observer.Z,nameof(observer));Finite(headingX,nameof(headingX));Finite(headingZ,nameof(headingZ));
++            Positive(worldWidth,nameof(worldWidth));Positive(worldDepth,nameof(worldDepth));Finite(lookAheadMeters,nameof(lookAheadMeters));Finite(halfAngleDegrees,nameof(halfAngleDegrees));
++            if(Math.Abs(headingX)>1e6||Math.Abs(headingZ)>1e6||Math.Abs(observer.X)>1e9||Math.Abs(observer.Z)>1e9||lookAheadMeters<1024||lookAheadMeters>10000||halfAngleDegrees<15||halfAngleDegrees>85)throw new ArgumentOutOfRangeException("Source demand view");
++            double length=Math.Sqrt(headingX*headingX+headingZ*headingZ);if(length<1e-8){headingX=0;headingZ=1;}else{headingX/=length;headingZ/=length;}
++            double reach=Math.Min(MaximumRadiusMeters,Math.Max(2560,lookAheadMeters+1920));
++            double dx=destination.HasValue?destination.Value.X:observer.X+headingX*Math.Min(lookAheadMeters,MaximumRadiusMeters);
++            double dz=destination.HasValue?destination.Value.Z:observer.Z+headingZ*Math.Min(lookAheadMeters,MaximumRadiusMeters);
++            Finite(dx,nameof(destination));Finite(dz,nameof(destination));
++            if(Math.Abs(dx)>1e9||Math.Abs(dz)>1e9)throw new ArgumentOutOfRangeException(nameof(destination));
++            double travelX=dx-observer.X,travelZ=dz-observer.Z,targetDistance=Math.Sqrt(travelX*travelX+travelZ*travelZ);
++            if(targetDistance>MaximumRadiusMeters-CellMeters){double scale=(MaximumRadiusMeters-CellMeters)/targetDistance;dx=observer.X+travelX*scale;dz=observer.Z+travelZ*scale;}
++            long cx=(long)Math.Floor(observer.X/640),cz=(long)Math.Floor(observer.Z/640),tx=(long)Math.Floor(dx/640),tz=(long)Math.Floor(dz/640);
++            var result=new List<ExplorationSourceDemandCell>(MaximumScannedCells);var seen=new HashSet<string>();
++            void Add(long x,long z,bool explicitDestination=false)
++            {
++                double mx=(x+.5)*640,mz=(z+.5)*640,vx=mx-observer.X,vz=mz-observer.Z,distance=Math.Sqrt(vx*vx+vz*vz);
++                bool current=x==cx&&z==cz, target=x==tx&&z==tz;
++                if(current&&deferCurrent||distance>MaximumRadiusMeters+453||mx-320< -worldWidth*.5||mx+320>worldWidth*.5||mz-320< -worldDepth*.5||mz+320>worldDepth*.5)return;
++                double ahead=vx*headingX+vz*headingZ,side=Math.Abs(vz*headingX-vx*headingZ);
++                bool inView=ahead>=-453&&side<=Math.Max(0,ahead)*Math.Tan(halfAngleDegrees*Math.PI/180)+453;
++                if(!current&&!target&&(!(wideNeighborhood&&distance<=1280)&&!inView||distance>reach+453))return;
++                // Far destinations use a bounded intermediate cell along the route,
++                // never expand this into an unbounded destination neighborhood.
++                if(explicitDestination&&distance>MaximumRadiusMeters+453)return;
++                int priority=current?0:target?1:distance<=1920&&inView?2:inView?3:4;
++                var cell=new ExplorationSourceDemandCell(x,z,priority,distance+side*.35);
++                if(!seen.Add(cell.Key))return;
++                double score=cell.Score-(retained!=null&&retained.Contains(cell.Key)?224:0);
++                result.Add(new ExplorationSourceDemandCell(x,z,priority,score));
++            }
++            for(int z=-8;z<=8;z++)for(int x=-8;x<=8;x++)Add(cx+x,cz+z);
++            if(destination.HasValue&&Math.Abs(dx)<=1e9&&Math.Abs(dz)<=1e9)Add(tx,tz,true);
++            result.Sort((a,b)=>{int p=a.Priority.CompareTo(b.Priority);if(p!=0)return p;int s=a.Score.CompareTo(b.Score);return s!=0?s:string.CompareOrdinal(a.Key,b.Key);});return result.ToArray();
++        }
++        public static bool CanAdmitRetainingCoverage(ExplorationPublishedPatchInfo[] published,string incomingKey,long incomingBytes,
++            int maximumPatches,long maximumBytes,ISet<string> retainedKeys,IReadOnlyList<ExplorationSourceDemandCell> desired,Func<string,bool> canEvict)
++        {
++            if(published==null||published.Length>32||desired==null||desired.Count>32||retainedKeys==null||canEvict==null||incomingBytes<1||maximumPatches<1||maximumPatches>32||maximumBytes<1)throw new ArgumentException("Bounded source admission inputs");
++            var coverage=new List<ExplorationPublishedPatchInfo>(published);
++            long bytes=incomingBytes;int count=1;
++            for(int i=coverage.Count-1;i>=0;i--)
++            {if(coverage[i].Key==incomingKey)coverage.RemoveAt(i);else{count++;bytes+=coverage[i].PayloadBytes;}}
++            while(count>maximumPatches||bytes>maximumBytes)
++            {
++                int victim=-1;
++                for(int i=0;i<coverage.Count;i++)if(canEvict(coverage[i].Key)&&(victim<0||coverage[i].LastUse<coverage[victim].LastUse))victim=i;
++                if(victim<0)return false;
++                var patch=coverage[victim];bool retained=retainedKeys.Contains(patch.Key);
++                if(!retained)foreach(var cell in desired)if(patch.CoreBounds.MinimumX<=cell.Core.MinimumX&&patch.CoreBounds.MinimumZ<=cell.Core.MinimumZ&&patch.CoreBounds.MaximumX>=cell.Core.MaximumX&&patch.CoreBounds.MaximumZ>=cell.Core.MaximumZ){retained=true;break;}
++                // Simulate the EXACT existing LRU victim order after touches. If it
++                // would remove desired coverage, retain this completed request.
++                if(retained)return false;
++                count--;bytes-=patch.PayloadBytes;coverage.RemoveAt(victim);
++            }
++            return true;
++        }
++    }
++
++
+     /// <summary>Optional asynchronous decoded terrain extension. Every successful
+     /// publication is an immutable grid with explicit player/query/prop protection.
+     /// Unavailable or mismatched services leave the baked world playable.</summary>
+@@ -22,6 +102,16 @@
+         public string CurrentAreaStatus {get;private set;}="No current-area demand yet.";
+         public bool CurrentAreaPending=>work.Exists(item=>item.Current);
+         public int DiscardedStaleResults {get;private set;}
++        public int DemandCandidateCells {get;private set;}
++        public int DesiredSourceCells=>desired.Count;
++        public int ReadyDesiredSourceCells {get;private set;}
++        public int MissingDesiredSourceCells=>Math.Max(0,DesiredSourceCells-ReadyDesiredSourceCells);
++        public int HeldCompletedRequests {get{int count=0;foreach(var item in work)if(item.Complete!=null&&item.Desired)count++;return count;}}
++        public int BundledCandidateCells {get;private set;}
++        public int CapacityDeferredCells {get;private set;}
++        public double DesiredCoreAreaSquareMeters=>DesiredSourceCells*640.0*640;
++        public double ReadyCoreAreaSquareMeters=>ReadyDesiredSourceCells*640.0*640;
++        public string SourceCoverageStatus=>"Selected640m source cells "+ReadyDesiredSourceCells+"/"+DesiredSourceCells+" at5m; "+MissingDesiredSourceCells+" missing, "+HeldCompletedRequests+" completed/held, "+CapacityDeferredCells+" selection/capacity deferred. Far terrain outside these cells may use macro source.";
+         public string Status {get;private set;}="Live decoding is off; bundled learned terrain is ready.";
+         public event Action<ExplorationRefinementBounds> RegionChanged;
+         sealed class Work
+@@ -31,8 +121,13 @@
+             public Task<ExplorationRefinementPatch> Task;
+             public ExplorationRefinementPatch Complete;
+             public bool Desired,Current;
++            public int Priority;
++            public float NextPublicationAttempt;
++            public string HoldReason;
+         }
+         readonly List<Work> work=new List<Work>(2);
++        readonly List<ExplorationSourceDemandCell> desired=new List<ExplorationSourceDemandCell>(16);
++        readonly HashSet<string> desiredKeys=new HashSet<string>();
+         readonly Dictionary<string,float> retries=new Dictionary<string,float>();
+         ExplorationAtlasField baked;
+         WorldExplorer vista;
+@@ -48,9 +143,9 @@
+             if(source==null)throw new ArgumentNullException(nameof(source));
+             if(renderer==null)throw new ArgumentNullException(nameof(renderer));
+             StopClient();baked=source;vista=renderer;this.endpoint=endpoint;
+-            nextRequests=nextStatus=0;retries.Clear();DiscardedStaleResults=0;CurrentAreaStatus="No current-area demand yet.";
++            nextRequests=nextStatus=0;retries.Clear();desired.Clear();desiredKeys.Clear();DemandCandidateCells=ReadyDesiredSourceCells=BundledCandidateCells=CapacityDeferredCells=0;DiscardedStaleResults=0;CurrentAreaStatus="No current-area demand yet.";
+             compatible=Math.Abs(source.WorldWidthMeters-source.OriginalWidthMeters)<.001&&Math.Abs(source.WorldDepthMeters-source.OriginalDepthMeters)<.001&&Math.Abs(source.VerticalScale-1)<1e-7;
+-            if(double.IsNaN(TileMeters)||TileMeters<160||TileMeters>1280||double.IsNaN(BlendMeters)||BlendMeters<32||BlendMeters>256||double.IsNaN(LookAheadMeters)||LookAheadMeters<1024||LookAheadMeters>10000)
++            if(TileMeters!=ExplorationSourceDemandPlanner.CellMeters||double.IsNaN(BlendMeters)||BlendMeters<32||BlendMeters>256||double.IsNaN(LookAheadMeters)||LookAheadMeters<1024||LookAheadMeters>10000)
+                 throw new ArgumentOutOfRangeException("Live tile/blend/look-ahead controls");
+             WorldField=new ExplorationRefinementField(source,source.WorldId,5,MaximumPatches,MaximumPayloadBytes,ProtectedRadiusMeters,QueryAndPropGuardMeters);
+             SetEnabled(enabled);return WorldField;
+@@ -64,7 +159,7 @@
+         }
+         public bool HasActiveDetail(double x,double z)=>WorldField!=null&&WorldField.HasActiveDetail(x,z);
+         public double ResolutionMetersAt(double x,double z)=>WorldField==null?double.NaN:WorldField.ResolutionMetersAt(x,z);
+-        public void Tick(WorldPoint observer,Vector3 forward,ExplorationRefinementPublicationPolicy publicationPolicy=default,bool deferCurrentArea=false)
++        public void Tick(WorldPoint observer,Vector3 forward,ExplorationRefinementPublicationPolicy publicationPolicy=default,bool deferCurrentArea=false,WorldPoint? destination=null,double viewHorizontalHalfAngleDegrees=55)
+         {
+             DrainStopped();
+             if(WorldField==null)return;WorldField.Touch(observer);
+@@ -88,11 +183,11 @@
+                 nextRequests=Time.unscaledTime+.5f;
+                 Vector3 horizontal=new Vector3(forward.x,0,forward.z);
+                 if(horizontal.x*horizontal.x+horizontal.z*horizontal.z>.0001f)lastHeading=horizontal.normalized;
+-                QueueDemand(observer,lastHeading,deferCurrentArea);
++                QueueDemand(observer,lastHeading,deferCurrentArea,publicationPolicy,destination,viewHorizontalHalfAngleDegrees);
+             }
+             // Current-area completion is considered first. Stale in-flight tasks
+             // keep their two-slot ownership until completion; travel cannot orphan them.
+-            work.Sort((a,b)=>b.Current.CompareTo(a.Current));
++            work.Sort((a,b)=>a.Priority.CompareTo(b.Priority));
+             for(int i=0;i<work.Count;)
+             {
+                 Work item=work[i];
+@@ -108,25 +203,33 @@
+                 }
+                 if(item.Complete!=null&&!item.Desired)
+                 {DiscardedStaleResults++;work.RemoveAt(i);continue;}
+-                if(item.Complete!=null&&WorldField.TryPublish(item.Complete,observer,out ExplorationRefinementBounds[] changes,publicationPolicy))
++                if(item.Complete!=null&&IsReady(item.Core)){work.RemoveAt(i);continue;}
++                if(item.Complete!=null&&Time.unscaledTime>=item.NextPublicationAttempt)
+                 {
+-                    foreach(var bounds in changes)
++                    item.NextPublicationAttempt=Time.unscaledTime+.5f;
++                    if(!CanAdmitRetainingDemand(item,observer,publicationPolicy))item.HoldReason="Resident capacity held for selected source coverage.";
++                    else if(WorldField.TryPublish(item.Complete,observer,out ExplorationRefinementBounds[] changes,publicationPolicy))
+                     {
+-                        vista.RefreshExternalRegion(bounds.MinimumX,bounds.MinimumZ,bounds.MaximumX,bounds.MaximumZ);
+-                        RegionChanged?.Invoke(bounds);
++                        foreach(var bounds in changes)
++                        {
++                            vista.RefreshExternalRegion(bounds.MinimumX,bounds.MinimumZ,bounds.MaximumX,bounds.MaximumZ);
++                            RegionChanged?.Invoke(bounds);
++                        }
++                        work.RemoveAt(i);continue;
+                     }
+-                    work.RemoveAt(i);continue;
++                    else item.HoldReason=WorldField.LastPublishRefusal;
+                 }
+-                if(item.Current)CurrentAreaStatus=item.Complete==null?"Current area: requesting verified5m source.":"Current area: "+WorldField.LastPublishRefusal;
++                if(item.Current)CurrentAreaStatus=item.Complete==null?"Current area: requesting verified5m source.":"Current area: "+item.HoldReason;
+                 i++;
+             }
++            RefreshCoverageStats();
+             double resolution=WorldField.ResolutionMetersAt(observer.X,observer.Z);
+             if(resolution<=5.000001)CurrentAreaStatus="Current area:5m learned source active.";
+             if(Time.unscaledTime>=nextStatus)
+             {
+                 nextStatus=Time.unscaledTime+.5f;
+                 Status="Live model connected - "+WorldField.ResidentPatches+" retained decoded patches - "+work.Count+" pending (maximum2) - "+
+-                    "source here "+resolution.ToString("F1",System.Globalization.CultureInfo.InvariantCulture)+"m. "+CurrentAreaStatus;
++                    "source here "+resolution.ToString("F1",System.Globalization.CultureInfo.InvariantCulture)+"m. "+CurrentAreaStatus+" "+SourceCoverageStatus;
+                 if(work.Exists(item=>!item.Desired))Status+=" Stale in-flight work is draining before replacement.";
+             }
+         }
+@@ -145,34 +248,73 @@
+             return baked.FineWeightAt(influence.MinimumX,influence.MinimumZ)>=.999999&&baked.FineWeightAt(influence.MaximumX,influence.MaximumZ)>=.999999&&
+                 baked.FineWeightAt(influence.MinimumX,influence.MaximumZ)>=.999999&&baked.FineWeightAt(influence.MaximumX,influence.MinimumZ)>=.999999;
+         }
+-        void QueueDemand(WorldPoint observer,Vector3 heading,bool deferCurrentArea)
+-        {
++        static long ExpectedPayload(ExplorationRefinementBounds core,double blend)
++        {
++            double pad=blend+SurfaceProfile.SampleRadiusMax;
++            long x0=(long)Math.Floor((core.MinimumX-pad)/5)-1,z0=(long)Math.Floor((core.MinimumZ-pad)/5)-1;
++            long cols=(long)Math.Ceiling((core.MaximumX+pad)/5)+2-x0,rows=(long)Math.Ceiling((core.MaximumZ+pad)/5)+2-z0;
++            return checked(cols*rows*24);
++        }
++        bool RequiredBounds(ExplorationRefinementBounds core,out ExplorationRefinementBounds required)
++        {
++            required=core.Expanded(BlendMeters+SurfaceProfile.SampleRadiusMax+10);
++            return required.MinimumX>=-baked.WorldWidthMeters*.5&&required.MaximumX<=baked.WorldWidthMeters*.5&&required.MinimumZ>=-baked.WorldDepthMeters*.5&&required.MaximumZ<=baked.WorldDepthMeters*.5;
++        }
++        bool IsReady(ExplorationRefinementBounds core)=>FullyBaked(core)||WorldField.HasPublishedCoreCoverage(core);
++        void RefreshCoverageStats()
++        {ReadyDesiredSourceCells=0;foreach(var cell in desired)if(IsReady(cell.Core))ReadyDesiredSourceCells++;}
++        void TouchDesiredResidents()
++        {
++            // Existing LRU mechanism, view demand rather than fabricated player
++            // safety evidence. Publication always receives the real observer.
++            for(int i=desired.Count-1;i>=0;i--)
++            {var c=desired[i].Core;if(WorldField.HasPublishedCoreCoverage(c))WorldField.Touch(new WorldPoint((c.MinimumX+c.MaximumX)*.5,0,(c.MinimumZ+c.MaximumZ)*.5));}
++        }
++        bool CanAdmitRetainingDemand(Work incoming,WorldPoint observer,ExplorationRefinementPublicationPolicy policy)
++        {
++            TouchDesiredResidents();
++            return ExplorationSourceDemandPlanner.CanAdmitRetainingCoverage(WorldField.CapturePublishedCoverage(),incoming.Key,incoming.Complete.PayloadBytes,
++                WorldField.MaximumResidentPatches,WorldField.MaximumResidentPayloadBytes,desiredKeys,desired,key=>WorldField.CanEvictPublishedPatch(key,observer,policy));
++        }
++        void QueueDemand(WorldPoint observer,Vector3 heading,bool deferCurrentArea,ExplorationRefinementPublicationPolicy policy,WorldPoint? destination,double halfAngle)
++        {
++            bool wider=false;
++            try
++            {
++                double r=1280;var bounds=WorldField.QueryBounds(observer.X-r,observer.Z-r,observer.X+r,observer.Z+r);
++                wider=policy.AllowsNeighborhoodDemand(observer,bounds.Maximum);
++            }
++            catch(Exception){ } // Missing bounds retain the narrower protected demand.
++            var candidates=ExplorationSourceDemandPlanner.Build(observer,heading.x,heading.z,LookAheadMeters,baked.WorldWidthMeters,baked.WorldDepthMeters,deferCurrentArea,wider,halfAngle,destination,desiredKeys);
++            DemandCandidateCells=candidates.Length;desired.Clear();desiredKeys.Clear();BundledCandidateCells=CapacityDeferredCells=0;
++            long reserved=0;int retainedSlots=0,nearSlots=0;
++            int effectiveCapacity=Math.Min(WorldField.MaximumResidentPatches,(int)(WorldField.MaximumResidentPayloadBytes/ExpectedPayload(new ExplorationRefinementBounds(0,0,640,640),BlendMeters)));
++            int nearQuota=Math.Max(1,(effectiveCapacity-2)*2/3);
++            foreach(var cell in candidates)
++            {
++                if(!RequiredBounds(cell.Core,out _))continue;
++                if(FullyBaked(cell.Core)){BundledCandidateCells++;continue;}
++                bool current=cell.Current;
++                if(!current&&!wider&&cell.Core.Expanded(BlendMeters+QueryAndPropGuardMeters).DistanceSquared(observer.X,observer.Z)<=ProtectedRadiusMeters*ProtectedRadiusMeters)continue;
++                if(cell.Priority==2&&nearSlots>=nearQuota){CapacityDeferredCells++;continue;}
++                long cost=ExpectedPayload(cell.Core,BlendMeters);
++                if(retainedSlots>=WorldField.MaximumResidentPatches||reserved+cost>WorldField.MaximumResidentPayloadBytes){CapacityDeferredCells++;continue;}
++                desired.Add(cell);desiredKeys.Add(cell.Key);reserved+=cost;retainedSlots++;if(cell.Priority==2)nearSlots++;
++            }
+             foreach(var item in work){item.Desired=false;item.Current=false;}
+-            // Include the current/destination tile even while grounded; publication
+-            // waits for safe coordinator evidence, while one forward slot can proceed.
+-            for(int attempt=-1;attempt<6;attempt++)
+-            {
+-                bool current=attempt<0;
+-                if(current&&deferCurrentArea){CurrentAreaStatus="Current area: fast travel; destination demand resumes on slowing/stopping.";continue;}
+-                int side=current?0:attempt%3==0?0:attempt%3==1?-1:1;
+-                double distance=current?0:LookAheadMeters+(attempt/3)*TileMeters;
+-                double px=observer.X+heading.x*distance-heading.z*side*TileMeters*.8,pz=observer.Z+heading.z*distance+heading.x*side*TileMeters*.8;
+-                long gx=(long)Math.Floor(px/TileMeters),gz=(long)Math.Floor(pz/TileMeters);string key=gx+"/"+gz+"/"+TileMeters.ToString(System.Globalization.CultureInfo.InvariantCulture);
+-                if(WorldField.ContainsPatch(key))continue;
+-                var core=new ExplorationRefinementBounds(gx*TileMeters,gz*TileMeters,(gx+1)*TileMeters,(gz+1)*TileMeters);
+-                var required=core.Expanded(BlendMeters+SurfaceProfile.SampleRadiusMax+10);
+-                if(required.MinimumX< -baked.WorldWidthMeters*.5||required.MaximumX>baked.WorldWidthMeters*.5||required.MinimumZ< -baked.WorldDepthMeters*.5||required.MaximumZ>baked.WorldDepthMeters*.5||FullyBaked(core))
+-                {if(current)CurrentAreaStatus="Current area: bundled detail or map boundary; no live tile required.";continue;}
+-                if(!current&&core.Expanded(BlendMeters+QueryAndPropGuardMeters).DistanceSquared(observer.X,observer.Z)<=ProtectedRadiusMeters*ProtectedRadiusMeters)continue;
+-                Work existing=work.Find(item=>item.Key==key);
+-                if(existing!=null){existing.Desired=true;existing.Current|=current;continue;}
+-                if(retries.TryGetValue(key,out float until)&&Time.unscaledTime<until)
+-                {if(current)CurrentAreaStatus="Current area: model request failed; bounded30s retry pending.";continue;}
+-                if(work.Count>=2)
+-                {if(current)CurrentAreaStatus="Current area: waiting for the existing two requests to drain.";continue;}
+-                var request=new Work{Key=key,Core=core,Desired=true,Current=current};request.Task=FetchCopy(core,key,required);work.Add(request);
+-            }
+-            // Retry metadata is finite even during long exploration flights.
++            foreach(var cell in desired)
++            {
++                Work existing=work.Find(item=>item.Key==cell.Key);
++                if(existing!=null){existing.Desired=true;existing.Current=cell.Current;existing.Priority=cell.Priority;continue;}
++                if(IsReady(cell.Core))continue;
++                if(retries.TryGetValue(cell.Key,out float until)&&Time.unscaledTime<until)
++                {if(cell.Current)CurrentAreaStatus="Current area: model request failed; bounded30s retry pending.";continue;}
++                if(work.Count>=2){if(cell.Current)CurrentAreaStatus="Current area: waiting for the existing two requests to drain.";continue;}
++                RequiredBounds(cell.Core,out var required);
++                var request=new Work{Key=cell.Key,Core=cell.Core,Desired=true,Current=cell.Current,Priority=cell.Priority};request.Task=FetchCopy(cell.Core,cell.Key,required);work.Add(request);
++            }
++            if(deferCurrentArea)CurrentAreaStatus="Current area: fast travel; destination demand resumes on slowing/stopping.";
++            TouchDesiredResidents();RefreshCoverageStats();
+             if(retries.Count>64)retries.Clear();
+         }
+         async Task<ExplorationRefinementPatch> FetchCopy(ExplorationRefinementBounds core,string key,ExplorationRefinementBounds required)
+--- before/Assets/AshenVoxel/Exploration/ExplorationSettings.cs
++++ candidate/Assets/AshenVoxel/Exploration/ExplorationSettings.cs
+@@ -117,6 +117,8 @@
+         public bool ExperimentalBroadLithology=false;
+         [Tooltip("Experimental next-Play far render grid, reducing mesh payload and cubic steps. Near/contact remains cubic. Native acceptance pending.")]
+         public bool ExperimentalDistantHeightProxies=false;
++        [Tooltip("Optional next-Play local disk cache for distant height proxies.1GiB, default off; does not reduce visible GPU mesh memory.")]
++        public bool EnableHeightProxyDiskCache=false;
+         public bool EnableForestHorizon=true;
+         [Tooltip("Forests follow the complete terrain view, including the extra coarse horizon, instead of stopping at a separate forest distance.")]
+         public bool ForestFollowsTerrainView=true;
+--- before/Assets/AshenVoxel/Exploration/ExplorationShrubMatter.cs
++++ candidate/Assets/AshenVoxel/Exploration/ExplorationShrubMatter.cs
+@@ -29,6 +29,15 @@
+         string status="U: break nearby existing shrub | I: suction | O: restore";
+         public bool ShowBetaHud=true;
+         public string Status=>status;
++        public bool SuctionEnabled {get=>suction;set=>suction=value;}
++        public bool HasMatterSession=>lease!=null;
++        public bool SessionActive=>active;
++        public int InitialCells=>initial;
++        public int SourcePrototypeId=>lease==null?0:lease.Instance.PrototypeId;
++        public int DebrisCount=>matter?.DebrisCount??0;
++        public long CargoCells=>matter?.CreditedCells??0;
++        public int RemainingSourceCells=>Math.Max(0,source.Count-removalCursor);
++
+         public long OwnedCells
+         {get{if(world==null||matter==null)return 0;long total=matter.DebrisCount+matter.CreditedCells;foreach(var chunk in world.Chunks.Values)total+=chunk.NonAirCount;return total;}}
+         public static ExplorationShrubMatter Attach(ExplorationBootstrap boot)
+--- before/Assets/AshenVoxel/Exploration/ForestHorizon.cs
++++ candidate/Assets/AshenVoxel/Exploration/ForestHorizon.cs
+@@ -9,18 +9,24 @@
+ namespace AshenVoxel.Exploration
+ {
+     /// <summary>View-only stand HLOD. Immutable source snapshots, one worker,
+-    /// capped 256 tiles / 16384 samples, shared two-triangle prototype images.
++    /// capped 256 tiles / 36864 samples, shared two-triangle prototype images.
+     /// Stand aggregates are deliberately approximate, never physical instances.</summary>
+     public sealed class ForestHorizon:IDisposable
+     {
++        // View-only representation version; no population, matter or atlas change.
++        public const int CanopyRepresentationVersion=1;
++        public const int CanopySamplesPerAxis=12,MaximumCanopySamples=256*12*12;
++        public const double MaximumPatchWidthMeters=2048;
+         readonly SurfaceMaterialSampler surface;readonly int seed;
+         readonly Material material;readonly Dictionary<int,Mesh> meshes;
+         readonly Dictionary<int,ExplorationPrototype> prototypes;
+         readonly Plane[] planes=new Plane[6];
+         readonly struct Sample
+         {
+-            public readonly int Id;public readonly WorldPoint Position;public readonly float Yaw,Width;
+-            public Sample(int id,WorldPoint p,float yaw,float width){Id=id;Position=p;Yaw=yaw;Width=width;}
++            public readonly int Id;public readonly WorldPoint Position;public readonly float Yaw,Width,Height,PackedId;
++            public readonly uint Appearance;
++            public Sample(int id,WorldPoint p,float yaw,float width,float height,float packedId,uint appearance)
++            {Id=id;Position=p;Yaw=yaw;Width=width;Height=height;PackedId=packedId;Appearance=appearance;}
+         }
+         sealed class Batch
+         {
+@@ -111,17 +117,19 @@
+                     {
+                         var p=prototypes[s.Id];
+                         pendingGpu[upload-1]=new ForestGpuRenderer.Instance{
+-                            PositionSpan=new Vector4((float)(s.Position.X-planned.X),(float)(s.Position.Y-planned.Y)+(p.MinY+p.MaxY)*.5f,(float)(s.Position.Z-planned.Z),ForestBillboard.Span(p)),
+-                            Style=new Vector4(s.Width,s.Id,s.Yaw*(float)(Math.PI/180),0)};
++                            PositionSpan=new Vector4((float)(s.Position.X-planned.X),(float)(s.Position.Y-planned.Y)+(p.MinY+p.MaxY)*.5f*s.Height,(float)(s.Position.Z-planned.Z),ForestBillboard.Span(p)),
++                            Style=new Vector4(s.Width,s.PackedId,s.Yaw*(float)(Math.PI/180),s.Appearance)};
+                     }
+                     else
+                     #endif
+                     {
+                     if(!open.TryGetValue(s.Id,out Batch batch)||batch.Count==1023){batch=pool.Count>0?pool.Pop():new Batch();batch.Id=s.Id;batch.Count=0;open[s.Id]=batch;next.Add(batch);}
+                     Vector3 position=new Vector3((float)(s.Position.X-origin.X),(float)(s.Position.Y-origin.Y),(float)(s.Position.Z-origin.Z));
+-                    batch.Matrices[batch.Count++]=Matrix4x4.TRS(position,Quaternion.Euler(0,s.Yaw,0),new Vector3(s.Width,1,s.Width));
+-                    var p=prototypes[s.Id];float extent=ForestBillboard.Span(p)*Math.Max(1,s.Width)*1.415f;
+-                    Bounds b=new Bounds(position+Vector3.up*((p.MinY+p.MaxY)*.5f),Vector3.one*extent);
++                    // The unchanged legacy CPU atlas shader has no cluster/tint
++                    // payload. Retain real-size tree cards in that fallback.
++                    batch.Matrices[batch.Count++]=Matrix4x4.TRS(position,Quaternion.Euler(0,s.Yaw,0),new Vector3(s.Height,s.Height,s.Height));
++                    var p=prototypes[s.Id];float extent=ForestBillboard.Span(p)*s.Height*1.415f;
++                    Bounds b=new Bounds(position+Vector3.up*((p.MinY+p.MaxY)*.5f*s.Height),Vector3.one*extent);
+                     if(batch.Count==1)batch.Bounds=b;else batch.Bounds.Encapsulate(b);
+                     }
+                     if((Stopwatch.GetTimestamp()-start)*1000.0/Stopwatch.Frequency>=1.5)break;
+@@ -167,8 +175,8 @@
+             LodPlan plan=LodPlanner.Build(field,eye,new LodSettings(128,10,far,2.2,256,bounds.Minimum-100,bounds.Maximum+100));
+             foreach(LodTile tile in plan.Tiles)
+             {
+-                double spacing=tile.SizeMeters/8;
+-                for(int z=0;z<8;z++)for(int x=0;x<8;x++)
++                double spacing=tile.SizeMeters/CanopySamplesPerAxis;
++                for(int z=0;z<CanopySamplesPerAxis;z++)for(int x=0;x<CanopySamplesPerAxis;x++)
+                 {
+                     double px=tile.OriginXMeters+(x+.5)*spacing,pz=tile.OriginZMeters+(z+.5)*spacing;
+                     double horizontal=(px-eye.X)*(px-eye.X)+(pz-eye.Z)*(pz-eye.Z);
+@@ -176,17 +184,59 @@
+                     double noise=ForestBiomes.Noise(px/17,pz/17,seed+4049);
+                     px+=(noise-.5)*spacing*.7;pz+=(ForestBiomes.Noise(px/19,pz/19,seed+4051)-.5)*spacing*.7;
+                     SurfaceColumn c=sampler.EvaluateColumn(px,pz);ForestStand stand=ForestBiomes.Sample(c,px,pz,seed);
+-                    if(!stand.HasTrees)continue;
++                    if(!CanopyEligible(c,stand,sampler.Profile))continue;
+                     int id=(int)stand.Species*4+(stand.Stage==ForestStage.MatureOpen?2:0)+(noise>.5?1:0);
+                     var p=prototypes[id];double dx=eye.X-px,dz=eye.Z-pz,dy=eye.Y-(c.GroundHeightMeters+(p.MinY+p.MaxY)*.5);
+                     double distance=Math.Sqrt(dx*dx+dy*dy+dz*dz);
+                     if(distance<near-160||distance>far+160)continue;
+-                    float width=(float)Math.Max(1,Math.Min(40,spacing*Math.Sqrt(Math.Min(1,stand.Density*density*2))/(p.Radius*2)));
+-                    result.Add(new Sample(id,new WorldPoint(px,c.GroundHeightMeters-.05,pz),(float)(noise*360),width));
+-                }
+-            }
++                    double span=ForestBillboard.Span(p),crown=Math.Min(span,p.Radius*2*1.04);
++                    // These are metres of forest patch, never tree dimensions.
++                    // The old radius divisor stretched the height-based square
++                    // by Span/(2*Radius), especially on mature conifers.
++                    double patchWidth=Math.Min(MaximumPatchWidthMeters,Math.Max(crown,spacing*1.10));
++                    double gx=0,gz=0;
++                    if(patchWidth>crown*2&&!PatchFits(sampler,stand,c,px,pz,patchWidth,(p.MaxY-p.MinY)*.35,seed,out gx,out gz))
++                    {patchWidth=crown;gx=gz=0;}
++                    double region=ForestBiomes.Noise(px/640,pz/640,unchecked(seed+5101));
++                    double local=ForestBiomes.Noise(px/96,pz/96,unchecked(seed+5107));
++                    double growth=Clamp(.58*region+.27*local+.15*noise,0,1);
++                    uint h=Quantize(growth),tint=Quantize(.72*region+.28*local);
++                    float height=(float)(.86+.28*h/63.0);
++                    double cover=1-Math.Exp(-Math.Max(0,stand.Density*density)*3.2);
++                    cover*=.82+.18*ForestBiomes.Noise(px/180,pz/180,unchecked(seed+5113));
++                    uint appearance=Quantize(crown/span)|(h<<6)|(tint<<12)|(Quantize(cover)<<18);
++                    uint slope=(uint)(Math.Round(Clamp(gx,-1,1)*511)+511)|((uint)(Math.Round(Clamp(gz,-1,1)*511)+511)<<10);
++                    float packedId=id+slope/1048576f;
++                    result.Add(new Sample(id,new WorldPoint(px,c.GroundHeightMeters-.05,pz),(float)(noise*360),(float)(patchWidth/span),height,packedId,appearance));
++                }
++            }
++            if(result.Count>MaximumCanopySamples)throw new InvalidOperationException("Canopy sample budget exceeded.");
+             return result;
+         }
++        static bool CanopyEligible(SurfaceColumn c,ForestStand stand,SurfaceProfile profile)
++        {
++            // Preserve source biome/water/cold/slope exclusions, and do not paint
++            // dense forest into the configured alpine band even on coarse data.
++            return stand.HasTrees&&c.IsLand&&!c.HasWater&&c.GroundHeightMeters<profile.SnowlineMeters-350;
++        }
++        static bool PatchFits(SurfaceMaterialSampler sampler,ForestStand stand,SurfaceColumn center,double x,double z,double width,double tolerance,int seed,out double gx,out double gz)
++        {
++            double half=width*.707107;
++            var a=sampler.EvaluateColumn(x-half,z-half);var b=sampler.EvaluateColumn(x+half,z-half);
++            var c=sampler.EvaluateColumn(x-half,z+half);var d=sampler.EvaluateColumn(x+half,z+half);
++            gx=((b.GroundHeightMeters+d.GroundHeightMeters)-(a.GroundHeightMeters+c.GroundHeightMeters))/(4*half);
++            gz=((c.GroundHeightMeters+d.GroundHeightMeters)-(a.GroundHeightMeters+b.GroundHeightMeters))/(4*half);
++            bool Same(SurfaceColumn q,double px,double pz)
++            {var s=ForestBiomes.Sample(q,px,pz,seed);return CanopyEligible(q,s,sampler.Profile)&&s.Species==stand.Species;}
++            if(!Same(a,x-half,z-half)||!Same(b,x+half,z-half)||!Same(c,x-half,z+half)||!Same(d,x+half,z+half))return false;
++            double sx=gx,sz=gz;
++            double Error(SurfaceColumn q,double dx,double dz)=>Math.Abs(q.GroundHeightMeters-center.GroundHeightMeters-dx*sx-dz*sz);
++            // A patch follows its sampled terrain plane. Curved/cliff patches
++            // fall back to a real-size crown instead of floating across a valley.
++            return Math.Abs(gx)<=1&&Math.Abs(gz)<=1&&Math.Max(Math.Max(Error(a,-half,-half),Error(b,half,-half)),Math.Max(Error(c,-half,half),Error(d,half,half)))<=tolerance;
++        }
++        static double Clamp(double x,double lo,double hi)=>Math.Max(lo,Math.Min(hi,x));
++        static uint Quantize(double x)=>(uint)Math.Round(Clamp(x,0,1)*63);
+         static double Travel(WorldPoint a,WorldPoint b)=>(a.X-b.X)*(a.X-b.X)+(a.Z-b.Z)*(a.Z-b.Z)+(a.Y-b.Y)*(a.Y-b.Y);
+         static void Rebase(List<Batch> batches,Vector3 delta)
+         {foreach(Batch b in batches){for(int i=0;i<b.Count;i++){Matrix4x4 m=b.Matrices[i];m.m03+=delta.x;m.m13+=delta.y;m.m23+=delta.z;b.Matrices[i]=m;}b.Bounds.center+=delta;}}
+--- before/Assets/AshenVoxel/Exploration/Resources/ForestHorizonCull.compute
++++ candidate/Assets/AshenVoxel/Exploration/Resources/ForestHorizonCull.compute
+@@ -15,7 +15,9 @@
+     float distanceToEye=distance(center,_Observer.xyz);
+     // Same center-distance policy as the forward/depth/normal shaders.
+     if(distanceToEye<_Range.x||distanceToEye>_Range.y)return;
+-    float radius=stand.positionSpan.w*max(1,stand.style.x)*0.707107;
++    // New canopy patches can follow a bounded +/-1 terrain gradient. Enclose
++    // the sloped plane and modest height variance; retain legacy bounds at w=0.
++    float radius=stand.positionSpan.w*(stand.style.w>0?max(1.14,stand.style.x)*1.5:max(1,stand.style.x)*0.707107);
+     [unroll]for(uint i=0;i<6;i++)if(dot(_Planes[i].xyz,center)+_Planes[i].w < -radius)return;
+     _VisibleForest.Append(id);
+ }
+--- before/Assets/AshenVoxel/Exploration/Resources/ForestHorizonGpu.shader
++++ candidate/Assets/AshenVoxel/Exploration/Resources/ForestHorizonGpu.shader
+@@ -18,7 +18,7 @@
+         float _HorizonNear,_HorizonFar,_AtlasLightingVersion;
+         CBUFFER_END
+         #include "../ForestImpostorLighting.hlsl"
+-        struct V { float4 positionCS:SV_POSITION; float4 uv:TEXCOORD0; half fog:TEXCOORD1; half3 normalWS:TEXCOORD2; float range:TEXCOORD3; float3 positionWS:TEXCOORD4; float3 orientation:TEXCOORD5; float3 views:TEXCOORD6; };
++        struct V { float4 positionCS:SV_POSITION; float4 uv:TEXCOORD0; half fog:TEXCOORD1; half3 normalWS:TEXCOORD2; float range:TEXCOORD3; float3 positionWS:TEXCOORD4; float3 orientation:TEXCOORD5; float3 views:TEXCOORD6; nointerpolation float4 canopy:TEXCOORD7; };
+         V Vert(uint vertexID:SV_VertexID,uint instanceID:SV_InstanceID)
+         {
+             InitIndirectDrawArgs(0);
+@@ -30,17 +30,58 @@
+             float3 right=SafeNormalize(cross(float3(0,1,0),direction)+float3(.00001,0,0));
+             float3 up=SafeNormalize(cross(direction,right));
+             float width=stand.style.x,span=stand.positionSpan.w;
+-            float blend=ForestOverheadBlend(direction.y);float projected=ForestProjectedHeight(direction.y,1,width,blend);
++            // V1 canopy payload fits exactly in a float's24 integer bits:
++            // crown crop, growth, correlated tint and occupancy, six bits each.
++            // Zero retains the legacy single-tree path and existing GPU fixtures.
++            uint packed=(uint)round(stand.style.w);bool cluster=packed>0;
++            float height=cluster ? .86+.28*((packed>>6)&63)/63.0 : 1;
++            float blend=ForestOverheadBlend(direction.y);float projected=ForestProjectedHeight(direction.y,height,width,blend);
+             float3 position=center+right*(uv.x-.5)*span*width+up*(uv.y-.5)*span*projected;
++            if(cluster)
++            {
++                uint slopes=(uint)round(frac(stand.style.y)*1048576);
++                float2 gradient=(float2(slopes&1023,(slopes>>10)&1023)-511)/511;
++                position.y+=dot(gradient,position.xz-center.xz);
++            }
+             float a=stand.style.z,co=cos(a),si=sin(a);
+             float3 local=float3(direction.x*co-direction.z*si,direction.y,direction.x*si+direction.z*co);
+             float view=fmod(floor(atan2(local.x,local.z)*1.273239545+8.5),8);
+             float2 azimuth=local.xz;azimuth=dot(azimuth,azimuth)>.00000001?normalize(azimuth):float2(-si,co);
+-            V o;o.positionWS=position;o.orientation=float3(co,si,width);o.positionCS=TransformWorldToHClip(position);o.uv=ForestProjectedUV(uv,direction.y,1,width,projected,azimuth);o.views=float3(stand.style.y*9+view,stand.style.y*9+8,blend);
++            float prototype=cluster?floor(stand.style.y):stand.style.y;
++            V o;o.positionWS=position;o.orientation=float3(co,si,cluster?1:width);o.positionCS=TransformWorldToHClip(position);o.uv=ForestProjectedUV(uv,direction.y,height,width,projected,azimuth);o.views=float3(prototype*9+view,prototype*9+8,blend);
++            float crop=cluster?max(.12,(packed&63)/63.0):0;
++            o.canopy=float4(crop,cluster?((packed>>18)&63)/63.0:1,cluster?((packed>>12)&63)/63.0:.5,cluster?max(1,width/crop):0);
+             o.fog=ComputeFogFactor(o.positionCS.z);o.normalWS=direction;o.range=distance(_WorldSpaceCameraPos,center);return o;
+         }
+-        // Far stand wind is subpixel; keep geometry static and coverage atlas-anchored.
+-        ForestViewSample Tree(V i){clip(i.range-_HorizonNear);clip(_HorizonFar-i.range);return ForestSampleViews(i.uv,i.views,i.orientation.xy,i.orientation.z,i.normalWS);}
++        float CanopyHash(float2 cell,float phase)
++        {return frac(sin(dot(cell,float2(127.1,311.7))+phase*73.7)*43758.5453);}
++        // A far quad is a stand, not a tree stretched to terrain-tile size.
++        // Reuse actual crown silhouettes at their physical width. No time/frame,
++        // screen-space seed, extra geometry, atlas rebake or per-frame confetti.
++        ForestViewSample Tree(V i)
++        {
++            clip(i.range-_HorizonNear);clip(_HorizonFar-i.range);
++            float4 uv=i.uv;float cellShade=1;
++            if(i.canopy.x>0)
++            {
++                float repeat=i.canopy.w,phase=i.canopy.z;
++                float sideX=uv.x*repeat+phase;
++                float2 topGrid=uv.zw*repeat+phase;
++                float2 sideCell=float2(floor(sideX),0),topCell=floor(topGrid);
++                float sideNoise=CanopyHash(sideCell,phase),topNoise=CanopyHash(topCell,phase);
++                // Keep deliberate biome-density gaps among cropped crowns.
++                // Stable view blend uses the same coverage path in every pass.
++                float visible=lerp(step(sideNoise,i.canopy.y),step(topNoise,i.canopy.y),i.views.z);
++                ClipMaterialStable(visible,float3(frac(topGrid)*120,phase*17));
++                uv.x=(frac(sideX)-.5)*i.canopy.x+.5;
++                uv.y/=lerp(.88,1,sideNoise);
++                uv.zw=(frac(topGrid)-.5)*i.canopy.x+.5;
++                cellShade=lerp(.97,1.03,lerp(sideNoise,topNoise,i.views.z));
++            }
++            ForestViewSample c=ForestSampleViews(uv,i.views,i.orientation.xy,i.orientation.z,i.normalWS);
++            if(i.canopy.x>0)c.albedo*=lerp(half3(.87,.91,.83),half3(1.08,1.07,1.10),i.canopy.z)*cellShade;
++            return c;
++        }
+         ENDHLSL
+         Pass
+         {
+--- before/Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs
++++ candidate/Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs
+@@ -125,9 +125,23 @@
+         public static ExplorationRefinementPublicationPolicy AirborneWithoutGameplayMatter(WorldPoint observer)=>new ExplorationRefinementPublicationPolicy(2,observer);
+         internal bool Matches(WorldPoint observer)=>witness.X==observer.X&&witness.Y==observer.Y&&witness.Z==observer.Z;
+         public static ExplorationRefinementPublicationPolicy HoldForGameplayMatter(WorldPoint observer)=>new ExplorationRefinementPublicationPolicy(3,observer);
++        /// <summary>Demand hint only. Publication still verifies old AND new bounds.</summary>
++        public bool AllowsNeighborhoodDemand(WorldPoint observer,double currentMaximum)
++            =>Matches(observer)&&!Hold&&(Unspawned||Airborne&&!double.IsNaN(currentMaximum)&&!double.IsInfinity(currentMaximum)&&observer.Y>currentMaximum+512);
+         internal bool Hold=>mode==3;
+         internal bool Unspawned=>mode==1;
+         internal bool Airborne=>mode==2;
++    }
++
++    /// <summary>Read-only extent metadata, never the retained height/climate arrays.</summary>
++    public readonly struct ExplorationPublishedPatchInfo
++    {
++        public readonly string Key,SourceIdentity;
++        public readonly ExplorationRefinementBounds CoreBounds,InfluenceBounds;
++        public readonly double SpacingMeters;
++        public readonly long PayloadBytes,LastUse;
++        internal ExplorationPublishedPatchInfo(ExplorationRefinementPatch p,long lastUse)
++        {Key=p.Key;SourceIdentity=p.SourceIdentity;CoreBounds=p.CoreBounds;InfluenceBounds=p.InfluenceBounds;SpacingMeters=p.SpacingMeters;PayloadBytes=p.PayloadBytes;LastUse=lastUse;}
+     }
+ 
+     /// <summary>Stable shared world authority with atomic immutable patch states.
+@@ -233,6 +247,21 @@
+         public bool HasActiveDetail(double x,double z)=>LiveWeightAt(x,z)>0;
+         public double ResolutionMetersAt(double x,double z)=>LiveWeightAt(x,z)>=.999999?SpacingMeters:
+             baseField is ExplorationAtlasField baked?baked.ModelResolutionMeters(x,z):double.NaN;
++        public int MaximumResidentPatches=>maximumPatches;
++        public long MaximumResidentPayloadBytes=>maximumBytes;
++        public ExplorationPublishedPatchInfo[] CapturePublishedCoverage()
++        {
++            lock(gate)
++            {var result=new ExplorationPublishedPatchInfo[records.Count];for(int i=0;i<records.Count;i++)result[i]=new ExplorationPublishedPatchInfo(records[i].Patch,records[i].Use);return result;}
++        }
++        public bool HasPublishedCoreCoverage(ExplorationRefinementBounds core)
++        {
++            foreach(var p in Volatile.Read(ref current).Patches)if(p.SpacingMeters<=SpacingMeters&&p.CoreBounds.MinimumX<=core.MinimumX&&p.CoreBounds.MinimumZ<=core.MinimumZ&&p.CoreBounds.MaximumX>=core.MaximumX&&p.CoreBounds.MaximumZ>=core.MaximumZ)return true;
++            return false;
++        }
++        // Read-only admission evidence; TryPublish still rechecks the existing policy.
++        public bool CanEvictPublishedPatch(string key,WorldPoint observer,ExplorationRefinementPublicationPolicy policy=default)
++        {lock(gate)foreach(var r in records)if(r.Patch.Key==key)return Safe(r.Patch,observer,policy);return false;}
+         public void Touch(WorldPoint observer){lock(gate)foreach(var r in records)if(r.Patch.InfluenceBounds.Contains(observer.X,observer.Z))r.Use=++uses;}
+         void Commit(List<Record> next)
+         {
+--- before/Assets/AshenVoxel/WorldScaleData/HeightProxyDiskCache.cs
++++ candidate/Assets/AshenVoxel/WorldScaleData/HeightProxyDiskCache.cs
+@@ -0,0 +1,231 @@
++using System;
++using System.Buffers.Binary;
++using System.Collections.Generic;
++using System.IO;
++using System.Runtime.InteropServices;
++using System.Security.Cryptography;
++using System.Text;
++using System.Threading;
++using AshenVoxel.Core;
++
++namespace AshenVoxel.WorldScale
++{
++    public sealed class HeightProxyCacheKey
++    {
++        public const int FormatVersion=1,MaximumKeyBytes=65536;
++        // Update on any change to Build/material sampling semantics. Source/profile
++        // revisions remain separate, and caller must never reuse their identities.
++        public const string AlgorithmIdentity="height-proxy-build/fa270bc21c1f1612bd8af36624aa47992cf292d0ffc9e0942528b0c0630ee980;sampler/a66ea39db657d365ebb3b897df72ee7146a28caee652270a7da789e062a2832b;profile/255a9049ed90b0585f523d51b5f82647eda3a46e8cb6ef1a4f9f7913d1453922";
++        readonly byte[] bytes,digest;
++        public readonly string Hash,SurfaceIdentity;
++        public readonly int Quads,VertexCount,IndexCount,HeightCount;
++        public readonly double SizeMeters,SkirtDepth;
++        internal ReadOnlySpan<byte> Bytes=>bytes;
++        internal ReadOnlySpan<byte> Digest=>digest;
++        internal long PayloadBytes=>16L+24L*VertexCount+4L*IndexCount+4L*HeightCount;
++        internal long FileBytes=>108+bytes.Length+PayloadBytes;
++        HeightProxyCacheKey(byte[] bytes,string identity,int n,double size,double skirt)
++        {
++            this.bytes=bytes;using var sha=SHA256.Create();digest=sha.ComputeHash(bytes);Hash=Hex(digest);SurfaceIdentity=identity;Quads=n;SizeMeters=size;SkirtDepth=skirt;
++            HeightCount=(n+1)*(n+1);VertexCount=HeightCount+8*(n+1);IndexCount=n*n*6+n*24;
++        }
++        internal static string Hex(ReadOnlySpan<byte> data){var s=new StringBuilder(data.Length*2);foreach(byte b in data)s.Append(b.ToString("x2",System.Globalization.CultureInfo.InvariantCulture));return s.ToString();}
++        public static HeightProxyCacheKey Create(SurfaceMaterialSampler sampler,LodTile tile,int quads,double skirtDepth)
++        {
++            if(sampler==null||tile==null)throw new ArgumentNullException();
++            if(!BitConverter.IsLittleEndian||Marshal.SizeOf<HeightProxySurface.Vertex>()!=24)throw new NotSupportedException("Height proxy cache layout/endianness");
++            if(quads<8||quads>256||(quads&(quads-1))!=0||tile.Key.Level<0||tile.Key.Level>14)throw new ArgumentOutOfRangeException(nameof(quads));
++            Numeric.Positive(skirtDepth,nameof(skirtDepth));Numeric.Positive(tile.SizeMeters,nameof(tile.SizeMeters));
++            Numeric.Finite(tile.OriginXMeters,nameof(tile.OriginXMeters));Numeric.Finite(tile.OriginZMeters,nameof(tile.OriginZMeters));Numeric.Finite(tile.MinimumHeight,nameof(tile.MinimumHeight));Numeric.Finite(tile.MaximumHeight,nameof(tile.MaximumHeight));
++            if(tile.MinimumHeight>tile.MaximumHeight)throw new ArgumentException("Inverted tile bounds");
++            long cells=256L<<tile.Key.Level;
++            double expectedX=(double)tile.Key.X*cells*.1,expectedZ=(double)tile.Key.Z*cells*.1;
++            if(Math.Abs(tile.SizeMeters-cells*.1)>1e-5||Math.Abs(tile.OriginXMeters-expectedX)>1e-4||Math.Abs(tile.OriginZMeters-expectedZ)>1e-4)throw new ArgumentException("Proxy dyadic grid mismatch");
++            string source=sampler.SourceIdentity,profile=sampler.Profile.Identity;
++            if(string.IsNullOrEmpty(source)||source.Length>16384||string.IsNullOrEmpty(profile)||profile.Length>4096)throw new ArgumentException("Bounded source/profile identities required");
++            string surface=source+"/height-proxy-cache-v"+HeightProxySurface.Version+"/"+tile.Key+"/"+quads;
++            using var stream=new MemoryStream();using(var w=new BinaryWriter(stream,new UTF8Encoding(false,true),true))
++            {
++                w.Write("height-proxy-disk-key-v1");w.Write(AlgorithmIdentity);w.Write(HeightProxySurface.Version);w.Write(HeightProxySurface.VertexStride);w.Write(MaterialCatalog.Version);w.Write(VoxelTerrainPage.Version);w.Write(WorldCell.SizeMeters);w.Write(true);
++                w.Write(source);w.Write(profile);w.Write(surface);w.Write(tile.Key.X);w.Write(tile.Key.Z);w.Write(tile.Key.Level);w.Write(tile.OriginXMeters);w.Write(tile.OriginZMeters);w.Write(tile.SizeMeters);w.Write(tile.MinimumHeight);w.Write(tile.MaximumHeight);w.Write(quads);w.Write(skirtDepth);
++            }
++            if(stream.Length>MaximumKeyBytes)throw new ArgumentException("Cache key byte limit");
++            return new HeightProxyCacheKey(stream.ToArray(),surface,quads,tile.SizeMeters,skirtDepth);
++        }
++    }
++
++    /// <summary>Opt-in, single-directory replaceable render cache. Use ONE instance
++    /// on the existing serialized terrain worker. No Unity, task, queue or matter.</summary>
++    public sealed class HeightProxyDiskCache:IDisposable
++    {
++        public const long DefaultBudgetBytes=1L<<30,MaximumBudgetBytes=4L<<30;
++        public const int MaximumRecordBytes=4*1024*1024,MaximumEntries=4096,MaximumScannedFiles=8192;
++        const string Prefix="ashen-heightproxy-v1-",Extension=".ahpc",Magic="AHPC0001";
++        readonly string directory;readonly bool enabled;readonly long budget;readonly object gate=new object();
++        sealed class Entry{public string Path,Hash;public long Bytes,Use;}
++        readonly Dictionary<string,Entry> entries=new Dictionary<string,Entry>();FileStream ownerLock;bool initialized,disposed;long diskBytes,clock;int entryCount;
++        public bool Enabled=>enabled&&!disposed;
++        public long BudgetBytes=>budget;
++        public long OwnedDiskBytes=>Interlocked.Read(ref diskBytes);
++        public int RecordCount=>Volatile.Read(ref entryCount);
++        public string DirectoryPath=>directory;
++        public HeightProxyDiskCache(string directory,bool enabled=false,long budgetBytes=DefaultBudgetBytes)
++        {
++            if(string.IsNullOrEmpty(directory)||!Path.IsPathRooted(directory))throw new ArgumentException("Absolute owner-supplied cache directory required");
++            if(budgetBytes<1||budgetBytes>MaximumBudgetBytes)throw new ArgumentOutOfRangeException(nameof(budgetBytes));
++            this.directory=Path.GetFullPath(directory).TrimEnd(Path.DirectorySeparatorChar,Path.AltDirectorySeparatorChar);
++            if(this.directory.Length<4||string.Equals(this.directory,Path.GetPathRoot(this.directory)?.TrimEnd(Path.DirectorySeparatorChar),StringComparison.OrdinalIgnoreCase))throw new ArgumentException("Cache cannot own a drive root");
++            foreach(string part in this.directory.Split(Path.DirectorySeparatorChar,Path.AltDirectorySeparatorChar))if(string.Equals(part,"Assets",StringComparison.OrdinalIgnoreCase))throw new ArgumentException("Cache must be outside Assets");
++            this.enabled=enabled;budget=budgetBytes;
++        }
++        static bool Finite(float v)=>!float.IsNaN(v)&&!float.IsInfinity(v);
++        static bool Finite(double v)=>!double.IsNaN(v)&&!double.IsInfinity(v);
++        static void Require(bool b,string why){if(!b)throw new InvalidDataException(why);}
++        static bool Hex(string s,int length){if(s==null||s.Length!=length)return false;foreach(char c in s)if(!(c>='0'&&c<='9'||c>='a'&&c<='f'))return false;return true;}
++        static bool RecordName(string name,out string hash)
++        {hash=null;if(!name.StartsWith(Prefix,StringComparison.Ordinal)||!name.EndsWith(Extension,StringComparison.Ordinal))return false;string h=name.Substring(Prefix.Length,name.Length-Prefix.Length-Extension.Length);if(!Hex(h,64))return false;hash=h;return true;}
++        static bool TempName(string name)
++        {if(!name.StartsWith(Prefix,StringComparison.Ordinal)||!name.EndsWith(".tmp",StringComparison.Ordinal))return false;string rest=name.Substring(Prefix.Length,name.Length-Prefix.Length-4);return rest.Length==97&&rest[64]=='-'&&Hex(rest.Substring(0,64),64)&&Hex(rest.Substring(65),32);}
++        static bool Regular(string path)=>File.Exists(path)&&(File.GetAttributes(path)&(FileAttributes.ReparsePoint|FileAttributes.Directory))==0;
++        static void CheckAncestors(string path)
++        {int count=0;for(var d=new DirectoryInfo(path);d!=null;d=d.Parent){if(++count>256)throw new IOException("Directory depth limit");if(d.Exists&&(d.Attributes&FileAttributes.ReparsePoint)!=0)throw new IOException("Reparse cache path refused");}}
++        string PathFor(string hash)=>Path.Combine(directory,Prefix+hash+Extension);
++        bool Owns(string path,out Entry entry)
++        {
++            entry=null;if(!RecordName(Path.GetFileName(path),out string hash)||!Regular(path))return false;
++            var f=new FileInfo(path);if(f.Length<108||f.Length>MaximumRecordBytes)return false;
++            using var stream=new FileStream(path,FileMode.Open,FileAccess.Read,FileShare.Read);using var r=new BinaryReader(stream,Encoding.UTF8,true);
++            if(Encoding.ASCII.GetString(r.ReadBytes(8))!=Magic||r.ReadInt32()!=1)return false;
++            stream.Position=44;byte[] key=r.ReadBytes(32);if(key.Length!=32||HeightProxyCacheKey.Hex(key)!=hash)return false;
++            entry=new Entry{Path=path,Hash=hash,Bytes=f.Length,Use=f.LastWriteTimeUtc.Ticks};return true;
++        }
++        bool Ready(out string why,CancellationToken cancel)
++        {
++            why="";if(disposed){why="disposed";return false;}if(!enabled){why="disabled";return false;}if(initialized)return true;
++            CheckAncestors(directory);Directory.CreateDirectory(directory);CheckAncestors(directory);
++            string lockPath=Path.Combine(directory,".ashen-heightproxy-v1.lock");
++            if(File.Exists(lockPath)&&!Regular(lockPath))throw new IOException("Reparse cache lock refused");
++            ownerLock=new FileStream(lockPath,FileMode.OpenOrCreate,FileAccess.ReadWrite,FileShare.None);
++            try
++            {
++                int scanned=0;foreach(string p in Directory.EnumerateFiles(directory,Prefix+"*",SearchOption.TopDirectoryOnly))
++                {
++                    cancel.ThrowIfCancellationRequested();if(++scanned>MaximumScannedFiles)throw new IOException("Owned cache scan limit");
++                    if(TempName(Path.GetFileName(p))&&Regular(p)){File.Delete(p);continue;}
++                    if(Owns(p,out var e)){entries.Add(e.Hash,e);diskBytes+=e.Bytes;clock=Math.Max(clock,e.Use);}
++                }
++                while(entries.Count>MaximumEntries||diskBytes>budget){cancel.ThrowIfCancellationRequested();if(!Evict(null))throw new IOException("Cache pruning failed");}
++                entryCount=entries.Count;initialized=true;return true;
++            }
++            catch{ownerLock.Dispose();ownerLock=null;entries.Clear();diskBytes=0;entryCount=0;throw;}
++        }
++        void Remove(Entry e){if(entries.Remove(e.Hash))diskBytes-=e.Bytes;entryCount=entries.Count;}
++        bool Evict(string except)
++        {
++            Entry oldest=null;foreach(var e in entries.Values)if(e.Hash!=except&&(oldest==null||e.Use<oldest.Use||e.Use==oldest.Use&&string.CompareOrdinal(e.Hash,oldest.Hash)<0))oldest=e;
++            if(oldest==null)return false;
++            if(Owns(oldest.Path,out _))File.Delete(oldest.Path); // Never delete unknown/replaced files.
++            Remove(oldest);return true;
++        }
++        void Touch(Entry e)
++        {clock=Math.Max(clock+1,DateTime.UtcNow.Ticks);e.Use=clock;try{File.SetLastWriteTimeUtc(e.Path,new DateTime(clock,DateTimeKind.Utc));}catch(IOException){}catch(UnauthorizedAccessException){}}
++        static void ReadExactly(Stream s,Span<byte> data,CancellationToken cancel)
++        {while(data.Length!=0){cancel.ThrowIfCancellationRequested();int n=s.Read(data.Slice(0,Math.Min(65536,data.Length)));if(n==0)throw new EndOfStreamException();data=data.Slice(n);}}
++        static void WriteAll(Stream s,ReadOnlySpan<byte> data,CancellationToken cancel)
++        {while(data.Length!=0){cancel.ThrowIfCancellationRequested();int n=Math.Min(65536,data.Length);s.Write(data.Slice(0,n));data=data.Slice(n);}}
++        static byte[] Metadata(HeightProxySurface s)
++        {var b=new byte[16];BinaryPrimitives.WriteInt64LittleEndian(b,BitConverter.DoubleToInt64Bits(s.AnchorY));BinaryPrimitives.WriteInt32LittleEndian(b.AsSpan(8),BitConverter.SingleToInt32Bits(s.MinimumLocalY));BinaryPrimitives.WriteInt32LittleEndian(b.AsSpan(12),BitConverter.SingleToInt32Bits(s.MaximumLocalY));return b;}
++        static byte[] PayloadHash(HeightProxySurface s,CancellationToken cancel)
++        {
++            using var hash=IncrementalHash.CreateHash(HashAlgorithmName.SHA256);hash.AppendData(Metadata(s));
++            void Add(ReadOnlySpan<byte> data){while(data.Length!=0){cancel.ThrowIfCancellationRequested();int n=Math.Min(65536,data.Length);hash.AppendData(data.Slice(0,n));data=data.Slice(n);}}
++            Add(MemoryMarshal.AsBytes(s.Vertices.AsSpan()));Add(MemoryMarshal.AsBytes(s.Indices.AsSpan()));Add(MemoryMarshal.AsBytes(s.Heights.AsSpan()));return hash.GetHashAndReset();
++        }
++        static bool Same(HeightProxySurface.Vertex a,HeightProxySurface.Vertex b)=>a.X==b.X&&a.Y==b.Y&&a.Z==b.Z&&a.NX==b.NX&&a.NY==b.NY&&a.NZ==b.NZ&&a.NW==b.NW&&a.R==b.R&&a.G==b.G&&a.B==b.B&&a.A==b.A&&a.Roughness==b.Roughness&&a.Wetness==b.Wetness&&a.Snow==b.Snow&&a.Material==b.Material;
++        static void Validate(HeightProxyCacheKey k,HeightProxySurface s,CancellationToken cancel)
++        {
++            Require(s!=null&&s.Quads==k.Quads&&s.SourceIdentity==k.SurfaceIdentity,"Surface identity");
++            Require(s.Vertices!=null&&s.Indices!=null&&s.Heights!=null&&s.Vertices.Length==k.VertexCount&&s.Indices.Length==k.IndexCount&&s.Heights.Length==k.HeightCount,"Surface counts");
++            Require(Finite(s.AnchorY)&&Finite(s.MinimumLocalY)&&Finite(s.MaximumLocalY)&&s.MinimumLocalY<=s.MaximumLocalY,"Surface bounds");
++            int n=k.Quads,stride=n+1;double spacing=k.SizeMeters/n;float lo=float.MaxValue,hi=float.MinValue;
++            for(int i=0;i<s.Vertices.Length;i++)
++            {
++                if((i&1023)==0)cancel.ThrowIfCancellationRequested();var v=s.Vertices[i];int material=v.Material-128;
++                Require(Finite(v.X)&&Finite(v.Y)&&Finite(v.Z)&&v.NX!=-128&&v.NY!=-128&&v.NZ!=-128&&v.NW==0&&v.A==255&&material>0&&material<MaterialCatalog.Count&&MaterialCatalog.IsValid((MaterialId)material),"Vertex fields");
++                Require(v.Snow==((MaterialId)material==MaterialId.Snow?255:0),"Snow flag");lo=Math.Min(lo,v.Y);hi=Math.Max(hi,v.Y);
++                if(i<k.HeightCount)Require(Finite(s.Heights[i])&&v.Y==s.Heights[i]&&v.X==(float)((i%stride)*spacing)&&v.Z==(float)((i/stride)*spacing),"Height/grid fields");
++            }
++            Require(lo==s.MinimumLocalY&&hi==s.MaximumLocalY,"Exact bounds");
++            int at=0;
++            void Tri(int a,int b,int c){Require(s.Indices[at++]==a&&s.Indices[at++]==b&&s.Indices[at++]==c,"Index/topology");}
++            for(int z=0;z<n;z++)for(int x=0;x<n;x++){if((at&2047)==0)cancel.ThrowIfCancellationRequested();int a=x+z*stride,b=a+stride;Tri(a,b,a+1);Tri(a+1,b,b+1);}
++            for(int edge=0;edge<4;edge++)
++            {
++                int rim=k.HeightCount+edge*2*stride;double nx=edge==1?1:edge==3?-1:0,nz=edge==0?-1:edge==2?1:0;
++                for(int i=0;i<=n;i++)
++                {
++                    cancel.ThrowIfCancellationRequested();int a=edge==0?i:edge==1?i*stride+n:edge==2?n*stride+n-i:(n-i)*stride;var top=s.Vertices[a];var expected=top.With(top.Y,nx,0,nz);var bottom=top.With((float)(top.Y-k.SkirtDepth),nx,0,nz);
++                    Require(Same(s.Vertices[rim+2*i],expected)&&Same(s.Vertices[rim+2*i+1],bottom),"Skirt fields");
++                }
++                for(int i=0;i<n;i++){int a=rim+i*2;Tri(a,a+2,a+1);Tri(a+2,a+3,a+1);}
++            }
++            Require(at==s.Indices.Length,"Index count");
++        }
++        public bool TryLoad(HeightProxyCacheKey key,out HeightProxySurface surface,out string reason,CancellationToken cancel=default)
++        {
++            lock(gate)
++            {
++                surface=null;reason="";
++                try
++                {
++                    cancel.ThrowIfCancellationRequested();if(key==null){reason="null-key";return false;}if(!Ready(out reason,cancel))return false;
++                    string path=PathFor(key.Hash);if(!entries.TryGetValue(key.Hash,out var entry)||!Regular(path)){if(entry!=null)Remove(entry);reason="miss";return false;}
++                    using var fs=new FileStream(path,FileMode.Open,FileAccess.Read,FileShare.Read);using var r=new BinaryReader(fs,Encoding.UTF8,true);
++                    Require(fs.Length==key.FileBytes&&fs.Length<=MaximumRecordBytes,"File length");
++                    Require(Encoding.ASCII.GetString(r.ReadBytes(8))==Magic&&r.ReadInt32()==1&&r.ReadInt32()==key.Bytes.Length&&r.ReadInt32()==24&&r.ReadInt32()==key.Quads&&r.ReadInt32()==key.VertexCount&&r.ReadInt32()==key.IndexCount&&r.ReadInt32()==key.HeightCount&&r.ReadInt64()==key.PayloadBytes,"Header counts/layout");
++                    byte[] digest=r.ReadBytes(32),payloadHash=r.ReadBytes(32);Require(digest.AsSpan().SequenceEqual(key.Digest)&&payloadHash.Length==32,"Header key");
++                    byte[] encodedKey=new byte[key.Bytes.Length];ReadExactly(fs,encodedKey,cancel);Require(encodedKey.AsSpan().SequenceEqual(key.Bytes),"Exact key");
++                    double anchor=r.ReadDouble();float lo=r.ReadSingle(),hi=r.ReadSingle();Require(Finite(anchor)&&Finite(lo)&&Finite(hi)&&lo<=hi,"Metadata bounds");
++                    // All counts, lengths and key bytes are checked BEFORE mesh allocation.
++                    var vertices=new HeightProxySurface.Vertex[key.VertexCount];var indices=new int[key.IndexCount];var heights=new float[key.HeightCount];
++                    ReadExactly(fs,MemoryMarshal.AsBytes(vertices.AsSpan()),cancel);ReadExactly(fs,MemoryMarshal.AsBytes(indices.AsSpan()),cancel);ReadExactly(fs,MemoryMarshal.AsBytes(heights.AsSpan()),cancel);Require(fs.Position==fs.Length,"Trailing bytes");
++                    var restored=HeightProxySurface.RestoreCached(key.Quads,anchor,vertices,indices,heights,lo,hi,key.SurfaceIdentity);
++                    Require(PayloadHash(restored,cancel).AsSpan().SequenceEqual(payloadHash),"Payload checksum");Validate(key,restored,cancel);cancel.ThrowIfCancellationRequested();
++                    Touch(entry);surface=restored;reason="hit";return true;
++                }
++                catch(Exception e){surface=null;reason=e is OperationCanceledException?"cancelled":"cache-miss:"+e.GetType().Name;return false;}
++            }
++        }
++        public bool Store(HeightProxyCacheKey key,HeightProxySurface surface,out string reason,CancellationToken cancel=default)
++        {
++            lock(gate)
++            {
++                string temp=null;reason="";
++                try
++                {
++                    cancel.ThrowIfCancellationRequested();if(key==null){reason="null-key";return false;}if(!Ready(out reason,cancel))return false;
++                    if(key.FileBytes>MaximumRecordBytes||key.FileBytes>budget){reason="record-budget";return false;}Validate(key,surface,cancel);byte[] payloadHash=PayloadHash(surface,cancel);
++                    string target=PathFor(key.Hash);entries.TryGetValue(key.Hash,out var old);
++                    if(File.Exists(target)&&!Owns(target,out _)){reason="unowned-collision";return false;}
++                    if(old!=null&&TryLoad(key,out var existing,out _,cancel)&&PayloadHash(existing,cancel).AsSpan().SequenceEqual(payloadHash)){reason="already-stored";return true;}
++                    cancel.ThrowIfCancellationRequested();entries.TryGetValue(key.Hash,out old);
++                    // Reserve the temporary file TOO: actual owned bytes never exceed
++                    // budget. Atomic replacement can refuse when only one copy fits.
++                    while(diskBytes+key.FileBytes>budget||entries.Count+(old==null?1:0)>MaximumEntries){cancel.ThrowIfCancellationRequested();if(!Evict(key.Hash)){reason="staging-budget";return false;}}
++                    temp=Path.Combine(directory,Prefix+key.Hash+"-"+Guid.NewGuid().ToString("N")+".tmp");
++                    using(var fs=new FileStream(temp,FileMode.CreateNew,FileAccess.Write,FileShare.None,65536,FileOptions.WriteThrough))
++                    {
++                        using(var w=new BinaryWriter(fs,Encoding.UTF8,true)){w.Write(Encoding.ASCII.GetBytes(Magic));w.Write(1);w.Write(key.Bytes.Length);w.Write(24);w.Write(key.Quads);w.Write(key.VertexCount);w.Write(key.IndexCount);w.Write(key.HeightCount);w.Write(key.PayloadBytes);w.Write(key.Digest);w.Write(payloadHash);w.Write(key.Bytes);w.Write(Metadata(surface));}
++                        WriteAll(fs,MemoryMarshal.AsBytes(surface.Vertices.AsSpan()),cancel);WriteAll(fs,MemoryMarshal.AsBytes(surface.Indices.AsSpan()),cancel);WriteAll(fs,MemoryMarshal.AsBytes(surface.Heights.AsSpan()),cancel);fs.Flush(true);Require(fs.Length==key.FileBytes,"Written length");
++                    }
++                    cancel.ThrowIfCancellationRequested();
++                    if(File.Exists(target))File.Replace(temp,target,null);else File.Move(temp,target);temp=null;
++                    if(old!=null)Remove(old);var entry=new Entry{Hash=key.Hash,Path=target,Bytes=key.FileBytes};entries[key.Hash]=entry;diskBytes+=entry.Bytes;entryCount=entries.Count;Touch(entry);reason="stored";return true;
++                }
++                catch(Exception e){reason=e is OperationCanceledException?"cancelled":"cache-write-failed:"+e.GetType().Name;return false;}
++                finally{if(temp!=null){try{if(TempName(Path.GetFileName(temp))&&Regular(temp))File.Delete(temp);}catch(IOException){}catch(UnauthorizedAccessException){}}}
++            }
++        }
++        public void Dispose(){lock(gate){if(disposed)return;disposed=true;ownerLock?.Dispose();ownerLock=null;entries.Clear();}}
++    }
++}
+--- before/Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs
++++ candidate/Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs
+@@ -45,6 +45,10 @@
+         HeightProxySurface(int n,double anchor,Vertex[] vertices,int[] indices,float[] heights,float lo,float hi,string identity)
+         {Quads=n;AnchorY=anchor;Vertices=vertices;Indices=indices;Heights=heights;MinimumLocalY=lo;MaximumLocalY=hi;SourceIdentity=identity;}
+ 
++        // Only the validated replaceable disk-cache reader calls this seam.
++        internal static HeightProxySurface RestoreCached(int n,double anchor,Vertex[] vertices,int[] indices,float[] heights,float lo,float hi,string identity)
++            =>new HeightProxySurface(n,anchor,vertices,indices,heights,lo,hi,identity);
++
+         public static HeightProxySurface Build(SurfaceMaterialSampler sampler,LodTile tile,int n,double skirtDepth,CancellationToken cancel=default,bool parallelSampling=false)
+         {
+             if(sampler==null||tile==null)throw new ArgumentNullException();
+--- before/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
++++ candidate/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
+@@ -1,5 +1,6 @@
+ using System;
+ using System.Collections.Generic;
++using System.IO;
+ using System.Threading;
+ using System.Threading.Tasks;
+ using AshenVoxel.WorldScale;
+@@ -15,6 +16,68 @@
+         public bool UseVoxelLodTerrain;
+         [Tooltip("Optional rendered-cache representation. Distant indexed height grids; near/contact matter and cubes remain unchanged.")]
+         public bool EnableDistantHeightProxies;
++        HeightProxyDiskCache heightProxyDiskCache;
++        bool heightProxyCacheConfigured;
++        long heightProxyCacheHits,heightProxyCacheMisses,heightProxyCacheWrites,heightProxyCacheWriteFailures,heightProxyCacheOwnedBytes;
++        int heightProxyCacheRecords;
++        string heightProxyCacheStatus="Off";
++        public static string DefaultHeightProxyDiskCacheDirectory=>Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"AshenVoxel","HeightProxyCacheV1");
++        public bool HeightProxyDiskCacheEnabled=>heightProxyDiskCache!=null;
++        public long HeightProxyDiskCacheHits=>Interlocked.Read(ref heightProxyCacheHits);
++        public long HeightProxyDiskCacheMisses=>Interlocked.Read(ref heightProxyCacheMisses);
++        public long HeightProxyDiskCacheWrites=>Interlocked.Read(ref heightProxyCacheWrites);
++        public long HeightProxyDiskCacheWriteFailures=>Interlocked.Read(ref heightProxyCacheWriteFailures);
++        public long HeightProxyDiskCacheOwnedBytes=>Interlocked.Read(ref heightProxyCacheOwnedBytes);
++        public int HeightProxyDiskCacheRecords=>Volatile.Read(ref heightProxyCacheRecords);
++        public string HeightProxyDiskCacheStatus=>Volatile.Read(ref heightProxyCacheStatus);
++        /// <summary>Optional next-Play cache; call once before terrain initialization.
++        /// Construction does no file IO. All cache operations use the existing worker.</summary>
++        public bool ConfigureHeightProxyDiskCache(bool enabled,string absoluteDirectory,long budgetBytes=HeightProxyDiskCache.DefaultBudgetBytes)
++        {
++            if(heightProxyCacheConfigured||field!=null||voxelBuildJob!=null)
++                throw new InvalidOperationException("Configure disk cache once before terrain initialization; restart Play to change it.");
++            heightProxyCacheConfigured=true;if(!enabled)return true;
++            try
++            {
++                if(!Path.IsPathFullyQualified(absoluteDirectory)||new Uri(absoluteDirectory).IsUnc)throw new ArgumentException("Dedicated absolute local cache directory required.");
++                heightProxyDiskCache=new HeightProxyDiskCache(absoluteDirectory,true,budgetBytes);
++                SetHeightProxyCacheStatus("Enabled; awaiting proxy work");return true;
++            }
++            catch(Exception e){SetHeightProxyCacheStatus("Unavailable: "+e.GetType().Name);return false;}
++        }
++        void SetHeightProxyCacheStatus(string status)=>Volatile.Write(ref heightProxyCacheStatus,status.Length>128?status.Substring(0,128):status);
++        void RecordHeightProxyCache(HeightProxyDiskCache cache)
++        {Interlocked.Exchange(ref heightProxyCacheOwnedBytes,cache.OwnedDiskBytes);Volatile.Write(ref heightProxyCacheRecords,cache.RecordCount);}
++        HeightProxySurface BuildCachedHeightProxy(HeightProxyDiskCache cache,SurfaceMaterialSampler sampler,LodTile tile,int n,double skirt,CancellationToken cancel)
++        {
++            HeightProxyCacheKey key=null;string miss="";
++            if(cache!=null)
++            {
++                try
++                {
++                    cancel.ThrowIfCancellationRequested();key=HeightProxyCacheKey.Create(sampler,tile,n,skirt);
++                    bool hit=cache.TryLoad(key,out HeightProxySurface loaded,out miss,cancel);RecordHeightProxyCache(cache);cancel.ThrowIfCancellationRequested();
++                    if(hit){Interlocked.Increment(ref heightProxyCacheHits);SetHeightProxyCacheStatus("Hit");return loaded;}
++                }
++                catch(OperationCanceledException){throw;}
++                catch(Exception e){key=null;miss="key/load: "+e.GetType().Name;}
++                Interlocked.Increment(ref heightProxyCacheMisses);SetHeightProxyCacheStatus("Miss: "+miss);
++            }
++            cancel.ThrowIfCancellationRequested();var built=HeightProxySurface.Build(sampler,tile,n,skirt,cancel,parallelSampling:true);
++            if(cache!=null&&key!=null)
++            {
++                try
++                {
++                    bool stored=cache.Store(key,built,out string reason,cancel);RecordHeightProxyCache(cache);cancel.ThrowIfCancellationRequested();
++                    if(stored){if(reason=="stored")Interlocked.Increment(ref heightProxyCacheWrites);}
++                    else Interlocked.Increment(ref heightProxyCacheWriteFailures);
++                    SetHeightProxyCacheStatus("Miss ("+miss+"); "+reason);
++                }
++                catch(OperationCanceledException){throw;}
++                catch(Exception e){Interlocked.Increment(ref heightProxyCacheWriteFailures);SetHeightProxyCacheStatus("Write skipped: "+e.GetType().Name);}
++            }
++            cancel.ThrowIfCancellationRequested();return built;
++        }
+         [Range(512,4096)] public float DistantHeightProxyMinimumMeters=768;
+         public string TerrainRepresentationMode=>!UseVoxelLodTerrain?"Legacy height proxies":EnableDistantHeightProxies?"Distant height proxies + near cubes":"Exposed voxels";
+         bool WantsHeightProxy(LodTile tile)
+@@ -625,13 +688,15 @@
+                 tile.OriginXMeters-SurfaceHalo,tile.OriginZMeters-SurfaceHalo,tile.OriginXMeters+tile.SizeMeters+SurfaceHalo,tile.OriginZMeters+tile.SizeMeters+SurfaceHalo);
+             var sampler=new SurfaceMaterialSampler(samples,CurrentSurfaceProfile);
+             bool proxy=!contact&&WantsHeightProxy(tile);
++            HeightProxyDiskCache cache=heightProxyDiskCache;
+             voxelBuildJob=Task.Run(()=>
+             {
+                 var clock=System.Diagnostics.Stopwatch.StartNew();
+                 if(proxy)
+                 {
+                     var surface=new SurfaceWorldField(samples,sampler.Profile,new HeightBounds(RemoteTerrainField.MinimumSupportedHeight,RemoteTerrainField.MaximumSupportedHeight));
+-                    var proxyData=HeightProxySurface.Build(sampler,tile,n,SkirtDepth(surface,tile,tile.SizeMeters/n),cancel,parallelSampling:true);
++                    double skirt=SkirtDepth(surface,tile,tile.SizeMeters/n);
++                    var proxyData=BuildCachedHeightProxy(cache,sampler,tile,n,skirt,cancel);
+                     workerMilliseconds=clock.Elapsed.TotalMilliseconds;return new TerrainBuildResult(proxyData);
+                 }
+                 // Query the complete neighboring footprint on the immutable
+@@ -732,7 +797,19 @@
+         void DisposeVoxelWorker()
+         {
+             voxelBuildCancellation?.Cancel();voxelBuildCancellation?.Dispose();voxelBuildCancellation=null;
+-            if(voxelBuildJob!=null)voxelBuildJob.ContinueWith(task=>{var observed=task.Exception;},TaskContinuationOptions.OnlyOnFaulted);
++            // Do not block Unity or close a file owner while its worker is in IO.
++            // The terminal continuation reuses that worker; no new queue/thread.
++            HeightProxyDiskCache cache=heightProxyDiskCache;heightProxyDiskCache=null;
++            if(voxelBuildJob!=null&&!voxelBuildJob.IsCompleted)
++            {
++                SetHeightProxyCacheStatus(cache==null?"Off":"Closing after terrain worker");
++                voxelBuildJob.ContinueWith(task=>{var observed=task.Exception;cache?.Dispose();},TaskContinuationOptions.ExecuteSynchronously);
++            }
++            else
++            {
++                if(voxelBuildJob!=null){var observed=voxelBuildJob.Exception;}
++                cache?.Dispose();SetHeightProxyCacheStatus(cache==null?"Off":"Closed");
++            }
+             voxelBuildJob=null;voxelVertices=null;voxelIndices=null;voxelCapacityQuads.Clear();
+         }
+     }

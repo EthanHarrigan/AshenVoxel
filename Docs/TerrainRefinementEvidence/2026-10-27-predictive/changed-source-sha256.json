@@ -1,0 +1,11 @@
+{
+  "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs": "2a71b81f0845456c14bafa46abc2b7a70773c05fa347c25f0f0c38ff8dcb07a7",
+  "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs": "c033e382c22ec106d529a4cd45c104f0193ec42f59a59b0091e07279bd6928a2",
+  "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs": "b56b7761861ef07f28e79d7f20ceb5b90d8d1d92cc90904d433efc9f767f81c5",
+  "Tools/ExplorationLiveChecks/Program.cs": "095c7bfc1adf505e40814eb9623e5848f2517da01b9e85a60753096d41d5bb41",
+  "Tools/run_exploration_live_checks.py": "a300bc83a6c9f9a325d3fbe6146794b0da1f60dd4c3f01c9bd4002b905a7dd0e",
+  "Tools/WorldExplorerChecks/UnityShim.cs": "bc26e97bcdebfc5b970e7a0f77266efb6d7354c3d56e3bba0ed02be576338161",
+  "Tools/ExplorationSmokeChecks/UnityShim.cs": "ae2c4f9227313e7560848aa3b02c4af7015a101711a46898e1488781bc05ee1d",
+  "Tools/ProgressiveLod/Program.cs": "238f43516c57025b27e305dea31bc615caac4a68d9b22dc8bb6feff3e46d082a",
+  "Tools/ProgressiveLod/run_checks.py": "e26bb929f4659b2bd601dc2fb326912905ad83d1cb11e4047e6f1c15cf19978d"
+}

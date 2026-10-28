@@ -1,0 +1,108 @@
+{
+  "id": "distant-rock-patch-1",
+  "utc": "2026-10-27T18:44:15.290489+00:00",
+  "status": "OUTSIDE_ASSETS_READY_FOR_COORDINATOR_INTEGRATION",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationDistantRockPatch.cs",
+      "payload": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\distant-rock-patch-1\\payload\\Assets\\AshenVoxel\\Exploration\\ExplorationDistantRockPatch.cs",
+      "before_sha256": null,
+      "sha256": "eb264fa85032470dd09b5a5c0e2e1c5b508f670e810ff1132a28a68e9227e3e7"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationDistantRockPatch.cs.meta",
+      "payload": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\distant-rock-patch-1\\payload\\Assets\\AshenVoxel\\Exploration\\ExplorationDistantRockPatch.cs.meta",
+      "before_sha256": null,
+      "sha256": "0ac84817f21387ea82c893f225a9a3248ffe4486226bc3b041b42cec07dec373"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationRockRenderAccess.cs",
+      "payload": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\distant-rock-patch-1\\payload\\Assets\\AshenVoxel\\Exploration\\VegetationRockRenderAccess.cs",
+      "before_sha256": null,
+      "sha256": "47c5504b06113a0194f45deb7ee65ceda9c1fe3cb44b55206ed224cc4ec4b63c"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationRockRenderAccess.cs.meta",
+      "payload": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\distant-rock-patch-1\\payload\\Assets\\AshenVoxel\\Exploration\\VegetationRockRenderAccess.cs.meta",
+      "before_sha256": null,
+      "sha256": "66d72d9cd7c8499a5e8a257a3ae38df1729f4299b0731fff42975750e492cffa"
+    }
+  ],
+  "bootstrap_suggestion": {
+    "before_sha256": "9b9b2a6fee9980f93a9de01d3d0b3b7a36f1a99c6a412aa7450adb881e012904",
+    "suggested_sha256": "ba4373adb4225fc46353a2f7e2df0db0cce974cac896bb85a99f736157f263d6",
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\distant-rock-patch-1\\Bootstrap.suggested.cs",
+    "diff": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\distant-rock-patch-1\\Bootstrap.diff",
+    "owner": "Coordinator; applytofreshcurrentfile, notblindcopy"
+  },
+  "api_report": "api/20261027T184149090129Z/report.json",
+  "cpu_scenario_report": "checks/20261027T183550831777Z/report.json",
+  "cpu_evidence_boundary": "839 checks use pre-art-tune larger profile; final numeric defaults/profileknobs API-compiled, no repeatedlargeCPUtest perparent instruction. No nativeview/actualcoarse-rock runtime check yet.",
+  "scope": "Two new code sources+metadata; optional coordinator-owned bootstrap3hooks suggestedonly. NoMAIN/UI/queue/native/newagents. Borrow existingcoarse Stone/Granite meshes+scene material. No newartasset,packreadback,bake,worker,perrockobject,collider,physicalmatter or gameplayroot/nearrock change.",
+  "limits": {
+    "resident": 2048,
+    "drawn": 512,
+    "model_count": 8,
+    "grid_m": 256,
+    "candidate_budget_default": 32,
+    "candidate_budget_hard_max": 64,
+    "height_queries_per_candidate_max": 9,
+    "range_m": [
+      1000,
+      10000
+    ]
+  },
+  "profile": {
+    "typical_full_width_m": [
+      18,
+      65
+    ],
+    "typical_full_depth_m": [
+      15,
+      55
+    ],
+    "typical_full_height_m": [
+      30,
+      75
+    ],
+    "rare_large_fraction": 0.05,
+    "rare_full_width_m": [
+      90,
+      180
+    ],
+    "rare_full_depth_m": [
+      70,
+      140
+    ],
+    "rare_full_height_m": [
+      90,
+      180
+    ],
+    "embedding_fraction": 0.6,
+    "visible_height_flat_ground_m": {
+      "typical": [
+        12,
+        30
+      ],
+      "rare": [
+        36,
+        72
+      ]
+    },
+    "controls": {
+      "SizeMultiplier": [
+        0.25,
+        2
+      ],
+      "LargeOutcropFraction": [
+        0,
+        0.2
+      ],
+      "EmbedFraction": [
+        0.45,
+        0.8
+      ]
+    },
+    "note": "Final numericprofile is API-compiled after artfeedback; prior839-check scenario used largerpre-tuneprofile, preservedatitsactualsourcehash. Numeric/disable-counter finaladjustments not relabeled as priorCPUexecution."
+  }
+}

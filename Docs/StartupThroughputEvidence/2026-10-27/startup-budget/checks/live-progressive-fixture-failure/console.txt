@@ -1,0 +1,14 @@
+PASS initial bounded coverage publishes all8-column tiles
+PASS initial coverage opens the refinement phase
+PASS visible terrain progressively publishes8,32,64,128,256 columns
+PASS near full detail and rear bounded quality stay distinct
+PASS visible pixel-limited terrain advances beyond the previous128 ceiling
+PASS resident payload includes every live far mesh exactly once
+PASS static settled scene terminates without rebuilding tiles or allocating meshes
+PASS old complete coverage remains while replacement tiles build
+PASS travel rebases the retained terrain immediately
+PASS travel publishes complete coarse replacement before expensive quality work
+PASS unfinished quality remains observable after coverage publication
+PASS obsolete high-detail coverage is retired at replacement publication
+Unhandled exception. System.NullReferenceException: Object reference not set to an instance of an object.
+   at Program.Main(String[] args)

@@ -1,0 +1,43 @@
+{
+  "scope": "Windows optimized .NET8 CPU. Actual VoxelWorld.Set and GreedyChunkMesher with existing non-Unity Mesh shim. Shared template load and terrain sampling excluded; full base with one canonical guard row, includes exposed top cap. No Unity upload/shader/collision/LOD/FPS or production cache cost claim. Fresh mesher/world each iteration, three warmups and twelve measured runs.",
+  "rows": [
+    {
+      "id": 10,
+      "columns": 2314,
+      "source_cells": 54983,
+      "cells": 51453,
+      "chunks": 43,
+      "faces": 9589,
+      "vertices": 38356,
+      "triangles": 19178,
+      "template_payload_bytes": 353042,
+      "cumulative_material_build_allocated_bytes": 895416,
+      "cumulative_mesh_allocated_bytes": 1481680,
+      "material_build_median_ms": 2.3398,
+      "material_build_max_ms": 2.4648,
+      "mesh_median_ms": 9.8141,
+      "mesh_max_ms": 10.8592,
+      "mesh_payload_bytes": 1304104,
+      "actual_core_matter_and_rgb_match_python_geometry": true
+    },
+    {
+      "id": 11,
+      "columns": 2390,
+      "source_cells": 58025,
+      "cells": 52973,
+      "chunks": 43,
+      "faces": 9891,
+      "vertices": 39564,
+      "triangles": 19782,
+      "template_payload_bytes": 372054,
+      "cumulative_material_build_allocated_bytes": 895416,
+      "cumulative_mesh_allocated_bytes": 1522752,
+      "material_build_median_ms": 2.3907,
+      "material_build_max_ms": 2.9505,
+      "mesh_median_ms": 9.3967,
+      "mesh_max_ms": 9.6666,
+      "mesh_payload_bytes": 1345176,
+      "actual_core_matter_and_rgb_match_python_geometry": true
+    }
+  ]
+}

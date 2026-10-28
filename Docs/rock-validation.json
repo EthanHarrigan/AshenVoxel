@@ -1,0 +1,124 @@
+{
+  "status": "PASS",
+  "checks": 69,
+  "scope": "Actual engine-free rock generation, not physical weathering, Unity import or rendering",
+  "rock_version": 2,
+  "specimens": [
+    {
+      "material": "Stone",
+      "cells": 1245,
+      "palette_colors": 2,
+      "candidate_count": 1296,
+      "column_evaluations": 361,
+      "identity": "rock-v2/catalog-v3/1/714103/1.8/1.25/1.65/0.2/0.4/0.7/500000/100000/False/shape=Auto/resolved=AngularBoulder/appearance-v2"
+    },
+    {
+      "material": "Granite",
+      "cells": 1741,
+      "palette_colors": 2,
+      "candidate_count": 1816,
+      "column_evaluations": 483,
+      "identity": "rock-v2/catalog-v3/11/714103/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False/shape=Auto/resolved=Cluster/appearance-v2"
+    },
+    {
+      "material": "Limestone",
+      "cells": 412,
+      "palette_colors": 2,
+      "candidate_count": 438,
+      "column_evaluations": 399,
+      "identity": "rock-v2/catalog-v3/12/714103/2/1.15/1.75/0.2/0.72/0.65/500000/100000/False/shape=Auto/resolved=Spire/appearance-v2"
+    },
+    {
+      "material": "Sandstone",
+      "cells": 1034,
+      "palette_colors": 3,
+      "candidate_count": 1104,
+      "column_evaluations": 437,
+      "identity": "rock-v2/catalog-v3/13/714103/2.2/1/1.8/0.2/0.7/0.55/500000/100000/False/shape=Auto/resolved=Wedge/appearance-v2"
+    },
+    {
+      "material": "Shale",
+      "cells": 733,
+      "palette_colors": 4,
+      "candidate_count": 852,
+      "column_evaluations": 437,
+      "identity": "rock-v2/catalog-v3/14/714103/2.15/0.72/1.8/0.2/0.5/0.72/500000/100000/False/shape=Auto/resolved=Slab/appearance-v2"
+    }
+  ],
+  "morphology": [
+    {
+      "shape": "AngularBoulder",
+      "above_ground_columns": 158,
+      "convex_fill": 0.8404255319148937,
+      "central_symmetry_overlap": 0.8227848101265823,
+      "maximum_horizontal_span_m": 1.8,
+      "above_ground_components": 1
+    },
+    {
+      "shape": "Slab",
+      "above_ground_columns": 164,
+      "convex_fill": 0.9010989010989011,
+      "central_symmetry_overlap": 0.9024390243902439,
+      "maximum_horizontal_span_m": 1.9000000000000001,
+      "above_ground_components": 1
+    },
+    {
+      "shape": "Wedge",
+      "above_ground_columns": 161,
+      "convex_fill": 0.875,
+      "central_symmetry_overlap": 0.7204968944099379,
+      "maximum_horizontal_span_m": 1.9000000000000001,
+      "above_ground_components": 1
+    },
+    {
+      "shape": "Spire",
+      "above_ground_columns": 60,
+      "convex_fill": 0.8759124087591241,
+      "central_symmetry_overlap": 0.8,
+      "maximum_horizontal_span_m": 1,
+      "above_ground_components": 1
+    },
+    {
+      "shape": "SplitOutcrop",
+      "above_ground_columns": 174,
+      "convex_fill": 0.7044534412955465,
+      "central_symmetry_overlap": 0.8045977011494253,
+      "maximum_horizontal_span_m": 2,
+      "above_ground_components": 2
+    },
+    {
+      "shape": "Cluster",
+      "above_ground_columns": 155,
+      "convex_fill": 0.775,
+      "central_symmetry_overlap": 0.6580645161290323,
+      "maximum_horizontal_span_m": 1.6,
+      "above_ground_components": 1
+    }
+  ],
+  "shape_cases": 240,
+  "extreme_shape_cases": 240,
+  "wedge_plane_fit_r_squared": 0.9850439233555885,
+  "source_sha256": {
+    "Assets/AshenVoxel/Core/Details/PlantGenerator.cs": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+    "Assets/AshenVoxel/Core/Details/PlantModel.cs": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2",
+    "Assets/AshenVoxel/Core/EnvironmentColors.cs": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+    "Assets/AshenVoxel/Core/Generation.cs": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+    "Assets/AshenVoxel/Core/Int3.cs": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+    "Assets/AshenVoxel/Core/Materials.cs": "0342f83df63737d241289e0c86931ebe501cd0c090cf2c773316cc170ef9afd3",
+    "Assets/AshenVoxel/Core/Persistence.cs": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+    "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs": "006a8434c519bb996e85c4b05e0f188efe49a0a56e68d84ae6b9804f1e78425e",
+    "Assets/AshenVoxel/Core/Rocks/RockProfile.cs": "20152a9dbd0661143a400c1c2b7a69e97755e65342e3352239847b1dc752afc3",
+    "Assets/AshenVoxel/Core/Rocks/RockShapeGeometry.cs": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69",
+    "Assets/AshenVoxel/Core/Simulation.cs": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+    "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+    "Assets/AshenVoxel/Core/Trees/TreeModel.cs": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+    "Assets/AshenVoxel/Core/Trees/TreePresets.cs": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+    "Assets/AshenVoxel/Core/VoxelColor.cs": "b1392b24b7d0b3d966ac7cf35f438de7db384639397444d508ed28e95e8899c6",
+    "Assets/AshenVoxel/Core/VoxelRaycast.cs": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+    "Assets/AshenVoxel/Core/VoxelWorld.cs": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+    "Assets/AshenVoxel/Core/WorldEdits.cs": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+    "Tools/RockChecks/Program.cs": "abb063b546db7227a002692f07b51d378941e6949895a147844c2791ecdae69a"
+  },
+  "generated_utc": "2026-10-26T22:05:13.281695+00:00",
+  "sdk": "8.0.427"
+}

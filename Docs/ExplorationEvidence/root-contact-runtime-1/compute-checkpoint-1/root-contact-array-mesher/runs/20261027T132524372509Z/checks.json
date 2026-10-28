@@ -1,0 +1,119 @@
+{
+  "status": "PASS",
+  "assertions": 2619718,
+  "chunks": 254,
+  "triangles": 110264,
+  "actual": [
+    {
+      "id": 10,
+      "factor": 1,
+      "occupied": 51454,
+      "chunks": 50,
+      "vertices": 33636,
+      "indices": 50454,
+      "payload_bytes": 1143624,
+      "retained_capacity_bytes": 1143624,
+      "max_chunk_quads": 559
+    },
+    {
+      "id": 10,
+      "factor": 2,
+      "occupied": 7636,
+      "chunks": 15,
+      "vertices": 9652,
+      "indices": 14478,
+      "payload_bytes": 328168,
+      "retained_capacity_bytes": 328168,
+      "max_chunk_quads": 536
+    },
+    {
+      "id": 10,
+      "factor": 4,
+      "occupied": 1295,
+      "chunks": 4,
+      "vertices": 3004,
+      "indices": 4506,
+      "payload_bytes": 102136,
+      "retained_capacity_bytes": 102136,
+      "max_chunk_quads": 534
+    },
+    {
+      "id": 10,
+      "factor": 16,
+      "occupied": 69,
+      "chunks": 4,
+      "vertices": 392,
+      "indices": 588,
+      "payload_bytes": 13328,
+      "retained_capacity_bytes": 13328,
+      "max_chunk_quads": 45
+    },
+    {
+      "id": 10,
+      "factor": 64,
+      "occupied": 6,
+      "chunks": 2,
+      "vertices": 80,
+      "indices": 120,
+      "payload_bytes": 2720,
+      "retained_capacity_bytes": 2720,
+      "max_chunk_quads": 15
+    },
+    {
+      "id": 11,
+      "factor": 1,
+      "occupied": 52979,
+      "chunks": 46,
+      "vertices": 35124,
+      "indices": 52686,
+      "payload_bytes": 1194216,
+      "retained_capacity_bytes": 1194216,
+      "max_chunk_quads": 591
+    },
+    {
+      "id": 11,
+      "factor": 2,
+      "occupied": 7920,
+      "chunks": 15,
+      "vertices": 9804,
+      "indices": 14706,
+      "payload_bytes": 333336,
+      "retained_capacity_bytes": 333336,
+      "max_chunk_quads": 548
+    },
+    {
+      "id": 11,
+      "factor": 4,
+      "occupied": 1358,
+      "chunks": 4,
+      "vertices": 2996,
+      "indices": 4494,
+      "payload_bytes": 101864,
+      "retained_capacity_bytes": 101864,
+      "max_chunk_quads": 520
+    },
+    {
+      "id": 11,
+      "factor": 16,
+      "occupied": 66,
+      "chunks": 4,
+      "vertices": 376,
+      "indices": 564,
+      "payload_bytes": 12784,
+      "retained_capacity_bytes": 12784,
+      "max_chunk_quads": 45
+    },
+    {
+      "id": 11,
+      "factor": 64,
+      "occupied": 6,
+      "chunks": 1,
+      "vertices": 68,
+      "indices": 102,
+      "payload_bytes": 2312,
+      "retained_capacity_bytes": 2312,
+      "max_chunk_quads": 17
+    }
+  ],
+  "scope": "CPU only: managed-array candidate equals frozen mesher via test-only Mesh shim, and all ten captured composite lower-F binary meshes exactly; no generation, native, GPU or production wiring."
+}

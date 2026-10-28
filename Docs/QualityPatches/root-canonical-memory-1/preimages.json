@@ -1,0 +1,14 @@
+[
+  {
+    "path": "Assets/AshenVoxel/WorldScaleData/RootContact/UploadPreparation.cs",
+    "before": "f702d75fe941a9a2129bafcb835e62fe3031d51b64c098fe29598f6fa65742f5"
+  },
+  {
+    "path": "Assets/AshenVoxel/Exploration/RootContact/UnityMeshUpload.cs",
+    "before": "68d79f9fa71cae15da3f0187b51230de1cd4f7d1089ffb46975c2478458b002a"
+  },
+  {
+    "path": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs",
+    "before": "3c33a568d69714c8993f6ecfd1eeeb002288892b5e78dcc154f995d6815a1c9f"
+  }
+]

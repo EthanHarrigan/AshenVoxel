@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-28T02:14:35.030607+00:00",
+  "scope": "Engine-free loading progress contracts; not Unity UI/render acceptance.",
+  "output": "PASS 15 loading progress checks\n",
+  "source_sha256": {
+    "Assets\\AshenVoxel\\Exploration\\WorldLoadingProgress.cs": "3a32064681ceb8d730b51b22ba068fe1bdda65edc3742179419a9a346df9c292",
+    "Tools\\LoadingChecks\\Program.cs": "30d99355b77363ab927ff1ffd0bbff8efa44685d6cde5ab47301544948c5404a"
+  }
+}

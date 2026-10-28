@@ -1,0 +1,42 @@
+Compiling actual authoring sources with compile-only Unity/input/renderer substitutes; Unity engine and serialization are NOT being compiled.
+PASS fresh profile matches the entire current Oak genome without applying or resetting defaults
+PASS shape controls preserve Birch preset, including large branch counts
+PASS opaque color round trip for Birch
+PASS advanced habit controls preserve Birch defaults
+PASS foliage and bark styles preserve Birch defaults
+PASS geometric bark relief controls preserve Birch defaults
+PASS applying Birch shape defaults keeps seed
+PASS shape controls preserve Oak preset, including large branch counts
+PASS opaque color round trip for Oak
+PASS advanced habit controls preserve Oak defaults
+PASS foliage and bark styles preserve Oak defaults
+PASS geometric bark relief controls preserve Oak defaults
+PASS applying Oak shape defaults keeps seed
+PASS shape controls preserve Redwood preset, including large branch counts
+PASS opaque color round trip for Redwood
+PASS advanced habit controls preserve Redwood defaults
+PASS foliage and bark styles preserve Redwood defaults
+PASS geometric bark relief controls preserve Redwood defaults
+PASS applying Redwood shape defaults keeps seed
+PASS shape controls preserve Pine preset, including large branch counts
+PASS opaque color round trip for Pine
+PASS advanced habit controls preserve Pine defaults
+PASS foliage and bark styles preserve Pine defaults
+PASS geometric bark relief controls preserve Pine defaults
+PASS applying Pine shape defaults keeps seed
+PASS changing species preserves explicit artist height
+PASS fruit, bare branches and age map into shared growth parameters
+PASS artist habit overrides map independently of species presets
+PASS artist foliage and bark style overrides reach the shared generator
+PASS author palettes always map to opaque metadata
+PASS workshop accepts full supported mature dimensions without truncating artist values
+PASS artist geometric bark controls map into the shared genome
+PASS preview vertical bounds accommodate the largest supported profile, age and seed variation below the domain cap
+PASS inspector keeps mature redwood trunk radius intact
+PASS preview frames full mature redwood with vertical and canopy margin
+PASS inspection camera can frame a large mature redwood beyond the former 180 meter clamp
+PASS middle mouse pans along rotated screen right/up toward details at the tree base
+PASS pan speed scales with inspection distance in meters per screen pixel
+PASS Home restores the original framing target, distance and angles after panning and zooming
+PASS inspector validation preserves supported proportions
+All 40 authoring checks passed under test color, input and geometry substitutes. Unity editor serialization and inspectors remain unverified.

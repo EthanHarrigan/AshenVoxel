@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "assertions": 546,
+  "scope": "Isolated copy of actual mesher with ownership-domain filtering only. CPU Mesh shim; exact expanded face geometry/RGB/material/AO versus stock mesher restricted to emitted cells. Guard stays in source for neighbor/AO reads. Does not prove old shared upper mesh AO agrees with changed lower row, nor native stitching/wind/LOD.",
+  "rows": [
+    {
+      "label": "synthetic cut1",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 377,
+      "excluded_guard_cell_faces": 3029
+    },
+    {
+      "label": "synthetic cut15",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 1577,
+      "excluded_guard_cell_faces": 1829
+    },
+    {
+      "label": "synthetic cut16",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 1661,
+      "excluded_guard_cell_faces": 1745
+    },
+    {
+      "label": "synthetic cut17",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 1745,
+      "excluded_guard_cell_faces": 1661
+    },
+    {
+      "label": "synthetic cut29",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 2753,
+      "excluded_guard_cell_faces": 653
+    },
+    {
+      "label": "synthetic cut30",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 2837,
+      "excluded_guard_cell_faces": 569
+    },
+    {
+      "label": "synthetic cut31",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 2921,
+      "excluded_guard_cell_faces": 485
+    },
+    {
+      "label": "synthetic cut32",
+      "chunks": 12,
+      "unmasked_quads": 3406,
+      "masked_quads": 3005,
+      "excluded_guard_cell_faces": 401
+    },
+    {
+      "label": "actual mapped root10",
+      "chunks": 43,
+      "unmasked_quads": 9589,
+      "masked_quads": 8514,
+      "excluded_guard_cell_faces": 1532
+    },
+    {
+      "label": "actual mapped root11",
+      "chunks": 43,
+      "unmasked_quads": 9891,
+      "masked_quads": 8773,
+      "excluded_guard_cell_faces": 1629
+    }
+  ]
+}

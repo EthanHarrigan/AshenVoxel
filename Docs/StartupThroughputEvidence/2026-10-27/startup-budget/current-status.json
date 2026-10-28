@@ -1,0 +1,10 @@
+{
+  "utc": "2026-10-27T11:27:12.666249+00:00",
+  "status": "startup-budget-1 installed; native compile/reload and bounded mesh regression PASS; Play not run by this lane",
+  "installation": "install/installed.json",
+  "candidate_checkpoint": "summary.json",
+  "small_profile_cpu": "checks/small-profile-actual-spawn/result.json",
+  "live_decrease_candidate": "Preserved separately; NOT installed",
+  "native_slot": "Released to coordinator for separately guarded existing-Editor smoke",
+  "configuration": "Original Settings.asset, scene and saved user options unchanged; no downloadable release rebuilt"
+}

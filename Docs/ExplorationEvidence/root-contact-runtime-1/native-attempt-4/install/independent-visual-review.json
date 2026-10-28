@@ -1,0 +1,9 @@
+{
+  "reviewer": "existing subtle_optics agent",
+  "report_sha256": "8f521bdc46a9443ccb50d41eb99b61ced80555856a85a9210fa948d491297a8b",
+  "all4_raw_images_individually_inspected": true,
+  "status": "TWO_SITE_STATIC_VIEW_ACCEPTANCE",
+  "findings": "Both corrected bases visibly meet stepped terrain and remain continuous with their trunks, with distinct root lobes and no obvious floating gap, seam collar, or continuous wood skirt. Site10 root spread is substantially narrower.",
+  "limits": "Hidden faces, other slopes, allLOD, wind, collision, runtime publication and FPS remain unverified.",
+  "cleanup_warning": "Success-path early rt.Release occurs while Capture left it active. Future fixture should remove early release and retain existing finally restoration-before-release. Frozen V4 source unchanged."
+}

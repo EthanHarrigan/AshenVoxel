@@ -1,0 +1,22 @@
+{
+  "input_sha256": "f72e6e4b4568de7ba3495bfb2934af0f300cfdb56b032cc7d0a00e84c2f19fb2",
+  "image_sha256": "c8a05e4694158a416ad8783bb7ad7b7215cf970d918310082970db99b34f6cf2",
+  "tool_sha256": "c66bcef2d1d06e8f526e42d6c0469aaeee55d1767942900669182d0c0cb010e6",
+  "identity": {
+    "backend": "upstream-pretrained/canonical-owner-v1",
+    "height_units": "meters",
+    "model": "xandergos/terrain-diffusion-30m",
+    "model_revision": "9ef8030cb805b433b98ec25c5dddefbac07a9e26",
+    "provider": "InfiniteDiffusion",
+    "seed": 714103,
+    "spacing_m": 30.0,
+    "window": {
+      "col0": -14736,
+      "cols": 33,
+      "row0": -8336,
+      "rows": 33
+    },
+    "world_id": "ff0d60df1cd5b4a2de775eaac32011f16e8fa429109b99601638bae5ebf9f977"
+  },
+  "note": "Actual neural AVWF diagnostic; not Unity or terrain appearance benchmark."
+}

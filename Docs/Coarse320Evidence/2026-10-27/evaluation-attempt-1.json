@@ -1,0 +1,6 @@
+{
+  "status": "FAILED_VALIDATOR_ASSUMPTION",
+  "check": "TIFF CRS must be None",
+  "source_sha256": "b31240f3b38e20eea94fbb5489867d31a696c3a2decb7a080df2cf9bac9fc3f2",
+  "finding": "GDAL writes LOCAL_CS unnamed with AREA_OR_POINT Point. No geographic or projected CRS; signed pixel-center coordinates and payload are correct. Accept only absent or local non-geographic/non-projected CRS, then rerun."
+}

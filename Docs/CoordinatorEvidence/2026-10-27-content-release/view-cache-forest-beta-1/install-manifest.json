@@ -1,0 +1,84 @@
+{
+  "id": "view-cache-forest-beta-1",
+  "utc": "2026-10-27T21:21:01.257485+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs",
+      "before": "0fa5ccc184fecfe7300b37c575e20c8756ad719641f25c9d5e8461f74447d6a1",
+      "sha256": "f9e89cad9f1791d063619fda75bfe4d2652513a38bc9e08053b617a35314cccc"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs",
+      "before": "e02b7962584e06f9764b62ea5d41c0ba6ee2122a1afc608efe654986c0efb6bb",
+      "sha256": "58e0e0f1a53278be77fed53ddc4bdad8e5a17e1204cfe1536ff3646725d3389b"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "db72cebbbfdfdef5b87d09b825e884f2e9c63bf55c629f9d4bea679b2d17d4ef",
+      "sha256": "2e60c6c86692d113e9e449a7846a0710dbf3bd3046c8f7b650ad75f82feeabf8"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationDistantRockPatch.cs",
+      "before": "7e893bcdf15850b39fab159a542af93c989cdefda8430ba89e510cc2cfd7db5f",
+      "sha256": "acd541645aad0669361eb036c315e47e9e77d2b85e02575dee3723a11011e717"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs",
+      "before": "aca9cd5f7a4d4058ab394421f265d2b94740ca956eb0ecdee254b36a4d08cc88",
+      "sha256": "0c2f90d59475aabd4d3668ddd78e813a09ed16db4c091ffae6986ca978ad131e"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+      "before": "20c3108ed0d7a3b12717e1d5b6ca29f9cbc847405dfadfbc7fdb429444cccc3e",
+      "sha256": "8e707af51a4ba63ff9ec18c76461980a137d319bf14e36f3a41a7933e311266e"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationShrubMatter.cs",
+      "before": "faca70813c2a5eb8ddfabaafd1966e635f735a4fd3a2f77a0c8f9a33bef7faa2",
+      "sha256": "f8221f75aedcaf13b80e51e275b229f5f02b1c35523c2653acc2256618b661cf"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ForestHorizon.cs",
+      "before": "f9fd3e21b7c724f11031f25b4cd34f3746ae45a94c6743266490cafea81f002f",
+      "sha256": "e550e9a4b213cda5593498f8490e38c0dd10460209a902a6eff5dae5713e4330"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestHorizonCull.compute",
+      "before": "69dd6e6ecefd7509bf13c15c818e4df4bed928e0b3063e1fd27fca1dcd48ca86",
+      "sha256": "dde95023d033542a122d5c9a10f2fa51fe12391d7625e9fb113f01f2ee7a8c4b"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestHorizonGpu.shader",
+      "before": "8baf14bc7f5f483940671cd20a8d1218abed1402ed5919c68355dab604c9a81b",
+      "sha256": "0ce14007ff51a78defc3a7f44971d06b4a659e58e5b1f5b78ea6cdca826af1a6"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs",
+      "before": "3eb560802045e75e26126e29baf451273f7d8be7188dba3cf37aee385d9a9fc2",
+      "sha256": "26a7ff1ed745d29542d1b4327f764d6878b2f4e8581829c6cff7cc55f94f6769"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/HeightProxyDiskCache.cs",
+      "before": "",
+      "sha256": "7853e036d4412cdfb4abc6805faa72ec8869bf1ec055f15a9ca3f2dbadca83ab"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/HeightProxyDiskCache.cs.meta",
+      "before": "",
+      "sha256": "42aacc2d703d31e44b0dbdaae4b1329aae0fcfb18457e5454f544795043a649b"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/HeightProxySurface.cs",
+      "before": "fa270bc21c1f1612bd8af36624aa47992cf292d0ffc9e0942528b0c0630ee980",
+      "sha256": "c933498128d5394ecf83ac783896911b03d1295935fa38c9cddbff627e7872b2"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "d63c7eeb00738bebd9522d1bc6b546626a6b73ecdd3417c6819a48061c88d276",
+      "sha256": "4fdfa88f0a1b608a8e33ecad7b37f83ee31202b21b16839305fa93ef08e6abdb"
+    }
+  ],
+  "status": "FROZEN COMBINED API PASSED, UNINSTALLED",
+  "notes": "3 frozen packages combined: source-view44checks, worker-cache25 plushelper43checks, denseforest13checks; retained original evidence, not rerun. Combined5runtime+fullExplorationEditor officialAPI PASS. Native shader/gameplay/cache acceptance still open. Source startup waits up to45s for current5m plus min4 selected ready cells; deadline/coarse fallback retained. Default-off disk cache1GiB, explicit F1 save nextPlay; existing10cm display radius control added,100m authored unchanged. Exaggerated outcrops defaultoff; F1 opt-in retained. Existing-published-shrub recorder added, no synthetic plant.",
+  "api": "checks\\api-20261027-211717-803038"
+}

@@ -1,0 +1,9 @@
+{
+  "captured_utc": "2026-10-28T05:29:50.589616+00:00",
+  "files": {
+    "Assets/AshenVoxel/Exploration/NaturalMatterRenderer.cs": "afe8fc3bb9ab6ba067008d5a0ebc37ad6484c5857c8684f9eeedc2d464b5c1a0",
+    "Tools/NaturalMatterRendererChecks/Program.cs": "a1d90a8ce5ed1dc7826d88cf67f8a7703d004f1b1494c4219f9d601395bedc96",
+    "Tools/NaturalMatterRendererChecks/run_checks.py": "9cbd007381f0f1073f53898e7e9a393a2b4b409194dd9ce445329dd9c75bcc17",
+    "Tools/NaturalMatterRendererChecks/UnityShim.cs": "995a16df6d3d7936f1016c967f967bebb7ffd162852f0c3a029b20d6e4947f98"
+  }
+}

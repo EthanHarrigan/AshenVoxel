@@ -1,0 +1,10 @@
+{
+  "inspected_source_changes": [],
+  "checkpoint_original_bytes_preserved": {
+    "MEMORY.md": true,
+    "TODO.md": true,
+    "Docs/SESSION_LOG.md": true
+  },
+  "post_review_documentation_failures": 500,
+  "failures_outside_archived_preimages": []
+}

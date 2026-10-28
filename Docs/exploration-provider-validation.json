@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "checks": 14,
+  "scope": "Fake-backend coordinate view/identity/cache/units checks; not actual model inference or Unity",
+  "source_sha256": {
+    "Tools/ExplorationBake/check_provider.py": "026bff92ab94e43571874fdf724f315152a1c127adf3e0e4a171950101a9e5ed",
+    "Tools/ExplorationBake/serve_exploration.py": "0d693710d75ee057e320380f96af7db8bf9fbb587eace8b613bf9a16f8b41ea8"
+  }
+}

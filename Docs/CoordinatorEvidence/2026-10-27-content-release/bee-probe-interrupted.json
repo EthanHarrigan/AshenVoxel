@@ -1,0 +1,10 @@
+{
+    "status": "PLAY_EXIT",
+    "error": "",
+    "actors": 0,
+    "drawCalls": 0,
+    "disableStops": false,
+    "enableRestores": false,
+    "firstCaptureAt": 0.0,
+    "secondCaptureAt": 0.0
+}

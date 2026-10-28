@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "scope": "Bake a resumable 320m learned source overview outside Unity Assets.\n\nRuns pinned coarse/base models, reads their learned low-frequency elevation,\nand filters to a fixed world lattice. The expensive fine decoder is omitted.\nClimate is explicitly retained from the existing macro, with height adjustment.\nThis is a separately identified approximate overview, not full decoded terrain.\n",
+  "bake_id": "653a72959be6e6ec9abb8e9643c685b2c690c183768a109f2110ede02b7dfb99",
+  "generator_version": "learned-lowfreq-overview-v1",
+  "columns": 937,
+  "rows": 469,
+  "spacing_m": 320.0,
+  "world_width_m": 299520.0,
+  "world_depth_m": 149760.0,
+  "height_range_m": [
+    -5763.83935546875,
+    9821.6064453125
+  ],
+  "rmse_difference_from_1280m_macro_m": 224.9106254334465,
+  "current_process_seconds": 71.4626014999958,
+  "sum_chunk_generation_seconds": 1660.124871099848,
+  "files": {
+    "Coarse320.bytes": {
+      "sha256": "50b4265dc3e19d9b3e7dd179e9d7241ae90aa0e94ab47b1cf6cc04318408bc70",
+      "bytes": 2637719
+    },
+    "Coarse320.climate.bytes": {
+      "sha256": "a73e7b03be8dfdb22bacd4da711640a7f18a0d1a6a8a903389b02275b9bc1040",
+      "bytes": 8789491
+    },
+    "Coarse320-height.tif": {
+      "sha256": "65ffcb13667f9c2a42c84f9e308b312f72c12e45f3cee7423756bbf3c660fa4a",
+      "bytes": 1337084
+    },
+    "overview.npz": {
+      "sha256": "ba4d1dbf8bd6b85ff6b62b7cdbf8e0517311049efc6c804f416aced7960c42a8",
+      "bytes": 1631289
+    }
+  },
+  "validation": {
+    "finite": true,
+    "height_climate_round_trip": true
+  },
+  "limitations": [
+    "Learned intermediate elevation, not full decoder output",
+    "Climate retains1280m source fidelity",
+    "Separate GPU/runtime identity from current playable CPU world",
+    "No runtime source replacement, LOD, rendering or gameplay acceptance"
+  ]
+}

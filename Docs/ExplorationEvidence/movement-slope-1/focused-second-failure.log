@@ -1,0 +1,9 @@
+Above50 result 30 x=0.0883938824757383
+Above50 result 60 x=0.08363197771383228
+Above50 result 144 x=0.09752086660272911
+Unhandled exception. System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values. (Parameter 'heightMeters')
+   at AshenVoxel.WorldScale.Numeric.Finite(Double n, String name)
+   at AshenVoxel.WorldScale.SurfaceSample..ctor(Double heightMeters, Byte sourceBiome, Byte effectiveBiome, Boolean isLand)
+   at FocusedChecks.Field.Sample(Double x, Double z)
+   at AshenVoxel.WorldScale.VoxelTerrainCollision.TryGetGroundGradient(Double x, Double z, Double& gradientX, Double& gradientZ)
+   at FocusedChecks.Main(String[] args)

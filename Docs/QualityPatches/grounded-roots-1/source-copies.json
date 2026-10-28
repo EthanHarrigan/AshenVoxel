@@ -1,0 +1,82 @@
+[
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\RootContact.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\RootContact.cs",
+    "sha256": "0154d84bb0f3ff2f7638ffe55c389f813237a4d438545a3f7a4d53902e314b8a"
+  },
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\Interaction.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\Interaction.cs",
+    "sha256": "8133a5181e77df83a94f66b6b4ae668c51e408ffce78df406a59bd01aa066f8e"
+  },
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-cache-prototype\\Controller.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\Controller.cs",
+    "sha256": "1c95beb9f475f41bcb32ba0bbd408ee2ed90f17027db9ee72fdff3efee06599f"
+  },
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-cache-prototype\\FrozenJob.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\FrozenJob.cs",
+    "sha256": "644081f435f5ef8337ecf62bf51f03610fa3853fb6ac3447f6655312cd7ee72e"
+  },
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-array-mesher\\MeshData.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\MeshData.cs",
+    "sha256": "3e415dc9047f7c24dd01c5988dd9c8a74d963861ac741eabc09cad18443876ca"
+  },
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-array-mesher\\ArrayRootMesher.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\ArrayRootMesher.cs",
+    "sha256": "6424b3bd44e09caf291ee434bbd122ebf90286e8c5b6abaa2f1382ce9895ba27"
+  },
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-managed-composite\\ManagedComposite.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\ManagedComposite.cs",
+    "sha256": "32d7948cb2232263d809a5c3d266b6ae264255e525009bb72450c4d358c514b5"
+  },
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-template-format\\TemplateBundle.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\TemplateBundle.cs",
+    "sha256": "21635648d9a27ff3fca30858f4787745e16fc44a6d31339c25a61878782e0943"
+  },
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-template-format\\ManagedTemplateAssembly.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\ManagedTemplateAssembly.cs",
+    "sha256": "2df425514916abda553c9dde5cbe6e72125870b10c9db9ada015801d473e7580"
+  },
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-build-pipeline\\BuildPipeline.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\BuildPipeline.cs",
+    "sha256": "6b2ce56a655d4958df070ab279134ac16b003e33bb2aa2d7d21c21335f8f46ff"
+  },
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-terrain-adapter-v2\\RootTerrainSnapshot.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\RootTerrainSnapshot.cs",
+    "sha256": "d600358c37f9756f0efc95d7ecee9e1d5d00a45031220e82c32be4ea548a6f58"
+  },
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-mesh-prototype\\SharedUpperSplit.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\SharedUpperSplit.cs",
+    "sha256": "cf88a8dc41f156a37ba07d3cd7e16613a0d72db319313c59a3c7a5e24f10da0e"
+  },
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-upload-prototype\\UploadPreparation.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\UploadPreparation.cs",
+    "sha256": "f702d75fe941a9a2129bafcb835e62fe3031d51b64c098fe29598f6fa65742f5"
+  },
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-collision-adapter\\RootCollision.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\WorldScaleData\\RootContact\\RootCollision.cs",
+    "sha256": "e8d33f2facd399e804e2548458f5e4f7ade9e5dff6a0b9620a9c8eb51fdadf23"
+  },
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-terrain-adapter-v2\\TerrainDetailField.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\WorldScaleData\\TerrainDetailField.cs",
+    "sha256": "8dded99e67d7f0512882a870e77af1b0400b4b7411e1fe0128cd305199160323"
+  },
+  {
+    "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-upload-v2\\UnityMeshUpload.cs",
+    "target": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\payload\\Assets\\AshenVoxel\\Exploration\\RootContact\\UnityMeshUpload.cs",
+    "sha256": "68d79f9fa71cae15da3f0187b51230de1cd4f7d1089ffb46975c2478458b002a"
+  }
+]

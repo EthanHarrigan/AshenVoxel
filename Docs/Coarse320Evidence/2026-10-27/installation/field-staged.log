@@ -1,0 +1,40 @@
+PASS paired field retains checked neural world identity and decoded availability
+PASS off-center decoded crop uses its actual global origin rather than recentering at zero
+PASS fine boundaries match macro and deep interior is exact decoded terrain
+PASS static smooth blend uses the same height result for any caller
+PASS fine boundary has continuous elevation without a camera-dependent terrain jump
+PASS climate adjusts each source only to blended elevation, without double original lapse
+PASS vertical scaling applies temperature lapse only for additional final height
+PASS horizontal resizing transforms the off-center crop and base consistently
+PASS source spacing reports the horizontal transform rather than claiming voxel-generated relief
+PASS outside authored map is explicit ocean context with unavailable climate
+PASS 5000 arbitrary sampled heights remain inside declared conservative bounds across blend and map edges
+PASS source biome categories use exact global half-open cells across negative coordinates
+PASS explicit source cells remain independent of fine/macro height blending
+PASS source biome cell bounds are half-open with explicit exterior marine ID
+PASS same-grid biome changes alter source identity through a payload digest
+PASS coarse-only mode is explicit and does not invent a decoded sample
+PASS wrong paired climate height hash is rejected
+PASS detail belonging to another model world is rejected
+PASS different-world categorical maps cannot silently retag the terrain
+PASS unpaired decoded height requires its matching climate
+PASS zero-width discontinuous blend is rejected
+PASS nonfinite client sizing is rejected
+PASS undersized macro cannot masquerade as whole-map coverage
+PASS inverted conservative bounds are rejected
+PASS derived macro and original decoded/service identities remain distinct; legacy identity remains compatible
+PASS derived overview supplies fallback while original fine interior stays exact
+PASS derived overview has the same continuous position-only fine blend
+PASS mixed provenance climate applies lapse once to final blended elevation
+PASS derived source invalidates old caches and retains original categorical biome authority
+PASS derived overview cannot admit a different parent's decoded terrain
+PASS unrecognized generator metadata does not authorize cross-world detail
+PASS derived overview requires the parent's biome identity rather than retagged GPU biomes
+PASS installed320m overview preserves exact scale5 map extent and reports real source spacing
+PASS installed overview retains the existing decoded/biome/service identity without relabeling
+PASS actual recommended spawn is in full decoded terrain with matching view identity
+PASS actual native model decode supplies5m geometry and physical climate at spawn
+PASS source biome archive corruption is rejected before publication
+ACTUAL EXPLORATION 288.04400634765625m, biome 6, climate 6.376646041870117C
+All 37 exploration field checks passed.
+PASS C#9/.NET Standard2.1 exploration field API compile

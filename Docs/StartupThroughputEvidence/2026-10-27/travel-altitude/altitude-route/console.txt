@@ -1,0 +1,23 @@
+PASS contact urgency measured at five altitudes without changing runtime priority
+STOP initial ground: 616 ticks, 64 far / 21 contact
+STOP route 0 normal 10km stop: 368 ticks, 62 far / 16 contact
+STOP route 0 180-degree turn: 177 ticks, 62 far / 16 contact
+PASS turn replans after route 0
+STOP route 0 boosted 10km return stop: 465 ticks, 64 far / 21 contact
+STOP route 0 ground arrival: 324 ticks, 64 far / 21 contact
+PASS safe 10cm arrival support after route 0
+STOP route 1 normal 10km stop: 253 ticks, 62 far / 16 contact
+STOP route 1 180-degree turn: 177 ticks, 62 far / 16 contact
+PASS turn replans after route 1
+STOP route 1 boosted 10km return stop: 499 ticks, 64 far / 21 contact
+STOP route 1 ground arrival: 358 ticks, 64 far / 21 contact
+PASS safe 10cm arrival support after route 1
+STOP route 2 normal 10km stop: 378 ticks, 62 far / 16 contact
+STOP route 2 180-degree turn: 176 ticks, 62 far / 16 contact
+PASS turn replans after route 2
+STOP route 2 boosted 10km return stop: 461 ticks, 64 far / 21 contact
+STOP route 2 ground arrival: 322 ticks, 64 far / 21 contact
+PASS safe 10cm arrival support after route 2
+PASS stationary state does not rebuild or replan
+PASS shutdown clears all owned caches and worker handle during travel
+PASS all route observations obey worker, upload and residency bounds

@@ -1,0 +1,5 @@
+15Hz boost entry 5 ticks; speed 160.0000; pass=True
+30Hz boost entry 9 ticks; speed 160.0000; pass=True
+60Hz boost entry 16 ticks; speed 160.0000; pass=True
+144Hz boost entry 37 ticks; speed 160.0000; pass=True
+240Hz boost entry 62 ticks; speed 160.0000; pass=True

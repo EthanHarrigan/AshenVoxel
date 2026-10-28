@@ -1,0 +1,234 @@
+{
+  "utc": "2026-10-27T09:48:00.692083+00:00",
+  "installed": false,
+  "native_launched": false,
+  "scope": "CPU-only route and separate priority experiment. Original installed aerial identity retained. No native speed claim.",
+  "reports": {
+    "installed-route": {
+      "status": "PASS",
+      "checks": 10,
+      "frames": 8993,
+      "maxResident": 100,
+      "maxContact": 21,
+      "maxTerrainBytes": 325373400,
+      "maxContactBytes": 23334000,
+      "maxScratchBytes": 8388608,
+      "altitude": [
+        {
+          "aboveGroundMeters": 1.65,
+          "queued": 98,
+          "reportedUrgent": 9,
+          "physicallyWithin32m": 9
+        },
+        {
+          "aboveGroundMeters": 20,
+          "queued": 98,
+          "reportedUrgent": 9,
+          "physicallyWithin32m": 9
+        },
+        {
+          "aboveGroundMeters": 32,
+          "queued": 98,
+          "reportedUrgent": 9,
+          "physicallyWithin32m": 1
+        },
+        {
+          "aboveGroundMeters": 100,
+          "queued": 98,
+          "reportedUrgent": 9,
+          "physicallyWithin32m": 0
+        },
+        {
+          "aboveGroundMeters": 1000,
+          "queued": 98,
+          "reportedUrgent": 9,
+          "physicallyWithin32m": 0
+        }
+      ],
+      "original_run": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-093834-193321-production-RouteProgram"
+    },
+    "capacity-route": {
+      "status": "PASS",
+      "checks": 10,
+      "frames": 8953,
+      "maxResident": 100,
+      "maxContact": 21,
+      "maxTerrainBytes": 325373400,
+      "maxContactBytes": 23334000,
+      "maxScratchBytes": 8388608,
+      "altitude": [
+        {
+          "aboveGroundMeters": 1.65,
+          "queued": 98,
+          "reportedUrgent": 9,
+          "physicallyWithin32m": 9
+        },
+        {
+          "aboveGroundMeters": 20,
+          "queued": 98,
+          "reportedUrgent": 9,
+          "physicallyWithin32m": 9
+        },
+        {
+          "aboveGroundMeters": 32,
+          "queued": 98,
+          "reportedUrgent": 9,
+          "physicallyWithin32m": 1
+        },
+        {
+          "aboveGroundMeters": 100,
+          "queued": 98,
+          "reportedUrgent": 9,
+          "physicallyWithin32m": 0
+        },
+        {
+          "aboveGroundMeters": 1000,
+          "queued": 98,
+          "reportedUrgent": 9,
+          "physicallyWithin32m": 0
+        }
+      ],
+      "original_run": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-094114-915457-production-overlay-RouteProgram"
+    },
+    "altitude-route": {
+      "status": "PASS",
+      "checks": 10,
+      "frames": 8847,
+      "maxResident": 100,
+      "maxContact": 21,
+      "maxTerrainBytes": 325373400,
+      "maxContactBytes": 23334000,
+      "maxScratchBytes": 8388608,
+      "altitude": [
+        {
+          "aboveGroundMeters": 1.65,
+          "queued": 98,
+          "reportedUrgent": 9,
+          "physicallyWithin32m": 9
+        },
+        {
+          "aboveGroundMeters": 20,
+          "queued": 98,
+          "reportedUrgent": 9,
+          "physicallyWithin32m": 9
+        },
+        {
+          "aboveGroundMeters": 32,
+          "queued": 98,
+          "reportedUrgent": 3,
+          "physicallyWithin32m": 1
+        },
+        {
+          "aboveGroundMeters": 100,
+          "queued": 98,
+          "reportedUrgent": 0,
+          "physicallyWithin32m": 0
+        },
+        {
+          "aboveGroundMeters": 1000,
+          "queued": 98,
+          "reportedUrgent": 0,
+          "physicallyWithin32m": 0
+        }
+      ],
+      "original_run": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-094521-769282-production-overlay-RouteProgram"
+    },
+    "installed-priority": {
+      "status": "PASS",
+      "checks": 12,
+      "cases": [
+        {
+          "eyeHeight": 11.65,
+          "altitude": 1.6500000000000004,
+          "pendingContacts": 98,
+          "urgent": true,
+          "contactsBeforeFirstFarQuality": 9,
+          "firstFarQualityTicks": 51,
+          "cpuWallMs": 802.4391,
+          "contactBytes": 10019160,
+          "pendingAfterFirstQuality": 89
+        },
+        {
+          "eyeHeight": 110,
+          "altitude": 100,
+          "pendingContacts": 98,
+          "urgent": true,
+          "contactsBeforeFirstFarQuality": 9,
+          "firstFarQualityTicks": 29,
+          "cpuWallMs": 450.2549,
+          "contactBytes": 10019160,
+          "pendingAfterFirstQuality": 89
+        },
+        {
+          "eyeHeight": 1010,
+          "altitude": 1000,
+          "pendingContacts": 98,
+          "urgent": true,
+          "contactsBeforeFirstFarQuality": 9,
+          "firstFarQualityTicks": 29,
+          "cpuWallMs": 453.3557,
+          "contactBytes": 10019160,
+          "pendingAfterFirstQuality": 89
+        }
+      ],
+      "original_run": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-094437-486022-production-AltitudeProgram"
+    },
+    "altitude-priority": {
+      "status": "PASS",
+      "checks": 18,
+      "cases": [
+        {
+          "eyeHeight": 11.65,
+          "altitude": 1.6500000000000004,
+          "pendingContacts": 98,
+          "urgent": true,
+          "contactsBeforeFirstFarQuality": 9,
+          "firstFarQualityTicks": 51,
+          "cpuWallMs": 791.5659,
+          "contactBytes": 10019160,
+          "pendingAfterFirstQuality": 89
+        },
+        {
+          "eyeHeight": 110,
+          "altitude": 100,
+          "pendingContacts": 98,
+          "urgent": false,
+          "contactsBeforeFirstFarQuality": 2,
+          "firstFarQualityTicks": 7,
+          "cpuWallMs": 110.2161,
+          "contactBytes": 2163480,
+          "pendingAfterFirstQuality": 96
+        },
+        {
+          "eyeHeight": 1010,
+          "altitude": 1000,
+          "pendingContacts": 98,
+          "urgent": false,
+          "contactsBeforeFirstFarQuality": 2,
+          "firstFarQualityTicks": 8,
+          "cpuWallMs": 119.4881,
+          "contactBytes": 2163480,
+          "pendingAfterFirstQuality": 96
+        }
+      ],
+      "original_run": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-094417-904182-production-overlay-AltitudeProgram"
+    },
+    "altitude-progressive": {
+      "status": "PASS",
+      "checks": 30,
+      "frames": 239,
+      "original_run": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-094620-950700-production-overlay-progressive"
+    },
+    "altitude-api": {
+      "status": "PASS",
+      "assemblies": 5,
+      "original_run": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\progressive-lod\\runs\\20261027-094532-059285-production-overlay-api"
+    }
+  },
+  "fixture_revision_note": "Altitude route retains the actual captured plan for priority inspection and adds active-key completeness assertions; prior two route runs retain their own earlier exact fixture hash. No direct tick-speed comparison is claimed.",
+  "main_terrain_sha256": {
+    "WorldExplorer.cs": "847b218247a97e974101f7ac6e55fdcb35ff86d4c107acd3a2b91f894bd04a1a",
+    "WorldExplorerIntegration.cs": "b050c02ede81aa97bf491d02dea5fe47b0fa45fbc59b9480bda09ba0c49060a9",
+    "WorldExplorerVoxels.cs": "9aae54f5dd9cde50cfa908b76190eee37167da4c2fc38a010845f54c00d4553e"
+  }
+}

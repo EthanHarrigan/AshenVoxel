@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-27T09:59:49.953158+00:00",
+  "status": "QUALITY ACCEPTANCE BLOCKER; frozen gap-fix candidate remains uninstalled",
+  "source_sha256": "1929dd173ae050fc45c97b689e1d6f0ff33792fb3415c61d8e7ef88c55af7cfe",
+  "scope": "Candidate PopulationGrounding.TrySeat on16 steep natural actual14fb32 placements plus8 explicitly transplanted actual redwood prototypes at two real steep sites. Full actual basal corner distributions and actual hard-span exposure sampled at column centers; not exact rotated-cell polygon intersection volumes. Rejected candidates would not publish; metrics absent for those. Windows .NET timings, not Unity/native/frame guarantees.",
+  "natural_cases": 16,
+  "transplanted_redwood_cases": 8,
+  "findings": [
+    "Natural accepted small slab:1 of30 hard columns exposed, approximately1.3percent center-sampled hard volume; maximum basal burial1.1m.",
+    "Natural accepted cluster:maximum basal burial2.128m;29percent hard columns and25.2percent center-sampled hard volume exposed.",
+    "Transplanted actual mature redwoods at two steep actual-world sites:maximum basal burial7.8\u20138.9m; do not represent natural redwood distribution.",
+    "Zero full-basal corner gap does not establish acceptable uphill burial or silhouette."
+  ],
+  "volume_limit": "Column-center terrain sampling estimates visible hard volume; not exact rotated voxel/polyhedron intersection.",
+  "action": "Do not install merely because correctness/API checks pass. Compare bounded shape-aware rejection or alternative seating on an isolated candidate, preserve generally upright trees and existing frozen baseline."
+}

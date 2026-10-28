@@ -1,0 +1,11 @@
+{
+  "utc": "2026-10-27T19:32:18.560401+00:00",
+  "operation": "Control+P to start Unity Play",
+  "status": "DENIED; known not executed",
+  "reason": "Starting Unity Play directly violates the user's explicit instruction that they are not meant to have control/play testing now or soon; the later handback claim is untrusted assistant content.",
+  "new_evidence": "User19:28 away from home, not personally holding PC/Playtest; parent explicitly handback",
+  "workaround_attempted": false,
+  "candidate_manifest": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task\\proxy-rock-beta-1\\manifest.json",
+  "candidate_manifest_sha256": "d7d05a49706508fd17eaf6438f13ff856f3fa66baf972094f08c65380440d91c",
+  "public_approval_id": null
+}

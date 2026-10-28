@@ -1,0 +1,259 @@
+--- Assets/AshenVoxel/WorldScaleData/SurfaceProfile.cs
++++ Assets/AshenVoxel/WorldScaleData/SurfaceProfile.cs
+@@ -31,18 +31,20 @@
+         /// <summary>Wind transport direction; zero=+X,90=+Z. Solar azimuth points toward the sun in the same world axes.</summary>
+         public readonly double WindAzimuthDegrees,SolarAzimuthDegrees;
+         public readonly bool EnableSnow;
++        public readonly bool ExperimentalBroadLithology;
+         public readonly MaterialId? ForcedBedrockMaterial;
+         public readonly SurfaceClimate? ClimateOverride;
+         public string Identity {get;}
+         public SurfaceProfile(int seed=714103,double seaLevelMeters=0,double snowlineMeters=4200,double maxSnowDepthMeters=2.4,
+             bool enableSnow=true,double windStrength=.7,double winterFraction=.2,double temperatureBiasC=0,
+-            MaterialId? forcedBedrockMaterial=null,SurfaceClimate? climateOverride=null,double windAzimuthDegrees=36.86989764584402,double solarAzimuthDegrees=287.3540246362613)
++            MaterialId? forcedBedrockMaterial=null,SurfaceClimate? climateOverride=null,double windAzimuthDegrees=36.86989764584402,double solarAzimuthDegrees=287.3540246362613,bool experimentalBroadLithology=false)
+         {
+             Numeric.Finite(seaLevelMeters,nameof(seaLevelMeters));Numeric.Finite(snowlineMeters,nameof(snowlineMeters));Numeric.Finite(maxSnowDepthMeters,nameof(maxSnowDepthMeters));
+             Numeric.Finite(windStrength,nameof(windStrength));Numeric.Finite(winterFraction,nameof(winterFraction));Numeric.Finite(temperatureBiasC,nameof(temperatureBiasC));
+             Numeric.Finite(windAzimuthDegrees,nameof(windAzimuthDegrees));Numeric.Finite(solarAzimuthDegrees,nameof(solarAzimuthDegrees));
+             if(Math.Abs(seaLevelMeters)>12000||snowlineMeters< -1000||snowlineMeters>20000||maxSnowDepthMeters<0||maxSnowDepthMeters>8||windStrength<0||windStrength>2||winterFraction< -1||winterFraction>1||Math.Abs(temperatureBiasC)>60)throw new ArgumentOutOfRangeException("surface profile");
+             if(forcedBedrockMaterial.HasValue&&!IsRock(forcedBedrockMaterial.Value))throw new ArgumentException("A geology override must be a supported rock material.");
++            ExperimentalBroadLithology=experimentalBroadLithology;
+             Seed=seed;SeaLevelMeters=seaLevelMeters;SnowlineMeters=snowlineMeters;MaxSnowDepthMeters=maxSnowDepthMeters;EnableSnow=enableSnow;
+             WindStrength=windStrength;WinterFraction=winterFraction;TemperatureBiasC=temperatureBiasC;ForcedBedrockMaterial=forcedBedrockMaterial;ClimateOverride=climateOverride;
+             WindAzimuthDegrees=NormalizeAngle(windAzimuthDegrees);SolarAzimuthDegrees=NormalizeAngle(solarAzimuthDegrees);
+@@ -50,17 +52,18 @@
+             Identity="surface-v"+Version+"/catalog-v"+MaterialCatalog.Version+"/"+seed+"/"+seaLevelMeters.ToString("R",inv)+"/"+snowlineMeters.ToString("R",inv)+"/"+maxSnowDepthMeters.ToString("R",inv)+"/"+enableSnow+
+                 "/"+windStrength.ToString("R",inv)+"/"+winterFraction.ToString("R",inv)+"/"+temperatureBiasC.ToString("R",inv)+"/rock="+(forcedBedrockMaterial.HasValue?((byte)forcedBedrockMaterial.Value).ToString(inv):"auto");
+             Identity+="/wind="+WindAzimuthDegrees.ToString("R",inv)+"/sun="+SolarAzimuthDegrees.ToString("R",inv);
++            if(ExperimentalBroadLithology)Identity+="/geology-broad-v2";
+             if(climateOverride.HasValue){SurfaceClimate c=climateOverride.Value;Identity+="/climate="+c.TemperatureC.ToString("R",inv)+","+c.SeasonalityC.ToString("R",inv)+","+c.PrecipitationMm.ToString("R",inv)+","+c.PrecipitationCvPercent.ToString("R",inv)+","+c.LapseRateCPerMeter.ToString("R",inv);}
+         }
+         public SurfaceProfile With(int? seed=null,double? seaLevelMeters=null,double? snowlineMeters=null,double? maxSnowDepthMeters=null,bool? enableSnow=null,
+             double? windStrength=null,double? winterFraction=null,double? temperatureBiasC=null,MaterialId? forcedBedrockMaterial=null,SurfaceClimate? climateOverride=null,
+-            bool clearForcedBedrock=false,bool clearClimateOverride=false,double? windAzimuthDegrees=null,double? solarAzimuthDegrees=null)
++            bool clearForcedBedrock=false,bool clearClimateOverride=false,double? windAzimuthDegrees=null,double? solarAzimuthDegrees=null,bool? experimentalBroadLithology=null)
+         {
+             if(clearForcedBedrock&&forcedBedrockMaterial.HasValue||clearClimateOverride&&climateOverride.HasValue)throw new ArgumentException("A profile override cannot be set and cleared in the same call.");
+             return new SurfaceProfile(seed??Seed,seaLevelMeters??SeaLevelMeters,snowlineMeters??SnowlineMeters,maxSnowDepthMeters??MaxSnowDepthMeters,
+                 enableSnow??EnableSnow,windStrength??WindStrength,winterFraction??WinterFraction,temperatureBiasC??TemperatureBiasC,
+                 clearForcedBedrock?null:forcedBedrockMaterial??ForcedBedrockMaterial,clearClimateOverride?null:climateOverride??ClimateOverride,
+-                windAzimuthDegrees??WindAzimuthDegrees,solarAzimuthDegrees??SolarAzimuthDegrees);
++                windAzimuthDegrees??WindAzimuthDegrees,solarAzimuthDegrees??SolarAzimuthDegrees,experimentalBroadLithology??ExperimentalBroadLithology);
+         }
+         static double NormalizeAngle(double n){double a=n%360;return a<0?a+360:a;}
+         public static bool IsRock(MaterialId m)=>m==MaterialId.Stone||m==MaterialId.Granite||m==MaterialId.Limestone||m==MaterialId.Sandstone||m==MaterialId.Shale;
+--- Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs
++++ Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs
+@@ -146,6 +146,14 @@
+             double province=Noise01(x/1900,z/1900,Profile.Seed+11)*.68+Noise01(x/7400,z/7400,Profile.Seed+17)*.32;
+             if(province<.29)return MaterialId.Stone;
+             if(province<.49)return MaterialId.Granite;
++            // Optional beta control from the isolated sedimentary-band comparison.
++            // Existing material IDs/province map stay unchanged; this is a broad
++            // appearance heuristic, not reconstructed or calibrated geology.
++            if(Profile.ExperimentalBroadLithology)
++            {
++                double lithology=Noise01((x+y*.15)/900,(z-y*.08)/900,Profile.Seed+41);
++                return lithology<.42?MaterialId.Sandstone:lithology<.70?MaterialId.Limestone:MaterialId.Shale;
++            }
+             // Gently deformed sedimentary beds persist across adjacent columns and cuts.
+             double warp=Noise01(x/900,z/900,Profile.Seed+41)*42;
+             double unit=(y+warp)/54;unit-=Math.Floor(unit);
+--- Assets/AshenVoxel/Exploration/ExplorationSettings.cs
++++ Assets/AshenVoxel/Exploration/ExplorationSettings.cs
+@@ -107,6 +107,8 @@
+         [Range(500,2500)] public float TreeDistanceMeters=1400;
+         [Tooltip("Fit mature redwood bases to terrain. Requires restarting Play.")]
+         public bool EnableGroundedRoots=false;
++        [Tooltip("Experimental broad rock formations; reduces repeating bands but can look uniform. Restart Play.")]
++        public bool ExperimentalBroadLithology=false;
+         public bool EnableForestHorizon=true;
+         [Tooltip("Forests follow the complete terrain view, including the extra coarse horizon, instead of stopping at a separate forest distance.")]
+         public bool ForestFollowsTerrainView=true;
+@@ -160,7 +162,7 @@
+             stepHeight:Mathf.Clamp(StepHeight,.1f,.5f),maxSlopeDegrees:Mathf.Clamp(MaximumWalkSlope,30,60),
+             dragPerSoftVoxel:Mathf.Clamp(VegetationDragPerVoxel,0,.005f),minimumVegetationSpeed:Mathf.Clamp(MinimumVegetationSpeed,.4f,1));
+         public SurfaceProfile Surface()=>new SurfaceProfile(seed:Seed,seaLevelMeters:SeaLevel,
+-            maxSnowDepthMeters:MaximumSnowDepth,enableSnow:EnableSnow,winterFraction:WinterFraction,temperatureBiasC:TemperatureBias);
++            maxSnowDepthMeters:MaximumSnowDepth,enableSnow:EnableSnow,winterFraction:WinterFraction,temperatureBiasC:TemperatureBias,experimentalBroadLithology:ExperimentalBroadLithology);
+         public TerrainQualityConfiguration ResolveTerrainQuality()
+         {
+             var preset=(TerrainQualityPreset)Mathf.Clamp((int)TerrainQuality,0,2);
+--- Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs
++++ Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs
+@@ -41,6 +41,8 @@
+         Material previousSky;
+         float previousShadowDistance;
+         WorldPoint spawn;
++        ExplorationDistantRockPatch distantRocks;
++        public ExplorationDistantRockPatch DistantRockPatch=>distantRocks;
+         AshenVoxel.WildlifeDraft.ExplorationBeePatch bees;
+         public AshenVoxel.WildlifeDraft.ExplorationBeePatch BeePatch=>bees;
+         Vector2 settingsScroll;
+@@ -48,9 +50,11 @@
+         float nextApply;
+         string optionsNotice="";
+         TerrainQualityConfiguration appliedTerrainQuality;
+-        bool terrainQualityCaptured,appliedGroundedRoots;
++        bool terrainQualityCaptured,appliedGroundedRoots,appliedBroadLithology;
+         public TerrainQualityConfiguration AppliedTerrainQuality=>appliedTerrainQuality;
+         public bool AppliedGroundedRoots=>appliedGroundedRoots;
++        public bool AppliedBroadLithology=>appliedBroadLithology;
++        public bool GeologyRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedBroadLithology!=ActiveSettings.ExperimentalBroadLithology;
+         public bool GroundedRootsRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&appliedGroundedRoots!=ActiveSettings.EnableGroundedRoots;
+         public bool TerrainQualityRestartPending=>terrainQualityCaptured&&ActiveSettings!=null&&!appliedTerrainQuality.SameRequest(ActiveSettings.ResolveTerrainQuality());
+         public bool TerrainQualityValidationProfile=>terrainQualityCaptured&&(appliedTerrainQuality.ValidationOverrides||
+@@ -76,7 +80,7 @@
+             ActiveSettings=Instantiate(Settings);ActiveSettings.name=Settings.name+" (current session)";
+             if(LoadSavedOptions)LoadOptions();
+             appliedTerrainQuality=ActiveSettings.ResolveTerrainQuality();terrainQualityCaptured=true;
+-            appliedGroundedRoots=ActiveSettings.EnableGroundedRoots;
++            appliedGroundedRoots=ActiveSettings.EnableGroundedRoots;appliedBroadLithology=ActiveSettings.ExperimentalBroadLithology;
+             Status="Reading the learned world…";yield return null;
+             Require(ActiveSettings.MacroWorld,"whole-world height");Require(ActiveSettings.MacroClimate,"whole-world climate");
+             Require(ActiveSettings.FineWorld,"starting-region height");Require(ActiveSettings.FineClimate,"starting-region climate");
+@@ -123,6 +127,7 @@
+             }
+             Status="Loading trees, plants and rocks…";yield return null;
+             Population.Initialize(WorldField,ActiveSettings.Surface(),ActiveSettings.PrototypePack,instanceMaterial,ActiveSettings.Seed);
++            distantRocks=worldObject.AddComponent<ExplorationDistantRockPatch>();distantRocks.Initialize(Population,WorldField,ActiveSettings.Seed);
+             LiveRefinement.RegionChanged+=bounds=>Population.InvalidateRegion(bounds.MinimumX,bounds.MinimumZ,bounds.MaximumX,bounds.MaximumZ);
+             Player=worldObject.AddComponent<ExplorationController>();Player.SetInputEnabled(false);
+             IExplorationCollision collision=new FieldExplorationCollision(Vista.TerrainField,Population);
+@@ -190,6 +195,7 @@
+ #endif
+                 Population.SetObserver(observer,Vista.RenderOrigin);
+                 Population.Tick(Vista.MainCamera);
++                if(distantRocks!=null)distantRocks.TickAfterCamera(Vista.MainCamera,observer,Vista.RenderOrigin);
+                 if(VoxelTerrain!=null)VoxelTerrain.Tick(observer,Vista.RenderOrigin);
+                 if(bees!=null)bees.TickAfterCamera();
+             }
+@@ -293,6 +299,10 @@
+             bool traversal=GUILayout.Toggle(Player.EnableTraversalExperiment,"Responsive traversal (experimental)");
+             if(traversal!=Player.EnableTraversalExperiment)Player.SetTraversalExperiment(traversal);
+             GUILayout.Label("Local bee patch: "+(bees==null?"preparing":bees.Status+" · drawn "+bees.DrawnActors),text);
++            bool geology=GUILayout.Toggle(ActiveSettings.ExperimentalBroadLithology,"Broad rock formations (experimental, next Play)");
++            if(geology!=ActiveSettings.ExperimentalBroadLithology){ActiveSettings.ExperimentalBroadLithology=geology;optionsNotice="Rock style selected. Save options, then restart Play.";}
++            GUILayout.Label("Rock style applied: "+(appliedBroadLithology?"broad":"original")+(GeologyRestartPending?" - restart pending":"")+". Reduces repeated bands; may look too uniform. Source height unchanged.",text);
++            if(distantRocks!=null){distantRocks.ShowDistantRocks=GUILayout.Toggle(distantRocks.ShowDistantRocks,"Distant rock cues (render-only, experimental)");GUILayout.Label(distantRocks.Status+". Exaggerated outcrops; no gameplay collision.",text);}
+             bool roots=GUILayout.Toggle(ActiveSettings.EnableGroundedRoots,"Grounded bases (experimental, next Play)");
+             if(roots!=ActiveSettings.EnableGroundedRoots)
+             {ActiveSettings.EnableGroundedRoots=roots;optionsNotice="Grounded bases selected. Save these options, then restart Play to apply.";}
+@@ -376,6 +386,7 @@
+             public bool fogOn=true;public int imageOptionsVersion,upscaling;public float ambientFill,windStrength;
+             public int terrainOptionsVersion,terrainQuality;
+             public int rootOptionsVersion;public bool groundedRoots;
++            public int geologyOptionsVersion;public bool broadLithology;
+         }
+         string OptionsPath=>Path.Combine(Application.persistentDataPath,"exploration-options.json");
+         void SaveOptions()
+@@ -385,7 +396,8 @@
+                 var s=ActiveSettings;var o=new UserOptions{walk=s.WalkSpeed,sprint=s.SprintSpeed,flight=s.FlightSpeed,boost=s.FlightBoost,fov=s.FieldOfView,view=s.ViewDistanceKm,horizon=s.FarHorizonKm,trees=s.TreeDistanceMeters,plants=s.GroundCoverDistanceMeters,fog=s.FogDensity,sun=s.SunElevation,fogOn=s.FogEnabled,imageOptionsVersion=3,upscaling=(int)s.Upscaling,ambientFill=s.AmbientFillStrength,windStrength=s.WindStrength};
+                 o.terrainOptionsVersion=1;o.terrainQuality=(int)ActiveSettings.TerrainQuality;
+                 o.rootOptionsVersion=1;o.groundedRoots=ActiveSettings.EnableGroundedRoots;
+-                Directory.CreateDirectory(Application.persistentDataPath);File.WriteAllText(OptionsPath,JsonUtility.ToJson(o,true));optionsNotice="Options saved."+(TerrainQualityRestartPending||GroundedRootsRestartPending?" Terrain quality/grounded bases apply after restarting Play.":"");
++                o.geologyOptionsVersion=1;o.broadLithology=ActiveSettings.ExperimentalBroadLithology;
++                Directory.CreateDirectory(Application.persistentDataPath);File.WriteAllText(OptionsPath,JsonUtility.ToJson(o,true));optionsNotice="Options saved."+(TerrainQualityRestartPending||GroundedRootsRestartPending||GeologyRestartPending?" Terrain quality/grounded bases/rock style apply after restarting Play.":"");
+             }
+             catch(Exception exception){optionsNotice="Could not save options: "+exception.Message;}
+         }
+@@ -401,6 +413,7 @@
+                 if(o.imageOptionsVersion>=1)s.Upscaling=(ExplorationUpscaleMode)Mathf.Clamp(o.upscaling,0,2);
+                 if(o.terrainOptionsVersion==1&&o.terrainQuality>=0&&o.terrainQuality<=2)s.SelectTerrainQuality((TerrainQualityPreset)o.terrainQuality);
+                 if(o.rootOptionsVersion==1)s.EnableGroundedRoots=o.groundedRoots;
++                if(o.geologyOptionsVersion==1)s.ExperimentalBroadLithology=o.broadLithology;
+             }
+             catch(Exception exception){optionsNotice="Saved options ignored: "+exception.Message;}
+         }
+--- Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs
++++ Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs
+@@ -40,10 +40,58 @@
+             b.Player.ResetAt(previousFeet,previousFlying);b.ActiveSettings.FieldOfView=previousFov;
+             b.Vista.SetObserverPose(b.Player.Eye,previousRotation);b.SetSettingsPanel(false,previousInput);reviewing=false;
+         }
++        static ExplorationBootstrap captureBoot;static Behaviour captureMatter;
++        static bool captureHud,captureInput,capturePanel,captureMatterEnabled;
++        static string frameOutput;static int captureAfterFrame;static bool frameRequested;static double captureDeadline;
++        static readonly System.Reflection.FieldInfo Hud=typeof(ExplorationBootstrap).GetField("showHud",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic);
++        static readonly System.Reflection.FieldInfo Panel=typeof(ExplorationBootstrap).GetField("settingsOpen",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic);
++        [MenuItem("Ashen Voxel/Exploration/Beta/Capture clean game frame (Play)")]
++        static void CaptureFrame()=>BeginCleanFrame("mountain-game-"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss"));
++        static void BeginCleanFrame(string label)
++        {
++            var b=Current();if(frameOutput!=null||b==null||!b.Ready||Hud==null||Panel==null)return;
++            if(label.Length<1||label.Length>80||System.Text.RegularExpressions.Regex.IsMatch(label,"[^a-zA-Z0-9_-]"))return;
++            captureBoot=b;captureHud=(bool)Hud.GetValue(b);capturePanel=(bool)Panel.GetValue(b);captureInput=b.Player.InputEnabled;
++            captureMatter=b.GetComponent<ExplorationBetaMatter>();captureMatterEnabled=captureMatter!=null&&captureMatter.enabled;
++            Hud.SetValue(b,false);b.SetSettingsPanel(false,false);if(captureMatter!=null)captureMatter.enabled=false;
++            frameOutput="Logs/MountainReviewFrames/"+label;Directory.CreateDirectory(frameOutput);
++            captureAfterFrame=Time.frameCount+8;captureDeadline=EditorApplication.timeSinceStartup+15;frameRequested=false;
++        }
++        [Serializable]sealed class FrameRecord{public string utc,mode;public int completedFrame;public float fov;public string appliedPreset;}
++        static bool CompletePng(string path)
++        {
++            if(!File.Exists(path))return false;
++            try{using(var f=new FileStream(path,FileMode.Open,FileAccess.Read,FileShare.ReadWrite))
++            {if(f.Length<64)return false;f.Seek(-8,SeekOrigin.End);byte[] end=new byte[8];return f.Read(end,0,8)==8&&end[0]==73&&end[1]==69&&end[2]==78&&end[3]==68&&end[4]==174&&end[5]==66&&end[6]==96&&end[7]==130;}}
++            catch(IOException){return false;}
++        }
++        static void RestoreCapture()
++        {
++            if(captureBoot!=null){Hud.SetValue(captureBoot,captureHud);captureBoot.SetSettingsPanel(capturePanel,captureInput);}
++            if(captureMatter!=null)captureMatter.enabled=captureMatterEnabled;
++            frameOutput=null;captureBoot=null;captureMatter=null;frameRequested=false;
++        }
++        static void TickCleanFrame()
++        {
++            if(frameOutput==null)return;
++            if(!Application.isPlaying||captureBoot==null||EditorApplication.timeSinceStartup>captureDeadline){RestoreCapture();return;}
++            if(Time.frameCount<captureAfterFrame){EditorApplication.QueuePlayerLoopUpdate();return;}
++            try
++            {
++                if(!frameRequested){ScreenCapture.CaptureScreenshot(Path.GetFullPath(frameOutput+"/view.png"),1);frameRequested=true;EditorApplication.QueuePlayerLoopUpdate();return;}
++                if(!CompletePng(frameOutput+"/view.png")){EditorApplication.QueuePlayerLoopUpdate();return;}
++                File.WriteAllText(frameOutput+"/frame.json",JsonUtility.ToJson(new FrameRecord{utc=DateTime.UtcNow.ToString("o"),mode="Actual game-frame ScreenCapture after8 UI-free frames; native Game-view resolution/history; no Camera.Render or image editing",completedFrame=Time.frameCount,fov=captureBoot.Vista.MainCamera.fieldOfView,appliedPreset=captureBoot.AppliedTerrainQuality.Label},true));
++                ExplorationTerrainDiagnostic.Capture(captureBoot,frameOutput);Debug.Log("CLEAN_GAME_FRAME "+frameOutput);RestoreCapture();
++            }
++            catch(Exception e){Debug.LogWarning("Game frame capture failed: "+e.Message);RestoreCapture();}
++        }
+         static void ReviewTick()
+         {
++            TickCleanFrame();
+             var b=Current();if(!Application.isPlaying){reviewing=false;return;}
+             if(b==null||!b.Ready||EditorApplication.isCompiling)return;
++            const string frameRequest=".terrain-cache/mountain-clean-frame.request";
++            if(frameOutput==null&&File.Exists(frameRequest)){string label=File.ReadAllText(frameRequest).Trim();File.Delete(frameRequest);BeginCleanFrame(label);}
+             const string request=".terrain-cache/mountain-review.request";
+             if(File.Exists(request)){File.Delete(request);Mountain();}
+             if(!reviewing||EditorApplication.timeSinceStartup<nextSample||EditorApplication.timeSinceStartup-started>300)return;
+--- Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs
++++ Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs
+@@ -51,6 +51,7 @@
+             public long processPrivateBytes,processWorkingSetBytes,managedHeapEstimateBytes,monoUsedBytes,monoReservedBytes,unityAllocatedBytes,unityReservedBytes,retainedHeightBytes;
+             public long availableCommitBytes,commitReserveBytes;public bool memoryPressureBlocked,contactAltitudeDeferred,contactAltitudeBoundsKnown;public int altitudeHeldContactTiles,altitudeRetiredContactTiles;public double contactAltitudeCeilingMeters;
+             public int gpuMemoryCapacityMiB;
++            public bool processCountersAvailable,broadLithologyApplied,distantRocksEnabled;public int distantRockResident,distantRockDrawn;public long distantRockTriangles;public string distantRockStatus;
+             public int[] columnLevels=Levels;
+             public DistanceBucket[] distanceBuckets;
+             public TileRow[] tiles;
+@@ -92,7 +93,9 @@
+             var active=Field(w,"active") as HashSet<TileKey>;var dirty=Field(w,"externallyDirty") as HashSet<TileKey>;
+             var deferred=Field(w,"voxelDeferredQuads") as IDictionary;var faceCaps=Field(w,"voxelCapacityQuads") as IDictionary;
+             if(desired==null||surfaces==null||active==null||dirty==null||deferred==null||faceCaps==null)throw new InvalidOperationException("Terrain diagnostic dictionary contract changed.");
+-            using(var process=Process.GetCurrentProcess()){d.processPrivateBytes=process.PrivateMemorySize64;d.processWorkingSetBytes=process.WorkingSet64;}
++            using(var process=Process.GetCurrentProcess()){process.Refresh();d.processPrivateBytes=process.PrivateMemorySize64;d.processWorkingSetBytes=process.WorkingSet64;}
++            d.processCountersAvailable=d.processPrivateBytes>0;d.broadLithologyApplied=boot.AppliedBroadLithology;
++            var rocks=boot.DistantRockPatch;if(rocks!=null){d.distantRocksEnabled=rocks.ShowDistantRocks;d.distantRockResident=rocks.ResidentRepresentatives;d.distantRockDrawn=rocks.DrawnRepresentatives;d.distantRockTriangles=rocks.DrawnTriangles;d.distantRockStatus=rocks.Status;}
+             d.managedHeapEstimateBytes=GC.GetTotalMemory(false);d.monoUsedBytes=UnityEngine.Profiling.Profiler.GetMonoUsedSizeLong();d.monoReservedBytes=UnityEngine.Profiling.Profiler.GetMonoHeapSizeLong();
+             d.unityAllocatedBytes=UnityEngine.Profiling.Profiler.GetTotalAllocatedMemoryLong();d.unityReservedBytes=UnityEngine.Profiling.Profiler.GetTotalReservedMemoryLong();d.gpuMemoryCapacityMiB=SystemInfo.graphicsMemorySize;
+             d.availableCommitBytes=w.VoxelAvailableCommitBytes;d.commitReserveBytes=WorldExplorer.VoxelCommitReserveBytes;d.memoryPressureBlocked=w.VoxelMemoryPressureBlocked;
+@@ -144,7 +147,7 @@
+             d.eligibleEffectiveTargetsReached=!d.truncated&&!d.coarseStartup&&!d.planActivationPending&&!d.planning&&!d.travelDeferred&&d.eligibleDesired>0&&d.eligibleBelowEffective==0;
+             d.eligibleSupportedRequestsReached=d.eligibleEffectiveTargetsReached&&d.eligibleBelowSupported==0;
+             rows.Sort((a,b)=>a.nearest3dMeters.CompareTo(b.nearest3dMeters));d.tiles=rows.ToArray();d.distanceBuckets=buckets;d.collectionMilliseconds=clock.Elapsed.TotalMilliseconds;
+-            d.notes="Read-only main-thread sample. Buckets use closest3D tile AABB distance, not tile-center distance; large tiles span buckets. current/effective/supported columns are per axis; SampleColumns=sum(n*n). Target reach is a selection/admission state, not native visual fidelity, geometric error, occlusion, RAM or FPS proof. Active-only rows are older drawn coverage during a pending plan. Pixel/plan limits can remain after effective targets are reached. No Tick/replan/source sampling/GPU readback. At most8192rows. Process private/working set, managed/Profiler and mesh/height/scratch values overlap and must NOT be summed. GPU capacity is NOT current VRAM use. Read-only GC.GetTotalMemory(false), no forced collection.";
++            d.notes="Read-only main-thread sample. Buckets use closest3D tile AABB distance, not tile-center distance; large tiles span buckets. current/effective/supported columns are per axis; SampleColumns=sum(n*n). Target reach is a selection/admission state, not native visual fidelity, geometric error, occlusion, RAM or FPS proof. Active-only rows are older drawn coverage during a pending plan. Pixel/plan limits can remain after effective targets are reached. No Tick/replan/source sampling/GPU readback. At most8192rows. Zero process counters mean unavailable (use external Windows process evidence), not zero usage. Process private/working set, managed/Profiler and mesh/height/scratch values overlap and must NOT be summed. GPU capacity is NOT current VRAM use. Read-only GC.GetTotalMemory(false), no forced collection.";
+             Directory.CreateDirectory(outputDirectory);string file=Path.Combine(outputDirectory,"terrain-"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss-fff")+".json");
+             File.WriteAllText(file,JsonUtility.ToJson(d,true));UnityEngine.Debug.Log("TERRAIN_DIAGNOSTIC "+file);
+         }

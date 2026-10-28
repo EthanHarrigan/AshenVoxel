@@ -1,0 +1,11 @@
+{
+  "started_utc": "2026-10-27T13:05:58.440429-06:00",
+  "original_sha256": "a971d9170fe3dfcea5acfc46a4894b3ffc512927e6c9402f660a6660110e74ca",
+  "temporary_sha256": "2fb9d09da33e1f184b80093e0dfef20f1f9ede3aa866b89cecc53b4c7567209e",
+  "status": "Original saved preferences restored after UI approval denial; photo-mode Play did not execute.",
+  "changes": {
+    "geologyOptionsVersion": 1,
+    "broadLithology": true
+  },
+  "restored_utc": "2026-10-27T19:08:57.9827961Z"
+}

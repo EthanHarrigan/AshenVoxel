@@ -1,0 +1,95 @@
+--- a/Assets/AshenVoxel/Exploration/ExplorationSettings.cs
++++ b/Assets/AshenVoxel/Exploration/ExplorationSettings.cs
+@@ -53,6 +53,10 @@
+         [Range(.5f,8)] public float VoxelTargetPixels=1.5f;
+         [Tooltip("Independent10cm ground coverage follows you everywhere and publishes each completed tile immediately. Distant terrain keeps voxel LODs. Applies on next Play.")]
+         [Range(16,160)] public float VoxelFullDetailRadius=100;
++        [Tooltip("Applies next Play. Far mesh detail MiB, additional to reserved coarse coverage. This is mesh payload, not total RAM/VRAM.")]
++        [Range(64,1536)] public int VoxelDetailBudgetMB=1536;
++        [Tooltip("Applies next Play. Contact mesh payload MiB; admitted tiles retain10cm detail.")]
++        [Range(128,2048)] public int VoxelContactBudgetMB=1024;
+         [Range(20,40)] public float ViewDistanceKm=30;
+         [Tooltip("Zero disables the extra coarse horizon. This is bounded low-detail coverage, not full-resolution terrain.")]
+         [Range(0,100)] public float FarHorizonKm;
+--- a/Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs
++++ b/Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs
+@@ -80,7 +80,9 @@
+             spawn=RecommendedSpawn();
+             worldObject=new GameObject("InfiniteDiffusion exploration");worldObject.transform.SetParent(transform,false);
+             SetupLighting();
+-            Vista=worldObject.AddComponent<WorldExplorer>();ApplyVistaSettings(false);
++            Vista=worldObject.AddComponent<WorldExplorer>();
++            Vista.ConfigureInitialVoxelMeshBudgets(ActiveSettings.VoxelDetailBudgetMB,ActiveSettings.VoxelContactBudgetMB);
++            ApplyVistaSettings(false);
+             Vista.ShowResearchHud=false;
+             LiveRefinement=worldObject.AddComponent<ExplorationLiveRefinement>();
+             WorldField=LiveRefinement.Configure(Source,Vista,ActiveSettings.DiffusionEndpoint,enabled:ActiveSettings.EnableLiveRefinement);
+--- a/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
++++ b/Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs
+@@ -26,6 +26,7 @@
+         public int ContactDeferredTiles=>contactDeferred.Count;
+         long contactObservedBudgetBytes=-1;
+         long ContactBudgetBytes=>(long)Mathf.Clamp(VoxelContactBudgetMB,128,2048)*1024*1024;
++        public long ContactMeshLimitBytes=>ContactBudgetBytes;
+         readonly List<Work> contactPending=new List<Work>();
+         readonly Vector4[] contactMask=new Vector4[64];
+         long contactCenterX=long.MinValue,contactCenterZ=long.MinValue;
+@@ -83,11 +84,16 @@
+             ContactMeshBytes-=SurfaceBytes(s);ContactTriangles-=s.TriangleCount;
+             Destroy(s.Object);Destroy(s.Mesh);contactSurfaces.Remove(key);
+         }
++        bool AdmitContactMesh(TileKey key,long bytes)
++        {
++            long replaced=contactSurfaces.TryGetValue(key,out Surface old)?SurfaceBytes(old):0;
++            if(ContactMeshBytes-replaced+bytes<=ContactBudgetBytes)return true;
++            contactDeferred[key]=bytes;return false;
++        }
+         void PublishContact(Surface built,Work work)
+         {
+             long bytes=SurfaceBytes(built),limit=ContactBudgetBytes,previousBytes=ContactMeshBytes;
+-            long replaced=contactSurfaces.TryGetValue(work.Tile.Key,out Surface old)?SurfaceBytes(old):0;
+-            if(ContactMeshBytes-replaced+bytes>limit)
++            if(!AdmitContactMesh(work.Tile.Key,bytes))
+             {
+                 // Never silently lower the10cm contact resolution to meet admission.
+                 // Retain the old terrain and observable request until the next move/replan.
+@@ -195,7 +201,19 @@
+         // makes the actual coarse mesh much smaller. This guarantees room for
+         // both bounded coverage plans without retaining a second mesh per tile.
+         const long VoxelCoverageTileReserveBytes=(64+112*38+32*39)*120L;
+-        const long VoxelDetailBudgetBytes=1536L*1024*1024;
++        long voxelInitialDetailBudgetBytes=1536L*1024*1024;
++        long VoxelDetailBudgetBytes=>voxelInitialDetailBudgetBytes;
++        public long TerrainDetailLimitBytes=>VoxelDetailBudgetBytes;
++        public long TerrainDetailMeshBytes=>voxelDetailMeshBytes;
++        /// <summary>Configure cache quotas before terrain initialization. Settings
++        /// changes afterward require a new Play session; no live far-quota eviction.</summary>
++        public void ConfigureInitialVoxelMeshBudgets(int detailMiB,int contactMiB)
++        {
++            if(field!=null||currentBuild!=null||surfaces.Count!=0||contactSurfaces.Count!=0)
++                throw new InvalidOperationException("Terrain mesh budgets must be configured before initialization; restart Play to change them.");
++            voxelInitialDetailBudgetBytes=(long)Mathf.Clamp(detailMiB,64,1536)*1024*1024;
++            VoxelContactBudgetMB=Mathf.Clamp(contactMiB,128,2048);
++        }
+         long voxelDetailMeshBytes;
+         bool voxelRefinementScanPending;
+         int consecutiveContactBuilds;
+@@ -374,7 +392,8 @@
+                 if(voxelBuildJob.IsFaulted)throw voxelBuildJob.Exception.GetBaseException();
+                 if(voxelBuildJob.IsCanceled)yield break;
+                 VoxelLodSurface data=voxelBuildJob.Result;voxelBuildJob=null;LastVoxelWorkerMilliseconds=workerMilliseconds;
+-                if(!contact&&!AdmitVoxelMesh(tile,n,(long)data.Faces.Count*120))yield break;
++                long payloadBytes=(long)data.Faces.Count*120;
++                if(contact?!AdmitContactMesh(tile.Key,payloadBytes):!AdmitVoxelMesh(tile,n,payloadBytes))yield break;
+                 int vertexCount=data.Faces.Count*4,indexCount=data.Faces.Count*6;
+                 EnsureVoxelBuffers(vertexCount,indexCount);
+                 int processed=0,vertex=0,index=0;Vector3 lo=new Vector3(float.MaxValue,float.MaxValue,float.MaxValue),hi=new Vector3(float.MinValue,float.MinValue,float.MinValue);
+@@ -398,6 +417,8 @@
+                     if(face.A0+face.A2>face.A1+face.A3){Tri(0,1,3);Tri(1,2,3);}else{Tri(0,1,2);Tri(0,2,3);}
+                     if(++processed%128==0)yield return null;
+                 }
++                // The legacy debug contact allowance may change during expansion.
++                if(contact&&!AdmitContactMesh(tile.Key,payloadBytes))yield break;
+                 var mesh=new Mesh{name="Voxel LOD "+tile.Key,indexFormat=IndexFormat.UInt32};
+                 mesh.SetVertexBufferParams(vertexCount,VoxelVertexLayout);
+                 mesh.SetVertexBufferData(voxelVertices,0,0,vertexCount);

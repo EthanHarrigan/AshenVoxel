@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "assertions": 360,
+  "scope": "Engine-free input policy and simulated publication; not native gameplay, rendering or measured latency",
+  "rapid_tap_publications": 99,
+  "held_publications": 29,
+  "source_sha256": {
+    "Assets/AshenVoxel/Exploration/NaturalMatterBreakInput.cs": "aba73d136abe30589f7789fc1225d0189211caa9bbe8005561db5c7869a66d63",
+    "Tools/BreakInputChecks/Program.cs": "c76b5b0b8a1787d1c7f5bb737d93f52a8ca2647b8159731af5692af8bc907089"
+  },
+  "generated_utc": "2026-10-28T05:33:49.209167+00:00"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "capacity-lod-1",
+  "utc": "2026-10-27T10:01:07.406011+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "before": "847b218247a97e974101f7ac6e55fdcb35ff86d4c107acd3a2b91f894bd04a1a",
+      "sha256": "0d7d76771373134623fa9c13cc2e00f2830763c7658cfb3cf05701d71a8e0834"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+      "before": "b050c02ede81aa97bf491d02dea5fe47b0fa45fbc59b9480bda09ba0c49060a9",
+      "sha256": "5d132d061fa7f855e480f20e2aaa7af174684085dd1b0349313399f5426a3700"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "9aae54f5dd9cde50cfa908b76190eee37167da4c2fc38a010845f54c00d4553e",
+      "sha256": "b9e7964405642f84fd276644c2ecf726dac536ab756d2ffc1d92a2e31be6e20d"
+    }
+  ]
+}

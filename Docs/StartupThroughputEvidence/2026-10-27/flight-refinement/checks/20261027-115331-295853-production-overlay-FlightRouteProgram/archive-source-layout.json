@@ -1,0 +1,6 @@
+{
+  "base_snapshot": "../../baseline-source",
+  "overrides": "source",
+  "overridden_files": [],
+  "all_hashes": "result.json/source_sha256"
+}

@@ -1,0 +1,266 @@
+{
+  "utc": "2026-10-27T20:27:44.421868+00:00",
+  "world_id": "14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4",
+  "macro": {
+    "height_file": "ExplorationMacro.bytes",
+    "climate_file": "ExplorationMacro.climate.bytes",
+    "height_sha256": "3a307d7dcebc47e0d1831e75a7cd73346480d3386b27aae9600c71dd2051c98b",
+    "climate_sha256": "e81d209a9bf1959c9d6749b93ab96c91c903bf1583fe6dbd33651ecf87306684",
+    "columns": 235,
+    "rows": 118,
+    "origin_x_m": -149760.0,
+    "origin_z_m": -74880.0,
+    "extent_x_m": 299520.0,
+    "extent_z_m": 149760.0,
+    "spacing_m": 1280.0,
+    "height_range_m": [
+      -5261.53564453125,
+      7776.50634765625
+    ],
+    "climate_ranges": [
+      [
+        -50.46183776855469,
+        29.525310516357422
+      ],
+      [
+        1.663769006729126,
+        18.903766632080078
+      ],
+      [
+        0.0,
+        9289.0546875
+      ],
+      [
+        0.0,
+        100.97869873046875
+      ],
+      [
+        -0.012000000104308128,
+        0.0
+      ]
+    ],
+    "source_identity": {
+      "backend": "upstream-pretrained/coarse-network",
+      "climate_rectification_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 6262,
+        "3": 18,
+        "4": 0
+      },
+      "coarse_feature_coordinate": "(native_pixel+0.5)/256-0.5",
+      "height_units": "meters",
+      "model_revision": "9ef8030cb805b433b98ec25c5dddefbac07a9e26",
+      "native_to_world_xz": 0.16666666666666666,
+      "provider": "InfiniteDiffusion",
+      "resolution_stage": "coarse-network",
+      "seed": 714103,
+      "upstream_commit": "e8dcb4b1a834ab2f6b1a6f5256ed7c9f2f3e8230",
+      "vertical_height_scale": 1.0,
+      "world_id": "14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4",
+      "world_meters_per_native_sample": 5.0,
+      "world_spacing_m": 1280.0,
+      "native_model_world_id": "5ae14923b2978e7394046e920ffaf0a6e91ad60f69a6f9be4ba02fb1489889d7",
+      "physical_climate_policy": {
+        "schema": "ashen-physical-climate-policy-v1",
+        "policy_id": "physical-nonnegative-v1",
+        "input_encoding": "physical-si-v2",
+        "negative_to_zero_channels": [
+          "temperature_std_c",
+          "precipitation_mm",
+          "precipitation_cv_percent"
+        ],
+        "unchanged": "height,temperature_c,beta,all nonnegative climate values,biomes,land",
+        "nonfinite_and_upper_bounds": "reject; never silently saturate",
+        "cache_namespace": "physical-nonnegative-v1"
+      }
+    },
+    "elapsed_seconds": 55.7029999999977,
+    "physical_policy_rectified_values": {
+      "temperature_std_c": 0,
+      "precipitation_mm": 0,
+      "precipitation_cv_percent": 0
+    },
+    "input_height_sha256": "f6b8782af0dd13bcbc5b4acd92534be1b1f83692819c418d762bb298b6e6b777",
+    "input_climate_sha256": "40380be5737b816f805272133dda8055bea5078369589ccf32097fee4551406b"
+  },
+  "fine": {
+    "height_file": "ExplorationFine.bytes",
+    "climate_file": "ExplorationFine.climate.bytes",
+    "height_sha256": "0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb",
+    "climate_sha256": "3c5b1be873732c2a46fec105a4a9c00649d5348c3546c5226ea4a1dbd5297069",
+    "columns": 1024,
+    "rows": 1024,
+    "origin_x_m": -21760.0,
+    "origin_z_m": -12800.0,
+    "extent_x_m": 5115.0,
+    "extent_z_m": 5115.0,
+    "spacing_m": 5.0,
+    "height_range_m": [
+      -2133.452880859375,
+      1286.7093505859375
+    ],
+    "climate_ranges": [
+      [
+        0.7848258018493652,
+        9.378998756408691
+      ],
+      [
+        8.442873001098633,
+        9.503976821899414
+      ],
+      [
+        858.2296142578125,
+        1373.85986328125
+      ],
+      [
+        23.0362491607666,
+        30.706111907958984
+      ],
+      [
+        -0.0050016138702631,
+        -0.0016446805093437433
+      ]
+    ],
+    "source_identity": {
+      "backend": "upstream-pretrained/canonical-owner-v1",
+      "height_units": "meters",
+      "model_revision": "9ef8030cb805b433b98ec25c5dddefbac07a9e26",
+      "native_to_world_xz": 0.16666666666666666,
+      "native_window": {
+        "col0": -4352,
+        "cols": 1024,
+        "row0": -2560,
+        "rows": 1024
+      },
+      "provider": "InfiniteDiffusion",
+      "resolution_stage": "canonical-owner-v1",
+      "seed": 714103,
+      "upstream_commit": "e8dcb4b1a834ab2f6b1a6f5256ed7c9f2f3e8230",
+      "vertical_height_scale": 1.0,
+      "world_id": "14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4",
+      "world_meters_per_native_sample": 5.0,
+      "world_spacing_m": 5.0,
+      "native_model_world_id": "5ae14923b2978e7394046e920ffaf0a6e91ad60f69a6f9be4ba02fb1489889d7",
+      "physical_climate_policy": {
+        "schema": "ashen-physical-climate-policy-v1",
+        "policy_id": "physical-nonnegative-v1",
+        "input_encoding": "physical-si-v2",
+        "negative_to_zero_channels": [
+          "temperature_std_c",
+          "precipitation_mm",
+          "precipitation_cv_percent"
+        ],
+        "unchanged": "height,temperature_c,beta,all nonnegative climate values,biomes,land",
+        "nonfinite_and_upper_bounds": "reject; never silently saturate",
+        "cache_namespace": "physical-nonnegative-v1"
+      }
+    },
+    "owner_timings_seconds": [
+      176.64099999999962,
+      46.34299999999712,
+      0.03200000000288128,
+      70.3279999999977,
+      0.031000000002677552,
+      0.046999999998661224,
+      0.030999999999039574,
+      0.030999999999039574,
+      50.76600000000326,
+      14.921999999998661,
+      0.030999999999039574,
+      19.875,
+      34.125,
+      11.7970000000023,
+      0.046999999998661224,
+      14.265999999999622
+    ],
+    "physical_climate_policy": {
+      "schema": "ashen-physical-climate-policy-v1",
+      "policy_id": "physical-nonnegative-v1",
+      "input_encoding": "physical-si-v2",
+      "negative_to_zero_channels": [
+        "temperature_std_c",
+        "precipitation_mm",
+        "precipitation_cv_percent"
+      ],
+      "unchanged": "height,temperature_c,beta,all nonnegative climate values,biomes,land",
+      "nonfinite_and_upper_bounds": "reject; never silently saturate",
+      "cache_namespace": "physical-nonnegative-v1"
+    },
+    "physical_climate_rectification": {
+      "policy": {
+        "schema": "ashen-physical-climate-policy-v1",
+        "policy_id": "physical-nonnegative-v1",
+        "input_encoding": "physical-si-v2",
+        "negative_to_zero_channels": [
+          "temperature_std_c",
+          "precipitation_mm",
+          "precipitation_cv_percent"
+        ],
+        "unchanged": "height,temperature_c,beta,all nonnegative climate values,biomes,land",
+        "nonfinite_and_upper_bounds": "reject; never silently saturate",
+        "cache_namespace": "physical-nonnegative-v1"
+      },
+      "counter_scope": "current backend process; persisted summary records its last writing session",
+      "query_count": 16,
+      "rectified_values": {
+        "temperature_std_c": 0,
+        "precipitation_mm": 0,
+        "precipitation_cv_percent": 0
+      },
+      "note": "Derived publication of original model predictions; raw hash records refer to pre-policy physical arrays, not a new model run.",
+      "last_query": {
+        "native_window": [
+          -1824,
+          -3616,
+          320,
+          320
+        ],
+        "rectified_values": {
+          "temperature_std_c": 0,
+          "precipitation_mm": 0,
+          "precipitation_cv_percent": 0
+        },
+        "raw_physical_climate_sha256": "35a7859e4a40313d7e6dc677b2bc2fe9f22feff42397470b6952ead97af68341",
+        "published_physical_climate_sha256": "35a7859e4a40313d7e6dc677b2bc2fe9f22feff42397470b6952ead97af68341",
+        "height_sha256": "833fb46a0cf599227ae002f132bd483e9f6ddb67bf1b04758b681ba12ce3fb7e"
+      }
+    },
+    "physical_policy_rectified_values": {
+      "temperature_std_c": 0,
+      "precipitation_mm": 0,
+      "precipitation_cv_percent": 0
+    },
+    "input_height_sha256": "35eac84988c445255d79a58934535fb9c3b495059d4680e0895ce152ec0f3d4a",
+    "input_climate_sha256": "78754bca082173b39083cc6d1a2e28b46d3623780ce99edd3be5b4b5197cedcb"
+  },
+  "locations": [
+    {
+      "location": "original spawn",
+      "x": -19065,
+      "z": -10200,
+      "fine_weight": 1,
+      "source_spacing_m": 5
+    },
+    {
+      "location": "saved valley",
+      "x": -40954.96880764632,
+      "z": -13458.490728475133,
+      "fine_weight": 0,
+      "source_spacing_m": 1280
+    },
+    {
+      "location": "mountain camera",
+      "x": -63200,
+      "z": -18800,
+      "fine_weight": 0,
+      "source_spacing_m": 1280
+    }
+  ],
+  "interpolation": "Bilinear in ExplorationAtlasField.SampleAtlas",
+  "procedural_residual_max_m": 0.63,
+  "authored_live_refinement": false,
+  "service": "Existing GET127.0.0.1:8787/status ready with matching world and5m; no launch or inference",
+  "client_issue": "Ahead-only queue and512m publication guard exclude current destination; candidate in workspace/source-promotion-1",
+  "renderer_issue": "Separate unfinished mesh/plan/commit limits; finer geometry cannot invent source crags"
+}

@@ -1,0 +1,337 @@
+--- before/Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs
++++ candidate/Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs
+@@ -235,14 +235,14 @@
+ 
+ 
+         static string treeOutput;static double treeNextStatus,treeRecordStart,treeNextFrame;static int treeFrames;
+-        static bool treeRecording,treeHudBefore;static readonly System.Collections.Generic.List<TreeSample> treeSamples=new System.Collections.Generic.List<TreeSample>(100);
++        static bool treeRecording,treeHudBefore,treeShrubHudBefore;static readonly System.Collections.Generic.List<TreeSample> treeSamples=new System.Collections.Generic.List<TreeSample>(180);
+         [Serializable]sealed class TreeSample
+-        {public string utc,status,file;public double elapsed,x,y,z,debt;public int initial,source,falling,individual,cargo,impacts,pairs,prototype,pendingSupport;public bool active,conserved,suction,cutAccepted;}
++        {public string utc,status,file;public double elapsed,x,y,z,debt;public int initial,source,falling,individual,cargo,impacts,pairs,prototype,pendingSupport,kicks;public bool active,conserved,suction,cutAccepted;}
+         static TreeSample TreeState(ExplorationBootstrap b,string file="",bool cut=false)
+         {
+             var t=b.GetComponent<ExplorationNaturalTreeMatter>();var eye=b.Player.Eye;
+             return new TreeSample{utc=DateTime.UtcNow.ToString("o"),status=t?.Status,file=file,elapsed=treeRecording?EditorApplication.timeSinceStartup-treeRecordStart:0,x=eye.X,y=eye.Y,z=eye.Z,
+-                debt=t?.PhysicsDebtSeconds??0,initial=t?.InitialCells??0,source=t?.SourceCells??0,falling=t?.FallingCells??0,individual=t?.IndividualCells??0,cargo=t?.CargoCells??0,impacts=t?.GroundImpacts??0,pairs=t?.PairContacts??0,prototype=t?.SourcePrototypeId??-1,pendingSupport=t?.PendingSupport??0,active=t!=null&&t.SessionActive,conserved=t==null||t.ConservationIntact,suction=t!=null&&t.SuctionEnabled,cutAccepted=cut};
++                debt=t?.PhysicsDebtSeconds??0,initial=t?.InitialCells??0,source=t?.SourceCells??0,falling=t?.FallingCells??0,individual=t?.IndividualCells??0,cargo=t?.CargoCells??0,impacts=t?.GroundImpacts??0,pairs=t?.PairContacts??0,kicks=t?.ExplicitKickCommands??0,prototype=t?.SourcePrototypeId??-1,pendingSupport=t?.PendingSupport??0,active=t!=null&&t.SessionActive,conserved=t==null||t.ConservationIntact,suction=t!=null&&t.SuctionEnabled,cutAccepted=cut};
+         }
+         static bool FindPublishedTree(ExplorationBootstrap b,out PopulationInstance found)
+         {
+@@ -295,12 +295,26 @@
+             var b=Current();if(b==null||!b.Ready||b.Population.HasReservedShrubMatter)return;
+             // Actual-source read-only population survey found young birch here.
+             // Native acquisition still requires an existing published instance.
+-            const double x=-16575.262620561818,z=-8245.046197170825;double ground=b.WorldField.Sample(x,z).HeightMeters;
++            const double x=-15358.926938683939,z=-8205.465274743583;double ground=b.WorldField.Sample(x,z).HeightMeters;
+             b.SetSettingsPanel(false,false);b.Player.ResetAt(new WorldPoint(x,high?10000:ground+2,z),true);
+             b.ActiveSettings.FieldOfView=65;b.Vista.MainCamera.fieldOfView=65;
+             b.Vista.SetObserverPose(b.Player.Eye,Quaternion.Euler(high?75:10,0,0));b.Vista.ResetObserverMotion();b.Vista.ForceReplan();
+             Directory.CreateDirectory("Logs/FeatureCapture");File.WriteAllText("Logs/FeatureCapture/mapped-birch-"+(high?"high":"land")+".json",JsonUtility.ToJson(new TreeAcquisition{utc=DateTime.UtcNow.ToString("o"),accepted=true,x=x,y=b.Player.Eye.Y,z=z,source=b.WorldField.SourceIdentity},true));
+         }
++        static void AimAtNaturalTrunk(ExplorationBootstrap b,ExplorationNaturalTreeMatter t)
++        {
++            if(!t.SessionActive)return;var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
++            var physics=typeof(ExplorationNaturalTreeMatter).GetField("physics",flags).GetValue(t) as AshenVoxel.Exploration.Experimental.NaturalTreePhysics;
++            var instance=(WorldPoint)typeof(ExplorationNaturalTreeMatter).GetField("instance",flags).GetValue(t);if(physics==null)return;
++            int chosen=-1;double best=double.MaxValue;
++            for(int i=0;i<physics.Count;i++){var c=physics.Read(i);if(c.Owner!=AshenVoxel.Exploration.Experimental.NaturalTreePhysics.Ownership.Source||c.Matter.Material!=AshenVoxel.Core.MaterialId.Wood||c.Position.Y<.25||c.Position.Y>.8)continue;double score=Math.Abs(c.Position.Y-.45)+.1*(c.Position.X*c.Position.X+c.Position.Z*c.Position.Z);if(score<best){best=score;chosen=i;}}
++            if(chosen<0)return;var cube=physics.Read(chosen);double dx=b.Player.Eye.X-instance.X,dz=b.Player.Eye.Z-instance.Z,length=Math.Sqrt(dx*dx+dz*dz);if(length<.1)return;
++            double x=instance.X+dx/length*4.2,z=instance.Z+dz/length*4.2,ground=b.WorldField.Sample(x,z).HeightMeters;
++            b.SetSettingsPanel(false,false);b.Player.ResetAt(new WorldPoint(x,ground+.05,z),true);var eye=b.Player.Eye;
++            var direction=new Vector3((float)(instance.X+cube.Position.X-eye.X),(float)(instance.Y+cube.Position.Y-eye.Y),(float)(instance.Z+cube.Position.Z-eye.Z));
++            b.ActiveSettings.FieldOfView=100;b.Vista.MainCamera.fieldOfView=100;b.Vista.SetObserverPose(eye,Quaternion.LookRotation(direction,Vector3.up));b.Vista.ResetObserverMotion();
++            if(treeOutput!=null)File.WriteAllText(treeOutput+"/aim.json",JsonUtility.ToJson(new TreeAcquisition{utc=DateTime.UtcNow.ToString("o"),accepted=true,prototype=t.SourcePrototypeId,x=instance.X+cube.Position.X,y=instance.Y+cube.Position.Y,z=instance.Z+cube.Position.Z,source=b.WorldField.SourceIdentity},true));
++        }
+         [Serializable]sealed class TreeAcquisition{public string utc,source;public bool accepted;public int prototype;public double x,y,z;public float yaw;}
+         [Serializable]sealed class TreeSequence{public string mode="Actual Exploration game frames of an existing naturally generated tree. No forced motion or automatic suction.";public TreeSample[] frames;}
+         [MenuItem("Ashen Voxel/Exploration/Beta/Record natural tree gameplay (Play)")]
+@@ -308,7 +322,7 @@
+         {
+             var b=Current();var t=b?.GetComponent<ExplorationNaturalTreeMatter>();if(t==null||!t.SessionActive||treeRecording)return;
+             treeOutput=treeOutput??"Logs/FeatureCapture/natural-tree-"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss");Directory.CreateDirectory(treeOutput);
+-            treeRecording=true;treeRecordStart=EditorApplication.timeSinceStartup;treeNextFrame=0;treeFrames=0;treeSamples.Clear();treeHudBefore=t.ShowBetaHud;t.ShowBetaHud=false;Hud.SetValue(b,false);b.SetSettingsPanel(false,false);
++            treeRecording=true;treeRecordStart=EditorApplication.timeSinceStartup;treeNextFrame=0;treeFrames=0;treeSamples.Clear();treeHudBefore=t.ShowBetaHud;t.ShowBetaHud=false;var shrub=b.GetComponent<ExplorationShrubMatter>();treeShrubHudBefore=shrub!=null&&shrub.ShowBetaHud;if(shrub!=null)shrub.ShowBetaHud=false;Hud.SetValue(b,false);b.SetSettingsPanel(false,false);
+         }
+         static void TickNaturalTree()
+         {
+@@ -318,6 +332,7 @@
+             {
+                 string action=File.ReadAllText(request).Trim();File.Delete(request);var t=b.GetComponent<ExplorationNaturalTreeMatter>();
+                 if(action=="birch-high")ReviewMappedBirchHabitat(true);else if(action=="birch-land")ReviewMappedBirchHabitat(false);else if(action=="forest")ReviewExistingForest();else if(action=="acquire")ReviewNaturalTree();else if(action=="record")RecordNaturalTree();
++                else if(action=="aim"&&t!=null)AimAtNaturalTrunk(b,t);
+                 else if(action=="cut"&&t!=null){bool cut=t.CutTrunk();if(treeOutput!=null)File.WriteAllText(treeOutput+"/cut-command.json",JsonUtility.ToJson(TreeState(b,"",cut),true));}
+                 else if(action=="kick"&&t!=null)t.Kick();else if(action=="vacuum"&&t!=null)t.SuctionEnabled=!t.SuctionEnabled;
+                 else if(action=="restore"&&t!=null)t.Restore();
+@@ -325,9 +340,9 @@
+             if(treeOutput==null)return;
+             if(EditorApplication.timeSinceStartup>=treeNextStatus){treeNextStatus=EditorApplication.timeSinceStartup+1;File.WriteAllText(treeOutput+"/latest.json",JsonUtility.ToJson(TreeState(b),true));}
+             if(!treeRecording)return;double elapsed=EditorApplication.timeSinceStartup-treeRecordStart;
+-            if(elapsed<12&&treeFrames<96&&EditorApplication.timeSinceStartup>=treeNextFrame)
++            if(elapsed<20&&treeFrames<160&&EditorApplication.timeSinceStartup>=treeNextFrame)
+             {treeNextFrame=EditorApplication.timeSinceStartup+.125;string file="frame-"+(treeFrames++).ToString("D3")+".png";ScreenCapture.CaptureScreenshot(Path.GetFullPath(treeOutput+"/"+file),1);treeSamples.Add(TreeState(b,file));}
+-            if(elapsed>=12){treeRecording=false;var t=b.GetComponent<ExplorationNaturalTreeMatter>();if(t!=null)t.ShowBetaHud=treeHudBefore;File.WriteAllText(treeOutput+"/sequence.json",JsonUtility.ToJson(new TreeSequence{frames=treeSamples.ToArray()},true));}
++            if(elapsed>=20){treeRecording=false;var t=b.GetComponent<ExplorationNaturalTreeMatter>();if(t!=null)t.ShowBetaHud=treeHudBefore;var shrub=b.GetComponent<ExplorationShrubMatter>();if(shrub!=null)shrub.ShowBetaHud=treeShrubHudBefore;File.WriteAllText(treeOutput+"/sequence.json",JsonUtility.ToJson(new TreeSequence{frames=treeSamples.ToArray()},true));}
+         }
+ 
+         static ExplorationBootstrap Current()=>UnityEngine.Object.FindFirstObjectByType<ExplorationBootstrap>();
+--- before/Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs
++++ candidate/Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs
+@@ -87,16 +87,19 @@
+         {public string key,reason;public double minimumX,minimumZ,maximumX,maximumZ;public int priority;public bool ready,selected,current,completed;}
+         static SourceDemandRow[] SelectedSourceRows(ExplorationLiveRefinement live)
+         {if(live==null)return Array.Empty<SourceDemandRow>();var input=live.CaptureSelectedSourceDemand();var rows=new SourceDemandRow[input.Length];for(int i=0;i<rows.Length;i++){var p=input[i];rows[i]=new SourceDemandRow{key=p.Key,minimumX=p.Core.MinimumX,minimumZ=p.Core.MinimumZ,maximumX=p.Core.MaximumX,maximumZ=p.Core.MaximumZ,priority=p.Priority,ready=p.Ready,selected=true};}return rows;}
++        static SourceDemandRow[] NearFrontSourceRows(ExplorationLiveRefinement live)
++        {if(live==null)return Array.Empty<SourceDemandRow>();var input=live.CaptureNearFrontSourceDemand();var rows=new SourceDemandRow[input.Length];for(int i=0;i<rows.Length;i++){var p=input[i];rows[i]=new SourceDemandRow{key=p.Key,minimumX=p.Core.MinimumX,minimumZ=p.Core.MinimumZ,maximumX=p.Core.MaximumX,maximumZ=p.Core.MaximumZ,priority=p.Priority,ready=p.Ready,selected=true};}return rows;}
+         static SourceDemandRow[] RequestSourceRows(ExplorationLiveRefinement live)
+         {if(live==null)return Array.Empty<SourceDemandRow>();var input=live.CaptureSourceRequests();var rows=new SourceDemandRow[input.Length];for(int i=0;i<rows.Length;i++){var p=input[i];rows[i]=new SourceDemandRow{key=p.Key,minimumX=p.Core.MinimumX,minimumZ=p.Core.MinimumZ,maximumX=p.Core.MaximumX,maximumZ=p.Core.MaximumZ,priority=p.Priority,selected=p.Selected,current=p.Current,completed=p.Completed,reason=p.Reason};}return rows;}
+         [Serializable] sealed class CaptureData
+ 
+         {
+ 
++            public int nearFrontRequired,nearFrontReady,nearFrontGroundProtectedMissing;public bool nearFrontSourceReady;public SourceDemandRow[] nearFrontDemand;
+             public SourceDemandRow[] selectedSourceDemand,sourceRequests;public string[] mandatorySourceKeys;public long sourcePayloadLimitBytes,mandatorySourceBytes;public int sourcePatchLimit,sourceCapacityDeferred,sourcePriorityDeferred;public float contactRadiusMeters;
+             public SourcePatchRow[] sourcePatches;public int selectedSourceCells,readySelectedSourceCells,missingSelectedSourceCells,heldSourceRequests;public double selectedSourceCoreArea,readySourceCoreArea;public bool diskCacheApplied;public long diskCacheHits,diskCacheMisses,diskCacheWrites,diskCacheWriteFailures,diskCacheOwnedBytes;public int diskCacheRecords;public string diskCacheStatus;
+             public double sourceResolutionMeters;public int sourceResidentPatches,sourcePendingRequests;public string sourceStartupStatus,sourceCurrentStatus;
+-            public string diagnosticVersion="terrain-convergence-6-residency",utc,unity,sourceIdentity,bootStatus,terrainStatus,limitReason,lastBuildError;
++            public string diagnosticVersion="terrain-convergence-7-near-front",utc,unity,sourceIdentity,bootStatus,terrainStatus,limitReason,lastBuildError;
+ 
+             public string appliedPreset,selectedPreset,notes;
+ 
+@@ -158,6 +161,7 @@
+ 
+             var d=new CaptureData{utc=DateTime.UtcNow.ToString("o"),unity=Application.unityVersion,frame=Time.frameCount,playing=Application.isPlaying,
+ 
++                nearFrontRequired=boot.LiveRefinement?.NearFrontRequiredCells??0,nearFrontReady=boot.LiveRefinement?.NearFrontReadyCells??0,nearFrontGroundProtectedMissing=boot.LiveRefinement?.NearFrontGroundProtectedMissingCells??0,nearFrontSourceReady=boot.LiveRefinement?.NearFrontSourceReady??false,nearFrontDemand=NearFrontSourceRows(boot.LiveRefinement),
+                 selectedSourceDemand=SelectedSourceRows(boot.LiveRefinement),sourceRequests=RequestSourceRows(boot.LiveRefinement),mandatorySourceKeys=boot.LiveRefinement?.CaptureMandatorySourceKeys()??Array.Empty<string>(),sourcePayloadLimitBytes=boot.LiveRefinement?.WorldField?.MaximumResidentPayloadBytes??0,sourcePatchLimit=boot.LiveRefinement?.WorldField?.MaximumResidentPatches??0,mandatorySourceBytes=boot.LiveRefinement?.MandatoryResidentPayloadBytes??0,sourceCapacityDeferred=boot.LiveRefinement?.CapacityDeferredCells??0,sourcePriorityDeferred=boot.LiveRefinement?.PriorityCapacityDeferredCells??0,contactRadiusMeters=w.VoxelFullDetailRadius,
+                 sourcePatches=SourceRows(boot.LiveRefinement),selectedSourceCells=boot.LiveRefinement?.DesiredSourceCells??0,readySelectedSourceCells=boot.LiveRefinement?.ReadyDesiredSourceCells??0,missingSelectedSourceCells=boot.LiveRefinement?.MissingDesiredSourceCells??0,heldSourceRequests=boot.LiveRefinement?.HeldCompletedRequests??0,selectedSourceCoreArea=boot.LiveRefinement?.DesiredCoreAreaSquareMeters??0,readySourceCoreArea=boot.LiveRefinement?.ReadyCoreAreaSquareMeters??0,
+                 diskCacheApplied=boot.AppliedHeightProxyDiskCache,diskCacheHits=w.HeightProxyDiskCacheHits,diskCacheMisses=w.HeightProxyDiskCacheMisses,diskCacheWrites=w.HeightProxyDiskCacheWrites,diskCacheWriteFailures=w.HeightProxyDiskCacheWriteFailures,diskCacheOwnedBytes=w.HeightProxyDiskCacheOwnedBytes,diskCacheRecords=w.HeightProxyDiskCacheRecords,diskCacheStatus=w.HeightProxyDiskCacheStatus,
+--- before/Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs
++++ candidate/Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs
+@@ -119,7 +119,7 @@
+             LiveRefinement=worldObject.AddComponent<ExplorationLiveRefinement>();
+             if(ActiveSettings.ExpandedLiveSourceWindow){LiveRefinement.MaximumPatches=32;LiveRefinement.MaximumPayloadBytes=32L*1024*1024;}
+             WorldField=LiveRefinement.Configure(Source,Vista,ActiveSettings.DiffusionEndpoint,enabled:ActiveSettings.EnableLiveRefinement);
+-            if(ActiveSettings.EnableLiveRefinement&&LiveRefinement.ResolutionMetersAt(spawn.X,spawn.Z)>5.000001)
++            if(ActiveSettings.EnableLiveRefinement)
+             {
+                 // No player, population, collision, or gameplay matter exists yet.
+                 float deadline=Time.unscaledTime+Mathf.Clamp(SourceStartupWaitSeconds,0,300);
+@@ -130,13 +130,14 @@
+                 {
+                     LiveRefinement.Tick(witness,heading,ExplorationRefinementPublicationPolicy.BeforeSpawn(witness),false,null,startupHalfAngle);
+                     if(LiveRefinement.ResolutionMetersAt(spawn.X,spawn.Z)<=5.000001&&LiveRefinement.DesiredSourceCells>0&&
+-                        LiveRefinement.ReadyDesiredSourceCells>=Math.Min(4,LiveRefinement.DesiredSourceCells))break;
++                        LiveRefinement.ReadyDesiredSourceCells>=Math.Min(4,LiveRefinement.DesiredSourceCells)&&LiveRefinement.NearFrontSourceReady)break;
+                     SourceStartupStatus=LiveRefinement.Status;
+                     Status="Preparing decoded source at the saved destination. "+SourceStartupStatus;yield return null;
+                 }
+                 double resolution=LiveRefinement.ResolutionMetersAt(spawn.X,spawn.Z);
+-                SourceStartupStatus=resolution<=5.000001?"Verified5m decoded destination before population initialization; selected ready "+LiveRefinement.ReadyDesiredSourceCells+"/"+LiveRefinement.DesiredSourceCells+" cells.":
+-                    "Startup wait ended with "+resolution.ToString("F1",CultureInfo.InvariantCulture)+"m source; coarse fallback remains active. "+LiveRefinement.CurrentAreaStatus;
++                bool nearReady=LiveRefinement.NearFrontSourceReady;
++                SourceStartupStatus=resolution<=5.000001&&nearReady?"Verified5m destination and required near-front source before population initialization; near-front "+LiveRefinement.NearFrontReadyCells+"/"+LiveRefinement.NearFrontRequiredCells+" ready.":
++                    "Startup source wait ended: source here "+resolution.ToString("F1",CultureInfo.InvariantCulture)+"m; required near-front "+LiveRefinement.NearFrontReadyCells+"/"+LiveRefinement.NearFrontRequiredCells+" ready. Incomplete source fallback remains; protected publication waits for safe high-flight clearance or a later pre-spawn load.";
+                 // Keep a custom aerial height unless the new source would bury it.
+                 double ground=WorldField.Sample(spawn.X,spawn.Z).HeightMeters;
+                 if(spawn.Y<ground+2)spawn=new WorldPoint(spawn.X,ground+2,spawn.Z);
+--- before/Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs
++++ candidate/Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs
+@@ -13,14 +13,34 @@
+         public readonly ExplorationRefinementBounds Core;
+         public readonly int Priority;
+         public readonly double Score;
++        public readonly bool NearFront;
+         public bool Current=>Priority==0;
+-        internal ExplorationSourceDemandCell(long x,long z,int priority,double score)
+-        {Key=x.ToString(System.Globalization.CultureInfo.InvariantCulture)+"/"+z.ToString(System.Globalization.CultureInfo.InvariantCulture)+"/640";Core=new ExplorationRefinementBounds(x*640.0,z*640.0,(x+1)*640.0,(z+1)*640.0);Priority=priority;Score=score;}
++        internal ExplorationSourceDemandCell(long x,long z,int priority,double score,bool nearFront=false)
++        {Key=x.ToString(System.Globalization.CultureInfo.InvariantCulture)+"/"+z.ToString(System.Globalization.CultureInfo.InvariantCulture)+"/640";Core=new ExplorationRefinementBounds(x*640.0,z*640.0,(x+1)*640.0,(z+1)*640.0);Priority=priority;Score=score;NearFront=nearFront;}
+     }
+     /// <summary>Finite XZ view-corridor approximation, not an occlusion/visibility
+     /// oracle. Fixed640m cells, at most290 scanned, radius5120m; no world bake.</summary>
+     public static class ExplorationSourceDemandPlanner
+     {
++        public const double NearFrontReachMeters=1280,MaximumNearFrontHalfWidthMeters=1280;
++        static bool NearFrontIntersects(ExplorationRefinementBounds core,WorldPoint observer,double hx,double hz,double halfAngle)
++        {
++            double width=Math.Min(MaximumNearFrontHalfWidthMeters,Math.Tan(halfAngle*Math.PI/180)*NearFrontReachMeters*.5);
++            // Triangle origin at observer, capped half-FOV central view span at1280m.
++            // Project in observer-relative coordinates to avoid large-world loss.
++            double ax=hx*NearFrontReachMeters-hz*width,az=hz*NearFrontReachMeters+hx*width;
++            double bx=hx*NearFrontReachMeters+hz*width,bz=hz*NearFrontReachMeters-hx*width;
++            double x0=core.MinimumX-observer.X,x1=core.MaximumX-observer.X,z0=core.MinimumZ-observer.Z,z1=core.MaximumZ-observer.Z;
++            bool Overlaps(double nx,double nz)
++            {
++                double ta=ax*nx+az*nz,tb=bx*nx+bz*nz,lo=Math.Min(0,Math.Min(ta,tb)),hi=Math.Max(0,Math.Max(ta,tb));
++                double p0=x0*nx+z0*nz,p1=x0*nx+z1*nz,p2=x1*nx+z0*nz,p3=x1*nx+z1*nz;
++                double boxLo=Math.Min(Math.Min(p0,p1),Math.Min(p2,p3)),boxHi=Math.Max(Math.Max(p0,p1),Math.Max(p2,p3));
++                return boxHi>lo+1e-7&&hi>boxLo+1e-7;
++            }
++            return Overlaps(1,0)&&Overlaps(0,1)&&Overlaps(-az,ax)&&Overlaps(hx,hz)&&Overlaps(bz,-bx);
++        }
++
+         public const double CellMeters=640,MaximumRadiusMeters=5120;
+         public const int MaximumScannedCells=290;
+         static void Finite(double value,string name){if(double.IsNaN(value)||double.IsInfinity(value))throw new ArgumentOutOfRangeException(name);}
+@@ -45,18 +65,20 @@
+             {
+                 double mx=(x+.5)*640,mz=(z+.5)*640,vx=mx-observer.X,vz=mz-observer.Z,distance=Math.Sqrt(vx*vx+vz*vz);
+                 bool current=x==cx&&z==cz, target=x==tx&&z==tz;
++                var core=new ExplorationRefinementBounds(x*640.0,z*640.0,(x+1)*640.0,(z+1)*640.0);
++                bool nearFront=NearFrontIntersects(core,observer,headingX,headingZ,halfAngleDegrees);
+                 if(current&&deferCurrent||distance>MaximumRadiusMeters+453||mx-320< -worldWidth*.5||mx+320>worldWidth*.5||mz-320< -worldDepth*.5||mz+320>worldDepth*.5)return;
+                 double ahead=vx*headingX+vz*headingZ,side=Math.Abs(vz*headingX-vx*headingZ);
+                 bool inView=ahead>=-453&&side<=Math.Max(0,ahead)*Math.Tan(halfAngleDegrees*Math.PI/180)+453;
+-                if(!current&&!target&&(!(wideNeighborhood&&distance<=1280)&&!inView||distance>reach+453))return;
++                if(!current&&!target&&!nearFront&&(!(wideNeighborhood&&distance<=1280)&&!inView||distance>reach+453))return;
+                 // Far destinations use a bounded intermediate cell along the route,
+                 // never expand this into an unbounded destination neighborhood.
+                 if(explicitDestination&&distance>MaximumRadiusMeters+453)return;
+-                int priority=current?0:target?1:distance<=1920&&inView?2:inView?3:4;
+-                var cell=new ExplorationSourceDemandCell(x,z,priority,distance+side*.35);
++                int priority=current?0:target?1:nearFront?2:distance<=1920&&inView?3:inView?4:5;
++                var cell=new ExplorationSourceDemandCell(x,z,priority,distance+side*.35,nearFront);
+                 if(!seen.Add(cell.Key))return;
+                 double score=cell.Score-(retained!=null&&retained.Contains(cell.Key)?224:0);
+-                result.Add(new ExplorationSourceDemandCell(x,z,priority,score));
++                result.Add(new ExplorationSourceDemandCell(x,z,priority,score,nearFront));
+             }
+             for(int z=-8;z<=8;z++)for(int x=-8;x<=8;x++)Add(cx+x,cz+z);
+             if(destination.HasValue&&Math.Abs(dx)<=1e9&&Math.Abs(dz)<=1e9)Add(tx,tz,true);
+@@ -84,14 +106,11 @@
+             foreach(var patch in published)if(!canEvict(patch.Key)&&reserved.Add(patch.Key))
+             {mandatory.Add(patch.Key);slots++;bytes+=patch.PayloadBytes;}
+             mandatoryKeys=mandatory.ToArray();mandatoryBytes=bytes;deferred=priorityDeferred=0;
+-            int effectiveCapacity=Math.Min(maximumPatches,(int)Math.Min(32,maximumBytes/EstimatePayloadBytes(new ExplorationRefinementBounds(0,0,640,640),blend)));
+-            int nearQuota=Math.Max(1,(effectiveCapacity-2)*2/3),nearSlots=0;
+             var selected=new List<ExplorationSourceDemandCell>(32);var seen=new HashSet<string>();
+             foreach(var cell in eligible)
+             {
+                 if(!seen.Add(cell.Key))continue;
+                 if(selected.Count>=maximumPatches){deferred++;if(cell.Priority<=1)priorityDeferred++;continue;}
+-                if(cell.Priority==2&&nearSlots>=nearQuota){deferred++;continue;}
+                 string footprint=cell.Key;long cost=EstimatePayloadBytes(cell.Core,blend);bool covered=false;
+                 // Prefer already-reserved coverage, including a mandatory patch,
+                 // before charging an otherwise evictable enclosing published grid.
+@@ -103,7 +122,6 @@
+                 // Mandatory content can already occupy the entire cap. Its own
+                 // ready core still belongs in demand; it must never be double charged.
+                 selected.Add(cell);if(!charged){reserved.Add(footprint);slots++;bytes+=cost;}
+-                if(cell.Priority==2)nearSlots++;
+             }
+             return selected.ToArray();
+         }
+@@ -134,8 +152,8 @@
+ 
+     public readonly struct ExplorationSelectedSourceInfo
+     {
+-        public readonly string Key;public readonly ExplorationRefinementBounds Core;public readonly int Priority;public readonly bool Ready;
+-        internal ExplorationSelectedSourceInfo(ExplorationSourceDemandCell cell,bool ready){Key=cell.Key;Core=cell.Core;Priority=cell.Priority;Ready=ready;}
++        public readonly string Key;public readonly ExplorationRefinementBounds Core;public readonly int Priority;public readonly bool Ready,NearFront;
++        internal ExplorationSelectedSourceInfo(ExplorationSourceDemandCell cell,bool ready){Key=cell.Key;Core=cell.Core;Priority=cell.Priority;Ready=ready;NearFront=cell.NearFront||cell.Current;}
+     }
+     public readonly struct ExplorationSourceRequestInfo
+     {
+@@ -160,6 +178,13 @@
+         public bool CurrentAreaPending=>work.Exists(item=>item.Current);
+         public int DiscardedStaleResults {get;private set;}
+         public int DemandCandidateCells {get;private set;}
++        public int NearFrontRequiredCells=>nearFrontCells.Length;
++        public int NearFrontReadyCells {get;private set;}
++        public int NearFrontGroundProtectedMissingCells {get;private set;}
++        public bool NearFrontSourceReady=>NearFrontRequiredCells>0&&NearFrontReadyCells==NearFrontRequiredCells;
++        // Bounded by the same290 candidate scan; contains required, not only selected cores.
++        public ExplorationSelectedSourceInfo[] CaptureNearFrontSourceDemand()
++        {var result=new ExplorationSelectedSourceInfo[nearFrontCells.Length];for(int i=0;i<result.Length;i++)result[i]=new ExplorationSelectedSourceInfo(nearFrontCells[i],IsReady(nearFrontCells[i].Core));return result;}
+         public int DesiredSourceCells=>desired.Count;
+         public int ReadyDesiredSourceCells {get;private set;}
+         public int MissingDesiredSourceCells=>Math.Max(0,DesiredSourceCells-ReadyDesiredSourceCells);
+@@ -186,7 +211,7 @@
+         }
+         public double DesiredCoreAreaSquareMeters=>DesiredSourceCells*640.0*640;
+         public double ReadyCoreAreaSquareMeters=>ReadyDesiredSourceCells*640.0*640;
+-        public string SourceCoverageStatus=>"Selected640m source cells "+ReadyDesiredSourceCells+"/"+DesiredSourceCells+" at5m; "+MissingDesiredSourceCells+" missing, "+HeldCompletedRequests+" completed/held, "+CapacityDeferredCells+" selection/capacity deferred, "+PriorityCapacityDeferredCells+" current/destination deferred; "+MandatoryResidentPatches+" mandatory resident patches reserved. Far terrain outside these cells may use macro source.";
++        public string SourceCoverageStatus=>"Selected640m source cells "+ReadyDesiredSourceCells+"/"+DesiredSourceCells+" at5m; "+MissingDesiredSourceCells+" missing, "+HeldCompletedRequests+" completed/held, "+CapacityDeferredCells+" selection/capacity deferred, "+PriorityCapacityDeferredCells+" current/destination deferred; "+MandatoryResidentPatches+" mandatory resident patches reserved. Near-front "+NearFrontReadyCells+"/"+NearFrontRequiredCells+" ready, "+NearFrontGroundProtectedMissingCells+" missing protected by ground guard. Far terrain outside these cells may use macro source.";
+         public string Status {get;private set;}="Live decoding is off; bundled learned terrain is ready.";
+         public event Action<ExplorationRefinementBounds> RegionChanged;
+         sealed class Work
+@@ -204,6 +229,7 @@
+         readonly List<ExplorationSourceDemandCell> desired=new List<ExplorationSourceDemandCell>(16);
+         readonly HashSet<string> desiredKeys=new HashSet<string>();
+         string[] mandatorySourceKeys=Array.Empty<string>();
++        ExplorationSourceDemandCell[] nearFrontCells=Array.Empty<ExplorationSourceDemandCell>();
+         readonly Dictionary<string,float> retries=new Dictionary<string,float>();
+         ExplorationAtlasField baked;
+         WorldExplorer vista;
+@@ -219,7 +245,7 @@
+             if(source==null)throw new ArgumentNullException(nameof(source));
+             if(renderer==null)throw new ArgumentNullException(nameof(renderer));
+             StopClient();baked=source;vista=renderer;this.endpoint=endpoint;
+-            nextRequests=nextStatus=0;retries.Clear();desired.Clear();desiredKeys.Clear();DemandCandidateCells=ReadyDesiredSourceCells=BundledCandidateCells=CapacityDeferredCells=PriorityCapacityDeferredCells=0;mandatorySourceKeys=Array.Empty<string>();MandatoryResidentPayloadBytes=0;DiscardedStaleResults=0;CurrentAreaStatus="No current-area demand yet.";
++            nextRequests=nextStatus=0;retries.Clear();desired.Clear();desiredKeys.Clear();DemandCandidateCells=ReadyDesiredSourceCells=BundledCandidateCells=CapacityDeferredCells=PriorityCapacityDeferredCells=0;mandatorySourceKeys=Array.Empty<string>();MandatoryResidentPayloadBytes=0;nearFrontCells=Array.Empty<ExplorationSourceDemandCell>();NearFrontReadyCells=NearFrontGroundProtectedMissingCells=0;DiscardedStaleResults=0;CurrentAreaStatus="No current-area demand yet.";
+             compatible=Math.Abs(source.WorldWidthMeters-source.OriginalWidthMeters)<.001&&Math.Abs(source.WorldDepthMeters-source.OriginalDepthMeters)<.001&&Math.Abs(source.VerticalScale-1)<1e-7;
+             if(TileMeters!=ExplorationSourceDemandPlanner.CellMeters||double.IsNaN(BlendMeters)||BlendMeters<32||BlendMeters>256||double.IsNaN(LookAheadMeters)||LookAheadMeters<1024||LookAheadMeters>10000)
+                 throw new ArgumentOutOfRangeException("Live tile/blend/look-ahead controls");
+@@ -253,7 +279,6 @@
+             }
+             if(remote!=null&&!string.IsNullOrEmpty(remote.TerminalFailure))
+             {Status="Model stopped; bundled and retained learned terrain continue. "+remote.TerminalFailure;StopClient();nextConnect=Time.unscaledTime+30;return;}
+-            if(!Connected)return;
+             if(Time.unscaledTime>=nextRequests)
+             {
+                 nextRequests=Time.unscaledTime+.5f;
+@@ -261,6 +286,9 @@
+                 if(horizontal.x*horizontal.x+horizontal.z*horizontal.z>.0001f)lastHeading=horizontal.normalized;
+                 QueueDemand(observer,lastHeading,deferCurrentArea,publicationPolicy,destination,viewHorizontalHalfAngleDegrees);
+             }
++            // Source extent/readiness planning is read-only while connecting or
++            // unavailable, so bundled near detail never requires a service reply.
++            if(!Connected)return;
+             // Current-area completion is considered first. Stale in-flight tasks
+             // keep their two-slot ownership until completion; travel cannot orphan them.
+             work.Sort((a,b)=>a.Priority.CompareTo(b.Priority));
+@@ -331,7 +359,10 @@
+         }
+         bool IsReady(ExplorationRefinementBounds core)=>FullyBaked(core)||WorldField.HasPublishedCoreCoverage(core);
+         void RefreshCoverageStats()
+-        {ReadyDesiredSourceCells=0;foreach(var cell in desired)if(IsReady(cell.Core))ReadyDesiredSourceCells++;}
++        {
++            ReadyDesiredSourceCells=0;foreach(var cell in desired)if(IsReady(cell.Core))ReadyDesiredSourceCells++;
++            NearFrontReadyCells=0;foreach(var cell in nearFrontCells)if(IsReady(cell.Core))NearFrontReadyCells++;
++        }
+         void TouchDesiredResidents()
+         {
+             // Existing LRU mechanism, view demand rather than fabricated player
+@@ -355,13 +386,21 @@
+             }
+             catch(Exception){ } // Missing bounds retain the narrower protected demand.
+             var candidates=ExplorationSourceDemandPlanner.Build(observer,heading.x,heading.z,LookAheadMeters,baked.WorldWidthMeters,baked.WorldDepthMeters,deferCurrentArea,wider,halfAngle,destination,desiredKeys);
+-            DemandCandidateCells=candidates.Length;BundledCandidateCells=0;
++            DemandCandidateCells=candidates.Length;BundledCandidateCells=0;NearFrontGroundProtectedMissingCells=0;
++            var requiredNear=new List<ExplorationSourceDemandCell>();
++            foreach(var cell in candidates)if((cell.Current||cell.NearFront)&&RequiredBounds(cell.Core,out _))requiredNear.Add(cell);
++            nearFrontCells=requiredNear.ToArray();
+             var eligible=new List<ExplorationSourceDemandCell>(candidates.Length);
+             foreach(var cell in candidates)
+             {
+                 if(!RequiredBounds(cell.Core,out _))continue;
+                 if(FullyBaked(cell.Core)){BundledCandidateCells++;continue;}
+-                if(!cell.Current&&!wider&&cell.Core.Expanded(BlendMeters+QueryAndPropGuardMeters).DistanceSquared(observer.X,observer.Z)<=ProtectedRadiusMeters*ProtectedRadiusMeters)continue;
++                bool protectedHere=!wider&&cell.Core.Expanded(BlendMeters+QueryAndPropGuardMeters).DistanceSquared(observer.X,observer.Z)<=ProtectedRadiusMeters*ProtectedRadiusMeters;
++                bool ready=IsReady(cell.Core);
++                if(protectedHere&&!ready&&(cell.Current||cell.NearFront))NearFrontGroundProtectedMissingCells++;
++                // Retain already-ready protected near cores. Missing guarded cores
++                // need pre-spawn/verified flight; ranking never bypasses that safety.
++                if(!cell.Current&&protectedHere&&!ready)continue;
+                 eligible.Add(cell);
+             }
+             var selected=ExplorationSourceDemandPlanner.SelectForResidentCapacity(eligible.ToArray(),WorldField.CapturePublishedCoverage(),
+@@ -376,6 +415,7 @@
+                 Work existing=work.Find(item=>item.Key==cell.Key);
+                 if(existing!=null){existing.Desired=true;existing.Current=cell.Current;existing.Priority=cell.Priority;continue;}
+                 if(IsReady(cell.Core))continue;
++                if(!Connected)continue; // Metadata planning never starts offline requests.
+                 if(retries.TryGetValue(cell.Key,out float until)&&Time.unscaledTime<until)
+                 {if(cell.Current)CurrentAreaStatus="Current area: model request failed; bounded30s retry pending.";continue;}
+                 if(work.Count>=2){if(cell.Current)CurrentAreaStatus="Current area: waiting for the existing two requests to drain.";continue;}

@@ -1,0 +1,6 @@
+{
+  "variant": "baseline",
+  "original_sha256": "4bd6abd85ad8fe18d83e6ca22c6f03a3b944f29fef52a117fc5444e889d1da47",
+  "instrumented_sha256": "e419354f2a69a7ed0a99c831673e11dff48953d55e2f6daf9a0466b8c02a5fb4",
+  "scope": "Common geometry-worker timing hooks only; not deployable"
+}

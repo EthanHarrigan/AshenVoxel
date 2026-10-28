@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-27T17:37:30.9004401Z",
+  "observation_utc": "2026-10-27T17:37:29.7011776Z",
+  "fields": {
+    "UseRecommendedSpawn": "0",
+    "SpawnX": "-40954.96880764632",
+    "SpawnY": "1861.4649999761584",
+    "SpawnZ": "-13458.490728475133",
+    "SpawnYaw": "-163.798939",
+    "SpawnPitch": "24.8000388"
+  },
+  "before_sha256": "A29A4AFC820BBDEFA7ECB228999B69C3BF95FBEE79D1AA684F64F42A58AAD112",
+  "after_sha256": "D92BC27E1481BDCF5091F2C21E41F4136527A808F638402CF4C866B2EF41D6D6",
+  "note": "Live population observer is global camera/eye metres; SpawnY is an eye-height hint, not exact feet. Existing TrySpawn snaps to safe ground within 16m. No runtime code or current session changed."
+}

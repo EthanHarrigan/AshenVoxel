@@ -1,0 +1,19 @@
+{
+  "status": "MEMORY_WAIT",
+  "total_blocks": 120,
+  "completed_blocks": 83,
+  "bake_id": "653a72959be6e6ec9abb8e9643c685b2c690c183768a109f2110ede02b7dfb99",
+  "new_blocks": 3,
+  "elapsed_seconds": 45.474399200000335,
+  "sum_chunk_generation_seconds": 1252.4503953998938,
+  "available_commit_bytes": 2093633536,
+  "last_block": [
+    320,
+    448
+  ],
+  "last_block_seconds": 11.908040900001652,
+  "load_seconds": 6.974242199998116,
+  "attempt_started_utc": "2026-10-28T04:46:06.334742+00:00",
+  "attempt_finished_utc": "2026-10-28T04:46:53.552025+00:00",
+  "process_exit_code": 0
+}

@@ -1,0 +1,6 @@
+native-baseline.log: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+native-baseline.log: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+native-atlas.log: Forest atlas baked: 16 actual 10cm prototypes x 9 views; 3072 square.
+native-mesh-checks.log: Ashen Voxel: all mesh regression checks passed.
+native-lod-current.log: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+native-lod-current.log: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.

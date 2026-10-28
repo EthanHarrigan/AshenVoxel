@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "samples": 4000,
+  "scope": "Independent CPU finite-difference/cofactor and float32 phase-algebra audit of translated HLSL equations; not native shader execution or GPU performance.",
+  "analytical_displacement_bound_m": 1.6700000000000002,
+  "sampled_max_displacement_m": 1.188029879060765,
+  "max_derivative_error": 7.082515129258231e-11,
+  "min_sampled_jacobian_determinant": 0.9507724817211336,
+  "max_normal_dot_transformed_tangent": 5.551115123125783e-17,
+  "max_256m_rebase_difference_m": 1.4400798081686546e-06,
+  "root_y_zero_or_negative_fixed": true,
+  "source_sha256": {
+    "Assets\\AshenVoxel\\Rendering\\VoxelWind.hlsl": "b8fa8879116e7e2c84ce859031ccaffce02a78c06862f63f2139d6f4a9c49956",
+    "Assets\\AshenVoxel\\Rendering\\WorldSurface.shader": "79959309d848d4c8950eb8bb4035832fc8fea2166fa38a74f96417f621185416",
+    "Assets\\AshenVoxel\\Exploration\\ExplorationWind.cs": "62ebdd37ffd5b818a33483b1fb1063e8e0b9af8de7451958b5daba6db39c4b4e"
+  },
+  "generated_utc": "2026-10-27T06:41:25.300882+00:00"
+}

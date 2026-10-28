@@ -1,0 +1,54 @@
+PASS official Unity API compile: Core
+PASS official Unity API compile: WorldScaleData
+PASS official Unity API compile: Rendering
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(48,44): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(49,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(50,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(57,42): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+PASS official Unity API compile: WorldScaleRuntime
+Assets\AshenVoxel\Exploration\ExplorationBetaMatter.cs(4,23): error CS0234: The type or namespace name 'Experimental' does not exist in the namespace 'AshenVoxel.Core' (are you missing an assembly reference?)
+Assets\AshenVoxel\Exploration\ExplorationShrubMatter.cs(5,23): error CS0234: The type or namespace name 'Experimental' does not exist in the namespace 'AshenVoxel.Core' (are you missing an assembly reference?)
+Assets\AshenVoxel\Exploration\NaturalMatterRenderer.cs(7,23): error CS0234: The type or namespace name 'Experimental' does not exist in the namespace 'AshenVoxel.Core' (are you missing an assembly reference?)
+Assets\AshenVoxel\Exploration\NaturalTreePhysics.cs(6,23): error CS0234: The type or namespace name 'Experimental' does not exist in the namespace 'AshenVoxel.Core' (are you missing an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(14,19): error CS0246: The type or namespace name 'RootContactCollision' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(8,7): error CS0246: The type or namespace name 'RootContactPrototype' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(9,7): error CS0246: The type or namespace name 'RootContactInteraction' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(10,7): error CS0246: The type or namespace name 'RootContactTemplateCache' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(11,7): error CS0246: The type or namespace name 'RootContactBuildPipeline' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(12,7): error CS0246: The type or namespace name 'RootContactManagedComposite' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(13,7): error CS0246: The type or namespace name 'RootContactUploadPrototype' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationTreeMatter.cs(4,7): error CS0246: The type or namespace name 'RootContactBuildPipeline' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\ExplorationBetaMatter.cs(19,16): error CS0246: The type or namespace name 'LocalizedMatter' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\ExplorationBetaMatter.cs(20,16): error CS0246: The type or namespace name 'FallingAggregateActor' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\ExplorationBootstrap.cs(51,27): error CS0234: The type or namespace name 'WildlifeDraft' does not exist in the namespace 'AshenVoxel' (are you missing an assembly reference?)
+Assets\AshenVoxel\Exploration\ExplorationShrubMatter.cs(21,26): error CS0246: The type or namespace name 'LocalizedMatter' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\ExplorationBetaMatter.cs(29,18): error CS0246: The type or namespace name 'FallingAggregateSlot' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\ExplorationBootstrap.cs(50,20): error CS0234: The type or namespace name 'WildlifeDraft' does not exist in the namespace 'AshenVoxel' (are you missing an assembly reference?)
+Assets\AshenVoxel\Exploration\NaturalMatterRenderer.cs(95,30): error CS0246: The type or namespace name 'CargoKey' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\NaturalTreePhysics.cs(122,36): error CS0246: The type or namespace name 'CargoKey' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\NaturalTreePhysics.cs(80,29): error CS0246: The type or namespace name 'CargoKey' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\NaturalTreePhysics.cs(82,38): error CS0246: The type or namespace name 'CargoKey' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\NaturalTreePhysics.cs(35,38): error CS0246: The type or namespace name 'CargoKey' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\NaturalTreePhysics.cs(42,40): error CS0246: The type or namespace name 'CargoKey' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\NaturalTreePhysics.cs(51,55): error CS0246: The type or namespace name 'CargoKey' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationTreeMatter.cs(128,84): error CS0246: The type or namespace name 'CompleteArtifact' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\NaturalTreePhysics.cs(52,43): error CS0246: The type or namespace name 'CargoKey' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(69,55): error CS0246: The type or namespace name 'UnityMeshUpload' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(39,40): error CS0246: The type or namespace name 'TemplateBundle' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(39,69): error CS0246: The type or namespace name 'ManagedTemplateAssembly' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(43,58): error CS0246: The type or namespace name 'RootTerrainSnapshot' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(45,34): error CS0246: The type or namespace name 'ICurrentIdentities' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(47,22): error CS0246: The type or namespace name 'RootTerrainSnapshot' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(48,32): error CS0246: The type or namespace name 'RootTerrainSnapshot' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(53,47): error CS0246: The type or namespace name 'CompleteArtifact' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(53,109): error CS0246: The type or namespace name 'PreparedMesh' could not be found (are you missing a using directive or an assembly reference?)
+Assets\AshenVoxel\Exploration\VegetationRoots.cs(61,61): error CS0246: The type or namespace name 'MeshRetirement' could not be found (are you missing a using directive or an assembly reference?)
+Traceback (most recent call last):
+  File "C:\Users\ethan\Downloads\AshenVoxel\Tools\check_voxel_unity_api.py", line 30, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\Users\ethan\Downloads\AshenVoxel\Tools\check_voxel_unity_api.py", line 25, in main
+    subprocess.run([str(dotnet),str(sdk/'Roslyn/bincore/csc.dll'),'@'+str(rsp)],check=True)
+  File "C:\Users\ethan\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['C:\\Program Files\\dotnet\\dotnet.exe', 'C:\\Program Files\\dotnet\\sdk\\8.0.407\\Roslyn\\bincore\\csc.dll', '@C:\\Users\\ethan\\Downloads\\AshenVoxel\\Tools\\VoxelTerrainChecks\\bin\\unity-api\\AshenVoxel.Exploration.rsp']' returned non-zero exit status 1.

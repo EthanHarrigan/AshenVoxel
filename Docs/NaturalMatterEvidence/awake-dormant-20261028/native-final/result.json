@@ -1,0 +1,280 @@
+{
+    "status": "PASS",
+    "scope": "Native isolated Edit-mode explicit command-buffer draws of actual renderer cache meshes and current weighted particle leaders with the actual URP materials; not automatic gameplay MeshRenderer acceptance, full Exploration gameplay or FPS",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "graphics_api": "Direct3D12",
+    "unity": "6000.3.27f1",
+    "started_utc": "2026-10-28T05:35:14.4105507Z",
+    "error": "",
+    "mesh_regression": true,
+    "shader_error": false,
+    "conserved": true,
+    "terrain_event_lifecycle": true,
+    "dormant_zero_candidates": true,
+    "kick_wake": true,
+    "terrain_wake": true,
+    "initial_cells": 3395,
+    "cuts": 1,
+    "physics_steps": 468,
+    "editor_ticks": 122,
+    "maximum_build_candidates": 0,
+    "compiled_passes": 10,
+    "active_scene": "Assets/Scenes/Exploration.unity",
+    "original_scene_dirty": false,
+    "final_scene_dirty": false,
+    "original_scene_roots": 1,
+    "final_scene_roots": 1,
+    "frames": [
+        {
+            "name": "01-intact",
+            "png": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs/NaturalMatterNative\\20261028-053514-410\\01-intact.png",
+            "source": 3395,
+            "island": 0,
+            "individual": 0,
+            "cargo": 0,
+            "drawn_debris": 0,
+            "loose_parcels": 0,
+            "ground_impacts": 0,
+            "awake": 0,
+            "dormant": 0,
+            "pending_wake": 0,
+            "render_cell_size": 0.10000000149011612,
+            "conserved": true,
+            "current": true,
+            "rgb_energy": 68814698,
+            "changed_from_clear": 41454,
+            "cache_vertices": [
+                43584,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "source_renderer_candidates": 0,
+            "instanced_pixel_changes": 0,
+            "tinted_instance_pixels": 0,
+            "body_position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "body_rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            }
+        },
+        {
+            "name": "02-falling-section",
+            "png": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs/NaturalMatterNative\\20261028-053514-410\\02-falling-section.png",
+            "source": 19,
+            "island": 3375,
+            "individual": 1,
+            "cargo": 0,
+            "drawn_debris": 1,
+            "loose_parcels": 1,
+            "ground_impacts": 1,
+            "awake": 0,
+            "dormant": 1,
+            "pending_wake": 0,
+            "render_cell_size": 0.10000000149011612,
+            "conserved": true,
+            "current": true,
+            "rgb_energy": 69528814,
+            "changed_from_clear": 77089,
+            "cache_vertices": [
+                272,
+                43304,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "source_renderer_candidates": 0,
+            "instanced_pixel_changes": 1,
+            "tinted_instance_pixels": 1,
+            "body_position": {
+                "x": -0.032445747405290607,
+                "y": 1.8398979902267457,
+                "z": 0.03973908722400665
+            },
+            "body_rotation": {
+                "x": -0.023747120052576066,
+                "y": 0.16453292965888978,
+                "z": 0.32619550824165347,
+                "w": 0.9305705428123474
+            }
+        },
+        {
+            "name": "03-settled-weighted-debris",
+            "png": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs/NaturalMatterNative\\20261028-053514-410\\03-settled-weighted-debris.png",
+            "source": 19,
+            "island": 0,
+            "individual": 3376,
+            "cargo": 0,
+            "drawn_debris": 867,
+            "loose_parcels": 867,
+            "ground_impacts": 1,
+            "awake": 0,
+            "dormant": 867,
+            "pending_wake": 0,
+            "render_cell_size": 0.10000000149011612,
+            "conserved": true,
+            "current": true,
+            "rgb_energy": 68495542,
+            "changed_from_clear": 39070,
+            "cache_vertices": [
+                272,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "source_renderer_candidates": 0,
+            "instanced_pixel_changes": 38427,
+            "tinted_instance_pixels": 38427,
+            "body_position": {
+                "x": -0.032445747405290607,
+                "y": 1.3336617946624756,
+                "z": 0.03973908722400665
+            },
+            "body_rotation": {
+                "x": -0.06667079776525498,
+                "y": 0.12808361649513246,
+                "z": 0.7592796087265015,
+                "w": 0.6345424652099609
+            }
+        },
+        {
+            "name": "04-terrain-wake-settled",
+            "png": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs/NaturalMatterNative\\20261028-053514-410\\04-terrain-wake-settled.png",
+            "source": 19,
+            "island": 0,
+            "individual": 3376,
+            "cargo": 0,
+            "drawn_debris": 867,
+            "loose_parcels": 867,
+            "ground_impacts": 1,
+            "awake": 0,
+            "dormant": 867,
+            "pending_wake": 0,
+            "render_cell_size": 0.10000000149011612,
+            "conserved": true,
+            "current": true,
+            "rgb_energy": 68417921,
+            "changed_from_clear": 39501,
+            "cache_vertices": [
+                272,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "source_renderer_candidates": 0,
+            "instanced_pixel_changes": 39069,
+            "tinted_instance_pixels": 39069,
+            "body_position": {
+                "x": -0.032445747405290607,
+                "y": 1.3336617946624756,
+                "z": 0.03973908722400665
+            },
+            "body_rotation": {
+                "x": -0.06667079776525498,
+                "y": 0.12808361649513246,
+                "z": 0.7592796087265015,
+                "w": 0.6345424652099609
+            }
+        },
+        {
+            "name": "05-explicit-collection",
+            "png": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Logs/NaturalMatterNative\\20261028-053514-410\\05-explicit-collection.png",
+            "source": 19,
+            "island": 0,
+            "individual": 0,
+            "cargo": 3376,
+            "drawn_debris": 0,
+            "loose_parcels": 0,
+            "ground_impacts": 1,
+            "awake": 0,
+            "dormant": 0,
+            "pending_wake": 0,
+            "render_cell_size": 0.10000000149011612,
+            "conserved": true,
+            "current": true,
+            "rgb_energy": 68624966,
+            "changed_from_clear": 4750,
+            "cache_vertices": [
+                272,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "source_renderer_candidates": 0,
+            "instanced_pixel_changes": 0,
+            "tinted_instance_pixels": 0,
+            "body_position": {
+                "x": -0.032445747405290607,
+                "y": 1.3336617946624756,
+                "z": 0.03973908722400665
+            },
+            "body_rotation": {
+                "x": -0.06667079776525498,
+                "y": 0.12808361649513246,
+                "z": 0.7592796087265015,
+                "w": 0.6345424652099609
+            }
+        }
+    ],
+    "errors": [],
+    "sources": [
+        {
+            "path": "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs",
+            "sha256": "669ad900e2e5fa67e822520461a025cfb794e248ae2cb77d864f85b836616a77"
+        },
+        {
+            "path": "Assets/AshenVoxel/Exploration/ExplorationNaturalTreeMatter.cs",
+            "sha256": "f6c12abd583b8eafc8f7c802cfedf01d5b5859b78bf16d3aa6dc6ebbf557f17c"
+        },
+        {
+            "path": "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs",
+            "sha256": "b88f3eb90232c9168fde82813f4688171d1f996da49a7b65bddc8453b129eaf3"
+        },
+        {
+            "path": "Assets/AshenVoxel/Exploration/NaturalMatterRenderer.cs",
+            "sha256": "3683e24da7325a176583bae60ee7e4f803e4447fee19787ec37983bab5af44ca"
+        },
+        {
+            "path": "Assets/AshenVoxel/Exploration/NaturalTreeTemplate.cs",
+            "sha256": "3a701ff1391fd05baa50a12f8e9d0e9ea1975c35fd7df1735d752447f1fb33a1"
+        },
+        {
+            "path": "Assets/AshenVoxel/Rendering/WorldSurface.shader",
+            "sha256": "200b68320e75accbbe02df4061ba0e07c2e7212dca238ec04b39994c6631166b"
+        },
+        {
+            "path": "Assets/AshenVoxel/Exploration/Editor/NaturalMatterNativeCheck.cs",
+            "sha256": "339066a3c6088d0fe4a21410c27d2ff4f11a36569082f5c4c92734d39c00b555"
+        }
+    ]
+}

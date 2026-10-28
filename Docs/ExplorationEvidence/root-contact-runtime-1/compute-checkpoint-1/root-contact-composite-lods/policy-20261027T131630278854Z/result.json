@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "checks": 67,
+  "material_cases": [
+    {
+      "variant": 0,
+      "material": "Leaves",
+      "color": "ffff0000",
+      "exact": true
+    },
+    {
+      "variant": 1,
+      "material": "Fruit",
+      "color": "ff0000ff",
+      "exact": true
+    },
+    {
+      "variant": 2,
+      "material": "Wood",
+      "color": "ff0000ff",
+      "exact": true
+    },
+    {
+      "variant": 3,
+      "material": "Fruit",
+      "color": "ff0000ff",
+      "exact": true
+    },
+    {
+      "variant": 4,
+      "material": "Wood",
+      "color": "ff0000ff",
+      "exact": true
+    },
+    {
+      "variant": 5,
+      "material": "Wood",
+      "color": "ffff0000",
+      "exact": true
+    },
+    {
+      "variant": 6,
+      "material": "Wood",
+      "color": "ff0000ff",
+      "exact": true
+    },
+    {
+      "variant": 7,
+      "material": "Wood",
+      "color": "ff0000ff",
+      "exact": true
+    }
+  ],
+  "scope": "Small synthetic actual-reducer parity and bounded candidate admission/continuation/cancel tests; no tree generation or native Unity objects."
+}

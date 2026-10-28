@@ -1,0 +1,49 @@
+{
+  "utc": "2026-10-27T10:30:18.253226+00:00",
+  "status": "PROPOSED_NOT_LAUNCHED",
+  "source_snapshot": "snapshot.json",
+  "fixture_sha256": "771db2201c1486ad9d752e867c037cfbc41f48c8385fb4e74560f2fa3ed47e9b",
+  "baseline": "Unknown until native startup. Abort before source/population allocation if own process private baseline exceeds 1 GiB. Earlier Unity allocator numbers are not process-private measurements.",
+  "process_private_cap_gib": 3,
+  "growth_cap_gib": 2,
+  "minimum_initial_commit_headroom_gib": 5,
+  "global_headroom_abort_gib": 2,
+  "intended_reserve_gib": 1.5,
+  "overshoot_allowance_gib": 0.5,
+  "working_set_model_mib": {
+    "shared_mesh_payload_allowance": 512,
+    "additional_native_driver_copy_allowance": 512,
+    "atomic_decode_upload_staging": 256,
+    "source_field_pack_and_population_data": 128,
+    "atlas_cpu_gpu_copies": 192,
+    "matrices": 64,
+    "pipeline_targets_misc": 128,
+    "gc_metadata_unassigned_margin": 256
+  },
+  "model_evidence": [
+    "Actual shared mesh payload 416.49 MiB; native payload guard 512 MiB.",
+    "Actual matrix payload roughly 15 MiB; guard 64 MiB.",
+    "Largest record decode cumulative allocation 93.36 MB; largest LOD0 upload float arrays roughly 92.3 MiB, with existing indices; 256 MiB staging is an allowance, not measured native peak.",
+    "Actual source archive files about27 MiB plus11.46 MiB pack; retained source representation/copy allowance128 MiB.",
+    "Two source atlases3072 square: conservative uncompressed RGBA32 full-mip arithmetic96 MiB, allowance192 MiB. Actual importer compression/readability differs; no exact driver-residency claim."
+  ],
+  "model_limitations": "Budget is a constrained feasibility trial, not a proven worst-case memory bound. Driver allocations, GC retention, Unity import and allocation between monitor samples can exceed allowances. Cooperative cap crossing aborts are failures, not valid timing runs.",
+  "launch_arguments": [
+    "-batchmode",
+    "-force-d3d11",
+    "-refreshImportMode",
+    "InProcess",
+    "-desiredWorkerCount",
+    "0",
+    "-standbyWorkerCount",
+    "0",
+    "-job-worker-count",
+    "2",
+    "-executeMethod",
+    "AshenVoxel.Exploration.Editor.VegetationBudgetNativeTrial.Run32"
+  ],
+  "official_cli_source": "https://docs.unity3d.com/6000.3/Documentation/Manual/EditorCommandLineArguments.html",
+  "guard_plan": "External own-family watchdog: sample root private/global commit every200ms, discover same-family children every1s, aggregate private cap3GiB, abort if global commit headroom<2GiB, total startup+trial watchdog300s; only own verified PID/start-time family may be stopped. No user process changes. Fixture internal memory checks every tick, own baseline<=1GiB, own cap3GiB/growth2GiB, payload512/64MiB, trial60s. No auto retry after threshold failure.",
+  "pair_order": "Run32 only after coordinator acceptance and fresh preflight. Exit/verify own-family stopped, then new memory preflight before separate Run40 with same snapshot/settings. No parallel editor/quality test; retain partial failure logs.",
+  "additive_main_rejected": "Would require restoring MaterialOptics, wind, lighting, shadows and isolating global Graphics submissions, plus handling user-scene events. Existing fixture uses NewSceneSingle and Exit; never run it in main. Separate minimal snapshot avoids broad host adaptation."
+}

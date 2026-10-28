@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "scope": "Documentation integrity and unchanged gameplay-release audit; not a new native Unity or behavior test",
+  "generated_utc": "2026-10-27T02:23:13.721743+00:00",
+  "gameplay_files_equal_to_frozen_release": 239,
+  "native_unity_execution": "NOT EXECUTED",
+  "completed_checks": [
+    "check_project.py",
+    "check_documentation.py",
+    "check_exploration_release.py",
+    "Exact Assets/Packages/ProjectSettings path and content equality to delivered ZIP"
+  ],
+  "base_archive_sha256": "bfaa982d0c522324a4c3e0f12890833990c70548344d0b511e38caee704a8207"
+}

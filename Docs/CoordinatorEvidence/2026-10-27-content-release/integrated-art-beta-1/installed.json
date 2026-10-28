@@ -1,0 +1,92 @@
+{
+  "checked_utc": "2026-10-27T19:18:14.955632+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/SurfaceProfile.cs",
+      "installed_sha256": "255a9049ed90b0585f523d51b5f82647eda3a46e8cb6ef1a4f9f7913d1453922",
+      "manifest_sha256": "255a9049ed90b0585f523d51b5f82647eda3a46e8cb6ef1a4f9f7913d1453922",
+      "matches": true,
+      "superseded_by": null
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs",
+      "installed_sha256": "a66ea39db657d365ebb3b897df72ee7146a28caee652270a7da789e062a2832b",
+      "manifest_sha256": "a66ea39db657d365ebb3b897df72ee7146a28caee652270a7da789e062a2832b",
+      "matches": true,
+      "superseded_by": null
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+      "installed_sha256": "61f3f10e34a9676a572cbdf040ee8398b85b9e196c684911959998b3e639008c",
+      "manifest_sha256": "61f3f10e34a9676a572cbdf040ee8398b85b9e196c684911959998b3e639008c",
+      "matches": true,
+      "superseded_by": null
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "installed_sha256": "2f08a4c52f01b7d0df4283dabac7cfa34bf27862138878453bb23976d3bbb372",
+      "manifest_sha256": "2f08a4c52f01b7d0df4283dabac7cfa34bf27862138878453bb23976d3bbb372",
+      "matches": true,
+      "superseded_by": null
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationDistantRockPatch.cs",
+      "installed_sha256": "eb264fa85032470dd09b5a5c0e2e1c5b508f670e810ff1132a28a68e9227e3e7",
+      "manifest_sha256": "eb264fa85032470dd09b5a5c0e2e1c5b508f670e810ff1132a28a68e9227e3e7",
+      "matches": true,
+      "superseded_by": null
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationDistantRockPatch.cs.meta",
+      "installed_sha256": "0ac84817f21387ea82c893f225a9a3248ffe4486226bc3b041b42cec07dec373",
+      "manifest_sha256": "0ac84817f21387ea82c893f225a9a3248ffe4486226bc3b041b42cec07dec373",
+      "matches": true,
+      "superseded_by": null
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationRockRenderAccess.cs",
+      "installed_sha256": "8dabd6af935aacac27dcd91dbce8cea4285e6e5d3e0a2ac1dd74960c6c797376",
+      "manifest_sha256": "8dabd6af935aacac27dcd91dbce8cea4285e6e5d3e0a2ac1dd74960c6c797376",
+      "matches": true,
+      "superseded_by": null
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationRockRenderAccess.cs.meta",
+      "installed_sha256": "66d72d9cd7c8499a5e8a257a3ae38df1729f4299b0731fff42975750e492cffa",
+      "manifest_sha256": "66d72d9cd7c8499a5e8a257a3ae38df1729f4299b0731fff42975750e492cffa",
+      "matches": true,
+      "superseded_by": null
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationBetaMenu.cs",
+      "installed_sha256": "ae4d417aac4bd2b51b8952babc9c2693ebe9a2bc3cd0ea0ccdcf41c786bf71c5",
+      "manifest_sha256": "ae4d417aac4bd2b51b8952babc9c2693ebe9a2bc3cd0ea0ccdcf41c786bf71c5",
+      "matches": true,
+      "superseded_by": null
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs",
+      "installed_sha256": "8ecf23050cd2a2ae52bf145ba6cfc985728406e375bd3bf9a1e6d7ebbcf6b27c",
+      "manifest_sha256": "8ecf23050cd2a2ae52bf145ba6cfc985728406e375bd3bf9a1e6d7ebbcf6b27c",
+      "matches": true,
+      "superseded_by": null
+    }
+  ],
+  "compiled_dlls": {
+    "AshenVoxel.Authoring.dll": "2026-10-27T06:42:51.145899+00:00",
+    "AshenVoxel.Core.dll": "2026-10-27T06:20:43.167613+00:00",
+    "AshenVoxel.Editor.dll": "2026-10-27T06:42:51.396145+00:00",
+    "AshenVoxel.Exploration.dll": "2026-10-27T18:53:04.313866+00:00",
+    "AshenVoxel.Exploration.Editor.dll": "2026-10-27T18:53:04.713892+00:00",
+    "AshenVoxel.FiniteMatter.dll": "2026-10-27T15:42:57.939011+00:00",
+    "AshenVoxel.FiniteMatter.Editor.dll": "2026-10-27T15:42:58.039042+00:00",
+    "AshenVoxel.Rendering.dll": "2026-10-27T06:42:50.841614+00:00",
+    "AshenVoxel.Rendering.Editor.dll": "2026-10-27T06:42:51.152483+00:00",
+    "AshenVoxel.Runtime.dll": "2026-10-27T06:42:51.175191+00:00",
+    "AshenVoxel.WorldScaleData.dll": "2026-10-27T18:53:03.354070+00:00",
+    "AshenVoxel.WorldScaleEditor.dll": "2026-10-27T18:34:11.216971+00:00",
+    "AshenVoxel.WorldScaleRuntime.dll": "2026-10-27T18:53:03.884841+00:00"
+  },
+  "native_evidence": "Logs/MountainReview/20261027-183734; Logs/MountainReview/20261027-185626; Logs/MountainReviewFrames/mountain-original-rocks-on-late",
+  "scope": "Exact installed source verification and existing native evidence only; no new test execution. Broad lithology compiled, not Play-tested."
+}

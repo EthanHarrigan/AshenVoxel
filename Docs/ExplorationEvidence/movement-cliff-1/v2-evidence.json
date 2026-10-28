@@ -1,0 +1,17 @@
+{
+  "generated_utc": "2026-10-27T09:38:23.372460+00:00",
+  "sha256": {
+    "FINAL_V2.md": "29d7ab95a26edb55f4915bd7c63d30132497bf4c38955ba37c0f6c9a94384772",
+    "candidate-v2.diff": "bff9d787ba81caca9d0e59b35a2d9e9435a6e995150a6d0390908fd8363b0648",
+    "eno-v2/ExplorationMovement.cs": "eff7b11db3fd6f6d79a131598fdf39cf233438393632f41c6971d306df8c6d24",
+    "eno-v2/VoxelTerrainPage.cs": "e54828332bda0df46d885d5cde4b5d00e6cccbb1683d4f7af6514410c9db0a7d",
+    "eno-v2.json": "da92a538abb8d4de4a1dc7092e8434dacc4b144ddfb41c3e790e8b588ad80998",
+    "eno-v2-custom-checks.json": "d2c790671a29af53afbd4e67bf6196095868abc6caf6b66a7bfd187e40078060",
+    "actual-cost-final-summary.json": "193c8a8eb5f334dd1385eafbf17da9ec379a4fc999f230b9634f63d052afa081",
+    "actual-cost-v2-provenance.json": "7ae81516006a773a748a8cc1cf64c9fbbd935cea383ee8380adde072dfb034b4",
+    "actual-cost-v2-0-baseline.json": "928d198850551c256ab569b814318dffbea32111b3215ce0a175713fc41e9ef8",
+    "actual-cost-v2-1-eno-v2.json": "d4b5a0bb06513d5bf9f194b1b6c78a6c2a3e3dcc8c9b4c424355756109af3799",
+    "actual-cost-v2-2-eno-v2.json": "44852caa72d1111daa8238efdcaa8e61553f95a3b6696c9ee4f075a95f9fa0b0",
+    "actual-cost-v2-3-baseline.json": "560f9009161cf249378d79611065e1abc02407ae2d90b580559176ba600f7b51"
+  }
+}

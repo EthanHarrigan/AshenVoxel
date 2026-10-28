@@ -1,0 +1,107 @@
+{
+  "patch": 4,
+  "status": "staged; applies only outside Play",
+  "utc": "2026-10-27T05:34:39.031076+00:00",
+  "manifest": {
+    "id": "4",
+    "files": [
+      {
+        "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+        "before": "59a74e38d41f5f2d9ccd87396fcf65eec09c98376f893e2420d2ea47ea9b0bf0",
+        "sha256": "27d773f161a7c3d27986eb01b0e5289b458e0e7b36a8f2f9ac998563f1eb278e"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+        "before": "490cc03c60d386ac136649b3287d062750c3310f32fca9ef70b74bda05d4a8a1",
+        "sha256": "b38c0ac7b54cc3c5d0a9a875216577dd02d5cabfdc0527f7bb2574da132a7fcd"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/ExplorationUpscaling.cs",
+        "before": "",
+        "sha256": "e6d363e60c0b636a1b4f4820b59f59f3060b70e91a6bf0a071da4a0c9111263d"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/ExplorationUpscaling.cs.meta",
+        "before": "",
+        "sha256": "5ec1d129a2a1d52087251ade5d37afbf310acec47b2283b01a099ac440ac5cf0"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Editor/DlssNativeCheck.cs",
+        "before": "",
+        "sha256": "7688ef9e53416da3d16f97ac5743c0346ca6ae5df671530d453db35b5afb573a"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Editor/DlssNativeCheck.cs.meta",
+        "before": "",
+        "sha256": "487d376e7f28ce7c0097c8f7eb66b3e2b4eef4ea4505e9178d48851988f2e8ef"
+      },
+      {
+        "path": "Assets/AshenVoxel/Settings/ExplorationSettings.asset",
+        "before": "d731e54ffa865834591c55ce49c54268f4b44d224666fa4d9eb615db0bd633cf",
+        "sha256": "9b5f45f6adf3c349f439c2e7967dd2986ddc98e3f5f31ee8ac347a7d7cf3415f"
+      },
+      {
+        "path": "Packages/manifest.json",
+        "before": "62914d962404000ad197952f8fffb6f74d5363028feef93e44abafb852af427b",
+        "sha256": "4b424831b1843ea0d7efb416f96fa5a95d03d92f7d052de167981fc80002fa94"
+      },
+      {
+        "path": "Packages/packages-lock.json",
+        "before": "0ccac873259b2b598159698ed8c2a7515c42b66ab5eb3801131dc902f88bb7f0",
+        "sha256": "6c137df8f454053686ffab8bcaa1f31f5e150ed8b33a59fc39cbc84a192d865b"
+      },
+      {
+        "path": "ProjectSettings/ProjectSettings.asset",
+        "before": "fc296ee15eedfd16744dd92f3c012065a41d51982fb1e198acd6d6e015eefe0b",
+        "sha256": "2c55e94b80e0790ae499198fb3a3ed555dcc90d40626216b3952f8418b619e03"
+      }
+    ]
+  },
+  "checks": {
+    "native": "Actual NVIDIA feature execution via URP RenderGraph,16 moving-camera frames each for SMAA/DLAA/DLSS Quality. DLAA1280x720; Quality853x480 to1280x720. Valid feature + pixel readback. Not a full-world FPS result.",
+    "official_api_assemblies": 5,
+    "bootstrap": 31
+  },
+  "limits": [
+    "Unity17.3 upscaler framework is preview; native SMAA fallback and F1 selection retained.",
+    "RTX3080Ti has no NVIDIA Frame Generation.",
+    "No driver, OS setting or Unity/package-version upgrade. Built-in NVIDIA module1.0 activated in project only."
+  ],
+  "integration_status": "LIVE:10 original +6 guarded module repair files verified; main native compilation succeeded",
+  "verified_utc": "2026-10-27T05:59:29.349430+00:00",
+  "repair": {
+    "id": "4b",
+    "files": [
+      {
+        "path": "Assets/AshenVoxel/Exploration/AshenVoxel.Exploration.asmdef",
+        "before": "e91a3381495ab488ed6cfe82c62f0aca434582a3b04f4300d361b30f871b3ceb",
+        "sha256": "f3413f05585bfe9b49f0c371671d3cab8fb8c349e1a0a2811b24b13ef6a048b0"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Editor/AshenVoxel.Exploration.Editor.asmdef",
+        "before": "951cc42b4cf5bdcdf471a57d038f9b1b870c50c263b6cc27c849b706c798ef8d",
+        "sha256": "5bbb44c6dd29488bb9ee5b9ae958699e999b942327cfe3898a01484a0cb6c7b2"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/ExplorationUpscaling.cs",
+        "before": "e6d363e60c0b636a1b4f4820b59f59f3060b70e91a6bf0a071da4a0c9111263d",
+        "sha256": "445d78dcd7937eb3789665eb63618c25dbb64a71c1768a4abc7032693cc997d5"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Editor/DlssNativeCheck.cs",
+        "before": "7688ef9e53416da3d16f97ac5743c0346ca6ae5df671530d453db35b5afb573a",
+        "sha256": "26a73038697a5335f427fa24b9e8a43a8894b001e0b243faf65ab097d5859bc9"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationPackageRefresh.cs",
+        "before": "",
+        "sha256": "44df230a463e54535f8d7a2781dc24575ddf8c806c52809248ca59679dd69e66"
+      },
+      {
+        "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationPackageRefresh.cs.meta",
+        "before": "",
+        "sha256": "53b125bb70083e2d72b8a8cc526aadeb855251816971b0a4d2275e67804b4668"
+      }
+    ]
+  }
+}

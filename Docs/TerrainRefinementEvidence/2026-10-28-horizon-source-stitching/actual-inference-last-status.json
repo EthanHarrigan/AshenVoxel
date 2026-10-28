@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-28T05:36:59.391968+00:00",
+  "request": {
+    "completed_rows": 0,
+    "error": "Busy: Fine-priority or memory admission timed out; retry later",
+    "request_id": "c2ac1b70da9e87a7e07b6a315e718109273768f465465a41d46ccd79e10ee8fa",
+    "state": "FAILED",
+    "window": {
+      "col0": -130,
+      "cols": 21,
+      "row0": -82,
+      "rows": 21,
+      "spacing_m": 160
+    }
+  },
+  "status": {
+    "accepting_requests": true,
+    "active": null,
+    "available_commit_bytes": 2967498752,
+    "cache_hits": 0,
+    "idle_grace_seconds": 20.0,
+    "max_model_strip_nodes": [
+      4,
+      17
+    ],
+    "max_window_side": 65,
+    "model_loaded": false,
+    "model_queries": 1,
+    "model_residency": "One reusable coarse/base pipeline; released by serial executor after idle grace or fine-job arrival",
+    "native_model_world_id": "0647786260a982ef6793a9e77fac850f0d9e23b8ae8ec3319fe6978b6538c84a",
+    "priority": "Fine5m jobs checked before each bounded coarse/base query; an in-flight model call is non-preemptible",
+    "queued_capacity": 0,
+    "ready": true,
+    "source_id": "b42cbcabc380eaecf65714489f336782b023e5c6bb9defbf8b1100ed303f8fd5",
+    "spacing_m": [
+      160,
+      80
+    ],
+    "strip_delay_seconds": 0.25
+  }
+}

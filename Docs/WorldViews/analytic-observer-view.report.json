@@ -1,0 +1,28 @@
+{
+  "image": "Docs/WorldViews/analytic-observer-view.png",
+  "image_sha256": "1748d7c27a080bd80b27d33c994360a10949b8a6c04d3cb9b5eaefe01109e9a4",
+  "binary_sha256": "27606b52c6e568966a3f032c50755445e2eee467dfb63a10fbe0635cf3769e7d",
+  "metadata_sha256": "e6ceca977cbe600dbe20a199e3d157643023b61e929c2b6552884f69b0d291ba",
+  "tool_sha256": "172b0a13a46314fb60995d0c61a700a25f4279f100c93d8e75518bc4e2dfa3e9",
+  "renderer": "Mitsuba 3.9.1",
+  "variant": "llvm_ad_rgb",
+  "spp": 64,
+  "render_seed": 42,
+  "camera_origin_m": [
+    85.0,
+    82.17875880427164,
+    53.75
+  ],
+  "camera_target_m": [
+    -5655.251485476355,
+    -1817.8212411957284,
+    -13804.442987669298
+  ],
+  "fov": 62.0,
+  "far_clip_m": 57600.0,
+  "triangles": 880128,
+  "vertices": 513790,
+  "elapsed_seconds": 108.37173767400236,
+  "normal_model": "Geometric face normals for offline lighting; exported runtime smooth normals remain in source data.",
+  "note": "Actual implementation mesh, CPU lighting and illustrative atmospheric display; NOT Unity or FPS."
+}

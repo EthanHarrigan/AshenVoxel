@@ -1,0 +1,16 @@
+{
+  "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs": "a9f922a96feb62615a877c809da8a788bd63b1252ee0777d2c15b83e5f5861f9",
+  "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs": "b55005edf60ff2922ce9f02c2e3724d29b3594eedf0c873f3befe55d2e5a992b",
+  "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerMemory.cs": "2607c7b868f217a207a48967dd63666b3f5a934b689c71e03fa9870c1502879d",
+  "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs": "be8a52841ae91f57b3a2c6aa9ec9f89f0e61dab1400fe641b04b8992d7bb5ab1",
+  "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "8d1235f50177ae7ff1f4593356e011b90047c17ec23e19d40f5f1683ae992815",
+  "Assets/AshenVoxel/Exploration/WorldLoadingProgress.cs": "a8af89de4493e72c78477b20654ccb4766ad6cdc28c1233fcf6066f1d80c1683",
+  "Assets/AshenVoxel/Exploration/ExplorationLoadingScreen.cs": "bd547e168be1015232a36bc6099ac3d76533a8bd5d5eb2333e7cbaa44bbef591",
+  "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs": "2b1517828e93e9f2774435e2206ae5b70e89f5f5f64484d934e06824f766be7d",
+  "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs": "bc0310b43ba2d2e8c158b38c8244b8adf5979b6a0c5e48ce25f5790777fb8153",
+  "Assets/AshenVoxel/Exploration/ExplorationNaturalTreeMatter.cs": "762fe88900d5edcca26d32138caf009433af8611f23b9b0d80979deaead4dfa8",
+  "Assets/AshenVoxel/Exploration/NaturalMatterRigidBodies.cs": "688f40038e92a106f43111d49fe8e0d5e125a093c48897f1dd5c4e754e81aa3c",
+  "Assets/AshenVoxel/Exploration/Editor/NaturalMatterNativeGravityProbe.cs": "cc5f32949e5fe2fb442b89a5e4e80c1f33b97f206f59f2ea8fd0a3c2afee7c68",
+  "Tools/ProgressiveLod/Program.cs": "923bce23247aa359534f18de67a93b47b7ac28465a52dba58e50733c2b5233f7",
+  "Tools/CheapMatterChecks/Program.cs": "eb719d99a1fa9e8a4ba1f43779033176b6622064d2dc13785cfa42fcb9fdd12e"
+}

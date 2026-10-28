@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "scope": "Captured summary/order/root replay only; no generator, whole tree, pack decode, native or shader execution. All replayed lower mesh hashes match frozen full-baker proof.",
+  "lods": [
+    {
+      "factor": 1,
+      "voxel_size_m": 0.1,
+      "local_cut_decimeters": 30,
+      "exclusive_owner_cut_y": 1058,
+      "grid_dimensions": [
+        470,
+        1059,
+        470
+      ],
+      "occupied_cells": 52979,
+      "cell_file": "cells-F1.bin",
+      "cell_file_bytes": 582797,
+      "lower_mesh_sha256": "907fbc1fa6ed799339de72a4b22d6df562169d83e9552ed0f4dd52a5a0432cfd",
+      "conversion": "local decimeter vertex = round(world-grid vertex) * factor - (235,1028,235); normal codes \u002BX,-X,\u002BY,-Y,\u002BZ,-Z; packed color bytes R,G,B,material/AO"
+    },
+    {
+      "factor": 2,
+      "voxel_size_m": 0.2,
+      "local_cut_decimeters": 32,
+      "exclusive_owner_cut_y": 530,
+      "grid_dimensions": [
+        235,
+        531,
+        235
+      ],
+      "occupied_cells": 7920,
+      "cell_file": "cells-F2.bin",
+      "cell_file_bytes": 87148,
+      "lower_mesh_sha256": "abf729edba8061073b8cd70173e524ffc681f27b29feceba0d77a88d80a5190a",
+      "conversion": "local decimeter vertex = round(world-grid vertex) * factor - (235,1028,235); normal codes \u002BX,-X,\u002BY,-Y,\u002BZ,-Z; packed color bytes R,G,B,material/AO"
+    },
+    {
+      "factor": 4,
+      "voxel_size_m": 0.4,
+      "local_cut_decimeters": 36,
+      "exclusive_owner_cut_y": 266,
+      "grid_dimensions": [
+        118,
+        267,
+        118
+      ],
+      "occupied_cells": 1358,
+      "cell_file": "cells-F4.bin",
+      "cell_file_bytes": 14966,
+      "lower_mesh_sha256": "df55f59997adcb97cc8bc2263d9288d6dcbe5255ff2dc6dfc0480833e1fe4e43",
+      "conversion": "local decimeter vertex = round(world-grid vertex) * factor - (235,1028,235); normal codes \u002BX,-X,\u002BY,-Y,\u002BZ,-Z; packed color bytes R,G,B,material/AO"
+    },
+    {
+      "factor": 16,
+      "voxel_size_m": 1.6,
+      "local_cut_decimeters": 60,
+      "exclusive_owner_cut_y": 68,
+      "grid_dimensions": [
+        30,
+        69,
+        30
+      ],
+      "occupied_cells": 66,
+      "cell_file": "cells-F16.bin",
+      "cell_file_bytes": 754,
+      "lower_mesh_sha256": "f3e9a240313f4effc315cf889b6c7a03441890a77d3280463edc644c31d68497",
+      "conversion": "local decimeter vertex = round(world-grid vertex) * factor - (235,1028,235); normal codes \u002BX,-X,\u002BY,-Y,\u002BZ,-Z; packed color bytes R,G,B,material/AO"
+    },
+    {
+      "factor": 64,
+      "voxel_size_m": 6.4,
+      "local_cut_decimeters": 124,
+      "exclusive_owner_cut_y": 18,
+      "grid_dimensions": [
+        8,
+        19,
+        8
+      ],
+      "occupied_cells": 6,
+      "cell_file": "cells-F64.bin",
+      "cell_file_bytes": 94,
+      "lower_mesh_sha256": "2499c546f6c529451963070b30d301bfb8fbc239091e4fc33a18395fd77ae6aa",
+      "conversion": "local decimeter vertex = round(world-grid vertex) * factor - (235,1028,235); normal codes \u002BX,-X,\u002BY,-Y,\u002BZ,-Z; packed color bytes R,G,B,material/AO"
+    }
+  ]
+}

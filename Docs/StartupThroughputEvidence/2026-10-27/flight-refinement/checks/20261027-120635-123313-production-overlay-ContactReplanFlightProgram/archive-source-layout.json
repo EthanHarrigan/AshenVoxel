@@ -1,0 +1,8 @@
+{
+  "base_snapshot": "../../baseline-source",
+  "overrides": "source",
+  "overridden_files": [
+    "Tools/ProgressiveLod/ContactReplanFlightProgram.cs"
+  ],
+  "all_hashes": "result.json/source_sha256"
+}

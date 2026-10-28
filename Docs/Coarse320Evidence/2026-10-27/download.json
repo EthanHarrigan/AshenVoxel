@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "bake_id": "653a72959be6e6ec9abb8e9643c685b2c690c183768a109f2110ede02b7dfb99",
+  "archive": "Coarse320Map.zip",
+  "bytes": 9782940,
+  "sha256": "8b2182108f1731121263a44a9864b0f552d26e0bac2215a668029acdb969e431",
+  "members": {
+    "Coarse320.bytes": {
+      "bytes": 2637719,
+      "sha256": "50b4265dc3e19d9b3e7dd179e9d7241ae90aa0e94ab47b1cf6cc04318408bc70"
+    },
+    "Coarse320.climate.bytes": {
+      "bytes": 8789491,
+      "sha256": "a73e7b03be8dfdb22bacd4da711640a7f18a0d1a6a8a903389b02275b9bc1040"
+    },
+    "Coarse320-height.tif": {
+      "bytes": 1337084,
+      "sha256": "65ffcb13667f9c2a42c84f9e308b312f72c12e45f3cee7423756bbf3c660fa4a"
+    },
+    "identity.json": {
+      "bytes": 896,
+      "sha256": "abfba16bbe6e109aadec896c0ce215d7b032cfa2db4807f827c10c02ee48b60f"
+    },
+    "result.json": {
+      "bytes": 1889,
+      "sha256": "7780555934cd899f5b44baff3085ffa01b32631892b09af6caa197cceb32deac"
+    },
+    "evaluation.json": {
+      "bytes": 2562,
+      "sha256": "d0cc3beea425f990207714331c0125ec6ef745469c684a5d5532fea788e19824"
+    },
+    "consumer.json": {
+      "bytes": 3362,
+      "sha256": "751871d8a36e752e9840199e217e903900b1bb777b0ffe0afb957bfabf54c949"
+    },
+    "README.txt": {
+      "bytes": 1427,
+      "sha256": "df28957894a861bc8800e52668192ce5aac67951b0f90be98e4fe77515a101b8"
+    }
+  }
+}

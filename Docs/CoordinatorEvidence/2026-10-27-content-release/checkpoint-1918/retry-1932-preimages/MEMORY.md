@@ -1,0 +1,3416 @@
+2026-10-27 19:18 UTC coordinator checkpoint
+Main Exploration beta is installed/imported and has reached native Ready. Current
+Editor is STOPPED, no compile/change in progress; no armed photo/patch request.
+Unity control is currently BLOCKED: auto-review rejected Control+P at19:07, citing
+the earlier user takeover/no-stop restriction despite the17:56 handback. The key
+did not execute; fresh heartbeat confirmed stopped. No indirect Play or source
+import workaround. Fresh confirmation was requested; no answer received yet.
+Physics approval reconciled19:21: waitingOnApproval label was stale; latest command completed and owner explicitly reports no pending approval. Whole-shrub replay proof passed510/497cells. Candidate-only full-shrub gravity/collection integration now assigned.
+
+LIVE: presets/traversal/root controls, movement experiment, bees and airborne
+72-cell branch adapter; native shared feature interaction/bee animation/root
+acceptance remain open, ordinary trees are not destructible. LIVE altitude-memory-1
+holds irrelevant high-altitude contact work and protects system commit headroom.
+Same western Maximum viewpoint reached coverage within40-50s after the patch,
+versus first sampled complete110s baseline; warmed combined comparison, not an
+isolated universal speedup. Contact payload changed about1GiB to0. Fine refinement
+still stalls near commit reserve;4GiB far quota is not whole-process memory.
+At290s after patch, mesh2.596GB, retained heights19.8MB/scratch16MiB, Unityallocated
+3.607GB and OSprivate11.727GB; counters overlap. Do not attribute multi-GiB pressure
+to the small height cache or install retention as a memory fix.
+
+LIVE integrated-art-beta-1: default-OFF broad lithology opt-in (F1,nextPlay,
+explicitSave only), live distant-rock cues, correct clean ScreenCapture path.
+Native original-style view/toggle/capture verified; broad style NOT native-tested.
+Saved custom spawn/options restored exact; no world/pack/atlas regeneration.
+Finer second-LOD rock silhouettes/strict300k triangle cap are FROZEN UNINSTALLED.
+Still-desired detail retention is FROZEN UNINSTALLED because commit pressure can
+occur before its quota reclamation triggers. Terrain owner currently builds an
+optional distant shared-height-grid representation CPU-only outside Assets, using
+the existing one-worker slot and leaving near/contact cubic; no native claim.
+
+Photo delivered: Library libfile_aad42f66d70081918a4afefde2242a97 version1,
+AshenVoxel-western-range-progress.png. Actual1668x1172 game frame19:03:05,
+camera(-63200,6000,-18800),FOV60,Maximum,original lithology,rock cues ON.
+399s stationary,coverage complete,3445detail requests unfinished. Progress baseline
+only: severe repeated bands/grid aliasing/pale left rock brick remain. Largest-range
+basis: western largest8-connected macro footprint above2500m,519samples/850.33km2,
+peak7776.506m;2000m threshold instead favors east, explicitly recorded.
+Next native action AFTER control authorization: integrate frozen silhouette patch,
+enable broad style in a preserved temporary session, matched baseline comparison,
+then lower/wider final framing. Do not run original-style capture again as a fix.
+Evidence: Docs/CoordinatorEvidence/2026-10-27-content-release/checkpoint-1918;
+canonical ownership Docs/CHAT_COORDINATION.md; technical debt TODO.md.
+
+2026-10-27 18:08UTC coordinator resume
+
+Reconciled after explicit17:56 human handback. Original coordinator owns Unity,
+
+native, imports and integration. Normal Exploration was Play/Ready; stopped safely
+
+for fixed mountain review menu import. User saved Maximum and custom spawn remain
+
+unchanged. Presets, selected/applied limits, traversal opt-in and root next-Play
+
+controls are INSTALLED/compiled. Integrated-beta-1 reached shared Exploration Ready.
+
+beta-controls-menu-1 and user-requested air-placement-1 supersede old frozen
+
+Bootstrap/helper identities. Branch interaction and bee animation remain unverified;
+
+ordinary trees unchanged. Roots default-off, native resource gate still open.
+
+
+
+Next: actual largest western high-range viewpoint, stationary Maximum refinement
+
+and clean camera image. Record achieved/current versus requested detail and limits.
+
+Above2500m connected footprint519samples; peak7776.5m at(-69120,-22400).
+
+Threshold sensitivity recorded; this is not a unique geological definition.
+
+Temporary viewpoint must preserve saved spawn/options. Terrain owner is CPU-only
+
+on compact diagnostics/reuse; physics owner CPU-only on actual-prop integration.
+
+Neither owns MAIN/UI/native/queue. Other finished reviewers stay completed.
+
+No second Editor, world/prototype/atlas rebake or current approval block.
+
+Evidence: Docs/CoordinatorEvidence/2026-10-27-content-release/resume-1756.
+
+
+
+
+
+2026-10-27 air-placement-1: user requested airborne branch spawning. ExplorationBetaMatter now anchors the existing72-cell fixture3m horizontally ahead at eye height and removes flat/dry/loaded-clearing terrain placement gates. Local demo floor/cut/matter ownership remain unchanged. Integrity PASS231assets/13assemblies; native Exploration.dll compiled17:42:26UTC, reload and full-profile Ready observed; new Spawn branch in air ahead button visible. Automated clicks/J did not confirm placement (state stayed unplaced); interactive placement/cut conservation acceptance remains pending. Evidence/preimage/hashes: Docs/BranchPlacementEvidence/air-placement-1. No Core, tree generation, meshes, settings or release ZIP changes. Existing Unity DLSS null-options warning persists; package source constructor creates defaults and continues (DLSSIUpscaler.cs136). Not fixed or newly introduced here.
+
+
+
+
+
+2026-10-27 17:40 UTC spawn follow-up: first user restart returned to old birch spawn despite correct disk asset (native old observer X=-19065,Z=-10200). Stopped Play, explicitly refreshed asset database with Ctrl+R, inspected correct custom coordinates/UseRecommendedSpawn=false in Unity, restarted Play. Native Ready=true/failed=false at17:40:13; observer X=-40960.745801144825,Z=-13456.681353169923, about6.05m from requested point, consistent with existing16m safe-ground search. Current Play left running. Evidence Docs/SpawnEvidence/20261027-173730/after-refresh-play.json. Earlier disk-only verification did not establish imported settings or native spawn; this entry supersedes its pending gate. No runtime code/settings re-edit or release change.
+
+
+
+
+
+2026-10-27 17:37 UTC — User requested current Play location as default spawn.
+
+Saved custom spawn X=-40954.96880764632, Z=-13458.490728475133; yaw=-163.798939, pitch=24.8000388; UseRecommendedSpawn=false in ExplorationSettings.asset. SpawnY=1861.4649999761584 records observed eye height only; existing safe-ground spawn ignores that height and may search within16m. Fresh live Editor heartbeat evidence/preimage/hashes: Docs/SpawnEvidence/20261027-173730. Current paused Play retained; no gameplay code or release ZIP changed. Native next-Play spawn acceptance pending.
+
+
+
+Current coordinator17:00UTC: original01a17c2d owns Unity/integration after explicit handoff. Reduced validation Play stopped; normal Exploration scene restored idle. Original scene/user options exact; settings gained only serialized existing defaults. Presets NOT yet installed: terrain owner building isolated four-file candidate on Sol. Movement-feel-1 two files installed/compiled17:10UTC, off by default;242checks at candidate identity, no pending approval, F1/shared beta Play pending. Normal-profile Ready observed then stopped; raw proof in content-release/normal-profile-restored. Canonical package ledger Docs/CHAT_COORDINATION.md; current debt atop TODO.md. Preserve root default-off and native acceptance boundaries.
+
+
+
+Native root acceptance BLOCKED (2026-10-27 shared pass): private-growth guard
+
+stopped Play before root scenarios/captures. Growth1,639,686,144bytes >1.5GiB;
+
+mincommit2,514,165,760bytes. No thresholdraise/retry or native root success.
+
+Opt-in safe-default-v2 applied: Settings defaultfalse, restartPlay option.
+
+Nativecompile/reload PASS15:53:16 after exactownedhelper cleanup; rootPlay
+
+acceptance remainsmemoryblocked. See
+
+Docs/QualityPatches/grounded-roots-1/native-shared-abort.json.
+
+
+
+# Ashen Voxel — read this first
+
+
+
+Capacity-lod-1 LIVE (2026-10-27 ~10:01UTC): coordinator explicitly released the
+
+old maintenance hold for this frozen three-file patch. Idle source/preimage and
+
+readable-backup checks passed with5.16GiB commit headroom. Main Unity compile/
+
+reload and native mesh regression PASS (32,198 faces/RGB,128,416 AO,12 worlds).
+
+Deferred quality wakes after net memory release without moving the camera;
+
+surplus detail returns to its current pixel target. Caps and10cm unchanged.
+
+Evidence: Docs/StartupThroughputEvidence/2026-10-27/capacity/install/installed.json.
+
+Main-native slot released to grounding owner under coordinator's next memory
+
+gate. Altitude and prototype-reader experiments remain NOT INSTALLED; no new
+
+native process or world/pack/atlas regeneration. Earlier hold statements below
+
+describe their dated checkpoints, not current capacity installation status.
+
+
+
+
+
+
+
+
+
+Planner-adjacency-1 LIVE (2026-10-27 ~13:19UTC): coordinator released the
+
+one-file31f2 ->1651 correction after reviewing constrained-cap quality costs.
+
+Fresh4.432GiB headroom, idle/no-job/hash/readable-backup gates passed. Main Unity
+
+compile/reload and native mesh regression PASS (32,198faces/RGB,128,416AO,
+
+12worlds); installed-source .NET world-scale54 and project integrity PASS.
+
+Only LodPlanner changed: all6 current runtime files includingVoxels464c,
+
+original scene/settings/options, world JSON and prototype pack are unchanged.
+
+Render-plan revision planner-adjacency-1/1651adfb is a deployment identity;
+
+world/source generator and formats are unchanged.192-cap near coarsening remains
+
+explicit (3.2 ->12.8m at20km;3.2 ->25.6m at30km). Current512 plan comparison was
+
+unchanged. Large-coordinate render-meter rounding remains a separate limitation.
+
+No Play/new Editor, cap raise or speedup claim. Native slot released. Earlier
+
+NOT INSTALLED statements below are historical checkpoints. Current evidence:
+
+Docs/StartupThroughputEvidence/2026-10-27/planner-adjacency/current-status.json.
+
+
+
+
+
+Planner capacity follow-up (2026-10-27 13:08UTC), read-only: at the actual
+
+spawn,256/384 caps retain observer L0 for20km and saved30km views. Exhaustive
+
+supported caps64..first L0 give234/247 for the corrected planner versus150/163
+
+baseline. These are current greedy-plan outcomes, not universal minima or a
+
+recommendation to raise caps. At192/30km corrected initial near spacing is25.6m
+
+(20km:12.8m), versus3.2m baseline. No geometry, policy/default change or install.
+
+Evidence: Docs/StartupThroughputEvidence/2026-10-27/planner-adjacency/capacity-checkpoint.json.
+
+
+
+
+
+Flight-hysteresis-1 LIVE (2026-10-27 ~12:57UTC): exact one-line timer reset
+
+installed after coordinator/quality slot release. Fresh4.030GiB headroom, native
+
+compile/reload and mesh regression PASS (32,198faces/RGB,128,416AO,12worlds).
+
+Voxels464c5661… and both rollback copies verified; other5flight sources and
+
+original scene/settings/options unchanged. No Play/new Editor; slot released.
+
+Evidence: Docs/StartupThroughputEvidence/2026-10-27/flight-hysteresis/install.
+
+
+
+Planner adjacency candidate (2026-10-27 13:00UTC), NOT INSTALLED: checked integer
+
+TileKey endpoints plus widened extreme-key fallback fix the34 unique192-cap
+
+imbalance pairs.4403 predicate/coverage/balance/range assertions,54 existing
+
+world-scale checks and API5 pass. At actual192 cap, near initial grid becomes
+
+12.8m versus3.2m; adoption quality gate remains unmet. Current serialized512/
+
+30km profile with saved93.43deg FOV has identical511tiles and all576 sampled
+
+target-detail values, including412eligible points outside100m contact. Synthetic
+
+planner cost increased26.36 ->38.07ms summed15medians; no speedup claim. No new
+
+cache/worker/budget or priority policy. Exact evidence/adoption limits:
+
+Docs/StartupThroughputEvidence/2026-10-27/planner-adjacency/summary.json.
+
+
+
+
+
+Current root-contact checkpoint (2026-10-27T15:47:45.896708+00:00): grounded-roots-1 INSTALLED.
+
+Real gameplay owner now couples terrain-following root matter, all5meshLODs,
+
+hard collision, stick resistance and support on the existing atomic batch swap.
+
+Models10/11 only; canonical upper/base share oneVBO, complete authored fallback.
+
+One actualTask, one lower upload/Tick,4bindings; additional declared64MiBworker,
+
+16MiBCPUresult/32MiBnative reservations.8moutside-footprint safe change guard,
+
+64mprepare/96mretain. Root geometry policy1 hashes full provenance/owner epoch.
+
+Existing terrain/vegetation limits, populationv1, saves, world/pack/atlas unchanged.
+
+
+
+Native Unity compilation/reload PASS; integrity207assets/11assemblies.41payload
+
+files (2existing sources), preserved GUIDs and readable/hashguarded preimages.
+
+Bootstrap31145415 bee hooks, other installed flight/planner/settings and original
+
+scene/settings/preferences protected. Realowner CPU104,502 mostlycell checks
+
+passed both recorded natural sites through actualworker, exactmatter/roles,
+
+publicbody probes, rebase and unload/reload. Last cancelled-worker reinit wait
+
+was API-compiled; no duplicate broad rerun. Old V4 is earlier staticLOD0 evidence.
+
+
+
+Native Play/visual/lifetime/frame acceptance remains pending ONE consolidated
+
+coordinator copied-profile pass; rootlane did not start Play or take UI control.
+
+Evidence: Docs/QualityPatches/grounded-roots-1/README.md. NativeRootProbe+exact
+
+site data delivered outsideAssets; no further research/agent/test lanes. Current
+
+checkpoint supersedes earlier NOT INSTALLED root statements only as installation;
+
+no native gameplay/FPS success claimed until the actual shared run is recorded.
+
+
+
+Read-only startup-plan audit (2026-10-27 12:40UTC): no runtime changes.
+
+Blindly starting at64tiles gives819.2m near grid spacing versus3.2m at192, so it
+
+was not adopted as a quality-preserving shortcut. Independent integer adjacency
+
+found34 unique unbalanced neighboring pairs in the existing192-cap plan at the
+
+actual spawn; floating parent-boundary equality misses legitimate neighbors.
+
+Planner hash is unchanged by flight patch. No rendered crack/Start-speed claim.
+
+Separate correctness follow-up needs coordination; timer patch remains separate.
+
+Evidence: Docs/StartupThroughputEvidence/2026-10-27/startup-plan-shape/summary.json.
+
+
+
+
+
+Flight timer follow-up (2026-10-27 12:33UTC): one-line isolated correction,
+
+NOT INSTALLED. Slow exit -> fast reentry -> immediately slow can reuse the old
+
+exit timestamp. Exact-transition fixture fails on installed source; clearing
+
+voxelSlowSince only on actual state changes passes45 policy checks/API5. No
+
+benchmark rerun. Quality owns native slot; hold main publication. Evidence:
+
+Docs/StartupThroughputEvidence/2026-10-27/flight-hysteresis/summary.json.
+
+
+
+
+
+Flight-refinement-1 LIVE (2026-10-27 ~12:24 UTC): coordinator reviewed and
+
+released the exact four-file candidate. Existing idle-Editor install preflight
+
+passed at3.934GiB commit headroom. Main native compile/reload and mesh regression
+
+PASS:32,198 faces/RGB,128,416 AO,12 worlds. Main targets and two independent
+
+rollback copies match; Bootstrap/Settings, original scene/settings/options,
+
+world and pack are unchanged. No Play/new Editor from this lane; native slot
+
+returned to coordinator. Real mountainous flight/visual/frame/memory acceptance
+
+remains open. Earlier NOT INSTALLED entries below are dated history. Evidence:
+
+Docs/StartupThroughputEvidence/2026-10-27/flight-refinement/install/installed.json.
+
+
+
+Separate prototype-demand CPU audit PASS46: actual16m spawn safety needs17 cells,
+
+1372 placements,25 prototype IDs,17.39MiB across their runtime mesh LODs versus
+
+416.49MiB all99. First64 planned cells need29 IDs including redwoods and338.30MiB
+
+all LODs; authored desired LODs plus fallback198.99MiB. This quantifies potential
+
+preparation priority, not an implemented lazy loader or measured Start gain.
+
+Original interaction data retained; native meshes replaced with metadata only.
+
+Evidence: Docs/StartupThroughputEvidence/2026-10-27/prototype-demand/summary.json.
+
+
+
+
+
+Flight-refinement final CPU checkpoint (2026-10-27 12:20 UTC), NOT INSTALLED:
+
+Four-file candidate retains useful distant builds across contact-cell changes
+
+and holds nonurgent contact/fine work during elevated fast transit. Two reversed-
+
+order comparisons: distant publications during fast legs 0 -> 83; contact jobs
+
+191 -> 14; summed worker wall 3978.74 -> 341.00 ms (91.43% less in this fixture).
+
+Tracked mesh/scratch peaks unchanged; one worker/one upload; 10 cm unchanged.
+
+This is a bounded flat-source .NET experiment, not native Start/FPS or mountains.
+
+New terrain stays at up to32 columns during transit and refines after stopping;
+
+existing detailed meshes remain. Final policy39/controller10/preemption21/
+
+progressive30/freshness36/lifecycle19/API5 checks pass. Earlier v4 failed same-XZ
+
+vertical descent; failure is preserved and final candidate fixes that fast path.
+
+Native flight/appearance/arrival-latency/memory review remains open; main runtime
+
+preimages unchanged. See flight-refinement/current-status.json and final-checkpoint
+
+under Docs/StartupThroughputEvidence/2026-10-27. Older v4 summary is historical.
+
+
+
+Separate coordinator native smoke of installed startup-budget-1 completed60s:
+
+first observed Ready8.391s, peak private growth1,420,320,768B (1.323GiB), minimum
+
+commit headroom2.919GiB. Original scene/settings/options restored. This uses a
+
+small temporary profile, not the flight candidate or full-quality/FPS acceptance.
+
+The first3.237s includes Editor transition/observation gap; prototypes416.49MiB
+
+first observed6.364s, population queue empty7.574s, first contact/Ready8.391s.
+
+These are overlapping sampled boundaries, not exclusive profiler timings or
+
+chunks/sec. Initial invalid Mono memory-counter attempt remains preserved.
+
+
+
+
+
+Startup-budget-1 LIVE (2026-10-27 ~11:26 UTC): coordinator released only the
+
+three-file startup variant. Exact source/rollback hashes verified; main native
+
+compile/reload and mesh regression PASS (32,198 faces/RGB;128,416 AO;12 worlds).
+
+Original settings asset, Exploration scene and saved user options are unchanged.
+
+Defaults remain1536MiB far detail/1024MiB contact; optional small quotas apply
+
+before initialization and require Play restart. No live far eviction/debt layer.
+
+Actual-spawn CPU small-profile probe:13/17 contact tiles admitted at120.92MiB,
+
+four deferred,2m terrain readiness after the first tile. Full Bootstrap Ready,
+
+native Start/per-LOD rate/FPS/peak memory remain unmeasured for this profile.
+
+No Play/new Editor process from this lane. Native slot handed to coordinator for
+
+owned temporary settings/scene smoke; earlier NOT INSTALLED statements below
+
+describe their dated candidate checkpoints. Live-decrease variant stays isolated.
+
+Evidence: Docs/StartupThroughputEvidence/2026-10-27/startup-budget/current-status.json.
+
+
+
+
+
+Startup-only terrain-budget candidate checkpoint (2026-10-27 11:20 UTC):
+
+isolated and NOT INSTALLED. Three files expose initial far-detail/contact quotas
+
+with unchanged1536/1024MiB defaults; Boot applies them before terrain allocation.
+
+Post-initialization reconfiguration requires Play restart; no F1/live far eviction
+
+layer. Contact admission now checks before scratch expansion/native Mesh creation.
+
+15 focused,30 progressive,10 capacity,35 freshness (11 repeated tick-cap checks),
+
+19 lifecycle and five installed-Unity-API assemblies pass on exact frozen sources.
+
+These are CPU/shim/API results, not native Start, memory or FPS acceptance.
+
+The live-decrease candidate remains preserved separately, uninstalled. Coordinator
+
+review/native memory gate remain open; no main patch queued or Play started.
+
+Evidence: Docs/StartupThroughputEvidence/2026-10-27/startup-budget/summary.json.
+
+
+
+
+
+
+
+Targeted anti-banding coverage check PASS (2026-10-27 UTC): on the changed far
+
+coverage tile with largest measured area discrepancy, both variants match an
+
+independent sampled-height/halo/seam-floor interval oracle:64 top cells and144
+
+side/boundary strips, identical coverage/multiplicity. Maximum coordinate snap
+
+error0.415mm. Original strict area-sum failure remains preserved; this is one
+
+canonical-grid check, not native visual/geological acceptance. Evidence under
+
+material-merge-control/boundary-coverage in StartupThroughputEvidence.
+
+
+
+Root-contact study (2026-10-27 UTC): CPU alternative only, NOT INSTALLED.
+
+The failed population-grounding-1 candidate remains blocked. Two actual natural
+
+mature redwood sites (5.37/7.19 degrees) now have zero measured basal gap and
+
+0.251/0.282m maximum burial in an isolated terrain-following base prototype.
+
+Original wood/tints above3m are unchanged; continuous canonical central shafts
+
+remove the splice shelf. All lower cells remain connected. Actual live packed
+
+wood faces/RGB below8m match the offline baseline. This is changed generation
+
+(about8% less total wood), not a mass-conserving edit or approved runtime patch.
+
+Actual Core.Set/mesher CPU medians are about2.4+9.4–9.8ms per base, excluding
+
+terrain queries/native upload. Six offline before/after views and exact evidence:
+
+Docs/ExplorationEvidence/root-contact-study-1/checkpoint.json. Runtime bounded
+
+work, all-slope fallback, collision/LOD/wind/edit coherence and Unity gates remain.
+
+Independent read-only review found no visual blocker in these two sites, and
+
+approved only bounded runtime prototyping. Lower deformation/cell/face limits
+
+and halo-only seam stitching are still required; no general adoption approval.
+
+The terrain32M native trial stopped BEFORE launch at4.32GiB available commit
+
+against its5GiB guard; no new Unity process or retry. Main population staysv1.
+
+
+
+Material anti-banding CPU control checkpoint (2026-10-27 UTC): no significant
+
+LOD performance change. Eight refined actual-world samples: faces−0.223%, CPU
+
+summed medians517.28→518.50ms, allocation effectively unchanged. Heights match;
+
+changed float-rectangle grouping has small measured area-sum differences.
+
+Not installed; no geological/visual acceptance. Exact sources/raw evidence:
+
+Docs/StartupThroughputEvidence/2026-10-27/material-merge-control/summary.json.
+
+
+
+Native budget gate (2026-10-27 10:35 UTC): the coordinator conditionally accepted
+
+
+
+one guarded Run32 only, but its preflight measured 4.32 GiB commit headroom against
+
+
+
+a 5 GiB minimum. It stopped before launching Unity. No Run40, retry, cap increase
+
+
+
+or user-session change occurred; native slot released. Installed-main snapshot,
+
+
+
+guard/API checks and failure evidence are in
+
+
+
+Docs/StartupThroughputEvidence/2026-10-27/budget-native-preflight/result.json.
+
+
+
+Native budget results remain unavailable; a fresh coordinated gate is required.
+
+
+
+
+
+
+
+Contact-freshness-1 LIVE (2026-10-27 ~10:21 UTC), layered on capacity-lod-1.
+
+
+
+Main native compile/reload and mesh regression PASS; exact two-file source hashes,
+
+
+
+readable rollback copies and logs are in
+
+
+
+Docs/StartupThroughputEvidence/2026-10-27/contact-freshness/install/installed.json.
+
+
+
+Contact fallback surfaces retain their source revision across movement/radius
+
+
+
+replans; deferred replacements retry when capacity permits. Persistent capacity
+
+
+
+pressure can still retain an old visible fallback. No cap or 10 cm detail change.
+
+
+
+Installed-source focused checks: 34 assertions, including 10 repeated tick-cap
+
+
+
+checks and direct publication/cancellation revision stamps. Actual source-edit
+
+
+
+mountainous Play/FPS remains open. No Play or new Editor process was used.
+
+
+
+
+
+
+
+Prototype CPU experiments are isolated, NOT installed: exact-output reader
+
+
+
+reduces first-process decode median 510 to 437 ms, warm 368 to 277 ms; +7 KiB
+
+
+
+fixed CRC tables, unchanged cumulative decode allocation. Packed upload-buffer
+
+
+
+CPU prototype reduces arithmetic mesh payload 416.49 to 318.49 MiB, but native
+
+
+
+Mesh/shader/upload validation is not implemented. Neither is a full Start gain.
+
+
+
+See Docs/STARTUP_LOD_PROGRESS.md and prototype-decode/summary.json evidence.
+
+
+
+The next 32M/40M native budget comparison must use installed population v1;
+
+
+
+failed grounding v2 is excluded. Separate snapshot/memory plan under review,
+
+
+
+no launch approved or started. Earlier dated hold/status paragraphs are history.
+
+
+
+
+
+
+
+Grounding quality gate (2026-10-27 10:00 UTC): DO NOT INSTALL current candidate.
+
+
+
+
+
+Full-footprint audit found excessive uphill burial despite zero gap: natural small
+
+
+
+
+
+slab exposes approximately 1.3% of center-sampled hard volume; transplanted mature
+
+
+
+
+
+redwoods on steep actual-world sites bury uphill bases 7.8–8.9 m. These redwood
+
+
+
+
+
+placements are stress cases, not evidence of their natural distribution. Frozen
+
+
+
+
+
+CPU/API successes remain valid for their scope; appearance acceptance fails.
+
+
+
+
+
+See [burial gate](Docs/ExplorationEvidence/population-grounding-1/burial-quality-gate.json).
+
+
+
+
+
+Compare bounded rejection/seating alternatives before adoption; keep upright trees.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Travel/altitude CPU checkpoint (2026-10-27 09:49UTC): installed aerial, frozen
+
+
+
+
+
+
+
+capacity and separate altitude candidates each passed three10km out-and-back
+
+
+
+
+
+
+
+routes through real Update/async planning/worker scheduling. Bounded64-tile
+
+
+
+
+
+
+
+fixture: max100 far /21 contact tiles, one worker/upload,10cm retained; no FPS
+
+
+
+
+
+
+
+claim. High-flight priority experiment advances first far refinement after2
+
+
+
+
+
+
+
+instead of9 contact builds, with ground/descent safety and unchanged budgets.
+
+
+
+
+
+
+
+18 focused +30 progressive +10 route aggregate checks +5 API assemblies pass.
+
+
+
+
+
+
+
+Both candidates remain NOT INSTALLED; no native launch or patch manifest queued.
+
+
+
+
+
+
+
+Replacement coordinator01a17cb5-6954-74d9-841b-4cb3907ce026 retains the hold pending
+
+
+
+
+
+
+
+old-coordinator quiescence. Grounding native first, then source-frozen32M/40M.
+
+
+
+
+
+
+
+Evidence: Docs/StartupThroughputEvidence/2026-10-27/travel-altitude/summary.json.
+
+
+
+
+
+
+
+Scope stays worldgen/LOD; no wildlife work or recursive delegation from this lane.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Grounding checkpoint (2026-10-27 UTC): CPU/API candidate frozen, NOT installed.
+
+
+
+
+
+
+
+Actual LOD0 basal hulls seat upright trees/rocks downward; only real column centers
+
+
+
+
+
+
+
+can certify exposure against rendered 10 cm terrain. Population placement v2 has
+
+
+
+
+
+
+
+immutable metadata/source provenance; AVPM1–3 retain legacy center placement.
+
+
+
+
+
+
+
+159 population, 35 streaming plus exact fallback coverage, 31 smoke, five actual
+
+
+
+
+
+
+
+Unity API assemblies and changed Editor API compilation PASS. Fixed 14fb32 sample:
+
+
+
+
+
+
+
+12 accepted with zero measured basal gaps; four steep rocks explicitly rejected.
+
+
+
+
+
+
+
+This is bounded sampling, not proof for every nonlinear pit. Main world/prototype/
+
+
+
+
+
+
+
+atlas files are unchanged. Native before/after views, Play collision/LOD continuity
+
+
+
+
+
+
+
+and startup costs remain open. No patch staged while coordinator hold is active.
+
+
+
+
+
+
+
+Evidence: [candidate](Docs/ExplorationEvidence/population-grounding-1/candidate-manifest.json).
+
+
+
+
+
+
+
+Cliff-edge slide v2 remains outside Assets: 520 scenarios, 21 provider safeguards,
+
+
+
+
+
+
+
+127 movement, 25 voxel and five actual-API assemblies PASS. Actual-field .NET
+
+
+
+
+
+
+
+added steep-site cost is 0.014–0.029 ms/tick; ordinary sites unchanged. Metadata
+
+
+
+
+
+
+
+preprocessing totals 26.29 ms warm medians, worst redwood 9.74 ms median/13.14 ms
+
+
+
+
+
+
+
+maximum; loading is cooperative, not a strict 2 ms bound. Native gates remain.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Capacity follow-up checkpoint (2026-10-27 09:22UTC): NOT INSTALLED. Candidate
+
+
+
+
+
+
+
+fixes stationary memory-release wakeup and surplus visible detail;19 far / 10 contact /
+
+
+
+
+
+
+
+30 progressive / 19 lifecycle / 5 API checks source-matched PASS. Shipping caps unchanged.
+
+
+
+
+
+
+
+Only the separate small test fixture uses10MiB. Coordinator maintenance/install/
+
+
+
+
+
+
+
+native hold remains; no manifest queued or Unity launch. Native32M/40M vegetation
+
+
+
+
+
+
+
+fixture API-compiled only. CPU preflight:40M promotes 388→606 trees to 3D meshes at same
+
+
+
+
+
+
+
+placements/shared mesh bytes,25% more batch triangles, no convincing startup gain.
+
+
+
+
+
+
+
+Default32M unchanged pending visible/GPU-cost evidence. See STARTUP_LOD_PROGRESS.
+
+
+
+
+
+
+
+Both subagents hit usage interruption; parent reconciled saved evidence without
+
+
+
+
+
+
+
+relabeling earlier runs. No account reset/purchase or world/atlas regeneration.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Movement slope patch movement-slope-1 LIVE (2026-10-27 UTC):2 runtime files
+
+
+
+
+
+
+
+hash-verified in main; native Editor compiled/reloaded without C#/shader errors.
+
+
+
+
+
+
+
+Walkability uses continuous underlying gradients while feet retain exact10cm
+
+
+
+
+
+
+
+voxel contact. Reproduced49.72-degree slope stalled after0.78–0.80m/3s; fixed
+
+
+
+
+
+
+
+12m travel at15–240Hz with unchanged speeds and overlimit rejection.127movement,
+
+
+
+
+
+
+
+25voxel,31smoke and5installedAPI checks pass. Evidence in
+
+
+
+
+
+
+
+Docs/ExplorationEvidence/movement-slope-1. Interactive feel/native trajectories,
+
+
+
+
+
+
+
+flat-cliff automatic slide and steep-descent camera jumps remain open.
+
+
+
+
+
+
+
+Grounding audit is active: actual basal shape confirms downhill gaps; cached
+
+
+
+
+
+
+
+shape-aware seating candidate is not installed. Preserve other chat's aerial,
+
+
+
+
+
+
+
+capacity and budget ownership; no concurrent native/GPU fixtures.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Aerial follow-up `aerial-lod-1` LIVE (2026-10-27~07:17UTC): pitch/roll-aware
+
+
+
+
+
+
+
+terrain visibility fixes false rear32-column classification (356,400 raycases,
+
+
+
+
+
+
+
+zero misses vs35,124 legacy). Both forest paths replace the46° overhead switch
+
+
+
+
+
+
+
+with projected side views and76–88° stable transition. Same atlas/draw counts;
+
+
+
+
+
+
+
+near-overhead stippling/crown-depth approximation remains. Native DX12/3080Ti
+
+
+
+
+
+
+
+64views/6passesPASS, CPU/GPU silhouette within1pixel, depth/normal0 mismatch;
+
+
+
+
+
+
+
+main compile/reload and native mesh regression pass. Scene Exploration.unity
+
+
+
+
+
+
+
+ready for user-controlled Play. Evidence and tradeoffs in STARTUP_LOD_PROGRESS.
+
+
+
+
+
+
+
+Capacity-release retry audit still active; budgets have not been increased.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Startup/LOD patch `startup-lod-1` LIVE (2026-10-27 UTC): four runtime sources
+
+
+
+
+
+
+
+installed by idle-only hook, native Editor compile/reload successful. Coarse-first
+
+
+
+
+
+
+
+coverage then8→32→64→128→256 visible refinement,32m urgent contact and2:1 outer
+
+
+
+
+
+
+
+contact/far fairness, bounded far payload1.978GiBsteady/2.456GiBtransition plus
+
+
+
+
+
+
+
+existing contact/scratch/overhead. Vegetation snapshot scheduling/fallback
+
+
+
+
+
+
+
+reservation/compact arrays retained: actual-world CPU harness26,579→1,033
+
+
+
+
+
+
+
+scheduling iterations,405→11,296 submitted eligible trees,109.77→14.98MiB matrix
+
+
+
+
+
+
+
+payload; not native FPS/Start timing. Combined30progressive/19lifecycle/31smoke/
+
+
+
+
+
+
+
+31streaming+exactcoverage and5API checks pass. Native one-tile LOD rates and
+
+
+
+
+
+
+
+tradeoffs: [STARTUP_LOD_PROGRESS.md](Docs/STARTUP_LOD_PROGRESS.md).
+
+
+
+
+
+
+
+Aerial screenshot follow-up is installed as aerial-lod-1 above; the measured
+
+
+
+
+
+
+
+startup improvement below retains its separate source identity.
+
+
+
+
+
+
+
+No new workers/cache/packages, world-source or10cm matter changes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Quality patch6 LIVE (2026-10-27 UTC):20 native-tested sources hash-verified in
+
+
+
+
+
+
+
+main and main Editor compiled. Wind/F1 strength, shared deformed passes and motion
+
+
+
+
+
+
+
+history,2m culling padding, opaque distant leaves with6% close-eye fade and stable
+
+
+
+
+
+
+
+surface coverage are integrated. Native wind/material/real-tree shade fixtures
+
+
+
+
+
+
+
+and main native mesh regressions pass;31 bootstrap/31 streaming/27 shader checks
+
+
+
+
+
+
+
+and5 installed-API runtime assemblies pass. No driver/OS or world sample changes.
+
+
+
+
+
+
+
+Actual temporal-history quality/long-flight FPS remain open. Missing mid-distance
+
+
+
+
+
+
+
+vegetation was reproduced as32M budget exhaustion; other chat's fallback and
+
+
+
+
+
+
+
+publication fix is now installed as startup-lod-1 above. See Docs/QualityPatches/patch-6.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Quality patch5 LIVE (2026-10-27 UTC):42 file hashes verified and main native
+
+
+
+
+
+
+
+DX12 Play ready on user world14fb32, NVIDIA DLAA active, no ground/world/forest
+
+
+
+
+
+
+
+shader errors. Material-wide transparency/transmission, Web24, AVPM4 exact IDs,
+
+
+
+
+
+
+
+atlasv3 and brighter hemisphere fill1.5/F1 Shadow fill are integrated. Native24
+
+
+
+
+
+
+
+material coverage/backlight cases, three real-tree sun/back/no-sun views, four
+
+
+
+
+
+
+
+terrain tiles, forest11 and native mesh oracle pass. CPU91 Core/55 material/73
+
+
+
+
+
+
+
+tree/40 authoring/144 population/31 bootstrap/31 streaming; merged34 terrain/19
+
+
+
+
+
+
+
+runtime/5 API checks pass. Other chat's parallelSampling:true and VoxelLodSurface
+
+
+
+
+
+
+
+optimization are preserved. Main72 contact tiles/24 pending at capture; no FPS
+
+
+
+
+
+
+
+claim. No driver/OS changes. Docs/QualityPatches/patch-5 contains evidence.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Terrain performance (2026-10-27 local): [measured report](Docs/WORLDGEN_PERFORMANCE_RESULTS.md).
+
+
+
+
+
+
+
+Retained byte enum comparison (removes sort boxing) and opt-in two-worker column
+
+
+
+
+
+
+
+sampling, one tile in flight, unchanged10cm geometry/appearance. Native candidate
+
+
+
+
+
+
+
+generation2.31x faster across eight representative tiles; spawn732→308ms.
+
+
+
+
+
+
+
+Windows .NET allocation reduction90.4%; this is not resident-RAM or whole-load
+
+
+
+
+
+
+
+speedup. Exact retained method matches legacy in120 actual-world builds;30 data,
+
+
+
+
+
+
+
+19 runtime,31 smoke and five official-API assemblies pass. GPU32-byte quads tested
+
+
+
+
+
+
+
+73.3% smaller payload and32 lit/depth/normal/shadow pass comparisons, but mixed
+
+
+
+
+
+
+
+draw speed and untested full integration: prototype only, ordinary renderer kept.
+
+
+
+
+
+
+
+Four-worker default/caches not added. Full-world FPS/travel timing remains open.
+
+
+
+
+
+
+
+Evidence freezes pre-material-patch5 sources; do not relabel those runs as patch5.
+
+
+
+
+
+
+
+Contact100m/1GiB shares one tile slot with far terrain; far publication unchanged.
+
+
+
+
+
+
+
+Current world starts14fb32. Earlier [research](Docs/WORLDGEN_SPEED_RESEARCH.md)
+
+
+
+
+
+
+
+is a proposal checkpoint superseded by these measurements for adoption priority.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Quality patch3 is live: cloudy sky, ACES/SMAA, longer tree/redwood/plant LOD ranges,32M vegetation budget,260m shadows and unlit color+normal/AO tree atlas with live URP shading. Native11 GPU checks (sun response included), native mesh oracle,4 redwood10cm tiles and main Play camera capture passed. Main user imported new world14fb32 independently; preserve its current samples. Main capture96 contact tiles/0 pending/935.5MiB, far queue496. Canopy shadows remain too dark; explicit ambient/leaf transmission is next. Patch4 DLAA/DLSS Quality passes native executed GPU context+pixel tests and is staged for idle-only integration. No drivers/system settings changed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Quality patches 1-2 are live (2026-10-26 America/Denver; evidence timestamps UTC).
+
+
+
+
+
+
+
+Patch 1 separates 10cm contact publication from the distant queue and extends its
+
+
+
+
+
+
+
+target radius to 100m, with 1GiB explicit admission and observable pending work.
+
+
+
+
+
+
+
+Patch 2 adds bounded deterministic surface-relief-v1 everywhere, shared by terrain,
+
+
+
+
+
+
+
+collision and habitat. This is procedural residual detail, not newly learned 5m
+
+
+
+
+
+
+
+source coverage. 34 terrain/19 streamer/31 bootstrap checks and 5 official API
+
+
+
+
+
+
+
+assemblies pass. Main native DX12 Play confirms the new source, no shader errors,
+
+
+
+
+
+
+
+and 3 then 22 contact tiles publishing while the far queue remains. Full 100m
+
+
+
+
+
+
+
+residency after travel, sustained FPS and visual LOD acceptance remain pending.
+
+
+
+
+
+
+
+Source hashes/captures: Docs/QualityPatches/patch-2. No new diffusion job was
+
+
+
+
+
+
+
+started by this work. Further work uses no mouse/keyboard automation. Idle-only
+
+
+
+
+
+
+
+Editor patch queue and current-session captures are installed; no Play restart.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Azgaar output inspection (2026-10-26 local): retry PID3684 has a console whose
+
+
+
+
+
+
+
+buffer shows dependency checks then `The term 'Get-FileHash' is not recognized`.
+
+
+
+
+
+
+
+Bake never started. Launcher now hashes statistics with .NET SHA256 (actual
+
+
+
+
+
+
+
+pinned digest matches) and sets PYTHONUTF8=1 for Unicode Azgaar exports. Script
+
+
+
+
+
+
+
+parse and integrity160 assets pass. Full preparation retry remains pending;
+
+
+
+
+
+
+
+no generation was resumed by the inspection/fix.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Azgaar launcher follow-up (2026-10-26 local): user selected Full JSON but saw no
+
+
+
+
+
+
+
+PowerShell window. Editor logged launch and PID22416 existed with no main window
+
+
+
+
+
+
+
+or generation child at inspection. PrepareAzgaar now uses shell execution with
+
+
+
+
+
+
+
+Normal window style to avoid inheriting the Editor's hidden console; logging no
+
+
+
+
+
+
+
+longer implies bake success. Project integrity passes160 assets. Native menu
+
+
+
+
+
+
+
+retry/window visibility remains unverified. Setup checker fails its older
+
+
+
+
+
+
+
+AVPM0002 assertion (current pack uses newer format); no terrain bake was started
+
+
+
+
+
+
+
+by this fix, no world data changed, and the old process was left untouched.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Redwoods report (2026-10-26 local): user saw coarse ground after long flight and
+
+
+
+
+
+
+
+~2min wait. Source audit confirms only5.115km square bundled decoded coverage;
+
+
+
+
+
+
+
+voxel mesh detail follows the observer worldwide, source generation does not.
+
+
+
+
+
+
+
+Also identified whole-plan publication blocking newly keyed near tiles behind
+
+
+
+
+
+
+
+far work. See TODO WV03. No code/import/Play interruption for this diagnosis.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Main integration verified (2026-10-27 UTC): all88 native-tested gameplay/shader/
+
+
+
+
+
+
+
+assembly sources match main. Unity6000.3.27f1 DX12 was reopened after preserving
+
+
+
+
+
+
+
+scene backups in Assets/_Recovery. Fresh Play completed loading and visibly
+
+
+
+
+
+
+
+rendered terrain, vegetation and shadows; main game is left running. Main project
+
+
+
+
+
+
+
+integrity158 assets, documentation links and five official-API assemblies pass.
+
+
+
+
+
+
+
+See Docs/WorldVoxelEvidence/main-integrated-reopen.json. Sustained FPS and repeated
+
+
+
+
+
+
+
+Play/Stop memory remain open. Earlier support notes below predate integration.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Latest terrain checkpoint (2026-10-27 UTC): **whole-view voxel LOD terrain** is
+
+
+
+
+
+
+
+implemented and enabled. The22.4m overlay is superseded by25.6m dyadic tiles,
+
+
+
+
+
+
+
+10cm implicit material authority, projected-pixel detail, view-prioritized work,
+
+
+
+
+
+
+
+URP frustum/shadow culling, exact-pigment merging and24-byte packed vertices.
+
+
+
+
+
+
+
+Work was isolated in sibling AshenVoxel-WorldVoxels, then hash-checked into main.
+
+
+
+
+
+
+
+26 data +16 runtime +31 bootstrap checks pass. Actual full Exploration DX12 Play
+
+
+
+
+
+
+
+completed three fixed views,512 voxel tiles, turn/rebase and native mesh checks.
+
+
+
+
+
+
+
+Initial concurrent native runs AND the main Editor exhausted memory in the old
+
+
+
+
+
+
+
+upload path; evidence is preserved. Packed storage/reusable buffers were tested
+
+
+
+
+
+
+
+subsequently with one Editor. This remains a heavy quality profile:2.31–2.88GB
+
+
+
+
+
+
+
+terrain vertex/index payload and a79.2ms worst observed build/upload slice.
+
+
+
+
+
+
+
+No stable-FPS or long-flight memory acceptance. See [world voxel LODs](Docs/WORLD_VOXEL_LODS.md)
+
+
+
+
+
+
+
+and [final native evidence](Docs/WorldVoxelEvidence/native-final/validation.json).
+
+
+
+
+
+
+
+GPU diffusion/bake/service state remains unchanged; older checkpoints follow.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Crash diagnosis (2026-10-26 local): Windows event2004 confirms low system virtual
+
+
+
+
+
+
+
+memory at22:08:13. Main AshenVoxel Editor used19.5GiB commit and remained alive;
+
+
+
+
+
+
+
+the separate WorldVoxels Editor crashed in Mono/UIElements initialization.
+
+
+
+
+
+
+
+Pressure persisted during inspection. No gameplay leak/VRAM cause established;
+
+
+
+
+
+
+
+no processes/settings changed. See Docs/CRASH_DIAGNOSIS_2026-10-26.md.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Main-project support check (2026-10-26 America/Denver): existing Unity6000.3.27f1
+
+
+
+
+
+
+
+DX12 Editor log records successful compilation followed by Play reload, with no
+
+
+
+
+
+
+
+subsequent compiler errors/exceptions in the inspected snapshot. Five runtime
+
+
+
+
+
+
+
+assemblies also compile against installed Unity APIs. No gameplay fixes needed;
+
+
+
+
+
+
+
+user session was left untouched. Screenshot capture timed out, so rendered output,
+
+
+
+
+
+
+
+loading completion and a fresh Stop/Play cycle remain unverified by this check.
+
+
+
+
+
+
+
+Evidence/source hashes: `Docs/MainProjectPlayabilityReview/inspection.json`.
+
+
+
+
+
+
+
+Terrain development continues separately in AshenVoxel-WorldVoxels; no patch was
+
+
+
+
+
+
+
+copied from it. Historical release evidence remains stale for current sources.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Latest forest follow-up: forests now automatically follow the full terrain view,
+
+
+
+
+
+
+
+including the optional coarse horizon up to100 km; the old independent30 km cap
+
+
+
+
+
+
+
+no longer applies by default. Far stands use compute frustum/range culling,
+
+
+
+
+
+
+
+GPU append/indirect counts and one procedural draw on supported devices, with
+
+
+
+
+
+
+
+CPU-instanced fallback. Habitat planning remains on the bounded immutable CPU
+
+
+
+
+
+
+
+worker. This uses Unity compute, not CUDA/Python or the separate model setup.
+
+
+
+
+
+
+
+Native ten-check GPU suites passed on RTX3080 Ti in D3D11 and D3D12; the actual
+
+
+
+
+
+
+
+D3D11 Play view published100 km coverage, with a stand at96.83 km. Streaming31,
+
+
+
+
+
+
+
+bootstrap31 and movement77 checks passed. See [GPU forest review](Docs/ForestGpuReview/README.md).
+
+
+
+
+
+
+
+GPU/FPS distributions, overdraw and standalone acceptance remain open. Older
+
+
+
+
+
+
+
+LOD/release reports retain their original source identities.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Latest terrain work: requested near10cm voxel conversion is implemented and
+
+
+
+
+
+
+
+enabled for next Play through EnableVoxelTerrain. It uses existing material
+
+
+
+
+
+
+
+layers/pigment in bounded VoxelWorld pages, quantized collision, one worker and
+
+
+
+
+
+
+
+49 pages; distant meshes remain. No digging/persistence/terrain physics added.
+
+
+
+
+
+
+
+25 conversion +11 runtime/headless checks and actual Unity API compilation pass.
+
+
+
+
+
+
+
+Isolated native D3D11 fixture rendered49 pages and passed shader/mesh checks;
+
+
+
+
+
+
+
+full Exploration motion/performance remain unverified for this terrain change.
+
+
+
+
+
+
+
+See `Docs/VOXEL_TERRAIN.md` for exact evidence and preserved first-run timeout.
+
+
+
+
+
+
+
+GPU preparation finished successfully (CUDA tensor/pipeline import), but the
+
+
+
+
+
+
+
+original model bake/service remain stopped. Other chat's forest work is retained.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GPU follow-up: user authorized background CUDA environment preparation only.
+
+
+
+
+
+
+
+Separate `.terrain-cache/python-gpu` setup was launched; inspect
+
+
+
+
+
+
+
+`.terrain-cache/gpu-setup-status.json` for completion/failure, not this launch
+
+
+
+
+
+
+
+note. Terrain generation remains stopped and active world assets stay unchanged.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local Windows generation update (2026-10-26, America/Denver): Python3.11 CPU
+
+
+
+
+
+
+
+inference environment and checksum-verified original model are installed in
+
+
+
+
+
+
+
+`.terrain-cache`. User stopped the real bake after the coarse stage and asked
+
+
+
+
+
+
+
+to import completed data. `Assets/AshenVoxel/Exploration/LocalGenerationPreview`
+
+
+
+
+
+
+
+contains a separate **PARTIAL, coarse-only** local world; it is not activated.
+
+
+
+
+
+
+
+Original playable sample files are byte-identical to their backup. No local
+
+
+
+
+
+
+
+service is running; remote diffusion still needs a completed matching detailed
+
+
+
+
+
+
+
+starter. See `Docs/LOCAL_GENERATION_SETUP.md`. Other chat is editing this project.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Current-state checkpoint: **2026-10-27 UTC**. This file is intentionally short.
+
+
+
+
+
+
+
+Continue with [TODO.md](TODO.md), [full handoff](Docs/AI_HANDOFF.md),
+
+
+
+
+
+
+
+[file map](Docs/FILE_MAP.md) and [AGENTS.md](AGENTS.md).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## User direction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Latest local gameplay revision:** fern/leaf contact and approximately 10–20 cm
+
+
+
+
+
+
+
+peripheral wood slow horizontal walking according to intersected 10 cm voxel
+
+
+
+
+
+
+
+volume. Sticks count four times leaves; slowdown caps at35%. Trunks/thick branches
+
+
+
+
+
+
+
+and rocks block. Appearance, Core generation and Format2 saves are unchanged;
+
+
+
+
+
+
+
+AVPM0003 adds independent interaction spans. 10,000 warmed .NET body queries
+
+
+
+
+
+
+
+allocate zero managed bytes. Far trees use actual-prototype multi-view impostors
+
+
+
+
+
+
+
+and a bounded approximate stand horizon toward30 km. Terrain tessellation is
+
+
+
+
+
+
+
+improved; learned source resolution is unchanged. Original LODs remain selectable.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Native Unity now ran for this local revision** in an isolated Windows copy:
+
+
+
+
+
+
+
+6000.3.27f1/D3D11/RTX3080 Ti; actual atlas, fixed camera renders and native mesh
+
+
+
+
+
+
+
+regressions passed. This is not a test of the old ZIP or the user's DX12 session,
+
+
+
+
+
+
+
+interactive movement feel, standalone builds or FPS/GPU budgets. See
+
+
+
+
+
+
+
+[current native review](Docs/NativeLODReview/README.md). Movement77/population136/
+
+
+
+
+
+
+
+streaming29/bootstrap31 and tree73/authoring40 checks passed. Historical release
+
+
+
+
+
+
+
+freshness/API reports are stale for modified files and must not be relabeled.
+
+
+
+
+
+
+
+Concurrent local-generation/GPU setup notes above remain separate and intact.
+
+
+
+
+
+
+
+Another chat subsequently began voxel-terrain additions and edits to shared
+
+
+
+
+
+
+
+Bootstrap/Settings/WorldExplorerIntegration. The native evidence explicitly
+
+
+
+
+
+
+
+excludes those later sources; reimport/integration checks are required after
+
+
+
+
+
+
+
+that work settles. Preserve its work and the tested isolated snapshot.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Build a strong foundation for a beautiful3D destructible voxel world for future
+
+
+
+
+
+
+
+boss fights: **0.1 m cubic matter**, coherent materials and color variation,
+
+
+
+
+
+
+
+Noita-inspired interactions, Dark Souls mood, and Avroid's newest Reddit posts
+
+
+
+
+
+
+
+and author comments as the primary visual reference. Prefer reliable recent
+
+
+
+
+
+
+
+Unity/addon compatibility. Birch, oak, pine and realistic-height redwoods share
+
+
+
+
+
+
+
+one adaptive procedural generator. Ground plants share a limited material palette;
+
+
+
+
+
+
+
+rocks need distinctive nonround silhouettes and restrained color variation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The latest delivered milestone is a **basic first-person walk/fly exploration
+
+
+
+
+
+
+
+scene**, no break/place, passable soft foliage, solid wood/rocks, smooth terrain
+
+
+
+
+
+
+
+movement, separate forest habitats and young/dense versus mature/open stands.
+
+
+
+
+
+
+
+Use original InfiniteDiffusion terrain plus importable Azgaar Full JSON, roughly
+
+
+
+
+
+
+
+300×150 km at Minecraft scale5 horizontal mapping, kilometre-high relief,
+
+
+
+
+
+
+
+20–40 km terrain views and optional coarse coverage farther away.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The latest discussion emphasized **submetre local beauty, retained small cliffs
+
+
+
+
+
+
+
+and complex terrain without severe LOD lag**. It was a performance question;
+
+
+
+
+
+
+
+the proposed improvements are TODOs, not completed features or a new measured
+
+
+
+
+
+
+
+performance result. The current task added handoff documentation only.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Exact delivered state
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- Unity **6000.3.27f1 /6.3 LTS**, URP **17.3.0**, Input System **1.17.0**.
+
+
+
+
+
+
+
+- Default scene: `Assets/Scenes/Exploration.unity`. First-open Editor setup and
+
+
+
+
+
+
+
+  repair/build menus: **Ashen Voxel → Exploration**.
+
+
+
+
+
+
+
+- Whole authored map: **299,520×149,760 m**. Actual pretrained **1280 m coarse
+
+
+
+
+
+
+
+  data everywhere**, plus **5 m full-pipeline decoded data across a5,115 m square**
+
+
+
+
+
+
+
+  near spawn. Optional original-model service decodes ahead. Live is off by default;
+
+
+
+
+
+
+
+  initial Play needs neither Python nor model downloads.
+
+
+
+
+
+
+
+- **Source sampling ≠ mesh spacing ≠ matter resolution.** Near terrain is a
+
+
+
+
+
+
+
+  smooth0.5–1 m height proxy. Trees/plants/rocks and hard prop collision retain
+
+
+
+
+
+
+
+  actual0.1 m cells. No continuously streamed destructible terrain in Exploration.
+
+
+
+
+
+
+
+-99 shared prototypes /412 LODs:16 trees,23 plants,60 rocks; five forest habitats
+
+
+
+
+
+
+
+  and both age stages occur within13 km of spawn. Mature redwoods are74–75 m.
+
+
+
+
+
+
+
+- Default view30 km, trees1.4 km, plants32 m, rocks220 m, shadows180 m;
+
+
+
+
+
+
+
+  terrain512 tiles, vegetation8M triangle budget. Full redwood detail only12 m.
+
+
+
+
+
+
+
+- Movement shares the terrain authority; hard spans block wood/rock, soft tissue
+
+
+
+
+
+
+
+  passes. Basic flight collides; N explicitly enables inspection noclip.
+
+
+
+
+
+
+
+- Local live patches use immutable snapshots and a512 m player protection radius
+
+
+
+
+
+
+
+  plus margins. Identity/coordinates must match. CPU inference can lag travel.
+
+
+
+
+
+
+
+- Separate `ForestArena.unity` retains granular gravity, deformation, boss slam
+
+
+
+
+
+
+
+  harness and Format2 saves. Falling rigid trees, combat and full fluids are absent.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Evidence boundary
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+For the **earlier frozen release**, native Unity import, HLSL and play were not
+
+
+
+
+
+
+
+executed. The local revision has the limited native evidence above; Windows
+
+
+
+
+
+
+
+launcher and FPS/GPU acceptance remain open. All60 original project
+
+
+
+
+
+
+
+C# files compiled against actual pinned Unity/URP APIs; headless tests cover
+
+
+
+
+
+
+
+startup31, movement62, streaming24, population130, field28, explorer86 and live39
+
+
+
+
+
+
+
+checks, plus static setup/shader checks. Simulated frames are not native timings.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The newest requested Avroid video/media was blocked. Text/comment research is
+
+
+
+
+
+
+
+documented; no frame-based color match is verified. Galleries are offline renders
+
+
+
+
+
+
+
+of actual data and are labelled accordingly.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Release and quick resume
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Delivered project: [81 MB ZIP](https://drive.google.com/file/d/1znskxGlWTSiRn9cKx_XBa0Rn32DVcj1Q/view?usp=drivesdk).
+
+
+
+
+
+
+
+SHA256 `bfaa982d0c522324a4c3e0f12890833990c70548344d0b511e38caee704a8207`.
+
+
+
+
+
+
+
+That frozen ZIP predates this documentation overlay. See [release records](Docs/releases.json).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Current published terrain view ID:
+
+
+
+
+
+
+
+`779b530a6ba6923d62f1c8e99a603a2d9d979dafaa1015670efd9826284757f4`.
+
+
+
+
+
+
+
+Default spawn X85760 / Z15330 m, bare ground135.905899 m.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Project workspace was `/workspace/AshenVoxel`, **not a Git repository** at this
+
+
+
+
+
+
+
+checkpoint. External model/editor/reference caches are optional recovery aids,
+
+
+
+
+
+
+
+not shipped dependencies. Task-owned localhost8787 inference service was stopped
+
+
+
+
+
+
+
+after verification. A chat UUID alone cannot restore another conversation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Before editing, run the three quick integrity commands in the handoff. Preserve
+
+
+
+
+
+
+
+metas, pinned versions, physical units, source identities and honest test scope.
+
+
+
+
+
+
+
+First priority is actual native acceptance/profiling, not speculative FPS claims.
+
+
+
+
+
+
+
+
+
+
+
+Coordinator content integration checkpoint15:53UTC: roots installed/default-off reachable Settings option, bees installed but runtime acceptance memory-blocked; finite branch native fall/impact/72-cell collection PASS in a separate demo, not Exploration destruction. Movement prepare.py edit approval remains pending. Original scene/settings/options restored and temporary test helpers retired with readable backups. Exact ledger and controls: Docs/CoordinatorEvidence/2026-10-27-content-release/README.md.
+
+
+
+Canonical rootmemorycandidate1 READY NOTINSTALLED: exact model11LOD0 packedview
+
+removes99,739,568B observedmanagedallocation, APIpass. Rootdefaultfalse preserved;
+
+serializedinstall/onenativetargetedretestpending. Evidence: Docs/QualityPatches/root-canonical-memory-1/README.md
+
+
+
+## Installed memory follow-up1
+
+
+
+root-canonical-memory-1 installed2026-10-27T16:01:35Z, native C#compile/reload
+
+PASS. Exact3sources/readablepreimages in install/installed.json. Root startup
+
+defaultfalse and originalscene/settingsasset/population remain unchanged.
+
+The one actual comparison proves identical buffers with99,739,568bytes less
+
+managedallocation; native process/guard effect remains unverified until the
+
+coordinator's ONE changed-workload copied-profile pass with root opt-intrue.
+
+Earlier failed guard and first-root installation sources remain separate records.
+
+
+
+## Changed-workload native retest — NOT RUN
+
+
+
+Preflight2026-10-27T16:06:53UTC stopped before arm/Play: available commit
+
+3,647,791,104bytes (3.397GiB), below the unchanged3.5GiB gate. Launched=false.
+
+No retry, threshold change or extra test lane. This does not measure the installed
+
+memory fix's native effect. The first shared pass's1.5GiB growth abort remains
+
+separate historical evidence. Root startup default remainsfalse; native visual,
+
+collision/lifecycle and full-profile memory/FPS acceptance remain open.
+
+
+
+Current state: grounded-roots-1 gameplay code, safe-default-v2 and canonical
+
+memory-1 installed; native compilation/reload passed. One actual .NET canonical
+
+comparison removed99,739,568bytes of preparation allocation with exact output.
+
+Coordinator owns final helper cleanup/original-scene restoration. No source
+
+changes, test retry, new branch or research follows this checkpoint.
+

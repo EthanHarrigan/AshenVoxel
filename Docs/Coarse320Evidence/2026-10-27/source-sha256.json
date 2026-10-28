@@ -1,0 +1,16 @@
+{
+  "scope": "Final offline tools; exact generation sources copied under executed-source",
+  "files": {
+    "Tools\\ExplorationBake\\coarse_overview.py": "2374b13b4100d17c9c3676fe2a06d72858fa8d5624cfa89c05ebd4497dc16a68",
+    "Tools\\ExplorationBake\\bake_coarse_overview.py": "8d8c6fcfd5767a3c68f95c4c8fc76777d13b64f097cc90c6b3639e0132443947",
+    "Tools\\ExplorationBake\\check_coarse_overview.py": "9441d71ce80bdfbf2e1750ed6d847fdbae3eee9d7f90637ac361ea07ad5e0c3a",
+    "Tools\\ExplorationBake\\check_overview_consumer.py": "539af12824395c7e64b5c532601943e8f6a95972443e8e8a9b8b73580d8f0967",
+    "Tools\\ExplorationBake\\OverviewConsumerCheck.cs": "407664592dc17da5075ba571cf76e468752a35a606363c7f9197d49b942ce348",
+    "Tools\\ExplorationBake\\evaluate_coarse_overview.py": "6aa6d526d54a18f24eb1d43cdf24a1955cabb659c3d0248bcca6605f9618b7a5",
+    "Tools\\ExplorationBake\\preview_coarse_overview.py": "9ea835f4ea44e671557162ba493024905542bd63a335fed038d1fb2821dedee0",
+    "Tools\\ExplorationBake\\package_coarse_overview.py": "8ddd5ad831d60aee43e4b2a3f5cb6038c29386b1c1926d10316f31d0df70ebe2",
+    "Tools\\ExplorationBake\\resume_coarse_overview.py": "bd6cb258a122074af5771dbbd384663b162785a8b1ce9dc852c18b43c191b5fc",
+    "Tools\\ExplorationBake\\probe_coarse_overview.py": "c9ff4b148ef0c929efcb27695038283aa8a7fe5f864811c309f85f0516d7db09",
+    "Tools\\ExplorationBake\\probe_overview_batch.py": "d9c51702a773e4b2c71c11143fabc0179f144855362d5b682526627399a4944b"
+  }
+}

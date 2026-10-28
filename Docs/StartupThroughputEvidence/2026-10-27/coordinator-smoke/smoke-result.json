@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-27T11:42:21.302042+00:00",
+  "status": "STOPPED_INVALID_PRIVATE_TELEMETRY_NOT_VISUAL_ACCEPTANCE",
+  "readyAt_seconds": 8.580645199999708,
+  "sample_count": 45,
+  "observed_privateBytes": "Unity Mono Process.PrivateMemorySize64 returned0; UI stopped at13.67s; native current-process replacement API-compiled only",
+  "native_current_python_private_bytes": 8519680,
+  "minimum_global_headroom_bytes": 3384672256,
+  "max_contact_bytes": 76739160,
+  "max_prototype_bytes": 436717216,
+  "originals": [
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Settings\\ExplorationSettings.asset",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\Scenes\\Exploration.unity",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Users\\ethan\\AppData\\LocalLow\\Ashen Voxel\\Ashen Voxel Exploration\\exploration-options.json",
+      "unchanged": true
+    }
+  ],
+  "original_scene_restored_in_UI": true,
+  "limitations": "No movement, slope visual, sustained FPS or full quality validation; timings include copied low-budget profile only."
+}

@@ -1,0 +1,69 @@
+{
+  "kind": "Analytic arithmetic, not performance measurements",
+  "cell_m": 0.1,
+  "dense_payload_assumption_bytes_per_cell": {
+    "material": 1,
+    "tint": 4,
+    "temperature": 2,
+    "fuel": 1,
+    "wetness": 1
+  },
+  "dense_cubes": [
+    {
+      "side_m": 16,
+      "cells": 4096000,
+      "payload_MiB_at_9_bytes": 35.15625
+    },
+    {
+      "side_m": 32,
+      "cells": 32768000,
+      "payload_MiB_at_9_bytes": 281.25
+    },
+    {
+      "side_m": 64,
+      "cells": 262144000,
+      "payload_MiB_at_9_bytes": 2250.0
+    }
+  ],
+  "blast_spheres": [
+    {
+      "radius_m": 1,
+      "continuous_volume_cell_equivalent": 4188.790204786391,
+      "illustrative_inclusive_AABB_candidates": 9261
+    },
+    {
+      "radius_m": 2,
+      "continuous_volume_cell_equivalent": 33510.32163829113,
+      "illustrative_inclusive_AABB_candidates": 68921
+    },
+    {
+      "radius_m": 5,
+      "continuous_volume_cell_equivalent": 523598.7755982988,
+      "illustrative_inclusive_AABB_candidates": 1030301
+    }
+  ],
+  "chunk": {
+    "side_cells": 16,
+    "cells": 4096,
+    "active_bitmap_bytes": 512,
+    "material_bytes": 4096,
+    "optional_tint_bytes": 16384
+  },
+  "auxiliary_field_32m": [
+    {
+      "cell_m": 0.1,
+      "sites": 32768000,
+      "five_float_channels_MiB": 625.0
+    },
+    {
+      "cell_m": 0.4,
+      "sites": 512000,
+      "five_float_channels_MiB": 9.765625
+    },
+    {
+      "cell_m": 0.8,
+      "sites": 64000,
+      "five_float_channels_MiB": 1.220703125
+    }
+  ]
+}

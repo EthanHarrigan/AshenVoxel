@@ -1,0 +1,261 @@
+{
+  "name": "plant-cushion",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    52,
+    6,
+    13
+  ],
+  "occupied_cells": 870,
+  "bounds_min_m": [
+    0.2,
+    0,
+    0.1
+  ],
+  "bounds_max_m": [
+    4.5,
+    0.4,
+    1.2000000000000002
+  ],
+  "material_counts": {
+    "Gravel": 726,
+    "Leaves": 144
+  },
+  "scene": {
+    "category": "plant",
+    "label": "Cushion",
+    "seeds": [
+      714103,
+      271828,
+      161803
+    ],
+    "specimens": [
+      {
+        "name": "Cushion",
+        "seed": 714103,
+        "profile": {
+          "Kind": 9,
+          "HeightMeters": 0.18,
+          "RadiusMeters": 0.42,
+          "Density": 0.88,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 9,
+          "PaletteSteps": 4,
+          "FoliageColor": 4286548055,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290884244
+        },
+        "result": {
+          "Kind": 9,
+          "Seed": 714103,
+          "RequestedMinCell": {
+            "x": 56,
+            "y": 4,
+            "z": 56
+          },
+          "RequestedMaxCell": {
+            "x": 72,
+            "y": 10,
+            "z": 72
+          },
+          "MinCell": {
+            "x": 61,
+            "y": 4,
+            "z": 61
+          },
+          "MaxCell": {
+            "x": 67,
+            "y": 5,
+            "z": 67
+          },
+          "WrittenCells": 48,
+          "Candidates": 494,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 48
+          }
+        },
+        "actual_dimensions_m": [
+          0.7000000000000001,
+          0.2,
+          0.7000000000000001
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 48,
+        "material_counts": {
+          "Leaves": 48
+        },
+        "palette": {
+          "Leaves": [
+            4285297738,
+            4286153043,
+            4286943067,
+            4287798372
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -57,
+          "y": -2,
+          "z": -58
+        }
+      },
+      {
+        "name": "Cushion",
+        "seed": 271828,
+        "profile": {
+          "Kind": 9,
+          "HeightMeters": 0.18,
+          "RadiusMeters": 0.42,
+          "Density": 0.88,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 9,
+          "PaletteSteps": 4,
+          "FoliageColor": 4286548055,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290884244
+        },
+        "result": {
+          "Kind": 9,
+          "Seed": 271828,
+          "RequestedMinCell": {
+            "x": 56,
+            "y": 4,
+            "z": 56
+          },
+          "RequestedMaxCell": {
+            "x": 72,
+            "y": 10,
+            "z": 72
+          },
+          "MinCell": {
+            "x": 61,
+            "y": 4,
+            "z": 61
+          },
+          "MaxCell": {
+            "x": 67,
+            "y": 5,
+            "z": 67
+          },
+          "WrittenCells": 49,
+          "Candidates": 504,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 49
+          }
+        },
+        "actual_dimensions_m": [
+          0.7000000000000001,
+          0.2,
+          0.7000000000000001
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 49,
+        "material_counts": {
+          "Leaves": 49
+        },
+        "palette": {
+          "Leaves": [
+            4285297738,
+            4286153043,
+            4286943067,
+            4287798372
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -41,
+          "y": -2,
+          "z": -58
+        }
+      },
+      {
+        "name": "Cushion",
+        "seed": 161803,
+        "profile": {
+          "Kind": 9,
+          "HeightMeters": 0.18,
+          "RadiusMeters": 0.42,
+          "Density": 0.88,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 9,
+          "PaletteSteps": 4,
+          "FoliageColor": 4286548055,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290884244
+        },
+        "result": {
+          "Kind": 9,
+          "Seed": 161803,
+          "RequestedMinCell": {
+            "x": 56,
+            "y": 4,
+            "z": 56
+          },
+          "RequestedMaxCell": {
+            "x": 72,
+            "y": 10,
+            "z": 72
+          },
+          "MinCell": {
+            "x": 61,
+            "y": 4,
+            "z": 61
+          },
+          "MaxCell": {
+            "x": 67,
+            "y": 5,
+            "z": 67
+          },
+          "WrittenCells": 47,
+          "Candidates": 504,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 47
+          }
+        },
+        "actual_dimensions_m": [
+          0.7000000000000001,
+          0.2,
+          0.7000000000000001
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 47,
+        "material_counts": {
+          "Leaves": 47
+        },
+        "palette": {
+          "Leaves": [
+            4285297738,
+            4286153043,
+            4286943067,
+            4287798372
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -25,
+          "y": -2,
+          "z": -58
+        }
+      }
+    ],
+    "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+  },
+  "generation_version": {
+    "plant": 1,
+    "rock": 2,
+    "catalog": 3
+  },
+  "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "grounded-roots-safe-default-1",
+  "utc": "2026-10-27T15:48:49.711197+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationRoots.cs",
+      "source": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\safe-default\\VegetationRoots.cs",
+      "before": "d1b3f78f5a7f4bfec2f6d2d770da27dfa60e7a9b602cdf0521a7e156d5925244",
+      "sha256": "228d9b5fc4124248e712e003d86bd63be1193f662b078ccd3eeea1a7efd8af6e"
+    }
+  ],
+  "reason": "Consolidated native copied-profile Play aborted at1.5GiB private-growthguard before rootscenarios. No thresholdraise, no rootretry. Opt-in until startupmemoryfix/nativeacceptance. Existing world/vegetation defaults and original3unchanged."
+}

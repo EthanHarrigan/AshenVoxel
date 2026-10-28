@@ -1,0 +1,11 @@
+{
+    "status": "PASS",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "leaf_changed_pixels": 4085,
+    "wood_changed_pixels": 3972,
+    "stone_changed_pixels": 0,
+    "root_changed_pixels": 0,
+    "frozen_changed_pixels": 0,
+    "compiled_passes": 5,
+    "limitation": "Motion pass compiled; actual DLAA/DLSS history/velocity pixels and play feel require scene acceptance."
+}

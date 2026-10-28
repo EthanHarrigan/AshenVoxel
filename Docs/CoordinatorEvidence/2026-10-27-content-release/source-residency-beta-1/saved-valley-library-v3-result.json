@@ -1,0 +1,30 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Action completed."
+    }
+  ],
+  "structuredContent": {
+    "operation": "replace_library_file",
+    "status": "succeeded",
+    "path": "/AshenVoxel-valley-saved-spawn-preview.png",
+    "file_id": "file_00000000c80081fdbf9cc10ef7c5f5ba",
+    "library_file_id": "libfile_a5a648d43fa08191b3b433f8f79a0e01",
+    "file_name": "AshenVoxel-valley-saved-spawn-preview.png",
+    "current_version_number": 3,
+    "restored_from_version_number": null,
+    "xattrs": [
+      {
+        "name": "user.library-file-version",
+        "value": "3"
+      }
+    ],
+    "directory_id": "libdir_2450bbb861c08191b3c9bfe08d26a5de",
+    "mime_type": "image/png",
+    "library_artifact_type": "image",
+    "file_size_bytes": 3175880,
+    "external_connectors_accessed": false
+  },
+  "isError": false
+}

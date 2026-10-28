@@ -1,0 +1,11 @@
+{
+  "id": "flight-hysteresis-1",
+  "utc": "2026-10-27T12:57:16.311250+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "eed51be61cb87f04752b0c8fc438f176539b3f31c686cf81a0d1a07c23097329",
+      "sha256": "464c5661cfd1f91624e77aeb68f1119d66ac439f23a54e78f8b31c5b0e2132b9"
+    }
+  ]
+}

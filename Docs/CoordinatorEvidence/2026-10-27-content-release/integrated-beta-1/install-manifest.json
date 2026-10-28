@@ -1,0 +1,41 @@
+{
+  "id": "integrated-beta-1",
+  "utc": "2026-10-27T17:20:13.905647+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+      "before": "fb6bfe496d49bf002feae191b56343808a2d65d364bf77047b96a351f999e8b3",
+      "sha256": "b3e6bb102d12acd49840524663c901a702aa540aa416cbda1a53b146b2121699"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "before": "473df2490ac1ef510f1ea1b40501ddb38dbf2da0247c50bb702a119a79dc0eb7",
+      "sha256": "3a8ba5d7971ad2325616494e7c7e2d383912b157e2a957eab977e582c7cf4399"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "before": "5d7e2903cabc71af4618582951fa47fa35897c00c6ce91bd13db14831093c321",
+      "sha256": "a5176bba58f079150547782ca484fb3758f82cae6924e3753ea460eb2ced771c"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "464c5661cfd1f91624e77aeb68f1119d66ac439f23a54e78f8b31c5b0e2132b9",
+      "sha256": "dd09660ddd74610ba1ae5e1acf9a46144e601ea74bd1c3e54fa06dd3f56e3252"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBetaMatter.cs",
+      "before": "",
+      "sha256": "13089bf2ade4107d471999300f48b7bc5d809a04752aebb7f1398bbbdc67277b"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBetaMatter.cs.meta",
+      "before": "",
+      "sha256": "5280520e6d38fee65b402db97dc8f419cede6fbb8cdb89ea64f57298d5ff6e25"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/AshenVoxel.Exploration.asmdef",
+      "before": "f3413f05585bfe9b49f0c371671d3cab8fb8c349e1a0a2811b24b13ef6a048b0",
+      "sha256": "e1e812cdc6207a3568eea552b85713336c070d2a70eb077960457a1076dc24a2"
+    }
+  ]
+}

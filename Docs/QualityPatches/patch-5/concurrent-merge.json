@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-27T06:17:45.930662+00:00",
+  "scope": "Preserve separately validated CPU sampler optimization; native6 was before this merge, integrated CPU/API checks follow",
+  "files": {
+    "Assets/AshenVoxel/WorldScaleData/VoxelLodSurface.cs": {
+      "native_tested": "7594f012e2a491f2e1f7869b0a7186f4cb33dc3db38ac48eb1a795939dc6b672",
+      "other_chat_main": "e63bae6ad045b11103783061ee132eb7d43ba7cb0f798df851f67eb1e0155ae3",
+      "merged": "e63bae6ad045b11103783061ee132eb7d43ba7cb0f798df851f67eb1e0155ae3"
+    },
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs": {
+      "native_tested": "129557d2102174b0d47e64fe25e24da5af001f155107f55452a3dc315975af0c",
+      "other_chat_main": "baf39d1267fb01d4d9ccad012f9d20460bce2498cf3a5dda0892a58080893fd2",
+      "merged": "e471e662129bd5c102e7c1fc57e4b92429c8bf5d793d751815d6b72d8517a164"
+    }
+  }
+}

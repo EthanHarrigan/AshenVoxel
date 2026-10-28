@@ -1,0 +1,93 @@
+{
+  "source_set_stable_during_compile": true,
+  "changed_during_compile": [],
+  "generated_utc": "2026-10-26T23:03:19.650333+00:00",
+  "status": "PASS",
+  "scope": "Editor C#9/API compile against actual Unity unity-4.8 framework reference profile, official Editor modules and official bundled 3D URP template ScriptAssemblies; no nativeEditor/import/HLSLexecution. No DLLsource shims. Separate project assembly references follow asmdefs.",
+  "assemblies": [
+    {
+      "assembly": "AshenVoxel.Editor",
+      "exit_code": 0,
+      "status": "PASS",
+      "sources": {
+        "Assets/AshenVoxel/Editor/ProjectSetup.cs": "03ac1bb8ea591bf6b8d45b077512475fecf0c0858657ec6e54ccb18388b31e38",
+        "Assets/AshenVoxel/Editor/TreeAuthoringEditor.cs": "e50567a1c38609e07b28e658ca7c0978f34f31a6ce6a7d9da0d971b6129b3262"
+      },
+      "asmdef_references": [
+        "AshenVoxel.Core",
+        "AshenVoxel.Rendering",
+        "AshenVoxel.Runtime",
+        "Unity.RenderPipelines.Core.Runtime",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "AshenVoxel.Authoring"
+      ]
+    },
+    {
+      "assembly": "AshenVoxel.Exploration.Editor",
+      "exit_code": 0,
+      "status": "PASS",
+      "sources": {
+        "Assets/AshenVoxel/Exploration/Editor/ExplorationProjectSetup.cs": "e85d9f4efaf2bc11dcaefeb68eeb44af4447b48ad58490e6038f4ce304484220"
+      },
+      "asmdef_references": [
+        "AshenVoxel.Exploration",
+        "AshenVoxel.WorldScaleRuntime",
+        "AshenVoxel.WorldScaleData",
+        "AshenVoxel.Core",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.RenderPipelines.Core.Runtime"
+      ]
+    },
+    {
+      "assembly": "AshenVoxel.Rendering.Editor",
+      "exit_code": 0,
+      "status": "PASS",
+      "sources": {
+        "Assets/AshenVoxel/Rendering/Editor/MeshRegressionChecks.cs": "5262796ee57ad5fa306ad2fa91a08c200acd9bce49a723d19b1e2c57828c0b74",
+        "Assets/AshenVoxel/Rendering/Editor/MeshOracleChecks.cs": "2b2d9262532f71076dde4eee84393a830d523b7df4009b2525db389d64876994"
+      },
+      "asmdef_references": [
+        "AshenVoxel.Core",
+        "AshenVoxel.Rendering"
+      ]
+    },
+    {
+      "assembly": "AshenVoxel.WorldScaleEditor",
+      "exit_code": 0,
+      "status": "PASS",
+      "sources": {
+        "Assets/AshenVoxel/WorldScaleRuntime/Editor/GroundCoverWorkshopSetup.cs": "6072d43953d43eff2cce88332cd8aecd90447fd4236baadcd9b2f6905c5517bb",
+        "Assets/AshenVoxel/WorldScaleRuntime/Editor/WorldExplorerSetup.cs": "de2742adc4c0f290be562d6b72bccedc177e9dd5f2b91f3a16686a73acb36b73"
+      },
+      "asmdef_references": [
+        "AshenVoxel.WorldScaleRuntime"
+      ]
+    }
+  ],
+  "template_assembly_path": "/workspace/exploration-native-check/template-refs/Editor/Data/Resources/PackageManager/ProjectTemplates/libcache/com.unity.template.3d-cross-platform-17.0.14/ScriptAssemblies",
+  "provenance": {
+    "editor_version": "6000.3.27f1",
+    "official_archive_url": "https://download.unity3d.com/download_unity/672d562a42a7/LinuxEditorInstaller/Unity-6000.3.27f1.tar.xz",
+    "official_archive_bytes": 4573113148,
+    "builtin_package_json_versions": {
+      "com.unity.render-pipelines.universal": "17.3.0",
+      "com.unity.render-pipelines.core": "17.3.0",
+      "com.unity.shadergraph": "17.3.0"
+    },
+    "runtime_reference_profile": "Official Editor/Data/NetStandard/ref/2.1.0/netstandard.dll",
+    "editor_reference_profile": "Official Editor/Data/UnityReferenceAssemblies/unity-4.8-api + Facades",
+    "input_system_runtime_source_version": "1.17.0",
+    "input_system_runtime_source_files": 401,
+    "reference_dll_sha256": {
+      "Unity.RenderPipelines.Universal.Editor.dll": "3e03339e0f375ba8014d78fe24d82b6c73cc15e5dd78415bfd607a6d4536dba8",
+      "Unity.RenderPipelines.Core.Runtime.dll": "ee1e624878502ef827e41c0b20666703dc46f217bdab7770716371ba1084132f",
+      "Unity.RenderPipelines.Universal.Runtime.dll": "2b1263387c55b566c85d8db8b351b72b9049166104d5511e4b57cb518810a931",
+      "Unity.RenderPipelines.Core.Editor.dll": "e441a75695b46cdc443857d0ebac5aa50ea7c18471172eef87282a97921d56a3"
+    },
+    "native_unity_execution": false,
+    "unity_hlsl_compilation": false,
+    "gpu_frame_or_performance_verified": false
+  },
+  "checked_source_files": 7,
+  "post_compile_current_source_hash_audit": "PASS"
+}

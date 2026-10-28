@@ -1,0 +1,22 @@
+{
+    "utc": "2026-10-27T05:15:59.5850059Z",
+    "unity": "6000.3.27f1",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "api": "Direct3D12",
+    "source": "exploration-blend-v1/779b530a6ba6923d62f1c8e99a603a2d9d979dafaa1015670efd9826284757f4/macro=a15c39d2777274e7973309501e6cd1f6ca8a6a2d13a8115291054370f6c6cbad/fine=0f8585ebf87a269478e3e4f4fed8f600dbf3c6c6538ff57181674f9b64af7c14/width=299520/depth=149760/height=1/blend=512/source-width=299520/source-depth=149760/biomes=biome-cells-v1/779b530a6ba6923d62f1c8e99a603a2d9d979dafaa1015670efd9826284757f4/d81d4377f725b26a1d99d98dd469b075dde86503fb1a19efec817dc929fc3eee/234/118/-149760/-75520/1280/safe-refinement-v1/779b530a6ba6923d62f1c8e99a603a2d9d979dafaa1015670efd9826284757f4/revision=0/surface-relief-v1/seed=714103",
+    "status": "Explore",
+    "ready": true,
+    "ground_shader_error": false,
+    "tree_shader_error": false,
+    "contact_ready": 22,
+    "contact_pending": 72,
+    "distant_pending": 584,
+    "contact_bytes": 111934080,
+    "contact_triangles": 1865568,
+    "total_allocated_bytes": 907796095,
+    "x": 85794.76124329085,
+    "y": 142.34059291861096,
+    "z": 15380.306476660535,
+    "worker_ms": 693.1555000000001,
+    "build_ms": 0.0018000000000000002
+}

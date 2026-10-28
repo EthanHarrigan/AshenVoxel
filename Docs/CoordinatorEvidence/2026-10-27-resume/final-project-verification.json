@@ -1,0 +1,85 @@
+{
+  "utc": "2026-10-27T13:59:06.451341+00:00",
+  "status": "CONSOLIDATED_MAIN_HASH_AND_ROLLBACK_PASS",
+  "installed": [
+    {
+      "id": "capacity",
+      "manifest": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Docs\\StartupThroughputEvidence\\2026-10-27\\capacity\\install\\installed.json",
+      "native_compile_reload": "PASS",
+      "mesh_regression": "PASS"
+    },
+    {
+      "id": "contact-freshness",
+      "manifest": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Docs\\StartupThroughputEvidence\\2026-10-27\\contact-freshness\\install\\installed.json",
+      "native_compile_reload": "PASS",
+      "mesh_regression": "PASS"
+    },
+    {
+      "id": "startup-budget",
+      "manifest": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Docs\\StartupThroughputEvidence\\2026-10-27\\startup-budget\\install\\installed.json",
+      "native_compile_reload": "PASS",
+      "mesh_regression": "PASS"
+    },
+    {
+      "id": "flight-refinement",
+      "manifest": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Docs\\StartupThroughputEvidence\\2026-10-27\\flight-refinement\\install\\installed.json",
+      "native_compile_reload": "PASS",
+      "mesh_regression": "PASS"
+    },
+    {
+      "id": "flight-hysteresis",
+      "manifest": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Docs\\StartupThroughputEvidence\\2026-10-27\\flight-hysteresis\\install\\installed.json",
+      "native_compile_reload": "PASS",
+      "mesh_regression": "PASS"
+    },
+    {
+      "id": "planner-adjacency",
+      "manifest": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Docs\\StartupThroughputEvidence\\2026-10-27\\planner-adjacency\\install\\installed.json",
+      "native_compile_reload": "PASS",
+      "mesh_regression": "PASS"
+    }
+  ],
+  "current7source_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs": "5d7e2903cabc71af4618582951fa47fa35897c00c6ce91bd13db14831093c321",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs": "48c0e689eb7f3c06160d631bbcfe7f83c735379b032890e23c56bf448791f9fb",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs": "464c5661cfd1f91624e77aeb68f1119d66ac439f23a54e78f8b31c5b0e2132b9",
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": "66626530b591492e92ea2771b50e7a6acf3c8c789211ddcc42bacdf37d3976b9",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "f609db6e1bf116d81a063e926dd24a3f8157acf939c04e4325ca9ad1f5a4de55",
+    "Assets/AshenVoxel/Exploration/ExplorationController.cs": "411c3feb0d03b04cd1277b3afefe122b56babb8636e13b011a11d3b390d1ccf2",
+    "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs": "1651adfb2a1a9f589fc18ae96b8651ed608f546c7f79c666e237788b2c5dfc67"
+  },
+  "readable_rollback_files_verified": 53,
+  "original_scene_settings_options_unchanged": true,
+  "original3": [
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Settings\\ExplorationSettings.asset",
+      "sha256": "38a9b5b822c4e61418597114703af58cf51847e69f80fd9940494c9e55738664"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\Scenes\\Exploration.unity",
+      "sha256": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626"
+    },
+    {
+      "path": "C:\\Users\\ethan\\AppData\\LocalLow\\Ashen Voxel\\Ashen Voxel Exploration\\exploration-options.json",
+      "sha256": "93dc85a8d103b3de75587116507cbbd8de4b21029eeb2643cd0ba43c7451c231"
+    }
+  ],
+  "existing_editor_idle": {
+    "utc": "2026-10-27T13:59:05.7727377Z",
+    "playing": false,
+    "changing": false,
+    "compiling": false
+  },
+  "active_top_level_request_markers": [],
+  "guard_unarmed": true,
+  "owned_temporary_validation_assets_retired": true,
+  "remaining_limits": [
+    "Rootadaptation:2siteLOD0nativevisual+2x5LODCPUproof only; runtime renderer/collider/resistance binding NOT installed.",
+    "Wildlife:isolated originalmodels+motion+shader+owner/APIcandidate, no habitat/gamecaller/nativeanimation integration.",
+    "Physics:isolated ownership/rotationadapter/APIcandidate, no nativefall/Exploration/persistence proof.",
+    "Movementfeelworker genuine ownworkspace editapproval remains pending.",
+    "Library nativeimages upload authorization denied/pending; no files uploaded.",
+    "Originalowner status sends denied/pending standing permission; no indirect forwarding.",
+    "Saved512/30km render-quality/nativeFPS convergence unverified; native20s replay used constrained192/64/128profile andnoclip."
+  ]
+}

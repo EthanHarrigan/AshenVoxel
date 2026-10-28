@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "checks": 52,
+  "scope": "Shared static surface/geology/snow algorithms; not Unity, thermal snow physics or fluid simulation",
+  "surface_version": 1,
+  "snow_fixture": {
+    "bare": 267,
+    "snowy": 1414,
+    "unique_depths": 7,
+    "maximum_depth_m": 1.1,
+    "mean_depth_m": 0.6802498512789988
+  },
+  "rock_types": 5,
+  "adjacent_rock_boundaries": 0,
+  "column_source_queries": 11,
+  "hot_path_allocated_bytes": 0,
+  "elapsed_ms": 25.1821
+}

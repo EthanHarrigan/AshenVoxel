@@ -1,0 +1,32 @@
+{
+  "id": "altitude-memory-1",
+  "utc": "2026-10-27T18:34:07.601085+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "dd09660ddd74610ba1ae5e1acf9a46144e601ea74bd1c3e54fa06dd3f56e3252",
+      "sha256": "256086ca854878a961e6c3b3e9126ca90bdf6244a63c19550e6bc30f46fca32a"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+      "before": "48c0e689eb7f3c06160d631bbcfe7f83c735379b032890e23c56bf448791f9fb",
+      "sha256": "b5a2f93e7d2597a6d5e49c031e7c6c2a45502de40ddd4a31cf86ce8008f40c80"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerMemory.cs",
+      "before": "",
+      "sha256": "20a0adda253646f3f14126fe0c02d0faac7e46f26e9d006d6e9894dd4e567b31"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerMemory.cs.meta",
+      "before": "",
+      "sha256": "54df3be25ece2dca95e61a0c9aa37276d242bb0d5e7d4953f46033c35127d24d"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/ExplorationTerrainDiagnostic.cs",
+      "before": "106ebceb460ce264bdd4014c52d3e918f6cb7d0869d5ba40a2c513ec9a65836c",
+      "sha256": "bcaf63c78e42f23b6843b3e36b343c53689311606e7f1507b16155f2be114aec"
+    }
+  ],
+  "scope": "Frozen altitude27+API evidence plus coordinator memory hooks/helper10policy checks. Native compile/refinement pending, no all-target or VRAM guarantee."
+}

@@ -1,0 +1,171 @@
+{
+  "status": "PASS",
+  "scope": "Actual cold pretrained full latent/decoder canonical owner with derived nonnegative physical policy; not native Unity",
+  "elapsed_seconds": 212.83496701499098,
+  "request": {
+    "world_id": "779b530a6ba6923d62f1c8e99a603a2d9d979dafaa1015670efd9826284757f4",
+    "row0": 2688,
+    "col0": 3584,
+    "rows": 2,
+    "cols": 2
+  },
+  "region_metadata": {
+    "backend": "upstream-pretrained/physical-nonnegative-v1/canonical-owner-v1",
+    "climate_channels": [
+      "temperature_c",
+      "temperature_std_c",
+      "precipitation_mm",
+      "precipitation_cv_percent",
+      "beta"
+    ],
+    "climate_encoding": "physical-si-v2",
+    "climate_value_units": [
+      "degC",
+      "degC",
+      "mm/year",
+      "percent",
+      "degC/m"
+    ],
+    "height_units": "meters",
+    "layout": "height_f32_planar,climate5_f32_planar,source_biome_u8,land_u8",
+    "origin_x_m": 17920.0,
+    "origin_z_m": 13440.0,
+    "schema": "ashen-terrain-region-v1",
+    "spacing_m": 5.0,
+    "window": {
+      "col0": 3584,
+      "cols": 2,
+      "row0": 2688,
+      "rows": 2
+    },
+    "world_id": "779b530a6ba6923d62f1c8e99a603a2d9d979dafaa1015670efd9826284757f4"
+  },
+  "height_m": [
+    [
+      1401.056640625,
+      1403.0460205078125
+    ],
+    [
+      1397.931640625,
+      1396.642578125
+    ]
+  ],
+  "climate": [
+    [
+      [
+        18.045867919921875,
+        18.03476905822754
+      ],
+      [
+        18.057323455810547,
+        18.063505172729492
+      ]
+    ],
+    [
+      [
+        5.555427551269531,
+        5.558176040649414
+      ],
+      [
+        5.55452299118042,
+        5.557269096374512
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        41.630916595458984,
+        41.68048858642578
+      ],
+      [
+        41.645301818847656,
+        41.69475555419922
+      ]
+    ],
+    [
+      [
+        -0.005268655251711607,
+        -0.005268837325274944
+      ],
+      [
+        -0.005269154906272888,
+        -0.0052693369798362255
+      ]
+    ]
+  ],
+  "source_biomes": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "policy_evidence": {
+    "last_query": {
+      "height_sha256": "5137e8d472e73dae1511fb11ec141c5834500b54084c39ffe0309645edc9dc80",
+      "native_window": [
+        2528,
+        3552,
+        320,
+        320
+      ],
+      "published_physical_climate_sha256": "c84d05fa3eb0994f7a10bc74902869be53749f6bdbadbcfe38d20ac2ca21425a",
+      "raw_physical_climate_sha256": "94300f9d90ed52272cd3f51d5d423ba87246a27e1930770f443a003c6d865475",
+      "rectified_values": {
+        "precipitation_cv_percent": 0,
+        "precipitation_mm": 36419,
+        "temperature_std_c": 0
+      }
+    },
+    "note": "Derived publication of original model predictions; raw hash records refer to pre-policy physical arrays, not a new model run.",
+    "policy": {
+      "cache_namespace": "physical-nonnegative-v1",
+      "input_encoding": "physical-si-v2",
+      "negative_to_zero_channels": [
+        "temperature_std_c",
+        "precipitation_mm",
+        "precipitation_cv_percent"
+      ],
+      "nonfinite_and_upper_bounds": "reject; never silently saturate",
+      "policy_id": "physical-nonnegative-v1",
+      "schema": "ashen-physical-climate-policy-v1",
+      "unchanged": "height,temperature_c,beta,all nonnegative climate values,biomes,land"
+    },
+    "query_count": 1,
+    "rectified_values": {
+      "precipitation_cv_percent": 0,
+      "precipitation_mm": 36419,
+      "temperature_std_c": 0
+    }
+  },
+  "provider_ready": true,
+  "provider_failure": null,
+  "wire_sha256": "fc8b3c5fa399c7ba7254b150ba94527e35a37b87304b4bc4667d07092ddbd571",
+  "checks": {
+    "actual_negative_raw_prediction_observed": true,
+    "finite_nonnegative_published_precipitation": true,
+    "provider_remains_ready": true,
+    "versioned_policy_backend_explicit": true
+  },
+  "native_model_world_id": "cb7bb688e7a5056fcabec160a3f12ccc9347a6953f33e21c5c898c07844ef418",
+  "upstream_commit": "e8dcb4b1a834ab2f6b1a6f5256ed7c9f2f3e8230",
+  "model_revision": "9ef8030cb805b433b98ec25c5dddefbac07a9e26",
+  "execution_note": "Cold inference used the archived pre-lock physical-policy source below. Final source adds synchronization for concurrent status snapshots and a session counter label; the publication policy, native source identity and output semantics are unchanged. This is a new spatial query of the original pretrained model, not a new or relabeled model.",
+  "source_sha256": {
+    "Docs/ExplorationEvidence/physical-policy-cold-executed-source.py": "7d5df763843596b43e785843f99347f7db4d58f1a085b517f78bfb119fc7ff21",
+    "Tools/ExplorationBake/serve_exploration.py": "0d693710d75ee057e320380f96af7db8bf9fbb587eace8b613bf9a16f8b41ea8",
+    "Tools/DiffusionBridge/bridge.py": "a54ad8a3033e6a45632a96b9c694968ed342ef3b3351d6ebe23fd1d9100e1aef"
+  }
+}

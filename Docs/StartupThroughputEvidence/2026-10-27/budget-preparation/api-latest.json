@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "Installed Unity6000.3.27f1 API compilation only; no Editor/native run",
+  "generated_utc": "2026-10-27T07:30:00.747912+00:00",
+  "fixture_sha256": "c02918aa1db0edca8749a00c7f928f87bccd4becb889ce22976fd20386b124d1",
+  "referenced_project_assemblies": {
+    "AshenVoxel.Authoring.dll": "9056f31a1204e9c0f214a54af42fc0fc053f2087d2dd06619578350d776ad362",
+    "AshenVoxel.Core.dll": "f481e3aa2ac74f1f13934d1680460ec11d9820cbdb32521d464d72830a9baf44",
+    "AshenVoxel.Editor.dll": "4536bbb616d748f2558f26453021bec6f1813e5e472e3edc8948e575570a9bb5",
+    "AshenVoxel.Exploration.dll": "65feaf11bc1000acbf971e65f2fa66635ed2617723188051bca26927c4d19a79",
+    "AshenVoxel.Exploration.Editor.dll": "d5e13ad595156529f630358d20330897b12b7704a05cf3896f3bbd8e81fe8876",
+    "AshenVoxel.Rendering.dll": "28db2792660f68e532953982b57570a9bcc3ede9efa66c625ebcadbce187c705",
+    "AshenVoxel.Rendering.Editor.dll": "c268e469bb684ecd650c5ccd781059c8110ea51ccc0d86716e1956870d7488da",
+    "AshenVoxel.Runtime.dll": "690c6534ebc30558a98697dd67567aa3e060acd2883fb8a82ce21b5a389d9e21",
+    "AshenVoxel.WorldScaleData.dll": "711002ee2726f2161d17b8097aadab280c692b766fe370db45b738b91ebaf333",
+    "AshenVoxel.WorldScaleEditor.dll": "9eb82b44769db6d21c87e2da347fcbd462246a693c6e3281b5c4611f811b3aa5",
+    "AshenVoxel.WorldScaleRuntime.dll": "2845fe7616114f2e022fab6aa3538f2bc036bf2258ad4e09a86f98fdaa99d2ec"
+  },
+  "attempt": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\startup-throughput\\budget-trial\\api-check\\20261027-073000-083363"
+}

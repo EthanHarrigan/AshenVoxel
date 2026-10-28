@@ -1,0 +1,240 @@
+{
+  "name": "shape-spire",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    68,
+    18,
+    18
+  ],
+  "occupied_cells": 2645,
+  "bounds_min_m": [
+    0.2,
+    0,
+    0.1
+  ],
+  "bounds_max_m": [
+    6.1000000000000005,
+    1.4000000000000001,
+    1.7000000000000002
+  ],
+  "material_counts": {
+    "Gravel": 882,
+    "Granite": 1763
+  },
+  "scene": {
+    "category": "rock-shape",
+    "label": "Spire / same granite",
+    "seeds": [
+      714103,
+      271828,
+      161803
+    ],
+    "specimens": [
+      {
+        "name": "Granite",
+        "seed": 714103,
+        "profile": {
+          "Shape": 4,
+          "ResolvedShape": 4,
+          "Identity": "rock-v2/catalog-v3/11/714103/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False/shape=Spire/resolved=Spire",
+          "Material": 11,
+          "Seed": 714103,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 2.2,
+          "HeightMeters": 1.3,
+          "DepthMeters": 1.85,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.82,
+          "JointStrength": 0.3,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 4,
+          "CandidateCount": 571,
+          "ColumnEvaluations": 483,
+          "ShapeCells": 550,
+          "WrittenCells": 550,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 57,
+            "y": 6,
+            "z": 59
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 68,
+            "y": 18,
+            "z": 68
+          }
+        },
+        "actual_dimensions_m": [
+          1.2000000000000002,
+          1.3,
+          1
+        ],
+        "requested_shape": "Spire",
+        "resolved_shape": "Spire",
+        "generated_cells": 550,
+        "material_counts": {
+          "Granite": 550
+        },
+        "palette": {
+          "Granite": [
+            4287399811,
+            4287860105
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -53,
+          "y": -6,
+          "z": -55
+        }
+      },
+      {
+        "name": "Granite",
+        "seed": 271828,
+        "profile": {
+          "Shape": 4,
+          "ResolvedShape": 4,
+          "Identity": "rock-v2/catalog-v3/11/271828/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False/shape=Spire/resolved=Spire",
+          "Material": 11,
+          "Seed": 271828,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 2.2,
+          "HeightMeters": 1.3,
+          "DepthMeters": 1.85,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.82,
+          "JointStrength": 0.3,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 4,
+          "CandidateCount": 642,
+          "ColumnEvaluations": 483,
+          "ShapeCells": 610,
+          "WrittenCells": 610,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 58,
+            "y": 6,
+            "z": 59
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 68,
+            "y": 18,
+            "z": 70
+          }
+        },
+        "actual_dimensions_m": [
+          1.1,
+          1.3,
+          1.2000000000000002
+        ],
+        "requested_shape": "Spire",
+        "resolved_shape": "Spire",
+        "generated_cells": 610,
+        "material_counts": {
+          "Granite": 610
+        },
+        "palette": {
+          "Granite": [
+            4286544760,
+            4287005053,
+            4287399811,
+            4287860105,
+            4288255119
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -33,
+          "y": -6,
+          "z": -56
+        }
+      },
+      {
+        "name": "Granite",
+        "seed": 161803,
+        "profile": {
+          "Shape": 4,
+          "ResolvedShape": 4,
+          "Identity": "rock-v2/catalog-v3/11/161803/2.2/1.3/1.85/0.2/0.82/0.3/500000/100000/False/shape=Spire/resolved=Spire",
+          "Material": 11,
+          "Seed": 161803,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 2.2,
+          "HeightMeters": 1.3,
+          "DepthMeters": 1.85,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.82,
+          "JointStrength": 0.3,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 4,
+          "CandidateCount": 634,
+          "ColumnEvaluations": 483,
+          "ShapeCells": 603,
+          "WrittenCells": 603,
+          "ClippedCells": 0,
+          "BlockedCells": 0,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 58,
+            "y": 6,
+            "z": 59
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 71,
+            "y": 19,
+            "z": 68
+          }
+        },
+        "actual_dimensions_m": [
+          1.4000000000000001,
+          1.4000000000000001,
+          1
+        ],
+        "requested_shape": "Spire",
+        "resolved_shape": "Spire",
+        "generated_cells": 603,
+        "material_counts": {
+          "Granite": 603
+        },
+        "palette": {
+          "Granite": [
+            4286544760,
+            4287005053,
+            4287399811,
+            4287860105,
+            4288255119
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -13,
+          "y": -6,
+          "z": -55
+        }
+      }
+    ],
+    "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+  },
+  "generation_version": {
+    "plant": 1,
+    "rock": 2,
+    "catalog": 3
+  },
+  "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+}

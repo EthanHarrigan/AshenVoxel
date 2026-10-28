@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "scope": "Validate a finished overview and compare actual source heights, without Unity.",
+  "bake_id": "653a72959be6e6ec9abb8e9643c685b2c690c183768a109f2110ede02b7dfb99",
+  "checks": [
+    "published file hashes",
+    "all 120 completed blocks match final atlas",
+    "NPZ/atlas exact heights and land mask",
+    "TIFF exact heights and signed coordinates"
+  ],
+  "blocks": 120,
+  "tiff_local_crs_wkt": "LOCAL_CS[\"unnamed\",UNIT[\"unknown\",1],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+  "timing_seconds": {
+    "total_generation": 1660.124871099848,
+    "median_block": 12.11141110000608,
+    "slowest_block": 182.82756409999274,
+    "fastest_block": 3.116748100001132
+  },
+  "fine_patch_comparison": {
+    "scope": "One existing decoded 5m patch, Gaussian sigma160m then sampled at 320m; 480m edge margin",
+    "caveat": "Reference is the existing CPU/runtime world; candidate has a separate GPU/batch identity. This is not whole-world visual acceptance.",
+    "reference_sha256": "0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb",
+    "sample_count": 169,
+    "columns": 13,
+    "rows": 13,
+    "x_range_m": [
+      -21120.0,
+      -17280.0
+    ],
+    "z_range_m": [
+      -12160.0,
+      -8320.0
+    ],
+    "baseline_1280m": {
+      "mae_m": 128.62024961937618,
+      "rmse_m": 159.21324461655232,
+      "bias_m": -98.15511224086224,
+      "max_absolute_m": 416.0993355831941
+    },
+    "candidate_320m": {
+      "mae_m": 13.30267567057015,
+      "rmse_m": 18.486327799827013,
+      "bias_m": -3.4274820649035016,
+      "max_absolute_m": 83.98759919532654
+    },
+    "rmse_reduction_fraction": 0.8838895102957715
+  },
+  "whole_world": {
+    "difference_from_baseline": {
+      "mae_m": 137.42639893050966,
+      "rmse_m": 224.9106254334465,
+      "bias_m": 31.702154394039578,
+      "max_absolute_m": 3890.9921875
+    },
+    "baseline_land_fraction": 0.2859896280148275,
+    "candidate_land_fraction": 0.29513053728157507,
+    "changed_land_water_fraction": 0.017951862884085443,
+    "adjacent_height_step_median_m": 52.342529296875,
+    "block_boundary_height_step_median_m": 52.9915771484375,
+    "boundary_metric_scope": "Descriptive only; synthetic filter partition invariance is checked separately"
+  },
+  "source_sha256": {
+    "evaluate_coarse_overview.py": "6aa6d526d54a18f24eb1d43cdf24a1955cabb659c3d0248bcca6605f9618b7a5",
+    "preview_coarse_overview.py": "9ea835f4ea44e671557162ba493024905542bd63a335fed038d1fb2821dedee0"
+  }
+}

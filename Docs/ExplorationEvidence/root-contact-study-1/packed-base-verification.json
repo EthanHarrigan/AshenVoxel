@@ -1,0 +1,16 @@
+[
+  {
+    "id": 10,
+    "checked_lod0_wood_quads_below_8m": 22633,
+    "checked_face_cells": 29134,
+    "status": "PASS",
+    "scope": "Every actual packed exposed wood face below8m has identical occupied cell and intrinsic RGB in the offline canonical data; interior cells/foliage outside this assertion."
+  },
+  {
+    "id": 11,
+    "checked_lod0_wood_quads_below_8m": 22945,
+    "checked_face_cells": 29178,
+    "status": "PASS",
+    "scope": "Every actual packed exposed wood face below8m has identical occupied cell and intrinsic RGB in the offline canonical data; interior cells/foliage outside this assertion."
+  }
+]

@@ -1,0 +1,12 @@
+{
+    "status": "FAIL",
+    "scope": "Native Unity actual-source tile pipeline microbenchmark; no forest/full-world/FPS claim",
+    "unity": "6000.3.27f1",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "api": "Direct3D12",
+    "source": "exploration-blend-v1/14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4/macro=3a307d7dcebc47e0d1831e75a7cd73346480d3386b27aae9600c71dd2051c98b/fine=0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb/width=299520/depth=149760/height=1/blend=512/source-width=299520/source-depth=149760/biomes=biome-cells-v1/14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4/9495e761e7eece02ad764bfb31bf96bb5be66ed84faca207f1100bb73df1a072/234/118/-149760/-75520/1280/surface-relief-v1/seed=714103/surface-v1/catalog-v3/714103/0/4200/2.4/True/0.7/0.2/0/rock=auto/wind=36.86989764584402/sun=287.35402463626127",
+    "rows": [],
+    "pixels": [],
+    "peak_process_bytes": 0,
+    "error": "System.Exception: Shader compilation error\r\n  at TerrainNativeBenchmark.Run () [0x000da] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\.terrain-cache\\terrain-performance\\native\\Assets\\Editor\\NativeBenchmark.cs:49 "
+}

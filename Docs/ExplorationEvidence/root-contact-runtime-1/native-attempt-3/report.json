@@ -1,0 +1,18 @@
+{
+    "status": "PASS",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "pack_sha256": "41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa",
+    "error": "",
+    "scope": "Native shared-submesh/root fixture only, not scene integration or Play/FPS. Exact recorded10cm terrain heights/top pigments; representative subsurface pigment with neutral opaque Dirt material/AO. Actual root Wood/material/RGB and shared original upper tree. Static wind, two fixed side views.",
+    "original_scene_dirty_unchanged": true,
+    "original_scene_roots_unchanged": true,
+    "initial_private_bytes": 9003016192,
+    "max_private_bytes": 9466650624,
+    "minimum_available_commit": 4126392320,
+    "seconds": 4.7075062999999999,
+    "last_stage": "after capture 11-grounded",
+    "original_active_scene_restored": true,
+    "original_lighting_unchanged": true,
+    "shader_state_restored": true,
+    "render_target_restored": true
+,"captured_views":[{"id":10,"base_vertices":33840,"shared_vertices":3456964,"appended_vertices":120,"changed_pixels":413042,"pink_pixels":0,"root_sha256":"324dfc2375fc7c8e097876c4ce700f69368286a1e4999d8de5dd376a822ae75b","terrain_sha256":"c1468f86849cb0db883a829aa7383634155e42e2184700a3c8578b8ac8c4bf25"},{"id":11,"base_vertices":35224,"shared_vertices":3562010,"appended_vertices":118,"changed_pixels":60805,"pink_pixels":0,"root_sha256":"c16071c202a1b554c3ac0b3bf638ed469d689a5ce262cafee64e289a57ab70e8","terrain_sha256":"67c8a26297252cd963a1b9978e6a23b38e7bd5c2633a065b66d6efe85028f826"}]}

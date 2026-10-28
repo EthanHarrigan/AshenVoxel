@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-27T13:36:52.958698+00:00",
+  "cache_format": "AVRC0001",
+  "version": 1,
+  "pack_sha256": "41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa",
+  "models": [
+    {
+      "model": 10,
+      "seed": 714103,
+      "file": "model-10.avrc",
+      "file_sha256": "2215e06929167d2ccb50957a2a22cfc11dbc3c66b1aee8f67d6250a71d9a0549",
+      "bytes": 480819,
+      "payload_sha256": "ae52e741e2147e1b2b03d5b69c23bbfea1c6825696ba86b8eebd5ac511eaf221",
+      "context_cells": 5345
+    },
+    {
+      "model": 11,
+      "seed": 271828,
+      "file": "model-11.avrc",
+      "file_sha256": "492c37ab98e15ca83ff3657f380cdc7ce69e21e8bdaade2b3a553076d6727b8a",
+      "bytes": 508934,
+      "payload_sha256": "97b91518905b8b429c5e1278c4d68ea8129457b50509343f42644983c9a390c8",
+      "context_cells": 5736
+    }
+  ],
+  "input_sha256": {
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\v2-template-10.bin": "c28b0a1ee88a3d120e5693aeac05d66a374428c592648bb48287128841d897f2",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\wood-10-baseline.bin": "ded723006328b2252cf1b1ff15b64d32b8ddc366dbd4d9be1647bec742fbf0d6",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-10-20261027T130937232091Z\\manifest.json": "44731cdf9f50ec14a59d5897fd26e4ac99f81b631f39d79f0c10f544b651ff88",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-10-20261027T130937232091Z\\canonical-order.bin": "89eeecfb84564fd49c5a643f07f3a30569328398aa2e12a2890f5c7523d5e261",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-10-20261027T130937232091Z\\fixed-F1.bin": "7c8b0f1fdb06c1f34266734abe7028219944fb8a838b266a001df2f1f06d3ebd",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-10-20261027T130937232091Z\\fixed-F2.bin": "a98db90a326b8291771b4f7cdd3a2095c30920c30f5abcb73a33d96ffc5a5961",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-10-20261027T130937232091Z\\fixed-F4.bin": "02de18d4b9da14b454e2be8abb885f646e9d55c06cd903ce796b0f8bbcee752e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-10-20261027T130937232091Z\\fixed-F16.bin": "e78ae0268c415f4456764b93bea76d0c916785364fb1b0bba2b2610e366c3c70",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-10-20261027T130937232091Z\\fixed-F64.bin": "b4d904ce034fb291e6cf137ea04a39b8b37765a1d2d64abf83351ded61ebcbf5",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\v2-template-11.bin": "078f395cefc141420cafce15c9c8606896aea40810e1e7f974e8738f049b807e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\wood-11-baseline.bin": "0fe828a36a112a6227bc63d066a6eeb02f7c20837882cb9a702118d016157b0f",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-11-20261027T131159753179Z\\manifest.json": "fc51fa131943221e32e6aa618386273e63ad237714f6c0a430e9b53e1c4c42a3",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-11-20261027T131159753179Z\\canonical-order.bin": "6f71f5f92439d3224e55bb9875b3f9c07b1bb4da489c3882f1983787aee8443b",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-11-20261027T131159753179Z\\fixed-F1.bin": "07ddbcff43cef945fc5669179339277593c5df55dd1479a8b71b97aae57591b8",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-11-20261027T131159753179Z\\fixed-F2.bin": "aa21ff5f8ee85a3e72ace6e8a75e60de477c3c2193c1a9ae52e4361b5709adb7",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-11-20261027T131159753179Z\\fixed-F4.bin": "f520ec80d68da97aff622a475e41d5d37912163d0c3522398d7291d2eb029aa1",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-11-20261027T131159753179Z\\fixed-F16.bin": "2b965ff5ee6fa2f1f62a3c7fe085576dd9f2c669e4a0950e647a6ac914378f0b",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-composite-lods\\specimen-11-20261027T131159753179Z\\fixed-F64.bin": "351761c6b38be30a569e4ea357aaa890b23150a7bd6abed3e14476c7321b2819"
+  },
+  "migration": "Replaceable derived cache: reject any unsupported version or mismatched pack/manifest/model. Regenerate explicitly from reviewed source, retain complete canonical tree fallback. AVPM4 and gameplay saves unchanged.",
+  "scope": "Two reviewed mature redwood templates only. No world/pack/atlas regeneration or production asset installation. Binary data fixtures; not executables."
+}

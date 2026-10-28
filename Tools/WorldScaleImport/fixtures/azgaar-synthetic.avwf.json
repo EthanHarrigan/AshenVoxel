@@ -1,0 +1,65 @@
+{
+  "atlas_sha256": "3bf1160a4f17fb0207a4b3aaac398c74504806aca83859cef7d857b3762bd96f",
+  "identity": {
+    "mapping": "azgaar-control-atlas-v2",
+    "source_sha256": "fa639c921397b3a1abaa47f89ca73c4d7e3922361e0cb0936b20c7a9550847eb",
+    "source_version": "1.156.0",
+    "source_map_name": "Synthetic Four Cells",
+    "columns": 5,
+    "rows": 5,
+    "extent_x": 20000.0,
+    "extent_z": 10000.0,
+    "height_exponent": 2.0,
+    "height_exponent_defaulted": false,
+    "peak_meters": 5000,
+    "sea_level_meters": 0,
+    "landmass_scale": 1,
+    "sampling": "polygon",
+    "uncovered": "grid-water",
+    "summits_applied": false,
+    "summit_profile": null,
+    "extension_sha256": null
+  },
+  "source_biomes": [
+    {
+      "i": 0,
+      "name": "Marine",
+      "color": "#466eab"
+    },
+    {
+      "i": 6,
+      "name": "Temperate deciduous forest",
+      "color": "#5d7341"
+    },
+    {
+      "i": 9,
+      "name": "Taiga",
+      "color": "#4b6b45"
+    },
+    {
+      "i": 11,
+      "name": "Glacier",
+      "color": "#dfeaf0"
+    }
+  ],
+  "source_cell_count": 4,
+  "land_samples": 16,
+  "water_samples": 9,
+  "height_min_m": -50.0,
+  "height_max_m": 5000.0,
+  "coverage": {
+    "packed_samples": 25,
+    "original_grid_water_samples": 0,
+    "original_grid_nearest_water_samples": 0,
+    "outside_source_samples": 0,
+    "policy": "grid-water"
+  },
+  "summits": {
+    "present": false,
+    "applied": false,
+    "anchors": [],
+    "warnings": []
+  },
+  "source_terrain_diffusion": null,
+  "note": "Offline Azgaar control map; source biomes preserved. Runtime forest override is separate. Not diffusion-generated or a voxel volume."
+}

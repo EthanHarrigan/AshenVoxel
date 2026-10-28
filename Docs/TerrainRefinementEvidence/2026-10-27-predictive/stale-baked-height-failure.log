@@ -1,0 +1,47 @@
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(48,44): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(49,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(50,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+Assets\AshenVoxel\WorldScaleRuntime\WorldExplorerIntegration.cs(57,42): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.
+PASS travel predicts six seconds ahead independently of camera heading
+PASS stationary and slow movement preserve view demand
+PASS teleports and stale motion samples never create predicted travel corridors
+PASS near rear and side source cells precede distant visible detail even without airborne neighborhood permission
+PASS near coverage remains bounded and current source remains first
+PASS gameplay matter hold protects even distant source from retirement
+PASS distant unload returns dirty influence bounds while in-flight snapshots retain their exact source
+PASS blend plus query/prop guard blocks a patch whose core alone appears outside512m
+PASS published payload is an owned immutable grid independent of its transport cache
+PASS far publication emits its full influence/query/prop bounds outside the protected player disk
+PASS one atomic publication changes only far samples and preserves captured old state
+PASS authored map biome categories survive neural patch blending
+PASS active fine detail and its5m source resolution are explicitly queryable
+PASS a decoded patch cannot retire while the observer stands in its influence
+PASS safe retirement is atomic and previously captured immutable geometry work remains valid
+PASS revision advances while content identity returns exactly to the restored base source
+PASS snapshot identity mismatch is rejected before retaining samples
+PASS a different model world cannot be activated
+PASS a different physical sample lattice cannot be activated
+PASS unequal lapse rates are adjusted to final blended elevation before physical climate mixing
+PASS smooth patch blend reaches the unchanged base continuously at its influence edge
+PASS overlapping unit weights normalize without overshooting either decoded layer
+PASS fully decoded overlapping climates normalize after elevation correction
+PASS point-query conservative bounds contain base and patch extrema with finite roundoff margin
+PASS disk-to-influence AABB test accepts safe diagonal patches without a wasteful enclosing union
+PASS bounded LRU evicts only safe old payloads and emits separate non-unioned dirty rectangles
+PASS full protected cache refuses atomically instead of changing ground or partially retiring payloads
+PASS oversized patch refuses before resident payload exceeds byte budget
+PASS concurrent readers retain coherent immutable states during100 bounded replacements
+Unhandled exception. System.Exception: FAIL disabled optional client immediately exposes actual bundled decoded terrain without network setup
+   at LiveChecks.Check(Boolean valid, String message)
+   at LiveChecks.RuntimeChecks(String directory)
+   at LiveChecks.Main(String[] args)
+Traceback (most recent call last):
+  File "C:\Users\ethan\Downloads\AshenVoxel\Tools\run_exploration_live_checks.py", line 31, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\Users\ethan\Downloads\AshenVoxel\Tools\run_exploration_live_checks.py", line 23, in main
+    result=subprocess.run(command,text=True,capture_output=True);print(result.stdout,end='');print(result.stderr,end='');result.check_returncode()
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ethan\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 502, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+subprocess.CalledProcessError: Command '['C:\\Program Files\\dotnet\\dotnet.exe', 'C:\\Users\\ethan\\Downloads\\AshenVoxel\\Tools\\ExplorationLiveChecks\\bin\\ExplorationLiveChecks.dll', 'C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Samples']' returned non-zero exit status 3762504530.

@@ -1,0 +1,56 @@
+{
+  "files": [
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-mesh-prototype\\RootContactNativePreview.cs",
+      "sha256": "72a04bb21301d5cd6354fe1b67906f15a49a5deafceeac9bc1c537c07bf80d83"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-mesh-prototype\\SharedUpperSplit.cs",
+      "sha256": "cf88a8dc41f156a37ba07d3cd7e16613a0d72db319313c59a3c7a5e24f10da0e"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-mesh-prototype\\RootBaseChunkMesher.cs",
+      "sha256": "b5b90cd21534fd69a066e0dfdedd60a4a328b8be67d4ca6c31d84c5ae64ff222"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\sites.json",
+      "sha256": "17375673127de2d1651d3744972abdede8aa47b622c17ec957d8d0c6288051bd"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Prototypes\\ExplorationPrototypes.bytes",
+      "sha256": "41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\v2-expected-10.bin",
+      "sha256": "324dfc2375fc7c8e097876c4ce700f69368286a1e4999d8de5dd376a822ae75b"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\terrain-10.bin",
+      "sha256": "c1468f86849cb0db883a829aa7383634155e42e2184700a3c8578b8ac8c4bf25"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\v2-expected-11.bin",
+      "sha256": "c16071c202a1b554c3ac0b3bf638ed469d689a5ce262cafee64e289a57ab70e8"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\terrain-11.bin",
+      "sha256": "67c8a26297252cd963a1b9978e6a23b38e7bd5c2633a065b66d6efe85028f826"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Rendering\\WorldSurface.shader",
+      "sha256": "79959309d848d4c8950eb8bb4035832fc8fea2166fa38a74f96417f621185416"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Rendering\\MaterialOptics.hlsl",
+      "sha256": "f19104a070c814f84f7de4e15d4ee5130715eea49231560e5869a4497a7922ba"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Rendering\\VoxelWind.hlsl",
+      "sha256": "b8fa8879116e7e2c84ce859031ccaffce02a78c06862f63f2139d6f4a9c49956"
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Rendering\\MaterialOpticsProfile.cs",
+      "sha256": "503af3d272a0d334cf2e9d8db0fc7196ff6ad21e7d881e598014abfd77411551"
+    }
+  ]
+}

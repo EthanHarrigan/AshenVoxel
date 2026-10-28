@@ -1,0 +1,109 @@
+{
+  "study_date_denver": "2026-10-27",
+  "captured_at_utc": "2026-10-28T04:44:06.729705+00:00",
+  "scope": "Read-only source review; no gameplay, Unity execution, benchmark, release or generation changes",
+  "git_status": "No .git repository at workspace or parents; SHA-256 file identities used",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Core/Simulation.cs",
+      "bytes": 6515,
+      "sha256": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054"
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/VoxelWorld.cs",
+      "bytes": 7069,
+      "sha256": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021"
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Materials.cs",
+      "bytes": 4546,
+      "sha256": "ab945a1f679e57f81dca05fc3fe4a70e2e0e0d35ce51f2d1457d99e8660baf85"
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/WorldEdits.cs",
+      "bytes": 2615,
+      "sha256": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646"
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Persistence.cs",
+      "bytes": 10446,
+      "sha256": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/NaturalTreePhysics.cs",
+      "bytes": 32693,
+      "sha256": "5a98e9d0465e9cb8e1120a27aad611ac683b5d8b8e3b12714bd1342fa8f50784"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/NaturalMatterRigidBodies.cs",
+      "bytes": 12895,
+      "sha256": "688f40038e92a106f43111d49fe8e0d5e125a093c48897f1dd5c4e754e81aa3c"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/NaturalMatterRenderer.cs",
+      "bytes": 27187,
+      "sha256": "32f068225aef422276a0d5fd288bafcc5a9181c1ee5aa27e00e6758fb76ae91a"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationNaturalTreeMatter.cs",
+      "bytes": 19667,
+      "sha256": "b88ec766d65903e002d22fbe6793df2ca97fdba5b36828cf13c5005582602200"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ImplicitMatter.cs",
+      "bytes": 2902,
+      "sha256": "c063bf46a0a905cf3b7edd1ad383e89b8e74d649b5597f2efd9f6ea1bcab2eb5"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/VoxelLodSurface.cs",
+      "bytes": 14257,
+      "sha256": "e63bae6ad045b11103783061ee132eb7d43ba7cb0f798df851f67eb1e0155ae3"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/VisualWater.cs",
+      "bytes": 10938,
+      "sha256": "6c8a56e97e2acf2f3c25f305e98164680e2ab40e38946b64b86081f1bfc3494f"
+    },
+    {
+      "path": "Assets/Scenes/Exploration.unity",
+      "bytes": 1773,
+      "sha256": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626"
+    },
+    {
+      "path": "Packages/manifest.json",
+      "bytes": 342,
+      "sha256": "4b424831b1843ea0d7efb416f96fa5a95d03d92f7d052de167981fc80002fa94"
+    },
+    {
+      "path": "Packages/packages-lock.json",
+      "bytes": 5115,
+      "sha256": "6c137df8f454053686ffab8bcaa1f31f5e150ed8b33a59fc39cbc84a192d865b"
+    }
+  ],
+  "external_revisions": [
+    {
+      "repo": "The-Powder-Toy/The-Powder-Toy",
+      "branch": "master",
+      "commit": "c205becb1cf7ef1915293e2c99b2c7901d2887cd",
+      "commit_date": "2026-10-09T12:53:32Z"
+    },
+    {
+      "repo": "R74nCom/Sandboxels-Types",
+      "branch": "main",
+      "commit": "761240587bc9d8eae51e9a6c8778dbde3a3dda88",
+      "commit_date": "2026-08-28T21:44:15Z"
+    },
+    {
+      "repo": "cortex-command-community/Cortex-Command-Community-Project",
+      "branch": "development",
+      "commit": "4483894de605d03fbe2efa826e7f78fb33d8de65",
+      "commit_date": "2026-10-25T16:19:37Z"
+    }
+  ],
+  "access_limitations": [
+    "GDC Vault talk landing page redirected to maintenance; no video viewing or transcript review claimed. Technical Noita details use the developer interview and official FAQ.",
+    "GitHub raw links through github.com were restricted by web fetch; raw.githubusercontent.com was readable.",
+    "A later urllib GitHub tree query failed certificate validation; no TLS verification was disabled.",
+    "No direct gameplay sessions or cross-game benchmarks were performed."
+  ]
+}

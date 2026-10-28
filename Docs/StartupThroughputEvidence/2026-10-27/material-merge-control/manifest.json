@@ -1,0 +1,398 @@
+{
+  "utc": "2026-10-27T10:46:26.367378+00:00",
+  "owner": "C:\\Users\\ethan\\Documents\\Codex\\2026-10-27\\task-3\\geology-control",
+  "status": "CPU control only; no production changes",
+  "sources": [
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/Details/PlantGenerator.cs",
+      "sha256": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/Details/PlantGenerator.cs",
+      "sha256": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/Details/PlantModel.cs",
+      "sha256": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/Details/PlantModel.cs",
+      "sha256": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/EnvironmentColors.cs",
+      "sha256": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/EnvironmentColors.cs",
+      "sha256": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/Generation.cs",
+      "sha256": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/Generation.cs",
+      "sha256": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/Int3.cs",
+      "sha256": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/Int3.cs",
+      "sha256": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/Materials.cs",
+      "sha256": "ab945a1f679e57f81dca05fc3fe4a70e2e0e0d35ce51f2d1457d99e8660baf85"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/Materials.cs",
+      "sha256": "ab945a1f679e57f81dca05fc3fe4a70e2e0e0d35ce51f2d1457d99e8660baf85"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/Persistence.cs",
+      "sha256": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/Persistence.cs",
+      "sha256": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs",
+      "sha256": "006a8434c519bb996e85c4b05e0f188efe49a0a56e68d84ae6b9804f1e78425e"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs",
+      "sha256": "006a8434c519bb996e85c4b05e0f188efe49a0a56e68d84ae6b9804f1e78425e"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/Rocks/RockProfile.cs",
+      "sha256": "20152a9dbd0661143a400c1c2b7a69e97755e65342e3352239847b1dc752afc3"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/Rocks/RockProfile.cs",
+      "sha256": "20152a9dbd0661143a400c1c2b7a69e97755e65342e3352239847b1dc752afc3"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/Rocks/RockShapeGeometry.cs",
+      "sha256": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/Rocks/RockShapeGeometry.cs",
+      "sha256": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/Simulation.cs",
+      "sha256": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/Simulation.cs",
+      "sha256": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs",
+      "sha256": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs",
+      "sha256": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/Trees/TreeModel.cs",
+      "sha256": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/Trees/TreeModel.cs",
+      "sha256": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/Trees/TreePresets.cs",
+      "sha256": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/Trees/TreePresets.cs",
+      "sha256": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/VertexAppearance.cs",
+      "sha256": "3ccdc0517c6e3e1db6d2f5680cc07b36b8b3ca1a4fb0273e621eb3a3d867a2ad"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/VertexAppearance.cs",
+      "sha256": "3ccdc0517c6e3e1db6d2f5680cc07b36b8b3ca1a4fb0273e621eb3a3d867a2ad"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/VoxelColor.cs",
+      "sha256": "18387e0d5aedcb078e5f3ac6860908bbc1c6578a9bdbd295cbf6f4ea7a9550e9"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/VoxelColor.cs",
+      "sha256": "18387e0d5aedcb078e5f3ac6860908bbc1c6578a9bdbd295cbf6f4ea7a9550e9"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/VoxelRaycast.cs",
+      "sha256": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/VoxelRaycast.cs",
+      "sha256": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/VoxelWorld.cs",
+      "sha256": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/VoxelWorld.cs",
+      "sha256": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/Core/WorldEdits.cs",
+      "sha256": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/Core/WorldEdits.cs",
+      "sha256": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/ClimateArchive.cs",
+      "sha256": "126995205fe788f26b2a516fce894d1dce732dea75ed9db37b14cb58bfe303d9"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/ClimateArchive.cs",
+      "sha256": "126995205fe788f26b2a516fce894d1dce732dea75ed9db37b14cb58bfe303d9"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationAtlasField.cs",
+      "sha256": "bac586c5a6d6e52a51d3776a8d4283d39fb10c47288be783b90770db598c8c39"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationAtlasField.cs",
+      "sha256": "bac586c5a6d6e52a51d3776a8d4283d39fb10c47288be783b90770db598c8c39"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs",
+      "sha256": "55712c21aa0066bf1a6231f52069ae33203e19bf5978f75eae53d9a9499887b4"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs",
+      "sha256": "55712c21aa0066bf1a6231f52069ae33203e19bf5978f75eae53d9a9499887b4"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationPopulation.cs",
+      "sha256": "ed0dc9bee43813cac4ad0532cfc0270fac0b2c83dbb6ea6eb324ce8721724a27"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationPopulation.cs",
+      "sha256": "ed0dc9bee43813cac4ad0532cfc0270fac0b2c83dbb6ea6eb324ce8721724a27"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs",
+      "sha256": "1d1ed0696a32c6cbd4a85399b2f083e5b466bb5215b054e4ffe907f876008230"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs",
+      "sha256": "1d1ed0696a32c6cbd4a85399b2f083e5b466bb5215b054e4ffe907f876008230"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs",
+      "sha256": "7d7f3794bf4574d1d0011c185f8de959d9dc7f7d6b3d96cf55f587e1328ac588"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs",
+      "sha256": "7d7f3794bf4574d1d0011c185f8de959d9dc7f7d6b3d96cf55f587e1328ac588"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/ForestBiomes.cs",
+      "sha256": "6d775df485aab75bf6f507f46477ff60a82c74be0834af21d9b078ed04d4ee55"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/ForestBiomes.cs",
+      "sha256": "6d775df485aab75bf6f507f46477ff60a82c74be0834af21d9b078ed04d4ee55"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/GroundCoverScatter.cs",
+      "sha256": "3a1ce33ae049b07c752e82e01b61cc75de0071c1fef7f8373ee83782309b78e5"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/GroundCoverScatter.cs",
+      "sha256": "3a1ce33ae049b07c752e82e01b61cc75de0071c1fef7f8373ee83782309b78e5"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/HeightAtlas.cs",
+      "sha256": "e7ee57295416134833db7e9e8dfc86e73d6a779561b6adde73a91801b11a43b7"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/HeightAtlas.cs",
+      "sha256": "e7ee57295416134833db7e9e8dfc86e73d6a779561b6adde73a91801b11a43b7"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/ImplicitMatter.cs",
+      "sha256": "c063bf46a0a905cf3b7edd1ad383e89b8e74d649b5597f2efd9f6ea1bcab2eb5"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/ImplicitMatter.cs",
+      "sha256": "c063bf46a0a905cf3b7edd1ad383e89b8e74d649b5597f2efd9f6ea1bcab2eb5"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs",
+      "sha256": "31f2f4bafeb44ad064c1c2e1702ebb700c051ec40e0a1a28de5777603522d88f"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs",
+      "sha256": "31f2f4bafeb44ad064c1c2e1702ebb700c051ec40e0a1a28de5777603522d88f"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs",
+      "sha256": "4e873a75acd0f67f22a2b85e2caf407d6851cc3fd870441947fee5a9629bed90"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs",
+      "sha256": "374e0ef717eb5b41ff32b19bd6b89a884884195868489083495d7bb0faddb285"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/SurfaceProfile.cs",
+      "sha256": "05711037d0af7676befcfa1bf056bb6186eb4d1f7c465a84d72d56c0872baff8"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/SurfaceProfile.cs",
+      "sha256": "2f9074172945470a30aef9a78a0110b1e5a326e33144249430d2bd0eaef7aad5"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/SurfaceWorldField.cs",
+      "sha256": "614c9bc4c516ba6f164deb628f024554552c988e46e1b7e1d6e513968f67722a"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/SurfaceWorldField.cs",
+      "sha256": "614c9bc4c516ba6f164deb628f024554552c988e46e1b7e1d6e513968f67722a"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/TerrainDetailField.cs",
+      "sha256": "8393d97d95a2d4deffda3db93d8b077cfa7223bb98f1e2c55b97f8242d17ac1b"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/TerrainDetailField.cs",
+      "sha256": "8393d97d95a2d4deffda3db93d8b077cfa7223bb98f1e2c55b97f8242d17ac1b"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/VoxelLodSurface.cs",
+      "sha256": "e63bae6ad045b11103783061ee132eb7d43ba7cb0f798df851f67eb1e0155ae3"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/VoxelLodSurface.cs",
+      "sha256": "e63bae6ad045b11103783061ee132eb7d43ba7cb0f798df851f67eb1e0155ae3"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/VoxelTerrainPage.cs",
+      "sha256": "f8b274d2288ead310432d170f55b5d48e9bc829085f4631ac655854822e0b337"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/VoxelTerrainPage.cs",
+      "sha256": "f8b274d2288ead310432d170f55b5d48e9bc829085f4631ac655854822e0b337"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/WorldCoordinates.cs",
+      "sha256": "227e9cffedc4c23135e3486d229caad68fe20be39bbc8495d3d07af3d889dd82"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/WorldCoordinates.cs",
+      "sha256": "227e9cffedc4c23135e3486d229caad68fe20be39bbc8495d3d07af3d889dd82"
+    },
+    {
+      "variant": "baseline",
+      "path": "Assets/AshenVoxel/WorldScaleData/WorldFields.cs",
+      "sha256": "750af4d4b9113607f005052a0b39f1d7e17f1f9f09b78a5a1557393304fa2339"
+    },
+    {
+      "variant": "control",
+      "path": "Assets/AshenVoxel/WorldScaleData/WorldFields.cs",
+      "sha256": "750af4d4b9113607f005052a0b39f1d7e17f1f9f09b78a5a1557393304fa2339"
+    }
+  ],
+  "inputs": {
+    "Assets/AshenVoxel/Exploration/Samples/ExplorationBiomes.bytes": "de5217131a618329a2cc9df3bdb8db1a8bf69c15a5f979934deef6991c47d2cc",
+    "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.bytes": "0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb",
+    "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.climate.bytes": "3c5b1be873732c2a46fec105a4a9c00649d5348c3546c5226ea4a1dbd5297069",
+    "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.bytes": "3a307d7dcebc47e0d1831e75a7cd73346480d3386b27aae9600c71dd2051c98b",
+    "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.climate.bytes": "e81d209a9bf1959c9d6749b93ab96c91c903bf1583fe6dbd33651ecf87306684",
+    "Assets/AshenVoxel/Settings/ExplorationSettings.asset": "38a9b5b822c4e61418597114703af58cf51847e69f80fd9940494c9e55738664",
+    "Assets/AshenVoxel/Exploration/Samples/exploration-world.json": "85ff39810a717cc35db248d9c48b38af52839346e392c32ba707f67e6df94ea3"
+  },
+  "loader_sha256": "c16e0fa26d6a1ab51527216bba1d505591e20094456925dd3739a618f08d1f2d",
+  "probe_sha256": "18f1c70fcfab9187fa5d01ccbc40052e72f20db23ee08425bf35734a5ac39674"
+}

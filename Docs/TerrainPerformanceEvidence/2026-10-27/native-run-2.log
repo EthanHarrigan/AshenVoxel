@@ -1,0 +1,394 @@
+VBCSCompilerServerWatchdog: watching VBCSCompiler (PID 29116)
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.27f1 (672d562a42a7) revision 6761814'; Using compiler version '194234433'; Build Type 'Release'
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-ethan" at "2026-10-27T06:04:10.5124293Z"
+OS: 'Windows 11  (10.0.26200) Professional' Language: 'en' Physical Memory: 32689 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-10-27T06:04:10Z
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Unity.exe
+-batchmode
+-force-d3d12
+-projectPath
+C:/Users/ethan/Downloads/AshenVoxel/.terrain-cache/terrain-performance/native
+-executeMethod
+TerrainNativeBenchmark.Run
+-logFile
+C:/Users/ethan/Downloads/AshenVoxel/.terrain-cache/terrain-performance/native-run-2.log
+-job-worker-count
+2
+Successfully changed project path to: C:/Users/ethan/Downloads/AshenVoxel/.terrain-cache/terrain-performance/native
+C:/Users/ethan/Downloads/AshenVoxel/.terrain-cache/terrain-performance/native
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-remapper-allocator-initial-capacity=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [23988]  Target information:
+
+Player connection [23988]  * "[IP] 192.168.0.44 [Port] 55505 [Flags] 2 [Guid] 673386549 [EditorId] 673386549 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-3MHM656) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [23988] Host joined multi-casting on [225.0.0.222:54997]...
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 28612, path: "C:/Program Files/Unity Hub/UnityLicensingClient_V1/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+Player connection [23988] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 2
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.3+d7ffd15
+  Session Id:              3e5caafd07be4e17ac759fa31a59a5b4
+  Correlation Id:          3a8e8352807b5160fae04e10ccfca026
+  External correlation Id: 736182811352494895
+  Machine Id:              ufFF3dhs8SlprCUGKkpsqsCfiLc=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-ethan" (connect: 0.00s, validation: 0.00s, handshake: 0.06s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-ethan-notifications" at "2026-10-27T06:04:10.5784055Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 2475620621758-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.00
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 0.07s
+[Package Manager] Connected to IPC stream "Upm-29568" after 0.3 seconds.
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.27f1 (672d562a42a7)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/ethan/Downloads/AshenVoxel/.terrain-cache/terrain-performance/native/Assets
+Forcing GfxDevice: Direct3D 12
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 3080 Ti (ID=0x2208)
+    Vendor:          NVIDIA
+    VRAM:            12086 MB
+    App VRAM Budget: 11318 MB
+    Driver:          32.0.16.1088
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56568
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.27f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.006144 seconds.
+- Loaded All Assemblies, in  0.430 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:False
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.415 seconds
+Domain Reload Profiling: 839ms
+	BeginReloadAssembly (142ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (8ms)
+	RebuildCommonClasses (38ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (59ms)
+	LoadAllAssembliesAndSetupDomain (173ms)
+		LoadAssemblies (130ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (168ms)
+			TypeCache.Refresh (166ms)
+				TypeCache.ScanAssembly (153ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (415ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (373ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (50ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (80ms)
+			ProcessInitializeOnLoadAttributes (144ms)
+			ProcessInitializeOnLoadMethodAttributes (95ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 18 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.searcher@4.9.5 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.searcher@a463122f2c00)
+    com.unity.burst@1.8.31 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.burst@bfa84123c21a)
+    com.unity.mathematics@1.3.3 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.mathematics@19a9377c4ffa)
+    com.unity.collections@2.7.1 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.collections@88d5bf65ce66)
+    com.unity.nuget.mono-cecil@1.11.6 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.test-framework.performance@3.5.0 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.test-framework.performance@8b56083ec0f0)
+  Built-in packages:
+    com.unity.render-pipelines.universal@17.3.0 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.render-pipelines.universal@ee0b6bbace10)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.imgui@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.physics@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.modules.physics)
+    com.unity.render-pipelines.core@17.3.0 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.render-pipelines.core@6c7e6aba313a)
+    com.unity.shadergraph@17.3.0 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.shadergraph@12f2ec01e6de)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.render-pipelines.universal-config@8dc1aab4af1d)
+    com.unity.ugui@2.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.ugui@c0ef89c047f6)
+    com.unity.modules.terrain@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.test-framework@1.6.0 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.test-framework@bd7f943e9647)
+    com.unity.modules.ui@1.0.0 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.modules.ui)
+    com.unity.ext.nunit@2.0.5 (location: C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Library\PackageCache\com.unity.ext.nunit@d8c07649098d)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.01 seconds
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/ethan/Downloads/AshenVoxel/.terrain-cache/terrain-performance/native
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 1s935ms
+[465/575    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[571/575    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll (+2 others)
+[572/575    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp-Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll, with 137 defines and 302 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[573/575    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+[574/575    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.pdb
+*** Tundra build success (1.89 seconds), 5 items updated, 575 evaluated
+AssetDatabase: script compilation time: 2.380471s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.860 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.489 seconds
+Domain Reload Profiling: 3342ms
+	BeginReloadAssembly (419ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (104ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (155ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (30ms)
+	LoadAllAssembliesAndSetupDomain (355ms)
+		LoadAssemblies (366ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (105ms)
+			TypeCache.Refresh (70ms)
+				TypeCache.ScanAssembly (63ms)
+			BuildScriptInfoCaches (24ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (2489ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2276ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (20ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (146ms)
+			ProcessInitializeOnLoadAttributes (2028ms)
+			ProcessInitializeOnLoadMethodAttributes (70ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (31ms)
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=5a0489f48fe31324b9c1758fadd3f869): Total: 6.401 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=2822 ms
+		Asset DB Callback time: managed=271 ms, native=19 ms
+		Scripting: domain reloads=1, domain reload time=861 ms, compile time=2383 ms, other=42 ms
+		Project Asset Count: scripts=686, non-scripts=1447
+		Asset File Changes: new=0, changed=1, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.002ms
+	InvokePackagesCallback: 15.040ms
+	ApplyChangesToAssetFolders: 0.643ms
+	Scan: 84.411ms
+	OnSourceAssetsModified: 1.015ms
+	CategorizeAssetsWithTransientArtifact: 15.389ms
+	ProcessAssetsWithTransientArtifactChanges: 41.198ms
+	CategorizeAssets: 39.500ms
+	ImportOutOfDateAssets: 2492.810ms (108.924ms without children)
+		CompileScripts: 2383.011ms
+		ReloadNativeAssets: 0.001ms
+		UnloadImportedAssets: 0.189ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.366ms
+		InitializingProgressBar: 0.001ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.317ms
+	PostProcessAllAssets: 272.803ms
+	Hotreload: 5.585ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.004ms
+	UnloadStreamsBegin: 3.442ms
+	PersistCurrentRevisions: 0.059ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 2.993ms
+	Untracked: 3429.367ms
+
+Application.AssetDatabase Initial Refresh End
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Scanning for USB devices : 8.386ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-native
+Unloading 123 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3195 unused Assets / (3.8 MB). Loaded Objects now: 4034.
+Memory consumption went from 166.3 MB to 162.5 MB.
+Total: 13.468400 ms (FindLiveObjects: 0.828600 ms CreateObjectMapping: 0.386200 ms MarkObjects: 9.958900 ms  DeleteObjects: 2.293200 ms)
+
+AshenVoxel/GroundSurface integer divides may be much slower, try using uints if possible. Assets/GroundSurface.shader:35
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+TerrainNativeBenchmark:Run () (at Assets/Editor/NativeBenchmark.cs:52)
+
+(Filename: Assets/Editor/NativeBenchmark.cs Line: 52)
+
+AshenVoxel/GroundSurface integer modulus may be much slower, try using uints if possible. Assets/GroundSurface.shader:35
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+TerrainNativeBenchmark:Run () (at Assets/Editor/NativeBenchmark.cs:52)
+
+(Filename: Assets/Editor/NativeBenchmark.cs Line: 52)
+
+AshenVoxel/BenchmarkQuad array reference cannot be used as an l-value; not natively addressable Assets/BenchmarkQuad.shader:30
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+TerrainNativeBenchmark:Run () (at Assets/Editor/NativeBenchmark.cs:52)
+
+(Filename: Assets/Editor/NativeBenchmark.cs Line: 52)
+
+AshenVoxel/BenchmarkQuad integer divides may be much slower, try using uints if possible. Assets/BenchmarkQuad.shader:56
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+TerrainNativeBenchmark:Run () (at Assets/Editor/NativeBenchmark.cs:52)
+
+(Filename: Assets/Editor/NativeBenchmark.cs Line: 52)
+
+AshenVoxel/BenchmarkQuad integer modulus may be much slower, try using uints if possible. Assets/BenchmarkQuad.shader:56
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+TerrainNativeBenchmark:Run () (at Assets/Editor/NativeBenchmark.cs:52)
+
+(Filename: Assets/Editor/NativeBenchmark.cs Line: 52)
+
+Exception: Shader compilation error
+  at TerrainNativeBenchmark.Run () [0x001c0] in C:\Users\ethan\Downloads\AshenVoxel\.terrain-cache\terrain-performance\native\Assets\Editor\NativeBenchmark.cs:53 
+UnityEngine.DebugLogHandler:Internal_LogException_Injected(Exception, IntPtr)
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+TerrainNativeBenchmark:Fail(Exception) (at Assets\Editor\NativeBenchmark.cs:173)
+TerrainNativeBenchmark:Run() (at Assets\Editor\NativeBenchmark.cs:57)
+
+(Filename: Assets/Editor/NativeBenchmark.cs Line: 173)
+
+Start importing ProjectSettings/QualitySettings.asset using Guid(00000000000000009000000000000000) (LibraryAssetImporter) -> (artifact id: '3d22d777d340243128ed3ffa349fb55a') in 0.0105748 seconds
+Start importing ProjectSettings/GraphicsSettings.asset using Guid(00000000000000006100000000000000) (LibraryAssetImporter) -> (artifact id: '1272174016aefbc2e9472736bd424cf9') in 0.0033471 seconds
+Start importing Packages/com.unity.render-pipelines.core/Runtime/Debug/ProbeSamplingDebugMesh.fbx using Guid(20be25aac4e22ee49a7db76fb3df6de2) (FBXImporter) -> (artifact id: 'ff53ec14bd68ba281aa66a739aa78c06') in 0.0246941 seconds
+Start importing Packages/com.unity.render-pipelines.core/Runtime/RenderPipelineResources/Mesh/SamplesFixture.fbx using Guid(b28fa67a0ff82c5478f27368dc627683) (FBXImporter) -> (artifact id: 'f580cff2fc6f2303a5c1e281a78304a6') in 0.0341577 seconds
+Start importing Packages/com.unity.render-pipelines.core/Runtime/RenderPipelineResources/Mesh/UnityMaterialBall.fbx using Guid(39857cfad1651644682ff5b772e6e697) (FBXImporter) -> (artifact id: '983304b31053dcd281ea773a5e609402') in 0.0632491 seconds
+Start importing Packages/com.unity.render-pipelines.core/Runtime/RenderPipelineResources/Mesh/BackgroundMesh.fbx using Guid(b9ae429aca254fa41966db24b9e53232) (FBXImporter) -> (artifact id: 'ea77fe2f172b754a928a17a94df4b55b') in 0.0187777 seconds
+Start importing Packages/com.unity.render-pipelines.core/Runtime/RenderPipelineResources/Mesh/SamplesFloorSpotlight.fbx using Guid(1dbf28c1bb322474d981b2dc555e28b0) (FBXImporter) -> (artifact id: '5e1183843000890a26ded6b6815d218f') in 0.0181786 seconds
+Start importing Packages/com.unity.render-pipelines.core/Runtime/RenderPipelineResources/Mesh/SamplesSpotlightModel.fbx using Guid(4e8732d4875cc0647b52b55a218072b6) (FBXImporter) -> (artifact id: '276c50106d439e98cf49f39622b23a55') in 0.0237475 seconds
+Start importing Packages/com.unity.render-pipelines.core/Editor/Resources/DebugProbe.fbx using Guid(9e1c97fc44f9a8744b61b58f72c56de4) (FBXImporter) -> (artifact id: '63d41b0a7ff89d6cdb444641096e815e') in 0.0160597 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=319b8c7b406def3408497ce7f0886856): Total: 0.294 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-ethan-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-ethan channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Checking for leaked weakptr:
+  Found no leaked weakptrs.
+[Package Manager] Server process was shutdown
+##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1793081061510,"processId":29568,"allocatedMemory":12411644,"memoryLabels":[{"Default":29313},{"Permanent":15236},{"NewDelete":68531},{"Thread":4238000},{"Manager":22333},{"VertexData":8},{"Geometry":816},{"Texture":160},{"Shader":83989},{"Material":24},{"GfxDevice":57928},{"Animation":392},{"Audio":3040},{"FreeType":8},{"FontEngine":736},{"Physics":1970},{"Physics2D":16},{"Serialization":592},{"Input":14984},{"JobScheduler":33024},{"TextLib":280},{"Mono":32},{"MonoCode":64},{"ScriptingNativeRuntime":155060},{"BaseObject":1620272},{"Resource":1336},{"Renderer":3000},{"Transform":4685},{"File":1016},{"WebCam":616},{"Culling":32},{"Terrain":11394},{"Wind":24},{"STL":40},{"String":25314},{"DynamicArray":93042},{"HashMap":72828},{"Utility":2660822},{"Curl":2559},{"PoolAlloc":2152},{"AI":80},{"TypeTree":15525},{"ScriptManager":512},{"RuntimeInitializeOnLoadManager":64},{"SpriteAtlas":112},{"GI":7792},{"Director":8240},{"CloudService":10936},{"WebRequest":589},{"VR":47994},{"SceneManager":504},{"Video":64},{"LazyScriptCache":32},{"Camera":17},{"Secure":2377},{"SerializationCache":1576},{"APIUpdating":10320},{"Subsystems":336},{"VirtualTexturing":57888},{"StaticSafetyDebugInfo":278528},{"Analytics":464},{"Hierarchy":608},{"CoreStats":13112},{"Identifiers":6480},{"Gui":96},{"EditorUtility":92027},{"VersionControl":4},{"Undo":947},{"AssetDatabase":2583073},{"EditorGi":328},{"UnityConnect":29208},{"Upm":1896},{"AssetCompliance":64},{"DrivenProperties":72},{"LocalIPC":211},{"ProfilerEditor":9746},{"CoreBusinessMetrics":3498},{"Licensing":696},{"AssetReference":32},{"IPCStream":32}]}

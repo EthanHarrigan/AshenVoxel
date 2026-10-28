@@ -1,0 +1,42 @@
+{
+  "output_sha256": "3a1b2ec8a90347de08ebcb04202b229d73f1857274dc2a2b3620d3b2ca2c736d",
+  "height_sha256": "f72e6e4b4568de7ba3495bfb2934af0f300cfdb56b032cc7d0a00e84c2f19fb2",
+  "identity": {
+    "schema": "ashen-baked-physical-climate-v1",
+    "world_id": "ff0d60df1cd5b4a2de775eaac32011f16e8fa429109b99601638bae5ebf9f977",
+    "model_revision": "9ef8030cb805b433b98ec25c5dddefbac07a9e26",
+    "input_climate_encoding": "upstream-native-v1",
+    "climate_value_units": [
+      "degC",
+      "degC",
+      "mm/year",
+      "percent",
+      "degC/m"
+    ],
+    "source_climate_sha256": "8046102ce9732846c72fb3ba8e6bcbd60d3ab385f492d08c8820b988c0f2c425",
+    "temperature_is_surface_adjusted": true
+  },
+  "channel_ranges": [
+    {
+      "min": -55.606231689453125,
+      "max": -51.91755676269531
+    },
+    {
+      "min": 10.761672973632812,
+      "max": 10.795156478881836
+    },
+    {
+      "min": 178.09896850585938,
+      "max": 202.61843872070312
+    },
+    {
+      "min": 12.86241626739502,
+      "max": 13.844841957092285
+    },
+    {
+      "min": -0.0049131689593195915,
+      "max": -0.004849461372941732
+    }
+  ],
+  "note": "Exact paired baked climate. Legacy centi-C seasonality is normalized once; no new inference or terrain geometry."
+}

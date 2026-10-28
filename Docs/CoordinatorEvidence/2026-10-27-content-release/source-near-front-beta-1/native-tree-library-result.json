@@ -1,0 +1,30 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Action completed."
+    }
+  ],
+  "structuredContent": {
+    "operation": "create_library_file",
+    "status": "succeeded",
+    "path": "/AshenVoxel-natural-birch-cut-impact-beta.webp",
+    "file_id": "file_0000000007d481fdb57a37bac499a9ed",
+    "library_file_id": "libfile_4ec71139ee4c8191947b7fc5e47645a3",
+    "file_name": "AshenVoxel-natural-birch-cut-impact-beta.webp",
+    "current_version_number": 0,
+    "restored_from_version_number": null,
+    "xattrs": [
+      {
+        "name": "user.library-file-version",
+        "value": "0"
+      }
+    ],
+    "directory_id": "libdir_2450bbb861c08191b3c9bfe08d26a5de",
+    "mime_type": "image/webp",
+    "library_artifact_type": "image",
+    "file_size_bytes": 5382840,
+    "external_connectors_accessed": false
+  },
+  "isError": false
+}

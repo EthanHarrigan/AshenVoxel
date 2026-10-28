@@ -1,0 +1,26 @@
+{
+  "id": "startup-lod-1",
+  "utc": "2026-10-27T06:58:45.084211+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs",
+      "before": "100879c15b273d5d81cecab68ec24df83eb1f3a351f3286727020aa066eea993",
+      "sha256": "5048632bc8a14276501758f22b4f8347c1a195d936dee359ae84aa571f629bb7"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "before": "1fc28e882e6cf69db38c5f128094882705504de907a6413137c3e9714ed7cb36",
+      "sha256": "847b218247a97e974101f7ac6e55fdcb35ff86d4c107acd3a2b91f894bd04a1a"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+      "before": "dba8e9f06c17c3c51abdd86c89091b6fa4309f2aac3366c907f54cee3fcef8c4",
+      "sha256": "b050c02ede81aa97bf491d02dea5fe47b0fa45fbc59b9480bda09ba0c49060a9"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "e471e662129bd5c102e7c1fc57e4b92429c8bf5d793d751815d6b72d8517a164",
+      "sha256": "c6fba94eb04f3cd580d5af5211a17ae6f0534495261fbfe3e9d3aa1a1d83e8c8"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Correct sRGB capture: front/back sun passed, no-sun p10=12 median=28/255 failed the median30 readability gate. Increasing default sky-fill strength from1 to1.5, not weakening the gate.

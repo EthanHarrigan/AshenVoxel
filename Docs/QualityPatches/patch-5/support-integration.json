@@ -1,0 +1,72 @@
+[
+  {
+    "path": "Tools/CoreChecks/Program.cs",
+    "before": "b64effde368f646a1e5a92cebc47f211df499dc5e1aeb6443f46f027e526d59a",
+    "sha256": "e1632c5463424fcb609732d2708791725e68f5a9666a71e235dc9a118505ea8c"
+  },
+  {
+    "path": "Tools/MaterialChecks/Program.cs",
+    "before": "edabc439031ca0e75793159530bd7076787272bbb6f4c26dc30b1ba41be4e927",
+    "sha256": "f912310a8111d772a90be3f84ac738caaf2ce75590ce39a62eacbcf9da9e32d4"
+  },
+  {
+    "path": "Tools/ExplorationPopulationChecks/Program.cs",
+    "before": "f2157cfc6140a704c74efb6296cb7149d10d447cb2acc7c9ebd6dc9f17f16e8d",
+    "sha256": "a48605c15c4c42c4cbb8f9cc6470eef2ce87e698bba36fb93139704ee4afff8e"
+  },
+  {
+    "path": "Tools/ExplorationPrototypes/bake_prototypes.py",
+    "before": "e1b9c0e013dda73f10ff0f17bda1b637567ab266af087eec8c61deaccb1a468d",
+    "sha256": "6b29ea09d79bd60aa98e0e88adda15c580e39c59203f5956c7c0da89ec1d2698"
+  },
+  {
+    "path": "Tools/ExplorationPrototypes/quad_pack.py",
+    "before": "421d1a94554e39a0175f6fbc127fb4a829b2ab322e4433f98e46a35b8040931e",
+    "sha256": "369fe148676c9a8491e8d8760ed50c561a824305772931f096ade279086f2f91"
+  },
+  {
+    "path": "Tools/ExplorationPrototypes/preserve_interactions.py",
+    "before": "",
+    "sha256": "027458aca9d7e6bb1405062023ba86e083836111e94620585638f72d4f02a5b0"
+  },
+  {
+    "path": "Tools/check_voxel_unity_api.py",
+    "before": "029d0d29029c5e75c8e2ad92bc60ae9c7c7dae621818971fd092662f207f2078",
+    "sha256": "799397ae6934c3c28675b0d7b152c9bc9f71507b542babfcc26fdc4a967cf275"
+  },
+  {
+    "path": "Tools/check_surface_shading.py",
+    "before": "11cfe55725dde815753431861de1a217ccde64b7c26351cb23b2d99323500184",
+    "sha256": "0bed55c180a40e7fb5122ed5adff69d6bfdd6217d58c8d68dd75b95eccce1bc9"
+  },
+  {
+    "path": "Tools/check_exploration_setup.py",
+    "before": "d7fb865bcf725648651e46f79db13c3abb884e8f3243d0a7f5581f22ca1967e3",
+    "sha256": "dd17d44947e0b0eb91df87db8c681747bff48b6c99aa899593a023ec9ac93dee"
+  },
+  {
+    "path": "Docs/exploration-prototype-bake.json",
+    "before": "3283f2c0c8fe16ae2f88d735d0e9ed30aef7130642b72adb44410396396928e3",
+    "sha256": "98e9829552747a39632d18ac2beb0c2290bdad9e023d285879344ddfd651f62d"
+  },
+  {
+    "path": "Docs/exploration-population-validation.json",
+    "before": "2cc0d805da6516dce8f6763e0a26c116a59d3b5b1a8cfc7c294ba4716ba4d834",
+    "sha256": "6a2a3ae64556eeed25500c91b2b4c8be41478dacb3575ac7501bde28e3e028b8"
+  },
+  {
+    "path": "Docs/material-validation.json",
+    "before": "979edf2bac5f789ac7a355c93a97a8eb26cce83cc553f57918a0031bf3efdb2c",
+    "sha256": "80f4920acf4cccec58f1a1ff01662056b0757776879471c33dce8911fcce6ce2"
+  },
+  {
+    "path": "Docs/tree-validation.json",
+    "before": "232be3e529fde07ad27f23c3843c7138e4c48d5949025d17f5c0a9722ab568f2",
+    "sha256": "8072959efde7f777cff461fb38b9ddeb6a61c998751c41851d5a24d9239695b0"
+  },
+  {
+    "path": "Docs/shading-validation.json",
+    "before": "e28d460069b891f0583040d09fe51277a9f34ac6805018566d20aa12a028d7c1",
+    "sha256": "566d58ab387c24e5498a5a18f9e29c20369f9a41e4e39c345d8f72b729dd5d0e"
+  }
+]

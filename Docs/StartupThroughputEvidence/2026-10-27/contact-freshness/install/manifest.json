@@ -1,0 +1,16 @@
+{
+  "id": "contact-freshness-1",
+  "utc": "2026-10-27T10:19:21.300275+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "before": "0d7d76771373134623fa9c13cc2e00f2830763c7658cfb3cf05701d71a8e0834",
+      "sha256": "15a24d325bc62db2dbe517ee5b2e6bd916f877d6b6d9b966dc2d964831a8d393"
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "before": "b9e7964405642f84fd276644c2ecf726dac536ab756d2ffc1d92a2e31be6e20d",
+      "sha256": "3ab4075df98ffc9aa18faff1b0ec2ffe014e0c09b6b2203c8d6c54ebe778bee0"
+    }
+  ]
+}

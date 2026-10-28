@@ -1,0 +1,883 @@
+{
+  "name": "forest-floor",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    96,
+    64,
+    96
+  ],
+  "occupied_cells": 54714,
+  "bounds_min_m": [
+    0,
+    0,
+    0
+  ],
+  "bounds_max_m": [
+    9.600000000000001,
+    1.7000000000000002,
+    9.600000000000001
+  ],
+  "material_counts": {
+    "Granite": 34491,
+    "Dirt": 9216,
+    "Grass": 2972,
+    "Litter": 6244,
+    "Leaves": 1433,
+    "Wood": 187,
+    "Fruit": 2,
+    "Fungus": 162,
+    "Petal": 7
+  },
+  "scene": {
+    "category": "arrangement",
+    "label": "Forest ground study",
+    "placements": [
+      {
+        "type": "rock",
+        "position": {
+          "x": 25,
+          "y": 8,
+          "z": 59
+        },
+        "profile": {
+          "Shape": 0,
+          "ResolvedShape": 6,
+          "Identity": "rock-v2/catalog-v3/11/714103/1.7/0.8/1.35/0.2/0.82/0.3/500000/100000/False/shape=Auto/resolved=Cluster",
+          "Material": 11,
+          "Seed": 714103,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 1.7,
+          "HeightMeters": 0.8,
+          "DepthMeters": 1.35,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.82,
+          "JointStrength": 0.3,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 6,
+          "CandidateCount": 732,
+          "ColumnEvaluations": 285,
+          "ShapeCells": 685,
+          "WrittenCells": 488,
+          "ClippedCells": 0,
+          "BlockedCells": 197,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 19,
+            "y": 7,
+            "z": 53
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 31,
+            "y": 15,
+            "z": 65
+          }
+        }
+      },
+      {
+        "type": "rock",
+        "position": {
+          "x": 73,
+          "y": 3,
+          "z": 29
+        },
+        "profile": {
+          "Shape": 0,
+          "ResolvedShape": 1,
+          "Identity": "rock-v2/catalog-v3/11/271828/1.7/0.8/1.35/0.2/0.82/0.3/500000/100000/False/shape=Auto/resolved=AngularBoulder",
+          "Material": 11,
+          "Seed": 271828,
+          "MaxCandidates": 500000,
+          "MaxWrittenCells": 100000,
+          "WidthMeters": 1.7,
+          "HeightMeters": 0.8,
+          "DepthMeters": 1.35,
+          "BuriedDepthMeters": 0.2,
+          "Weathering": 0.82,
+          "JointStrength": 0.3,
+          "OverwriteExisting": false
+        },
+        "result": {
+          "ResolvedShape": 1,
+          "CandidateCount": 920,
+          "ColumnEvaluations": 285,
+          "ShapeCells": 866,
+          "WrittenCells": 579,
+          "ClippedCells": 0,
+          "BlockedCells": 287,
+          "UnchangedCells": 0,
+          "Truncated": false,
+          "HasMatter": true,
+          "BoundsMinCellInclusive": {
+            "x": 66,
+            "y": 3,
+            "z": 24
+          },
+          "BoundsMaxCellInclusive": {
+            "x": 79,
+            "y": 9,
+            "z": 35
+          }
+        }
+      },
+      {
+        "type": "Shrub",
+        "position": {
+          "x": 20,
+          "y": 6,
+          "z": 23
+        },
+        "profile": {
+          "Kind": 1,
+          "HeightMeters": 1.1,
+          "RadiusMeters": 0.85,
+          "Density": 0.84,
+          "FruitProbability": 0.22,
+          "Variation": 0.35,
+          "Stems": 6,
+          "PaletteSteps": 4,
+          "FoliageColor": 4283130686,
+          "WoodColor": 4284633149,
+          "AccentColor": 4288623674
+        },
+        "result": {
+          "Kind": 1,
+          "Seed": 714103,
+          "RequestedMinCell": {
+            "x": 6,
+            "y": 6,
+            "z": 9
+          },
+          "RequestedMaxCell": {
+            "x": 34,
+            "y": 23,
+            "z": 37
+          },
+          "MinCell": {
+            "x": 13,
+            "y": 6,
+            "z": 17
+          },
+          "MaxCell": {
+            "x": 27,
+            "y": 16,
+            "z": 30
+          },
+          "WrittenCells": 336,
+          "Candidates": 2260,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Wood": 95,
+            "Leaves": 240,
+            "Fruit": 1
+          }
+        }
+      },
+      {
+        "type": "Shrub",
+        "position": {
+          "x": 75,
+          "y": 5,
+          "z": 73
+        },
+        "profile": {
+          "Kind": 1,
+          "HeightMeters": 1.1,
+          "RadiusMeters": 0.85,
+          "Density": 0.84,
+          "FruitProbability": 0.22,
+          "Variation": 0.35,
+          "Stems": 6,
+          "PaletteSteps": 4,
+          "FoliageColor": 4283130686,
+          "WoodColor": 4284633149,
+          "AccentColor": 4288623674
+        },
+        "result": {
+          "Kind": 1,
+          "Seed": 271845,
+          "RequestedMinCell": {
+            "x": 61,
+            "y": 5,
+            "z": 59
+          },
+          "RequestedMaxCell": {
+            "x": 89,
+            "y": 22,
+            "z": 87
+          },
+          "MinCell": {
+            "x": 67,
+            "y": 5,
+            "z": 66
+          },
+          "MaxCell": {
+            "x": 81,
+            "y": 15,
+            "z": 80
+          },
+          "WrittenCells": 351,
+          "Candidates": 2618,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Wood": 92,
+            "Leaves": 258,
+            "Fruit": 1
+          }
+        }
+      },
+      {
+        "type": "Fern",
+        "position": {
+          "x": 44,
+          "y": 5,
+          "z": 30
+        },
+        "profile": {
+          "Kind": 0,
+          "HeightMeters": 0.65,
+          "RadiusMeters": 0.95,
+          "Density": 0.85,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 5,
+          "PaletteSteps": 4,
+          "FoliageColor": 4283266112,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 0,
+          "Seed": 161837,
+          "RequestedMinCell": {
+            "x": 28,
+            "y": 5,
+            "z": 14
+          },
+          "RequestedMaxCell": {
+            "x": 60,
+            "y": 16,
+            "z": 46
+          },
+          "MinCell": {
+            "x": 36,
+            "y": 5,
+            "z": 22
+          },
+          "MaxCell": {
+            "x": 53,
+            "y": 12,
+            "z": 39
+          },
+          "WrittenCells": 181,
+          "Candidates": 540,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 181
+          }
+        }
+      },
+      {
+        "type": "Fern",
+        "position": {
+          "x": 24,
+          "y": 8,
+          "z": 73
+        },
+        "profile": {
+          "Kind": 0,
+          "HeightMeters": 0.65,
+          "RadiusMeters": 0.95,
+          "Density": 0.85,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 5,
+          "PaletteSteps": 4,
+          "FoliageColor": 4283266112,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 0,
+          "Seed": 714154,
+          "RequestedMinCell": {
+            "x": 8,
+            "y": 8,
+            "z": 57
+          },
+          "RequestedMaxCell": {
+            "x": 40,
+            "y": 19,
+            "z": 89
+          },
+          "MinCell": {
+            "x": 15,
+            "y": 8,
+            "z": 64
+          },
+          "MaxCell": {
+            "x": 30,
+            "y": 15,
+            "z": 81
+          },
+          "WrittenCells": 181,
+          "Candidates": 523,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 181
+          }
+        }
+      },
+      {
+        "type": "Fern",
+        "position": {
+          "x": 66,
+          "y": 4,
+          "z": 48
+        },
+        "profile": {
+          "Kind": 0,
+          "HeightMeters": 0.65,
+          "RadiusMeters": 0.95,
+          "Density": 0.85,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 5,
+          "PaletteSteps": 4,
+          "FoliageColor": 4283266112,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 0,
+          "Seed": 271896,
+          "RequestedMinCell": {
+            "x": 50,
+            "y": 4,
+            "z": 32
+          },
+          "RequestedMaxCell": {
+            "x": 82,
+            "y": 15,
+            "z": 64
+          },
+          "MinCell": {
+            "x": 58,
+            "y": 4,
+            "z": 41
+          },
+          "MaxCell": {
+            "x": 73,
+            "y": 11,
+            "z": 55
+          },
+          "WrittenCells": 161,
+          "Candidates": 451,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 161
+          }
+        }
+      },
+      {
+        "type": "Fern",
+        "position": {
+          "x": 52,
+          "y": 6,
+          "z": 68
+        },
+        "profile": {
+          "Kind": 0,
+          "HeightMeters": 0.65,
+          "RadiusMeters": 0.95,
+          "Density": 0.85,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 5,
+          "PaletteSteps": 4,
+          "FoliageColor": 4283266112,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 0,
+          "Seed": 161888,
+          "RequestedMinCell": {
+            "x": 36,
+            "y": 6,
+            "z": 52
+          },
+          "RequestedMaxCell": {
+            "x": 68,
+            "y": 17,
+            "z": 84
+          },
+          "MinCell": {
+            "x": 44,
+            "y": 6,
+            "z": 59
+          },
+          "MaxCell": {
+            "x": 60,
+            "y": 13,
+            "z": 76
+          },
+          "WrittenCells": 179,
+          "Candidates": 523,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 179
+          }
+        }
+      },
+      {
+        "type": "BroadleafHerb",
+        "position": {
+          "x": 39,
+          "y": 7,
+          "z": 58
+        },
+        "profile": {
+          "Kind": 4,
+          "HeightMeters": 0.45,
+          "RadiusMeters": 0.4,
+          "Density": 0.9,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 6,
+          "PaletteSteps": 4,
+          "FoliageColor": 4284512581,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 4,
+          "Seed": 714205,
+          "RequestedMinCell": {
+            "x": 31,
+            "y": 7,
+            "z": 50
+          },
+          "RequestedMaxCell": {
+            "x": 47,
+            "y": 16,
+            "z": 66
+          },
+          "MinCell": {
+            "x": 36,
+            "y": 7,
+            "z": 54
+          },
+          "MaxCell": {
+            "x": 42,
+            "y": 11,
+            "z": 60
+          },
+          "WrittenCells": 46,
+          "Candidates": 129,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 46
+          }
+        }
+      },
+      {
+        "type": "Mushroom",
+        "position": {
+          "x": 62,
+          "y": 4,
+          "z": 23
+        },
+        "profile": {
+          "Kind": 6,
+          "HeightMeters": 0.35,
+          "RadiusMeters": 0.28,
+          "Density": 1,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 1,
+          "PaletteSteps": 4,
+          "FoliageColor": 4292925108,
+          "WoodColor": 4284829754,
+          "AccentColor": 4289285175
+        },
+        "result": {
+          "Kind": 6,
+          "Seed": 271947,
+          "RequestedMinCell": {
+            "x": 56,
+            "y": 4,
+            "z": 17
+          },
+          "RequestedMaxCell": {
+            "x": 68,
+            "y": 12,
+            "z": 29
+          },
+          "MinCell": {
+            "x": 60,
+            "y": 4,
+            "z": 21
+          },
+          "MaxCell": {
+            "x": 65,
+            "y": 7,
+            "z": 25
+          },
+          "WrittenCells": 54,
+          "Candidates": 92,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Fungus": 54
+          }
+        }
+      },
+      {
+        "type": "Mushroom",
+        "position": {
+          "x": 31,
+          "y": 6,
+          "z": 46
+        },
+        "profile": {
+          "Kind": 6,
+          "HeightMeters": 0.35,
+          "RadiusMeters": 0.28,
+          "Density": 1,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 1,
+          "PaletteSteps": 4,
+          "FoliageColor": 4292925108,
+          "WoodColor": 4284829754,
+          "AccentColor": 4289285175
+        },
+        "result": {
+          "Kind": 6,
+          "Seed": 161939,
+          "RequestedMinCell": {
+            "x": 25,
+            "y": 6,
+            "z": 40
+          },
+          "RequestedMaxCell": {
+            "x": 37,
+            "y": 14,
+            "z": 52
+          },
+          "MinCell": {
+            "x": 29,
+            "y": 6,
+            "z": 44
+          },
+          "MaxCell": {
+            "x": 34,
+            "y": 9,
+            "z": 48
+          },
+          "WrittenCells": 54,
+          "Candidates": 92,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Fungus": 54
+          }
+        }
+      },
+      {
+        "type": "Flower",
+        "position": {
+          "x": 78,
+          "y": 4,
+          "z": 20
+        },
+        "profile": {
+          "Kind": 5,
+          "HeightMeters": 0.5,
+          "RadiusMeters": 0.31,
+          "Density": 0.8,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 5,
+          "PaletteSteps": 4,
+          "FoliageColor": 4284905540,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290879670
+        },
+        "result": {
+          "Kind": 5,
+          "Seed": 714256,
+          "RequestedMinCell": {
+            "x": 71,
+            "y": 4,
+            "z": 13
+          },
+          "RequestedMaxCell": {
+            "x": 85,
+            "y": 13,
+            "z": 27
+          },
+          "MinCell": {
+            "x": 76,
+            "y": 4,
+            "z": 17
+          },
+          "MaxCell": {
+            "x": 80,
+            "y": 9,
+            "z": 21
+          },
+          "WrittenCells": 35,
+          "Candidates": 95,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 28,
+            "Petal": 7
+          }
+        }
+      },
+      {
+        "type": "GrassTuft",
+        "position": {
+          "x": 18,
+          "y": 6,
+          "z": 45
+        },
+        "profile": {
+          "Kind": 2,
+          "HeightMeters": 0.5,
+          "RadiusMeters": 0.34,
+          "Density": 0.75,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 9,
+          "PaletteSteps": 4,
+          "FoliageColor": 4285101123,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 2,
+          "Seed": 271998,
+          "RequestedMinCell": {
+            "x": 11,
+            "y": 6,
+            "z": 38
+          },
+          "RequestedMaxCell": {
+            "x": 25,
+            "y": 15,
+            "z": 52
+          },
+          "MinCell": {
+            "x": 14,
+            "y": 6,
+            "z": 41
+          },
+          "MaxCell": {
+            "x": 22,
+            "y": 10,
+            "z": 49
+          },
+          "WrittenCells": 59,
+          "Candidates": 111,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 59
+          }
+        }
+      },
+      {
+        "type": "GrassTuft",
+        "position": {
+          "x": 72,
+          "y": 4,
+          "z": 55
+        },
+        "profile": {
+          "Kind": 2,
+          "HeightMeters": 0.5,
+          "RadiusMeters": 0.34,
+          "Density": 0.75,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 9,
+          "PaletteSteps": 4,
+          "FoliageColor": 4285101123,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 2,
+          "Seed": 161990,
+          "RequestedMinCell": {
+            "x": 65,
+            "y": 4,
+            "z": 48
+          },
+          "RequestedMaxCell": {
+            "x": 79,
+            "y": 13,
+            "z": 62
+          },
+          "MinCell": {
+            "x": 68,
+            "y": 4,
+            "z": 51
+          },
+          "MaxCell": {
+            "x": 75,
+            "y": 8,
+            "z": 59
+          },
+          "WrittenCells": 56,
+          "Candidates": 109,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 56
+          }
+        }
+      },
+      {
+        "type": "Mushroom",
+        "position": {
+          "x": 43,
+          "y": 7,
+          "z": 79
+        },
+        "profile": {
+          "Kind": 6,
+          "HeightMeters": 0.35,
+          "RadiusMeters": 0.28,
+          "Density": 1,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 1,
+          "PaletteSteps": 4,
+          "FoliageColor": 4292925108,
+          "WoodColor": 4284829754,
+          "AccentColor": 4289285175
+        },
+        "result": {
+          "Kind": 6,
+          "Seed": 714307,
+          "RequestedMinCell": {
+            "x": 37,
+            "y": 7,
+            "z": 73
+          },
+          "RequestedMaxCell": {
+            "x": 49,
+            "y": 15,
+            "z": 85
+          },
+          "MinCell": {
+            "x": 41,
+            "y": 7,
+            "z": 77
+          },
+          "MaxCell": {
+            "x": 46,
+            "y": 10,
+            "z": 81
+          },
+          "WrittenCells": 54,
+          "Candidates": 92,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Fungus": 54
+          }
+        }
+      },
+      {
+        "type": "BroadleafHerb",
+        "position": {
+          "x": 49,
+          "y": 5,
+          "z": 48
+        },
+        "profile": {
+          "Kind": 4,
+          "HeightMeters": 0.45,
+          "RadiusMeters": 0.4,
+          "Density": 0.9,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 6,
+          "PaletteSteps": 4,
+          "FoliageColor": 4284512581,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 4,
+          "Seed": 272049,
+          "RequestedMinCell": {
+            "x": 41,
+            "y": 5,
+            "z": 40
+          },
+          "RequestedMaxCell": {
+            "x": 57,
+            "y": 14,
+            "z": 56
+          },
+          "MinCell": {
+            "x": 45,
+            "y": 5,
+            "z": 45
+          },
+          "MaxCell": {
+            "x": 52,
+            "y": 10,
+            "z": 51
+          },
+          "WrittenCells": 44,
+          "Candidates": 126,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 44
+          }
+        }
+      }
+    ],
+    "note": "Authored arrangement of actual procedural plant/rock specimens on controlled voxel terrain. This is a small composition mockup, not neural terrain, ecological world scatter, a biome simulator or a Unity screenshot."
+  },
+  "generation_version": {
+    "plant": 1,
+    "rock": 2,
+    "catalog": 3
+  },
+  "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+}

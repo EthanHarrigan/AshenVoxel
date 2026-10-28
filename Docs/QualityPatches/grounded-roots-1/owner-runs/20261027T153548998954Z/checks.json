@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "assertions": 104502,
+  "results": [
+    {
+      "model": 10,
+      "compute_ms": 720.127,
+      "artifact_bytes": 2471452,
+      "cell_count": 51454,
+      "known_site": true,
+      "rebase": true,
+      "unload_reload": true
+    },
+    {
+      "model": 11,
+      "compute_ms": 122.7337,
+      "artifact_bytes": 2551793,
+      "cell_count": 52979,
+      "known_site": true,
+      "rebase": true,
+      "unload_reload": true
+    }
+  ],
+  "scope": "Actual gameplay owner/oneTask/main loader, real pack\u002Brecorded natural slope terrain\u002Bposes, exact matter/roles and public body queries, batching/rebase/unload/reload with test-only Unity shim. Native rendering/lifetime/memory acceptance remains separate."
+}

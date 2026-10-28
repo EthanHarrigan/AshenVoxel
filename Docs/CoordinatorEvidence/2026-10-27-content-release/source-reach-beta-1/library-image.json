@@ -1,0 +1,26 @@
+{
+  "operation": "replace_library_file",
+  "status": "succeeded",
+  "path": "/AshenVoxel-valley-saved-spawn-preview.png",
+  "file_id": "file_00000000b420820c893048d68130f8df",
+  "library_file_id": "libfile_a5a648d43fa08191b3b433f8f79a0e01",
+  "file_name": "AshenVoxel-valley-saved-spawn-preview.png",
+  "current_version_number": 2,
+  "restored_from_version_number": null,
+  "xattrs": [
+    {
+      "name": "user.library-file-version",
+      "value": "2"
+    }
+  ],
+  "directory_id": "libdir_2450bbb861c08191b3c9bfe08d26a5de",
+  "mime_type": "image/png",
+  "library_artifact_type": "image",
+  "file_size_bytes": 2739795,
+  "external_connectors_accessed": false,
+  "capture": "Logs/MountainReviewFrames/valley-source5m-refining",
+  "capture_utc": "2026-10-27T20:51:32.2807550Z",
+  "source_resolution_m": 5,
+  "quality_pending": 4092,
+  "assessment": "Verified source availability/publication; unfinished mesh refinement, cube/proxy seams and snow aliasing remain. Not final fidelity."
+}

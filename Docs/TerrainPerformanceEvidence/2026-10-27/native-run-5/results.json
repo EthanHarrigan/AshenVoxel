@@ -1,0 +1,688 @@
+{
+    "status": "PASS",
+    "scope": "Native Unity actual-source tile pipeline microbenchmark; no forest/full-world/FPS claim",
+    "unity": "6000.3.27f1",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "api": "Direct3D12",
+    "source": "exploration-blend-v1/14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4/macro=3a307d7dcebc47e0d1831e75a7cd73346480d3386b27aae9600c71dd2051c98b/fine=0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb/width=299520/depth=149760/height=1/blend=512/source-width=299520/source-depth=149760/biomes=biome-cells-v1/14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4/9495e761e7eece02ad764bfb31bf96bb5be66ed84faca207f1100bb73df1a072/234/118/-149760/-75520/1280/surface-relief-v1/seed=714103/surface-v1/catalog-v3/714103/0/4200/2.4/True/0.7/0.2/0/rock=auto/wind=36.86989764584402/sun=287.35402463626127",
+    "rows": [
+        {
+            "label": "spawn-10cm",
+            "sha256": "520b0fd220429f1028cf03c7cf452cbd1c66a31928f8907aca9902ccac0199bf",
+            "mode": 1,
+            "repeat": 0,
+            "faces": 74322,
+            "generation_ms": 689.6636000000001,
+            "sampling_ms": 324.199,
+            "tops_ms": 5.8048,
+            "sides_ms": 31.6253,
+            "merge_ms": 324.9304,
+            "expand_ms": 45.842,
+            "mesh_upload_ms": 6.4575000000000009,
+            "pack_ms": 5.0126,
+            "quad_upload_ms": 1.2015,
+            "expanded_bytes": 8918640,
+            "quad_bytes": 2378304,
+            "allocated_generation_caller": 0,
+            "allocated_expand": 0,
+            "allocated_pack": 0
+        },
+        {
+            "label": "spawn-east-10cm",
+            "sha256": "01f6e22012cdcc250371e499657d28f98d0fb72353cf627279d68e12efc0761e",
+            "mode": 1,
+            "repeat": 0,
+            "faces": 72587,
+            "generation_ms": 829.6242000000001,
+            "sampling_ms": 314.0516,
+            "tops_ms": 8.0049,
+            "sides_ms": 25.3961,
+            "merge_ms": 482.1355,
+            "expand_ms": 58.5339,
+            "mesh_upload_ms": 3.3118000000000005,
+            "pack_ms": 5.9923,
+            "quad_upload_ms": 0.5334,
+            "expanded_bytes": 8710440,
+            "quad_bytes": 2322784,
+            "allocated_generation_caller": 0,
+            "allocated_expand": 0,
+            "allocated_pack": 0
+        },
+        {
+            "label": "decoded-edge-10cm",
+            "sha256": "7a02563ec698dfafdc9e95714d20ddb6256ca788bddf1f0744eb2146798df848",
+            "mode": 1,
+            "repeat": 0,
+            "faces": 175555,
+            "generation_ms": 1335.6832000000002,
+            "sampling_ms": 383.2195,
+            "tops_ms": 5.7491,
+            "sides_ms": 78.6138,
+            "merge_ms": 868.0598,
+            "expand_ms": 109.93130000000001,
+            "mesh_upload_ms": 35.6471,
+            "pack_ms": 10.517900000000001,
+            "quad_upload_ms": 2.8489,
+            "expanded_bytes": 21066600,
+            "quad_bytes": 5617760,
+            "allocated_generation_caller": 0,
+            "allocated_expand": 0,
+            "allocated_pack": 0
+        },
+        {
+            "label": "macro-10cm",
+            "sha256": "7be970a6a586bc14c61dec7a8b96a9aa0f81eaa1973a2c14f66faee94716b1c3",
+            "mode": 1,
+            "repeat": 0,
+            "faces": 88254,
+            "generation_ms": 1216.8691000000001,
+            "sampling_ms": 243.331,
+            "tops_ms": 5.5274,
+            "sides_ms": 43.8357,
+            "merge_ms": 924.1543,
+            "expand_ms": 51.1449,
+            "mesh_upload_ms": 3.2239,
+            "pack_ms": 5.3685,
+            "quad_upload_ms": 0.32320000000000007,
+            "expanded_bytes": 10590480,
+            "quad_bytes": 2824128,
+            "allocated_generation_caller": 0,
+            "allocated_expand": 0,
+            "allocated_pack": 0
+        },
+        {
+            "label": "near-lod",
+            "sha256": "4ebea4b7a933b5dff3c46b2220a5e91c594cba902de6de18d8f77217df751aab",
+            "mode": 1,
+            "repeat": 0,
+            "faces": 65383,
+            "generation_ms": 284.57390000000006,
+            "sampling_ms": 81.6746,
+            "tops_ms": 1.4198,
+            "sides_ms": 23.6702,
+            "merge_ms": 177.7272,
+            "expand_ms": 37.0292,
+            "mesh_upload_ms": 1.7603,
+            "pack_ms": 3.8489,
+            "quad_upload_ms": 0.2467,
+            "expanded_bytes": 7845960,
+            "quad_bytes": 2092256,
+            "allocated_generation_caller": 0,
+            "allocated_expand": 0,
+            "allocated_pack": 0
+        },
+        {
+            "label": "middle-lod",
+            "sha256": "29dcb9a0bb8e6248f94c5132d5af021095c3e08791cc6ea2e0e46a36c5403b9f",
+            "mode": 1,
+            "repeat": 0,
+            "faces": 104227,
+            "generation_ms": 434.3244,
+            "sampling_ms": 77.6562,
+            "tops_ms": 1.3814,
+            "sides_ms": 44.5761,
+            "merge_ms": 310.255,
+            "expand_ms": 61.3885,
+            "mesh_upload_ms": 3.1329000000000004,
+            "pack_ms": 6.1403,
+            "quad_upload_ms": 0.4556,
+            "expanded_bytes": 12507240,
+            "quad_bytes": 3335264,
+            "allocated_generation_caller": 0,
+            "allocated_expand": 0,
+            "allocated_pack": 0
+        },
+        {
+            "label": "distant-lod",
+            "sha256": "d14171bacffcf6056dd8340bf25e1991ed07b4b0d6a77c4e6fc78d1a87c110c1",
+            "mode": 1,
+            "repeat": 0,
+            "faces": 112346,
+            "generation_ms": 500.75300000000006,
+            "sampling_ms": 62.4375,
+            "tops_ms": 1.3185,
+            "sides_ms": 52.8046,
+            "merge_ms": 384.135,
+            "expand_ms": 70.4114,
+            "mesh_upload_ms": 3.2433,
+            "pack_ms": 7.3844,
+            "quad_upload_ms": 0.4949,
+            "expanded_bytes": 13481520,
+            "quad_bytes": 3595072,
+            "allocated_generation_caller": 0,
+            "allocated_expand": 0,
+            "allocated_pack": 0
+        },
+        {
+            "label": "rear-lod",
+            "sha256": "2c4b41c9f1ccbe7ba1bc0015b4fce6df1aaaab0055b217494a388cca62781287",
+            "mode": 1,
+            "repeat": 0,
+            "faces": 6987,
+            "generation_ms": 21.631700000000003,
+            "sampling_ms": 4.5455,
+            "tops_ms": 0.0977,
+            "sides_ms": 2.9055,
+            "merge_ms": 14.0272,
+            "expand_ms": 3.8884000000000005,
+            "mesh_upload_ms": 0.3889,
+            "pack_ms": 0.42800000000000007,
+            "quad_upload_ms": 0.0548,
+            "expanded_bytes": 838440,
+            "quad_bytes": 223584,
+            "allocated_generation_caller": 0,
+            "allocated_expand": 0,
+            "allocated_pack": 0
+        }
+    ],
+    "pixels": [
+        {
+            "label": "spawn-10cm",
+            "pass": 0,
+            "pixels": 86072,
+            "changed": 0,
+            "max_error": 1.7881393432617188e-7
+        },
+        {
+            "label": "spawn-10cm",
+            "pass": 1,
+            "pixels": 86072,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "spawn-10cm",
+            "pass": 2,
+            "pixels": 86072,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "spawn-10cm",
+            "pass": 3,
+            "pixels": 86072,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "spawn-east-10cm",
+            "pass": 0,
+            "pixels": 65620,
+            "changed": 0,
+            "max_error": 1.1920928955078126e-7
+        },
+        {
+            "label": "spawn-east-10cm",
+            "pass": 1,
+            "pixels": 65620,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "spawn-east-10cm",
+            "pass": 2,
+            "pixels": 65620,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "spawn-east-10cm",
+            "pass": 3,
+            "pixels": 65620,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "decoded-edge-10cm",
+            "pass": 0,
+            "pixels": 90076,
+            "changed": 0,
+            "max_error": 1.7881393432617188e-7
+        },
+        {
+            "label": "decoded-edge-10cm",
+            "pass": 1,
+            "pixels": 90076,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "decoded-edge-10cm",
+            "pass": 2,
+            "pixels": 90076,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "decoded-edge-10cm",
+            "pass": 3,
+            "pixels": 90076,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "macro-10cm",
+            "pass": 0,
+            "pixels": 100502,
+            "changed": 0,
+            "max_error": 1.4901161193847657e-7
+        },
+        {
+            "label": "macro-10cm",
+            "pass": 1,
+            "pixels": 100502,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "macro-10cm",
+            "pass": 2,
+            "pixels": 100502,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "macro-10cm",
+            "pass": 3,
+            "pixels": 100502,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "near-lod",
+            "pass": 0,
+            "pixels": 78897,
+            "changed": 0,
+            "max_error": 1.7881393432617188e-7
+        },
+        {
+            "label": "near-lod",
+            "pass": 1,
+            "pixels": 78897,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "near-lod",
+            "pass": 2,
+            "pixels": 78897,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "near-lod",
+            "pass": 3,
+            "pixels": 78897,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "middle-lod",
+            "pass": 0,
+            "pixels": 77782,
+            "changed": 0,
+            "max_error": 1.4901161193847657e-7
+        },
+        {
+            "label": "middle-lod",
+            "pass": 1,
+            "pixels": 77782,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "middle-lod",
+            "pass": 2,
+            "pixels": 77782,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "middle-lod",
+            "pass": 3,
+            "pixels": 77782,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "distant-lod",
+            "pass": 0,
+            "pixels": 34011,
+            "changed": 0,
+            "max_error": 1.1920928955078126e-7
+        },
+        {
+            "label": "distant-lod",
+            "pass": 1,
+            "pixels": 34011,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "distant-lod",
+            "pass": 2,
+            "pixels": 34011,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "distant-lod",
+            "pass": 3,
+            "pixels": 34011,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "rear-lod",
+            "pass": 0,
+            "pixels": 41086,
+            "changed": 0,
+            "max_error": 1.7881393432617188e-7
+        },
+        {
+            "label": "rear-lod",
+            "pass": 1,
+            "pixels": 41086,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "rear-lod",
+            "pass": 2,
+            "pixels": 41086,
+            "changed": 0,
+            "max_error": 0.0
+        },
+        {
+            "label": "rear-lod",
+            "pass": 3,
+            "pixels": 41086,
+            "changed": 0,
+            "max_error": 0.0
+        }
+    ],
+    "draw_timings": [
+        {
+            "label": "spawn-10cm",
+            "repeat": 0,
+            "draws": 32,
+            "mesh_completed_ms": 178.6971,
+            "quad_completed_ms": 178.4494
+        },
+        {
+            "label": "spawn-10cm",
+            "repeat": 1,
+            "draws": 32,
+            "mesh_completed_ms": 178.5694,
+            "quad_completed_ms": 179.80540000000003
+        },
+        {
+            "label": "spawn-10cm",
+            "repeat": 2,
+            "draws": 32,
+            "mesh_completed_ms": 149.62210000000003,
+            "quad_completed_ms": 67.1324
+        },
+        {
+            "label": "spawn-10cm",
+            "repeat": 3,
+            "draws": 32,
+            "mesh_completed_ms": 181.50390000000002,
+            "quad_completed_ms": 179.98000000000003
+        },
+        {
+            "label": "spawn-10cm",
+            "repeat": 4,
+            "draws": 32,
+            "mesh_completed_ms": 130.5717,
+            "quad_completed_ms": 5.8742
+        },
+        {
+            "label": "spawn-east-10cm",
+            "repeat": 0,
+            "draws": 32,
+            "mesh_completed_ms": 144.7055,
+            "quad_completed_ms": 192.7383
+        },
+        {
+            "label": "spawn-east-10cm",
+            "repeat": 1,
+            "draws": 32,
+            "mesh_completed_ms": 138.2492,
+            "quad_completed_ms": 182.9987
+        },
+        {
+            "label": "spawn-east-10cm",
+            "repeat": 2,
+            "draws": 32,
+            "mesh_completed_ms": 139.3278,
+            "quad_completed_ms": 199.67440000000003
+        },
+        {
+            "label": "spawn-east-10cm",
+            "repeat": 3,
+            "draws": 32,
+            "mesh_completed_ms": 156.4616,
+            "quad_completed_ms": 80.02600000000001
+        },
+        {
+            "label": "spawn-east-10cm",
+            "repeat": 4,
+            "draws": 32,
+            "mesh_completed_ms": 157.3214,
+            "quad_completed_ms": 185.472
+        },
+        {
+            "label": "decoded-edge-10cm",
+            "repeat": 0,
+            "draws": 32,
+            "mesh_completed_ms": 7.4317,
+            "quad_completed_ms": 8.0021
+        },
+        {
+            "label": "decoded-edge-10cm",
+            "repeat": 1,
+            "draws": 32,
+            "mesh_completed_ms": 7.9968,
+            "quad_completed_ms": 8.279200000000002
+        },
+        {
+            "label": "decoded-edge-10cm",
+            "repeat": 2,
+            "draws": 32,
+            "mesh_completed_ms": 7.5712,
+            "quad_completed_ms": 8.8888
+        },
+        {
+            "label": "decoded-edge-10cm",
+            "repeat": 3,
+            "draws": 32,
+            "mesh_completed_ms": 7.954400000000001,
+            "quad_completed_ms": 8.8444
+        },
+        {
+            "label": "decoded-edge-10cm",
+            "repeat": 4,
+            "draws": 32,
+            "mesh_completed_ms": 7.695600000000001,
+            "quad_completed_ms": 8.297600000000001
+        },
+        {
+            "label": "macro-10cm",
+            "repeat": 0,
+            "draws": 32,
+            "mesh_completed_ms": 224.8356,
+            "quad_completed_ms": 178.3646
+        },
+        {
+            "label": "macro-10cm",
+            "repeat": 1,
+            "draws": 32,
+            "mesh_completed_ms": 55.934000000000008,
+            "quad_completed_ms": 180.81140000000003
+        },
+        {
+            "label": "macro-10cm",
+            "repeat": 2,
+            "draws": 32,
+            "mesh_completed_ms": 33.7371,
+            "quad_completed_ms": 142.6028
+        },
+        {
+            "label": "macro-10cm",
+            "repeat": 3,
+            "draws": 32,
+            "mesh_completed_ms": 178.57760000000003,
+            "quad_completed_ms": 180.7169
+        },
+        {
+            "label": "macro-10cm",
+            "repeat": 4,
+            "draws": 32,
+            "mesh_completed_ms": 179.4043,
+            "quad_completed_ms": 180.46900000000003
+        },
+        {
+            "label": "near-lod",
+            "repeat": 0,
+            "draws": 32,
+            "mesh_completed_ms": 7.3299,
+            "quad_completed_ms": 5.681900000000001
+        },
+        {
+            "label": "near-lod",
+            "repeat": 1,
+            "draws": 32,
+            "mesh_completed_ms": 6.8491,
+            "quad_completed_ms": 5.3524
+        },
+        {
+            "label": "near-lod",
+            "repeat": 2,
+            "draws": 32,
+            "mesh_completed_ms": 4.8897,
+            "quad_completed_ms": 6.1951
+        },
+        {
+            "label": "near-lod",
+            "repeat": 3,
+            "draws": 32,
+            "mesh_completed_ms": 6.4430000000000009,
+            "quad_completed_ms": 6.8734
+        },
+        {
+            "label": "near-lod",
+            "repeat": 4,
+            "draws": 32,
+            "mesh_completed_ms": 5.7355,
+            "quad_completed_ms": 5.9225
+        },
+        {
+            "label": "middle-lod",
+            "repeat": 0,
+            "draws": 32,
+            "mesh_completed_ms": 6.0079,
+            "quad_completed_ms": 5.0575
+        },
+        {
+            "label": "middle-lod",
+            "repeat": 1,
+            "draws": 32,
+            "mesh_completed_ms": 6.9241,
+            "quad_completed_ms": 6.1082
+        },
+        {
+            "label": "middle-lod",
+            "repeat": 2,
+            "draws": 32,
+            "mesh_completed_ms": 5.1142,
+            "quad_completed_ms": 5.755
+        },
+        {
+            "label": "middle-lod",
+            "repeat": 3,
+            "draws": 32,
+            "mesh_completed_ms": 6.838,
+            "quad_completed_ms": 6.2045
+        },
+        {
+            "label": "middle-lod",
+            "repeat": 4,
+            "draws": 32,
+            "mesh_completed_ms": 6.2126,
+            "quad_completed_ms": 5.7109000000000009
+        },
+        {
+            "label": "distant-lod",
+            "repeat": 0,
+            "draws": 32,
+            "mesh_completed_ms": 6.7382,
+            "quad_completed_ms": 6.305400000000001
+        },
+        {
+            "label": "distant-lod",
+            "repeat": 1,
+            "draws": 32,
+            "mesh_completed_ms": 8.4177,
+            "quad_completed_ms": 7.0247
+        },
+        {
+            "label": "distant-lod",
+            "repeat": 2,
+            "draws": 32,
+            "mesh_completed_ms": 6.9168,
+            "quad_completed_ms": 5.9474
+        },
+        {
+            "label": "distant-lod",
+            "repeat": 3,
+            "draws": 32,
+            "mesh_completed_ms": 6.5091,
+            "quad_completed_ms": 5.6785000000000009
+        },
+        {
+            "label": "distant-lod",
+            "repeat": 4,
+            "draws": 32,
+            "mesh_completed_ms": 7.633100000000001,
+            "quad_completed_ms": 7.615900000000001
+        },
+        {
+            "label": "rear-lod",
+            "repeat": 0,
+            "draws": 32,
+            "mesh_completed_ms": 3.2921,
+            "quad_completed_ms": 2.3578
+        },
+        {
+            "label": "rear-lod",
+            "repeat": 1,
+            "draws": 32,
+            "mesh_completed_ms": 2.2021,
+            "quad_completed_ms": 4.2521
+        },
+        {
+            "label": "rear-lod",
+            "repeat": 2,
+            "draws": 32,
+            "mesh_completed_ms": 4.0565,
+            "quad_completed_ms": 2.7826
+        },
+        {
+            "label": "rear-lod",
+            "repeat": 3,
+            "draws": 32,
+            "mesh_completed_ms": 3.9768000000000005,
+            "quad_completed_ms": 4.5923
+        },
+        {
+            "label": "rear-lod",
+            "repeat": 4,
+            "draws": 32,
+            "mesh_completed_ms": 2.6765000000000005,
+            "quad_completed_ms": 3.6725000000000005
+        }
+    ],
+    "peak_process_bytes": 0,
+    "error": ""
+}

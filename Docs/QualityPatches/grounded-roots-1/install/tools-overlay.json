@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-27T15:45:25.629536+00:00",
+  "files": [
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Tools\\run_exploration_streaming_checks.py",
+      "before_sha256": "8e52ac765bce1f31cfbcafb172b26d62814e710e40fbae82ec4d6a25d00613f9",
+      "after_sha256": "8097ca1fbda9592a31b168acf7b5720ad9abb6a2ba46952b993d3c29344b64d9",
+      "readable_preimage": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\install\\tools-preimages\\Tools\\run_exploration_streaming_checks.py",
+      "scope": "Existing streaming check runner/shim follows new partial/data sources; no new test lane run."
+    },
+    {
+      "path": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Tools\\ExplorationStreamingChecks\\UnityShim.cs",
+      "before_sha256": "7487dd477588664132cfc16afbdfb5ed5f01e030d9f822f48c93674257f752b6",
+      "after_sha256": "0bb50971b07aabbb7bd5d825f3722e99fa9ebff95d84ba255d51442809036f03",
+      "readable_preimage": "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-integration\\install\\tools-preimages\\Tools\\ExplorationStreamingChecks\\UnityShim.cs",
+      "scope": "Existing streaming check runner/shim follows new partial/data sources; no new test lane run."
+    }
+  ]
+}

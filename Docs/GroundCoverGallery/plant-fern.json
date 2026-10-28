@@ -1,0 +1,261 @@
+{
+  "name": "plant-fern",
+  "voxel_m": 0.1,
+  "dimensions_cells": [
+    82,
+    12,
+    24
+  ],
+  "occupied_cells": 3124,
+  "bounds_min_m": [
+    0.2,
+    0,
+    0.1
+  ],
+  "bounds_max_m": [
+    7.5,
+    1,
+    2.3000000000000003
+  ],
+  "material_counts": {
+    "Litter": 2600,
+    "Leaves": 524
+  },
+  "scene": {
+    "category": "plant",
+    "label": "Fern",
+    "seeds": [
+      714103,
+      271828,
+      161803
+    ],
+    "specimens": [
+      {
+        "name": "Fern",
+        "seed": 714103,
+        "profile": {
+          "Kind": 0,
+          "HeightMeters": 0.65,
+          "RadiusMeters": 0.95,
+          "Density": 0.85,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 5,
+          "PaletteSteps": 4,
+          "FoliageColor": 4283266112,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 0,
+          "Seed": 714103,
+          "RequestedMinCell": {
+            "x": 48,
+            "y": 4,
+            "z": 48
+          },
+          "RequestedMaxCell": {
+            "x": 80,
+            "y": 15,
+            "z": 80
+          },
+          "MinCell": {
+            "x": 55,
+            "y": 4,
+            "z": 57
+          },
+          "MaxCell": {
+            "x": 72,
+            "y": 11,
+            "z": 72
+          },
+          "WrittenCells": 170,
+          "Candidates": 498,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 170
+          }
+        },
+        "actual_dimensions_m": [
+          1.8,
+          0.8,
+          1.6
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 170,
+        "material_counts": {
+          "Leaves": 170
+        },
+        "palette": {
+          "Leaves": [
+            4282475318,
+            4283002429,
+            4283529795,
+            4284056906
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -51,
+          "y": -2,
+          "z": -53
+        }
+      },
+      {
+        "name": "Fern",
+        "seed": 271828,
+        "profile": {
+          "Kind": 0,
+          "HeightMeters": 0.65,
+          "RadiusMeters": 0.95,
+          "Density": 0.85,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 5,
+          "PaletteSteps": 4,
+          "FoliageColor": 4283266112,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 0,
+          "Seed": 271828,
+          "RequestedMinCell": {
+            "x": 48,
+            "y": 4,
+            "z": 48
+          },
+          "RequestedMaxCell": {
+            "x": 80,
+            "y": 15,
+            "z": 80
+          },
+          "MinCell": {
+            "x": 57,
+            "y": 4,
+            "z": 56
+          },
+          "MaxCell": {
+            "x": 72,
+            "y": 11,
+            "z": 73
+          },
+          "WrittenCells": 175,
+          "Candidates": 494,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 175
+          }
+        },
+        "actual_dimensions_m": [
+          1.6,
+          0.8,
+          1.8
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 175,
+        "material_counts": {
+          "Leaves": 175
+        },
+        "palette": {
+          "Leaves": [
+            4282475318,
+            4283002429,
+            4283529795,
+            4284056906
+          ]
+        },
+        "packed_offset_cells": {
+          "x": -26,
+          "y": -2,
+          "z": -53
+        }
+      },
+      {
+        "name": "Fern",
+        "seed": 161803,
+        "profile": {
+          "Kind": 0,
+          "HeightMeters": 0.65,
+          "RadiusMeters": 0.95,
+          "Density": 0.85,
+          "FruitProbability": 0,
+          "Variation": 0.35,
+          "Stems": 5,
+          "PaletteSteps": 4,
+          "FoliageColor": 4283266112,
+          "WoodColor": 4284829754,
+          "AccentColor": 4290018628
+        },
+        "result": {
+          "Kind": 0,
+          "Seed": 161803,
+          "RequestedMinCell": {
+            "x": 48,
+            "y": 4,
+            "z": 48
+          },
+          "RequestedMaxCell": {
+            "x": 80,
+            "y": 15,
+            "z": 80
+          },
+          "MinCell": {
+            "x": 55,
+            "y": 4,
+            "z": 57
+          },
+          "MaxCell": {
+            "x": 71,
+            "y": 11,
+            "z": 72
+          },
+          "WrittenCells": 179,
+          "Candidates": 515,
+          "BlockedCells": 0,
+          "Truncation": 0,
+          "Truncated": false,
+          "MaterialCounts": {
+            "Leaves": 179
+          }
+        },
+        "actual_dimensions_m": [
+          1.7000000000000002,
+          0.8,
+          1.6
+        ],
+        "requested_shape": null,
+        "resolved_shape": null,
+        "generated_cells": 179,
+        "material_counts": {
+          "Leaves": 179
+        },
+        "palette": {
+          "Leaves": [
+            4282475318,
+            4283002429,
+            4283529795,
+            4284056906
+          ]
+        },
+        "packed_offset_cells": {
+          "x": 1,
+          "y": -2,
+          "z": -53
+        }
+      }
+    ],
+    "note": "Three independent actual generator specimens packed side by side on separate voxel presentation pads; no proxy plants or substitute rock mesh."
+  },
+  "generation_version": {
+    "plant": 1,
+    "rock": 2,
+    "catalog": 3
+  },
+  "note": "Exact occupied10cm cells generated by actual shared C# code and VoxelWorld.Set. Offline camera/lighting only; NOT Unity or neural terrain."
+}

@@ -1,0 +1,25 @@
+{
+  "captured_utc": "2026-10-28T05:30:51.384147+00:00",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Rendering/WorldSurface.shader",
+      "sha256": "643e6961aea6fd87679e9cf11da749e5b6179f0ed2f64ed5b90d0e439a7fbdb8"
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/NaturalMatterAppearanceChecks.cs",
+      "sha256": "56f30676c1f9d160d87cb7f1da255a2d9e8d7fcefe4b14b0a0d18f8befd874a0"
+    },
+    {
+      "path": "Assets/Scenes/Exploration.unity",
+      "sha256": "ba6d8368f6cc8b8916b00fe1d9bec018ac9020e0b22fcd24ab1ef018fd750626"
+    },
+    {
+      "path": "Packages/manifest.json",
+      "sha256": "4b424831b1843ea0d7efb416f96fa5a95d03d92f7d052de167981fc80002fa94"
+    },
+    {
+      "path": "Packages/packages-lock.json",
+      "sha256": "6c137df8f454053686ffab8bcaa1f31f5e150ed8b33a59fc39cbc84a192d865b"
+    }
+  ]
+}

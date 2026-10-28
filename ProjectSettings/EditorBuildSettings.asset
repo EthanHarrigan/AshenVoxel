@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Exploration.unity
+    guid: 9ba4ce28c99b4d658e72f2cf13b79fcc
+  - enabled: 1
+    path: Assets/Scenes/ForestArena.unity
+    guid: 7f09c57212640fe5cdab1e7634189b55
+  m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

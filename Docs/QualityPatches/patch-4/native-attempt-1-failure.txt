@@ -1,0 +1,6 @@
+UnityEngine.MissingReferenceException: The object of type 'UnityEngine.Camera' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+  at UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) [0x0006a] in <1da36a9af21a4683ad40e96b14222e63>:0 
+  at UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) [0x00010] in <1da36a9af21a4683ad40e96b14222e63>:0 
+  at UnityEngine.Component.get_transform () [0x00006] in <1da36a9af21a4683ad40e96b14222e63>:0 
+  at AshenVoxel.Exploration.Editor.DlssNativeCheck.Tick () [0x00021] in C:\Users\ethan\Downloads\AshenVoxel-WorldVoxels\Assets\AshenVoxel\Exploration\Editor\DlssNativeCheck.cs:46 

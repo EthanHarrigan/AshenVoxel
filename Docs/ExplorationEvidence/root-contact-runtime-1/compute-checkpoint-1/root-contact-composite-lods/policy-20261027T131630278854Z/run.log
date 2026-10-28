@@ -1,0 +1,9 @@
+capture F=64 fixed=1 nonwood fine candidates=2
+capture F=64 fixed=1 nonwood fine candidates=2
+capture F=64 fixed=1 nonwood fine candidates=1
+capture F=64 fixed=1 nonwood fine candidates=1
+capture F=64 fixed=1 nonwood fine candidates=1
+capture F=64 fixed=1 nonwood fine candidates=0
+capture F=64 fixed=1 nonwood fine candidates=1
+capture F=64 fixed=1 nonwood fine candidates=1
+PASS 67 policy assertions;8 material/order/fallback cases.

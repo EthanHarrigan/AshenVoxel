@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-27T11:57:28.467728+00:00",
+  "status": "ONE_SHOT_REQUEST_ARMED",
+  "available_commit_gib": 4.159160614013672,
+  "log_offset": 649424,
+  "scene_settings_prefs_unchanged_before": true,
+  "editor_assembly_sha256": "0a4933bf9366f5314006293462766c76ca2fb065c5a07567505125e606262784"
+}

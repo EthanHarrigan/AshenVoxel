@@ -1,0 +1,295 @@
+{
+  "utc": "2026-10-27T11:29:18.001601+00:00",
+  "scope": "Supplementary independent NumPy/SciPy CPU policy audit. Original canonical wood versus bounded root<=29 plus unchanged canonical upper>=30, with canonical context through35. No runtime or source changes.",
+  "policy": "Same erosion3/dilation5 and supported leader near4/local3/keep3 from localY0 as bake_interactions.py. Both variants use a common array origin to avoid incidental offset-dependent floating rounding.",
+  "results": [
+    {
+      "id": 10,
+      "source_cells_through35": 89090,
+      "composite_cells_through35": 58016,
+      "upper_geometry_rgb_30_through35_identical": true,
+      "upper_rows": [
+        {
+          "y": 30,
+          "cells": 1344,
+          "original_hard": 1344,
+          "composite_hard": 1344,
+          "original_stick": 0,
+          "composite_stick": 0,
+          "changed_roles": 0,
+          "changed_morphology": 0
+        },
+        {
+          "y": 31,
+          "cells": 1329,
+          "original_hard": 1329,
+          "composite_hard": 1329,
+          "original_stick": 0,
+          "composite_stick": 0,
+          "changed_roles": 0,
+          "changed_morphology": 0
+        },
+        {
+          "y": 32,
+          "cells": 1320,
+          "original_hard": 1320,
+          "composite_hard": 1320,
+          "original_stick": 0,
+          "composite_stick": 0,
+          "changed_roles": 0,
+          "changed_morphology": 0
+        }
+      ],
+      "changed_upper_roles": [],
+      "changed_upper_morphology": [],
+      "leader_seam_states": [
+        {
+          "y": 29,
+          "original": {
+            "previous_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "closest_local_xz": [
+              0,
+              0
+            ],
+            "near_count": 49,
+            "local_count": 29,
+            "next_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "kept_count": 29,
+            "kept_sha256": "3faa3a536e03a0ca0e91fa1d68bb57194794a1bb6d636abcde605a3e7eac2100"
+          },
+          "composite": {
+            "previous_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "closest_local_xz": [
+              0,
+              0
+            ],
+            "near_count": 49,
+            "local_count": 29,
+            "next_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "kept_count": 29,
+            "kept_sha256": "3faa3a536e03a0ca0e91fa1d68bb57194794a1bb6d636abcde605a3e7eac2100"
+          },
+          "states_identical": true,
+          "removed_kept_cells": [],
+          "added_kept_cells": []
+        },
+        {
+          "y": 30,
+          "original": {
+            "previous_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "closest_local_xz": [
+              0,
+              0
+            ],
+            "near_count": 49,
+            "local_count": 29,
+            "next_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "kept_count": 29,
+            "kept_sha256": "b4e16a5153d50246bc9bec5f41a81108af464766be7bf3b9fb1ebcdf128cae66"
+          },
+          "composite": {
+            "previous_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "closest_local_xz": [
+              0,
+              0
+            ],
+            "near_count": 49,
+            "local_count": 29,
+            "next_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "kept_count": 29,
+            "kept_sha256": "b4e16a5153d50246bc9bec5f41a81108af464766be7bf3b9fb1ebcdf128cae66"
+          },
+          "states_identical": true,
+          "removed_kept_cells": [],
+          "added_kept_cells": []
+        }
+      ],
+      "leader_state_changed_rows_through32": [],
+      "original_leader_stop": {
+        "y": 36,
+        "reason": "audit context ends at35; not a physical leader termination"
+      },
+      "composite_leader_stop": {
+        "y": 36,
+        "reason": "audit context ends at35; not a physical leader termination"
+      },
+      "upper_rows30_through32_shareable_under_this_oracle": true
+    },
+    {
+      "id": 11,
+      "source_cells_through35": 92462,
+      "composite_cells_through35": 60051,
+      "upper_geometry_rgb_30_through35_identical": true,
+      "upper_rows": [
+        {
+          "y": 30,
+          "cells": 1441,
+          "original_hard": 1441,
+          "composite_hard": 1441,
+          "original_stick": 0,
+          "composite_stick": 0,
+          "changed_roles": 0,
+          "changed_morphology": 0
+        },
+        {
+          "y": 31,
+          "cells": 1428,
+          "original_hard": 1428,
+          "composite_hard": 1428,
+          "original_stick": 0,
+          "composite_stick": 0,
+          "changed_roles": 0,
+          "changed_morphology": 0
+        },
+        {
+          "y": 32,
+          "cells": 1421,
+          "original_hard": 1421,
+          "composite_hard": 1421,
+          "original_stick": 0,
+          "composite_stick": 0,
+          "changed_roles": 0,
+          "changed_morphology": 0
+        }
+      ],
+      "changed_upper_roles": [],
+      "changed_upper_morphology": [],
+      "leader_seam_states": [
+        {
+          "y": 29,
+          "original": {
+            "previous_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "closest_local_xz": [
+              0,
+              0
+            ],
+            "near_count": 49,
+            "local_count": 29,
+            "next_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "kept_count": 29,
+            "kept_sha256": "3faa3a536e03a0ca0e91fa1d68bb57194794a1bb6d636abcde605a3e7eac2100"
+          },
+          "composite": {
+            "previous_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "closest_local_xz": [
+              0,
+              0
+            ],
+            "near_count": 49,
+            "local_count": 29,
+            "next_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "kept_count": 29,
+            "kept_sha256": "3faa3a536e03a0ca0e91fa1d68bb57194794a1bb6d636abcde605a3e7eac2100"
+          },
+          "states_identical": true,
+          "removed_kept_cells": [],
+          "added_kept_cells": []
+        },
+        {
+          "y": 30,
+          "original": {
+            "previous_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "closest_local_xz": [
+              0,
+              0
+            ],
+            "near_count": 49,
+            "local_count": 29,
+            "next_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "kept_count": 29,
+            "kept_sha256": "b4e16a5153d50246bc9bec5f41a81108af464766be7bf3b9fb1ebcdf128cae66"
+          },
+          "composite": {
+            "previous_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "closest_local_xz": [
+              0,
+              0
+            ],
+            "near_count": 49,
+            "local_count": 29,
+            "next_center_local_xz": [
+              0.0,
+              0.0
+            ],
+            "kept_count": 29,
+            "kept_sha256": "b4e16a5153d50246bc9bec5f41a81108af464766be7bf3b9fb1ebcdf128cae66"
+          },
+          "states_identical": true,
+          "removed_kept_cells": [],
+          "added_kept_cells": []
+        }
+      ],
+      "leader_state_changed_rows_through32": [],
+      "original_leader_stop": {
+        "y": 36,
+        "reason": "audit context ends at35; not a physical leader termination"
+      },
+      "composite_leader_stop": {
+        "y": 36,
+        "reason": "audit context ends at35; not a physical leader termination"
+      },
+      "upper_rows30_through32_shareable_under_this_oracle": true
+    }
+  ],
+  "source_sha256": {
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\upper_seam_audit.py": "95272164f85def3296b5ffc8ab47d480fa4858cf8cd68914c457ea65d4db0a97",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\report.json": "aff1310bd7ea0b1d27d9b567e7e661fe4de198c615c56a3520b30f392ab3f305",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-interaction-prototype\\Interaction.cs": "8133a5181e77df83a94f66b6b4ae668c51e408ffce78df406a59bd01aa066f8e",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\Tools\\ExplorationPrototypes\\bake_interactions.py": "0e5f83f764b2312301fbc3ae5656330f77c8ac02a037e1000a2cc03fb0622055",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\wood-10-baseline.bin": "ded723006328b2252cf1b1ff15b64d32b8ddc366dbd4d9be1647bec742fbf0d6",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\v2-expected-10.bin": "324dfc2375fc7c8e097876c4ce700f69368286a1e4999d8de5dd376a822ae75b",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\grounding-root-visual\\wood-11-baseline.bin": "0fe828a36a112a6227bc63d066a6eeb02f7c20837882cb9a702118d016157b0f",
+    "C:\\Users\\ethan\\Downloads\\AshenVoxel-WorldVoxels\\.terrain-cache\\root-contact-runtime-prototype\\v2-expected-11.bin": "c16071c202a1b554c3ac0b3bf638ed469d689a5ce262cafee64e289a57ab70e8"
+  },
+  "limitations": [
+    "This compares exact current policy classifications for rows30..32, not decoded existing AVPM span payloads.",
+    "Canonical context through35 is sufficient for morphology on rows<=32. Rows above32 are outside this classification audit.",
+    "If leader state differs at30, upper leader effects may persist beyond32 and need further checking before sharing upper channels.",
+    "No native collider/resistance, source mutation, upload, LOD, wind or gameplay integration verified."
+  ]
+}

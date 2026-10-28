@@ -1,0 +1,305 @@
+{
+  "schema": "ashen-exploration-world-v1",
+  "world_id": "cb7bb688e7a5056fcabec160a3f12ccc9347a6953f33e21c5c898c07844ef418",
+  "world_width_m": 299520.0,
+  "world_depth_m": 149760.0,
+  "world_meters_per_native_sample": 5.0,
+  "model_native_spacing_m": 30.0,
+  "native_to_world_xz": 0.16666666666666666,
+  "vertical_height_scale": 1.0,
+  "macro": {
+    "height_file": "ExplorationMacro.bytes",
+    "climate_file": "ExplorationMacro.climate.bytes",
+    "height_sha256": "10ed6d5fc81399cdbec91ce5f5a7add190d150b87ba130ffccdd34c2151027e8",
+    "climate_sha256": "b9c4bc8e7cfb7ab24a77e606afa267f2f5de246e7f699cdf70c5b1e59b792cfa",
+    "columns": 235,
+    "rows": 118,
+    "origin_x_m": -149760.0,
+    "origin_z_m": -74880.0,
+    "extent_x_m": 299520.0,
+    "extent_z_m": 149760.0,
+    "spacing_m": 1280.0,
+    "height_range_m": [
+      -5204.93359375,
+      7654.1669921875
+    ],
+    "climate_ranges": [
+      [
+        -50.320465087890625,
+        29.866519927978516
+      ],
+      [
+        1.6341363191604614,
+        18.24062156677246
+      ],
+      [
+        0.0,
+        9202.5078125
+      ],
+      [
+        0.0,
+        102.06640625
+      ],
+      [
+        -0.012000000104308128,
+        0.0
+      ]
+    ],
+    "source_identity": {
+      "provider": "InfiniteDiffusion",
+      "backend": "upstream-pretrained/coarse-network",
+      "world_id": "cb7bb688e7a5056fcabec160a3f12ccc9347a6953f33e21c5c898c07844ef418",
+      "upstream_commit": "e8dcb4b1a834ab2f6b1a6f5256ed7c9f2f3e8230",
+      "model_revision": "9ef8030cb805b433b98ec25c5dddefbac07a9e26",
+      "seed": 714103,
+      "resolution_stage": "coarse-network",
+      "world_meters_per_native_sample": 5.0,
+      "world_spacing_m": 1280.0,
+      "native_to_world_xz": 0.16666666666666666,
+      "vertical_height_scale": 1.0,
+      "height_units": "meters",
+      "climate_rectification_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 6161,
+        "3": 11,
+        "4": 0
+      }
+    },
+    "elapsed_seconds": 73.77021901900298
+  },
+  "spawn": {
+    "x_m": 85760.0,
+    "z_m": 15330.0,
+    "height_m": 135.90589904785156,
+    "source_biome": 5,
+    "temperature_c": 24.38612937927246,
+    "fine_slope_degrees": 0.17908086951790544
+  },
+  "job": {
+    "spec": {
+      "schema": "ashen-diffusion-job-v1",
+      "upstream_commit": "e8dcb4b1a834ab2f6b1a6f5256ed7c9f2f3e8230",
+      "model": "xandergos/terrain-diffusion-30m",
+      "model_revision": "9ef8030cb805b433b98ec25c5dddefbac07a9e26",
+      "seed": 714103,
+      "spacing_m": 30.0,
+      "precision": "fp32",
+      "device": "cpu",
+      "pipeline_cache_bytes": 268435456,
+      "runtime_versions": {
+        "python": "3.12.14",
+        "torch": "2.14.1+cpu",
+        "torchvision": "0.29.1+cpu",
+        "diffusers": "0.42.0",
+        "infinite-tensor": "0.4.0",
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "scikit-image": "0.26.0",
+        "rasterio": "1.5.2",
+        "h5py": "3.16.0",
+        "safetensors": "0.8.0"
+      },
+      "sampling_policy": "canonical-owner-v1",
+      "owner_samples": 256,
+      "owner_halo": 32,
+      "owner_disk_cache_bytes": 536870912,
+      "torch_threads": 2,
+      "T": 2,
+      "latents_batch_size": [
+        1
+      ],
+      "statistics": {
+        "path": "/workspace/infinite-diffusion-smoke/pipeline_data.json",
+        "sha256": "e3132c3ef0c65d8613615f9278ffe23bbd9363ddcd87f1cc6f18456bcc9efe5c"
+      },
+      "response_cache_bytes": 134217728,
+      "max_region_side": 1024,
+      "max_cached_regions": 256,
+      "max_region_samples": 262144,
+      "queue_capacity": 8,
+      "conditioning_snr": [
+        0.2,
+        0.2,
+        1.0,
+        0.2,
+        1.0
+      ],
+      "conditioning": {
+        "coarse_spacing_m": 7680.0,
+        "origin_i": -59,
+        "origin_j": -117,
+        "periodic": false,
+        "padding_cells": 64,
+        "channels": [
+          {
+            "channel": 0,
+            "path": "/workspace/exploration-bake/conditioning-scale5/elevation_m.npy",
+            "sha256": "cedb7de75f3f175fd7b287785261e520c8e8e3f4fb21365a3200a26b3b565e5a",
+            "units": "m"
+          },
+          {
+            "channel": 1,
+            "path": "/workspace/exploration-bake/conditioning-scale5/temperature_c.npy",
+            "sha256": "e83b36cdb4066258f33819bb1bf28af2531aeae18acd1cc0775cc856728b1f0e",
+            "units": "degC"
+          },
+          {
+            "channel": 2,
+            "path": "/workspace/exploration-bake/conditioning-scale5/temperature_std_c.npy",
+            "sha256": "e7495c9ab11f29f8cbe383bbfcd6f70e7272f7c8992a17da2bbc5091a8d6afe2",
+            "units": "degC"
+          },
+          {
+            "channel": 3,
+            "path": "/workspace/exploration-bake/conditioning-scale5/precipitation_mm.npy",
+            "sha256": "cb0321184b633be93b5a06db2a41aeadc5fb4b88513ca070276567dd959237c3",
+            "units": "mm/year"
+          },
+          {
+            "channel": 4,
+            "path": "/workspace/exploration-bake/conditioning-scale5/precipitation_cv_pct.npy",
+            "sha256": "24c07dda3a85889df5d097e34799568c954aaffe4017c581f2bcb419dc5b4a3d",
+            "units": "percent"
+          }
+        ],
+        "provenance": {
+          "producer": "ashen-azgaar-native-lattice-v1",
+          "upstream_commit": "e8dcb4b1a834ab2f6b1a6f5256ed7c9f2f3e8230",
+          "source_sha256": "103f9b9d364b884dd532cd4e41effa83a327fd5a60ce0ba69cd612cd9a470d61",
+          "source_file": "Ceteviles Full 2026-09-15-23-05 Sand-Sea-ready.json",
+          "physical_origin_x_m": -898560.0,
+          "physical_origin_z_m": -449280.0,
+          "physical_width_m": 1797120.0,
+          "physical_depth_m": 898560.0,
+          "coverage_origin_x_m": -898560.0,
+          "coverage_origin_z_m": -453120.0,
+          "coverage_width_m": 1797120.0,
+          "coverage_depth_m": 906240.0,
+          "conditioning_pixel_centers": "global coarse cell index plus0.5, rowZ/columnX",
+          "native_query_origin": "row_i0/col_j0 are global native pixels;64-cell padding is placed before original origin, not an added world offset",
+          "climate_assumptions": "grid.prec*100 annualmm; seasonality/CV are upstream biome heuristics",
+          "recommended_fork_snr": [
+            0.35,
+            0.2,
+            0.2,
+            0.2,
+            0.2
+          ],
+          "authored_summit_or_coast_postprocess": "not applied; this is soft upstream conditioning"
+        },
+        "source_biome": {
+          "path": "/workspace/exploration-bake/conditioning-scale5/source_biome.npy",
+          "sha256": "5517edef49074731cbaa46528544f25320f76c686d9c64a65fb95024868ff324"
+        }
+      },
+      "height_units": "meters",
+      "row_axis": "global_z",
+      "column_axis": "global_x",
+      "climate_channels": [
+        "temperature_c",
+        "temperature_std_c",
+        "precipitation_mm",
+        "precipitation_cv_percent",
+        "beta"
+      ],
+      "climate_encoding": "physical-si-v2",
+      "biome_policy": "preserve_imported_or_unclassified_zero",
+      "land_policy": "generated_height_at_or_above_zero",
+      "coast_policy": "soft_model_conditioning"
+    },
+    "world_id": "cb7bb688e7a5056fcabec160a3f12ccc9347a6953f33e21c5c898c07844ef418",
+    "upstream_source": "/workspace/reference-code/terrain-diffusion",
+    "model_dir": "/workspace/infinite-diffusion-smoke/model",
+    "note": "Prepared inference job; this manifest is not generated terrain or evidence of executed weights."
+  },
+  "scope": "Actual pinned pretrained coarse network for whole map; original full latent+decoder canonical output in local fine region. No analytic/noise fallback.",
+  "fine": {
+    "height_file": "ExplorationFine.bytes",
+    "climate_file": "ExplorationFine.climate.bytes",
+    "height_sha256": "4ec7b876a6d6b0a47ff0dc8e43245c1b9a4be4878b10d1ce089b92042aa4bad3",
+    "climate_sha256": "742eadf32445b590bbece3961436c12dd153363796fa12ec9383ebfe76e1fe20",
+    "columns": 1024,
+    "rows": 1024,
+    "origin_x_m": 83200.0,
+    "origin_z_m": 12800.0,
+    "extent_x_m": 5115.0,
+    "extent_z_m": 5115.0,
+    "spacing_m": 5.0,
+    "height_range_m": [
+      21.471046447753906,
+      1252.4334716796875
+    ],
+    "climate_ranges": [
+      [
+        17.01778793334961,
+        25.939054489135742
+      ],
+      [
+        5.1247148513793945,
+        6.342407703399658
+      ],
+      [
+        731.501953125,
+        1588.42529296875
+      ],
+      [
+        19.88341522216797,
+        32.11541748046875
+      ],
+      [
+        -0.00621184054762125,
+        -0.0044256155379116535
+      ]
+    ],
+    "source_identity": {
+      "provider": "InfiniteDiffusion",
+      "backend": "upstream-pretrained/canonical-owner-v1",
+      "world_id": "cb7bb688e7a5056fcabec160a3f12ccc9347a6953f33e21c5c898c07844ef418",
+      "upstream_commit": "e8dcb4b1a834ab2f6b1a6f5256ed7c9f2f3e8230",
+      "model_revision": "9ef8030cb805b433b98ec25c5dddefbac07a9e26",
+      "seed": 714103,
+      "resolution_stage": "canonical-owner-v1",
+      "world_meters_per_native_sample": 5.0,
+      "world_spacing_m": 5.0,
+      "native_to_world_xz": 0.16666666666666666,
+      "vertical_height_scale": 1.0,
+      "height_units": "meters",
+      "native_window": {
+        "row0": 2560,
+        "col0": 16640,
+        "rows": 1024,
+        "cols": 1024
+      }
+    },
+    "owner_timings_seconds": [
+      230.01305898299324,
+      0.013839357008691877,
+      66.39816969899402,
+      44.61337845399976,
+      56.920508463997976,
+      0.013325840001925826,
+      17.96313619099965,
+      16.06414096899971,
+      0.014036127002327703,
+      0.014628991004428826,
+      0.015834213001653552,
+      0.014451959999860264,
+      84.6825125769974,
+      0.01214871100091841,
+      24.681772192998324,
+      21.840665023002657
+    ]
+  },
+  "elapsed_seconds": 644.328275530992,
+  "source_sha256": {
+    "Docs/ExplorationEvidence/bake-executed-source.py": "264f952e7e5d050f35a808dfb5fc3ab791b1e0425f487e62672833aa53dacd77",
+    "Tools/DiffusionBridge/bridge.py": "a54ad8a3033e6a45632a96b9c694968ed342ef3b3351d6ebe23fd1d9100e1aef"
+  },
+  "status": "PASS",
+  "executed_original_source_sha256": {
+    "Tools/ExplorationBake/bake_exploration.py": "264f952e7e5d050f35a808dfb5fc3ab791b1e0425f487e62672833aa53dacd77",
+    "Tools/DiffusionBridge/bridge.py": "a54ad8a3033e6a45632a96b9c694968ed342ef3b3351d6ebe23fd1d9100e1aef"
+  },
+  "source_snapshot_note": "Exact source used by the executed bake is retained here; the portable current baker adds optional CLI download/map-size parameters. No inference output has been relabelled."
+}

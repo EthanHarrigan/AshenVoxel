@@ -1,0 +1,136 @@
+{
+  "run": "native-flight-20261027-132715",
+  "scope": "Actualnativecopied64/128MiB192tileprofile; noclipflight; no baseline/fullprofileFPSclaim",
+  "guard": {
+    "marker": "coordinator-smoke-v1",
+    "run": "native-flight-20261027-132715",
+    "stopReason": "60second smoke complete",
+    "pid": 23204,
+    "startTicks": 639286722618688970,
+    "baselinePrivate": 9057595392,
+    "minimumHeadroom": 4227104768,
+    "peakPrivate": 10569371648,
+    "minHeadroomSeen": 2779496448,
+    "started": 32184.025916699997,
+    "readyAt": 8.543550800000958,
+    "began": true,
+    "finished": true,
+    "originalPaused": false
+  },
+  "report_metadata": {
+    "scope": "Native controller bridge replay; elevated noclip flight, not collision/FPS acceptance. Input precedes default world Update; samples occur in LateUpdate after all Updates. Legs are time windows, not guaranteed equal distances.",
+    "status": "REPLAY_RECORDED_NOT_PERFORMANCE_ACCEPTANCE",
+    "stopReason": "20second bounded controller replay complete",
+    "cleanupError": "",
+    "count": 5009,
+    "gateEntries": 2,
+    "gateExits": 2,
+    "rebaseCount": 1,
+    "elapsed": 20.000000688945875,
+    "maxFrameSeconds": 0.04863600432872772,
+    "finalDistanceFromSpawn": 0.14935951563165872,
+    "finalHeightFromSpawn": 0.0,
+    "deferredSeconds": 0.0,
+    "skippedLongFrameSeconds": 0.0,
+    "walkingAttempted": true,
+    "walkingAccepted": true,
+    "finalFlying": false,
+    "finalNoClip": false
+  },
+  "phases": [
+    {
+      "phase": 0,
+      "samples": 1079,
+      "first": 0.021709898486733437,
+      "last": 3.9992499998770654,
+      "gateTrueSamples": 1005,
+      "firstGateOff_s": 0.0,
+      "firstTerrainReady2m_s": 0.0,
+      "p50_frame_ms": 3.534403396770358,
+      "p95_frame_ms": 5.179598927497864,
+      "max_frame_ms": 21.709898486733437
+    },
+    {
+      "phase": 1,
+      "samples": 609,
+      "first": 4.002455201232806,
+      "last": 5.997358802240342,
+      "gateTrueSamples": 0,
+      "firstGateOff_s": 0.0,
+      "firstTerrainReady2m_s": 0.5751926010707393,
+      "p50_frame_ms": 3.091000486165285,
+      "p95_frame_ms": 4.781200550496578,
+      "max_frame_ms": 17.266100272536278
+    },
+    {
+      "phase": 2,
+      "samples": 1020,
+      "first": 6.001610899809748,
+      "last": 9.997542299097404,
+      "gateTrueSamples": 948,
+      "firstGateOff_s": 0.0,
+      "firstTerrainReady2m_s": 0.0,
+      "p50_frame_ms": 3.7601013900712132,
+      "p95_frame_ms": 5.598299205303192,
+      "max_frame_ms": 15.914199873805046
+    },
+    {
+      "phase": 3,
+      "samples": 589,
+      "first": 10.00428389501758,
+      "last": 11.999059594818391,
+      "gateTrueSamples": 0,
+      "firstGateOff_s": 0.0,
+      "firstTerrainReady2m_s": 0.5460045980289578,
+      "p50_frame_ms": 3.212499897927046,
+      "p95_frame_ms": 4.877600818872452,
+      "max_frame_ms": 18.848596140742302
+    },
+    {
+      "phase": 4,
+      "samples": 1291,
+      "first": 12.0016764953034,
+      "last": 16.99899789132178,
+      "gateTrueSamples": 0,
+      "firstGateOff_s": 0.0,
+      "firstTerrainReady2m_s": 0.0,
+      "p50_frame_ms": 3.7153982557356358,
+      "p95_frame_ms": 5.753996782004833,
+      "max_frame_ms": 17.143798992037773
+    },
+    {
+      "phase": 5,
+      "samples": 421,
+      "first": 17.00548298889771,
+      "last": 20.000000688945875,
+      "gateTrueSamples": 0,
+      "firstGateOff_s": 0.0,
+      "firstTerrainReady2m_s": 0.0,
+      "p50_frame_ms": 6.951998453587294,
+      "p95_frame_ms": 9.478301741182804,
+      "max_frame_ms": 48.63600432872772
+    }
+  ],
+  "gate_events": [
+    [
+      0.2779116977471858,
+      0,
+      true
+    ],
+    [
+      4.002455201232806,
+      1,
+      false
+    ],
+    [
+      6.252087103901431,
+      2,
+      true
+    ],
+    [
+      10.00428389501758,
+      3,
+      false
+    ]
+  ]
+}

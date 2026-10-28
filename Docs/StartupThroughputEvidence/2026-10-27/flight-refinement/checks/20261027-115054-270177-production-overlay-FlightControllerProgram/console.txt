@@ -1,0 +1,5 @@
+15Hz boost entry 13 ticks; speed 160.0000; pass=False
+30Hz boost entry -1 ticks; speed 160.0000; pass=False
+60Hz boost entry -1 ticks; speed 160.0000; pass=False
+144Hz boost entry -1 ticks; speed 160.0000; pass=False
+240Hz boost entry -1 ticks; speed 160.0000; pass=False

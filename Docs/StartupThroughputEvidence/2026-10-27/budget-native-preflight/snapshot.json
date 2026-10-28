@@ -1,0 +1,1158 @@
+{
+  "utc": "2026-10-27T10:29:07.017555+00:00",
+  "scope": "Installed main population v1 minimal fixture snapshot; no Editor launch; excludes failed grounding v2, terrain generation, horizon and main Editor hooks. Existing source/metas/settings/package pins copied exactly. Fixture-only guard changes recorded separately.",
+  "main_root": "C:\\Users\\ethan\\Downloads\\AshenVoxel",
+  "files": [
+    {
+      "path": "Assets/AshenVoxel/Core/AshenVoxel.Core.asmdef",
+      "sha256": "3b28f222c89a2d87f696a81c57d9d5a6720443eae57bc28b3d668fdd8cd0a0d2",
+      "bytes": 100
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/AshenVoxel.Core.asmdef.meta",
+      "sha256": "abaf0a7f4da2d17074e3b5cc4ad89edaab8b3ad3a51034558ec7ae99f8247f5c",
+      "bytes": 166
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Details/PlantGenerator.cs",
+      "sha256": "13230e8bf57cb8a8f305bb757363cb0f265cb0388de3a601b6965b220cd9b1d8",
+      "bytes": 18520
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Details/PlantGenerator.cs.meta",
+      "sha256": "b34c657b5b3990b82ac88fbda4cbf3398c890bd666517b2c6ad2acc25e5a94aa",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Details/PlantModel.cs",
+      "sha256": "4c48c80a11d367514399872ddca2515a0b22c90289356e7c49613ce40df732c2",
+      "bytes": 6070
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Details/PlantModel.cs.meta",
+      "sha256": "854d4864ef66b1b287889bc52f86ff46e421ea1372877edb6354b288c7cbbcdd",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Details.meta",
+      "sha256": "f9cfb1ccebeef1acec171a88ea15a5f95b5f445a35ca1a3099ddc1ea189e9608",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/EnvironmentColors.cs",
+      "sha256": "7b02d1d83ad528c83f2271bdff590374ba97d712807e585c33929b03f895247e",
+      "bytes": 4895
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/EnvironmentColors.cs.meta",
+      "sha256": "66074070391f0fd7db568ba9ee7a8992e138482024b79d9f774a7584795d4264",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Generation.cs",
+      "sha256": "23ab18539d16ca076ed4179a125894bb673f936ab53d15d5ac04743f8c34626d",
+      "bytes": 8589
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Generation.cs.meta",
+      "sha256": "39d93547cc6d019d1b88c69dd4a8323664ae6d7d7bb21e19a624e399e23a8613",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Int3.cs",
+      "sha256": "1fd2c4f55bcb532fa996999acbc40734661528ee7b29744dad79c84513c6ed8a",
+      "bytes": 904
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Int3.cs.meta",
+      "sha256": "830e87e6b4101a52d0c8844a28aee174a3c6e5b7a0f255593cae091ae5743fb3",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Materials.cs",
+      "sha256": "ab945a1f679e57f81dca05fc3fe4a70e2e0e0d35ce51f2d1457d99e8660baf85",
+      "bytes": 4546
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Materials.cs.meta",
+      "sha256": "916f06245414181aceb057ab2b3bef87305dbca0153834f31ef676cc1d1eb95a",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Persistence.cs",
+      "sha256": "7ce336786c34a4a4864d07ddda50c4dc3efb982c10e33633d5f929a71859ed05",
+      "bytes": 10446
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Persistence.cs.meta",
+      "sha256": "ec32e0ba90ca35d8a7abe32de599e218490703962c4ba1e2ff31f07b5fbe515e",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs",
+      "sha256": "006a8434c519bb996e85c4b05e0f188efe49a0a56e68d84ae6b9804f1e78425e",
+      "bytes": 7628
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Rocks/RockGenerator.cs.meta",
+      "sha256": "1c19ac31fd545cf2ed3c2c39ebb1648b7374a0f3c4bced36aa2f1b97ea0e2c8f",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Rocks/RockProfile.cs",
+      "sha256": "20152a9dbd0661143a400c1c2b7a69e97755e65342e3352239847b1dc752afc3",
+      "bytes": 8154
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Rocks/RockProfile.cs.meta",
+      "sha256": "654e59576731761ca9d7e3dad0aeb8c53aa62bf74044ecc4f7159d8a0d8ca12c",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Rocks/RockShapeGeometry.cs",
+      "sha256": "56740b1cb403ea2ee5c15b54051743119b8774d3f8ddd6a029cfeaa8479e0b69",
+      "bytes": 14178
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Rocks/RockShapeGeometry.cs.meta",
+      "sha256": "bf6c91efbd447cb7da7bdc4f47b86da75e1d92c58a29ba90dc7e719a85ba229b",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Rocks.meta",
+      "sha256": "52d580414c8e30194d4b371647de915b9c4e697c5860907f399f160d60aa399e",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Simulation.cs",
+      "sha256": "b57b27cab886e0693fa387c74360d1247852da8cfdc1765b1c758c109027f054",
+      "bytes": 6515
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Simulation.cs.meta",
+      "sha256": "8ba31b5e52dbabed58877ba763658290de99aa53a6871e05bab040dd6743efb3",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs",
+      "sha256": "6eb674f6e66941fce356d5db770780c9ea6cbcbcb0810a5238449153a28d2f9e",
+      "bytes": 41567
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Trees/TreeGenerator.cs.meta",
+      "sha256": "3c996254d25e4e0d6696de88cb70fea5e065808f254d44317a9fbbd39ac8a15d",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Trees/TreeModel.cs",
+      "sha256": "df2a3b27c21cdfd9100973a36b9ee0bbbbebf5bad8357af639bafb6b9a19ed78",
+      "bytes": 10742
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Trees/TreeModel.cs.meta",
+      "sha256": "fdd866a44ba41387af41184564d301850e13a22d3b300535b31ae212bba89e27",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Trees/TreePresets.cs",
+      "sha256": "87854427ba26c3c42e16dd1fac6c28524c5f28c6fbdcd71da7e1fad6b75c80ce",
+      "bytes": 2786
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Trees/TreePresets.cs.meta",
+      "sha256": "db183370e2ed655ee33f440289f02b4f866e72e21ab367a53871f47f5e7c5572",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/Trees.meta",
+      "sha256": "ba97ffca70307e8bf82def8a1a9c608be99dc991349b28597fd988296fc1c676",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/VertexAppearance.cs",
+      "sha256": "3ccdc0517c6e3e1db6d2f5680cc07b36b8b3ca1a4fb0273e621eb3a3d867a2ad",
+      "bytes": 1002
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/VertexAppearance.cs.meta",
+      "sha256": "b48539dc8e15313f3031b8642f90c2d811a265f8d6ef3997a68bd909aab5e608",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/VoxelColor.cs",
+      "sha256": "18387e0d5aedcb078e5f3ac6860908bbc1c6578a9bdbd295cbf6f4ea7a9550e9",
+      "bytes": 2209
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/VoxelColor.cs.meta",
+      "sha256": "923c802af0aea25c1a43a6bc439b03dfccc422e34c06e2d99f7e2ae182e21cbd",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/VoxelRaycast.cs",
+      "sha256": "0a9cee08dbff52ba4471b783bedfcea9c01fb4ca7e6993480535f037efbdff55",
+      "bytes": 3846
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/VoxelRaycast.cs.meta",
+      "sha256": "0d93107f5dd7d5370a716486d8bea80d137f67409ace6401f1884c5cde4bcdc3",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/VoxelWorld.cs",
+      "sha256": "4ece650dfa16ba434dc176e44a11a7d2013548279a5fcab2d8d6f94b27e5a021",
+      "bytes": 7069
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/VoxelWorld.cs.meta",
+      "sha256": "f0afb0dcde3306a8e927c8f82da000424fffd5fb0d86da223a14db6262999aad",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/WorldEdits.cs",
+      "sha256": "f464f162d1ba629cc5e86b45bb64b3c701f7a2f7d72c2f164e5afb5fcbc9e646",
+      "bytes": 2615
+    },
+    {
+      "path": "Assets/AshenVoxel/Core/WorldEdits.cs.meta",
+      "sha256": "a223629edfb18251ed35972a2e68e44d04a73179437a0544f1ba72f2ad30c6b9",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Core.meta",
+      "sha256": "6f1400f8116421f7c08c64b60bc51bbb73821760e528b29ce6b8f60f85d33a13",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/AshenVoxel.Exploration.asmdef",
+      "sha256": "f3413f05585bfe9b49f0c371671d3cab8fb8c349e1a0a2811b24b13ef6a048b0",
+      "bytes": 508
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/AshenVoxel.Exploration.asmdef.meta",
+      "sha256": "fc0416705e0f8e0ab5d502a1194612fe180a076b74a66bdc493a4a60c632aa21",
+      "bytes": 257
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/AshenVoxel.Exploration.Editor.asmdef",
+      "sha256": "5bbb44c6dd29488bb9ee5b9ae958699e999b942327cfe3898a01484a0cb6c7b2",
+      "bytes": 519
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor/AshenVoxel.Exploration.Editor.asmdef.meta",
+      "sha256": "4d5639f56b24e2f147b397b5cee742a8b781ad2368fca04d892f6ad054db63ec",
+      "bytes": 257
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Editor.meta",
+      "sha256": "8212da13422912769268a24ba9fa2514066eb5278c28ecb655a19b2a70bdba65",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs",
+      "sha256": "820fd9f05e4f7522f61949c9722f97c04bb325effd69787689468d11a158d90f",
+      "bytes": 27606
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs.meta",
+      "sha256": "8d394eecdd77a81cc78726c3ec2b2ec77b5aecd90f9d474c488db8dbedcfccde",
+      "bytes": 245
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationController.cs",
+      "sha256": "bcbdaa0ee9a7550d0439209ed839cc69c85c794a5156906dc9deed3d9a8894aa",
+      "bytes": 7356
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationController.cs.meta",
+      "sha256": "397092be3a3dcd3ff5bbd009a81fb1dbb921adf86f5c841b9218fbc2902b6338",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs",
+      "sha256": "72879000eed2a41b927d4c237a2751d17f345d236181ff15ea4fa9695ab0d9a6",
+      "bytes": 10612
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationLiveRefinement.cs.meta",
+      "sha256": "ad2e818c15148a4e1257d256c56715e0e666434826ca7edc56397bd6cc2a81da",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs",
+      "sha256": "1b99928293fc061bf388946f4889df166f153cd0c0c8d2e1f5efe80ea1a256fa",
+      "bytes": 9009
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationSettings.cs.meta",
+      "sha256": "3555b7795b6ae3d29744aabae7d2fde7a4192773cfe2ee5baca47f1007945714",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationUpscaling.cs",
+      "sha256": "445d78dcd7937eb3789665eb63618c25dbb64a71c1768a4abc7032693cc997d5",
+      "bytes": 4822
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationUpscaling.cs.meta",
+      "sha256": "5ec1d129a2a1d52087251ade5d37afbf310acec47b2283b01a099ac440ac5cf0",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationVisualQuality.cs",
+      "sha256": "fa5464e5ad9ca073d8fb9c6da089bcc70400aed0a5e10bf24d796f90310a05ab",
+      "bytes": 1613
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationVisualQuality.cs.meta",
+      "sha256": "cbdece1885ba2698dc78d6e0fcb96adb5b4961c32b30118efa711da705540a93",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationVoxelTerrain.cs",
+      "sha256": "4dbd10a43c9fa29b99aec1f137e82977698b8c8c63794e3f6f1351cf4bfcb95f",
+      "bytes": 8320
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationVoxelTerrain.cs.meta",
+      "sha256": "983b6aeeb043bd0ea788a6378fcd28a83a08a5b8486c31ed5a9364bbdb77fd57",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationWind.cs",
+      "sha256": "62ebdd37ffd5b818a33483b1fb1063e8e0b9af8de7451958b5daba6db39c4b4e",
+      "bytes": 3118
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ExplorationWind.cs.meta",
+      "sha256": "728c38f233b1d8fbaa2d47ea80d679ed5a540109b4bcc4e6d4e44c66c2aca4b4",
+      "bytes": 60
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ForestBillboard.cs",
+      "sha256": "eb5369d8adaba81a00aa8236536a0f9ec483201b0ff170f0a7bbedc6624fc44b",
+      "bytes": 1231
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ForestBillboard.cs.meta",
+      "sha256": "767a50432e63547158d382393766b37a0b02b597593e9b068fe32992691946fd",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ForestGpuRenderer.cs",
+      "sha256": "42f992e64008d07f06ba3f6abb2ec536b608800b856e48b70317516904c25fc1",
+      "bytes": 6785
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ForestGpuRenderer.cs.meta",
+      "sha256": "6212d78aaadc358ed8de5f9999c2b264bacb643dbe16f3080545a21077e61958",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ForestHorizon.cs",
+      "sha256": "f9fd3e21b7c724f11031f25b4cd34f3746ae45a94c6743266490cafea81f002f",
+      "bytes": 11640
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ForestHorizon.cs.meta",
+      "sha256": "81ac262b9cad88e0ba2d6ded02aeb6dd5c0200473ec7ea68cc57e63afbf3556e",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ForestImpostor.shader",
+      "sha256": "9d96d4ffb7383c49c72b3fb09bac046d3a802e77ca0820899743e7101aa99c85",
+      "bytes": 5401
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ForestImpostor.shader.meta",
+      "sha256": "344920d9502e0ae0ca3555565f827fa730ee2092624be5381e5c46fff4e250a6",
+      "bytes": 204
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ForestImpostorLighting.hlsl",
+      "sha256": "4a7e2b67fae374b889ac5182b4fe7b76deea19526eb486e6d2643edf656e1a85",
+      "bytes": 5354
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/ForestImpostorLighting.hlsl.meta",
+      "sha256": "2b704feb60575cbef635eb47db6d5b3a562c04fb9c624477337055a546125a68",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Prototypes/ExplorationPrototypes.bytes",
+      "sha256": "41556b474ce7a26342e4dd7bcff2e4fe658ab0333e8360058262ee21c0f011aa",
+      "bytes": 12016333
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Prototypes/ExplorationPrototypes.bytes.meta",
+      "sha256": "e619aaa64b0162d51bf2359fee4aed5c1c461351664673fe698d954ad83737f0",
+      "bytes": 158
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Prototypes.meta",
+      "sha256": "8f4a2632892985ca2b23d211c2c46fe622f8cb2087b014eb14946932000f49bb",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ExplorationSky.shader",
+      "sha256": "0aa47ef9fbea9ae7c897ac69c7d7374d9af90fe5b3a3a9525d21d95b2c8716fc",
+      "bytes": 2534
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ExplorationSky.shader.meta",
+      "sha256": "a1c1bf980d4fd7c1564380cd9a0571b2158ab8a08f739a05358bed10de24f840",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestAtlas.png",
+      "sha256": "fd17a751f06f46428bd02fff42ed5d860bef4e7c782abfbf3b554179b74ea4b1",
+      "bytes": 1137867
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestAtlas.png.meta",
+      "sha256": "4be75d5c6b35f7afc5ed37db2a466b90d4025c7f3378f61aee024e517401d754",
+      "bytes": 3019
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestAtlasNormals.png",
+      "sha256": "e363829fba411bec3f520b669e6db4002872bc52d31afed4d1d50085358fbcfa",
+      "bytes": 1429168
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestAtlasNormals.png.meta",
+      "sha256": "ef918a33df38497e6b6027285973fb847a250710dfde54410cb9254fcaee4985",
+      "bytes": 3018
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestAtlasVersion.txt",
+      "sha256": "cb120b80cbc6188dfc7235b5601c4a4930d2c5ef005c97333bfa02fa7491f3ef",
+      "bytes": 178
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestAtlasVersion.txt.meta",
+      "sha256": "2c6f5b188528b4a2d411d996a305fe43998ce0ecdffe8bea7338e8e774b1b88d",
+      "bytes": 158
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestHorizonCull.compute",
+      "sha256": "69dd6e6ecefd7509bf13c15c818e4df4bed928e0b3063e1fd27fca1dcd48ca86",
+      "bytes": 885
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestHorizonCull.compute.meta",
+      "sha256": "37f48adaa9208edced32e6ba99fae695e491c65fa6ce6ca6e7695b29ea6ca9bf",
+      "bytes": 161
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestHorizonGpu.shader",
+      "sha256": "8baf14bc7f5f483940671cd20a8d1218abed1402ed5919c68355dab604c9a81b",
+      "bytes": 5203
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestHorizonGpu.shader.meta",
+      "sha256": "36efc9f6613d041711acb502582bb80448a3c9313e49ad7be4adeb38f3906af2",
+      "bytes": 204
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestImpostor.mat",
+      "sha256": "205b3356823c5f3b26d07a92ffab0a43b0d7ee14166d3faf29fa791e9237c740",
+      "bytes": 1171
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources/ForestImpostor.mat.meta",
+      "sha256": "d6cbd40bd9acb76a99cf80504df3b248fad7b6bcca1dffea79651c9c01da19bc",
+      "bytes": 188
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Resources.meta",
+      "sha256": "92e94fb1f8409e1a025933e5f678495aad9f6096d65621530060b2147cd84e4d",
+      "bytes": 80
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/exploration-world.json",
+      "sha256": "85ff39810a717cc35db248d9c48b38af52839346e392c32ba707f67e6df94ea3",
+      "bytes": 15397
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/exploration-world.json.meta",
+      "sha256": "627eba7c016aa9587ea36e5b84ae9cf372108e1020c422876b6e078b843be3e7",
+      "bytes": 158
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationBiomes.bytes",
+      "sha256": "de5217131a618329a2cc9df3bdb8db1a8bf69c15a5f979934deef6991c47d2cc",
+      "bytes": 27720
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationBiomes.bytes.meta",
+      "sha256": "14625ddfbbd1a5a1af61e56bcc57350bce8d3476f34a150ca890e0d6108b7937",
+      "bytes": 158
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.bytes",
+      "sha256": "0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb",
+      "bytes": 6292587
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.bytes.meta",
+      "sha256": "7a91eec08ce9df2b4fc3db7bada97fcdca80d5fab14f5134407b3dda4527e66f",
+      "bytes": 158
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.climate.bytes",
+      "sha256": "3c5b1be873732c2a46fec105a4a9c00649d5348c3546c5226ea4a1dbd5297069",
+      "bytes": 20972478
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.climate.bytes.meta",
+      "sha256": "12983483b4177354b75cfdc21b95c18b5b3a9a0380d50694f1041df812048e01",
+      "bytes": 158
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.bytes",
+      "sha256": "3a307d7dcebc47e0d1831e75a7cd73346480d3386b27aae9600c71dd2051c98b",
+      "bytes": 167562
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.bytes.meta",
+      "sha256": "f144c8437e280181b5abfe905fb0b783652064e330fc8883fa2680e59e59fd37",
+      "bytes": 158
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.climate.bytes",
+      "sha256": "e81d209a9bf1959c9d6749b93ab96c91c903bf1583fe6dbd33651ecf87306684",
+      "bytes": 555554
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.climate.bytes.meta",
+      "sha256": "f816c7b6d90aee0625c9283c741270802488679b4a9844cf64cc37108bbc32ca",
+      "bytes": 158
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/Samples.meta",
+      "sha256": "4b673e01cc65b83831bc9780d1d180dc0d14f70fe487b0de9a71b95841b55f52",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs",
+      "sha256": "5048632bc8a14276501758f22b4f8347c1a195d936dee359ae84aa571f629bb7",
+      "bytes": 39031
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration/VegetationStreaming.cs.meta",
+      "sha256": "5d6d248773962f5ea7b5796c686d4110b77ea34b1e82fb9c69a8ec04b572ed32",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Exploration.meta",
+      "sha256": "6c4bd75cd5dc54a96347d4af018f985ed7f0d37d3895e39e41d545267130ac9c",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/AshenVoxel.Rendering.asmdef",
+      "sha256": "d3d0b7dbedc0639d4b0c162c69146efaca6c2e7957f63c7a0eb43b2a8e02d318",
+      "bytes": 125
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/AshenVoxel.Rendering.asmdef.meta",
+      "sha256": "9f04dbca9c7469e44c7dc9c03763b319aad13ef261732cd1bcbc65632d9273b4",
+      "bytes": 166
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/ChunkWorldRenderer.cs",
+      "sha256": "7a066cce60e92789eb66193b81fbc19c56081a654ca96ba0b36dab8880e29300",
+      "bytes": 6932
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/ChunkWorldRenderer.cs.meta",
+      "sha256": "5c2bbb618b5b3cfaa417c5b249d2eef1b972764761ccccb692076f2a1dccce58",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/GreedyChunkMesher.cs",
+      "sha256": "2afabf136e51512566fed42c369eb3408d6a1a53dbaf09558d48f031d978da0c",
+      "bytes": 8581
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/GreedyChunkMesher.cs.meta",
+      "sha256": "50bad9fc357d7f31f1abe9e942bb7bb0f7f1842b165e76db6c32b3931cdad88b",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/MaterialOptics.hlsl",
+      "sha256": "f19104a070c814f84f7de4e15d4ee5130715eea49231560e5869a4497a7922ba",
+      "bytes": 2884
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/MaterialOptics.hlsl.meta",
+      "sha256": "d785eeef6f49ef5faf17eb39d5e82742174aedac2fcaf2dfc4e9a3082c81d4a8",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/MaterialOpticsProfile.cs",
+      "sha256": "503af3d272a0d334cf2e9d8db0fc7196ff6ad21e7d881e598014abfd77411551",
+      "bytes": 3244
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/MaterialOpticsProfile.cs.meta",
+      "sha256": "bb4d2abcd4731716bdfe65d23eec0d98280940c27a0f07ec2b7175d4d92ce6e0",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/Resources/MaterialOptics.asset",
+      "sha256": "cf9acac24e274ccda863095c43d977b40599f97c3333712808793f39f9a5cee0",
+      "bytes": 1815
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/Resources/MaterialOptics.asset.meta",
+      "sha256": "7afd5900e88ca160dda3953e2dc379db77769b1ff2edff10779d75199ad040b7",
+      "bytes": 197
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/Resources/VoxelSurface.mat",
+      "sha256": "cfc2e6731047272d471add840629f104bed8f7c60cf115a867b4b7990440f2e3",
+      "bytes": 856
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/Resources/VoxelSurface.mat.meta",
+      "sha256": "02cdd34dc87bd56f5d37f2031200328257795ed4913c78f07819da315555782b",
+      "bytes": 185
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/Resources.meta",
+      "sha256": "9d62074a200eef46fb541ce5102854a18f714cc2edf089c3ae6eccfd085f9afa",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/VoxelWind.hlsl",
+      "sha256": "b8fa8879116e7e2c84ce859031ccaffce02a78c06862f63f2139d6f4a9c49956",
+      "bytes": 3656
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/VoxelWind.hlsl.meta",
+      "sha256": "80ef9f021391d86aa2f700e633e21d8cbf8fbf39183c40013b6650e3f4813719",
+      "bytes": 60
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/WorldSurface.shader",
+      "sha256": "79959309d848d4c8950eb8bb4035832fc8fea2166fa38a74f96417f621185416",
+      "bytes": 14116
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering/WorldSurface.shader.meta",
+      "sha256": "7110cfbfaf016f79cffc2b4a5036dda7a8757bfddd4e047974ca3e1824f92cc6",
+      "bytes": 201
+    },
+    {
+      "path": "Assets/AshenVoxel/Rendering.meta",
+      "sha256": "3d6414ee3340bc37596155bc3a030cefd2ccc0ebe56606734602f3125a3b0629",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/AshenVoxel/Settings/ExplorationRenderer.asset",
+      "sha256": "ba7631740ff6f57bfd3ac8a66e2e9b0ad833cefeee968b1cac4f9b24c702c8fc",
+      "bytes": 2701
+    },
+    {
+      "path": "Assets/AshenVoxel/Settings/ExplorationRenderer.asset.meta",
+      "sha256": "04889d356ccf6ba3e8e090a12902593ec2f94c3d5021e7f3c46216634d0afc31",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/AshenVoxel/Settings/ExplorationSettings.asset",
+      "sha256": "38a9b5b822c4e61418597114703af58cf51847e69f80fd9940494c9e55738664",
+      "bytes": 3083
+    },
+    {
+      "path": "Assets/AshenVoxel/Settings/ExplorationSettings.asset.meta",
+      "sha256": "8746301453cb7e963450a512e84218266e81bc1efb49852fc3ac6cb96de7e657",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/AshenVoxel/Settings/ExplorationURP.asset",
+      "sha256": "940d2eaac5f7a63aed517f6c36971e195f8f29db555232677cbf12788b54c252",
+      "bytes": 4694
+    },
+    {
+      "path": "Assets/AshenVoxel/Settings/ExplorationURP.asset.meta",
+      "sha256": "cce10b676ca0a00c25e793dfc83e9974c2e6129abdeecf1c79f86785977ec78c",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/AshenVoxel/Settings.meta",
+      "sha256": "24ca0a46db110a8ba9297a85f626f63d5bec4cdaf0e7c28412dc0066ba0f6661",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/AshenVoxel.WorldScaleData.asmdef",
+      "sha256": "a0460a349f9ec243d8a2300208d6b6cead12b70b5ed6c67fcc1f22e956da95ea",
+      "bytes": 153
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/AshenVoxel.WorldScaleData.asmdef.meta",
+      "sha256": "008e25359555691afaea654b9ddff7c3b7b639e567e844add58a97339270805b",
+      "bytes": 166
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ClimateArchive.cs",
+      "sha256": "126995205fe788f26b2a516fce894d1dce732dea75ed9db37b14cb58bfe303d9",
+      "bytes": 9738
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ClimateArchive.cs.meta",
+      "sha256": "1825b568d5efef54c3cd035b802afcf3789efeab2b613e6697a83a0a44512fa3",
+      "bytes": 60
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationAtlasField.cs",
+      "sha256": "bac586c5a6d6e52a51d3776a8d4283d39fb10c47288be783b90770db598c8c39",
+      "bytes": 15365
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationAtlasField.cs.meta",
+      "sha256": "dbf7d024ebbd713d7391ae1fe9a62a3da8f8d78439bd6d65e73d1124184107f6",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs",
+      "sha256": "55712c21aa0066bf1a6231f52069ae33203e19bf5978f75eae53d9a9499887b4",
+      "bytes": 19892
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationMovement.cs.meta",
+      "sha256": "1ad176f89079435dcde8cbbca91b4c5d6b3283d17949b532314bd2d2e779180e",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationPopulation.cs",
+      "sha256": "ed0dc9bee43813cac4ad0532cfc0270fac0b2c83dbb6ea6eb324ce8721724a27",
+      "bytes": 5848
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationPopulation.cs.meta",
+      "sha256": "b3a12fbf25586dae33a14df9ffa78ae36d1591a74c9085a14920e24b5f05e980",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs",
+      "sha256": "1d1ed0696a32c6cbd4a85399b2f083e5b466bb5215b054e4ffe907f876008230",
+      "bytes": 17196
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationPrototypePack.cs.meta",
+      "sha256": "9613fb8f3be1490a8ce8d249b54a497771a94fe6567afdbe453186083a3c64e1",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs",
+      "sha256": "7d7f3794bf4574d1d0011c185f8de959d9dc7f7d6b3d96cf55f587e1328ac588",
+      "bytes": 18149
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs.meta",
+      "sha256": "5a8cd0544801d1a00a1c2e4b5dc4b0c92393a7dc0e0e4b2301ccbff22f826dd6",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ForestBiomes.cs",
+      "sha256": "6d775df485aab75bf6f507f46477ff60a82c74be0834af21d9b078ed04d4ee55",
+      "bytes": 4111
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ForestBiomes.cs.meta",
+      "sha256": "0137bb4dc393b25984dc13f6dcfc815b8c0a07c9803fba1e0663a8c623f619b5",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/GroundCoverScatter.cs",
+      "sha256": "3a1ce33ae049b07c752e82e01b61cc75de0071c1fef7f8373ee83782309b78e5",
+      "bytes": 18336
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/GroundCoverScatter.cs.meta",
+      "sha256": "73557c30bc0dc07e665890b47540d23745a84958946fe8263a5db1515b781a04",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/HeightAtlas.cs",
+      "sha256": "e7ee57295416134833db7e9e8dfc86e73d6a779561b6adde73a91801b11a43b7",
+      "bytes": 8514
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/HeightAtlas.cs.meta",
+      "sha256": "f5eefdbca36a712eef0159c184e510a62be7ed98e1f1f7ac73de935e188cf611",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ImplicitMatter.cs",
+      "sha256": "c063bf46a0a905cf3b7edd1ad383e89b8e74d649b5597f2efd9f6ea1bcab2eb5",
+      "bytes": 2902
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/ImplicitMatter.cs.meta",
+      "sha256": "335a391609b45c46a4080eafd74bfc0d92edcd151e13730d2e1aac4d6c5e80f6",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs",
+      "sha256": "31f2f4bafeb44ad064c1c2e1702ebb700c051ec40e0a1a28de5777603522d88f",
+      "bytes": 8002
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/LodPlanner.cs.meta",
+      "sha256": "40dbdeb95843ec82389c43a21851d85706d8e3b62804faf53a8163d7167fb684",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs",
+      "sha256": "4e873a75acd0f67f22a2b85e2caf407d6851cc3fd870441947fee5a9629bed90",
+      "bytes": 16677
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs.meta",
+      "sha256": "4b6601805ade503ab7eeddddb619e92337a12699f79a9ba80014ada4f8f42826",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/SurfaceProfile.cs",
+      "sha256": "05711037d0af7676befcfa1bf056bb6186eb4d1f7c465a84d72d56c0872baff8",
+      "bytes": 6636
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/SurfaceProfile.cs.meta",
+      "sha256": "43d99155afa577b674f6ac429b9bc4b3f61a6e78d3edd7625d008c9911b9f578",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/SurfaceWorldField.cs",
+      "sha256": "614c9bc4c516ba6f164deb628f024554552c988e46e1b7e1d6e513968f67722a",
+      "bytes": 1810
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/SurfaceWorldField.cs.meta",
+      "sha256": "9b702da134d57f90fc21c3decbcc6616f61c2a9921312d0ee30ff0fe3c62784a",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/TerrainDetailField.cs",
+      "sha256": "8393d97d95a2d4deffda3db93d8b077cfa7223bb98f1e2c55b97f8242d17ac1b",
+      "bytes": 3454
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/TerrainDetailField.cs.meta",
+      "sha256": "8149ab558a71c0a0fbca324f7be89e850c8e6183c65c1a68fd2585dbd006d6c5",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/VoxelLodSurface.cs",
+      "sha256": "e63bae6ad045b11103783061ee132eb7d43ba7cb0f798df851f67eb1e0155ae3",
+      "bytes": 14257
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/VoxelLodSurface.cs.meta",
+      "sha256": "092a0728bdce5cc2dd1ff51861a53a4cdc3b7dfef54589bb031e079d0dbc9b45",
+      "bytes": 60
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/VoxelTerrainPage.cs",
+      "sha256": "f8b274d2288ead310432d170f55b5d48e9bc829085f4631ac655854822e0b337",
+      "bytes": 8809
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/VoxelTerrainPage.cs.meta",
+      "sha256": "070658a0654b72a058e07eba257c418a2df86236e117cdf88a000fb55abda9c2",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/WorldCoordinates.cs",
+      "sha256": "227e9cffedc4c23135e3486d229caad68fe20be39bbc8495d3d07af3d889dd82",
+      "bytes": 2741
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/WorldCoordinates.cs.meta",
+      "sha256": "472b9cf7edcc2e7029f2dba35233ee0b941d2551109d20c8b69e8b26bc7c378b",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/WorldFields.cs",
+      "sha256": "750af4d4b9113607f005052a0b39f1d7e17f1f9f09b78a5a1557393304fa2339",
+      "bytes": 8695
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData/WorldFields.cs.meta",
+      "sha256": "8e83423014651db976040e4a06580ad89de96ee3f1f57bc598549ced606cacd3",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleData.meta",
+      "sha256": "9d1b9838e88c29be4d6e9d66962d9c08017e5e3f659678216907f7e6ee54f557",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/AshenVoxel.WorldScaleRuntime.asmdef",
+      "sha256": "6fc0899497122c15dbd27b9c71ffccdae8f4e0e8dd4eefefd9803388664baf28",
+      "bytes": 207
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/AshenVoxel.WorldScaleRuntime.asmdef.meta",
+      "sha256": "c24ec52cdc313c83842112c20ad7a57f9e2b56e95f8564c7327a598ac9bfd38d",
+      "bytes": 166
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/GroundCoverShowcase.cs",
+      "sha256": "295667e330d9aa9dc2bd31dbee75dff921b0a682162a88501324a1b0d3671903",
+      "bytes": 18138
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/GroundCoverShowcase.cs.meta",
+      "sha256": "ea129fedbf0ce8e12d10cfba33937b3b36dd5a90419b8d23d8078e804c50d5b5",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/GroundSurface.shader",
+      "sha256": "68f0a54773d31c53f9cf1fbae5902882ccd781a5ccfca8b7344319dba6f7c94f",
+      "bytes": 14635
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/GroundSurface.shader.meta",
+      "sha256": "25fd299587460d8f967b4ea5c68158dc96b7918d66b11038a5d36b70d0156468",
+      "bytes": 204
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/RemoteTerrainField.cs",
+      "sha256": "9476f5365cec348f543b59d28c3bc90b8941af7748bf96075052c51b7183109e",
+      "bytes": 22971
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/RemoteTerrainField.cs.meta",
+      "sha256": "3c0482bc1cd4dc38911b6f0b2c9bbce03dcba05512fb65f5343c88767db1e61f",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/VisualWater.cs",
+      "sha256": "6c8a56e97e2acf2f3c25f305e98164680e2ab40e38946b64b86081f1bfc3494f",
+      "bytes": 10938
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/VisualWater.cs.meta",
+      "sha256": "705a3cb5b33cb70726d63f7af1411c2861e71c06cbb530ed260b1a60f9ce69a7",
+      "bytes": 152
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/VisualWater.shader",
+      "sha256": "aee7075db2368a4c287bd3c68772f3da807fbd2ef9974b813cce5c3689a7ac63",
+      "bytes": 3993
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/VisualWater.shader.meta",
+      "sha256": "e289eeeac65f9291fd7bd03a9d6679061d0bf71c7233bbe5bbebbab615318771",
+      "bytes": 154
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorkshopCamera.cs",
+      "sha256": "0978fbefe148ae9d4b7ac36c582a9eaee77ea6019f711329148285eb8850ca01",
+      "bytes": 2040
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorkshopCamera.cs.meta",
+      "sha256": "b3e461949966250648467f1b127416f59522da33a5da553d14cef8167978cdab",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs",
+      "sha256": "15a24d325bc62db2dbe517ee5b2e6bd916f877d6b6d9b966dc2d964831a8d393",
+      "bytes": 43125
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs.meta",
+      "sha256": "ab9850b5a98180ae67e421f61f897f1bdd342c81ead703864568cd40a49a96a8",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs",
+      "sha256": "5d132d061fa7f855e480f20e2aaa7af174684085dd1b0349313399f5426a3700",
+      "bytes": 24644
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs.meta",
+      "sha256": "d3777587d50c4cc1870756099b3b50737be47b4bffadd9b20de02b96b4460598",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs",
+      "sha256": "3ab4075df98ffc9aa18faff1b0ec2ffe014e0c09b6b2203c8d6c54ebe778bee0",
+      "bytes": 29164
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs.meta",
+      "sha256": "608068b1ca9d4ae2e26a5f2812ba9acf08e05bda2b928ebba5f46a823a674490",
+      "bytes": 60
+    },
+    {
+      "path": "Assets/AshenVoxel/WorldScaleRuntime.meta",
+      "sha256": "579e3df63b838f5d7980255f9706d1aa69f24d93eee01463c344e0dc48dceb30",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/AshenVoxel.meta",
+      "sha256": "047b2ce2b94745ad6949e3b9f081df56e6a3b6439f185b9136b8eeb2bf4f401b",
+      "bytes": 172
+    },
+    {
+      "path": "Packages/manifest.json",
+      "sha256": "4b424831b1843ea0d7efb416f96fa5a95d03d92f7d052de167981fc80002fa94",
+      "bytes": 342
+    },
+    {
+      "path": "Packages/packages-lock.json",
+      "sha256": "6c137df8f454053686ffab8bcaa1f31f5e150ed8b33a59fc39cbc84a192d865b",
+      "bytes": 5115
+    },
+    {
+      "path": "ProjectSettings/AudioManager.asset",
+      "sha256": "9543c41dbfc7d3951217c4dd9481ed026eb8e529b85ecf4463969a0fea747729",
+      "bytes": 523
+    },
+    {
+      "path": "ProjectSettings/ClusterInputManager.asset",
+      "sha256": "40e65dd214bf254955d2c8829ca8ce2130fd3510485560ce012e9a1ddd93e623",
+      "bytes": 114
+    },
+    {
+      "path": "ProjectSettings/DynamicsManager.asset",
+      "sha256": "d102dd312ef330f5e5ca255c070fb34f68f59ec633d1e9fd67e2f2f6f88f66c8",
+      "bytes": 1574
+    },
+    {
+      "path": "ProjectSettings/EditorSettings.asset",
+      "sha256": "4a87c54b3541c7bd242aad68c3fc28661083db1117ec56149694ee592156415e",
+      "bytes": 1603
+    },
+    {
+      "path": "ProjectSettings/GraphicsSettings.asset",
+      "sha256": "84a1a886c6f9002e568a38978590bb2ebb962c7a4de3b8aaadee0064163e697b",
+      "bytes": 3108
+    },
+    {
+      "path": "ProjectSettings/InputManager.asset",
+      "sha256": "d0f454ddb880912abcae92e3e12957a7446786ba89e24937e019ff3bbc0d4300",
+      "bytes": 5816
+    },
+    {
+      "path": "ProjectSettings/MemorySettings.asset",
+      "sha256": "2c9e2339b4fa50f4782840d37dde021508d411b99278614cba335d206edb1738",
+      "bytes": 1226
+    },
+    {
+      "path": "ProjectSettings/MultiplayerManager.asset",
+      "sha256": "ce4075d7a7dd8ac7ffe55de2427692c63f90dae398208bd80cec0f27cbe09f4b",
+      "bytes": 232
+    },
+    {
+      "path": "ProjectSettings/NavMeshAreas.asset",
+      "sha256": "7ebbf8f53b8033104e1878b95ca07a28d0954092d81c220f14196a42f651e658",
+      "bytes": 1361
+    },
+    {
+      "path": "ProjectSettings/PackageManagerSettings.asset",
+      "sha256": "0ca9fdb635b99f351a466c46189e73d5eee2f9a16134f735f41a65586369a511",
+      "bytes": 1132
+    },
+    {
+      "path": "ProjectSettings/Physics2DSettings.asset",
+      "sha256": "1cfc0c8fbceec604fd7cd2a06c04ff05dddee6335b75c92b0f5715ad80ba9490",
+      "bytes": 1862
+    },
+    {
+      "path": "ProjectSettings/PresetManager.asset",
+      "sha256": "29c125923fe6e29f90190d4fce1c82d660e7051546e2c9d02908d18c9cf2436c",
+      "bytes": 146
+    },
+    {
+      "path": "ProjectSettings/ProjectSettings.asset",
+      "sha256": "2c55e94b80e0790ae499198fb3a3ed555dcc90d40626216b3952f8418b619e03",
+      "bytes": 21319
+    },
+    {
+      "path": "ProjectSettings/ProjectVersion.txt",
+      "sha256": "56aead51018c992af406752e47c49e8d9458c70f00b983f4bb603b1b3afc223e",
+      "bytes": 85
+    },
+    {
+      "path": "ProjectSettings/QualitySettings.asset",
+      "sha256": "9074d03db1dbc8ce9d73e7996600782ead67755a2efd65d3eb0ec6919fa2fc7c",
+      "bytes": 9858
+    },
+    {
+      "path": "ProjectSettings/ShaderGraphSettings.asset",
+      "sha256": "6fead5a816c4eed70f224d5472340ecf1ea0b4de4f87d5926bb17fa10ffb3dc9",
+      "bytes": 633
+    },
+    {
+      "path": "ProjectSettings/TagManager.asset",
+      "sha256": "da4b5eefc927f8b91bcf9e56a186d2b852f49d9cbe91d466638d26c79d6a83ce",
+      "bytes": 411
+    },
+    {
+      "path": "ProjectSettings/TimeManager.asset",
+      "sha256": "3396f52fdc16d445024e01d7a2d99db6f0a37569d1d73c0302e9ffb857d90287",
+      "bytes": 305
+    },
+    {
+      "path": "ProjectSettings/UnityConnectSettings.asset",
+      "sha256": "11251dae0356b6f43dd2c67bb511f6b7ecda4e5de425186bba3297e6f3dc1c6f",
+      "bytes": 1063
+    },
+    {
+      "path": "ProjectSettings/URPProjectSettings.asset",
+      "sha256": "68d75e5e1502dd7a4c18b7306430916b5ee8dadfdb0fbb588893fe38eaa2c056",
+      "bytes": 557
+    },
+    {
+      "path": "ProjectSettings/VersionControlSettings.asset",
+      "sha256": "e199cdfa6a8f2bf33cfd47e549198f13e3eb2a5099e908fdb4e0f14d939ccc6b",
+      "bytes": 172
+    },
+    {
+      "path": "ProjectSettings/VFXManager.asset",
+      "sha256": "2973a6af930e142f62cde00076beda8a3cc3a66d9bfcde7a58ba7d4be2251c26",
+      "bytes": 525
+    },
+    {
+      "path": "Assets/UniversalRenderPipelineGlobalSettings.asset",
+      "sha256": "41fe60ea8b2c320879a207b023fb238b9cb0ca39d65360bd6e6690de3f9facee",
+      "bytes": 25441,
+      "reason": "direct GUID dependency closure"
+    },
+    {
+      "path": "Assets/UniversalRenderPipelineGlobalSettings.asset.meta",
+      "sha256": "f7d5cb7999f5857c22420f5867274d8975f692e70df69fd0fcaa2989894eff46",
+      "bytes": 189,
+      "reason": "direct GUID dependency closure"
+    }
+  ],
+  "fixture_original_sha256": "c02918aa1db0edca8749a00c7f928f87bccd4becb889ce22976fd20386b124d1",
+  "fixture_sha256": "771db2201c1486ad9d752e867c037cfbc41f48c8385fb4e74560f2fa3ed47e9b",
+  "main_source_file_count": 225,
+  "copied_bytes": 43453903,
+  "omitted_orphan_folder_metas": [
+    "Assets/AshenVoxel/Core/README.md.meta",
+    "Assets/AshenVoxel/Core/Rocks/README.md.meta",
+    "Assets/AshenVoxel/Exploration/LocalGenerationPreview.meta",
+    "Assets/AshenVoxel/Rendering/Editor.meta",
+    "Assets/AshenVoxel/Rendering/RENDERING.md.meta",
+    "Assets/AshenVoxel/Settings/Trees.meta",
+    "Assets/AshenVoxel/WorldScaleRuntime/Editor.meta",
+    "Assets/AshenVoxel/WorldScaleRuntime/README.md.meta",
+    "Assets/AshenVoxel/WorldScaleRuntime/Resources.meta",
+    "Assets/AshenVoxel/WorldScaleRuntime/Samples.meta",
+    "Assets/AshenVoxel/WorldScaleRuntime/VISUAL_WATER.md.meta"
+  ],
+  "dependency_closure_added": [
+    {
+      "from": "ProjectSettings/GraphicsSettings.asset",
+      "guid": "a5097fa2da54c2e4dbe76e5b271cc280",
+      "target": "Assets/UniversalRenderPipelineGlobalSettings.asset"
+    }
+  ]
+}
