@@ -8,7 +8,7 @@ under ~150 lines. Put dated narrative in Docs/SESSION_LOG.md.
 ## Identity
 - Unity 6000.3.27f1 (6.3 LTS), URP 17.3.0, Input System 1.17.0. Default scene: `Assets/Scenes/Exploration.unity`.
   Other scenes: ForestArena (original dig/granular demo), TreeWorkshop, GroundCoverWorkshop, WorldExplorer (research).
-- **Not a git repository** (TODO P0). The last published ZIP is 2026-10-26,
+- Git: private repo github.com/EthanHarrigan/AshenVoxel (`main`), first pushed 2026-10-28. Commit instead of making backup folders. The last published ZIP is 2026-10-26,
   sha256 `bfaa982d…a8207` (Docs/releases.json). Everything after that is local only.
 - Machine: Windows, RTX 3080 Ti. **System commit headroom is the recurring limiter.**
   Observed available memory was 1.0–2.7 GiB against a 2.31 GiB resume threshold, often with another game running.

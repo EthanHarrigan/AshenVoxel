@@ -5,8 +5,8 @@ The full checklist history, including every completed item and its evidence link
 Edit this list in place. Do not stack new dated sections on top.
 
 ## P0 — Set up for success (housekeeping, small, unblocks everything)
-- [ ] Free disk space and consolidate folders (see START_HERE.md, "Cleanup").
-- [ ] `git init` in this folder. The existing .gitignore already excludes Library/Temp/Logs/.terrain-cache.
+- [x] Consolidate folders (WorldVoxels archived and removed; handoff emptied) (see START_HERE.md, "Cleanup").
+- [x] `git init` and push to the private GitHub repo (2026-10-28). The existing .gitignore already excludes Library/Temp/Logs/.terrain-cache.
   Make a first commit. Consider Git LFS for `*.bytes` and `*.png` larger than 1 MB.
   After that, retire the `.terrain-cache/quality-patch-*-backup` folders.
 - [ ] R2: make validation runnable for anyone.
