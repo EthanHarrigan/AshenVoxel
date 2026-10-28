@@ -128,6 +128,13 @@ namespace AshenVoxel.Exploration.Experimental
         public static int CachedTemplates{get{lock(Gate)return cache.Count;}}
         public static long CachedCells{get{lock(Gate)return cachedCells;}}
         public static bool Busy{get{lock(Gate)return pending!=null&&!pending.IsCompleted;}}
+        /// <summary>Cells in the complete specimen (known before generation).</summary>
+        public static int ExpectedCells(int id)=>!Supports(id)?0:id<16?ExpectedTrees[id]:id<200?ExpectedPlants[id-100]:ExpectedRocks[id-200];
+        /// <summary>Giant specimens (mature redwoods, ~1.1M cells) get memory guards and are never warmed in parallel.</summary>
+        public static bool IsHuge(int id)=>ExpectedCells(id)>200000;
+        /// <summary>Optional folder for replay results. A giant redwood takes ~4 s to regenerate; the
+        /// cached replay loads in a fraction of that and is re-verified against the same pinned hash.</summary>
+        public static string DiskCacheDirectory;
         public static bool Supports(int id)=>(id>=0&&id<16)||(id>=100&&id<=122)||(id>=200&&id<260);
         public static bool IsCached(int id){lock(Gate){foreach(var p in cache)if(p.PrototypeId==id)return true;return false;}}
         static void Store(Prepared prepared)
@@ -150,7 +157,7 @@ namespace AshenVoxel.Exploration.Experimental
                 {var hit=cache[i];cache.RemoveAt(i);cache.Add(hit);task=Task.FromResult(hit);return true;}
                 if(pending!=null&&pendingId==id&&!pending.IsFaulted){task=pending;return true;}
                 // A background warm-up never blocks a specimen the player actually punched.
-                if(pending!=null&&!pending.IsCompleted&&!pendingPrewarm){task=null;return false;}
+                if(pending!=null&&!pending.IsCompleted&&(!pendingPrewarm||IsHuge(pendingId)||IsHuge(id))){task=null;return false;}
                 pendingId=id;pendingPrewarm=false;pending=Task.Run(()=>{var p=Prepare(id);Store(p);return p;});task=pending;return true;
             }
         }
@@ -162,6 +169,7 @@ namespace AshenVoxel.Exploration.Experimental
             lock(Gate)
             {
                 if(pending!=null&&!pending.IsCompleted)return false;
+                foreach(var p in cache)if(IsHuge(p.PrototypeId)&&IsHuge(id))return false;
                 pendingId=id;pendingPrewarm=true;pending=Task.Run(()=>{var p=Prepare(id);Store(p);return p;});
                 pending.ContinueWith(t=>{var observed=t.Exception;},TaskContinuationOptions.OnlyOnFaulted);return true;
             }
@@ -182,18 +190,31 @@ namespace AshenVoxel.Exploration.Experimental
                 positions=new Int3[count];materials=new MaterialId[count];tints=new uint[count];int cursor=0;
                 using(var hash=IncrementalHash.CreateHash(HashAlgorithmName.SHA256))
                 {
-                var bytes=new byte[17];
-                foreach(var pair in world.Chunks.OrderBy(p=>p.Key.z).ThenBy(p=>p.Key.y).ThenBy(p=>p.Key.x))for(int i=0;i<Chunk.Volume;i++)
+                // Same byte stream as before (17 bytes per cell), hashed in 64 KiB blocks.
+                var bytes=new byte[17*3855];int filled=0;
+                foreach(var pair in world.Chunks.OrderBy(p=>p.Key.z).ThenBy(p=>p.Key.y).ThenBy(p=>p.Key.x))
                 {
-                    var material=pair.Value.Cells[i];if(material==MaterialId.Air)continue;var local=Chunk.Decode(i);
+                var cells=pair.Value.Cells;bool tinted=pair.Value.HasTints;var chunkTints=pair.Value.Tints;
+                for(int i=0;i<Chunk.Volume;i++)
+                {
+                    var material=cells[i];if(material==MaterialId.Air)continue;var local=Chunk.Decode(i);
                     var p=new Int3(pair.Key.x*16+local.x,pair.Key.y*16+local.y,pair.Key.z*16+local.z);
-                    positions[cursor]=p;materials[cursor]=material;uint tint=world.GetTint(p);tints[cursor++]=tint;
-                    Put(bytes,0,(uint)p.x);Put(bytes,4,(uint)p.y);Put(bytes,8,(uint)p.z);bytes[12]=(byte)material;Put(bytes,13,tint);hash.AppendData(bytes);
+                    uint tint=tinted?chunkTints[i]:0u;
+                    positions[cursor]=p;materials[cursor]=material;tints[cursor++]=tint;
+                    Put(bytes,filled,(uint)p.x);Put(bytes,filled+4,(uint)p.y);Put(bytes,filled+8,(uint)p.z);bytes[filled+12]=(byte)material;Put(bytes,filled+13,tint);filled+=17;
+                    if(filled==bytes.Length){hash.AppendData(bytes,0,filled);filled=0;}
                 }
+                }
+                if(filled>0)hash.AppendData(bytes,0,filled);
                 MatterIdentity=BitConverter.ToString(hash.GetHashAndReset()).Replace("-","").ToLowerInvariant();
                 }
                 if(MatterIdentity!=(id>=100&&id<200?ExpectedPlantHashes[id-100]:ExpectedMatterHashes[id<16?id:id-200+16]))throw new InvalidOperationException("Authoritative generator replay differs from pinned complete specimen; original remains intact");
                 if(cursor!=count)throw new InvalidOperationException("Matter count mismatch");
+            }
+            internal void Write(System.IO.BinaryWriter w)
+            {
+                w.Write(sx);w.Write(sy);w.Write(sz);w.Write(seed);w.Write(Anchor.x);w.Write(Anchor.y);w.Write(Anchor.z);w.Write(positions.Length);
+                for(int i=0;i<positions.Length;i++){var p=positions[i];w.Write((ushort)p.x);w.Write((ushort)p.y);w.Write((ushort)p.z);w.Write((byte)materials[i]);w.Write(tints[i]);}
             }
             public Task<VoxelWorld> CreateWorldAsync()=>Task.Run(()=>{Int3 ignored;return CreateWorld(out ignored);});
             public VoxelWorld CreateWorld(out Int3 anchor)=>CreateWorld(out anchor,int.MinValue,0);
@@ -205,9 +226,48 @@ namespace AshenVoxel.Exploration.Experimental
                 return world;
             }
         }
+        static string CachePath(int id)
+        {
+            string dir=DiskCacheDirectory;if(string.IsNullOrEmpty(dir))return null;
+            string hash=id>=100&&id<200?ExpectedPlantHashes[id-100]:ExpectedMatterHashes[id<16?id:id-200+16];
+            return System.IO.Path.Combine(dir,"matter-"+id+"-"+hash.Substring(0,16)+".avmt");
+        }
         public static Prepared Prepare(int id)
         {
             if(!Supports(id))throw new ArgumentOutOfRangeException(nameof(id));
+            string path=ExpectedCells(id)>=20000?CachePath(id):null;
+            if(path!=null&&System.IO.File.Exists(path))
+            {
+                try{return Load(id,path);}
+                catch(Exception){try{System.IO.File.Delete(path);}catch(Exception){}}
+            }
+            var generated=Generate(id);
+            if(path!=null){try{Save(generated,path);}catch(Exception){/* cache is optional */}}
+            return generated;
+        }
+        const string CacheMagic="AVMT0001";
+        static void Save(Prepared p,string path)
+        {
+            System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path));string temp=path+".tmp";
+            using(var file=System.IO.File.Create(temp))using(var gz=new System.IO.Compression.GZipStream(file,System.IO.Compression.CompressionLevel.Fastest))using(var w=new System.IO.BinaryWriter(gz))
+            {
+                w.Write(System.Text.Encoding.ASCII.GetBytes(CacheMagic));w.Write(p.PrototypeId);p.Write(w);
+            }
+            if(System.IO.File.Exists(path))System.IO.File.Delete(path);System.IO.File.Move(temp,path);
+        }
+        static Prepared Load(int id,string path)
+        {
+            using var file=System.IO.File.OpenRead(path);using var gz=new System.IO.Compression.GZipStream(file,System.IO.Compression.CompressionMode.Decompress);using var r=new System.IO.BinaryReader(gz);
+            if(System.Text.Encoding.ASCII.GetString(r.ReadBytes(8))!=CacheMagic||r.ReadInt32()!=id)throw new System.IO.InvalidDataException("Template cache mismatch");
+            int sx=r.ReadInt32(),sy=r.ReadInt32(),sz=r.ReadInt32(),seed=r.ReadInt32();var anchor=new Int3(r.ReadInt32(),r.ReadInt32(),r.ReadInt32());int count=r.ReadInt32();
+            if(sx<1||sy<1||sz<1||sx>4096||sy>4096||sz>4096||count!=ExpectedCells(id))throw new System.IO.InvalidDataException("Template cache bounds");
+            var world=new VoxelWorld(sx,sy,sz,.1f,seed);
+            for(int i=0;i<count;i++){int x=r.ReadUInt16(),y=r.ReadUInt16(),z=r.ReadUInt16();var m=(MaterialId)r.ReadByte();uint tint=r.ReadUInt32();if(!world.InBounds(x,y,z)||m==MaterialId.Air)throw new System.IO.InvalidDataException("Template cache cell");world.Set(x,y,z,m,tint);}
+            // The constructor recounts and re-hashes every cell against the pinned identity.
+            return new Prepared(id,world,anchor,null);
+        }
+        static Prepared Generate(int id)
+        {
             int seed=(id<16||id>=100&&id<120)&&id%2==1?271828:714103;VoxelWorld world;Int3 anchor;TreeResult result=null;
             if(id<16)
             {

@@ -124,7 +124,9 @@ namespace AshenVoxel.Exploration
         public bool ExperimentalDistantHeightProxies=false;
         public bool ConnectedTerrainSurface=true;
         [Tooltip("Merged cubic voxel ground near the player: 10cm blocks painted with their own pigment, morphing smoothly to 20/40/80cm blocks with distance. Overrides the continuous surface near the player; distant terrain stays smooth. Next Play.")]
-        public bool VoxelStepGround=true;
+        public bool VoxelStepGround=false;
+        [Tooltip("Shade the smooth continuous ground as 10cm stair-steps (per-pixel, no extra geometry), fading out with distance. Live.")]
+        public bool VirtualVoxelSteps=true;
         [Tooltip("Optional next-Play local disk cache for distant height proxies.1GiB, default off; does not reduce visible GPU mesh memory.")]
         public bool EnableHeightProxyDiskCache=false;
         public bool EnableForestHorizon=true;

@@ -75,7 +75,7 @@ namespace AshenVoxel.Exploration.Experimental
             if(StructureBusy)throw new InvalidOperationException("Render ownership is being committed");return new RenderSnapshot(this);
         }
         readonly RenderCell[] renderCells;readonly int[] renderGroups;readonly Vector3[] renderCenters=new Vector3[8];
-        readonly Cube[] cubes; readonly Dictionary<Int3,int> lookup;
+        readonly Cube[] cubes; readonly CellIndex lookup;
         readonly Island[] islands=new Island[8];
         readonly Dictionary<CargoKey,long> cargo=new Dictionary<CargoKey,long>();
         readonly long[] materialTotals=new long[MaterialCatalog.Count];
@@ -151,13 +151,18 @@ namespace AshenVoxel.Exploration.Experimental
             int count=0;foreach(var chunk in source.Chunks.Values)count+=chunk.NonAirCount;
             if(count<1||count>2000000||Math.Abs(source.VoxelSize-Cell)>1e-6)throw new ArgumentOutOfRangeException(nameof(source));
             initialRotation=Quaternion.CreateFromAxisAngle(Vector3.UnitY,yawRadians);inverseInitial=Quaternion.Conjugate(initialRotation);
-            cubes=new Cube[count];renderCells=new RenderCell[count];renderGroups=new int[count];lookup=new Dictionary<Int3,int>(count);seen=new bool[count];supported=new bool[count];sleeping=new bool[count];updated=new double[count];queue=new int[count];group=new int[count];parcelNext=new int[count];parcelWeight=new int[count];Array.Fill(parcelNext,-1);
-            int at=0;foreach(var pair in source.Chunks)for(int i=0;i<Chunk.Volume;i++)if(pair.Value.Cells[i]!=MaterialId.Air)
+            cubes=new Cube[count];renderCells=new RenderCell[count];renderGroups=new int[count];lookup=new CellIndex(source.Chunks.Count);seen=new bool[count];supported=new bool[count];sleeping=new bool[count];updated=new double[count];queue=new int[count];group=new int[count];parcelNext=new int[count];parcelWeight=new int[count];Array.Fill(parcelNext,-1);
+            int at=0;foreach(var pair in source.Chunks)
             {
+            var chunkCells=pair.Value.Cells;var chunkTints=pair.Value.Tints;bool tinted=pair.Value.HasTints;
+            for(int i=0;i<Chunk.Volume;i++)if(chunkCells[i]!=MaterialId.Air)
+            {
+                // Read the chunk directly (same enumeration order and values as source.Get/GetTint).
                 var local=Chunk.Decode(i);var p=new Int3(pair.Key.x*16+local.x,pair.Key.y*16+local.y,pair.Key.z*16+local.z);
-                var material=source.Get(p);var canonical=new Vector3((p.x-anchor.x+.5f)*Cell,(p.y-anchor.y+.5f)*Cell,(p.z-anchor.z+.5f)*Cell);
-                cubes[at]=new Cube{Cell=p,Matter=new CargoKey(material,source.GetTint(p)),Owner=Ownership.Source,Island=-1,Position=Vector3.Transform(canonical,initialRotation),Rotation=initialRotation,Mass=Math.Max(.001f,MaterialCatalog.Get(material).Density)};
+                var material=chunkCells[i];uint tint=tinted?chunkTints[i]:0u;var canonical=new Vector3((p.x-anchor.x+.5f)*Cell,(p.y-anchor.y+.5f)*Cell,(p.z-anchor.z+.5f)*Cell);
+                cubes[at]=new Cube{Cell=p,Matter=new CargoKey(material,tint),Owner=Ownership.Source,Island=-1,Position=Vector3.Transform(canonical,initialRotation),Rotation=initialRotation,Mass=Math.Max(.001f,MaterialCatalog.Get(material).Density)};
                 renderCells[at]=new RenderCell(p,cubes[at].Matter);lookup.Add(p,at++);
+            }
             }
             for(int i=0;i<islands.Length;i++)islands[i]=new Island();
             var rootList=new List<int>();for(int i=0;i<count;i++)if(Root(i))rootList.Add(i);roots=rootList.ToArray();
@@ -552,6 +557,29 @@ namespace AshenVoxel.Exploration.Experimental
             }
             if(DormantDebris==0)wakePending=wakeAgain=terrainWake=false;
             if(!Conserved)throw new InvalidOperationException("Matter ownership count failed");
+        }
+    }
+    /// <summary>Cell → cube index over the specimen's own 16³ chunks. Replaces a per-cell
+    /// Dictionary: about a third of the memory for large trees and much faster neighbour
+    /// queries (most hit the same chunk as the previous query).</summary>
+    sealed class CellIndex
+    {
+        sealed class Slot {public Int3 Key;public int[] Cells;}
+        readonly Dictionary<Int3,int[]> chunks;Slot last=new Slot{Key=new Int3(int.MinValue,int.MinValue,int.MinValue)};
+        public CellIndex(int capacity){chunks=new Dictionary<Int3,int[]>(Math.Max(1,capacity));}
+        static int Local(Int3 p)=>Chunk.Index(p.x&15,p.y&15,p.z&15);
+        public void Add(Int3 p,int index)
+        {
+            var key=new Int3(p.x>>4,p.y>>4,p.z>>4);
+            if(!chunks.TryGetValue(key,out var cells)){cells=new int[Chunk.Volume];Array.Fill(cells,-1);chunks.Add(key,cells);}
+            if(cells[Local(p)]>=0)throw new ArgumentException("Duplicate matter cell");cells[Local(p)]=index;
+        }
+        public bool TryGetValue(Int3 p,out int index)
+        {
+            var key=new Int3(p.x>>4,p.y>>4,p.z>>4);var slot=last;int[] cells;
+            if(slot.Key.x==key.x&&slot.Key.y==key.y&&slot.Key.z==key.z)cells=slot.Cells;
+            else{if(!chunks.TryGetValue(key,out cells)){index=-1;return false;}last=new Slot{Key=key,Cells=cells};}
+            index=cells[Local(p)];return index>=0;
         }
     }
 }

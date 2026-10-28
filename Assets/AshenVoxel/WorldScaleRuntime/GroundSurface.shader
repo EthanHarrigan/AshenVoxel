@@ -58,6 +58,7 @@ Shader "AshenVoxel/GroundSurface"
         float4 _StepTile;        // x block width m, y columns per side, z block height m (>0 enables), w packed UNorm16 positions
         float4 _AshenStepMorph;  // global: x pixel-target spacing per metre, y morph enabled
         float4 _AshenStepCamera; // global: render-space camera position (identical in every pass)
+        float4 _AshenVirtualSteps; // global: x enabled, y full-step pixel size m, z steps gone pixel size m, w cell size m
         #define STEP_SLICES 4
         bool StepEnabled(){return _StepTile.z>0.0;}
         float StepParentBlockHeight(){return min(2.0*_StepTile.z,1.6);}
@@ -161,6 +162,76 @@ Shader "AshenVoxel/GroundSurface"
             }
             return o;
         }
+        // ---- Virtual 10 cm steps on the smooth connected mesh ---------------------------
+        // The smooth surface stays the geometry. Per pixel, the view ray is marched through
+        // the 10 cm column grid of the local tangent plane, each column's top rounded to a
+        // 10 cm level, and the first top or riser it meets is shaded instead.
+        struct VirtualStepHit{float3 position;half3 normal;half ao;float3 cell;};
+        float VirtualTop(float2 cellIndex,float3 q,float2 g,float c)
+        {
+            float2 center=(cellIndex+.5)*c;
+            return round((q.y+g.x*(center.x-q.x)+g.y*(center.y-q.z))/c)*c;
+        }
+        half VirtualTopAO(float2 cellIndex,float3 q,float2 g,float c,float top,float2 f)
+        {
+            float h=top+.001;
+            bool xm=VirtualTop(cellIndex+float2(-1,0),q,g,c)>h,xp=VirtualTop(cellIndex+float2(1,0),q,g,c)>h;
+            bool zm=VirtualTop(cellIndex+float2(0,-1),q,g,c)>h,zp=VirtualTop(cellIndex+float2(0,1),q,g,c)>h;
+            bool mm=VirtualTop(cellIndex+float2(-1,-1),q,g,c)>h,pm=VirtualTop(cellIndex+float2(1,-1),q,g,c)>h;
+            bool mp=VirtualTop(cellIndex+float2(-1,1),q,g,c)>h,pp=VirtualTop(cellIndex+float2(1,1),q,g,c)>h;
+            float a00=StepCornerAO(xm,zm,mm),a10=StepCornerAO(xp,zm,pm),a01=StepCornerAO(xm,zp,mp),a11=StepCornerAO(xp,zp,pp);
+            return (half)lerp(lerp(a00,a10,f.x),lerp(a01,a11,f.x),f.y);
+        }
+        bool VirtualStep(float3 positionWS,half3 n,out VirtualStepHit hit)
+        {
+            hit=(VirtualStepHit)0;hit.ao=1;hit.normal=n;hit.position=positionWS;
+            float c=max(_AshenVirtualSteps.w,.01);
+            if(n.y<.3)return false;
+            float3 phase=_SurfaceOriginPhase.xyz;
+            float3 q=positionWS+phase;
+            float3 V=normalize(positionWS-_WorldSpaceCameraPos.xyz);
+            float2 g=-n.xz/n.y;
+            float d=V.y-g.x*V.x-g.y*V.z; // rate at which the ray sinks below the tangent plane
+            if(d>-1e-3)return false;
+            float margin=c*(1.0+.5*(abs(g.x)+abs(g.y)))+.01;
+            float tb=min(margin/(-d),3.0);
+            float3 r0=q-V*tb;
+            float2 cellIndex=floor(r0.xz/c);
+            float2 dir=float2(V.x>=0?1.0:-1.0,V.z>=0?1.0:-1.0);
+            float2 inv=1.0/max(abs(V.xz),1e-6);
+            float2 next=((cellIndex+max(dir,0))*c-r0.xz)*dir*inv;
+            float2 delta=c*inv;
+            float tEnter=0;int axis=-1;float previousTop=0;
+            [loop] for(int i=0;i<24;i++)
+            {
+                float top=VirtualTop(cellIndex,q,g,c);
+                float yEnter=r0.y+V.y*tEnter;
+                float tExit=min(next.x,next.y);
+                if(yEnter<=top&&axis>=0)
+                {
+                    hit.position=r0+V*tEnter;
+                    hit.normal=axis==0?half3(-dir.x,0,0):half3(0,0,-dir.y);
+                    hit.ao=(half)lerp(.55,1.0,saturate((hit.position.y-previousTop)/c));
+                    hit.cell=float3(cellIndex.x,round(hit.position.y/c-.5),cellIndex.y);
+                    hit.position-=phase;return true;
+                }
+                if(V.y<0)
+                {
+                    float tTop=tEnter+(top-yEnter)/V.y;
+                    if(tTop<=tExit)
+                    {
+                        hit.position=r0+V*max(tTop,tEnter);hit.normal=half3(0,1,0);
+                        hit.ao=VirtualTopAO(cellIndex,q,g,c,top,frac(hit.position.xz/c));
+                        hit.cell=float3(cellIndex.x,round(top/c),cellIndex.y);
+                        hit.position-=phase;return true;
+                    }
+                }
+                previousTop=top;
+                if(next.x<next.y){cellIndex.x+=dir.x;tEnter=next.x;next.x+=delta.x;axis=0;}
+                else{cellIndex.y+=dir.y;tEnter=next.y;next.y+=delta.y;axis=1;}
+            }
+            return false;
+        }
         ENDHLSL
         Pass
         {
@@ -242,21 +313,34 @@ Shader "AshenVoxel/GroundSurface"
                 float3 footprint = fwidth(input.positionWS);
                 float pixelSize = max(footprint.x, max(footprint.y, footprint.z));
                 float cellFade = saturate(1.0 - pixelSize / max(0.001, _VoxelSize));
-                half grain = (Hash(cell) - 0.5) * _GrainStrength * cellFade;
+                float3 shadePosition=input.positionWS;half grainStrength=_GrainStrength;
+                [branch] if(_AshenVirtualSteps.x>.5&&!StepEnabled()&&pixelSize<_AshenVirtualSteps.z)
+                {
+                    half fade=(half)(saturate((_AshenVirtualSteps.z-pixelSize)/max(_AshenVirtualSteps.z-_AshenVirtualSteps.y,1e-4))*saturate((normal.y-.3)/.15));
+                    VirtualStepHit hit;
+                    if(fade>0&&VirtualStep(input.positionWS,normal,hit))
+                    {
+                        normal=normalize(lerp(normal,hit.normal,fade));
+                        vertexOcclusion*=lerp(1.0h,hit.ao,fade);
+                        shadePosition=lerp(input.positionWS,hit.position,fade);
+                        cell=hit.cell;cellFade=1;grainStrength=lerp(_GrainStrength,max(_GrainStrength,.07h),fade);
+                    }
+                }
+                half grain = (Hash(cell) - 0.5) * grainStrength * cellFade;
                 [branch] if (_FineGrainStrength > 0.00001)
                 {
                     float fineFade = saturate(1.0 - pixelSize * 100.0);
                     grain += (Hash(floor((input.positionWS + _SurfaceOriginPhase.xyz) * 65.0)) - 0.5) * _FineGrainStrength * fineFade;
                 }
                 half3 albedo = saturate(baseColor * (1.0h + grain));
-                half3 view = SafeNormalize(GetWorldSpaceViewDir(input.positionWS));
+                half3 view = SafeNormalize(GetWorldSpaceViewDir(shadePosition));
                 // UV0 carries continuous roughness/wetness/snow and a valid flag on
                 // height proxies. Voxel chunks omit UV0 and retain the generic fallback;
                 // voxel steps read material and wetness per block from their colour texels.
                 #if defined(_MAIN_LIGHT_SHADOWS_SCREEN)
                 float4 shadowCoord = ComputeScreenPos(TransformWorldToHClip(input.positionWS));
                 #else
-                float4 shadowCoord = TransformWorldToShadowCoord(input.positionWS);
+                float4 shadowCoord = TransformWorldToShadowCoord(shadePosition);
                 #endif
                 Light sun = GetMainLight(shadowCoord);
                 AmbientOcclusionFactor ao = GetScreenSpaceAmbientOcclusion(GetNormalizedScreenSpaceUV(input.positionCS));
@@ -269,7 +353,7 @@ Shader "AshenVoxel/GroundSurface"
                 uint count = GetAdditionalLightsCount();
                 for (uint index = 0u; index < count; index++)
                 {
-                    Light light = GetAdditionalLight(index, input.positionWS, half4(1,1,1,1));
+                    Light light = GetAdditionalLight(index, shadePosition, half4(1,1,1,1));
                     color += LightingPhysicallyBased(brdf,light,normal,view) * ao.directAmbientOcclusion;
                 }
                 #endif

@@ -299,9 +299,15 @@ namespace AshenVoxel.Exploration
             }
             catch(Exception exception){Fail(exception);}
         }
+        void ApplyVirtualSteps()
+        {
+            // x on, y pixel footprint (m) with full steps, z footprint where they are gone, w cell size.
+            bool on=ActiveSettings!=null&&ActiveSettings.VirtualVoxelSteps&&!appliedVoxelStepGround;
+            Shader.SetGlobalVector("_AshenVirtualSteps",new Vector4(on?1:0,.03f,.065f,.1f));
+        }
         public void ApplyRuntimeSettings(bool replan=true)
         {
-            if(ActiveSettings==null)return;
+            if(ActiveSettings==null)return;ApplyVirtualSteps();
             if(Player!=null)
             {
                 var movement=ActiveSettings.Movement();
@@ -396,7 +402,9 @@ namespace AshenVoxel.Exploration
             bool traversal=GUILayout.Toggle(Player.EnableTraversalExperiment,"Responsive traversal (experimental)");
             if(traversal!=Player.EnableTraversalExperiment)Player.SetTraversalExperiment(traversal);
             GUILayout.Label("Local bee patch: "+(bees==null?"preparing":bees.Status+" · drawn "+bees.DrawnActors),text);
-            bool stepGround=GUILayout.Toggle(ActiveSettings.VoxelStepGround,"Voxel step ground: merged 10cm blocks fading to 20/40/80cm (next Play)");
+            bool virtualSteps=GUILayout.Toggle(ActiveSettings.VirtualVoxelSteps,"10cm stair-step look on the smooth ground (live)");
+            if(virtualSteps!=ActiveSettings.VirtualVoxelSteps){ActiveSettings.VirtualVoxelSteps=virtualSteps;ApplyVirtualSteps();}
+            bool stepGround=GUILayout.Toggle(ActiveSettings.VoxelStepGround,"Merged voxel-block ground mesh, coarser with distance (old, next Play)");
             if(stepGround!=ActiveSettings.VoxelStepGround){ActiveSettings.VoxelStepGround=stepGround;optionsNotice="Ground style selected. Save options, then restart Play.";}
             if(Vista!=null&&appliedVoxelStepGround)
             {
@@ -408,7 +416,7 @@ namespace AshenVoxel.Exploration
             if(connected!=ActiveSettings.ConnectedTerrainSurface){ActiveSettings.ConnectedTerrainSurface=connected;optionsNotice="Terrain surface selected. Save options, then restart Play.";}
             bool heightProxies=GUILayout.Toggle(ActiveSettings.ExperimentalDistantHeightProxies,"Legacy distant smooth terrain (when continuous surface is off, next Play)");
             if(heightProxies!=ActiveSettings.ExperimentalDistantHeightProxies){ActiveSettings.ExperimentalDistantHeightProxies=heightProxies;optionsNotice="Distant terrain selected. Save options, then restart Play.";}
-            GUILayout.Label("Terrain applied: "+(appliedVoxelStepGround?"voxel steps near, smooth far":appliedConnectedTerrainSurface?"continuous surface at all distances":appliedDistantHeightProxies?"smooth far terrain, cubic contact":"exposed cubes")+(TerrainRepresentationRestartPending?" - restart pending":""),text);
+            GUILayout.Label("Terrain applied: "+(appliedVoxelStepGround?"voxel steps near, smooth far":appliedConnectedTerrainSurface&&ActiveSettings.VirtualVoxelSteps?"continuous surface with 10cm stair-step shading":appliedConnectedTerrainSurface?"continuous surface at all distances":appliedDistantHeightProxies?"smooth far terrain, cubic contact":"exposed cubes")+(TerrainRepresentationRestartPending?" - restart pending":""),text);
             bool diskCache=GUILayout.Toggle(ActiveSettings.EnableHeightProxyDiskCache,"Cache distant terrain on disk (next Play)");
             if(diskCache!=ActiveSettings.EnableHeightProxyDiskCache){ActiveSettings.EnableHeightProxyDiskCache=diskCache;optionsNotice="Disk cache selected. Save options, then restart Play.";}
             GUILayout.Label("Disk cache applied request: "+(appliedHeightProxyDiskCache?"on":"off")+(HeightProxyDiskCacheRestartPending?" - restart pending":"")+".1GiB local cache for smooth distant terrain; visible GPU meshes remain resident.",text);
@@ -533,6 +541,7 @@ namespace AshenVoxel.Exploration
             public int terrainRepresentationOptionsVersion;public bool distantHeightProxies;
             public int connectedTerrainOptionsVersion;public bool connectedTerrainSurface;
             public int stepGroundOptionsVersion;public bool stepGround;
+            public int virtualStepsOptionsVersion;public bool virtualSteps;
             public int heightProxyDiskCacheOptionsVersion;public bool heightProxyDiskCache;
             public int contactRadiusOptionsVersion;public float contactRadius;
             public int sourceCoverageOptionsVersion;public bool expandedSourceCoverage;
@@ -551,7 +560,8 @@ namespace AshenVoxel.Exploration
                 o.geologyOptionsVersion=1;o.broadLithology=ActiveSettings.ExperimentalBroadLithology;
                 o.terrainRepresentationOptionsVersion=1;o.distantHeightProxies=ActiveSettings.ExperimentalDistantHeightProxies;
                 o.connectedTerrainOptionsVersion=1;o.connectedTerrainSurface=ActiveSettings.ConnectedTerrainSurface;
-                o.stepGroundOptionsVersion=1;o.stepGround=ActiveSettings.VoxelStepGround;
+                o.stepGroundOptionsVersion=2;o.stepGround=ActiveSettings.VoxelStepGround;
+                o.virtualStepsOptionsVersion=1;o.virtualSteps=ActiveSettings.VirtualVoxelSteps;
                 o.heightProxyDiskCacheOptionsVersion=1;o.heightProxyDiskCache=ActiveSettings.EnableHeightProxyDiskCache;
                 o.contactRadiusOptionsVersion=1;o.contactRadius=ActiveSettings.VoxelFullDetailRadius;
                 o.sourceCoverageOptionsVersion=1;o.expandedSourceCoverage=ActiveSettings.ExpandedLiveSourceWindow;
@@ -581,7 +591,9 @@ namespace AshenVoxel.Exploration
                 if(o.geologyOptionsVersion==1)s.ExperimentalBroadLithology=o.broadLithology;
                 if(o.terrainRepresentationOptionsVersion==1)s.ExperimentalDistantHeightProxies=o.distantHeightProxies;
                 if(o.connectedTerrainOptionsVersion==1)s.ConnectedTerrainSurface=o.connectedTerrainSurface;
-                if(o.stepGroundOptionsVersion==1)s.VoxelStepGround=o.stepGround;
+                // Version 1 saved the old default (merged-block mesh on); only explicit v2 choices are kept.
+                if(o.stepGroundOptionsVersion==2)s.VoxelStepGround=o.stepGround;
+                if(o.virtualStepsOptionsVersion==1)s.VirtualVoxelSteps=o.virtualSteps;
                 if(o.heightProxyDiskCacheOptionsVersion==1)s.EnableHeightProxyDiskCache=o.heightProxyDiskCache;
                 if(o.contactRadiusOptionsVersion==1&&!float.IsNaN(o.contactRadius))s.VoxelFullDetailRadius=Mathf.Clamp(o.contactRadius,16,160);
                 if(o.sourceCoverageOptionsVersion==1)s.ExpandedLiveSourceWindow=o.expandedSourceCoverage;

@@ -35,7 +35,7 @@ namespace AshenVoxel.Exploration
         }
         readonly List<Retired> retired=new List<Retired>();bool lastLeaseHadRoot;
         readonly long[] banked=new long[256];
-        const int MaximumSettling=3,MaximumRetained=48;const long MaximumRetainedCells=1500000;
+        const int MaximumSettling=3,MaximumRetained=48;const long MaximumRetainedCells=1200000;
         const float SettleSeconds=15,RetireDistance=18,DropRetention=.6f;
         float queuedPunchUntil,nextPrewarm;readonly int[] prewarmIds=new int[8];
         public int RetiredSessions=>retired.Count;
@@ -89,7 +89,9 @@ namespace AshenVoxel.Exploration
         public static ExplorationNaturalTreeMatter Attach(ExplorationBootstrap boot)
         {
             if(boot==null)throw new ArgumentNullException(nameof(boot));var result=boot.GetComponent<ExplorationNaturalTreeMatter>();
-            if(result==null)result=boot.gameObject.AddComponent<ExplorationNaturalTreeMatter>();result.boot=boot;return result;
+            if(result==null)result=boot.gameObject.AddComponent<ExplorationNaturalTreeMatter>();result.boot=boot;
+            try{NaturalTreeTemplate.DiskCacheDirectory=System.IO.Path.Combine(Application.persistentDataPath,"matter-templates");}catch(Exception){}
+            return result;
         }
         void Feedback(string value){status=value;statusUntil=Time.unscaledTime+2;}
         void BreakIndicator(bool accepted,string label)
@@ -114,6 +116,20 @@ namespace AshenVoxel.Exploration
             bool reserved=approach?registry.TryReserveNaturalMatterRay(boot.Player.Eye,new WorldPoint(forward.x,forward.y,forward.z),ApproachReach,100000,this,out lease,out _):
                 aimed?registry.TryReserveNaturalMatterPunch(boot.Player.Eye,new WorldPoint(forward.x,forward.y,forward.z),100000,this,out lease,out status):registry.TryReserveNaturalTree(boot.Player.Feet,100000,this,out lease,out status);
             if(!reserved)return false;
+            int id=lease.Instance.PrototypeId;
+            if(NaturalTreeTemplate.IsHuge(id))
+            {
+                // Giant trees: ~200 MB of live matter. Release kept giants first and refuse rather than
+                // run the editor out of commit memory (the cause of the crash on 2026-10-28).
+                for(int i=retired.Count-1;i>=0;i--)if(retired[i].Physics!=null&&retired[i].Physics.Count>200000){DisposeRetired(retired[i]);retired.RemoveAt(i);}
+                var vista=boot.Vista;long need=(long)NaturalTreeTemplate.ExpectedCells(id)*420+768L*1048576;
+                if(vista.VoxelMemoryPressureBlocked||vista.VoxelAvailableCommitBytes>=0&&vista.VoxelAvailableCommitBytes<need)
+                {
+                    registry.RestoreShrub(lease);
+                    if(!approach)Feedback("Not enough free memory to break this giant tree safely ("+(Math.Max(0,vista.VoxelAvailableCommitBytes)>>20)+" MiB free, needs "+(need>>20)+")");
+                    return false;
+                }
+            }
             if(!registry.TryGetNaturalMatterRenderSource(lease,out renderSource))
             {registry.RestoreShrub(lease);if(!approach)Feedback("Waiting for the nearby specimen's surface");return false;}
             instance=lease.Instance.Position;pendingFirstCut=aimed&&!approach;activationStarted=Time.unscaledTime;approached=approach;lastApproachAim=Time.unscaledTime;
@@ -143,7 +159,7 @@ namespace AshenVoxel.Exploration
             if(!approached||physics!=null&&physics.HasCut)return;
             var f=boot.Vista.MainCamera.transform.forward;
             if(registry.NaturalMatterLeaseAimed(lease,boot.Player.Eye,new WorldPoint(f.x,f.y,f.z),ApproachReach))lastApproachAim=Time.unscaledTime;
-            else if(!pendingFirstCut&&Time.unscaledTime>=queuedPunchUntil&&Time.unscaledTime-lastApproachAim>=(requested?ApproachRetention:DropRetention))Restore();
+            else if(!pendingFirstCut&&Time.unscaledTime>=queuedPunchUntil&&Time.unscaledTime-lastApproachAim>=(requested?ApproachRetention:lease!=null&&NaturalTreeTemplate.IsHuge(lease.Instance.PrototypeId)?8:DropRetention))Restore();
         }
         NV Relative(WorldPoint p)=>new NV((float)(p.X-instance.X),(float)(p.Y-instance.Y),(float)(p.Z-instance.Z));
         static NV Numeric(Vector3 p)=>new NV(p.x,p.y,p.z);
@@ -380,7 +396,7 @@ namespace AshenVoxel.Exploration
                 r.Renderer.Tick(offset);if(!r.Frozen)r.Bodies?.Tick(offset,r.Renderer.Current);
                 cells+=r.Physics.Count;
                 // Oldest frozen matter goes first when the retained budget is exceeded.
-                if(r.Frozen&&(i<retired.Count-MaximumRetained||cells>MaximumRetainedCells)){DisposeRetired(r);retired.RemoveAt(i);}
+                if(i<retired.Count-1&&(i<retired.Count-MaximumRetained||cells>MaximumRetainedCells)){DisposeRetired(r);retired.RemoveAt(i);}
             }
         }
         void PrewarmNearby()
