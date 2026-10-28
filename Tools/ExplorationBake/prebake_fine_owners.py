@@ -212,6 +212,9 @@ def run_worker(a, job, tiles, size, limit):
                 torch.set_num_threads(threads)
                 backend = canonical_backend(b, job, real, a.owner_cache_dir)
                 backend.limit = limit  # raised bound, matched by serve_exploration via owner-limit-bytes.txt
+                policy = getattr(backend, 'physical_policy', None)
+                if policy is not None and policy.record_path is not None:  # one provenance file per process (no write races)
+                    policy.record_path = policy.record_path.with_name(f'physical-climate-provenance-w{a.worker_index}.json')
                 log(f'model loaded in {time.time() - t:.0f} s; owner cache {backend.directory}')
                 if (backend.directory / f'{tr}_{tc}.atdr').exists():
                     status['done'] += 1; continue
