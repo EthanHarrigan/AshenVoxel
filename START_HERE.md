@@ -73,21 +73,14 @@ Deep references, only when needed:
 - `Docs/SESSION_LOG.md`
 - the full archives in `Docs/History/`
 
-## Cleanup still waiting on you (not done automatically)
+## Cleanup status (2026-10-28)
 
-Claude could not delete or move files this session. Your PC's free disk was too
-low for its local workspace, which needs about 17 GB. Do these in File Explorer
-when you are ready. They are listed safest first:
-
-1. **Delete** `Downloads\AshenVoxel-AI-Handoff-2026-10-27`. It is empty.
-2. **Zip, then delete** `Downloads\AshenVoxel-WorldVoxels`. Its work is in main.
-   The zip keeps its `.terrain-cache` candidate evidence in case you want it.
-   Its `Library` folder (~100 MB+) does not need to go in the zip.
-3. Put `Downloads\AshenVoxel` under **git** (TODO P0). Then the 47
-   `.terrain-cache\quality-patch-*-backup` folders and `pip-install.log`
-   (17 MB) can go. Git history replaces those hand-made backups.
-4. Keep these: `.terrain-cache\python`, `python-gpu` and `model`. The local
-   terrain services use them.
-
-Freeing disk space also helps the game itself, because Windows pagefile and
-commit headroom depend on it.
+- Done: `AshenVoxel-WorldVoxels` was archived to
+  `.terrain-cache/archive/AshenVoxel-WorldVoxels-2026-10-27.zip` (5,179 files, verified)
+  and its contents were deleted. The AI-Handoff folder was emptied. The two empty
+  folder shells can be deleted in File Explorer.
+- Done: this folder is a git repo (`main`), with remote `origin` = github.com/EthanHarrigan/AshenVoxel (private).
+- Open: the first push was rejected because GitHub already holds commits. Run
+  `Fetch-GitHub.cmd`, merge, then push again (`Setup-Private-GitHub.cmd` pushes).
+- After the push succeeds, the 47 `.terrain-cache/quality-patch-*-backup` folders
+  and `pip-install.log` can go. Keep `.terrain-cache/python`, `python-gpu` and `model`.
