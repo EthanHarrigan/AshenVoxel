@@ -159,7 +159,7 @@ namespace AshenVoxel.Exploration
                 }
                 for(int polls=0;polls<1800;polls++)
                 {
-                    await Task.Delay(1000,token).ConfigureAwait(false);
+                    await Task.Delay(polls==0?60:polls<10?250:1000,token).ConfigureAwait(false); // pre-baked cache hits answer at once
                     using(var response=await http.GetAsync(new Uri(root,"overview/"+job),HttpCompletionOption.ResponseHeadersRead,token).ConfigureAwait(false))
                     {
                         response.EnsureSuccessStatusCode();var bytes=await Read(response,token).ConfigureAwait(false);
