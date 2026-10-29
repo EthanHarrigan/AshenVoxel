@@ -2,6 +2,9 @@ Shader "AshenVoxel/TerrainClipmap"
 {
     Properties
     {
+        [HideInInspector][NoScaleOffset] _CmHeights("Clipmap heights", 2DArray) = "" {}
+        [HideInInspector][NoScaleOffset] _CmTint("Clipmap tint", 2DArray) = "" {}
+        [HideInInspector][NoScaleOffset] _CmAppearance("Clipmap appearance", 2DArray) = "" {}
         [HideInInspector] _SurfaceOriginPhase("Surface origin phase", Vector) = (0,0,0,0)
         _GrainStrength("Optional cell grain", Range(0,0.35)) = 0.025
         _FineGrainStrength("Optional fine grain", Range(0,0.1)) = 0

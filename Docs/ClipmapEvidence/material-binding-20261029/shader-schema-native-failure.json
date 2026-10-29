@@ -1,0 +1,8 @@
+{
+  "captured_utc": "2026-10-29T04:37:59.694349+00:00",
+  "log_sha256": "d1f2d6beec40c344d3f7d2bf352b589ceebee39f496fc7250316063eed25f76a",
+  "scope": "Read-only log excerpt from user-driven native attempt. Missing texture-property error and fallback preserved; no agent drove Unity.",
+  "verified_syntax_source": "Library\\PackageCache\\com.unity.render-pipelines.universal@ee0b6bbace10\\Shaders\\Lit.shader",
+  "verified_syntax_sha256": "6f4648b6b5271132cfed1d7d7c771ba0a73ef7972470d6694047804d259c0997",
+  "verified_syntax_lines": "73-75: [HideInInspector][NoScaleOffset] name(\"label\", 2DArray) = \"\" {}"
+}

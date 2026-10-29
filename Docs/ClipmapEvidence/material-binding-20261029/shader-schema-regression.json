@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "scope": "Production resource + attachment code with a modeled native-material boundary.\nRed cases use the missing-property shader and original broad-copy attachment;\ngreen uses the current attachment and actual ShaderLab property declarations.\nThis is a schema/ownership/call-order regression, not native Unity render proof.\n",
+  "generated_utc": "2026-10-29T04:38:05.774281+00:00",
+  "source_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmapResources.cs": "177b02f6a5285824f1bb53228de82983e5dd588cfe26dcdde383bcbbf37eeba8",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerClipmap.cs": "09bef8876b937ce881e0d208da81b6ffa37071b328edc8d039f9e62e8dc95c4f",
+    "Assets/AshenVoxel/WorldScaleRuntime/Resources/TerrainClipmap.shader": "8bf7625de55cc496d2e26ca9015f42aedd08f3ee4091b8febec4669e6a707385",
+    "Tools/ClipmapBindingChecks/UnityShim.cs": "c18a72bbe08bc9f2246dcef20ffcde8af5b772ef6d2e7755ba295052e5916fd2",
+    "Tools/ClipmapBindingChecks/Program.cs": "90bf4bf8bc1855a208832e309408ec0f294202b6d829f7f77a3a43e47a253983",
+    "Tools/ClipmapBindingChecks/run_checks.py": "728837fc27c073a0801e3d1ec35846995aad9ddd42338dbcc46749765dcb7d3f"
+  },
+  "results": [
+    {
+      "label": "schema-red",
+      "exit_code": 3762504530,
+      "stdout": "",
+      "stderr": "Unhandled exception. System.Exception: shader declares _CmHeights as hidden NoScaleOffset 2DArray\n   at Program.Check(Boolean value, String message)\n   at Program.Main(String[] args)\n"
+    },
+    {
+      "label": "copy-red",
+      "exit_code": 3762504530,
+      "stdout": "PASS shader declares _CmHeights as hidden NoScaleOffset 2DArray\nPASS shader declares _CmTint as hidden NoScaleOffset 2DArray\nPASS shader declares _CmAppearance as hidden NoScaleOffset 2DArray\n",
+      "stderr": "Unhandled exception. System.Exception: attach retains exact owned height texture\n   at Program.Check(Boolean value, String message)\n   at Program.Main(String[] args)\n"
+    },
+    {
+      "label": "green",
+      "exit_code": 0,
+      "stdout": "PASS shader declares _CmHeights as hidden NoScaleOffset 2DArray\nPASS shader declares _CmTint as hidden NoScaleOffset 2DArray\nPASS shader declares _CmAppearance as hidden NoScaleOffset 2DArray\nPASS attach retains exact owned height texture\nPASS attach retains exact owned tint texture\nPASS attach retains exact owned appearance texture\nPASS shared style copied: _GrainStrength\nPASS shared style copied: _FineGrainStrength\nPASS shared style copied: _VoxelSize\nPASS shared style copied: _Roughness\nPASS legacy keywords do not replace clipmap keywords\nPASS legacy render queue is not inherited\nPASS unrelated legacy texture is not imported\nPASS style application restores all owned bindings after a prior reset\nPASS binding failure is observable instead of submitting a flat surface\nPASS failed validation leaves the replacement unattached for Legacy fallback\nPASS 16 modeled attachment/material-binding checks; no native rendering performed.\n",
+      "stderr": ""
+    }
+  ]
+}

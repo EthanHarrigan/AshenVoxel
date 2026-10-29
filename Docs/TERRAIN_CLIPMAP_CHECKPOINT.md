@@ -254,5 +254,14 @@ path passes13 checks, including failure leaving the replacement unattached. This
 model does not prove native CopyPropertiesFromMaterial behavior or rendered pixels.
 Six-assembly API compilation passes; a final runtime-assembly check covers the
 atomic attach order. Evidence is `Docs/ClipmapEvidence/material-binding-20261029/`.
-Native repair confirmation, sustained operation and performance acceptance remain
-pending the requested user retry.
+The binding-only repair was rejected by the next native loading attempt:
+Material.GetTexture reported that _CmHeights was not a texture property. The
+shader declared its arrays in HLSL but omitted their ShaderLab Properties entries.
+The preserved log is material-binding-20261029/shader-schema-native-failure.log.
+All three arrays now have explicit hidden NoScaleOffset 2DArray properties using
+the installed URP17 Lit.shader syntax. The stronger regression reads the actual
+Properties block, rejects the old shader and old broad-copy attachment separately,
+and passes16 checks with the repair. Its shim no longer accepts undeclared texture
+reads. Native shader import/binding confirmation and the original flashing,
+sustained-operation and performance acceptance remain pending. The earlier
+modeled PASS did not establish the native material schema and is preserved.

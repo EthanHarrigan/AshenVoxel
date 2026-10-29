@@ -4,23 +4,24 @@ namespace UnityEngine
 {
     public class Object { public string name;public HideFlags hideFlags;public static T Instantiate<T>(T value)where T:new()=>new T();public static void Destroy(Object value){}public static void DestroyImmediate(Object value){} }
     public enum HideFlags{DontSave} public class Texture:Object{}
-    public class Shader:Object{public bool isSupported=true;}
+    public class Shader:Object{public bool isSupported=true;public static HashSet<string> ClipmapTextureNames=new HashSet<string>();public HashSet<string> TextureNames=new HashSet<string>();}
     // Model the dangerous whole-property-sheet replacement contract. This shim
     // does not assert what an unobserved Unity native material currently contains.
     public class Material:Object
     {
         readonly Dictionary<string,object> values=new Dictionary<string,object>();
+        readonly Shader shader;
         public string[] shaderKeywords=Array.Empty<string>();public int renderQueue=2000;public static bool RejectTextureWrites;
-        public Material(Shader shader){}
+        public Material(Shader shader){this.shader=shader;}
         public void SetTexture(string n,Texture value){if(!RejectTextureWrites)values[n]=value;}
-        public Texture GetTexture(string n)=>values.TryGetValue(n,out var v)?v as Texture:null;
+        public Texture GetTexture(string n){if(!shader.TextureNames.Contains(n))throw new InvalidOperationException("Shader lacks texture property "+n);return values.TryGetValue(n,out var v)?v as Texture:null;}
         public void SetFloat(string n,float value)=>values[n]=value;
         public float GetFloat(string n)=>values.TryGetValue(n,out var v)&&v is float f?f:0;
-        public bool HasProperty(string n)=>values.ContainsKey(n);
+        public bool HasProperty(string n)=>shader.TextureNames.Contains(n)||values.ContainsKey(n);
         public void SetInt(string n,int v){}public void SetVector(string n,Vector4 v){}public void SetVectorArray(string n,Vector4[] v){}
         public void CopyPropertiesFromMaterial(Material source){values.Clear();foreach(var p in source.values)values[p.Key]=p.Value;shaderKeywords=source.shaderKeywords;renderQueue=source.renderQueue;}
     }
-    public static class Resources{public static T Load<T>(string path)where T:new()=>new T();}
+    public static class Resources{public static T Load<T>(string path)where T:new(){T value=new T();if(value is Shader s)s.TextureNames=new HashSet<string>(Shader.ClipmapTextureNames);return value;}}
     public class ComputeShader:Object{public int FindKernel(string n)=>0;public void SetBuffer(int k,string n,ComputeBuffer b){}public void SetTexture(int k,string n,RenderTexture t){}public void SetInt(string n,int v){}public void Dispatch(int k,int x,int y,int z){}}
     public enum RenderTextureFormat{RFloat,ARGB32}public enum RenderTextureReadWrite{Linear}public enum TextureWrapMode{Repeat}public enum FilterMode{Bilinear}
     public class RenderTexture:Texture{public RenderTexture(int w,int h,int d,RenderTextureFormat f,RenderTextureReadWrite r){}public Rendering.TextureDimension dimension;public int volumeDepth;public bool enableRandomWrite,useMipMap,autoGenerateMips;public TextureWrapMode wrapMode;public FilterMode filterMode;public bool Create()=>true;public void Release(){}}
