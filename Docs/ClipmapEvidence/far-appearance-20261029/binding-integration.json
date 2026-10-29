@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "scope": "Production resource + attachment code with a modeled native-material boundary.\nRed cases use the missing-property shader and original broad-copy attachment;\ngreen uses the current attachment and actual ShaderLab property declarations.\nThis is a schema/ownership/call-order regression, not native Unity render proof.\n",
+  "generated_utc": "2026-10-29T05:27:24.539755+00:00",
+  "source_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmapResources.cs": "c27fe1179bd3d0f9ee3a6f67fcbedc852dfacfa8bbc23c29c1ce7e9963cd97e1",
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmapFarResources.cs": "a69a96d4a9b802be8291330d7ea745fbbb017310bbe7e96b250a95bcdcebfeb8",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerClipmap.cs": "e3d40da24e3731ca9b7109b2c4471360ddff3000e63da0ab7820e7b4c55c13ae",
+    "Assets/AshenVoxel/WorldScaleRuntime/Resources/TerrainClipmap.shader": "f2cb8fc78c8ed287230af2090387b89366fce417ea55260cff21f86f97100443",
+    "Tools/ClipmapBindingChecks/UnityShim.cs": "cfb3b308e4cd367aa06c96698c8c133e11de25b3242b96863f231f9b2ca51330",
+    "Tools/ClipmapBindingChecks/Program.cs": "11984a482706239b39c567b34cf5d2de380d31f9a96038e500765138f9abc782",
+    "Tools/ClipmapBindingChecks/run_checks.py": "2a21801c20567eceaf539d3e86c1b1cbd1acd3fdb5ecc709338e08609db73453"
+  },
+  "results": [
+    {
+      "label": "schema-red",
+      "exit_code": 3762504530,
+      "stdout": "",
+      "stderr": "Unhandled exception. System.Exception: shader declares _CmHeights as hidden NoScaleOffset 2DArray\n   at Program.Check(Boolean value, String message)\n   at Program.Main(String[] args)\n"
+    },
+    {
+      "label": "copy-red",
+      "exit_code": 3762504530,
+      "stdout": "PASS shader declares _CmHeights as hidden NoScaleOffset 2DArray\nPASS shader declares _CmTint as hidden NoScaleOffset 2DArray\nPASS shader declares _CmAppearance as hidden NoScaleOffset 2DArray\nPASS shader declares _CmFarTint as hidden NoScaleOffset 2DArray\nPASS shader declares _CmFarAppearance as hidden NoScaleOffset 2DArray\n",
+      "stderr": "Unhandled exception. System.Exception: attach retains exact owned height texture\n   at Program.Check(Boolean value, String message)\n   at Program.Main(String[] args)\n"
+    },
+    {
+      "label": "green",
+      "exit_code": 0,
+      "stdout": "PASS shader declares _CmHeights as hidden NoScaleOffset 2DArray\nPASS shader declares _CmTint as hidden NoScaleOffset 2DArray\nPASS shader declares _CmAppearance as hidden NoScaleOffset 2DArray\nPASS shader declares _CmFarTint as hidden NoScaleOffset 2DArray\nPASS shader declares _CmFarAppearance as hidden NoScaleOffset 2DArray\nPASS attach retains exact owned height texture\nPASS attach retains exact owned tint texture\nPASS attach retains exact owned appearance texture\nPASS shared style copied: _GrainStrength\nPASS shared style copied: _FineGrainStrength\nPASS shared style copied: _VoxelSize\nPASS shared style copied: _Roughness\nPASS legacy keywords do not replace clipmap keywords\nPASS legacy render queue is not inherited\nPASS unrelated legacy texture is not imported\nPASS style application restores all owned bindings after a prior reset\nPASS binding failure is observable instead of submitting a flat surface\nPASS failed validation leaves the replacement unattached for Legacy fallback\nPASS optional appearance allocates nothing before requested\nPASS Fast pair of banks and channels is exactly 2.25 MiB\nPASS High pair of banks and channels is exactly 9 MiB\nPASS High total payload includes primary arrays and reused upload buffer\nPASS appearance reuses the primary GPU upload buffer\nPASS declared optional texture bindings are populated\nPASS style refresh retains exact optional texture bindings\nPASS partial optional upload cannot publish\nPASS early publication rejected\nPASS stale upload generation rejected\nPASS first complete window can publish from zero blend\nPASS first publication starts on existing coarse appearance\nPASS published appearance smoothly reaches full contribution\nPASS complete replacement cannot overwrite a visibly sampled bank\nPASS replacement fades old appearance toward coarse before swap\nPASS cancelled generation restores existing bank without publishing stale work\nPASS replacement swap waits until old bank is no longer sampled\nPASS stale publication generation rejected\nPASS new bank fades in after atomic publication\nPASS optional failure/disable releases only appearance allocations\nPASS disabling optional detail preserves primary height resources\nPASS 39 modeled attachment/material-binding checks; no native rendering performed.\n",
+      "stderr": ""
+    }
+  ]
+}

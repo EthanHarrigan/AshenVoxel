@@ -62,5 +62,5 @@ namespace AshenVoxel.WorldScaleRuntime
     public class TerrainClipmap
     {readonly TerrainClipmapResources resources;public TerrainClipmap(TerrainClipmapResources r){resources=r;}public bool Failed;public UnityEngine.Material Material=>resources.Material;internal void CopySurfaceStyle(UnityEngine.Material m)=>resources.CopySurfaceStyle(m);}
     public sealed partial class WorldExplorer
-    {object field=new object(),CurrentSurfaceProfile=new object(),planJob;UnityEngine.Material ownedMaterial;int revision;bool coarseStartup;public WorldExplorer(UnityEngine.Material m){ownedMaterial=m;}object CaptureField(object o)=>o;object BareField(object o)=>o;void ClearTerrain(){}void ForceReplan(){}void RequestPlan(){}}
+    {sealed class Profile{public string Identity=>"binding-fixture";}Profile CurrentSurfaceProfile=new Profile();object field=new object(),planJob;UnityEngine.Material ownedMaterial;int revision;bool coarseStartup;public WorldExplorer(UnityEngine.Material m){ownedMaterial=m;}object CaptureField(object o)=>o;object BareField(object o)=>o;void ClearTerrain(){}void ForceReplan(){}void RequestPlan(){}}
 }

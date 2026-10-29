@@ -1,0 +1,10 @@
+(Filename: Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs Line: 173)
+
+Clipmap preview first fine coverage: 39.671s; 8797980 samples; CPU payload 54526512 bytes; GPU payload 54525952 bytes; 0 draws / 0 triangles; loading screen active=True. worker-running sum 546828ms / queue sum 51ms (parallel totals); finished-to-harvest mean 4.34ms; upload/publication submission 104.9ms across 119 frames, 1 pre-upload budget skips; mean update interval 4.51ms; rejected stale samples 272229. Visual acceptance remains pending.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.TerrainClipmap:LateUpdate () (at Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs:289)

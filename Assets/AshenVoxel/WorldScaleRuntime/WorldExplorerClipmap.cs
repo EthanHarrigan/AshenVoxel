@@ -9,6 +9,7 @@ namespace AshenVoxel.WorldScaleRuntime
         public bool DeferLegacyTerrain{get;set;}
         public TerrainClipmap ClipmapRenderer{get;private set;}
         public bool UsingClipmap=>ClipmapRenderer!=null&&!ClipmapRenderer.Failed;
+        internal string ClipmapProfileIdentity=>CurrentSurfaceProfile.Identity;
         internal SurfaceMaterialSampler CaptureClipmapSampler()
             =>new SurfaceMaterialSampler(CaptureField(BareField(field)),CurrentSurfaceProfile);
         internal void AttachClipmap(TerrainClipmap renderer)

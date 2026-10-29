@@ -1,0 +1,25 @@
+{
+  "status": "BACKGROUND_PASS_NATIVE_PENDING",
+  "generated_utc": "2026-10-29T05:28:51.663953+00:00",
+  "source_sha256": {
+    "Assets/AshenVoxel/WorldScaleData/TerrainFarAppearanceState.cs": "2cf4be0a4036b90d9d9813de04f30ac8edb909e4f149ab9890537176c9ea8c2a",
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmapFarAppearance.cs": "5531a9a25320ec7335c0417dfd169a03347d49e0789f6015f47fd3c5a7f9ce55",
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs": "a5328390d790637200450309b534ebea43ff1d09ce9172dacf22545ad62b8607",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerClipmap.cs": "e3d40da24e3731ca9b7109b2c4471360ddff3000e63da0ab7820e7b4c55c13ae",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "8de169a4eb98404ca32e1b842df73a290f476de18915a5785ea44682494e44f4",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrapClipmap.cs": "c39f9a138c85dfcffbf084c332d2cecde6a393c1bec0ae9b3d0977dbef167e57"
+  },
+  "high_extra_cpu_mirror_bytes": 9437184,
+  "high_extra_gpu_bytes": 9437184,
+  "worker_limit": 1,
+  "job_sample_limit": 2048,
+  "upload_texel_limit": 8192,
+  "upload_budget_ms": 0.5,
+  "eligibility": "Bootstrap Ready plus primary queues idle; never an initial loading condition",
+  "native_limit": "No Unity control or native appearance/performance measurement. Upload budget checked before bounded dispatch, not proof of execution time.",
+  "integrity": "PASS305 unique assets,13assemblies,scene/material references,10cmcontract and docs links",
+  "shared_files_unstaged": [
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs"
+  ]
+}

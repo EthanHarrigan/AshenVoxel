@@ -5,8 +5,10 @@ Exploration next-Play preview are implemented; combined background verification
 is complete. User Play exposed live-climate roundoff and missing material texture
 properties; both repairs are installed and the user confirms the preview now works
 correctly. Quantitative native render/performance gates remain pending. A narrow
-loading-only draw suppression now passes background lifecycle/API checks; native
-startup timing is pending. Phase 1.2 background checks passed; implementation continues with
+loading-only draw suppression passes background lifecycle/API checks; a later
+combined user run confirms hidden draws are zero but is not a controlled speedup
+comparison. The optional1.5x far-color window is now implemented and background
+checked; native appearance/cost acceptance remains pending. Phase 1.2 background checks passed; implementation continues with
 native gates batched later under the user's explicit authorization. Phase 1.1
 native bake and separate verification gates passed. Phase 1.2 native comparison
 remains unexecuted (the user stopped Computer Use before refresh/menu input).
@@ -303,3 +305,54 @@ boundary and tiny flat-field windows. Six real Unity API assemblies pass in
 startup improvement and warm-handoff appearance remain unmeasured; no seconds
 saved are claimed. The shared Bootstrap hookup remains unstaged with existing
 user GUI edits, as before.
+
+
+## Optional far appearance cache
+
+User-authorized modest far-detail upgrade: one independent world-anchored square
+at1.5x the chosen geometry ring's linear sampling density (Fast384², High768²).
+It stores tint and appearance only; height, collision, topology, fine levels and
+initial readiness are unchanged. Target selection intersects actual ring
+rectangles with the world domain and the camera far-frustum enclosing sphere,
+excluding empty anchor rings. It is independent of camera heading, polls twice
+a second, and waits2s before switching selected level. The full chosen ring fits
+the cache; shader edges fade into the existing footprint-filtered appearance.
+
+Bootstrap enables the lane only after Ready, including after the covered loader
+handoff. The primary scheduler/upload wins admission. At most one2048-sample
+worker remains counted until finished, including cancelled work; uploads are
+limited to8192 texels with a .5ms pre-dispatch budget check. Neither is a measured
+millisecond guarantee. Two CPU mirrors and two GPU texture banks each add9MiB
+at High (2.25MiB at Fast), plus one bounded16KiB result and small metadata. GPU
+upload scratch is reused. High default GPU payload becomes61MiB;16geometry
+levels reach64MiB. Ultra keeps the base appearance: its1536² enhancement would
+add36MiB per side, outside the approved scope. The original32MiB High color-only
+target is exceeded by this explicitly approved9MiB texture addition.
+
+Same-lattice scrolls reuse overlap. Local edits expand by32+3*min(spacing,512)m
+for current nested appearance taps, retain unaffected completed/running work,
+and requeue only affected regions. Publication generations reject stale GPU
+uploads; global profile changes resample all. Live snapshot identity changes
+alone do not restart the full window. Once the complete replacement is uploaded,
+the shader fades the old enhancement to base color, swaps banks at zero weight,
+and fades the new cache in. Optional failures release only this enhancement;
+base clipmap geometry/colors survive. Escape/F1 Graphics reports target, remaining
+work and active/upload state; payload counters include these allocations.
+
+Focused evidence: `far-appearance-cpu-background.json` passes5,904,428 engine-free
+assertions, including local-edit forward progress, publication-region coverage,
+negative non-power-of-two addressing, stale rejection, ring/domain/corner targets
+and two-mirror bounds. `far-appearance-20261029/runtime-lifecycle.json` passes23
+actual-runtime checks with a modeled graphics boundary, including post-loader
+eligibility and optional failure isolation. `binding-integration.json` passes39
+resource/ownership checks with historical red cases; GPU shader/fade checks are
+in the same evidence folder. Six real Unity API assemblies and project integrity
+(305assets,13assemblies) pass. There was no Unity interaction or native far-color
+quality/performance measurement.
+
+GPU changes are scoped in08824bb. Shared TerrainClipmap.cs and Bootstrap hooks
+remain installed but unstaged because they also contain independent user/external
+startup, disk-cache, horizon and GUI work. That work was preserved and included
+in the compile context, not claimed as authored or natively accepted here. The
+later native loader observation is preserved in loading-20261029/later-native-*
+with imported-source uncertainty; it does not establish an A/B improvement.

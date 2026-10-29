@@ -11,7 +11,7 @@ static class Program
     static void Tick(TerrainClipmap renderer){tick.Invoke(renderer,null);if(renderer.Failed)throw new Exception(renderer.Status);}
     static TerrainClipmap Start(out WorldExplorer world)
     {
-        world=new WorldExplorer();var r=new TerrainClipmap{SamplesPerJob=512,UploadSamplesPerFrame=1024};
+        world=new WorldExplorer();var r=new TerrainClipmap{SamplesPerJob=512,UploadSamplesPerFrame=1024,UseDiskCache=false};
         r.Initialize(world,64,.2,10,10,10);r.SetLoadingScreenActive(true);return r;
     }
     static void Main()
@@ -52,6 +52,15 @@ static class Program
         Check(!r.LoadingScreenActive&&!world.UsingClipmap&&r.State==null,"shutdown releases suppression, mirrors and clipmap attachment");
         r=Start(out world);gpu=TerrainClipmapResources.Last;Tick(r);
         Check(r.LoadingScreenActive&&gpu.DrawInvocations==0,"retry gets an independent hidden renderer");
+        r.Shutdown(true);
+        world=new WorldExplorer();r=new TerrainClipmap{UseDiskCache=false};r.Initialize(world,256,.2,10,10,10);r.SetLoadingScreenActive(true);
+        deadline=DateTime.UtcNow.AddSeconds(10);
+        while(!r.IsReady&&DateTime.UtcNow<deadline){Tick(r);Thread.Sleep(1);}
+        Check(r.IsReady&&r.FarAppearanceCpuBytes==0,"optional cache consumes no memory or jobs during loader");
+        r.SetLoadingScreenActive(false);Tick(r);
+        Check(r.FarAppearanceCpuBytes==0,"covered frame alone does not enable optional work");
+        world.FailCapture=true;r.FarAppearanceBackgroundAllowed=true;Tick(r);
+        Check(!r.Failed&&world.UsingClipmap&&r.FarAppearanceStatus.Contains("base colors retained"),"optional sampler failure retains primary terrain");
         r.Shutdown(true);
         Console.WriteLine("PASS "+checks+" production runtime/loading lifecycle checks; graphics calls modeled, no native rendering.");
     }

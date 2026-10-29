@@ -1,0 +1,22 @@
+{
+  "observed_utc": "2026-10-29T05:25:11.387866+00:00",
+  "scope": "Passive Editor.log observation only; no Unity interaction",
+  "first_fine_seconds": 39.671,
+  "accepted_samples": 8797980,
+  "loading_screen_active": true,
+  "terrain_draws": 0,
+  "worker_running_sum_ms": 546828,
+  "queue_sum_ms": 51,
+  "finished_to_harvest_mean_ms": 4.34,
+  "upload_submission_ms": 104.9,
+  "upload_frames": 119,
+  "pre_upload_skips": 1,
+  "mean_update_interval_ms": 4.51,
+  "rejected_stale_samples": 272229,
+  "limitation": "Combined external startup/disk-cache/horizon work and loader changes; imported source revision is unknown. Current disk hashes are observation context only, not proof this Play imported them. Not an A/B test or evidence of speedup.",
+  "current_disk_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs": "a5328390d790637200450309b534ebea43ff1d09ce9172dacf22545ad62b8607",
+    "Assets/AshenVoxel/WorldScaleData/TerrainClipmapState.cs": "0788e972295543ef4c45442e9c6b370e3354c2f19bd78c3045b7ad2d75987ca2",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "8de169a4eb98404ca32e1b842df73a290f476de18915a5785ea44682494e44f4"
+  }
+}

@@ -103,7 +103,10 @@ namespace AshenVoxel.Exploration
                 GUILayout.Label("Clipmap is a preview. The source, 10cm matter and rendered triangle spacing remain separate. Unsupported configurations fall back automatically. Ultra uses more memory and triangles.",text);
             }
             if(Clipmap!=null)
+            {
                 GUILayout.Label("Clipmap payload: CPU "+Clipmap.ResidentCpuBytes/1048576+" MiB · GPU "+Clipmap.GpuBytes/1048576+" MiB · "+Clipmap.DrawCalls+" draws · "+Clipmap.Triangles/1000+"k triangles/pass · "+Clipmap.InFlightSamples+" worker samples. Driver memory and frame time require native measurement.",text);
+                GUILayout.Label(Clipmap.FarAppearanceStatus,text);
+            }
         }
     }
 }
