@@ -13,7 +13,7 @@ namespace AshenVoxel.WorldScaleRuntime
     /// Dispatch/copy/draw ordering is the graphics queue's ordering; this is not
     /// a GPU completion fence or a measured frame-time guarantee.
     /// </summary>
-    public sealed class TerrainClipmapResources : IDisposable
+    public sealed partial class TerrainClipmapResources : IDisposable
     {
         public const int MaximumLevels = 16;
         public const int UploadCapacity = 262144;
@@ -47,7 +47,7 @@ namespace AshenVoxel.WorldScaleRuntime
         public int DrawCallsLastFrame { get; private set; }
         // Payload accounting, excluding driver allocation granularity and shader code.
         // There are no geometry, index, validity or fallback/backdrop GPU buffers.
-        public long TextureBytes => (long)size * size * (levels + 1) * 12;
+        public long TextureBytes => (long)size * size * (levels + 1) * 12 + FarAppearanceGpuBytes;
         public long GpuBytes => TextureBytes + UploadCapacity * 16L;
         public long OwnBytes => GpuBytes;
         public long CpuStagingBytes => UploadCapacity * 16L + MaximumLevels * 32L + 48;
@@ -115,6 +115,7 @@ namespace AshenVoxel.WorldScaleRuntime
         {
             Material.SetTexture("_CmHeights", heights); Material.SetTexture("_CmTint", tint);
             Material.SetTexture("_CmAppearance", appearance);
+            BindFarAppearanceTextures();
         }
 
         RenderTexture CreateArray(string name, RenderTextureFormat format)
@@ -224,6 +225,7 @@ namespace AshenVoxel.WorldScaleRuntime
             Material.SetInt("_CmVisibleCount", visibleChain.Length);
             Material.SetVectorArray("_CmVisibleLevel", visibleLevels); Material.SetVectorArray("_CmVisibleOrigin", visibleOrigins);
             Material.SetFloat("_CmOriginY", (float)renderOrigin.Y);
+            BindFarAppearanceView(renderOrigin);
             Material.SetVector("_SurfaceOriginPhase", new Vector4((float)PositivePhase(renderOrigin.X),
                 (float)PositivePhase(renderOrigin.Y), (float)PositivePhase(renderOrigin.Z), 0));
             // farClipPlane is camera-space depth, not radial distance. Actual
@@ -293,6 +295,7 @@ namespace AshenVoxel.WorldScaleRuntime
         {
             if (disposed) return; disposed = true;
             updateBuffer?.Dispose(); updateBuffer = null;
+            DisposeFarAppearance();
             Release(heights); Release(tint); Release(appearance); heights = tint = appearance = null;
             Destroy(Material); Destroy(scatter); Material = null; scatter = null;
         }

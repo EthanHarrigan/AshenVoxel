@@ -18,14 +18,14 @@ namespace UnityEngine
         public void SetFloat(string n,float value)=>values[n]=value;
         public float GetFloat(string n)=>values.TryGetValue(n,out var v)&&v is float f?f:0;
         public bool HasProperty(string n)=>shader.TextureNames.Contains(n)||values.ContainsKey(n);
-        public void SetInt(string n,int v){}public void SetVector(string n,Vector4 v){}public void SetVectorArray(string n,Vector4[] v){}
+        public void SetInt(string n,int v){}public void SetVector(string n,Vector4 v){values[n]=v;}public Vector4 GetVector(string n)=>values.TryGetValue(n,out var v)&&v is Vector4 f?f:default;public void SetVectorArray(string n,Vector4[] v){}
         public void CopyPropertiesFromMaterial(Material source){values.Clear();foreach(var p in source.values)values[p.Key]=p.Value;shaderKeywords=source.shaderKeywords;renderQueue=source.renderQueue;}
     }
     public static class Resources{public static T Load<T>(string path)where T:new(){T value=new T();if(value is Shader s)s.TextureNames=new HashSet<string>(Shader.ClipmapTextureNames);return value;}}
     public class ComputeShader:Object{public int FindKernel(string n)=>0;public void SetBuffer(int k,string n,ComputeBuffer b){}public void SetTexture(int k,string n,RenderTexture t){}public void SetInt(string n,int v){}public void Dispatch(int k,int x,int y,int z){}}
     public enum RenderTextureFormat{RFloat,ARGB32}public enum RenderTextureReadWrite{Linear}public enum TextureWrapMode{Repeat}public enum FilterMode{Bilinear}
     public class RenderTexture:Texture{public RenderTexture(int w,int h,int d,RenderTextureFormat f,RenderTextureReadWrite r){}public Rendering.TextureDimension dimension;public int volumeDepth;public bool enableRandomWrite,useMipMap,autoGenerateMips;public TextureWrapMode wrapMode;public FilterMode filterMode;public bool Create()=>true;public void Release(){}}
-    public enum ComputeBufferType{Structured}public sealed class ComputeBuffer:IDisposable{public ComputeBuffer(int n,int stride,ComputeBufferType t){}public void SetData(Array a,int start,int to,int n){}public void Dispose(){}}
+    public enum ComputeBufferType{Structured}public sealed class ComputeBuffer:IDisposable{public static int Created;public ComputeBuffer(int n,int stride,ComputeBufferType t){Created++;}public void SetData(Array a,int start,int to,int n){}public void Dispose(){}}
     public class MaterialPropertyBlock{public void Clear(){}public void SetVector(string n,Vector4 v){}}
     public struct Vector4{public float x,y,z,w;public Vector4(float x,float y,float z,float w){this.x=x;this.y=y;this.z=z;this.w=w;}public static Vector4 zero=>new Vector4();}
     public struct Vector3{public float x,y,z;public Vector3(float x,float y,float z){this.x=x;this.y=y;this.z=z;}public static Vector3 one=>new Vector3(1,1,1);public static Vector3 operator*(Vector3 a,float b)=>new Vector3(a.x*b,a.y*b,a.z*b);}
@@ -49,6 +49,9 @@ namespace AshenVoxel.WorldScale
     public struct WorldPoint{public double X,Y,Z;}
     public struct ClipmapSample{public float Height;public uint Tint,Appearance;}
     public struct ClipmapRect{public long X,Z;public int Width,Height;}
+    public readonly struct FarAppearanceSample{public readonly uint Tint,Appearance;public FarAppearanceSample(uint t,uint a){Tint=t;Appearance=a;}}
+    public readonly struct FarAppearanceWindow
+    {public readonly int Size;public readonly double Spacing;public readonly long OriginX,OriginZ,Generation;public FarAppearanceWindow(int s,double spacing,long x,long z,long generation){Size=s;Spacing=spacing;OriginX=x;OriginZ=z;Generation=generation;}}
     public struct ClipmapLevelInfo{public int Level;public double Spacing;public long OriginX,OriginZ;public bool Published;}
     public static class TerrainClipmapMath{public static ClipmapRect[] GetRingRects(ClipmapLevelInfo p,ClipmapLevelInfo? c,int s)=>Array.Empty<ClipmapRect>();}
     public class SurfaceMaterialSampler{public SurfaceMaterialSampler(object a,object b){}}

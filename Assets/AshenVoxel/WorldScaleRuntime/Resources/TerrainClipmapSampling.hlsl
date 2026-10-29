@@ -4,6 +4,9 @@
 // metres, small local coordinates, and integer torus phases reach this shader.
 Texture2DArray<float> _CmHeights;
 Texture2DArray<float4> _CmTint, _CmAppearance;
+Texture2DArray<float4> _CmFarTint, _CmFarAppearance;
+float4 _CmFarWindow;           // render-relative x,z, appearance spacing, texel size
+float4 _CmFarState;            // positive torus x,z, bank, overlay blend (zero when absent)
 SamplerState sampler_linear_repeat;
 float4 _CmRect;                 // local x,z and quad width,height (actual ring rectangle)
 float4 _CmLevel;                // spacing, T, physical slice, parent physical slice
@@ -85,33 +88,75 @@ half3 CmNormal(float2 local)
         normal = normalize(lerp(normal, CmLevelNormal((int)_CmLevel.w, CmParentLocal(local), _CmParentOrigin.zw, _CmParent.x), alpha));
     return (half3)normal;
 }
-half3 CmTint(int slice, float2 local, float2 torus)
+float CmFarWeight(float2 renderXZ, float spacing, out float2 local)
+{
+    local = 0;
+    // Upgrade exactly the selected ring and its uses as a morph parent. The
+    // stationary anchor and already-finer levels retain their own filtering.
+    if (_CmFarState.w <= 0 || abs(spacing - _CmFarWindow.z * 1.5) > spacing * .001) return 0;
+    local = (renderXZ - _CmFarWindow.xy) / _CmFarWindow.z;
+    float2 edge = min(local - 2, _CmFarWindow.w - 3 - local);
+    // Never filter across an unowned window edge. A retained window remains
+    // useful after scrolling, with a smooth transition to ordinary clipmap data.
+    return _CmFarState.w * smoothstep(0, 16, min(edge.x, edge.y));
+}
+float3 CmFarUV(float2 local)
+{ return float3((local + _CmFarState.xy + .5) / _CmFarWindow.w, _CmFarState.z); }
+half3 CmTint(int slice, float2 local, float2 torus, float2 renderXZ, float spacing)
 {
     half3 color = (half3)_CmTint.SampleLevel(sampler_linear_repeat, float3(CmUV(local, torus), slice), 0).rgb;
     #if !defined(UNITY_COLORSPACE_GAMMA)
     color = SRGBToLinear(color);
     #endif
+    float2 farLocal; half weight = (half)CmFarWeight(renderXZ, spacing, farLocal);
+    [branch] if (weight > 0)
+    {
+        half3 fine = (half3)_CmFarTint.SampleLevel(sampler_linear_repeat, CmFarUV(farLocal), 0).rgb;
+        #if !defined(UNITY_COLORSPACE_GAMMA)
+        fine = SRGBToLinear(fine);
+        #endif
+        color = lerp(color, fine, weight);
+    }
     return color;
+}
+float4 CmAppearanceAt(int slice, float2 local, float2 torus, float2 renderXZ, float spacing, bool category)
+{
+    float4 value = _CmAppearance.SampleLevel(sampler_linear_repeat, float3(CmUV(local, torus), slice), 0);
+    // Category is always a nearest texel, including during appearance transitions.
+    if (category) value.a = _CmAppearance.Load(int4(CmTexel((int2)floor(local + .5), torus), slice, 0)).a;
+    float2 farLocal; float weight = CmFarWeight(renderXZ, spacing, farLocal);
+    [branch] if (weight > 0)
+    {
+        float4 fine = _CmFarAppearance.SampleLevel(sampler_linear_repeat, CmFarUV(farLocal), 0);
+        value.rgb = lerp(value.rgb, fine.rgb, weight);
+        if (category && weight >= .5)
+        {
+            int2 q = ((int2)floor(farLocal + .5) + (int2)_CmFarState.xy) % (int)_CmFarWindow.w;
+            value.a = _CmFarAppearance.Load(int4(q, (int)_CmFarState.z, 0)).a;
+        }
+    }
+    return value;
 }
 struct CmSurfaceData { half3 color; half roughness; half wetness; half snow; uint material; };
 CmSurfaceData CmSurface(float2 local)
 {
     CmSurfaceData value;
     int slice = (int)_CmLevel.z;
-    float4 a = _CmAppearance.SampleLevel(sampler_linear_repeat, float3(CmUV(local, _CmOrigin.zw), slice), 0);
+    float2 renderXZ = _CmOrigin.xy + local * _CmLevel.x;
+    float4 a = CmAppearanceAt(slice, local, _CmOrigin.zw, renderXZ, _CmLevel.x, true);
     // Material IDs are categorical. Nearest-neighbour fetch before decoding;
     // filtering them would invent materials absent from every contributing texel.
-    float category = _CmAppearance.Load(int4(CmTexel((int2)floor(local + .5), _CmOrigin.zw), slice, 0)).a;
-    value.color = CmTint(slice, local, _CmOrigin.zw);
+    float category = a.a;
+    value.color = CmTint(slice, local, _CmOrigin.zw, renderXZ, _CmLevel.x);
     float alpha = CmMorphAt(local, _CmParent.y > .5);
     if (alpha > 0)
     {
         float2 parent = CmParentLocal(local); int parentSlice = (int)_CmLevel.w;
-        float4 coarse = _CmAppearance.SampleLevel(sampler_linear_repeat, float3(CmUV(parent, _CmParentOrigin.zw), parentSlice), 0);
+        float4 coarse = CmAppearanceAt(parentSlice, parent, _CmParentOrigin.zw, renderXZ, _CmParent.x, alpha >= .5);
         a.rgb = lerp(a.rgb, coarse.rgb, alpha);
-        value.color = lerp(value.color, CmTint(parentSlice, parent, _CmParentOrigin.zw), (half)alpha);
+        value.color = lerp(value.color, CmTint(parentSlice, parent, _CmParentOrigin.zw, renderXZ, _CmParent.x), (half)alpha);
         if (alpha >= .5)
-            category = _CmAppearance.Load(int4(CmTexel((int2)floor(parent + .5), _CmParentOrigin.zw), parentSlice, 0)).a;
+            category = coarse.a;
     }
     uint id = (uint)round(category * 255);
     value.material = id >= 128u && id < 153u ? id - 128u : 31u;
@@ -127,12 +172,12 @@ half3 CmPigment(float2 renderXZ, half3 fallback)
         float4 origin = _CmVisibleOrigin[i], level = _CmVisibleLevel[i];
         float2 local = (renderXZ - origin.xy) / level.x;
         if (any(local < 2) || any(local > _CmLevel.y - 2)) continue;
-        half3 color = CmTint((int)level.y, local, origin.zw);
+        half3 color = CmTint((int)level.y, local, origin.zw, renderXZ, level.x);
         float alpha = CmMorphAt(local, i + 1 < _CmVisibleCount);
         if (alpha > 0)
         {
             float4 parentOrigin = _CmVisibleOrigin[i + 1], parent = _CmVisibleLevel[i + 1];
-            color = lerp(color, CmTint((int)parent.y, (renderXZ - parentOrigin.xy) / parent.x, parentOrigin.zw), (half)alpha);
+            color = lerp(color, CmTint((int)parent.y, (renderXZ - parentOrigin.xy) / parent.x, parentOrigin.zw, renderXZ, parent.x), (half)alpha);
         }
         return color;
     }

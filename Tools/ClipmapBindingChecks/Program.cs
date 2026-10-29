@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using AshenVoxel.WorldScaleRuntime;
+using AshenVoxel.WorldScale;
 using UnityEngine;
 
 static class Program
@@ -14,7 +15,7 @@ static class Program
     {
         string shaderText=File.ReadAllText(args[0]);string properties=shaderText.Substring(0,shaderText.IndexOf("SubShader",StringComparison.Ordinal));
         Shader.ClipmapTextureNames=new HashSet<string>();
-        foreach(string name in new[]{"_CmHeights","_CmTint","_CmAppearance"})
+        foreach(string name in new[]{"_CmHeights","_CmTint","_CmAppearance","_CmFarTint","_CmFarAppearance"})
         {
             Check(Regex.IsMatch(properties,@"\[HideInInspector\]\s*\[NoScaleOffset\]\s*"+name+@"\s*\(""[^""]*"",\s*2DArray\)\s*=\s*""""\s*\{\s*\}"),"shader declares "+name+" as hidden NoScaleOffset 2DArray");
             Shader.ClipmapTextureNames.Add(name);
@@ -44,6 +45,48 @@ static class Program
         finally{Material.RejectTextureWrites=false;}
         Check(rejected,"binding failure is observable instead of submitting a flat surface");
         Check(fallbackWorld.ClipmapRenderer==null&&!fallbackWorld.UsingClipmap,"failed validation leaves the replacement unattached for Legacy fallback");
+        resources.CopySurfaceStyle(null);
+        Check(resources.FarAppearanceGpuBytes==0&&!resources.FarAppearancePublished,"optional appearance allocates nothing before requested");
+        int oldBuffers=ComputeBuffer.Created;
+        var first=new FarAppearanceWindow(384,128.0/3,-192,-384,1);
+        var valuesFar=new FarAppearanceSample[384*384];var full=new ClipmapRect{X=first.OriginX,Z=first.OriginZ,Width=384,Height=384};
+        resources.BeginFarAppearance(first,false,valuesFar.Length);
+        Check(resources.FarAppearanceGpuBytes==2359296,"Fast pair of banks and channels is exactly 2.25 MiB");
+        Check(TerrainClipmapResources.EstimateFarAppearanceGpuBytes(768)==9437184,"High pair of banks and channels is exactly 9 MiB");
+        Check(TerrainClipmapResources.EstimateGpuBytes(512,15)+TerrainClipmapResources.EstimateFarAppearanceGpuBytes(768)==61L*1048576&&TerrainClipmapResources.EstimateGpuBytes(512,16)+TerrainClipmapResources.EstimateFarAppearanceGpuBytes(768)==64L*1048576,"High total payload includes primary arrays and reused upload buffer");
+        Check(ComputeBuffer.Created==oldBuffers,"appearance reuses the primary GPU upload buffer");
+        var farTint=target.GetTexture("_CmFarTint");var farAppearance=target.GetTexture("_CmFarAppearance");
+        Check(farTint!=null&&farAppearance!=null,"declared optional texture bindings are populated");
+        resources.CopySurfaceStyle(legacy);
+        Check(ReferenceEquals(target.GetTexture("_CmFarTint"),farTint)&&ReferenceEquals(target.GetTexture("_CmFarAppearance"),farAppearance),"style refresh retains exact optional texture bindings");
+        Check(!resources.CanPublishFarAppearance,"partial optional upload cannot publish");
+        Rejected(()=>resources.PublishFarAppearance(first),"early publication rejected");
+        var stale=new FarAppearanceWindow(384,first.Spacing,first.OriginX,first.OriginZ,0);
+        Rejected(()=>resources.UploadFarAppearance(stale,full,valuesFar),"stale upload generation rejected");
+        resources.UploadFarAppearance(first,full,valuesFar);
+        Check(resources.CanPublishFarAppearance,"first complete window can publish from zero blend");
+        resources.PublishFarAppearance(first);
+        Check(resources.FarAppearancePublished&&resources.FarAppearanceBlend==0,"first publication starts on existing coarse appearance");
+        for(int i=0;i<5;i++)resources.AdvanceFarAppearance(.1);
+        Check(resources.FarAppearanceBlend==1,"published appearance smoothly reaches full contribution");
+        var next=new FarAppearanceWindow(384,first.Spacing,first.OriginX,first.OriginZ,2);
+        resources.BeginFarAppearance(next,true,valuesFar.Length);resources.UploadFarAppearance(next,full,valuesFar);
+        Check(!resources.CanPublishFarAppearance,"complete replacement cannot overwrite a visibly sampled bank");
+        resources.AdvanceFarAppearance(.1);
+        Check(resources.FarAppearanceBlend>0&&resources.FarAppearanceBlend<1,"replacement fades old appearance toward coarse before swap");
+        resources.CancelFarAppearance();for(int i=0;i<5;i++)resources.AdvanceFarAppearance(.1);
+        Check(resources.FarAppearanceBlend==1&&resources.FarAppearancePublished&&!resources.CanPublishFarAppearance,"cancelled generation restores existing bank without publishing stale work");
+        resources.BeginFarAppearance(next,true,valuesFar.Length);resources.UploadFarAppearance(next,full,valuesFar);
+        for(int i=0;i<4;i++)resources.AdvanceFarAppearance(.1);
+        Check(resources.CanPublishFarAppearance&&resources.FarAppearanceBlend==0,"replacement swap waits until old bank is no longer sampled");
+        Rejected(()=>resources.PublishFarAppearance(first),"stale publication generation rejected");
+        resources.PublishFarAppearance(next);resources.AdvanceFarAppearance(.1);
+        Check(resources.FarAppearanceBlend>0&&resources.FarAppearanceBlend<1,"new bank fades in after atomic publication");
+        resources.DisableFarAppearance();
+        Check(resources.FarAppearanceGpuBytes==0&&!resources.FarAppearancePublished,"optional failure/disable releases only appearance allocations");
+        Check(ReferenceEquals(target.GetTexture("_CmHeights"),heights),"disabling optional detail preserves primary height resources");
         Console.WriteLine("PASS "+checks+" modeled attachment/material-binding checks; no native rendering performed.");
     }
+    static void Rejected(Action action,string message)
+    {bool rejected=false;try{action();}catch(InvalidOperationException){rejected=true;}Check(rejected,message);}
 }

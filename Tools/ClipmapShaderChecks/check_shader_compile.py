@@ -127,10 +127,12 @@ def main():
                 print(('PASS' if outcome['passed'] else 'FAIL'), entry, variant)
                 if not outcome['passed']: print(outcome['diagnostics'])
     current_source = COMPUTE
-    result = compile_one(re.sub(r'^\s*#pragma[^\n]*', '', COMPUTE.read_text(), flags=re.M), 'Scatter', 'cs_5_0', {'SHADER_STAGE_COMPUTE': '1'})
-    results.append(result)
-    print(('PASS' if result['passed'] else 'FAIL'), 'Scatter')
-    if not result['passed']: print(result['diagnostics'])
+    compute_source = re.sub(r'^\s*#pragma[^\n]*', '', COMPUTE.read_text(), flags=re.M)
+    for entry in re.findall(r'#pragma kernel (\w+)', COMPUTE.read_text()):
+        result = compile_one(compute_source, entry, 'cs_5_0', {'SHADER_STAGE_COMPUTE': '1'})
+        results.append(result)
+        print(('PASS' if result['passed'] else 'FAIL'), entry)
+        if not result['passed']: print(result['diagnostics'])
     report = ROOT / args.report
     report.parent.mkdir(parents=True, exist_ok=True)
     report.write_text(json.dumps(dict(status='PASS' if all(r['passed'] for r in results) else 'FAIL',

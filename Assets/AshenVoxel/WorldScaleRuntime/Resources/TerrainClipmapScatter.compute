@@ -1,4 +1,5 @@
 #pragma kernel Scatter
+#pragma kernel ScatterAppearance
 
 // All three textures are linear UNorm/raw float. Tint bytes are artist sRGB;
 // conversion to the project's working space occurs when shading, not uploading.
@@ -6,6 +7,7 @@ StructuredBuffer<uint4> _Updates;
 RWTexture2DArray<float> _Heights;
 RWTexture2DArray<unorm float4> _Tint;
 RWTexture2DArray<unorm float4> _Appearance;
+RWTexture2DArray<unorm float4> _FarTint, _FarAppearance;
 uint _Count, _Level;
 float4 UnpackARGB(uint c)
 { return float4((c >> 16) & 255u, (c >> 8) & 255u, c & 255u, (c >> 24) & 255u) / 255.0; }
@@ -18,4 +20,13 @@ void Scatter(uint3 id : SV_DispatchThreadID)
     _Heights[address] = asfloat(value.y);
     _Tint[address] = UnpackARGB(value.z);
     _Appearance[address] = UnpackARGB(value.w);
+}
+[numthreads(64, 1, 1)]
+void ScatterAppearance(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _Count) return;
+    uint4 value = _Updates[id.x];
+    uint3 address = uint3(value.x & 65535u, value.x >> 16, _Level);
+    _FarTint[address] = UnpackARGB(value.z);
+    _FarAppearance[address] = UnpackARGB(value.w);
 }
