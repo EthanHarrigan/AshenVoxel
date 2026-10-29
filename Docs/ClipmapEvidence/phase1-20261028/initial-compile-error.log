@@ -1,0 +1,3 @@
+Assets\AshenVoxel\Exploration\Editor\FarTerrainBake.cs(181,102): error CS0104: 'CompressionLevel' is an ambiguous reference between 'System.IO.Compression.CompressionLevel' and 'UnityEngine.CompressionLevel'
+Assets\AshenVoxel\Exploration\Editor\FarTerrainBake.cs(181,102): error CS0104: 'CompressionLevel' is an ambiguous reference between 'System.IO.Compression.CompressionLevel' and 'UnityEngine.CompressionLevel'
+Assets\AshenVoxel\Exploration\Editor\FarTerrainBake.cs(181,102): error CS0104: 'CompressionLevel' is an ambiguous reference between 'System.IO.Compression.CompressionLevel' and 'UnityEngine.CompressionLevel'

@@ -1,0 +1,23 @@
+{
+  "files": 21240,
+  "valid_by_spacing": {
+    "80": 7080,
+    "160": 7080,
+    "40": 7080
+  },
+  "rejected": {},
+  "finest_by_spacing": {
+    "40": 7080
+  },
+  "selected_cells": 7080,
+  "equal_spacing_conflicts": 0,
+  "selected_height_bytes": 185807520,
+  "min_height": -6012.96484375,
+  "max_height": 10721.935546875,
+  "selected_manifest_sha256": "a7ef239f4466dc614d86047d4714ef7ae3a381e4845c7e9b7d6434b3a8926dd5",
+  "disk_free_bytes": 224246857728,
+  "scan_seconds": 125.375,
+  "grid_samples": 28046305,
+  "planned_int16_payload_bytes": 84138915,
+  "int32_payload_bytes": 140231525
+}

@@ -1,6 +1,6 @@
 # Terrain clipmap implementation checkpoint
 
-Current stage: Phase 0.2 native gate passed; Phase 1.1 authorized by host.
+Current stage: Phase 1.1 native bake and separate verification gates passed.
 Date: 2026-10-28 (Denver).
 
 Phase 0.1 corrections were already committed in `ce9c1ab`. Existing Unity
@@ -61,3 +61,77 @@ standing-still Play acceptance remains unexecuted; legacy stays the default.
 
 Native gates remain gates: API-only compilation and CPU fixtures do not establish
 Unity shader import, native rendering, geometry holes, tree alignment or FPS.
+
+## Phase 1.1 format decision (host approved after preflight)
+
+Use new derived cache `AVFAR002`, rejecting unshipped `AVFAR001` with a rebake
+message. No savegame migration is involved. The proposed int16 half-meter height
+would silently clip supported elevations above 16,383.5 m; use int32 half-meter
+units and reject out-of-range values instead. Current grid payload is 140,231,525
+bytes (28,046,305 samples), before compression.
+
+The little-endian gzip body contains magic, columns/rows, finite double origin,
+spacing and height unit; a bounded UTF8 base identity; a 32-byte source fingerprint;
+exact payload length; int32 heights then byte coverage; SHA256 and CRC32 both
+covering header and payload. The computed runtime identity includes all header,
+source and payload bytes. Source fingerprint includes full base identity, exact
+input asset hashes and sorted selected patch coordinates, spacing and AVOV content
+hashes. Equal-spacing conflicting patches are an error, not directory-order choice.
+
+Limits before allocation: 2..16,384 columns/rows, <=32 million samples,
+<=160 MiB decompressed bytes, <=16 KiB identity, supported finite origins/extents,
+positive spacing/height unit. Exact read lengths, EOF, CRC and SHA reject truncation,
+extra decoded bytes and corruption. Read requires a seekable FileStream or
+MemoryStream; footer CRC and decoded length are checked independently because
+Unity Mono's gzip decoder accepted a one-byte-truncated footer in the first native
+fixture. That failed report is preserved, and no asset was published by that run.
+AVOV input is capped at 256 KiB, JSON 64 KiB,
+canonical aligned 40/80/160 m windows, checked native/query identity, finite supported
+heights, CRC and height_sha256. Decode/cell selection is bounded and deterministic.
+
+Bake defaults remain separate from runtime settings. The Editor reads imported
+source assets, requires the supported imported dimensions and vertical scale 1,
+and publishes only a verified temp result into the Samples path. Sampling uses
+coverage-weighted heights at sparse edges. Verification separates grid-node
+quantization (<=.25 m) from arbitrary-point resampling error (plan gate <=.6 m),
+so a failed approximation is reported rather than hidden by sampling only nodes.
+
+Preflight observation: about 11.1 GiB free physical memory, 3.6 GiB available commit,
+and 208.8 GiB free disk before bake; cap estimated temporary array ownership below
+700 MiB and limit parallel rows to four. The validated scan found 21,240 files:
+7,080 each at 40/80/160 m, all valid; finest selection is 7,080 cells at 40 m, with
+no equal-spacing conflicts. Observed selected heights are -6,012.965..10,721.936 m,
+so this dataset fits int16. Int32 adds 53.5 MiB decoded/resident payload and avoids
+restricting later valid 48,000 m sources; current data does not require it.
+Selected patch arrays total 177.2 MiB. Bake and readback arrays total 267.5 MiB,
+plus source atlases and bounded buffers. This is an estimate of owned arrays, not
+a measured process peak. Detailed preflight is
+`Docs/ClipmapEvidence/phase1-preflight-20261028.json`.
+
+## Phase 1.1 native evidence
+
+Existing Unity 6000.3.27f1 ran both menu commands in Edit mode. Bake completed in
+47.007 seconds and separate Verify in 32.177 seconds. Both accepted 21,240 files
+without rejects, selected 7,080 cells at 40 m, and passed 17 format/sparse checks.
+Across 1,000 arbitrary land points, maximum height error was 0.231450 m; 1,000 grid
+points had maximum quantization error 0.249939 m. Estimated temporary array
+ownership was 623,247,702 bytes (594.4 MiB), not measured process peak. Immediately
+before the accepted bake, free physical memory was 12,858,012 KiB and available
+commit was 3,416,908 KiB.
+
+The published `ExplorationFar40.bytes` is 52,223,271 compressed bytes with identity
+`baked-far-v2/e3578d39a5ee0f1a15e024e505495acb45120d5220f5bec79a0b9a0c27204c1f`.
+Both reports record matching reader/baker source hashes, input asset hashes,
+selected-content identity and the complete AVOV manifest hash. Sources are checked
+again at completion and before atomic publication. Reports are in
+`Docs/ClipmapEvidence/phase1-20261028/bake-report.json` and `verify-report.json`.
+
+Initial compile ambiguity, gzip-footer acceptance, and a fixture that did not
+classify Mono's IOException for deliberately corrupted gzip are preserved in the
+same evidence directory. These are failed earlier revisions, not passing gates.
+The final fixture rejects that corruption and truncated footer explicitly.
+
+No runtime wrapper or bootstrap adoption is included. Legacy rendering remains
+the default. Startup memory, runtime sampling cost and appearance acceptance
+remain future gates; this result establishes cache format and bounded comparison
+correctness only.

@@ -1,0 +1,41 @@
+{
+    "status": "PASS",
+    "utc": "2026-10-29T03:02:58.7380350Z",
+    "unity": "6000.3.27f1",
+    "identity": "baked-far-v2/e3578d39a5ee0f1a15e024e505495acb45120d5220f5bec79a0b9a0c27204c1f",
+    "base_identity": "exploration-blend-v2/653a72959be6e6ec9abb8e9643c685b2c690c183768a109f2110ede02b7dfb99/detail-world=14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4/macro=50b4265dc3e19d9b3e7dd179e9d7241ae90aa0e94ab47b1cf6cc04318408bc70/fine=0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb/width=299520/depth=149760/height=1/blend=512/source-width=299520/source-depth=149760/biomes=biome-cells-v1/14fb32f26ff725abaf9f1e04668a1f46c5b4783a66f91d23253676f595f613e4/9495e761e7eece02ad764bfb31bf96bb5be66ed84faca207f1100bb73df1a072/234/118/-149760/-75520/1280",
+    "source_fingerprint": "d7bf04b179268887ec796ecaad54943979304f51d17d586591d1a13e650ccf15",
+    "cache_manifest": "dd40577a4d4ff85a518fff87398ae7f58f042ca53eb69cf26e7e16d65f085400",
+    "error": "",
+    "scope": "Native Edit-mode cache bake/readback and bounded format/sparse sampling checks; no runtime renderer adoption or Play acceptance.",
+    "files": 21240,
+    "rejected": 0,
+    "filtered": 0,
+    "cells": 7080,
+    "spacing40": 7080,
+    "spacing80": 0,
+    "spacing160": 0,
+    "land_samples": 1000,
+    "format_checks": 17,
+    "selected_height_bytes": 185807520,
+    "payload_bytes": 140231525,
+    "estimated_peak_array_bytes": 623247702,
+    "output_bytes": 52223271,
+    "minimum_height": -6012.96484375,
+    "maximum_height": 10721.935546875,
+    "max_grid_error": 0.24993896484375,
+    "max_land_error": 0.23145023949336974,
+    "seconds": 47.0068001,
+    "input_sha256": [
+        "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.bytes 50b4265dc3e19d9b3e7dd179e9d7241ae90aa0e94ab47b1cf6cc04318408bc70",
+        "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.climate.bytes a73e7b03be8dfdb22bacd4da711640a7f18a0d1a6a8a903389b02275b9bc1040",
+        "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.bytes 0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb",
+        "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.climate.bytes 3c5b1be873732c2a46fec105a4a9c00649d5348c3546c5226ea4a1dbd5297069",
+        "Assets/AshenVoxel/Exploration/Samples/ExplorationBiomes.bytes de5217131a618329a2cc9df3bdb8db1a8bf69c15a5f979934deef6991c47d2cc"
+    ],
+    "code_sha256": [
+        "Assets/AshenVoxel/WorldScaleData/BakedFarTerrain.cs e637e8d431e3f8ad8f92544a726a951d8eb9a955a8d3293cacca6c371d2562f1",
+        "Assets/AshenVoxel/Exploration/Editor/FarTerrainBake.cs 9e0d93d0972373164d52fca1c050670ab9a7218fe4c89586d4cb5bc9ec761d80"
+    ],
+    "reject_reasons": []
+}

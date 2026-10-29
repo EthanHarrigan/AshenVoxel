@@ -1,0 +1,41 @@
+{
+    "status": "FAIL",
+    "utc": "2026-10-29T03:01:28.1424213Z",
+    "unity": "6000.3.27f1",
+    "identity": "",
+    "base_identity": "",
+    "source_fingerprint": "",
+    "cache_manifest": "",
+    "error": "System.IO.IOException: Corrupted data ReadInternal\r\n  at System.IO.Compression.DeflateStreamNative.CheckResult (System.Int32 result, System.String where) [0x000a0] in <385ebe791180497fa3155e1a6873e615>:0 \r\n  at System.IO.Compression.DeflateStreamNative.ReadZStream (System.IntPtr buffer, System.Int32 length) [0x0000e] in <385ebe791180497fa3155e1a6873e615>:0 \r\n  at System.IO.Compression.DeflateStream.ReadInternal (System.Byte[] array, System.Int32 offset, System.Int32 count) [0x00027] in <385ebe791180497fa3155e1a6873e615>:0 \r\n  at System.IO.Compression.DeflateStream.Read (System.Byte[] array, System.Int32 offset, System.Int32 count) [0x00071] in <385ebe791180497fa3155e1a6873e615>:0 \r\n  at System.IO.Compression.GZipStream.Read (System.Byte[] array, System.Int32 offset, System.Int32 count) [0x00006] in <385ebe791180497fa3155e1a6873e615>:0 \r\n  at System.IO.BinaryReader.FillBuffer (System.Int32 numBytes) [0x00061] in <16ec009baa7541e7b79bc4548f1d744c>:0 \r\n  at System.IO.BinaryReader.ReadUInt32 () [0x00000] in <16ec009baa7541e7b79bc4548f1d744c>:0 \r\n  at AshenVoxel.WorldScale.BakedFarTerrainIO.Read (System.IO.Stream input) [0x002f8] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleData\\BakedFarTerrain.cs:126 \r\n  at AshenVoxel.Exploration.Editor.FarTerrainBake.Load (System.Byte[] data) [0x00007] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Editor\\FarTerrainBake.cs:206 \r\n  at AshenVoxel.Exploration.Editor.FarTerrainBake.<CheckFormat>g__Reject|35_0 (System.Byte[] value, System.String label, AshenVoxel.Exploration.Editor.FarTerrainBake+<>c__DisplayClass35_0& ) [0x00002] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Editor\\FarTerrainBake.cs:214 \r\n  at AshenVoxel.Exploration.Editor.FarTerrainBake.CheckFormat (AshenVoxel.Exploration.Editor.FarTerrainBake+Report report) [0x001cc] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Editor\\FarTerrainBake.cs:217 \r\n  at AshenVoxel.Exploration.Editor.FarTerrainBake.Work (System.Byte[][] bytes, System.String[] inputs, System.Double blend, System.String unity, System.Boolean bake) [0x00093] in C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\Exploration\\Editor\\FarTerrainBake.cs:162 ",
+    "scope": "Native Edit-mode cache bake/readback and bounded format/sparse sampling checks; no runtime renderer adoption or Play acceptance.",
+    "files": 0,
+    "rejected": 0,
+    "filtered": 0,
+    "cells": 0,
+    "spacing40": 0,
+    "spacing80": 0,
+    "spacing160": 0,
+    "land_samples": 0,
+    "format_checks": 4,
+    "selected_height_bytes": 0,
+    "payload_bytes": 0,
+    "estimated_peak_array_bytes": 0,
+    "output_bytes": 0,
+    "minimum_height": 1.7976931348623157e308,
+    "maximum_height": -1.7976931348623157e308,
+    "max_grid_error": 0.0,
+    "max_land_error": 0.0,
+    "seconds": 0.0130266,
+    "input_sha256": [
+        "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.bytes 50b4265dc3e19d9b3e7dd179e9d7241ae90aa0e94ab47b1cf6cc04318408bc70",
+        "Assets/AshenVoxel/Exploration/Samples/ExplorationMacro.climate.bytes a73e7b03be8dfdb22bacd4da711640a7f18a0d1a6a8a903389b02275b9bc1040",
+        "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.bytes 0b9896f85e253b8bb1794473dbf01cc3205afe501fa5581d2ca098ee9a458ddb",
+        "Assets/AshenVoxel/Exploration/Samples/ExplorationFine.climate.bytes 3c5b1be873732c2a46fec105a4a9c00649d5348c3546c5226ea4a1dbd5297069",
+        "Assets/AshenVoxel/Exploration/Samples/ExplorationBiomes.bytes de5217131a618329a2cc9df3bdb8db1a8bf69c15a5f979934deef6991c47d2cc"
+    ],
+    "code_sha256": [
+        "Assets/AshenVoxel/WorldScaleData/BakedFarTerrain.cs e637e8d431e3f8ad8f92544a726a951d8eb9a955a8d3293cacca6c371d2562f1",
+        "Assets/AshenVoxel/Exploration/Editor/FarTerrainBake.cs 3aef187ac9e6d3d153a6682bcda88dae70af65cb534dbd78fe0d1bef543a3b9a"
+    ],
+    "reject_reasons": []
+}
