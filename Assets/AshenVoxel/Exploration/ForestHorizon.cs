@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using AshenVoxel.WorldScale;
+using AshenVoxel.WorldScaleRuntime;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -30,14 +31,17 @@ namespace AshenVoxel.Exploration
         }
         sealed class Batch
         {
-            public int Id,Count;public Matrix4x4[] Matrices=new Matrix4x4[1023];public Bounds Bounds;
+            public int Id,Count;public Matrix4x4[] Matrices=new Matrix4x4[1023];public WorldPoint[] Anchors=new WorldPoint[1023];public Bounds Bounds;
         }
-        Task<List<Sample>> job;List<Sample> samples;int upload;
+        Task<List<Sample>> job;List<Sample> samples,residentSamples;int upload;
+        WorldPoint publishedAnchor,resnapObserver;TerrainClipmap resnapRenderer;long resnapRevision=-1;
+        int resnapSample,resnapBatch,resnapInstance;bool resnapping,resnapHasBounds;Bounds resnapBounds;
+        public long ResnappedAnchors {get;private set;}
         List<Batch> batches=new List<Batch>(),next=new List<Batch>();readonly Dictionary<int,Batch> open=new Dictionary<int,Batch>();
         readonly Stack<Batch> pool=new Stack<Batch>();long retryAt;
         #if UNITY_5_3_OR_NEWER
         readonly ForestGpuRenderer gpu;
-        ForestGpuRenderer.Instance[] pendingGpu;
+        ForestGpuRenderer.Instance[] pendingGpu,residentGpu;
         #endif
         public bool UsingGpu
         {
@@ -78,13 +82,13 @@ namespace AshenVoxel.Exploration
             if(preferGpu)gpu=ForestGpuRenderer.TryCreate(template);
             #endif
         }
-        public void Tick(Camera camera,WorldPoint eye,WorldPoint renderOrigin,double near,double far,double density)
+        public void Tick(Camera camera,WorldPoint eye,WorldPoint renderOrigin,double near,double far,double density,WorldExplorer terrainView=null)
         {
             if(disposed)return;long start=Stopwatch.GetTimestamp();
             if(origin.X!=renderOrigin.X||origin.Y!=renderOrigin.Y||origin.Z!=renderOrigin.Z)
             {
                 Vector3 delta=new Vector3((float)(origin.X-renderOrigin.X),(float)(origin.Y-renderOrigin.Y),(float)(origin.Z-renderOrigin.Z));
-                Rebase(batches,delta);Rebase(next,delta);origin=renderOrigin;
+                Rebase(batches,delta);Rebase(next,delta);if(resnapHasBounds)resnapBounds.center+=delta;origin=renderOrigin;
             }
             if(job!=null&&job.IsCompleted)
             {
@@ -110,24 +114,24 @@ namespace AshenVoxel.Exploration
                 int work=0;
                 while(upload<samples.Count&&work++<1000)
                 {
-                    Sample s=samples[upload++];
+                    Sample s=samples[upload++];double renderHeight=RenderHeight(s.Position,eye,terrainView);
                     pendingFarthest=Math.Max(pendingFarthest,Math.Sqrt(Travel(s.Position,planned)));
                     #if UNITY_5_3_OR_NEWER
                     if(gpu!=null)
                     {
                         var p=prototypes[s.Id];
                         pendingGpu[upload-1]=new ForestGpuRenderer.Instance{
-                            PositionSpan=new Vector4((float)(s.Position.X-planned.X),(float)(s.Position.Y-planned.Y)+(p.MinY+p.MaxY)*.5f*s.Height,(float)(s.Position.Z-planned.Z),ForestBillboard.Span(p)),
+                            PositionSpan=new Vector4((float)(s.Position.X-planned.X),(float)(renderHeight-planned.Y)+(p.MinY+p.MaxY)*.5f*s.Height,(float)(s.Position.Z-planned.Z),ForestBillboard.Span(p)),
                             Style=new Vector4(s.Width,s.PackedId,s.Yaw*(float)(Math.PI/180),s.Appearance)};
                     }
                     else
                     #endif
                     {
                     if(!open.TryGetValue(s.Id,out Batch batch)||batch.Count==1023){batch=pool.Count>0?pool.Pop():new Batch();batch.Id=s.Id;batch.Count=0;open[s.Id]=batch;next.Add(batch);}
-                    Vector3 position=new Vector3((float)(s.Position.X-origin.X),(float)(s.Position.Y-origin.Y),(float)(s.Position.Z-origin.Z));
+                    Vector3 position=new Vector3((float)(s.Position.X-origin.X),(float)(renderHeight-origin.Y),(float)(s.Position.Z-origin.Z));
                     // The unchanged legacy CPU atlas shader has no cluster/tint
                     // payload. Retain real-size tree cards in that fallback.
-                    batch.Matrices[batch.Count++]=Matrix4x4.TRS(position,Quaternion.Euler(0,s.Yaw,0),new Vector3(s.Height,s.Height,s.Height));
+                    batch.Anchors[batch.Count]=s.Position;batch.Matrices[batch.Count++]=Matrix4x4.TRS(position,Quaternion.Euler(0,s.Yaw,0),new Vector3(s.Height,s.Height,s.Height));
                     var p=prototypes[s.Id];float extent=ForestBillboard.Span(p)*s.Height*1.415f;
                     Bounds b=new Bounds(position+Vector3.up*((p.MinY+p.MaxY)*.5f*s.Height),Vector3.one*extent);
                     if(batch.Count==1)batch.Bounds=b;else batch.Bounds.Encapsulate(b);
@@ -137,12 +141,13 @@ namespace AshenVoxel.Exploration
                 if(upload==samples.Count)
                 {
                     #if UNITY_5_3_OR_NEWER
-                    if(gpu!=null){gpu.Publish(pendingGpu,planned);pendingGpu=null;}
+                    if(gpu!=null){gpu.Publish(pendingGpu,planned);residentGpu=pendingGpu;pendingGpu=null;}
                     #endif
                     var old=batches;batches=next;next=old;Recycle(next);ResidentStands=samples.Count;
-                    PublishedFarDistance=plannedFar;FarthestStandDistance=pendingFarthest;samples=null;open.Clear();
+                    PublishedFarDistance=plannedFar;FarthestStandDistance=pendingFarthest;residentSamples=samples;publishedAnchor=planned;samples=null;open.Clear();resnapping=false;resnapRevision=-1;
                 }
             }
+            ResnapPublished(eye,terrainView,start);
             material.SetFloat("_HorizonNear",(float)near);material.SetFloat("_HorizonFar",(float)far);
             DrawCalls=VisibleStands=0;
             #if UNITY_5_3_OR_NEWER
@@ -164,6 +169,54 @@ namespace AshenVoxel.Exploration
             }
             }
             LastWorkMilliseconds=(Stopwatch.GetTimestamp()-start)*1000.0/Stopwatch.Frequency;
+        }
+        static double RenderHeight(WorldPoint source,WorldPoint eye,WorldExplorer view)
+        {
+            double dx=source.X-eye.X,dz=source.Z-eye.Z;
+            var clipmap=view!=null&&view.UsingClipmap?view.ClipmapRenderer:null;
+            return clipmap!=null&&dx*dx+dz*dz>VegetationStreaming.ClipmapExactRadius*VegetationStreaming.ClipmapExactRadius&&
+                clipmap.TryRenderedHeight(source.X,source.Z,out double height)?height-.05:source.Y;
+        }
+        void ResnapPublished(WorldPoint eye,WorldExplorer view,long frameStart)
+        {
+            if(residentSamples==null)return;
+            var renderer=view!=null&&view.UsingClipmap?view.ClipmapRenderer:null;long revision=renderer!=null?renderer.DataRevision:0;
+            double dx=eye.X-resnapObserver.X,dz=eye.Z-resnapObserver.Z;
+            if(!resnapping&&(renderer!=resnapRenderer||revision!=resnapRevision||dx*dx+dz*dz>16))
+            {resnapRenderer=renderer;resnapRevision=revision;resnapObserver=eye;resnapSample=resnapBatch=resnapInstance=0;resnapHasBounds=false;resnapping=true;}
+            if(!resnapping)return;
+            long started=Stopwatch.GetTimestamp();int visited=0;
+            bool Budget()=>visited<256&&(Stopwatch.GetTimestamp()-started)*1000.0/Stopwatch.Frequency<.4&&
+                (Stopwatch.GetTimestamp()-frameStart)*1000.0/Stopwatch.Frequency<1.5;
+            #if UNITY_5_3_OR_NEWER
+            if(gpu!=null)
+            {
+                int first=resnapSample;
+                while(resnapSample<residentSamples.Count&&Budget())
+                {
+                    Sample s=residentSamples[resnapSample];var prototype=prototypes[s.Id];
+                    var instance=residentGpu[resnapSample];
+                    instance.PositionSpan.y=(float)(RenderHeight(s.Position,eye,view)-publishedAnchor.Y)+(prototype.MinY+prototype.MaxY)*.5f*s.Height;
+                    residentGpu[resnapSample++]=instance;visited++;ResnappedAnchors++;
+                }
+                if(resnapSample>first)gpu.UpdateRange(residentGpu,first,resnapSample-first);
+                if(resnapSample>=residentSamples.Count)resnapping=false;
+                return;
+            }
+            #endif
+            while(resnapBatch<batches.Count&&Budget())
+            {
+                Batch batch=batches[resnapBatch];
+                if(resnapInstance>=batch.Count)
+                {if(resnapHasBounds)batch.Bounds=resnapBounds;resnapBatch++;resnapInstance=0;resnapHasBounds=false;continue;}
+                int index=resnapInstance++;var matrix=batch.Matrices[index];var prototype=prototypes[batch.Id];
+                matrix.m13=(float)(RenderHeight(batch.Anchors[index],eye,view)-origin.Y);batch.Matrices[index]=matrix;
+                float scale=Math.Abs(matrix.m11),extent=ForestBillboard.Span(prototype)*scale*1.415f;
+                var bound=new Bounds(new Vector3(matrix.m03,matrix.m13+(prototype.MinY+prototype.MaxY)*.5f*scale,matrix.m23),Vector3.one*extent);
+                batch.Bounds.Encapsulate(bound);if(resnapHasBounds)resnapBounds.Encapsulate(bound);else{resnapBounds=bound;resnapHasBounds=true;}
+                visited++;ResnappedAnchors++;
+            }
+            if(resnapBatch>=batches.Count)resnapping=false;
         }
         List<Sample> Build(SurfaceMaterialSampler sampler,WorldPoint eye,double near,double far,double density)
         {
@@ -252,9 +305,9 @@ namespace AshenVoxel.Exploration
         void Recycle(List<Batch> list){foreach(Batch b in list){b.Count=0;pool.Push(b);}list.Clear();}
         public void Dispose()
         {
-            disposed=true;batches.Clear();next.Clear();pool.Clear();samples=null;
+            disposed=true;batches.Clear();next.Clear();pool.Clear();samples=residentSamples=null;
             #if UNITY_5_3_OR_NEWER
-            gpu?.Dispose();pendingGpu=null;
+            gpu?.Dispose();pendingGpu=residentGpu=null;
             #endif
             if(job!=null)job.ContinueWith(t=>{var e=t.Exception;},TaskContinuationOptions.OnlyOnFaulted);job=null;UnityEngine.Object.Destroy(material);
         }

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "checks": 16000,
+  "worst_distance_fraction": 0.9984878500866243,
+  "scope": "Independent convex-frustum corner-radius bound, perspective/orthographic and shifted views. Does not execute Unity CalculateFrustumCorners, GPU rendering, or native hole gate.",
+  "source_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmapResources.cs": "b6d9fe224d241aba3f232b9c65fa2c96dd43fa28c02e31066d0e7558b3427407"
+  }
+}

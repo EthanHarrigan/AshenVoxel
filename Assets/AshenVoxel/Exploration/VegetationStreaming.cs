@@ -55,8 +55,8 @@ namespace AshenVoxel.Exploration
             public override bool Equals(object value)=>value is PageKey p&&Equals(p);
             public override int GetHashCode(){unchecked{return ((((Model*397^Lod)*397^X.GetHashCode())*397^Z.GetHashCode())*397^Part)*397^Variant;}}
         }
-        sealed class Page {public PageKey Key;public readonly List<Matrix4x4> Matrices=new List<Matrix4x4>();public Bounds Bounds;public bool HasBounds;public Mesh Mesh;public int Submesh,Triangles;public bool CountsInstance;}
-        sealed class Batch {public Mesh Mesh;public Matrix4x4[] Matrices=Array.Empty<Matrix4x4>();public Bounds Bounds;public bool Shadows;public int TriangleCount,Count,ModelId,Lod,Submesh;public bool CountsInstance;}
+        sealed class Page {public PageKey Key;public readonly List<Matrix4x4> Matrices=new List<Matrix4x4>();public readonly List<WorldPoint> Anchors=new List<WorldPoint>();public Bounds Bounds;public bool HasBounds;public Mesh Mesh;public int Submesh,Triangles;public bool CountsInstance;}
+        sealed class Batch {public Mesh Mesh;public Matrix4x4[] Matrices=Array.Empty<Matrix4x4>();public WorldPoint[] Anchors=Array.Empty<WorldPoint>();public Bounds Bounds;public bool Shadows;public int TriangleCount,Count,ModelId,Lod,Submesh;public bool CountsInstance;}
         readonly Dictionary<int,Model> models=new Dictionary<int,Model>();
         readonly Dictionary<PopulationKey,CachedCell> cells=new Dictionary<PopulationKey,CachedCell>();
         readonly HashSet<PopulationKey> desired=new HashSet<PopulationKey>(),deferred=new HashSet<PopulationKey>();
@@ -65,7 +65,7 @@ namespace AshenVoxel.Exploration
         List<Batch> batches=new List<Batch>(),nextBatches=new List<Batch>();
         readonly List<Page> finalizePages=new List<Page>();int finalizePage,finalizeOffset;bool finalizing;
         readonly Stack<Batch> batchPool=new Stack<Batch>();readonly Stack<Page> pagePool=new Stack<Page>();
-        public long MatrixBufferBytes {get{long bytes=0;foreach(var b in batches)bytes+=b.Matrices.LongLength*64;foreach(var b in nextBatches)bytes+=b.Matrices.LongLength*64;foreach(var b in batchPool)bytes+=b.Matrices.LongLength*64;return bytes;}}
+        public long MatrixBufferBytes {get{long bytes=0;foreach(var b in batches)bytes+=b.Matrices.LongLength*64+b.Anchors.LongLength*24;foreach(var b in nextBatches)bytes+=b.Matrices.LongLength*64+b.Anchors.LongLength*24;foreach(var b in batchPool)bytes+=b.Matrices.LongLength*64+b.Anchors.LongLength*24;return bytes;}}
         readonly Dictionary<PageKey,Page> buildingPages=new Dictionary<PageKey,Page>();
         readonly Plane[] planes=new Plane[6];
         readonly List<CachedCell> matrixCells=new List<CachedCell>();
@@ -162,6 +162,7 @@ namespace AshenVoxel.Exploration
             if(haveOrigin&&(origin.X!=renderOrigin.X||origin.Y!=renderOrigin.Y||origin.Z!=renderOrigin.Z))
             {
                 Vector3 delta=new Vector3((float)(origin.X-renderOrigin.X),(float)(origin.Y-renderOrigin.Y),(float)(origin.Z-renderOrigin.Z));
+                if(anchorHasBounds)anchorBounds.center+=delta;
                 // Shift every already-built matrix and its culling bounds in this
                 // same call; camera and vegetation cannot occupy different origins.
                 foreach(Batch batch in AllActiveBatches()){for(int i=0;i<batch.Count;i++){Matrix4x4 m=batch.Matrices[i];m.m03+=delta.x;m.m13+=delta.y;m.m23+=delta.z;batch.Matrices[i]=m;}batch.Bounds.center+=delta;}
@@ -179,7 +180,7 @@ namespace AshenVoxel.Exploration
                 catch(Exception e){Status="Prototype loading failed: "+e.Message;Ready=false;loading=null;throw;}
                 LastWorkMilliseconds=Ms(Now-started);return;
             }
-            TickRoots();TickShrubLease();
+            TickRoots();TickShrubLease();TickClipmapAnchors(started);
             float treeDensity=Clamp(TreeDensity,0,2),plantDensity=Clamp(PlantDensity,0,2),rockDensity=Clamp(RockDensity,0,2);
             if(treeDensity!=lastTreeDensity||plantDensity!=lastPlantDensity||rockDensity!=lastRockDensity)ReconfigureDensity();
             lastTreeDensity=treeDensity;lastPlantDensity=plantDensity;lastRockDensity=rockDensity;
@@ -300,7 +301,7 @@ namespace AshenVoxel.Exploration
             {
                 Page page=finalizePages[finalizePage];Model model=models[page.Key.Model];
                 if(finalizeOffset>=page.Matrices.Count){finalizePage++;finalizeOffset=0;continue;}
-                int count=Math.Min(1023,page.Matrices.Count-finalizeOffset);Batch batch=batchPool.Count>0?batchPool.Pop():new Batch();if(batch.Matrices.Length<count){int capacity=16;while(capacity<count)capacity*=2;batch.Matrices=new Matrix4x4[Math.Min(1023,capacity)];}page.Matrices.CopyTo(finalizeOffset,batch.Matrices,0,count);
+                int count=Math.Min(1023,page.Matrices.Count-finalizeOffset);Batch batch=batchPool.Count>0?batchPool.Pop():new Batch();if(batch.Matrices.Length<count){int capacity=16;while(capacity<count)capacity*=2;batch.Matrices=new Matrix4x4[Math.Min(1023,capacity)];}if(batch.Anchors.Length<batch.Matrices.Length)batch.Anchors=new WorldPoint[batch.Matrices.Length];page.Matrices.CopyTo(finalizeOffset,batch.Matrices,0,count);page.Anchors.CopyTo(finalizeOffset,batch.Anchors,0,count);
                 batch.Mesh=page.Mesh;batch.Submesh=page.Submesh;batch.CountsInstance=page.CountsInstance;batch.ModelId=page.Key.Model;batch.Lod=page.Key.Lod;batch.Count=count;batch.Bounds=page.Bounds;batch.Shadows=page.Key.Lod<=(model.Data.Kind==0?TreeShadowLod:model.Data.Kind==2?RockShadowLod:GroundCoverShadowLod);batch.TriangleCount=page.Triangles;nextBatches.Add(batch);finalizeOffset+=count;finished++;
             }
             if(finalizePage<finalizePages.Count)return;
@@ -345,7 +346,7 @@ namespace AshenVoxel.Exploration
                 if(visible){if(batch.CountsInstance)VisibleInstances+=batch.Count;VisibleTriangles+=(long)batch.TriangleCount*batch.Count;}
                 else{ShadowOnlyDrawCalls++;if(batch.CountsInstance)ShadowOnlyInstances+=batch.Count;}
             }
-            if(EnableForestHorizon&&Horizon!=null)Horizon.Tick(camera,observer,origin,HorizonNear(),Math.Max(TreeDistance,HorizonDistance),TreeDensity);
+            if(EnableForestHorizon&&Horizon!=null)Horizon.Tick(camera,observer,origin,HorizonNear(),Math.Max(TreeDistance,HorizonDistance),TreeDensity,TerrainView);
         }
         /// <summary>Where impostor canopy takes over. Normally just inside the tree radius, but when
         /// the resident-instance budget defers far tree cells (dense forests), the horizon starts at
@@ -510,7 +511,7 @@ namespace AshenVoxel.Exploration
         }
         public void RefreshPopulation()
         {
-            CloseShrub();
+            ResetClipmapAnchors();CloseShrub();
             cells.Clear();desired.Clear();deferred.Clear();queue.Clear();queued.Clear();ReleaseBatches();ReleaseNextBatches();finalizePages.Clear();finalizing=false;ReleaseBuildingPages();matrixCells.Clear();ResidentInstances=0;BudgetOmittedSoftInstances=0;buildingMatrices=false;matricesDirty=true;lastPlanX=lastPlanZ=lastMatrixX=double.PositiveInfinity;lastPlanAt=0;
         }
         void ReleaseBatches(){foreach(Batch batch in batches)batchPool.Push(batch);batches.Clear();}
@@ -518,7 +519,7 @@ namespace AshenVoxel.Exploration
         void ReleaseBuildingPages(){foreach(Page page in buildingPages.Values){page.Matrices.Clear();page.HasBounds=false;pagePool.Push(page);}buildingPages.Clear();}
         public void DisposeRuntime()
         {
-            CloseShrub();
+            ResetClipmapAnchors();CloseShrub();
             DisposeRoots();
             Horizon?.Dispose();Horizon=null;
             if(loading is IDisposable disposable)disposable.Dispose();loading=null;

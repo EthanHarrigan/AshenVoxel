@@ -268,10 +268,10 @@ namespace AshenVoxel.Exploration
             var key=new PageKey(instance.PrototypeId,lod,(long)Math.Floor(instance.Position.X/pageSize),(long)Math.Floor(instance.Position.Z/pageSize),part,variant);
             if(!buildingPages.TryGetValue(key,out var page))
             {
-                page=pagePool.Count>0?pagePool.Pop():new Page();page.Key=key;page.HasBounds=false;page.Matrices.Clear();page.Mesh=mesh;page.Submesh=submesh;page.Triangles=triangles;page.CountsInstance=countsInstance;buildingPages.Add(key,page);
+                page=pagePool.Count>0?pagePool.Pop():new Page();page.Key=key;page.HasBounds=false;page.Matrices.Clear();page.Anchors.Clear();page.Mesh=mesh;page.Submesh=submesh;page.Triangles=triangles;page.CountsInstance=countsInstance;buildingPages.Add(key,page);
             }
-            Vector3 position=new Vector3((float)(instance.Position.X-origin.X),(float)(instance.Position.Y-origin.Y),(float)(instance.Position.Z-origin.Z));
-            page.Matrices.Add(Matrix4x4.TRS(position,Quaternion.Euler(0,instance.YawDegrees,0),Vector3.one));
+            Vector3 position=new Vector3((float)(instance.Position.X-origin.X),(float)(RenderedAnchorHeight(instance.Position)-origin.Y),(float)(instance.Position.Z-origin.Z));
+            page.Matrices.Add(Matrix4x4.TRS(position,Quaternion.Euler(0,instance.YawDegrees,0),Vector3.one));page.Anchors.Add(instance.Position);
             Bounds actual=mesh.bounds;float radius=Math.Max(Math.Abs(actual.min.x),Math.Max(Math.Abs(actual.max.x),Math.Max(Math.Abs(actual.min.z),Math.Abs(actual.max.z))))*1.415f+.1f;
             var bounds=new Bounds(position+Vector3.up*actual.center.y,new Vector3(radius*2,actual.size.y+.2f,radius*2));
             if(!page.HasBounds){page.Bounds=bounds;page.HasBounds=true;}else page.Bounds.Encapsulate(bounds);

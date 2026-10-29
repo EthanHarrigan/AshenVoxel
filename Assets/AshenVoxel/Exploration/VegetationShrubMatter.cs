@@ -79,15 +79,15 @@ namespace AshenVoxel.Exploration
         /// Returns how many were removed; 0 means the instance was not found at the current origin.</summary>
         int HideInPublished(PopulationInstance instance)
         {
-            float x=(float)(instance.Position.X-origin.X),y=(float)(instance.Position.Y-origin.Y),z=(float)(instance.Position.Z-origin.Z);int removed=0;
+            int removed=0;
             foreach(var batch in batches)
             {
                 if(batch.ModelId!=instance.PrototypeId)continue;
                 for(int i=0;i<batch.Count;i++)
                 {
-                    var m=batch.Matrices[i];
-                    if(Math.Abs(m.m03-x)>.001f||Math.Abs(m.m13-y)>.001f||Math.Abs(m.m23-z)>.001f)continue;
-                    batch.Matrices[i]=batch.Matrices[batch.Count-1];batch.Count--;i--;removed++;
+                    var anchor=batch.Anchors[i];
+                    if(Math.Abs(anchor.X-instance.Position.X)>.001||Math.Abs(anchor.Y-instance.Position.Y)>.001||Math.Abs(anchor.Z-instance.Position.Z)>.001)continue;
+                    batch.Matrices[i]=batch.Matrices[batch.Count-1];batch.Anchors[i]=batch.Anchors[batch.Count-1];batch.Count--;i--;removed++;
                 }
             }
             return removed;

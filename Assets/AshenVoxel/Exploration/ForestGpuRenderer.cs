@@ -91,6 +91,14 @@ namespace AshenVoxel.Exploration
             var render=new RenderParams(material){camera=camera,worldBounds=bounds,matProps=properties,layer=layer,shadowCastingMode=ShadowCastingMode.Off,receiveShadows=false,lightProbeUsage=LightProbeUsage.Off};
             Graphics.RenderPrimitivesIndirect(render,MeshTopology.Triangles,active.Args,1);return 1;
         }
+        /// <summary>Bounded render-only height corrections to the existing stand
+        /// population. The next cull uses these anchors; no readback or rebuild.</summary>
+        public void UpdateRange(Instance[] data,int start,int count)
+        {
+            if(data==null||start<0||count<0||start+count>data.Length||start+count>active.Count)
+                throw new ArgumentOutOfRangeException(nameof(count));
+            if(count>0)active.Input.SetData(data,start,start,count);
+        }
         /// <summary>Explicit validation-only synchronization. Never called by Tick.</summary>
         public uint ReadVisibleCountForValidation(){if(active.Args==null)return 0;active.Args.GetData(commands);return commands[0].instanceCount;}
         public void Dispose(){active.Dispose();spare.Dispose();if(Application.isPlaying){UnityEngine.Object.Destroy(material);UnityEngine.Object.Destroy(compute);}else{UnityEngine.Object.DestroyImmediate(material);UnityEngine.Object.DestroyImmediate(compute);}}

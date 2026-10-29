@@ -1,0 +1,43 @@
+{
+  "status": "BACKGROUND_CHECKPOINT",
+  "generated_utc": "2026-10-29T03:59:19.968629+00:00",
+  "source_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmapResources.cs": "b6d9fe224d241aba3f232b9c65fa2c96dd43fa28c02e31066d0e7558b3427407",
+    "Assets/AshenVoxel/WorldScaleRuntime/Resources/TerrainClipmap.shader": "83daa6e6aad95d3627b3c5cb0586a8e4504ade1b261857ee49e9c150c6798491",
+    "Assets/AshenVoxel/WorldScaleRuntime/Resources/TerrainClipmapSampling.hlsl": "73795245af335ab1c0590d8bf6d6c97fdc3c1e739e8fb9bc7dd95be6199f09c3",
+    "Assets/AshenVoxel/WorldScaleRuntime/Resources/TerrainClipmapScatter.compute": "30bd764e5ef71819ebd0dbdac4133691bdde14c17196d32f9acacf2c03682e3e",
+    "Assets/AshenVoxel/Exploration/VegetationClipmap.cs": "81bf9677bd16aae14d6cef0b5c529db29245df6cc7d5c823bf144fd2104b2191",
+    "Assets/AshenVoxel/Exploration/VegetationStreaming.cs": "617a8e5e95f882a24602d14a79a439aa35d943e24dca4b4f48eb1d607951d387",
+    "Assets/AshenVoxel/Exploration/VegetationRoots.cs": "62562d895a5c1c1d27baee27a22572399a8a7f93c62848e547b845f3994a2a0e",
+    "Assets/AshenVoxel/Exploration/VegetationShrubMatter.cs": "93e98be54f2ef45b806b051c4a558e04d26c77fd5cda62136fa08966e79e7c11",
+    "Assets/AshenVoxel/Exploration/VegetationMatterRendering.cs": "e04e7b7b7c2b671137f9a1ab185b8359f0969a674b876bde7e9c99624630d205",
+    "Assets/AshenVoxel/Exploration/ForestHorizon.cs": "f12eeebfc01521ee1b1af432d18fabe64484199a833f7794a1e82c2456c4028a",
+    "Assets/AshenVoxel/Exploration/ForestGpuRenderer.cs": "10e89083d22c1231b0f861a718843879c8433a49070c527c00767db550f834d1",
+    "Tools/ClipmapShaderChecks/check_shader_compile.py": "7f1ffc6f55162cb26f693147be00b91e018257409ae75f163fa08c26e862eebf"
+  },
+  "high_default_gpu_payload_bytes": 54525952,
+  "high_maximum16levels_gpu_payload_bytes": 57671680,
+  "gpu_accounting": "Three 4-byte textures, N published slices plus one spare; fixed 262144 x 16-byte scatter buffer; no vertex/index/backdrop/validity GPU buffers. Excludes driver allocation rounding and compiled shader code.",
+  "cpu_staging_bytes": 4194864,
+  "evidence": [
+    "Docs/ClipmapEvidence/gpu-vegetation-api-background.json",
+    "Docs/ClipmapEvidence/gpu-hlsl-background.json",
+    "Docs/ClipmapEvidence/gpu-culling-math-background.json"
+  ],
+  "checks": {
+    "real_unity_api_assemblies": 6,
+    "offline_d3d11_sm5_variants": 15,
+    "frustum_math_samples": 16000,
+    "project_assets": 296,
+    "project_assemblies": 13
+  },
+  "remaining_native_gates": [
+    "Unity shader import/variant retention",
+    "D3D12 GPU texture copy/scatter/draw ordering and sparse startup",
+    "mesh regression and hole sweep in all passes",
+    "appearance/pigment/fog/shadow/SSAO acceptance",
+    "actual resident tree/horizon alignment after bounded resnap",
+    "GPU and CPU frame time, driver memory"
+  ],
+  "resnap_scope": "Published vegetation matrices and forest GPU input ranges only; preserve original population/collision/root anchors and exact ownership lookup. Each revisiting slice admits at most256 anchors and checks0.4ms work; GPU upload and one in-progress item can exceed that time, so no strict native millisecond claim. Pending passes survive further revisions and origin rebases."
+}

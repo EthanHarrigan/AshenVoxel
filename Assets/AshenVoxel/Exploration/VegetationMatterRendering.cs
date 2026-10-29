@@ -13,7 +13,6 @@ namespace AshenVoxel.Exploration
         {
             source=null;if(!ShrubCurrent(lease)||lease.Active)return false;
             var position=lease.Instance.Position;
-            float x=(float)(position.X-origin.X),y=(float)(position.Y-origin.Y),z=(float)(position.Z-origin.Z);
             var parts=new List<NaturalMatterRenderSource.Part>(2);
             foreach(var batch in batches)
             {
@@ -23,8 +22,8 @@ namespace AshenVoxel.Exploration
                 if(batch.ModelId<100&&batch.Lod>=3&&impostorMaterial!=null)continue;
                 for(int i=0;i<batch.Count;i++)
                 {
-                    var matrix=batch.Matrices[i];
-                    if(Math.Abs(matrix.m03-x)>.001f||Math.Abs(matrix.m13-y)>.001f||Math.Abs(matrix.m23-z)>.001f)continue;
+                    var anchor=batch.Anchors[i];
+                    if(Math.Abs(anchor.X-position.X)>.001||Math.Abs(anchor.Y-position.Y)>.001||Math.Abs(anchor.Z-position.Z)>.001)continue;
                     parts.Add(new NaturalMatterRenderSource.Part(batch.Mesh,batch.Submesh,batch.Shadows));break;
                 }
             }
