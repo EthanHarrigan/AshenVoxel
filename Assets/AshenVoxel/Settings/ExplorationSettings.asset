@@ -21,6 +21,8 @@ MonoBehaviour:
   PrototypePack: {fileID: 4900000, guid: 7041d8570f694b2082e91a3261d73533, type: 3}
   Seed: 714103
   EnableSurfaceRelief: 1
+  EnableTerrainReshape: 1
+  TerrainReshape: {fileID: 4900000, guid: 0d4196d77f874853927a006da24a2211, type: 3}
   UseImportedDimensions: 1
   WorldWidthMeters: 299520
   WorldDepthMeters: 149760
@@ -31,12 +33,12 @@ MonoBehaviour:
   DiffusionEndpoint: http://127.0.0.1:8787
   EnableOverviewRefinement: 1
   OverviewEndpoint: http://127.0.0.1:8788
-  UseRecommendedSpawn: 1
-  SpawnX: -40954.96880764632
-  SpawnY: 1861.4649999761584
-  SpawnZ: -13458.490728475133
-  SpawnYaw: -163.79893
-  SpawnPitch: 24.80004
+  UseRecommendedSpawn: 0
+  SpawnX: -32555
+  SpawnY: 474
+  SpawnZ: -13458
+  SpawnYaw: -81.4
+  SpawnPitch: -3
   WalkSpeed: 4
   SprintSpeed: 7
   FlightSpeed: 40
@@ -44,7 +46,7 @@ MonoBehaviour:
   FieldOfView: 75
   MouseSensitivity: 0.1
   EyeSmoothing: 20
-  StartFlying: 0
+  StartFlying: 1
   AllowNoClipToggle: 1
   BodyRadius: 0.28
   BodyHeight: 1.8
@@ -81,6 +83,8 @@ MonoBehaviour:
   ExperimentalBroadLithology: 0
   ExperimentalDistantHeightProxies: 0
   ConnectedTerrainSurface: 1
+  VoxelStepGround: 0
+  VirtualVoxelSteps: 1
   EnableHeightProxyDiskCache: 0
   EnableForestHorizon: 1
   ForestFollowsTerrainView: 1
