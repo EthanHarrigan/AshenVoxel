@@ -271,7 +271,15 @@ Shader "AshenVoxel/GroundSurface"
                 else{cellIndex.y+=dir.y;tEnter=next.y;next.y+=delta.y;axis=1;}
                 // A lifted shell ray that climbs clear of the curved surface has passed over the
                 // ridge: no step lies under this pixel, so the silhouette is stepped here.
-                if(lift>0){float3 r=r0+V*tEnter;if(r.y-SurfaceAt(r.xz,q,g,H)>lift+margin)return -1;}
+                if(lift>0)
+                {
+                    // Only step-sized gaps are cut: a shell ray that has travelled more than two
+                    // blocks sideways from its own pixel is kept (the curvature estimate from a
+                    // coarse LOD's vertex normals is not trustworthy that far out).
+                    float3 r=r0+V*tEnter;float side=length(r.xz-p.xz);
+                    if(side>2.0*c)return 0;
+                    if(r.y-SurfaceAt(r.xz,q,g,H)>lift+margin)return -1;
+                }
             }
             return 0;
         }
