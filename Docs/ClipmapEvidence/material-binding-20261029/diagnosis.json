@@ -1,0 +1,19 @@
+{
+  "status": "REPAIR_AWAITING_NATIVE_CONFIRMATION",
+  "generated_utc": "2026-10-29T04:35:47.305463+00:00",
+  "observed": "Host-reported authorized read-only screen observation: current detail ready, rapid noisy color changes, near-flat terrain and floating trees.",
+  "finding": "Whole material copy followed owned texture allocation/binding. Installed Unity TMP code independently saves/restores destination-specific textures around this API. Native clipmap property values have not been inspected.",
+  "repair": "Only four shared floats copied; three exact owned texture references restored and validated before publishing attachment or clearing Legacy.",
+  "proof_boundary": "Thirteen regression checks use production resource/attachment source with modeled property-sheet replacement; they are not native material or rendering proof. Real installed Unity API compilation also passes.",
+  "references": [
+    "https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Material.CopyPropertiesFromMaterial.html",
+    "https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Material.CopyMatchingPropertiesFromMaterial.html"
+  ],
+  "installed_reference": "C:\\Program Files\\Unity\\Hub\\Editor\\6000.3.27f1\\Editor\\Data\\Resources\\PackageManager\\BuiltInPackages\\com.unity.ugui\\Runtime\\TMP\\TMP_MaterialManager.cs",
+  "installed_reference_sha256": "66cad84d2014d379b8056b1021d2f0065837c73a71b7725360bf6e757b47b732",
+  "source_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmapResources.cs": "177b02f6a5285824f1bb53228de82983e5dd588cfe26dcdde383bcbbf37eeba8",
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs": "d3b2bebb2a7347f4c9dab39d4b603ff3d6a2fb13f9198faa1d13945c9dbc589e",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerClipmap.cs": "09bef8876b937ce881e0d208da81b6ffa37071b328edc8d039f9e62e8dc95c4f"
+  }
+}

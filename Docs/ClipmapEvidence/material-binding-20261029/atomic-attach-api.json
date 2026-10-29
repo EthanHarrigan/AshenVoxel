@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scope": "Recompiled full WorldScaleRuntime assembly against installed Unity APIs after atomic attach reorder; dependency assemblies unchanged from preceding six-assembly check. No Unity import or native rendering.",
+  "generated_utc": "2026-10-29T04:33:59.101985+00:00",
+  "source_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmapResources.cs": "177b02f6a5285824f1bb53228de82983e5dd588cfe26dcdde383bcbbf37eeba8",
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs": "d3b2bebb2a7347f4c9dab39d4b603ff3d6a2fb13f9198faa1d13945c9dbc589e",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerClipmap.cs": "09bef8876b937ce881e0d208da81b6ffa37071b328edc8d039f9e62e8dc95c4f"
+  },
+  "stdout": "Assets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorerIntegration.cs(49,44): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.\nAssets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorerIntegration.cs(50,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.\nAssets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorerIntegration.cs(51,58): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.\nAssets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorerIntegration.cs(60,87): info CS9258: 'field' is a contextual keyword in property accessors starting in language version preview. Use '@field' instead.\nAssets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorerVoxels.cs(929,77): warning CS0649: Field 'WorldExplorer.PackedStepVertex.NW' is never assigned to, and will always have its default value 0\nAssets\\AshenVoxel\\WorldScaleRuntime\\WorldExplorerVoxels.cs(930,78): warning CS0649: Field 'WorldExplorer.FloatStepVertex.NW' is never assigned to, and will always have its default value 0\n"
+}

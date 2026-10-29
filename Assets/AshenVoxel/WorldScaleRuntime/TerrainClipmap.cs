@@ -49,6 +49,7 @@ namespace AshenVoxel.WorldScaleRuntime
         public long SamplesCompleted{get;private set;}
         public int StaleJobsRejected{get;private set;}
         public Material Material=>resources?.Material;
+        internal void CopySurfaceStyle(Material source)=>resources.CopySurfaceStyle(source);
 
         public void Initialize(WorldExplorer vista,int size,double spacing,double halfX,double halfZ,double viewMeters)
         {

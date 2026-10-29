@@ -238,6 +238,21 @@ violating the strict SurfaceClimate bounds. The production-path red fixture
 reproduced the same exception; the bounded roundoff repair passes31 targeted
 checks, retains exact interior values/input rejection/temperature policy, and
 passes the27 wrapper checks plus real Unity API compilation. Full evidence is
-in `Docs/ClipmapEvidence/fallback-20261029/`. The fixed native retry is pending;
-this is not a performance, visual or sustained-operation acceptance. No Unity
-control was used by agents.
+in `Docs/ClipmapEvidence/fallback-20261029/`. The subsequent user Play reached
+current detail ready but was visually rejected: rapid noisy brown/gray/white/black
+changes, near-flat ground and floating trees. The host observed the current view
+with separately granted read-only permission; no controls were driven.
+
+The attachment path copied the entire Legacy material after the clipmap had
+bound its height/tint/appearance arrays. This is an unsafe ownership/order hazard
+consistent with missing height data; native property-sheet loss has not yet been
+observed directly. Attachment now copies only the four shared style floats,
+restores/checks the exact owned texture references, and validates before publishing
+the replacement or clearing Legacy. No palette, sampler or shader-quality change.
+The original attachment fails the modeled material-boundary regression; the fixed
+path passes13 checks, including failure leaving the replacement unattached. This
+model does not prove native CopyPropertiesFromMaterial behavior or rendered pixels.
+Six-assembly API compilation passes; a final runtime-assembly check covers the
+atomic attach order. Evidence is `Docs/ClipmapEvidence/material-binding-20261029/`.
+Native repair confirmation, sustained operation and performance acceptance remain
+pending the requested user retry.

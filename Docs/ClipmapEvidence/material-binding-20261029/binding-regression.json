@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "scope": "Production resource + attachment code with a modeled native-material boundary.\nRed uses the original broad-copy attachment; green uses the current attachment.\nThis is an ownership/call-order regression, not native Unity material/render proof.\n",
+  "generated_utc": "2026-10-29T04:33:35.308601+00:00",
+  "source_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmapResources.cs": "177b02f6a5285824f1bb53228de82983e5dd588cfe26dcdde383bcbbf37eeba8",
+    "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerClipmap.cs": "09bef8876b937ce881e0d208da81b6ffa37071b328edc8d039f9e62e8dc95c4f",
+    "Tools/ClipmapBindingChecks/UnityShim.cs": "943495572d8dfdd499e26c35a4e8cdd63cb6f7c67e50480afe1c73cd27eba55a",
+    "Tools/ClipmapBindingChecks/Program.cs": "77fd5eaae822caa7596444669d1d3c2076bcad828e496cee761e8a94460d5610",
+    "Tools/ClipmapBindingChecks/run_checks.py": "f0d7ea70fba1a9135aff0a8ce522150c02d202055dacde981a89308864d7da92"
+  },
+  "results": [
+    {
+      "label": "red",
+      "exit_code": 3762504530,
+      "stdout": "",
+      "stderr": "Unhandled exception. System.Exception: attach retains exact owned height texture\n   at Program.Check(Boolean value, String message)\n   at Program.Main()\n"
+    },
+    {
+      "label": "green",
+      "exit_code": 0,
+      "stdout": "PASS attach retains exact owned height texture\nPASS attach retains exact owned tint texture\nPASS attach retains exact owned appearance texture\nPASS shared style copied: _GrainStrength\nPASS shared style copied: _FineGrainStrength\nPASS shared style copied: _VoxelSize\nPASS shared style copied: _Roughness\nPASS legacy keywords do not replace clipmap keywords\nPASS legacy render queue is not inherited\nPASS unrelated legacy texture is not imported\nPASS style application restores all owned bindings after a prior reset\nPASS binding failure is observable instead of submitting a flat surface\nPASS failed validation leaves the replacement unattached for Legacy fallback\nPASS 13 modeled attachment/material-binding checks; no native rendering performed.\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -83,13 +83,38 @@ namespace AshenVoxel.WorldScaleRuntime
                 tint = CreateArray("Clipmap tint (sRGB bytes)", RenderTextureFormat.ARGB32);
                 appearance = CreateArray("Clipmap appearance", RenderTextureFormat.ARGB32);
                 updateBuffer = new ComputeBuffer(UploadCapacity, 16, ComputeBufferType.Structured);
-                Material.SetTexture("_CmHeights", heights); Material.SetTexture("_CmTint", tint);
-                Material.SetTexture("_CmAppearance", appearance);
+                BindMaterialTextures();
                 scatter.SetBuffer(kernel, "_Updates", updateBuffer);
                 scatter.SetTexture(kernel, "_Heights", heights); scatter.SetTexture(kernel, "_Tint", tint);
                 scatter.SetTexture(kernel, "_Appearance", appearance);
             }
             catch { Dispose(); throw; }
+        }
+
+        /// <summary>Transfer only the shared appearance controls. Replacing the
+        /// material property sheet can discard the clipmap's owned texture bindings.</summary>
+        public void CopySurfaceStyle(Material source)
+        {
+            if (disposed) throw new ObjectDisposedException(nameof(TerrainClipmapResources));
+            if (source != null)
+            {
+                CopyFloat("_GrainStrength"); CopyFloat("_FineGrainStrength");
+                CopyFloat("_VoxelSize"); CopyFloat("_Roughness");
+                void CopyFloat(string name)
+                { if (source.HasProperty(name)) Material.SetFloat(name, source.GetFloat(name)); }
+            }
+            // Keep resource ownership explicit even if a caller previously copied
+            // or reset the material. Never inherit legacy keywords/render settings.
+            BindMaterialTextures();
+            if (Material.GetTexture("_CmHeights") != heights || Material.GetTexture("_CmTint") != tint ||
+                Material.GetTexture("_CmAppearance") != appearance)
+                throw new InvalidOperationException("Clipmap material lost its owned height/tint/appearance texture bindings.");
+        }
+
+        void BindMaterialTextures()
+        {
+            Material.SetTexture("_CmHeights", heights); Material.SetTexture("_CmTint", tint);
+            Material.SetTexture("_CmAppearance", appearance);
         }
 
         RenderTexture CreateArray(string name, RenderTextureFormat format)
