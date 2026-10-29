@@ -131,6 +131,13 @@ namespace AshenVoxel.Exploration
         public bool VoxelStepGround=false;
         [Tooltip("Shade the smooth continuous ground as 10cm stair-steps (per-pixel, no extra geometry), fading out with distance. Live.")]
         public bool VirtualVoxelSteps=true;
+        [Tooltip("Voxel look at every distance on the smooth terrain: block faces with soft corner shade, rounded lit edges, sand-like mottling and one colour per world-grid block. Blocks grow with distance (whole 10cm multiples) to stay about VoxelBlockPixels wide. Needs VirtualVoxelSteps. Live.")]
+        public bool VoxelLookAllDistances=true;
+        [Tooltip("Stepped hill and mountain outlines against the sky (grazing edges lifted half a block, clipped per pixel). Live.")]
+        public bool VoxelSilhouettes=true;
+        [Tooltip("How strongly the largest (most distant) blocks show: 0 smooth far mountains, 1 full blocks.")][Range(0,1)] public float VoxelLookFarStrength=.45f;
+        [Tooltip("Target block width on screen in pixels before the next larger block size takes over.")][Range(1,4)] public float VoxelBlockPixels=2f;
+        [Tooltip("One colour per world-grid block instead of colour smeared across large triangles.")][Range(0,1)] public float VoxelWorldGridPigment=1f;
         [Tooltip("Optional next-Play local disk cache for distant height proxies.1GiB, default off; does not reduce visible GPU mesh memory.")]
         public bool EnableHeightProxyDiskCache=false;
         public bool EnableForestHorizon=true;

@@ -163,40 +163,68 @@ Shader "AshenVoxel/GroundSurface"
             }
             return o;
         }
-        // ---- Virtual 10 cm steps on the smooth connected mesh ---------------------------
-        // The smooth surface stays the geometry. Per pixel, the view ray is marched through
-        // the 10 cm column grid of the local tangent plane, each column's top rounded to a
-        // 10 cm level, and the first top or riser it meets is shaded instead.
-        struct VirtualStepHit{float3 position;half3 normal;half ao;float3 cell;};
-        float VirtualTop(float2 cellIndex,float3 q,float2 g,float c)
+        // ---- Voxel look at every distance (virtual steps on the smooth connected mesh) -------
+        // The smooth surface stays the geometry. Per pixel, the view ray is marched through a
+        // world-anchored column grid of the local tangent plane, each column's top rounded to the
+        // cell size, and the first top or riser it meets is shaded instead. Near the player the
+        // cells are 10 cm; farther away they grow in powers of two (always whole 10 cm voxel
+        // multiples on the same world grid) so each block stays about _AshenVoxelLook.y pixels.
+        float4 _AshenVoxelLook;   // global: x on, y target pixels per block, z strength at the largest blocks, w largest block m
+        float4 _AshenVoxelLook2;  // global: x stepped silhouettes on, y largest silhouette step m, z grazing band, w world-grid pigment strength
+        float4 _AshenVoxelPixel;  // global: x radians per screen pixel
+        struct VirtualStepHit{float3 position;half3 normal;half ao;float3 cell;float3 center;half bevel;half3 bevelNormal;};
+        // Local surface: tangent plane plus (on lifted silhouette shells only) its curvature H.
+        float SurfaceAt(float2 xz,float3 q,float2 g,float2x2 H)
         {
-            float2 center=(cellIndex+.5)*c;
-            return round((q.y+g.x*(center.x-q.x)+g.y*(center.y-q.z))/c)*c;
+            float2 D=xz-q.xz;return q.y+dot(g,D)+.5*dot(D,mul(H,D));
         }
-        half VirtualTopAO(float2 cellIndex,float3 q,float2 g,float c,float top,float2 f)
+        float VirtualTop(float2 cellIndex,float3 q,float2 g,float c,float2x2 H)
+        {
+            return round(SurfaceAt((cellIndex+.5)*c,q,g,H)/c)*c;
+        }
+        // Curvature of the interpolated surface (Hessian of height over world xz) from screen
+        // derivatives. Must be evaluated in uniform control flow.
+        float2x2 SurfaceHessian(float3 positionWS,float3 n)
+        {
+            float2 g=-n.xz/max(n.y,.05);
+            float2 gx=ddx(g),gy=ddy(g),px=ddx(positionWS.xz),py=ddy(positionWS.xz);
+            float det=px.x*py.y-py.x*px.y;
+            if(abs(det)<1e-12)return (float2x2)0;
+            float2x2 Pi=float2x2(py.y,-py.x,-px.y,px.x)/det;// inverse of [px py] (columns)
+            float2x2 G=float2x2(gx.x,gy.x,gx.y,gy.y);
+            float2x2 H=mul(G,Pi);H=.5*(H+transpose(H));
+            H[0]=clamp(H[0],-2,2);H[1]=clamp(H[1],-2,2);return H;
+        }
+        half VirtualTopAO(float2 cellIndex,float3 q,float2 g,float c,float2x2 H,float top,float2 f,out half4 lower)
         {
             float h=top+.001;
-            bool xm=VirtualTop(cellIndex+float2(-1,0),q,g,c)>h,xp=VirtualTop(cellIndex+float2(1,0),q,g,c)>h;
-            bool zm=VirtualTop(cellIndex+float2(0,-1),q,g,c)>h,zp=VirtualTop(cellIndex+float2(0,1),q,g,c)>h;
-            bool mm=VirtualTop(cellIndex+float2(-1,-1),q,g,c)>h,pm=VirtualTop(cellIndex+float2(1,-1),q,g,c)>h;
-            bool mp=VirtualTop(cellIndex+float2(-1,1),q,g,c)>h,pp=VirtualTop(cellIndex+float2(1,1),q,g,c)>h;
+            float txm=VirtualTop(cellIndex+float2(-1,0),q,g,c,H),txp=VirtualTop(cellIndex+float2(1,0),q,g,c,H);
+            float tzm=VirtualTop(cellIndex+float2(0,-1),q,g,c,H),tzp=VirtualTop(cellIndex+float2(0,1),q,g,c,H);
+            bool xm=txm>h,xp=txp>h,zm=tzm>h,zp=tzp>h;
+            bool mm=VirtualTop(cellIndex+float2(-1,-1),q,g,c,H)>h,pm=VirtualTop(cellIndex+float2(1,-1),q,g,c,H)>h;
+            bool mp=VirtualTop(cellIndex+float2(-1,1),q,g,c,H)>h,pp=VirtualTop(cellIndex+float2(1,1),q,g,c,H)>h;
+            // Exposed (convex) edges: the neighbour column is a full step lower.
+            float l=top-.5*c;lower=half4(txm<l?1:0,txp<l?1:0,tzm<l?1:0,tzp<l?1:0);
             float a00=StepCornerAO(xm,zm,mm),a10=StepCornerAO(xp,zm,pm),a01=StepCornerAO(xm,zp,mp),a11=StepCornerAO(xp,zp,pp);
-            return (half)lerp(lerp(a00,a10,f.x),lerp(a01,a11,f.x),f.y);
+            // Smoothstep across the face: soft, rounded occlusion gradients instead of a linear ramp.
+            float2 s=f*f*(3-2*f);
+            return (half)lerp(lerp(a00,a10,s.x),lerp(a01,a11,s.x),s.y);
         }
-        bool VirtualStep(float3 positionWS,half3 n,out VirtualStepHit hit)
+        // Returns 1 on a hit, 0 when undecided (iteration budget), -1 when a lifted shell pixel
+        // runs past its reach without meeting a step (sky or farther terrain shows through).
+        int VirtualStepAt(float3 positionWS,half3 n,float c,float lift,float2x2 H,out VirtualStepHit hit)
         {
-            hit=(VirtualStepHit)0;hit.ao=1;hit.normal=n;hit.position=positionWS;
-            float c=max(_AshenVirtualSteps.w,.01);
-            if(n.y<.3)return false;
+            hit=(VirtualStepHit)0;hit.ao=1;hit.normal=n;hit.position=positionWS;hit.center=positionWS;hit.bevelNormal=n;
+            if(n.y<.3)return 0;
             float3 phase=_SurfaceOriginPhase.xyz;
-            float3 q=positionWS+phase;
+            float3 p=positionWS+phase;float3 q=p-float3(0,lift,0);
             float3 V=normalize(positionWS-_WorldSpaceCameraPos.xyz);
             float2 g=-n.xz/n.y;
             float d=V.y-g.x*V.x-g.y*V.z; // rate at which the ray sinks below the tangent plane
-            if(d>-1e-3)return false;
+            if(d>-1e-4)return lift>0?-1:0;
             float margin=c*(1.0+.5*(abs(g.x)+abs(g.y)))+.01;
-            float tb=min(margin/(-d),3.0);
-            float3 r0=q-V*tb;
+            float tb=clamp((margin-lift)/(-d),0,40*c);
+            float3 r0=p-V*tb;
             float2 cellIndex=floor(r0.xz/c);
             float2 dir=float2(V.x>=0?1.0:-1.0,V.z>=0?1.0:-1.0);
             float2 inv=1.0/max(abs(V.xz),1e-6);
@@ -205,16 +233,21 @@ Shader "AshenVoxel/GroundSurface"
             float tEnter=0;int axis=-1;float previousTop=0;
             [loop] for(int i=0;i<24;i++)
             {
-                float top=VirtualTop(cellIndex,q,g,c);
+                float top=VirtualTop(cellIndex,q,g,c,H);
                 float yEnter=r0.y+V.y*tEnter;
                 float tExit=min(next.x,next.y);
                 if(yEnter<=top&&axis>=0)
                 {
                     hit.position=r0+V*tEnter;
                     hit.normal=axis==0?half3(-dir.x,0,0):half3(0,0,-dir.y);
-                    hit.ao=(half)lerp(.55,1.0,saturate((hit.position.y-previousTop)/c));
+                    // Riser: soft vertical occlusion towards the lower step, a bright rounded lip at the top.
+                    float v=saturate((hit.position.y-previousTop)/max(top-previousTop,c));
+                    hit.ao=(half)lerp(.5,1.0,pow(v*v*(3-2*v),.7));
+                    hit.bevel=(half)smoothstep(.8,1.0,v);
+                    hit.bevelNormal=normalize(hit.normal+half3(0,1.2h,0)*hit.bevel);
                     hit.cell=float3(cellIndex.x,round(hit.position.y/c-.5),cellIndex.y);
-                    hit.position-=phase;return true;
+                    hit.center=float3((cellIndex.x+.5)*c,(hit.cell.y+.5)*c,(cellIndex.y+.5)*c)-phase;
+                    hit.position-=phase;return 1;
                 }
                 if(V.y<0)
                 {
@@ -222,16 +255,62 @@ Shader "AshenVoxel/GroundSurface"
                     if(tTop<=tExit)
                     {
                         hit.position=r0+V*max(tTop,tEnter);hit.normal=half3(0,1,0);
-                        hit.ao=VirtualTopAO(cellIndex,q,g,c,top,frac(hit.position.xz/c));
+                        float2 f=frac(hit.position.xz/c);half4 lower;
+                        hit.ao=VirtualTopAO(cellIndex,q,g,c,H,top,f,lower);
+                        // Rounded exposed edges catch the light: tilt the normal outward near them.
+                        half4 e=lower*half4(smoothstep(.2,0,f.x),smoothstep(.8,1,f.x),smoothstep(.2,0,f.y),smoothstep(.8,1,f.y));
+                        hit.bevel=max(max(e.x,e.y),max(e.z,e.w));
+                        hit.bevelNormal=normalize(half3(e.y-e.x,1.4h,e.w-e.z));
                         hit.cell=float3(cellIndex.x,round(top/c),cellIndex.y);
-                        hit.position-=phase;return true;
+                        hit.center=float3((cellIndex.x+.5)*c,top,(cellIndex.y+.5)*c)-phase;
+                        hit.position-=phase;return 1;
                     }
                 }
                 previousTop=top;
                 if(next.x<next.y){cellIndex.x+=dir.x;tEnter=next.x;next.x+=delta.x;axis=0;}
                 else{cellIndex.y+=dir.y;tEnter=next.y;next.y+=delta.y;axis=1;}
+                // A lifted shell ray that climbs clear of the curved surface has passed over the
+                // ridge: no step lies under this pixel, so the silhouette is stepped here.
+                if(lift>0){float3 r=r0+V*tEnter;if(r.y-SurfaceAt(r.xz,q,g,H)>lift+margin)return -1;}
             }
-            return false;
+            return 0;
+        }
+        bool VirtualStep(float3 positionWS,half3 n,out VirtualStepHit hit)
+        {return VirtualStepAt(positionWS,n,max(_AshenVirtualSteps.w,.01),0,(float2x2)0,hit)>0;}
+        // Smallest whole-voxel block (0.1 m x 2^k) that is at least `want` metres; t blends to the next.
+        float VoxelLevel(float want,out float t)
+        {
+            float lv=log2(max(want,.1)/.1);float k=floor(lv);t=lv-k;
+            return .1*exp2(k);
+        }
+        // ---- Stepped silhouettes: lift grazing vertices by half a block, clip where no step is met.
+        float VoxelShellLift(float3 positionWS,float3 normalWS)
+        {
+            if(_AshenVoxelLook.x<.5||_AshenVoxelLook2.x<.5||StepEnabled())return 0;
+            float3 toCam=_WorldSpaceCameraPos.xyz-positionWS;float dist=length(toCam);
+            float pixel=dist*max(_AshenVoxelPixel.x,1e-6);
+            float t;float c=VoxelLevel(pixel*max(_AshenVoxelLook.y,1),t);c*=lerp(1.0,2.0,t);
+            if(c>_AshenVoxelLook2.y||normalWS.y<.3)return 0;
+            float grazing=1-saturate(abs(dot(normalize(normalWS),toCam/max(dist,1e-4)))/max(_AshenVoxelLook2.z,.01));
+            return .5*c*grazing;
+        }
+        void ClipVoxelShell(float3 positionWS,float3 normalWS,float lift)
+        {
+            float3 footprint=fwidth(positionWS);float pixel=max(footprint.x,max(footprint.y,footprint.z));
+            float2x2 H=SurfaceHessian(positionWS,normalize(normalWS));
+            [branch] if(lift<=1e-4)return;
+            float t;float c=VoxelLevel(pixel*max(_AshenVoxelLook.y,1),t);c=min(c*(t>.5?2.0:1.0),_AshenVoxelLook2.y);
+            VirtualStepHit hit;
+            if(VirtualStepAt(positionWS,(half3)normalize(normalWS),c,lift,H,hit)<0)clip(-1);
+        }
+        float VoxelHash(float3 p){p=frac(p*.1031);p+=dot(p,p.yzx+33.33);return frac((p.x+p.y)*p.z);}
+        // Smooth value noise for soft, sand-like mottling inside a block face.
+        float VoxelValueNoise(float3 p)
+        {
+            float3 i=floor(p),f=frac(p);f=f*f*(3-2*f);
+            float a=VoxelHash(i),b=VoxelHash(i+float3(1,0,0)),c=VoxelHash(i+float3(0,1,0)),d=VoxelHash(i+float3(1,1,0));
+            float e=VoxelHash(i+float3(0,0,1)),g=VoxelHash(i+float3(1,0,1)),h=VoxelHash(i+float3(0,1,1)),k=VoxelHash(i+float3(1,1,1));
+            return lerp(lerp(lerp(a,b,f.x),lerp(c,d,f.x),f.y),lerp(lerp(e,g,f.x),lerp(h,k,f.x),f.y),f.z);
         }
         ENDHLSL
         Pass
@@ -263,15 +342,17 @@ Shader "AshenVoxel/GroundSurface"
                 half2 optics : TEXCOORD4;
                 nointerpolation uint material : TEXCOORD5;
                 float4 stepData : TEXCOORD6;
+                float lift : TEXCOORD7;
             };
             Varyings Vert(Attributes input)
             {
                 Varyings output;
                 float morph;float3 positionOS=GroundPositionOS(input.positionOS,morph);
                 output.stepData=float4(positionOS,morph);
-                VertexPositionInputs pos = GetVertexPositionInputs(positionOS);
-                output.positionCS = pos.positionCS; output.positionWS = pos.positionWS;
                 output.normalWS = TransformObjectToWorldNormal(input.normalOS);
+                float3 positionWS=TransformObjectToWorld(positionOS);
+                output.lift=VoxelShellLift(positionWS,output.normalWS);positionWS.y+=output.lift;
+                output.positionWS=positionWS;output.positionCS=TransformWorldToHClip(positionWS);
                 output.color = input.color;
                 output.optics=GroundOptics(input.surface.w);
                 output.material=GroundMaterialId(input.surface.w,input.color.a);
@@ -282,7 +363,7 @@ Shader "AshenVoxel/GroundSurface"
                 #if !defined(UNITY_COLORSPACE_GAMMA)
                 output.color.rgb = SRGBToLinear(output.color.rgb);
                 #endif
-                output.fog = ComputeFogFactor(pos.positionCS.z);
+                output.fog = ComputeFogFactor(output.positionCS.z);
                 return output;
             }
             float Hash(float3 p)
@@ -309,13 +390,62 @@ Shader "AshenVoxel/GroundSurface"
                     baseColor=s.albedo;vertexOcclusion=s.ao;material=s.material;optics=MaterialOptics(material);roughness=StepRoughness(material,s.wet);
                 }
                 ClipVoxelTerrain(input.positionWS);ClipMaterialStable(MaterialViewOpacity(optics.x,material,input.positionWS),GroundCoveragePosition(input.positionWS));
+                ClipVoxelShell(input.positionWS,input.normalWS,input.lift);
                 // A tiny inward bias makes cell grain continuous on negative-facing surfaces.
                 float3 cell = floor((input.positionWS + _SurfaceOriginPhase.xyz - normal * 0.0001) / max(0.001, _VoxelSize));
                 float3 footprint = fwidth(input.positionWS);
                 float pixelSize = max(footprint.x, max(footprint.y, footprint.z));
                 float cellFade = saturate(1.0 - pixelSize / max(0.001, _VoxelSize));
                 float3 shadePosition=input.positionWS;half grainStrength=_GrainStrength;
-                [branch] if(_AshenVirtualSteps.x>.5&&!StepEnabled()&&pixelSize<_AshenVirtualSteps.z)
+                half micro=0;half rim=0;
+                // Derivatives for world-grid pigment and surface curvature (uniform control flow).
+                float3 dpx=ddx(input.positionWS),dpy=ddy(input.positionWS);half3 dcx=ddx(baseColor),dcy=ddy(baseColor);
+                float2x2 curvature=SurfaceHessian(input.positionWS,normal);
+                [branch] if(_AshenVoxelLook.x>.5&&!StepEnabled()&&normal.y>.3)
+                {
+                    float t;float c0=VoxelLevel(pixelSize*max(_AshenVoxelLook.y,1),t);
+                    float maxCell=max(_AshenVoxelLook.w,.1);half w1=(half)smoothstep(0,1,t);
+                    if(c0>=maxCell){c0=maxCell;w1=0;}
+                    float c1=min(2*c0,maxCell);if(c1<=c0)w1=0;
+                    float cellPx=lerp(c0,c1,w1)/max(pixelSize,1e-5);
+                    // Full blocks near the player, a light touch on the largest (most distant) blocks,
+                    // and nothing once a block shrinks below a pixel (only per-block grain remains).
+                    half strength=(half)lerp(1.0,_AshenVoxelLook.z,saturate(log2(max(c0,.2)/.2)/max(log2(maxCell/.2),1)));
+                    strength*=(half)(saturate((cellPx-.6)/.9)*saturate((normal.y-.3)/.15));
+                    float2x2 H=input.lift>0?curvature:(float2x2)0;
+                    VirtualStepHit ha=(VirtualStepHit)0,hb=(VirtualStepHit)0;int ra=0,rb=0;
+                    [branch] if(strength>0)
+                    {
+                        ra=VirtualStepAt(input.positionWS,normal,c0,input.lift,H,ha);
+                        if(w1>.01)rb=VirtualStepAt(input.positionWS,normal,c1,input.lift,H,hb);
+                    }
+                    if(ra>0)
+                    {
+                        if(rb<=0){hb=ha;w1=0;}
+                        half detail=(half)saturate((cellPx-3)/4);// rounded edges once a block is a few pixels
+                        half3 na=normalize(lerp(ha.normal,ha.bevelNormal,detail)),nb=normalize(lerp(hb.normal,hb.bevelNormal,detail));
+                        normal=normalize(lerp(normal,normalize(lerp(na,nb,w1)),strength));
+                        vertexOcclusion*=lerp(1.0h,lerp(ha.ao,hb.ao,w1),strength);
+                        shadePosition=lerp(input.positionWS,lerp(ha.position,hb.position,w1),strength);
+                        cell=w1>.5?hb.cell+float3(0,4099.0*c1,0):ha.cell+float3(0,4099.0*c0,0);cellFade=strength;
+                        grainStrength=lerp(_GrainStrength,max(_GrainStrength,.06h),strength);
+                        rim=lerp(ha.bevel,hb.bevel,w1)*detail*strength;
+                        // Soft mottling inside each face, like settled sand: only once blocks are large on screen.
+                        float cm=lerp(c0,c1,w1);
+                        micro=(half)((VoxelValueNoise((shadePosition+_SurfaceOriginPhase.xyz)*(3.0/cm))-.5)*.10*saturate((cellPx-5)/6))*strength;
+                        // World-grid pigment: one colour per block, taken at the block centre, so colour
+                        // follows the voxel grid instead of stretching across large triangles.
+                        float a11=dot(dpx,dpx),a12=dot(dpx,dpy),a22=dot(dpy,dpy),det=a11*a22-a12*a12;
+                        half snap=(half)(_AshenVoxelLook2.w*saturate((cellPx-1)/2))*strength;
+                        if(det>1e-14&&snap>0)
+                        {
+                            float3 D=lerp(ha.center,hb.center,w1)-input.positionWS;float b1=dot(D,dpx),b2=dot(D,dpy);
+                            float u=clamp((a22*b1-a12*b2)/det,-6,6),v=clamp((a11*b2-a12*b1)/det,-6,6);
+                            baseColor=max(0,baseColor+(dcx*(half)u+dcy*(half)v)*snap);
+                        }
+                    }
+                }
+                else if(_AshenVirtualSteps.x>.5&&!StepEnabled()&&pixelSize<_AshenVirtualSteps.z)
                 {
                     half fade=(half)(saturate((_AshenVirtualSteps.z-pixelSize)/max(_AshenVirtualSteps.z-_AshenVirtualSteps.y,1e-4))*saturate((normal.y-.3)/.15));
                     VirtualStepHit hit;
@@ -333,7 +463,7 @@ Shader "AshenVoxel/GroundSurface"
                     float fineFade = saturate(1.0 - pixelSize * 100.0);
                     grain += (Hash(floor((input.positionWS + _SurfaceOriginPhase.xyz) * 65.0)) - 0.5) * _FineGrainStrength * fineFade;
                 }
-                half3 albedo = saturate(baseColor * (1.0h + grain));
+                half3 albedo = saturate(baseColor * (1.0h + grain + micro + rim*.07h));
                 half3 view = SafeNormalize(GetWorldSpaceViewDir(shadePosition));
                 // UV0 carries continuous roughness/wetness/snow and a valid flag on
                 // height proxies. Voxel chunks omit UV0 and retain the generic fallback;
@@ -408,10 +538,10 @@ Shader "AshenVoxel/GroundSurface"
             #pragma target 3.5
             #pragma fragment DepthFrag
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-            struct DepthVaryings { float4 positionCS : SV_POSITION; float3 positionWS : TEXCOORD0; half opacity:TEXCOORD1; nointerpolation uint material:TEXCOORD2; };
-            DepthVaryings DepthVert(float4 positionOS : POSITION,half4 color:COLOR,float4 surface:TEXCOORD0)
-            { DepthVaryings output; float morph; output.positionWS = TransformObjectToWorld(GroundPositionOS(positionOS,morph)); output.positionCS = TransformWorldToHClip(output.positionWS);output.opacity=StepEnabled()?1:surface.w>.5?GroundOptics(surface.w).x:VertexOptics(color.a).x;output.material=StepEnabled()?0u:GroundMaterialId(surface.w,color.a);return output; }
-            half4 DepthFrag(DepthVaryings input) : SV_Target { ClipVoxelTerrain(input.positionWS); ClipMaterialStable(MaterialViewOpacity(input.opacity,input.material,input.positionWS),GroundCoveragePosition(input.positionWS));return 0; }
+            struct DepthVaryings { float4 positionCS : SV_POSITION; float3 positionWS : TEXCOORD0; half opacity:TEXCOORD1; nointerpolation uint material:TEXCOORD2; float3 normalWS:TEXCOORD3; float lift:TEXCOORD4; };
+            DepthVaryings DepthVert(float4 positionOS : POSITION,float3 normalOS:NORMAL,half4 color:COLOR,float4 surface:TEXCOORD0)
+            { DepthVaryings output; float morph; output.positionWS = TransformObjectToWorld(GroundPositionOS(positionOS,morph)); output.normalWS=TransformObjectToWorldNormal(normalOS);output.lift=VoxelShellLift(output.positionWS,output.normalWS);output.positionWS.y+=output.lift; output.positionCS = TransformWorldToHClip(output.positionWS);output.opacity=StepEnabled()?1:surface.w>.5?GroundOptics(surface.w).x:VertexOptics(color.a).x;output.material=StepEnabled()?0u:GroundMaterialId(surface.w,color.a);return output; }
+            half4 DepthFrag(DepthVaryings input) : SV_Target { ClipVoxelTerrain(input.positionWS); ClipVoxelShell(input.positionWS,input.normalWS,input.lift); ClipMaterialStable(MaterialViewOpacity(input.opacity,input.material,input.positionWS),GroundCoveragePosition(input.positionWS));return 0; }
             ENDHLSL
         }
         Pass
@@ -427,14 +557,15 @@ Shader "AshenVoxel/GroundSurface"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Packing.hlsl"
             struct Attributes { float4 positionOS : POSITION; float3 normalOS : NORMAL; half4 color:COLOR; float4 surface:TEXCOORD0; };
-            struct Varyings { float4 positionCS : SV_POSITION; half3 normalWS : TEXCOORD0; float3 positionWS : TEXCOORD1; half opacity:TEXCOORD2; nointerpolation uint material:TEXCOORD3; };
+            struct Varyings { float4 positionCS : SV_POSITION; half3 normalWS : TEXCOORD0; float3 positionWS : TEXCOORD1; half opacity:TEXCOORD2; nointerpolation uint material:TEXCOORD3; float lift:TEXCOORD4; };
             Varyings NormalVert(Attributes input)
             {
                 Varyings output;
                 float morph;float3 positionOS=GroundPositionOS(input.positionOS,morph);
-                output.positionCS = TransformObjectToHClip(positionOS);
                 output.normalWS = TransformObjectToWorldNormal(input.normalOS);
                 output.positionWS = TransformObjectToWorld(positionOS);
+                output.lift=VoxelShellLift(output.positionWS,output.normalWS);output.positionWS.y+=output.lift;
+                output.positionCS = TransformWorldToHClip(output.positionWS);
                 output.opacity=StepEnabled()?1:input.surface.w>.5?GroundOptics(input.surface.w).x:VertexOptics(input.color.a).x;
                 output.material=StepEnabled()?0u:GroundMaterialId(input.surface.w,input.color.a);
                 return output;
@@ -442,6 +573,7 @@ Shader "AshenVoxel/GroundSurface"
             half4 NormalFrag(Varyings input) : SV_Target
             {
                 ClipVoxelTerrain(input.positionWS);ClipMaterialStable(MaterialViewOpacity(input.opacity,input.material,input.positionWS),GroundCoveragePosition(input.positionWS));
+                ClipVoxelShell(input.positionWS,input.normalWS,input.lift);
                 float3 normalWS = normalize(input.normalWS);
                 #if defined(_GBUFFER_NORMALS_OCT)
                 float2 octNormalWS = PackNormalOctQuadEncode(normalWS);
