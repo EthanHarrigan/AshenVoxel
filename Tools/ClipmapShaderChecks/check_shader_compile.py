@@ -8,6 +8,7 @@ This is not Unity ShaderLab import, D3D12 rendering, full variant coverage, or a
 visual gate.
 """
 from pathlib import Path
+import argparse
 import ctypes as c
 import datetime
 import hashlib
@@ -103,6 +104,9 @@ def compile_one(source, entry, target, defines):
 
 def main():
     global current_source
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--report', default='Docs/ClipmapEvidence/gpu-hlsl-background.json')
+    args = parser.parse_args()
     text = SHADER.read_text(encoding='utf-8')
     common = re.search(r'HLSLINCLUDE(.*?)ENDHLSL', text, re.S).group(1)
     passes = re.findall(r'HLSLPROGRAM(.*?)ENDHLSL', text, re.S)
@@ -127,7 +131,7 @@ def main():
     results.append(result)
     print(('PASS' if result['passed'] else 'FAIL'), 'Scatter')
     if not result['passed']: print(result['diagnostics'])
-    report = ROOT / 'Docs/ClipmapEvidence/gpu-hlsl-background.json'
+    report = ROOT / args.report
     report.parent.mkdir(parents=True, exist_ok=True)
     report.write_text(json.dumps(dict(status='PASS' if all(r['passed'] for r in results) else 'FAIL',
         scope=__doc__.strip(), generated_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),

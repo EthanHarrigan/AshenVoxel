@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "assertions": 3146,
+  "scope": "Scalar contract checks for clipmap cross-grid face lighting, not rendered pixels.\n\nChecks the analytic radiance blend independently of URP's BRDF implementation.\nSource guards tie its branch/fetch assumptions to the current shader. The separate\nHLSL compiler check covers syntax and selected variants; neither is a Unity visual\nor GPU timing test.",
+  "generated_utc": "2026-10-29T04:56:59.569724+00:00",
+  "shader_sha256": "442a52b0bcc06b033721717fe73f6c59a96f86325bb56f13b94eb427e285cde9",
+  "scalar_fixture": {
+    "old_normal_blend": 0.7071067811865475,
+    "corrected_radiance_blend": 0.5,
+    "old_relative_brightness_bias": 0.4142135623730949
+  },
+  "limits": "No native visual acceptance, Unity import, depth/SSAO parity, or GPU timing measurement."
+}

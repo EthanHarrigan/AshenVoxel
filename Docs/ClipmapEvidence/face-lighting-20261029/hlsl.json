@@ -1,0 +1,236 @@
+{
+  "status": "PASS",
+  "scope": "Compile clipmap HLSL with Windows D3DCompiler, without running Unity.\n\nThis checks actual URP includes and selected D3D11/SM5 variants. Unity's\ninclude_with_pragmas directive becomes include, and zero-argument function macros\nreceive an unused formal parameter for FXC's legacy preprocessor. Half uses FXC's\nbackward-compatible float mapping. Files on disk are not changed by this bridge.\nThis is not Unity ShaderLab import, D3D12 rendering, full variant coverage, or a\nvisual gate.",
+  "generated_utc": "2026-10-29T04:57:02.975367+00:00",
+  "source_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/Resources/TerrainClipmap.shader": "442a52b0bcc06b033721717fe73f6c59a96f86325bb56f13b94eb427e285cde9",
+    "Assets/AshenVoxel/WorldScaleRuntime/Resources/TerrainClipmapScatter.compute": "30bd764e5ef71819ebd0dbdac4133691bdde14c17196d32f9acacf2c03682e3e"
+  },
+  "includes_sha256": {
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/Core.hlsl": "9614b01872c7afbb732ec1b6958fcdaaa04fc9650107fa6b1121c9f647d40b40",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/ForwardPlusKeyword.deprecated.hlsl": "0224bd4f92a6189112a5cfd07d9762555788e58a38b250eec1a3f2217c10030e",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/Common.hlsl": "0a6a5fcf220db789b3cebf0421b71ba19a0fca9846bc6036f776f0254571c035",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/API/D3D11.hlsl": "dc9362fc3f1f495735681247bbca47d304d08b2a7252772d71037bad9a8b70dc",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/API/Validate.hlsl": "3134db504d40f1a1fbf300af43fbf8c7ba62937dab96e873c998b20546be9b0d",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/Macros.hlsl": "bc2fcddd337b4f18ff6b1f89b5c487f9b974d18e9d4eac4f1da63ca1e2914816",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/Random.hlsl": "4d788edda5d92cb119ae7fe19e47965338979997e64d8df701ae6df1175d0be7",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/CommonDeprecated.hlsl": "44745d7cebaa271e6aef262d55db3debcbe26117a1929a21459cac5f62dd2cdd",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/Packing.hlsl": "df21b00c1457ce5c8c1ae6069fb4e6e4b4e15b3334ece98a28b7d2e8f302082e",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/Version.hlsl": "7712221f6a5d67235080a7e5a11b83b2a51c641f1b6cee4b73a702af33adde59",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/GlobalSamplers.hlsl": "f8db3219070a49de17e423bbfa2839becbecbd614c02f4888b39396f8e5d90db",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/Input.hlsl": "72ce05de8f49228c6e62b376ef3165b57842fe73bd13420f0f822eb99b90c9dc",
+    "Library/PackageCache/com.unity.render-pipelines.universal-config@8dc1aab4af1d/Runtime/ShaderConfig.cs.hlsl": "473bf6bd5955eab1fe31d534719e4635904c6a829b50a99e374edf7d77eee376",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/ShaderTypes.cs.hlsl": "f48eb2e6338da6e9aef933f1b42533b459308f728cde48dac8fa5cfa21f53bad",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/Deprecated.hlsl": "5b6c0b3a2e9ad8f6285f30aed67952de8e4431524f14c326c574dbc7502a2d21",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/UnityInput.hlsl": "0f53d569452a8cdf43fccf5b33bf4f258fcdf5daa0b69b7c8371df2021335dd9",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/UnityInstancing.hlsl": "b0627d99f754c6e5b07a45dbce3cf9857854d24473da25d0696bfaf4feb11d5a",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/UniversalDOTSInstancing.hlsl": "5209dabe14e13ea9f0e8596dbd85802ba46a881fe7c049fb1609df1c82c539fe",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/SpaceTransforms.hlsl": "bd0c174c2300eec9baf99bddc5b003e34082766950d86e8d3746df7e8693acfa",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/ShaderVariablesFunctions.hlsl": "4506cc4e48fb36ef32e45633b90e6171a3b929ac38f861ca0dcb9433fa560643",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/ShaderVariablesFunctions.deprecated.hlsl": "87423aab757b97e99f1b8905d7980c527aac8134efe2f9ca66cbecbddf5e0c24",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/Debug/DebuggingCommon.hlsl": "98b99e2cb1490186c1041eab8ca20ca88160746937c3c58b03fb52d202726030",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/Debug/DebugViewEnums.cs.hlsl": "c1e81175359ca8ce2aaf6672db0f4fe17f6f99660dae5a2a527ea7cbfbb19179",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/Lighting.hlsl": "1132ec024298a9e3ebf527f9e48dcb2ee037be250acb89b881b8ec00320896b7",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/BRDF.hlsl": "1e8427056b0ab3046adf753d72fc3afee3d54c335e38a4d1069e6eedb0f78075",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/BSDF.hlsl": "c19e8362b94a9e9ecdb2b422706b825b2f9599220d29c97f29d7801b1e53eb83",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/Color.hlsl": "21ec6ebfa1ae02cce8b4966e669ddd0d437dd4c89422712e6b48d1ee3cf18c3e",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/ACES.hlsl": "7e7978f40993e90c34c29ba3cbda505a64ed5d2e7920907b247e5ff335522c94",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/CommonMaterial.hlsl": "1025efb7d34f4f73864944624490684ca11e5d35dfa5435895d7bd6d2d640b74",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/SurfaceData.hlsl": "789c20cdfaa4f9578770e999d75adec5dbd337d93d5718056013636ed19af039",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/Debug/Debugging3D.hlsl": "4c3a2e61256b76efdd2752787caea7b0b203ad1a77b88ad0120dcc48ef599564",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/GlobalIllumination.hlsl": "b954b5c6ffa8186a1139b2986175849e9ef5396c2d08ef1520e3d5f6c1f918fc",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/EntityLighting.hlsl": "ea013951841e68cc2c2a7306a4d8e265bd89786cd54e9535fa660cb00fd4c92a",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/SphericalHarmonics.hlsl": "ad654583b2dffc159ebad16383d560f6e710d1b2fe87aa18e1a47596cb0261da",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/Filtering.hlsl": "6b8e0ad9d70cf4af4b43ccb0a068172db524397b48596cd0bebac8b9ba4110c5",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/ImageBasedLighting.hlsl": "64fd0c04fc23c934a11b9d522ae782cb479ed75af19a318d1fbfdaed63ccdebe",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/CommonLighting.hlsl": "88a3da8d877f2d5f4406ae621b2eb3a3761bdd3a687906ef77dd7d48d583f028",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/Sampling/Sampling.hlsl": "2ac6f764056f27d70d62570ef00dd26f38be61d1f8d7701737445ce48981309f",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/Sampling/Fibonacci.hlsl": "142f2411b6854a4d68077fda893c3ac90ec13f9a94fe429b2bac8ab7d9cd0048",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/Sampling/Hammersley.hlsl": "69ec8e738afd4641c24976fbe8f07da1cdea6ef012ff21daef4f573ad56f7f88",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/RealtimeLights.hlsl": "59d1d75a99532078be787c6f4d76d5aa5a29b5bc33d97c190b5b6797b39bffcb",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/AmbientOcclusion.hlsl": "ca4eb8189f5db08f839e768a1fa1e4c3a198addf6d06e60a9d5ebbc8dd08ed36",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/Shadows.hlsl": "caa3e10c26476cd44cbaf7eadca308a2417bd42cc18a8a4c1466466e2af9173d",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/Shadow/ShadowSamplingTent.hlsl": "77e2d61fdcfa891d5164653d6e0b3fd0666987189aa9d67a826209c457144a9b",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/Shadows.deprecated.hlsl": "3294bf6448a0724a251634502ebe135e1e2b8b4e2e31e423cc2c3cd5979d82b8",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/LightCookie/LightCookie.hlsl": "2660a79e9653764b9567923994fbc83d52b3ee16a574471e7c729293870bf772",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/LightCookie/LightCookieInput.hlsl": "e548590c9f8bc05d04853a56830688fb4327ea4166673d76cfb3f2dee20cc962",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/LightCookie/LightCookieTypes.hlsl": "e72f8359e539e3a69dcd3b772fe27587830e883a5e9c73b1a183c95d5f3562fb",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/UnityTypes.hlsl": "c63be00e04bf36eb4455df64f722f0423979005ff0c3b78f2599ca92ca0a9140",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/Clustering.hlsl": "25726d2f0f9f28e20228d87f08d4b772b762acf2ffc31c6416c57799e9d735fc",
+    "Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/ShaderLibrary/AmbientProbe.hlsl": "c34711410eddad9de1f189ced4e711d02c0245cfb8dd3bb93d06944ad8d5aa54",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/DBuffer.hlsl": "8b0fa67deb613f74f9baaec694a154ccf51bf5c1aac3df69a7431922797d6a83",
+    "Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/ShaderLibrary/DecalInput.hlsl": "7d05a2431d8b2c2aa633c617ac149fdbe6f74d3e773e34944dcfb93146d39036",
+    "Assets/AshenVoxel/Rendering/MaterialOptics.hlsl": "f19104a070c814f84f7de4e15d4ee5130715eea49231560e5869a4497a7922ba",
+    "Assets/AshenVoxel/Rendering/AshenAtmosphere.hlsl": "d2022e63ac0aa3407802eeb5b7170677616fe231fb37d7abbff3e77c982ca0ab",
+    "Assets/AshenVoxel/WorldScaleRuntime/Resources/TerrainClipmapSampling.hlsl": "73795245af335ab1c0590d8bf6d6c97fdc3c1e739e8fb9bc7dd95be6199f09c3"
+  },
+  "include_errors": [],
+  "variants": [
+    {
+      "entry": "Vert",
+      "target": "vs_5_0",
+      "defines": {
+        "SHADER_STAGE_VERTEX": "1"
+      },
+      "passed": true,
+      "bytecode_bytes": 11732,
+      "diagnostics": "TerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\nTerrainClipmapSampling.hlsl(39,5): warning X4000: use of potentially uninitialized variable (CmTriangleHeight)\n\u0000"
+    },
+    {
+      "entry": "Vert",
+      "target": "vs_5_0",
+      "defines": {
+        "_MAIN_LIGHT_SHADOWS_CASCADE": "1",
+        "_ADDITIONAL_LIGHTS": "1",
+        "_ADDITIONAL_LIGHT_SHADOWS": "1",
+        "_SHADOWS_SOFT": "1",
+        "_SCREEN_SPACE_OCCLUSION": "1",
+        "FOG_EXP2": "1",
+        "SHADER_STAGE_VERTEX": "1"
+      },
+      "passed": true,
+      "bytecode_bytes": 11732,
+      "diagnostics": "TerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\nTerrainClipmapSampling.hlsl(39,5): warning X4000: use of potentially uninitialized variable (CmTriangleHeight)\n\u0000"
+    },
+    {
+      "entry": "Frag",
+      "target": "ps_5_0",
+      "defines": {
+        "SHADER_STAGE_FRAGMENT": "1"
+      },
+      "passed": true,
+      "bytecode_bytes": 99424,
+      "diagnostics": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(24,57-65): warning X3556: integer modulus may be much slower, try using uints if possible.\nC:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(24,46-54): warning X3556: integer divides may be much slower, try using uints if possible.\nTerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\nC:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(93,42): warning X4000: use of potentially uninitialized variable (VirtualStepAt)\nTerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\nC:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(87,31): warning X4000: use of potentially uninitialized variable (VirtualStepAt)\n../../Rendering/MaterialOptics.hlsl(61,53): warning X4000: use of potentially uninitialized variable (MaterialAmbient)\n../../Rendering/AshenAtmosphere.hlsl(61,46): warning X4000: use of potentially uninitialized variable (AshenApplyFog)\n../../Rendering/AshenAtmosphere.hlsl(39,17): warning X4000: use of potentially uninitialized variable (AshenFogOpticalDepth)\n../../Rendering/AshenAtmosphere.hlsl(28,5): warning X4000: use of potentially uninitialized variable (AshenFogLogMeanCorrection)\n\u0000"
+    },
+    {
+      "entry": "Frag",
+      "target": "ps_5_0",
+      "defines": {
+        "_MAIN_LIGHT_SHADOWS_CASCADE": "1",
+        "_ADDITIONAL_LIGHTS": "1",
+        "_ADDITIONAL_LIGHT_SHADOWS": "1",
+        "_SHADOWS_SOFT": "1",
+        "_SCREEN_SPACE_OCCLUSION": "1",
+        "FOG_EXP2": "1",
+        "SHADER_STAGE_FRAGMENT": "1"
+      },
+      "passed": true,
+      "bytecode_bytes": 140660,
+      "diagnostics": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(24,57-65): warning X3556: integer modulus may be much slower, try using uints if possible.\nC:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(24,46-54): warning X3556: integer divides may be much slower, try using uints if possible.\nTerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\nC:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(93,42): warning X4000: use of potentially uninitialized variable (VirtualStepAt)\nTerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\nC:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(87,31): warning X4000: use of potentially uninitialized variable (VirtualStepAt)\n../../Rendering/MaterialOptics.hlsl(61,53): warning X4000: use of potentially uninitialized variable (MaterialAmbient)\nPackages/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.hlsl(401,23): warning X4000: use of potentially uninitialized variable (AdditionalLightRealtimeShadow)\n../../Rendering/AshenAtmosphere.hlsl(61,46): warning X4000: use of potentially uninitialized variable (AshenApplyFog)\n../../Rendering/AshenAtmosphere.hlsl(39,17): warning X4000: use of potentially uninitialized variable (AshenFogOpticalDepth)\n../../Rendering/AshenAtmosphere.hlsl(28,5): warning X4000: use of potentially uninitialized variable (AshenFogLogMeanCorrection)\n\u0000"
+    },
+    {
+      "entry": "ShadowVert",
+      "target": "vs_5_0",
+      "defines": {
+        "SHADER_STAGE_VERTEX": "1"
+      },
+      "passed": true,
+      "bytecode_bytes": 16852,
+      "diagnostics": "TerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\nTerrainClipmapSampling.hlsl(39,5): warning X4000: use of potentially uninitialized variable (CmTriangleHeight)\nTerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\n\u0000"
+    },
+    {
+      "entry": "ShadowVert",
+      "target": "vs_5_0",
+      "defines": {
+        "_CASTING_PUNCTUAL_LIGHT_SHADOW": "1",
+        "SHADER_STAGE_VERTEX": "1"
+      },
+      "passed": true,
+      "bytecode_bytes": 16960,
+      "diagnostics": "TerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\nTerrainClipmapSampling.hlsl(39,5): warning X4000: use of potentially uninitialized variable (CmTriangleHeight)\nTerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\n\u0000"
+    },
+    {
+      "entry": "ShadowFrag",
+      "target": "ps_5_0",
+      "defines": {
+        "SHADER_STAGE_FRAGMENT": "1"
+      },
+      "passed": true,
+      "bytecode_bytes": 12304,
+      "diagnostics": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(24,57-65): warning X3556: integer modulus may be much slower, try using uints if possible.\nC:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(24,46-54): warning X3556: integer divides may be much slower, try using uints if possible.\nTerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\n\u0000"
+    },
+    {
+      "entry": "ShadowFrag",
+      "target": "ps_5_0",
+      "defines": {
+        "_CASTING_PUNCTUAL_LIGHT_SHADOW": "1",
+        "SHADER_STAGE_FRAGMENT": "1"
+      },
+      "passed": true,
+      "bytecode_bytes": 12304,
+      "diagnostics": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(24,57-65): warning X3556: integer modulus may be much slower, try using uints if possible.\nC:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(24,46-54): warning X3556: integer divides may be much slower, try using uints if possible.\nTerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\n\u0000"
+    },
+    {
+      "entry": "DepthVert",
+      "target": "vs_5_0",
+      "defines": {
+        "SHADER_STAGE_VERTEX": "1"
+      },
+      "passed": true,
+      "bytecode_bytes": 11616,
+      "diagnostics": "TerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\nTerrainClipmapSampling.hlsl(39,5): warning X4000: use of potentially uninitialized variable (CmTriangleHeight)\n\u0000"
+    },
+    {
+      "entry": "DepthFrag",
+      "target": "ps_5_0",
+      "defines": {
+        "SHADER_STAGE_FRAGMENT": "1"
+      },
+      "passed": true,
+      "bytecode_bytes": 12640,
+      "diagnostics": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(24,57-65): warning X3556: integer modulus may be much slower, try using uints if possible.\nC:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(24,46-54): warning X3556: integer divides may be much slower, try using uints if possible.\nTerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\n\u0000"
+    },
+    {
+      "entry": "NormalVert",
+      "target": "vs_5_0",
+      "defines": {
+        "SHADER_STAGE_VERTEX": "1"
+      },
+      "passed": true,
+      "bytecode_bytes": 11616,
+      "diagnostics": "TerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\nTerrainClipmapSampling.hlsl(39,5): warning X4000: use of potentially uninitialized variable (CmTriangleHeight)\n\u0000"
+    },
+    {
+      "entry": "NormalVert",
+      "target": "vs_5_0",
+      "defines": {
+        "_GBUFFER_NORMALS_OCT": "1",
+        "SHADER_STAGE_VERTEX": "1"
+      },
+      "passed": true,
+      "bytecode_bytes": 11616,
+      "diagnostics": "TerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\nTerrainClipmapSampling.hlsl(39,5): warning X4000: use of potentially uninitialized variable (CmTriangleHeight)\n\u0000"
+    },
+    {
+      "entry": "NormalFrag",
+      "target": "ps_5_0",
+      "defines": {
+        "SHADER_STAGE_FRAGMENT": "1"
+      },
+      "passed": true,
+      "bytecode_bytes": 17332,
+      "diagnostics": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(24,57-65): warning X3556: integer modulus may be much slower, try using uints if possible.\nC:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(24,46-54): warning X3556: integer divides may be much slower, try using uints if possible.\nTerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\n\u0000"
+    },
+    {
+      "entry": "NormalFrag",
+      "target": "ps_5_0",
+      "defines": {
+        "_GBUFFER_NORMALS_OCT": "1",
+        "SHADER_STAGE_FRAGMENT": "1"
+      },
+      "passed": true,
+      "bytecode_bytes": 18380,
+      "diagnostics": "C:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(24,57-65): warning X3556: integer modulus may be much slower, try using uints if possible.\nC:\\Users\\ethan\\Downloads\\AshenVoxel\\Assets\\AshenVoxel\\WorldScaleRuntime\\Resources\\TerrainClipmap.shader(24,46-54): warning X3556: integer divides may be much slower, try using uints if possible.\nTerrainClipmapSampling.hlsl(45,29): warning X4000: use of potentially uninitialized variable (CmMorphAt)\n\u0000"
+    },
+    {
+      "entry": "Scatter",
+      "target": "cs_5_0",
+      "defines": {
+        "SHADER_STAGE_COMPUTE": "1"
+      },
+      "passed": true,
+      "bytecode_bytes": 2156,
+      "diagnostics": ""
+    }
+  ]
+}

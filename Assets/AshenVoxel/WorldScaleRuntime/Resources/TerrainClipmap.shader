@@ -213,11 +213,19 @@ Shader "AshenVoxel/TerrainClipmap"
             }
             float Hash(float3 p)
             { p=frac(p*.1031);p+=dot(p,p.yzx+33.33);return frac((p.x+p.y)*p.z); }
+            half3 CmMainLighting(BRDFData brdf,Light sun,half3 normal,half3 view,half3 albedo,
+                half transmission,half indirectOcclusion,half directOcclusion)
+            {
+                half3 color=brdf.diffuse*max(MaterialAmbient(normal),half3(.02,.02,.02))*indirectOcclusion;
+                color+=LightingPhysicallyBased(brdf,sun,normal,view)*directOcclusion;
+                return color+MaterialTransmission(albedo,normal,sun,transmission);
+            }
             half4 Frag(Varyings input):SV_Target
             {
                 float2 local=CmLocalAt(input.positionWS);
                 CmSurfaceData surface=CmSurface(local);
                 half3 normal=CmNormal(local);
+                half3 secondFaceNormal=normal;half faceLightBlend=0;
                 half3 baseColor=surface.color;half vertexOcclusion=1;
                 uint material=surface.material;half2 optics=MaterialOptics(material);
                 half roughness=surface.roughness>=.1?saturate(surface.roughness):_Roughness;
@@ -252,7 +260,15 @@ Shader "AshenVoxel/TerrainClipmap"
                         if(rb<=0){hb=ha;w1=0;}
                         half detail=(half)saturate((cellPx-3)/4);// rounded edges once a block is a few pixels
                         half3 na=normalize(lerp(ha.normal,ha.bevelNormal,detail)),nb=normalize(lerp(hb.normal,hb.bevelNormal,detail));
-                        normal=normalize(lerp(normal,normalize(lerp(na,nb,w1)),strength));
+                        // Different grids can hit a top and a riser at this pixel. Blending
+                        // their normals invents a diagonal face/highlight. Blend their light
+                        // instead, retaining each face's bevel and smooth-surface fade.
+                        if(rb>0&&w1>0&&w1<1&&dot(ha.normal,hb.normal)<.5h)
+                        {
+                            secondFaceNormal=normalize(lerp(normal,nb,strength));
+                            normal=normalize(lerp(normal,na,strength));faceLightBlend=w1;
+                        }
+                        else normal=normalize(lerp(normal,normalize(lerp(na,nb,w1)),strength));
                         vertexOcclusion*=lerp(1.0h,lerp(ha.ao,hb.ao,w1),strength);
                         shadePosition=lerp(input.positionWS,lerp(ha.position,hb.position,w1),strength);
                         cell=w1>.5?hb.cell+float3(0,4099.0*c1,0):ha.cell+float3(0,4099.0*c0,0);cellFade=strength;
@@ -298,15 +314,18 @@ Shader "AshenVoxel/TerrainClipmap"
                 AmbientOcclusionFactor ao = GetScreenSpaceAmbientOcclusion(GetNormalizedScreenSpaceUV(input.positionCS));
                 half indirectOcclusion = min(lerp(.45h,1.0h,saturate(vertexOcclusion)),lerp(.35h,1.0h,ao.indirectAmbientOcclusion));
                 half alpha=1;BRDFData brdf;InitializeBRDFData(albedo,0.0h,half3(.04,.04,.04),1.0h-roughness,alpha,brdf);
-                half3 color = brdf.diffuse * max(MaterialAmbient(normal), half3(.02,.02,.02)) * indirectOcclusion;
-                color += LightingPhysicallyBased(brdf,sun,normal,view) * ao.directAmbientOcclusion;
-                color += MaterialTransmission(albedo,normal,sun,optics.y);
+                half3 color=CmMainLighting(brdf,sun,normal,view,albedo,optics.y,indirectOcclusion,ao.directAmbientOcclusion);
+                [branch] if(faceLightBlend>0)
+                    color=lerp(color,CmMainLighting(brdf,sun,secondFaceNormal,view,albedo,optics.y,indirectOcclusion,ao.directAmbientOcclusion),faceLightBlend);
                 #ifdef _ADDITIONAL_LIGHTS
                 uint count = GetAdditionalLightsCount();
                 for (uint index = 0u; index < count; index++)
                 {
                     Light light = GetAdditionalLight(index, shadePosition, half4(1,1,1,1));
-                    color += LightingPhysicallyBased(brdf,light,normal,view) * ao.directAmbientOcclusion;
+                    half3 direct=LightingPhysicallyBased(brdf,light,normal,view);
+                    [branch] if(faceLightBlend>0)
+                        direct=lerp(direct,LightingPhysicallyBased(brdf,light,secondFaceNormal,view),faceLightBlend);
+                    color+=direct*ao.directAmbientOcclusion;
                 }
                 #endif
                 return half4(AshenApplyFog(color, input.fog, input.positionWS), 1);
