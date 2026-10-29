@@ -1,0 +1,174 @@
+Clipmap preview initialized: 512 texels, 15 levels, 0.200000002980232m finest spacing; native acceptance pending
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.TerrainClipmap:Initialize (AshenVoxel.WorldScaleRuntime.WorldExplorer,int,double,double,double,double) (at Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs:64)
+AshenVoxel.Exploration.ExplorationBootstrap:InitializeClipmap (double,double) (at Assets/AshenVoxel/Exploration/ExplorationBootstrapClipmap.cs:65)
+AshenVoxel.Exploration.ExplorationBootstrap/<Boot>d__132:MoveNext () (at Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs:174)
+AshenVoxel.Exploration.ExplorationBootstrap/<Start>d__131:MoveNext () (at Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs:88)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs Line: 64)
+
+Asset Pipeline Refresh (id=a587722caa4ec314db9a9158c306f723): Total: 0.060 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Clipmap preview first fine coverage: 38.779s; 4391270 samples; CPU payload 54526512 bytes; GPU payload 54525952 bytes; 53 draws / 5548376 triangles. Visual acceptance remains pending.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.TerrainClipmap:LateUpdate () (at Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs:161)
+
+(Filename: Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs Line: 161)
+
+d3d12: upload buffer was too small for the requested resource! Size: 16777216. Requested: 67108864.
+d3d12: upload buffer was too small for the requested resource! Size: 67108864. Requested: 96794992.
+d3d12: upload buffer was too small for the requested resource! Size: 97517568. Requested: 99736280.
+Clipmap worker failure: job=648 generation=69 level=9 rect=-348,-142,16,29 spacing=102.40000152587891 source=baked-overview-v1/baked-far-v2/e3578d39a5ee0f1a15e024e505495acb45120d5220f5bec79a0b9a0c27204c1f/refined-source/ab25f619be757dedd6c53750ebb0ee24d465a64831e932e55cec18c744aa8748/terrain-reshape-v1/29d3e6aa4b397d465e41dd23ade415c006f4aecd295c631ce15c650b09d2dfb4/surface-relief-v1/seed=714103/surface-v3/catalog-v4/714103/0/4200/2.4000000953674316/True/0.7/0.20000000298023224/0/rock=auto/wind=36.86989764584402/sun=287.35402463626127/geology-broad-v2
+System.AggregateException: One or more errors occurred. (Specified argument was out of the range of valid values.
+Parameter name: climate) ---> System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values.
+Parameter name: climate
+  at AshenVoxel.WorldScale.SurfaceClimate..ctor (System.Double temperatureC, System.Double seasonalityC, System.Double precipitationMm, System.Double precipitationCvPercent, System.Double lapseRateCPerMeter) [0x000ad] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceProfile.cs:15
+  at AshenVoxel.WorldScale.ExplorationRefinementField+State.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& result) [0x00215] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\ExplorationRefinementField.cs:196
+  at AshenVoxel.WorldScale.BakedOverviewField+State.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\BakedOverviewField.cs:49
+  at AshenVoxel.WorldScale.TerrainReshapeField.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\TerrainReshape.cs:152
+  at AshenVoxel.WorldScale.TerrainDetailField.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\TerrainDetailField.cs:59
+  at AshenVoxel.WorldScale.SurfaceMaterialSampler.Evaluate (System.Double x, System.Double z, System.Double footprint) [0x007ce] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceMaterialSampler.cs:113
+  at AshenVoxel.WorldScale.SurfaceMaterialSampler.EvaluateColumn (System.Double x, System.Double z, System.Double footprintMeters) [0x00090] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceMaterialSampler.cs:59
+  at AshenVoxel.WorldScaleRuntime.TerrainClipmap.Sample (AshenVoxel.WorldScale.ClipmapJob job, System.Double spacing, AshenVoxel.WorldScale.SurfaceMaterialSampler sampler) [0x0001d] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleRuntime\TerrainClipmap.cs:87
+  at AshenVoxel.WorldScaleRuntime.TerrainClipmap+<>c__DisplayClass81_0.<LateUpdate>b__0 () [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleRuntime\TerrainClipmap.cs:153
+  at System.Threading.Tasks.Task`1[TResult].InnerInvoke () [0x0000f] in <16ec009baa7541e7b79bc4548f1d744c>:0
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <16ec009baa7541e7b79bc4548f1d744c>:0
+   --- End of inner exception stack trace ---
+---> (Inner Exception #0) System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values.
+Parameter name: climate
+  at AshenVoxel.WorldScale.SurfaceClimate..ctor (System.Double temperatureC, System.Double seasonalityC, System.Double precipitationMm, System.Double precipitationCvPercent, System.Double lapseRateCPerMeter) [0x000ad] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceProfile.cs:15
+  at AshenVoxel.WorldScale.ExplorationRefinementField+State.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& result) [0x00215] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\ExplorationRefinementField.cs:196
+  at AshenVoxel.WorldScale.BakedOverviewField+State.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\BakedOverviewField.cs:49
+  at AshenVoxel.WorldScale.TerrainReshapeField.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\TerrainReshape.cs:152
+  at AshenVoxel.WorldScale.TerrainDetailField.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\TerrainDetailField.cs:59
+  at AshenVoxel.WorldScale.SurfaceMaterialSampler.Evaluate (System.Double x, System.Double z, System.Double footprint) [0x007ce] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceMaterialSampler.cs:113
+  at AshenVoxel.WorldScale.SurfaceMaterialSampler.EvaluateColumn (System.Double x, System.Double z, System.Double footprintMeters) [0x00090] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceMaterialSampler.cs:59
+  at AshenVoxel.WorldScaleRuntime.TerrainClipmap.Sample (AshenVoxel.WorldScale.ClipmapJob job, System.Double spacing, AshenVoxel.WorldScale.SurfaceMaterialSampler sampler) [0x0001d] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleRuntime\TerrainClipmap.cs:87
+  at AshenVoxel.WorldScaleRuntime.TerrainClipmap+<>c__DisplayClass81_0.<LateUpdate>b__0 () [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleRuntime\TerrainClipmap.cs:153
+  at System.Threading.Tasks.Task`1[TResult].InnerInvoke () [0x0000f] in <16ec009baa7541e7b79bc4548f1d744c>:0
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <16ec009baa7541e7b79bc4548f1d744c>:0 <---
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:LogWarning (object,UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.TerrainClipmap:LateUpdate () (at Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs:116)
+
+(Filename: Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs Line: 116)
+
+Clipmap worker failure: job=649 generation=69 level=9 rect=-348,-142,16,29 spacing=102.40000152587891 source=baked-overview-v1/baked-far-v2/e3578d39a5ee0f1a15e024e505495acb45120d5220f5bec79a0b9a0c27204c1f/refined-source/ab25f619be757dedd6c53750ebb0ee24d465a64831e932e55cec18c744aa8748/terrain-reshape-v1/29d3e6aa4b397d465e41dd23ade415c006f4aecd295c631ce15c650b09d2dfb4/surface-relief-v1/seed=714103/surface-v3/catalog-v4/714103/0/4200/2.4000000953674316/True/0.7/0.20000000298023224/0/rock=auto/wind=36.86989764584402/sun=287.35402463626127/geology-broad-v2
+System.AggregateException: One or more errors occurred. (Specified argument was out of the range of valid values.
+Parameter name: climate) ---> System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values.
+Parameter name: climate
+  at AshenVoxel.WorldScale.SurfaceClimate..ctor (System.Double temperatureC, System.Double seasonalityC, System.Double precipitationMm, System.Double precipitationCvPercent, System.Double lapseRateCPerMeter) [0x000ad] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceProfile.cs:15
+  at AshenVoxel.WorldScale.ExplorationRefinementField+State.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& result) [0x00215] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\ExplorationRefinementField.cs:196
+  at AshenVoxel.WorldScale.BakedOverviewField+State.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\BakedOverviewField.cs:49
+  at AshenVoxel.WorldScale.TerrainReshapeField.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\TerrainReshape.cs:152
+  at AshenVoxel.WorldScale.TerrainDetailField.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\TerrainDetailField.cs:59
+  at AshenVoxel.WorldScale.SurfaceMaterialSampler.Evaluate (System.Double x, System.Double z, System.Double footprint) [0x007ce] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceMaterialSampler.cs:113
+  at AshenVoxel.WorldScale.SurfaceMaterialSampler.EvaluateColumn (System.Double x, System.Double z, System.Double footprintMeters) [0x00090] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceMaterialSampler.cs:59
+  at AshenVoxel.WorldScaleRuntime.TerrainClipmap.Sample (AshenVoxel.WorldScale.ClipmapJob job, System.Double spacing, AshenVoxel.WorldScale.SurfaceMaterialSampler sampler) [0x0001d] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleRuntime\TerrainClipmap.cs:87
+  at AshenVoxel.WorldScaleRuntime.TerrainClipmap+<>c__DisplayClass81_0.<LateUpdate>b__0 () [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleRuntime\TerrainClipmap.cs:153
+  at System.Threading.Tasks.Task`1[TResult].InnerInvoke () [0x0000f] in <16ec009baa7541e7b79bc4548f1d744c>:0
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <16ec009baa7541e7b79bc4548f1d744c>:0
+   --- End of inner exception stack trace ---
+---> (Inner Exception #0) System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values.
+Parameter name: climate
+  at AshenVoxel.WorldScale.SurfaceClimate..ctor (System.Double temperatureC, System.Double seasonalityC, System.Double precipitationMm, System.Double precipitationCvPercent, System.Double lapseRateCPerMeter) [0x000ad] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceProfile.cs:15
+  at AshenVoxel.WorldScale.ExplorationRefinementField+State.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& result) [0x00215] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\ExplorationRefinementField.cs:196
+  at AshenVoxel.WorldScale.BakedOverviewField+State.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\BakedOverviewField.cs:49
+  at AshenVoxel.WorldScale.TerrainReshapeField.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\TerrainReshape.cs:152
+  at AshenVoxel.WorldScale.TerrainDetailField.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\TerrainDetailField.cs:59
+  at AshenVoxel.WorldScale.SurfaceMaterialSampler.Evaluate (System.Double x, System.Double z, System.Double footprint) [0x007ce] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceMaterialSampler.cs:113
+  at AshenVoxel.WorldScale.SurfaceMaterialSampler.EvaluateColumn (System.Double x, System.Double z, System.Double footprintMeters) [0x00090] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceMaterialSampler.cs:59
+  at AshenVoxel.WorldScaleRuntime.TerrainClipmap.Sample (AshenVoxel.WorldScale.ClipmapJob job, System.Double spacing, AshenVoxel.WorldScale.SurfaceMaterialSampler sampler) [0x0001d] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleRuntime\TerrainClipmap.cs:87
+  at AshenVoxel.WorldScaleRuntime.TerrainClipmap+<>c__DisplayClass81_0.<LateUpdate>b__0 () [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleRuntime\TerrainClipmap.cs:153
+  at System.Threading.Tasks.Task`1[TResult].InnerInvoke () [0x0000f] in <16ec009baa7541e7b79bc4548f1d744c>:0
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <16ec009baa7541e7b79bc4548f1d744c>:0 <---
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:LogWarning (object,UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.TerrainClipmap:LateUpdate () (at Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs:116)
+
+(Filename: Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs Line: 116)
+
+Clipmap worker failure: job=650 generation=69 level=9 rect=-348,-142,16,29 spacing=102.40000152587891 source=baked-overview-v1/baked-far-v2/e3578d39a5ee0f1a15e024e505495acb45120d5220f5bec79a0b9a0c27204c1f/refined-source/ab25f619be757dedd6c53750ebb0ee24d465a64831e932e55cec18c744aa8748/terrain-reshape-v1/29d3e6aa4b397d465e41dd23ade415c006f4aecd295c631ce15c650b09d2dfb4/surface-relief-v1/seed=714103/surface-v3/catalog-v4/714103/0/4200/2.4000000953674316/True/0.7/0.20000000298023224/0/rock=auto/wind=36.86989764584402/sun=287.35402463626127/geology-broad-v2
+System.AggregateException: One or more errors occurred. (Specified argument was out of the range of valid values.
+Parameter name: climate) ---> System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values.
+Parameter name: climate
+  at AshenVoxel.WorldScale.SurfaceClimate..ctor (System.Double temperatureC, System.Double seasonalityC, System.Double precipitationMm, System.Double precipitationCvPercent, System.Double lapseRateCPerMeter) [0x000ad] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceProfile.cs:15
+  at AshenVoxel.WorldScale.ExplorationRefinementField+State.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& result) [0x00215] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\ExplorationRefinementField.cs:196
+  at AshenVoxel.WorldScale.BakedOverviewField+State.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\BakedOverviewField.cs:49
+  at AshenVoxel.WorldScale.TerrainReshapeField.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\TerrainReshape.cs:152
+  at AshenVoxel.WorldScale.TerrainDetailField.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\TerrainDetailField.cs:59
+  at AshenVoxel.WorldScale.SurfaceMaterialSampler.Evaluate (System.Double x, System.Double z, System.Double footprint) [0x007ce] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceMaterialSampler.cs:113
+  at AshenVoxel.WorldScale.SurfaceMaterialSampler.EvaluateColumn (System.Double x, System.Double z, System.Double footprintMeters) [0x00090] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceMaterialSampler.cs:59
+  at AshenVoxel.WorldScaleRuntime.TerrainClipmap.Sample (AshenVoxel.WorldScale.ClipmapJob job, System.Double spacing, AshenVoxel.WorldScale.SurfaceMaterialSampler sampler) [0x0001d] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleRuntime\TerrainClipmap.cs:87
+  at AshenVoxel.WorldScaleRuntime.TerrainClipmap+<>c__DisplayClass81_0.<LateUpdate>b__0 () [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleRuntime\TerrainClipmap.cs:153
+  at System.Threading.Tasks.Task`1[TResult].InnerInvoke () [0x0000f] in <16ec009baa7541e7b79bc4548f1d744c>:0
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <16ec009baa7541e7b79bc4548f1d744c>:0
+   --- End of inner exception stack trace ---
+---> (Inner Exception #0) System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values.
+Parameter name: climate
+  at AshenVoxel.WorldScale.SurfaceClimate..ctor (System.Double temperatureC, System.Double seasonalityC, System.Double precipitationMm, System.Double precipitationCvPercent, System.Double lapseRateCPerMeter) [0x000ad] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceProfile.cs:15
+  at AshenVoxel.WorldScale.ExplorationRefinementField+State.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& result) [0x00215] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\ExplorationRefinementField.cs:196
+  at AshenVoxel.WorldScale.BakedOverviewField+State.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\BakedOverviewField.cs:49
+  at AshenVoxel.WorldScale.TerrainReshapeField.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\TerrainReshape.cs:152
+  at AshenVoxel.WorldScale.TerrainDetailField.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\TerrainDetailField.cs:59
+  at AshenVoxel.WorldScale.SurfaceMaterialSampler.Evaluate (System.Double x, System.Double z, System.Double footprint) [0x007ce] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceMaterialSampler.cs:113
+  at AshenVoxel.WorldScale.SurfaceMaterialSampler.EvaluateColumn (System.Double x, System.Double z, System.Double footprintMeters) [0x00090] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceMaterialSampler.cs:59
+  at AshenVoxel.WorldScaleRuntime.TerrainClipmap.Sample (AshenVoxel.WorldScale.ClipmapJob job, System.Double spacing, AshenVoxel.WorldScale.SurfaceMaterialSampler sampler) [0x0001d] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleRuntime\TerrainClipmap.cs:87
+  at AshenVoxel.WorldScaleRuntime.TerrainClipmap+<>c__DisplayClass81_0.<LateUpdate>b__0 () [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleRuntime\TerrainClipmap.cs:153
+  at System.Threading.Tasks.Task`1[TResult].InnerInvoke () [0x0000f] in <16ec009baa7541e7b79bc4548f1d744c>:0
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <16ec009baa7541e7b79bc4548f1d744c>:0 <---
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:LogWarning (object,UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.TerrainClipmap:LateUpdate () (at Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs:116)
+
+(Filename: Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs Line: 116)
+
+Clipmap preview fell back to Legacy: Clipmap sampling failed repeatedly
+System.InvalidOperationException: Clipmap sampling failed repeatedly ---> System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values.
+Parameter name: climate
+  at AshenVoxel.WorldScale.SurfaceClimate..ctor (System.Double temperatureC, System.Double seasonalityC, System.Double precipitationMm, System.Double precipitationCvPercent, System.Double lapseRateCPerMeter) [0x000ad] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceProfile.cs:15
+  at AshenVoxel.WorldScale.ExplorationRefinementField+State.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& result) [0x00215] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\ExplorationRefinementField.cs:196
+  at AshenVoxel.WorldScale.BakedOverviewField+State.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\BakedOverviewField.cs:49
+  at AshenVoxel.WorldScale.TerrainReshapeField.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\TerrainReshape.cs:152
+  at AshenVoxel.WorldScale.TerrainDetailField.TrySampleClimate (System.Double x, System.Double z, AshenVoxel.WorldScale.SurfaceClimate& climate) [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\TerrainDetailField.cs:59
+  at AshenVoxel.WorldScale.SurfaceMaterialSampler.Evaluate (System.Double x, System.Double z, System.Double footprint) [0x007ce] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceMaterialSampler.cs:113
+  at AshenVoxel.WorldScale.SurfaceMaterialSampler.EvaluateColumn (System.Double x, System.Double z, System.Double footprintMeters) [0x00090] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleData\SurfaceMaterialSampler.cs:59
+  at AshenVoxel.WorldScaleRuntime.TerrainClipmap.Sample (AshenVoxel.WorldScale.ClipmapJob job, System.Double spacing, AshenVoxel.WorldScale.SurfaceMaterialSampler sampler) [0x0001d] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleRuntime\TerrainClipmap.cs:87
+  at AshenVoxel.WorldScaleRuntime.TerrainClipmap+<>c__DisplayClass81_0.<LateUpdate>b__0 () [0x00000] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleRuntime\TerrainClipmap.cs:153
+  at System.Threading.Tasks.Task`1[TResult].InnerInvoke () [0x0000f] in <16ec009baa7541e7b79bc4548f1d744c>:0
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <16ec009baa7541e7b79bc4548f1d744c>:0
+   --- End of inner exception stack trace ---
+  at AshenVoxel.WorldScaleRuntime.TerrainClipmap.LateUpdate () [0x0028f] in C:\Users\ethan\Downloads\AshenVoxel\Assets\AshenVoxel\WorldScaleRuntime\TerrainClipmap.cs:118
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:LogWarning (object,UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.TerrainClipmap:LateUpdate () (at Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs:164)
+
+(Filename: Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs Line: 164)
+
+Asset Pipeline Refresh (id=8884e32e22aa4014e8589fd2e67282c4): Total: 0.003 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)

@@ -2,8 +2,9 @@
 
 Current stage: wrapper integration, CPU scheduling, GPU ring rendering and explicit
 Exploration next-Play preview are implemented; combined background verification
-is complete. The preview is ready for the user to press Play; native acceptance
-remains pending. Phase 1.2 background checks passed; implementation continues with
+is complete. The user's first Plays reached fine coverage but then failed on live-climate
+blend roundoff. The narrow repair passes background regressions and is ready for
+a manual retry; native acceptance remains pending. Phase 1.2 background checks passed; implementation continues with
 native gates batched later under the user's explicit authorization. Phase 1.1
 native bake and separate verification gates passed. Phase 1.2 native comparison
 remains unexecuted (the user stopped Computer Use before refresh/menu input).
@@ -228,3 +229,15 @@ assemblies) and `preview-editor-api-background.json` (runtime Editor branch and
 full Exploration.Editor assembly), both PASS. GPU/resnap commit `95bc28d` and
 validation commit `e359512` own their respective files. The final preview source
 manifest is `preview-background/preview-manifest.json`.
+
+## User Play fallback and repair
+
+The user observed a standing-still fallback after fine coverage. A manual retry
+with nested exception diagnostics identified live climate convex-blend roundoff
+violating the strict SurfaceClimate bounds. The production-path red fixture
+reproduced the same exception; the bounded roundoff repair passes31 targeted
+checks, retains exact interior values/input rejection/temperature policy, and
+passes the27 wrapper checks plus real Unity API compilation. Full evidence is
+in `Docs/ClipmapEvidence/fallback-20261029/`. The fixed native retry is pending;
+this is not a performance, visual or sustained-operation acceptance. No Unity
+control was used by agents.

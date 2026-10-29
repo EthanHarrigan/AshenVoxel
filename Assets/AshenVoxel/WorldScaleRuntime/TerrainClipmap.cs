@@ -14,7 +14,7 @@ namespace AshenVoxel.WorldScaleRuntime
     public sealed class TerrainClipmap:MonoBehaviour
     {
         sealed class Work
-        {public ClipmapJob Job;public Task<ClipmapSample[]> Task;}
+        {public ClipmapJob Job;public Task<ClipmapSample[]> Task;public SurfaceMaterialSampler Sampler;public double Spacing;}
         readonly List<Work> workers=new List<Work>(8);
         readonly Queue<ClipmapRect> uploads=new Queue<ClipmapRect>();
         readonly Stopwatch clock=new Stopwatch();
@@ -30,6 +30,7 @@ namespace AshenVoxel.WorldScaleRuntime
         public TerrainClipmapState State{get;private set;}
         public string Status{get;private set;}="Clipmap not initialized";
         public bool Failed{get;private set;}
+        public string LastSamplingError{get;private set;}="";
         public long DataRevision=>State?.DataRevision??0;
         public long PendingSamples=>State?.PendingSamples??0;
         public int InFlightSamples=>actualInFlight;
@@ -108,7 +109,12 @@ namespace AshenVoxel.WorldScaleRuntime
                     workers.RemoveAt(i);actualInFlight-=work.Job.SampleCount;
                     if(work.Task.IsFaulted)
                     {
-                        bool current=State.Fail(work.Job);if(current)consecutiveFailures++;else StaleJobsRejected++;
+                        bool current=State.Fail(work.Job);if(current)
+                        {
+                            consecutiveFailures++;var j=work.Job;
+                            LastSamplingError="Clipmap worker failure: job="+j.Id+" generation="+j.Generation+" level="+j.Level+" rect="+j.Rect.X+","+j.Rect.Z+","+j.Rect.Width+","+j.Rect.Height+" spacing="+work.Spacing.ToString("R",System.Globalization.CultureInfo.InvariantCulture)+" source="+work.Sampler.SourceIdentity+"\n"+work.Task.Exception;
+                            Debug.LogWarning(LastSamplingError,this);
+                        }else StaleJobsRejected++;
                         if(current&&consecutiveFailures>=3)throw new InvalidOperationException("Clipmap sampling failed repeatedly",work.Task.Exception.GetBaseException());
                     }
                     else
@@ -144,7 +150,7 @@ namespace AshenVoxel.WorldScaleRuntime
                     // unrelated immutable workers remain useful and keep their cap.
                     SurfaceMaterialSampler sampler=Vista.CaptureClipmapSampler();double spacing=State.GetLevel(job.Level).Spacing;
                     actualInFlight+=job.SampleCount;
-                    workers.Add(new Work{Job=job,Task=Task.Run(()=>Sample(job,spacing,sampler))});
+                    workers.Add(new Work{Job=job,Sampler=sampler,Spacing=spacing,Task=Task.Run(()=>Sample(job,spacing,sampler))});
                 }
                 if(drawnRevision!=DataRevision){visible=State.GetVisibleLevels();drawnRevision=DataRevision;}
                 resources.Draw(Vista.MainCamera,gameObject.layer,Vista.RenderOrigin,visible);
@@ -155,7 +161,7 @@ namespace AshenVoxel.WorldScaleRuntime
                 {reportedFineReady=true;Debug.Log("Clipmap preview first fine coverage: "+startupClock.Elapsed.TotalSeconds.ToString("F3")+"s; "+SamplesCompleted+" samples; CPU payload "+ResidentCpuBytes+" bytes; GPU payload "+GpuBytes+" bytes; "+DrawCalls+" draws / "+Triangles+" triangles. Visual acceptance remains pending.",this);}
             }
             catch(Exception e)
-            {Failed=true;Status="Clipmap preview fell back to Legacy: "+e.Message;Debug.LogWarning(Status,this);Shutdown(true);}
+            {Failed=true;Status="Clipmap preview fell back to Legacy: "+e.Message;Debug.LogWarning(Status+"\n"+e,this);Shutdown(true);}
         }
         public void Shutdown(bool restoreLegacy)
         {

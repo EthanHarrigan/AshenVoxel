@@ -1,0 +1,16 @@
+(Filename: ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/DLSSIUpscaler.cs Line: 136)
+
+Clipmap preview initialized: 512 texels, 15 levels, 0.200000002980232m finest spacing; native acceptance pending
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.TerrainClipmap:Initialize (AshenVoxel.WorldScaleRuntime.WorldExplorer,int,double,double,double,double) (at Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs:64)
+AshenVoxel.Exploration.ExplorationBootstrap:InitializeClipmap (double,double) (at Assets/AshenVoxel/Exploration/ExplorationBootstrapClipmap.cs:65)
+AshenVoxel.Exploration.ExplorationBootstrap/<Boot>d__132:MoveNext () (at Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs:174)
+AshenVoxel.Exploration.ExplorationBootstrap/<Start>d__131:MoveNext () (at Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs:88)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs Line: 64)

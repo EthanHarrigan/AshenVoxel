@@ -1,0 +1,54 @@
+(Filename: ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/DLSSIUpscaler.cs Line: 136)
+
+Clipmap preview initialized: 512 texels, 15 levels, 0.200000002980232m finest spacing; native acceptance pending
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.TerrainClipmap:Initialize (AshenVoxel.WorldScaleRuntime.WorldExplorer,int,double,double,double,double) (at Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs:63)
+AshenVoxel.Exploration.ExplorationBootstrap:InitializeClipmap (double,double) (at Assets/AshenVoxel/Exploration/ExplorationBootstrapClipmap.cs:65)
+AshenVoxel.Exploration.ExplorationBootstrap/<Boot>d__132:MoveNext () (at Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs:174)
+AshenVoxel.Exploration.ExplorationBootstrap/<Start>d__131:MoveNext () (at Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs:88)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs Line: 63)
+
+[Licensing::Client] Successfully resolved entitlement details
+Clipmap preview first fine coverage: 36.563s; 4358573 samples; CPU payload 54526512 bytes; GPU payload 54525952 bytes; 53 draws / 5548376 triangles. Visual acceptance remains pending.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.TerrainClipmap:LateUpdate () (at Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs:155)
+
+(Filename: Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs Line: 155)
+
+Clipmap preview fell back to Legacy: Clipmap sampling failed repeatedly
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:LogWarning (object,UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.TerrainClipmap:LateUpdate () (at Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs:158)
+
+(Filename: Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs Line: 158)
+
+Asset Pipeline Refresh (id=617f4af5662b8a347b9e7fcd7863eb9d): Total: 0.049 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=673c788a5a67dde4a83db9072971bbe8): Total: 0.004 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=512be756eb66cb143aee52b6388feddf): Total: 0.003 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=bd508d4a10b191c42afc360b1e73d51d): Total: 0.004 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Property offset falls outside of range for type in GetPropertyData.
+Property offset falls outside of range for type in GetPropertyData.
+Property offset falls outside of range for type in GetPropertyData.
+Property offset falls outside of range for type in GetPropertyData.
+Property offset falls outside of range for type in GetPropertyData.
+Expected instancing keynames to match
+Expected instancing keynames to match
+Expected instancing keynames to match
+Expected instancing keynames to match
+Expected instancing keynames to match

@@ -193,7 +193,23 @@ namespace AshenVoxel.WorldScale
                 }
                 double n=Math.Max(1,sum),temperature=baseTemperature+t/n;
                 if(temperature< -150||temperature>100){result=default;return false;}
-                result=new SurfaceClimate(temperature,basis.SeasonalityC+s/n,basis.PrecipitationMm+r/n,basis.PrecipitationCvPercent+v/n,basis.LapseRateCPerMeter+b/n);return true;
+                result=new SurfaceClimate(temperature,
+                    ConvexClimateValue(basis.SeasonalityC+s/n,0,150),
+                    ConvexClimateValue(basis.PrecipitationMm+r/n,0,100000),
+                    ConvexClimateValue(basis.PrecipitationCvPercent+v/n,0,10000),
+                    ConvexClimateValue(basis.LapseRateCPerMeter+b/n,-.1,.1));return true;
+            }
+            // Valid input climates and nonnegative normalized patch weights form
+            // a convex blend. Delta accumulation can overshoot an exact boundary
+            // by a few ulps (for example zero precipitation becomes -1e-16).
+            // Repair only roundoff; nonfinite or material range errors still fail.
+            static double ConvexClimateValue(double value,double minimum,double maximum)
+            {
+                Numeric.Finite(value,nameof(value));
+                const double machineEpsilon=2.2204460492503131e-16;
+                double tolerance=64*machineEpsilon*Math.Max(1,Math.Max(Math.Abs(minimum),Math.Abs(maximum)));
+                if(value<minimum-tolerance||value>maximum+tolerance)throw new ArgumentOutOfRangeException("climate blend");
+                return Math.Max(minimum,Math.Min(maximum,value));
             }
             public HeightBounds QueryBounds(double x0,double z0,double x1,double z1)
             {

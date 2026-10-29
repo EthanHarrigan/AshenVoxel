@@ -1,0 +1,12 @@
+{
+  "observed_utc": "2026-10-29T04:15:56.430811+00:00",
+  "source": "Read-only existing Unity Editor.log; no Editor control",
+  "observation": "Initialized High15, first fine coverage36.563s with4358573 samples, then repeated sampling failure; nested exception was not logged",
+  "not_proven": "Cause is not known from this log; current low commit headroom alone does not prove OOM",
+  "source_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs": "4ad264a77b7eb84a7e962a52a8864e7440d46fc56dec9d3849b144222e457c36",
+    "Assets/AshenVoxel/WorldScaleData/ExplorationRefinementField.cs": "754d85e4a3b5770eedf0281a11259deebf8bc66e1450beab9b474e64d200d45e",
+    "Assets/AshenVoxel/WorldScaleData/BakedOverviewField.cs": "d6382ba6e0a3e2e97caf9a5e353c45121aad9bd7459103f3fbb9d62bb585fe0a",
+    "Assets/AshenVoxel/WorldScaleData/SurfaceMaterialSampler.cs": "4cb3bcffaa2a6ec4f35480324adeb76f13df2572294fbab0aa1564df24be7c93"
+  }
+}
