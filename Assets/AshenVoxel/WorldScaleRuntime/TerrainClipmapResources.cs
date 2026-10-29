@@ -204,11 +204,13 @@ namespace AshenVoxel.WorldScaleRuntime
             => new Vector4((float)(level.OriginX * level.Spacing - renderOrigin.X),
                 (float)(level.OriginZ * level.Spacing - renderOrigin.Z), (float)(level.OriginX & mask), (float)(level.OriginZ & mask));
 
+        public void ResetDrawCounters(){TrianglesLastDraw=0;DrawCallsLastFrame=0;}
+
         /// <summary>Only a complete adjacent chain admitted by TerrainClipmapMath is drawable.
         /// Actual ring rectangles are shared with the independent CPU topology checks.</summary>
         public void Draw(Camera camera, int layer, WorldPoint renderOrigin, ClipmapLevelInfo[] visibleChain)
         {
-            TrianglesLastDraw = 0; DrawCallsLastFrame = 0;
+            ResetDrawCounters();
             if (camera == null || visibleChain == null || visibleChain.Length == 0) return;
             if (visibleChain.Length > levels) throw new ArgumentException("Invalid visible chain.", nameof(visibleChain));
             for (int i = 0; i < visibleChain.Length; i++)

@@ -14,7 +14,7 @@ namespace AshenVoxel.WorldScaleRuntime
     public sealed class TerrainClipmap:MonoBehaviour
     {
         sealed class Work
-        {public ClipmapJob Job;public Task<ClipmapSample[]> Task;public SurfaceMaterialSampler Sampler;public double Spacing;}
+        {public ClipmapJob Job;public Task<ClipmapSample[]> Task;public SurfaceMaterialSampler Sampler;public double Spacing;public long Queued,Started,Finished;}
         readonly List<Work> workers=new List<Work>(8);
         readonly Queue<ClipmapRect> uploads=new Queue<ClipmapRect>();
         readonly Stopwatch clock=new Stopwatch();
@@ -24,6 +24,17 @@ namespace AshenVoxel.WorldScaleRuntime
         ClipmapLevelInfo[] visible=Array.Empty<ClipmapLevelInfo>();
         int actualInFlight,consecutiveFailures;
         bool stopped;
+        long workerTicks,queueTicks,harvestWaitTicks,uploadTicks,lastFrameTicks,frameTicks;
+        long observedWorkers,observedFrames;
+        public bool LoadingScreenActive{get;private set;}
+        public long SubmittedFrames{get;private set;}
+        public long StaleSamplesRejected{get;private set;}
+        public long UploadFrames{get;private set;}
+        public long UploadBudgetSkipFrames{get;private set;}
+        static double Milliseconds(long ticks)=>ticks*1000.0/Stopwatch.Frequency;
+        public string LoadingTimingSummary=>"worker-running sum "+Milliseconds(workerTicks).ToString("F0")+"ms / queue sum "+Milliseconds(queueTicks).ToString("F0")+"ms (parallel totals); finished-to-harvest mean "+(observedWorkers==0?0:Milliseconds(harvestWaitTicks)/observedWorkers).ToString("F2")+"ms; upload/publication submission "+Milliseconds(uploadTicks).ToString("F1")+"ms across "+UploadFrames+" frames, "+UploadBudgetSkipFrames+" pre-upload budget skips; mean update interval "+(observedFrames<2?0:Milliseconds(frameTicks)/(observedFrames-1)).ToString("F2")+"ms; rejected stale samples "+StaleSamplesRejected;
+        public void SetLoadingScreenActive(bool active)
+        {LoadingScreenActive=active;if(active)resources?.ResetDrawCounters();}
         long drawnRevision=-1;
         double worldHalfX,worldHalfZ;
         public WorldExplorer Vista{get;private set;}
@@ -103,11 +114,16 @@ namespace AshenVoxel.WorldScaleRuntime
                 // longer a coverage promise. Restore legacy planning explicitly.
                 if(Math.Abs(observer.X)>worldHalfX||Math.Abs(observer.Z)>worldHalfZ)
                     throw new InvalidOperationException("Observer left the configured clipmap world; Legacy coverage resumed");
+                long frame=Stopwatch.GetTimestamp();if(lastFrameTicks!=0)frameTicks+=frame-lastFrameTicks;lastFrameTicks=frame;observedFrames++;
                 clock.Restart();State.Move(observer.X,observer.Z);CancelObsoleteUpload();
                 for(int i=workers.Count-1;i>=0;i--)
                 {
                     var work=workers[i];if(!work.Task.IsCompleted)continue;
                     workers.RemoveAt(i);actualInFlight-=work.Job.SampleCount;
+                    // Task completion publishes these worker timestamps. Running
+                    // durations overlap; they are not additive main-thread time.
+                    observedWorkers++;workerTicks+=work.Finished-work.Started;queueTicks+=work.Started-work.Queued;
+                    harvestWaitTicks+=Math.Max(0,Stopwatch.GetTimestamp()-work.Finished);
                     if(work.Task.IsFaulted)
                     {
                         bool current=State.Fail(work.Job);if(current)
@@ -115,17 +131,19 @@ namespace AshenVoxel.WorldScaleRuntime
                             consecutiveFailures++;var j=work.Job;
                             LastSamplingError="Clipmap worker failure: job="+j.Id+" generation="+j.Generation+" level="+j.Level+" rect="+j.Rect.X+","+j.Rect.Z+","+j.Rect.Width+","+j.Rect.Height+" spacing="+work.Spacing.ToString("R",System.Globalization.CultureInfo.InvariantCulture)+" source="+work.Sampler.SourceIdentity+"\n"+work.Task.Exception;
                             Debug.LogWarning(LastSamplingError,this);
-                        }else StaleJobsRejected++;
+                        }else{StaleJobsRejected++;StaleSamplesRejected+=work.Job.SampleCount;}
                         if(current&&consecutiveFailures>=3)throw new InvalidOperationException("Clipmap sampling failed repeatedly",work.Task.Exception.GetBaseException());
                     }
                     else
-                    {if(State.Complete(work.Job,work.Task.Result)){SamplesCompleted+=work.Job.SampleCount;consecutiveFailures=0;}else StaleJobsRejected++;}
+                    {if(State.Complete(work.Job,work.Task.Result)){SamplesCompleted+=work.Job.SampleCount;consecutiveFailures=0;}else{StaleJobsRejected++;StaleSamplesRejected+=work.Job.SampleCount;}}
                 }
+                long uploadStart=Stopwatch.GetTimestamp();
                 if(publication==null&&State.TryTakePublication(out var ready))
                 {
                     publication=ready;int count=0;foreach(var r in ready.ChangedRegions){uploads.Enqueue(r);count+=r.Count;}
                     resources.BeginUpdate(ready.Level,State.GetLevel(ready.Level).Published,count);
                 }
+                if(publication!=null){UploadFrames++;if(clock.Elapsed.TotalMilliseconds>=Math.Max(.25,UploadMilliseconds))UploadBudgetSkipFrames++;}
                 int budget=Math.Max(State.Size,UploadSamplesPerFrame);
                 while(publication!=null&&uploads.Count>0&&budget>0&&clock.Elapsed.TotalMilliseconds<Math.Max(.25,UploadMilliseconds))
                 {
@@ -142,6 +160,7 @@ namespace AshenVoxel.WorldScaleRuntime
                     if(!State.Publish(publication))throw new InvalidOperationException("Clipmap publication generation changed during owner-thread upload");
                     publication=null;
                 }
+                uploadTicks+=Stopwatch.GetTimestamp()-uploadStart;
                 int maxWorkers=Math.Max(1,Math.Min(8,Environment.ProcessorCount-2));
                 while(publication==null&&workers.Count<maxWorkers&&actualInFlight<MaximumInFlightSamples)
                 {
@@ -151,22 +170,27 @@ namespace AshenVoxel.WorldScaleRuntime
                     // unrelated immutable workers remain useful and keep their cap.
                     SurfaceMaterialSampler sampler=Vista.CaptureClipmapSampler();double spacing=State.GetLevel(job.Level).Spacing;
                     actualInFlight+=job.SampleCount;
-                    workers.Add(new Work{Job=job,Sampler=sampler,Spacing=spacing,Task=Task.Run(()=>Sample(job,spacing,sampler))});
+                    var work=new Work{Job=job,Sampler=sampler,Spacing=spacing,Queued=Stopwatch.GetTimestamp()};
+                    work.Task=Task.Run(()=>{work.Started=Stopwatch.GetTimestamp();try{return Sample(job,spacing,sampler);}finally{work.Finished=Stopwatch.GetTimestamp();}});
+                    workers.Add(work);
                 }
                 if(drawnRevision!=DataRevision){visible=State.GetVisibleLevels();drawnRevision=DataRevision;}
-                resources.Draw(Vista.MainCamera,gameObject.layer,Vista.RenderOrigin,visible);
+                // The loading GUI is opaque. Keep all state/upload work running,
+                // and avoid rendering millions of hidden triangles behind it.
+                if(LoadingScreenActive)resources.ResetDrawCounters();
+                else{resources.Draw(Vista.MainCamera,gameObject.layer,Vista.RenderOrigin,visible);if(resources.DrawCallsLastFrame>0)SubmittedFrames++;}
                 Status=IsReady?"Clipmap preview · current detail ready · visual acceptance pending":
-                    "Clipmap preview · "+visible.Length+"/"+State.LevelCount+" visible levels · "+(PendingSamples/1000)+"k samples pending";
+                    "Clipmap preview · "+visible.Length+"/"+State.LevelCount+" visible levels · "+(PendingSamples/1000)+"k samples pending"+(publication!=null?" · uploading completed level":" · sampling");
                 LastWorkMilliseconds=clock.Elapsed.TotalMilliseconds;
                 if(!reportedFineReady&&IsFineReadyArea(observer.X,observer.Z,2))
-                {reportedFineReady=true;Debug.Log("Clipmap preview first fine coverage: "+startupClock.Elapsed.TotalSeconds.ToString("F3")+"s; "+SamplesCompleted+" samples; CPU payload "+ResidentCpuBytes+" bytes; GPU payload "+GpuBytes+" bytes; "+DrawCalls+" draws / "+Triangles+" triangles. Visual acceptance remains pending.",this);}
+                {reportedFineReady=true;Debug.Log("Clipmap preview first fine coverage: "+startupClock.Elapsed.TotalSeconds.ToString("F3")+"s; "+SamplesCompleted+" samples; CPU payload "+ResidentCpuBytes+" bytes; GPU payload "+GpuBytes+" bytes; "+DrawCalls+" draws / "+Triangles+" triangles; loading screen active="+LoadingScreenActive+". "+LoadingTimingSummary+". Visual acceptance remains pending.",this);}
             }
             catch(Exception e)
             {Failed=true;Status="Clipmap preview fell back to Legacy: "+e.Message;Debug.LogWarning(Status+"\n"+e,this);Shutdown(true);}
         }
         public void Shutdown(bool restoreLegacy)
         {
-            if(stopped)return;stopped=true;enabled=false;
+            if(stopped)return;stopped=true;enabled=false;LoadingScreenActive=false;
             resources?.Dispose();resources=null;publication=null;uploads.Clear();
             // Tasks retain immutable input and bounded private results only. Observe
             // any late faults without blocking the main thread or touching Unity.

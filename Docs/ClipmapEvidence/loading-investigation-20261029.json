@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-29T04:48:19.533349+00:00",
+  "scope": "Focused read-only code/log investigation; no new sampling benchmark, native profiling or Unity control",
+  "native_observation": {
+    "first_fine_seconds": 43.33,
+    "accepted_samples": 4579871,
+    "nominal_samples": 3932160,
+    "extra_accepted_samples": 647711,
+    "extra_accepted_percent": 16.472142537434895,
+    "draws_at_first_fine": 53,
+    "triangles_per_pass_at_first_fine": 5548376,
+    "limit": "Does not separate worker CPU, source-refresh cost, polling waits, transfer waits or GPU frame cost; discarded stale samples are not included"
+  },
+  "confirmed_code_facts": [
+    "At most8 workers \u00d78192 samples means65536 active samples despite300000 configured cap",
+    "Task completion and refill occur only once per LateUpdate",
+    "Single spare makes all workers idle while a completed512\u00b2 window is uploaded in at least4 passes of65536 samples",
+    "Upload2ms stopwatch starts before completion validation/mirror copying; a costly harvest can skip first upload in that frame",
+    "Terrain draw commands are submitted while a full-screen alpha1 loading rectangle covers the game view",
+    "Main pending/level loading line reads current clipmap values in OnGUI; quarter-second LoadingSnapshot polling is not the cause of its pauses",
+    "Visible levels advance only on complete atomic publication; pending decreases on completed job harvest, not within running jobs"
+  ],
+  "analytic_upload_wait_only_seconds_per_full_level": {
+    "60_fps": 0.05,
+    "30_fps": 0.1,
+    "5_fps": 0.6
+  },
+  "recommended_first_change": "Explicitly suppress terrain draw submission only while Bootstrap loading overlay is active; retain sampling, uploads, visible cache/readiness and fallback; restore with one final covered draw and bounded ordinary-frame handoff before Ready to avoid deferring first renderer warmup into gameplay",
+  "requirements": [
+    "Do not early-return the runtime update or skip visible-cache publication",
+    "Do not gate on IsReady during gameplay",
+    "Reset draw counters while suppressed",
+    "Restore on loading completion, retry/disable/rollback",
+    "Preserve current footprint sampling/material values, ring geometry and budgets"
+  ],
+  "expected_limit": "Removes hidden rendering and can shorten frame-gated bubbles, but does not reduce sample work or live-field cost; no measured speedup or promised wall time",
+  "next_measurement": "Aggregate worker-running, queue and completed-to-harvest durations; upload frames/submission CPU; stale samples; mean frame duration. Parallel duration sums are not measured CPU time; no per-sample logging.",
+  "implementation": "Subsequently approved and implemented; current lifecycle/API evidence is in loading-20261029. Original source hashes below identify investigation inputs, not the later patch.",
+  "source_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs": "d3b2bebb2a7347f4c9dab39d4b603ff3d6a2fb13f9198faa1d13945c9dbc589e",
+    "Assets/AshenVoxel/WorldScaleData/TerrainClipmapState.cs": "f8680cb15783246eba8a09f0bdc96e90352040df30243bf73befe7c111fd3b7a",
+    "Assets/AshenVoxel/Exploration/ExplorationLoadingScreen.cs": "c661c66bc8f3df38fef067b0f3ed0388d4e1242d9315b1123d96fdeaaced3586",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "3cb628ec76b6477b70dbb8870acdf7ef9d6bd4640d4c5fc0d11b19d18a766d19",
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmapResources.cs": "177b02f6a5285824f1bb53228de82983e5dd588cfe26dcdde383bcbbf37eeba8"
+  }
+}

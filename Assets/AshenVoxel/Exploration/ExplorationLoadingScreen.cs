@@ -16,7 +16,7 @@ namespace AshenVoxel.Exploration
         GUIStyle loadingTitle,loadingBody,loadingSmall,loadingStep,loadingButton;
         public WorldLoadingSnapshot LoadingSnapshot=>loadingSnapshot;
         void OnEnable(){Application.logMessageReceived+=ObserveLoadingError;}
-        void OnDisable(){Application.logMessageReceived-=ObserveLoadingError;}
+        void OnDisable(){Application.logMessageReceived-=ObserveLoadingError;Clipmap?.SetLoadingScreenActive(false);}
         void ObserveLoadingError(string condition,string trace,LogType type)
         {if(!Ready&&(type==LogType.Error||type==LogType.Exception||type==LogType.Assert))loadingError=condition;}
         void BeginLoading()

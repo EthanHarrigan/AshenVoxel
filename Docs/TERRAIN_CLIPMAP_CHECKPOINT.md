@@ -2,9 +2,11 @@
 
 Current stage: wrapper integration, CPU scheduling, GPU ring rendering and explicit
 Exploration next-Play preview are implemented; combined background verification
-is complete. The user's first Plays reached fine coverage but then failed on live-climate
-blend roundoff. The narrow repair passes background regressions and is ready for
-a manual retry; native acceptance remains pending. Phase 1.2 background checks passed; implementation continues with
+is complete. User Play exposed live-climate roundoff and missing material texture
+properties; both repairs are installed and the user confirms the preview now works
+correctly. Quantitative native render/performance gates remain pending. A narrow
+loading-only draw suppression now passes background lifecycle/API checks; native
+startup timing is pending. Phase 1.2 background checks passed; implementation continues with
 native gates batched later under the user's explicit authorization. Phase 1.1
 native bake and separate verification gates passed. Phase 1.2 native comparison
 remains unexecuted (the user stopped Computer Use before refresh/menu input).
@@ -262,6 +264,42 @@ All three arrays now have explicit hidden NoScaleOffset 2DArray properties using
 the installed URP17 Lit.shader syntax. The stronger regression reads the actual
 Properties block, rejects the old shader and old broad-copy attachment separately,
 and passes16 checks with the repair. Its shim no longer accepts undeclared texture
-reads. Native shader import/binding confirmation and the original flashing,
-sustained-operation and performance acceptance remain pending. The earlier
-modeled PASS did not establish the native material schema and is preserved.
+reads. The following user run passed binding validation, reached fine coverage
+in43.330s (4,579,871 accepted samples), and the user confirms the preview now works
+correctly. This is bounded user appearance approval, not quantitative FPS, depth,
+shadow or all-scenario acceptance. The earlier modeled PASS did not establish
+the native material schema and is preserved.
+
+
+## Loading-screen rendering and timing
+
+The completed investigation found frame-dependent worker refill and atomic upload
+gaps, plus hidden terrain submission under the full-screen alpha1 loader. Eight
+8192-sample jobs occupy only65,536 worker samples; the single spare then uploads a
+full512² candidate across at least four65,536-sample passes. The2ms upload clock
+also includes prior harvest work. Main progress reads the live counters directly,
+so the quarter-second diagnostic poll does not explain the reported two-second
+pauses. The observed43.330s run accepted16.47% more samples than nominal startup
+from source updates; this does not include rejected work. No native CPU/GPU split
+was measured and no new full-world sampling sweep was run.
+
+Bootstrap now explicitly suppresses clipmap draws only while its opaque loading
+screen owns the view. Sampling, uploads, publication, visible-chain refresh and
+height/readiness queries continue. Draw counters reset to zero. Immediately before
+Ready, the gate opens for a covered submitted frame; the ordinary-frame wait is
+bounded to two frames and does not depend on Game view focus or claim GPU completion.
+Disable, teardown and retry release the gate. A failed covered draw keeps loading
+until the restored Legacy renderer has both local and distant coverage. Gameplay source refresh never hides
+the published terrain. Sample precision, appearance, ring topology and work budgets
+are unchanged. Aggregate worker-running/queue/finished-to-harvest durations, upload
+frames/submission time, stale samples and frame intervals now accompany automatic
+first-fine and loader-handoff logs. Parallel worker duration sums are not CPU time.
+
+Evidence: `Docs/ClipmapEvidence/loading-investigation-20261029.json` records the
+original code/log analysis; `loading-20261029/lifecycle.json` passes20 checks of
+the actual runtime and extracted production handoff with a modeled graphics
+boundary and tiny flat-field windows. Six real Unity API assemblies pass in
+`loading-20261029/unity-api.json`. No Unity interaction was performed. Native
+startup improvement and warm-handoff appearance remain unmeasured; no seconds
+saved are claimed. The shared Bootstrap hookup remains unstaged with existing
+user GUI edits, as before.

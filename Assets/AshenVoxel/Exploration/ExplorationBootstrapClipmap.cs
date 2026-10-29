@@ -64,13 +64,29 @@ namespace AshenVoxel.Exploration
             {
                 renderer.Initialize(Vista,(int)ActiveSettings.ClipmapQuality,ActiveSettings.ClipmapFinestSpacing,width*.5,depth*.5,
                     Math.Max(ActiveSettings.ViewDistanceKm,ActiveSettings.FarHorizonKm)*1000);
-                Clipmap=renderer;TerrainRendererStatus="Clipmap preview active · native visual acceptance pending";
+                renderer.SetLoadingScreenActive(true);Clipmap=renderer;TerrainRendererStatus="Clipmap preview active · native visual acceptance pending";
             }
             catch(Exception e)
             {
                 TerrainRendererStatus="Clipmap preview unavailable; Legacy renderer: "+e.Message;
                 renderer.Shutdown(false);Destroy(renderer);Vista.DeferLegacyTerrain=false;Vista.ForceReplan();Debug.LogWarning(TerrainRendererStatus,this);
             }
+        }
+        IEnumerator WarmClipmapBeforeReady(WorldPoint spawn)
+        {
+            if(Clipmap!=null&&Vista.UsingClipmap)
+            {
+                long submitted=Clipmap.SubmittedFrames;Clipmap.SetLoadingScreenActive(false);
+                // One covered submission lets first-use renderer setup happen before
+                // input/reveal. A bounded ordinary-frame wait also works when the
+                // Editor Game view is unfocused. This is not a GPU completion fence.
+                for(int frame=0;frame<2&&Vista.UsingClipmap&&Clipmap.SubmittedFrames==submitted;frame++)yield return null;
+                Debug.Log("Clipmap loading handoff: covered draw submitted="+(Clipmap.SubmittedFrames>submitted)+". "+Clipmap.LoadingTimingSummary,this);
+            }
+            // A first draw can fail after the earlier spawn checks and restore
+            // Legacy. Keep the loader until that renderer has rebuilt coverage.
+            while(!Vista.IsTerrainReadyArea(spawn.X,spawn.Z,2)||!Vista.HasActiveCoverage)
+            {Status="Preparing terrain coverage before revealing the world…";yield return null;}
         }
         void DrawClipmapSettings()
         {

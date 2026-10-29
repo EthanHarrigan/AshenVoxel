@@ -1,0 +1,14 @@
+{
+  "status": "BACKGROUND_PASS_NATIVE_TIMING_PENDING",
+  "generated_utc": "2026-10-29T04:59:05.661164+00:00",
+  "native_limit": "No Unity control, import, startup or render measurement performed. Submitted covered frame is not a GPU completion fence.",
+  "source_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmap.cs": "0cb83af22129621ecf2640b994313eed839467b8e6144925d2029b9f73998c34",
+    "Assets/AshenVoxel/WorldScaleRuntime/TerrainClipmapResources.cs": "02fc439be483fd395cdfc83d669dae71644ba37494b7001e1117027ce05cc897",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrapClipmap.cs": "f420039460e52108f1e8c77c5286a1a1396f4bba1a6e7e125e91ed83032d615d",
+    "Assets/AshenVoxel/Exploration/ExplorationLoadingScreen.cs": "fbfdbc119c4d4262cc2386fd077f8c51088dc913cd72517726084f9ce0cc115e",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "97f918bf3efc4581c171196bcdcd8c70106a7135baca26bca7885e8017480897"
+  },
+  "shared_file": "ExplorationBootstrap.cs contains prior user GUI edits and remains unstaged; loader hookup is two lines immediately before Ready=true.",
+  "fallback_readiness": "A first covered draw failure must wait for Vista local and distant Legacy coverage before Ready; tested with injected failure."
+}
