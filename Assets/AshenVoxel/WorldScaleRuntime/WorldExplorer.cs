@@ -305,7 +305,9 @@ namespace AshenVoxel.WorldScaleRuntime
         {
             // Preserve a still-useful immutable build across a view/topology plan.
             // The desired set is rebuilt below before deciding whether to cancel.
-            if(!UseVoxelLodTerrain&&(currentBuild==null||!currentBuild.Work.Contact))CancelBuild();
+            bool preserveQueues=preserveTerrainQueuesOnPlan;preserveTerrainQueuesOnPlan=false;
+            Work[] retained=preserveQueues?pending.ToArray():Array.Empty<Work>();
+            if(!preserveQueues&&!UseVoxelLodTerrain&&(currentBuild==null||!currentBuild.Work.Contact))CancelBuild();
             if (!double.IsNaN(plannedBaseTileSize) && baseSize != plannedBaseTileSize)
             {
                 // TileKey level coordinates depend on base size. Reusing them
@@ -315,10 +317,22 @@ namespace AshenVoxel.WorldScaleRuntime
             plannedBaseTileSize = baseSize;
             voxelPlanBoundsRevision = revision;
             limitedSplits = plan.PendingSplits;
-            desired.Clear(); desiredTiles.Clear(); pending.Clear(); refining.Clear();
+            desired.Clear(); desiredTiles.Clear(); pending.Clear();if(!preserveQueues)refining.Clear();
             var sorted = new List<LodTile>(plan.Tiles);
             sorted.Sort((a, b) => WorkPriority(a).CompareTo(WorkPriority(b)));
             foreach (LodTile tile in sorted) { desired.Add(tile.Key); desiredTiles.Add(tile.Key, tile); }
+            var queued=new HashSet<TileKey>();
+            if(preserveQueues)
+            {
+                refining.RemoveWhere(key=>!desired.Contains(key)&&!active.Contains(key));
+                foreach(Work work in retained)
+                {
+                    if(work.Revision!=revision||!TerrainWorkWanted(work)||queued.Contains(work.Tile.Key))continue;
+                    if(currentBuild!=null&&!currentBuild.Work.Contact&&currentBuild.Work.Tile.Key.Equals(work.Tile.Key))continue;
+                    LodTile tile=desiredTiles.TryGetValue(work.Tile.Key,out LodTile updated)?updated:work.Tile;
+                    pending.Enqueue(new Work(tile,work.Revision,work.Replace,work.Contact,work.Quads,work.Progressive));queued.Add(tile.Key);
+                }
+            }
             RetireCoverageOutsideDemand();
             PrepareCoverageGroups();
             // Cache residency is at most active + desired: two bounded plans.
@@ -340,10 +354,11 @@ namespace AshenVoxel.WorldScaleRuntime
                 if(work.Revision!=revision||!TerrainWorkWanted(work)||
                     (UseVoxelLodTerrain&&work.Progressive&&work.Quads>VoxelQuadsFor(work.Tile)))CancelBuild();
             }
-            ResetVoxelRefinementAdmission();
+            if(!preserveQueues)ResetVoxelRefinementAdmission();else voxelRefinementScanPending=true;
             foreach (LodTile tile in sorted)
             {
                 if(currentBuild!=null&&!currentBuild.Work.Contact&&currentBuild.Work.Tile.Key.Equals(tile.Key))continue;
+                if(queued.Contains(tile.Key))continue;
                 surfaces.TryGetValue(tile.Key,out Surface existing);
                 if(UseVoxelLodTerrain)QueueVoxelCoverage(tile,existing);
                 else if(existing==null||existing.Quads!=QuadsFor(tile)||externallyDirty.Contains(tile.Key))
@@ -821,7 +836,7 @@ namespace AshenVoxel.WorldScaleRuntime
             ClearContactTerrain();
             remove.Clear(); remove.AddRange(surfaces.Keys);
             foreach (TileKey key in remove) Release(key);
-            pending.Clear(); active.Clear(); desired.Clear(); desiredTiles.Clear(); refining.Clear(); externallyDirty.Clear(); planActivationPending = false;
+            pending.Clear(); active.Clear(); desired.Clear(); desiredTiles.Clear(); refining.Clear(); externallyDirty.Clear(); planActivationPending = false;preserveTerrainQueuesOnPlan=false;
             coverageGroups.Clear();coveragePublishedCount=0;coverageBudgetTime=double.NaN;
             voxelCapacityQuads.Clear();voxelRetryAt=0;voxelDeferredQuads.Clear();
             TerrainResidentMeshBytes=voxelDetailMeshBytes=HeightProxyMeshBytes=0;VoxelRefinementPendingTiles=0;voxelRefinementScanPending=false;consecutiveContactBuilds=consecutiveCoverageBuilds=0;

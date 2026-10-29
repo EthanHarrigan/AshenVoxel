@@ -1,0 +1,9 @@
+{
+  "log_start_bytes": 336027,
+  "source_sha256": {
+    "Assets/AshenVoxel/WorldScaleRuntime/GroundSurface.shader": "27c767eb391f1701fc0161a367593e02cc9d8db219ec1723a650bff7af525814",
+    "Assets/AshenVoxel/Exploration/ExplorationVoxelLook.cs": "773eb9935210992de7b0b4cabe1bab8c8235efb26dd73ce4b7fcd5cb1d97c9d2",
+    "Assets/AshenVoxel/Exploration/ExplorationSettings.cs": "dc823a9c5c644b1386318ecfa14f451b712c41a449b0552a8900e59c3699056c"
+  },
+  "observed": "Unity existing window in Edit mode; Play triangle not active; no cameras rendering; Console zero errors one DLSS warning"
+}

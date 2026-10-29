@@ -108,6 +108,7 @@ namespace AshenVoxel.WorldScaleRuntime
         public long ContactTriangles {get;private set;}
         readonly Dictionary<TileKey,Surface> contactSurfaces=new Dictionary<TileKey,Surface>();
         readonly HashSet<TileKey> contactDesired=new HashSet<TileKey>();
+        readonly HashSet<TileKey> contactExternallyDirty=new HashSet<TileKey>();
         readonly Dictionary<TileKey,long> contactDeferred=new Dictionary<TileKey,long>();
         public int ContactDeferredTiles=>contactDeferred.Count;
         long contactObservedBudgetBytes=-1;
@@ -226,7 +227,7 @@ namespace AshenVoxel.WorldScaleRuntime
                 var key=new TileKey(x,z,0);contactDesired.Add(key);
                 // A deferred replacement must survive overlap/radius replans.
                 // Keeping a fallback mesh does not make its source current.
-                if(!contactSurfaces.TryGetValue(key,out Surface existing)||existing.SourceRevision!=revision)
+                if(!contactSurfaces.TryGetValue(key,out Surface existing)||existing.SourceRevision!=revision||contactExternallyDirty.Contains(key))
                 {
                     // Height queries and bounds remain on the geometry worker.
                     var tile=new LodTile(key,x*size,z*size,size,RemoteTerrainField.MinimumSupportedHeight,RemoteTerrainField.MaximumSupportedHeight);
@@ -244,6 +245,7 @@ namespace AshenVoxel.WorldScaleRuntime
             }
             var retired=new List<TileKey>();foreach(var key in contactSurfaces.Keys)if(!contactDesired.Contains(key))retired.Add(key);
             foreach(var key in retired)ReleaseContact(key);
+            contactExternallyDirty.RemoveWhere(key=>!contactDesired.Contains(key)&&!contactSurfaces.ContainsKey(key));
             UpdateContactMask();
             RetireAltitudeContacts();
         }
@@ -260,7 +262,7 @@ namespace AshenVoxel.WorldScaleRuntime
             if(!contactSurfaces.TryGetValue(key,out Surface s))return;
             TerrainSeamRemoved(s);
             ContactMeshBytes-=SurfaceBytes(s);ContactTriangles-=s.TriangleCount;
-            Destroy(s.Object);Destroy(s.Mesh);contactSurfaces.Remove(key);
+            if(s.Object!=null)Destroy(s.Object);if(s.Mesh!=null)Destroy(s.Mesh);contactSurfaces.Remove(key);
         }
         bool AdmitContactMesh(TileKey key,long bytes)
         {
@@ -275,12 +277,12 @@ namespace AshenVoxel.WorldScaleRuntime
             {
                 // Never silently lower the10cm contact resolution to meet admission.
                 // Retain the old terrain and observable request until the next move/replan.
-                Destroy(built.Object);Destroy(built.Mesh);contactDeferred[work.Tile.Key]=bytes;return;
+                if(built.Object!=null)Destroy(built.Object);if(built.Mesh!=null)Destroy(built.Mesh);contactDeferred[work.Tile.Key]=bytes;return;
             }
             built.SourceRevision=work.Revision;
             ReleaseContact(work.Tile.Key);contactSurfaces.Add(work.Tile.Key,built);
             ContactMeshBytes+=bytes;ContactTriangles+=built.TriangleCount;
-            contactDeferred.Remove(work.Tile.Key);
+            contactDeferred.Remove(work.Tile.Key);contactExternallyDirty.Remove(work.Tile.Key);
             built.Object.SetActive(!inspection);UpdateContactMask();TerrainSeamChanged(built);
             if(ContactMeshBytes<previousBytes)WakeAdmissibleContactRequests(limit);
         }
@@ -316,7 +318,7 @@ namespace AshenVoxel.WorldScaleRuntime
         {
             ClearTerrainSeams();
             foreach(var s in contactSurfaces.Values){Destroy(s.Object);Destroy(s.Mesh);}
-            contactSurfaces.Clear();contactDesired.Clear();contactPending.Clear();contactDeferred.Clear();
+            contactSurfaces.Clear();contactDesired.Clear();contactPending.Clear();contactDeferred.Clear();contactExternallyDirty.Clear();
             ContactMeshBytes=ContactTriangles=0;contactCenterX=contactCenterZ=long.MinValue;contactRevision=-1;contactObservedBudgetBytes=-1;
             contactAltitudeDeferring=contactAltitudeBoundsCached=contactAltitudeBoundsKnown=false;
             if(contactMaterial!=null)Destroy(contactMaterial);contactMaterial=null;

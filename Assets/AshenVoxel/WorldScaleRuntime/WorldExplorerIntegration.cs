@@ -14,6 +14,7 @@ namespace AshenVoxel.WorldScaleRuntime
         IWorldField externalSource;
         SurfaceProfile externalProfile;
         bool externalInitialized, coarseStartup, planForced, planActivationPending;
+        bool preserveTerrainQueuesOnPlan;
         Quaternion externalRotation;
         WorldPoint plannedObserver;
         double plannedBaseTileSize = double.NaN;
@@ -204,24 +205,52 @@ namespace AshenVoxel.WorldScaleRuntime
         {
             var bounds=new ExplorationRefinementBounds(minimumX,minimumZ,maximumX,maximumZ);
             if(!ExternalNavigation||field==null)return;
-            revision++;CancelBuild();pending.Clear();refining.Clear();
-            ResetVoxelRefinementAdmission();
+            var queued=new HashSet<TileKey>();foreach(var work in pending)if(work.Revision==revision)queued.Add(work.Tile.Key);
+            // Source publications are local; the global revision still fences
+            // configuration/world resets. Pending jobs capture the latest field
+            // when started, so only an overlapping in-flight snapshot is stale.
+            if(currentBuild!=null&&Intersects(currentBuild.Work.Tile,bounds))
+            {
+                Work interrupted=currentBuild.Work;CancelBuild();
+                if(interrupted.Contact)
+                {
+                    if(contactDesired.Contains(interrupted.Tile.Key)&&!contactPending.Exists(w=>w.Tile.Key.Equals(interrupted.Tile.Key)))contactPending.Add(interrupted);
+                }
+                else if(TerrainWorkWanted(interrupted)&&queued.Add(interrupted.Tile.Key))pending.Enqueue(interrupted);
+            }
+            voxelRefinementScanPending=true;
             foreach(var surface in surfaces.Values)if(Intersects(surface.Tile,bounds))
-            {externallyDirty.Add(surface.Tile.Key);voxelCapacityQuads.Remove(surface.Tile.Key);}
+            {externallyDirty.Add(surface.Tile.Key);voxelCapacityQuads.Remove(surface.Tile.Key);voxelDeferredQuads.Remove(surface.Tile.Key);}
             foreach(var tile in desiredTiles.Values)
             {
-                if(Intersects(tile,bounds))externallyDirty.Add(tile.Key);
+                if(!Intersects(tile,bounds))continue;
+                externallyDirty.Add(tile.Key);voxelCapacityQuads.Remove(tile.Key);voxelDeferredQuads.Remove(tile.Key);
+                if(!queued.Add(tile.Key))continue;
                 surfaces.TryGetValue(tile.Key,out Surface existing);
                 if(UseVoxelLodTerrain)QueueVoxelCoverage(tile,existing);
-                else if(existing==null||externallyDirty.Contains(tile.Key)||existing.Quads!=QuadsFor(tile))
-                    pending.Enqueue(new Work(tile,revision,existing!=null));
+                else pending.Enqueue(new Work(tile,revision,existing!=null));
             }
+            // Contacts use a separate local freshness obligation. It must outlive
+            // memory deferral and camera replans while the old mesh is retained.
+            foreach(var surface in contactSurfaces.Values)if(Intersects(surface.Tile,bounds))contactExternallyDirty.Add(surface.Tile.Key);
+            double size=VoxelLodSurface.BaseTileMeters;
+            foreach(var key in contactDesired)
+            {
+                var tile=new LodTile(key,key.X*size,key.Z*size,size,RemoteTerrainField.MinimumSupportedHeight,RemoteTerrainField.MaximumSupportedHeight);
+                if(!Intersects(tile,bounds))continue;contactExternallyDirty.Add(key);
+                contactDeferred.Remove(key);voxelCommitDeferred.Remove((key,true));
+                if(!contactPending.Exists(w=>w.Tile.Key.Equals(key)))contactPending.Add(new Work(tile,revision,true,true));
+            }
+            contactAltitudeBoundsCached=false;voxelPlanBoundsRevision=-1;
             remove.Clear();foreach(var key in externallyDirty)if(!active.Contains(key)&&!desired.Contains(key))remove.Add(key);
             foreach(var key in remove)externallyDirty.Remove(key);
+            // A planner captured old bounds, unlike unaffected mesh work, must
+            // be replaced. Applying its replacement preserves compatible queues.
+            AbandonPlan();preserveTerrainQueuesOnPlan=true;
             if(visualWater!=null)visualWater.InvalidateDepthHints();ForceReplan();
         }
-        static bool Intersects(LodTile tile,ExplorationRefinementBounds b)=>tile.OriginXMeters+tile.SizeMeters>=b.MinimumX&&tile.OriginXMeters<=b.MaximumX&&
-            tile.OriginZMeters+tile.SizeMeters>=b.MinimumZ&&tile.OriginZMeters<=b.MaximumZ;
+        static bool Intersects(LodTile tile,ExplorationRefinementBounds b)=>tile.OriginXMeters+tile.SizeMeters+SurfaceHalo>=b.MinimumX&&tile.OriginXMeters-SurfaceHalo<=b.MaximumX&&
+            tile.OriginZMeters+tile.SizeMeters+SurfaceHalo>=b.MinimumZ&&tile.OriginZMeters-SurfaceHalo<=b.MaximumZ;
         void PollPlan()
         {
             if (planJob == null || !planJob.IsCompleted) return;

@@ -1,0 +1,1691 @@
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+AssetDatabase: script compilation time: 0.000482s
+[Licensing::Client] Successfully resolved entitlement details
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 0.1027ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/ethan/Downloads/AshenVoxel
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Current configuration matches the requested one, skipping
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc - - 200 - application/grpc 0.6789ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Data\netcorerun\netcorerun.exe "C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Data\Tools\BuildPipeline\ScriptCompilationBuildProgram.exe" "Library/Bee/1900b0aE.dag.json" "Library/Bee/1900b0aE-inputdata.json" "Library\Bee\buildprogram0.traceevents"
+WorkingDir: C:/Users/ethan/Downloads/AshenVoxel
+ExitCode: 4 Duration: 0s434ms
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/1900b0aE-inputdata.json
+[581/747    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[582/747    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleRuntime.dll (+2 others)
+*** Tundra requires additional run (0.40 seconds), 2 items updated, 580 evaluated
+ExitCode: 0 Duration: 0s495ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --dagfilejson="Library\Bee\1900b0aE.dag.json" --profile="Library/Bee/backend2.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/ethan/Downloads/AshenVoxel
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Current configuration matches the requested one, skipping
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc - - 200 - application/grpc 0.9650ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleRuntime.dll, with 141 defines and 240 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 2.8770ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleEditor.dll, with 139 defines and 273 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 2.1140ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.dll, with 142 defines and 244 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 2.3491ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll, with 139 defines and 317 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll, with 141 defines and 277 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.Editor.dll, with 140 defines and 280 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 8.1129ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 33.0900ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 24.8679ms
+ExitCode: 0 Duration: 1s982ms
+Finished compiling graph: 750 nodes, 12276 flattened edges (9888 ToBuild, 114 ToUse), maximum node priority 818
+[432/747    0s] WriteText Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.Editor.rsp
+[582/747    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[724/747    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.WorldScaleRuntime.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleRuntime.dll, with 141 defines and 240 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[725/747    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleEditor.dll (+2 others)
+[726/747    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.WorldScaleRuntime.pdb
+[727/747    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.WorldScaleEditor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleEditor.dll, with 139 defines and 273 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[728/747    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.WorldScaleEditor.dll
+[729/747    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.WorldScaleEditor.pdb
+[730/747    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.WorldScaleRuntime.dll
+[731/747    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.dll (+2 others)
+[732/747    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.Editor.dll (+2 others)
+Assets\AshenVoxel\Exploration\Editor\DlssNativeCheck.cs(51,40): warning CS0618: 'GraphicsDeviceDebugView.dlssFeatureInfos' is obsolete: 'This property causes garbage collection and is inefficient. Use dlssFeatureInfosSpan and dlssFeatureInfoCount instead.'
+[733/747    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.Exploration.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.dll, with 142 defines and 244 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[734/747    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.pdb
+[735/747    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll (+2 others)
+[736/747    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.dll
+[737/747    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll (+2 others)
+[738/747    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.Exploration.Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.Editor.dll, with 140 defines and 280 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[739/747    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp-Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll, with 139 defines and 317 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[740/747    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll, with 141 defines and 277 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[741/747    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.Editor.pdb
+[742/747    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.pdb
+[743/747    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll
+[744/747    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb
+[745/747    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+[746/747    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.Editor.dll
+*** Tundra build success (1.95 seconds), 25 items updated, 747 evaluated
+Total cache size 267895140
+Total cache size after purge 267895140, took 00:00:00.3332135
+Assets\AshenVoxel\Exploration\Editor\DlssNativeCheck.cs(51,40): warning CS0618: 'GraphicsDeviceDebugView.dlssFeatureInfos' is obsolete: 'This property causes garbage collection and is inefficient. Use dlssFeatureInfosSpan and dlssFeatureInfoCount instead.'
+Reloading assemblies after forced synchronous recompile.
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.846 seconds
+Refreshing native plugins compatible for Editor in 0.39 ms, found 0 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.519 seconds
+Domain Reload Profiling: 2362ms
+	BeginReloadAssembly (632ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (141ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (280ms)
+	RebuildCommonClasses (34ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (28ms)
+	LoadAllAssembliesAndSetupDomain (138ms)
+		LoadAssemblies (122ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (108ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (3ms)
+			BuildScriptInfoCaches (70ms)
+			ResolveRequiredComponents (24ms)
+	FinalizeReload (1519ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (681ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (21ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (244ms)
+			ProcessInitializeOnLoadAttributes (332ms)
+			ProcessInitializeOnLoadMethodAttributes (72ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (470ms)
+Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=c1219172d7276e34fbf574194ef65228): Total: 6.653 seconds - Initiated by RefreshV2(AllowForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=1664 ms
+		Asset DB Callback time: managed=52 ms, native=4 ms
+		Scripting: domain reloads=1, domain reload time=862 ms, compile time=4069 ms, other=0 ms
+		Project Asset Count: scripts=807, non-scripts=1687
+		Asset File Changes: new=1, changed=4, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 2.821ms
+	ApplyChangesToAssetFolders: 0.237ms
+	Scan: 25.758ms
+	OnSourceAssetsModified: 0.737ms
+	CategorizeAssetsWithTransientArtifact: 0.036ms
+	ProcessAssetsWithTransientArtifactChanges: 3.700ms
+	CategorizeAssets: 34.606ms
+	ImportOutOfDateAssets: 1524.223ms (-2546.962ms without children)
+		CompileScripts: 4068.595ms
+		CollectScriptTypesHashes: 0.778ms
+		ReloadNativeAssets: 0.960ms
+		UnloadImportedAssets: 0.160ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.263ms
+		InitializingProgressBar: 0.001ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.426ms
+	PostProcessAllAssets: 50.260ms
+	Hotreload: 5.540ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.111ms
+	UnloadStreamsBegin: 0.090ms
+	PersistCurrentRevisions: 0.063ms
+	UnloadStreamsEnd: 0.003ms
+	GenerateScriptTypeHashes: 3.062ms
+	Untracked: 5005.114ms
+
+[Licensing::Client] Successfully resolved entitlement details
+null options given to DLSSIUpscaler()
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+DLSSIUpscaler:.ctor (DLSSOptions) (at ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/DLSSIUpscaler.cs:136)
+System.Reflection.RuntimeConstructorInfo:InternalInvoke (object,object[],bool)
+System.Reflection.RuntimeConstructorInfo:DoInvoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.RuntimeConstructorInfo:Invoke (System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.RuntimeType:CreateInstanceImpl (System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[],System.Threading.StackCrawlMark&)
+System.Activator:CreateInstance (System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[])
+System.Activator:CreateInstance (System.Type,object[])
+UnityEngine.Rendering.Upscaling:.ctor (System.Collections.Generic.List`1<UnityEngine.Rendering.UpscalerOptions>) (at ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/Upscaling.cs:54)
+UnityEngine.Rendering.Universal.UniversalRenderPipeline:.ctor (UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset) (at ./Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/Runtime/UniversalRenderPipeline.cs:326)
+UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset:CreatePipeline () (at ./Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/Runtime/Data/UniversalRenderPipelineAsset.cs:831)
+UnityEngine.Rendering.RenderPipelineAsset:InternalCreatePipeline ()
+UnityEngine.Rendering.RenderPipelineManager:TryPrepareRenderPipeline (UnityEngine.Rendering.RenderPipelineAsset)
+UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,UnityEngine.Object,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle)
+UnityEditor.EditorGUIUtility:RenderPlayModeViewCamerasInternal (UnityEngine.RenderTexture,int,UnityEngine.Vector2,bool,bool)
+UnityEditor.PlayModeView:RenderView (UnityEngine.Vector2,bool)
+UnityEditor.GameView:OnGUI ()
+UnityEditor.HostView:InvokeOnGUI (UnityEngine.Rect)
+UnityEditor.DockArea:DrawView (UnityEngine.Rect)
+UnityEditor.DockArea:OldOnGUI ()
+UnityEngine.UIElements.IMGUIContainer:DoOnGUI (UnityEngine.Event,UnityEngine.Matrix4x4,UnityEngine.Rect,bool,UnityEngine.Rect,System.Action,bool)
+UnityEngine.UIElements.IMGUIContainer:HandleIMGUIEvent (UnityEngine.Event,UnityEngine.Matrix4x4,UnityEngine.Rect,System.Action,bool)
+UnityEngine.UIElements.IMGUIContainer:DoIMGUIRepaint ()
+UnityEngine.UIElements.UIR.RenderChainCommand:ExecuteNonDrawMesh (UnityEngine.UIElements.UIR.DrawParams,single,System.Exception&)
+UnityEngine.UIElements.UIR.UIRenderDevice:EvaluateChain (UnityEngine.UIElements.UIR.RenderChainCommand,UnityEngine.Material,UnityEngine.Texture,UnityEngine.Texture,System.Nullable`1<UnityEngine.Rect>,UnityEngine.Vector2,single,bool,UnityEngine.UIElements.TextureSlotCount,bool,System.Exception&)
+UnityEngine.UIElements.UIR.RenderTreeManager:RenderSingleTree (UnityEngine.UIElements.UIR.RenderTree,UnityEngine.RenderTexture,UnityEngine.RectInt,UnityEngine.Rect)
+UnityEngine.UIElements.UIR.RenderTreeManager:RenderRootTree ()
+UnityEngine.UIElements.UIRRepaintUpdater:Render ()
+UnityEngine.UIElements.BaseVisualElementPanel:Render ()
+UnityEngine.UIElements.Panel:Render ()
+UnityEngine.UIElements.UIElementsUtility:DoDispatch (UnityEngine.UIElements.BaseVisualElementPanel)
+UnityEngine.UIElements.UIElementsUtility:UnityEngine.UIElements.IUIElementsUtility.ProcessEvent (int,intptr,bool&)
+UnityEngine.UIElements.UIEventRegistration:ProcessEvent (int,intptr)
+UnityEngine.UIElements.UIEventRegistration/<>c:<.cctor>b__1_2 (int,intptr)
+UnityEngine.GUIUtility:ProcessEvent (int,intptr,bool&)
+
+(Filename: ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/DLSSIUpscaler.cs Line: 136)
+
+Asset Pipeline Refresh (id=87c4171743919e64fb6b7bb6b520c44d): Total: 0.003 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=fd9d09a48b4517d47bb0323b244fec22): Total: 0.004 seconds - Initiated by RefreshV2(AllowForceSynchronousImport)
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:PublishContact (AshenVoxel.WorldScaleRuntime.WorldExplorer/Surface,AshenVoxel.WorldScaleRuntime.WorldExplorer/Work) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:280)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Fixture:Publish (AshenVoxel.WorldScale.TileKey,long,double,object) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:89)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:133)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 280]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:PublishContact (AshenVoxel.WorldScaleRuntime.WorldExplorer/Surface,AshenVoxel.WorldScaleRuntime.WorldExplorer/Work) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:280)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Fixture:Publish (AshenVoxel.WorldScale.TileKey,long,double,object) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:89)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:133)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 280]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:136)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:136)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:136)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:136)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:136)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:136)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:136)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:136)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:136)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:136)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:136)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:136)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:PublishContact (AshenVoxel.WorldScaleRuntime.WorldExplorer/Surface,AshenVoxel.WorldScaleRuntime.WorldExplorer/Work) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:280)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Fixture:Publish (AshenVoxel.WorldScale.TileKey,long,double,object) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:89)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:138)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 280]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:PublishContact (AshenVoxel.WorldScaleRuntime.WorldExplorer/Surface,AshenVoxel.WorldScaleRuntime.WorldExplorer/Work) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:280)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Fixture:Publish (AshenVoxel.WorldScale.TileKey,long,double,object) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:89)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:138)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 280]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:PublishContact (AshenVoxel.WorldScaleRuntime.WorldExplorer/Surface,AshenVoxel.WorldScaleRuntime.WorldExplorer/Work) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:283)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Fixture:Publish (AshenVoxel.WorldScale.TileKey,long,double,object) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:89)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:138)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:PublishContact (AshenVoxel.WorldScaleRuntime.WorldExplorer/Surface,AshenVoxel.WorldScaleRuntime.WorldExplorer/Work) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:283)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Fixture:Publish (AshenVoxel.WorldScale.TileKey,long,double,object) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:89)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:138)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:PublishContact (AshenVoxel.WorldScaleRuntime.WorldExplorer/Surface,AshenVoxel.WorldScaleRuntime.WorldExplorer/Work) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:283)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Fixture:Publish (AshenVoxel.WorldScale.TileKey,long,double,object) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:89)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:140)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:PublishContact (AshenVoxel.WorldScaleRuntime.WorldExplorer/Surface,AshenVoxel.WorldScaleRuntime.WorldExplorer/Work) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:283)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Fixture:Publish (AshenVoxel.WorldScale.TileKey,long,double,object) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:89)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:140)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:ReleaseContact (AshenVoxel.WorldScale.TileKey) (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:265)
+AshenVoxel.WorldScaleRuntime.WorldExplorer:RefreshContactPlan () (at Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs:247)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Call (AshenVoxel.WorldScaleRuntime.WorldExplorer,string,object[]) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:46)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Contact (AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks/Report) (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:144)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:158)
+
+[Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs line 265]
+
+Local terrain refresh PASS: 17 checks; C:\Users\ethan\Downloads\AshenVoxel\Logs/LocalTerrainRefresh\20261029-023604-853
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:162)
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs Line: 162)
+
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+AssetDatabase: script compilation time: 0.000506s
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=b6505195e141fbf4a9523d248fdce665): Total: 0.044 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+[Licensing::Client] Successfully resolved entitlement details
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 0.1372ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.27f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/ethan/Downloads/AshenVoxel
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Current configuration matches the requested one, skipping
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc - - 200 - application/grpc 0.9811ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleRuntime.dll, with 141 defines and 240 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleEditor.dll, with 139 defines and 273 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 5.2802ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 11.3423ms
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.dll, with 142 defines and 244 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 16.9696ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll, with 141 defines and 277 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.Editor.dll, with 140 defines and 280 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll, with 139 defines and 317 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 3.5441ms
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 24.3638ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 25.8763ms
+ExitCode: 0 Duration: 1s847ms
+[581/747    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[723/747    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleRuntime.dll (+2 others)
+[726/747    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.WorldScaleEditor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleEditor.dll, with 139 defines and 273 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[727/747    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.WorldScaleRuntime.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.WorldScaleRuntime.dll, with 141 defines and 240 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[728/747    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.Exploration.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.dll, with 142 defines and 244 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[729/747    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.Editor.dll (+2 others)
+Assets\AshenVoxel\Exploration\Editor\DlssNativeCheck.cs(51,40): warning CS0618: 'GraphicsDeviceDebugView.dlssFeatureInfos' is obsolete: 'This property causes garbage collection and is inefficient. Use dlssFeatureInfosSpan and dlssFeatureInfoCount instead.'
+[732/747    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.WorldScaleRuntime.pdb
+[734/747    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.WorldScaleRuntime.dll
+[735/747    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll (+2 others)
+[737/747    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll (+2 others)
+[738/747    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AshenVoxel.Exploration.Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AshenVoxel.Exploration.Editor.dll, with 140 defines and 280 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[739/747    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll, with 141 defines and 277 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[740/747    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp-Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll, with 139 defines and 317 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[741/747    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.Editor.pdb
+[742/747    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll
+[743/747    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.pdb
+[744/747    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb
+[745/747    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+[746/747    0s] CopyFiles Library/ScriptAssemblies/AshenVoxel.Exploration.Editor.dll
+*** Tundra build success (1.81 seconds), 19 items updated, 747 evaluated
+Total cache size 267895140
+Total cache size after purge 267895140, took 00:00:00.2457440
+Assets\AshenVoxel\Exploration\Editor\DlssNativeCheck.cs(51,40): warning CS0618: 'GraphicsDeviceDebugView.dlssFeatureInfos' is obsolete: 'This property causes garbage collection and is inefficient. Use dlssFeatureInfosSpan and dlssFeatureInfoCount instead.'
+Reloading assemblies after finishing script compilation.
+Reloading assemblies after forced synchronous recompile.
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.837 seconds
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.506 seconds
+Domain Reload Profiling: 2339ms
+	BeginReloadAssembly (628ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (173ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (272ms)
+	RebuildCommonClasses (34ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (27ms)
+	LoadAllAssembliesAndSetupDomain (130ms)
+		LoadAssemblies (123ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (102ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (3ms)
+			BuildScriptInfoCaches (67ms)
+			ResolveRequiredComponents (22ms)
+	FinalizeReload (1507ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (683ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (19ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (255ms)
+			ProcessInitializeOnLoadAttributes (326ms)
+			ProcessInitializeOnLoadMethodAttributes (70ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (459ms)
+Asset Pipeline Refresh (id=f914b2657691160428d9964f9def2c76): Total: 2.453 seconds - Initiated by StopAssetImportingV2(ForceSynchronousImport | ForceDomainReload)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=1575 ms
+		Asset DB Callback time: managed=23 ms, native=0 ms
+		Scripting: domain reloads=1, domain reload time=852 ms, compile time=1 ms, other=0 ms
+		Project Asset Count: scripts=807, non-scripts=1687
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 2.015ms
+	ApplyChangesToAssetFolders: 0.171ms
+	Scan: 0.001ms
+	OnSourceAssetsModified: 0.002ms
+	CategorizeAssetsWithTransientArtifact: 0.002ms
+	ProcessAssetsWithTransientArtifactChanges: 3.226ms
+	CategorizeAssets: 36.087ms
+	ImportOutOfDateAssets: 1511.174ms (1507.678ms without children)
+		CompileScripts: 1.115ms
+		CollectScriptTypesHashes: 0.693ms
+		ReloadNativeAssets: 1.061ms
+		UnloadImportedAssets: 0.002ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.249ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.375ms
+	PostProcessAllAssets: 23.848ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.201ms
+	UnloadStreamsBegin: 0.003ms
+	PersistCurrentRevisions: 0.055ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 3.372ms
+	Untracked: 876.069ms
+
+[Licensing::Client] Successfully resolved entitlement details
+null options given to DLSSIUpscaler()
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+DLSSIUpscaler:.ctor (DLSSOptions) (at ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/DLSSIUpscaler.cs:136)
+System.Reflection.RuntimeConstructorInfo:InternalInvoke (object,object[],bool)
+System.Reflection.RuntimeConstructorInfo:DoInvoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.RuntimeConstructorInfo:Invoke (System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.RuntimeType:CreateInstanceImpl (System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[],System.Threading.StackCrawlMark&)
+System.Activator:CreateInstance (System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[])
+System.Activator:CreateInstance (System.Type,object[])
+UnityEngine.Rendering.Upscaling:.ctor (System.Collections.Generic.List`1<UnityEngine.Rendering.UpscalerOptions>) (at ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/Upscaling.cs:54)
+UnityEngine.Rendering.Universal.UniversalRenderPipeline:.ctor (UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset) (at ./Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/Runtime/UniversalRenderPipeline.cs:326)
+UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset:CreatePipeline () (at ./Library/PackageCache/com.unity.render-pipelines.universal@ee0b6bbace10/Runtime/Data/UniversalRenderPipelineAsset.cs:831)
+UnityEngine.Rendering.RenderPipelineAsset:InternalCreatePipeline ()
+UnityEngine.Rendering.RenderPipelineManager:TryPrepareRenderPipeline (UnityEngine.Rendering.RenderPipelineAsset)
+UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,UnityEngine.Object,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle)
+UnityEditor.EditorGUIUtility:RenderPlayModeViewCamerasInternal (UnityEngine.RenderTexture,int,UnityEngine.Vector2,bool,bool)
+UnityEditor.PlayModeView:RenderView (UnityEngine.Vector2,bool)
+UnityEditor.GameView:OnGUI ()
+UnityEditor.HostView:InvokeOnGUI (UnityEngine.Rect)
+UnityEditor.DockArea:DrawView (UnityEngine.Rect)
+UnityEditor.DockArea:OldOnGUI ()
+UnityEngine.UIElements.IMGUIContainer:DoOnGUI (UnityEngine.Event,UnityEngine.Matrix4x4,UnityEngine.Rect,bool,UnityEngine.Rect,System.Action,bool)
+UnityEngine.UIElements.IMGUIContainer:HandleIMGUIEvent (UnityEngine.Event,UnityEngine.Matrix4x4,UnityEngine.Rect,System.Action,bool)
+UnityEngine.UIElements.IMGUIContainer:DoIMGUIRepaint ()
+UnityEngine.UIElements.UIR.RenderChainCommand:ExecuteNonDrawMesh (UnityEngine.UIElements.UIR.DrawParams,single,System.Exception&)
+UnityEngine.UIElements.UIR.UIRenderDevice:EvaluateChain (UnityEngine.UIElements.UIR.RenderChainCommand,UnityEngine.Material,UnityEngine.Texture,UnityEngine.Texture,System.Nullable`1<UnityEngine.Rect>,UnityEngine.Vector2,single,bool,UnityEngine.UIElements.TextureSlotCount,bool,System.Exception&)
+UnityEngine.UIElements.UIR.RenderTreeManager:RenderSingleTree (UnityEngine.UIElements.UIR.RenderTree,UnityEngine.RenderTexture,UnityEngine.RectInt,UnityEngine.Rect)
+UnityEngine.UIElements.UIR.RenderTreeManager:RenderRootTree ()
+UnityEngine.UIElements.UIRRepaintUpdater:Render ()
+UnityEngine.UIElements.BaseVisualElementPanel:Render ()
+UnityEngine.UIElements.Panel:Render ()
+UnityEngine.UIElements.UIElementsUtility:DoDispatch (UnityEngine.UIElements.BaseVisualElementPanel)
+UnityEngine.UIElements.UIElementsUtility:UnityEngine.UIElements.IUIElementsUtility.ProcessEvent (int,intptr,bool&)
+UnityEngine.UIElements.UIEventRegistration:ProcessEvent (int,intptr)
+UnityEngine.UIElements.UIEventRegistration/<>c:<.cctor>b__1_2 (int,intptr)
+UnityEngine.GUIUtility:ProcessEvent (int,intptr,bool&)
+
+(Filename: ./Library/PackageCache/com.unity.render-pipelines.core@6c7e6aba313a/Runtime/Upscaling/DLSSIUpscaler.cs Line: 136)
+

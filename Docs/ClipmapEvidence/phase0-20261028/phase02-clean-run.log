@@ -1,0 +1,34 @@
+Local terrain refresh PASS: 17 checks; C:\Users\ethan\Downloads\AshenVoxel\Logs/LocalTerrainRefresh\20261029-023710-783
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Exploration.Editor.LocalTerrainRefreshChecks:Run () (at Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs:165)
+
+(Filename: Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs Line: 165)
+
+PASS actual C# greedy mesh: 32198 unit faces and RGB colors match independent world oracle; 128416 vertex AO values match independent neighborhood oracle across 12 worlds.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Rendering.Editor.MeshOracleChecks:Run () (at Assets/AshenVoxel/Rendering/Editor/MeshOracleChecks.cs:58)
+AshenVoxel.Rendering.Editor.MeshRegressionChecks:Run () (at Assets/AshenVoxel/Rendering/Editor/MeshRegressionChecks.cs:78)
+
+(Filename: Assets/AshenVoxel/Rendering/Editor/MeshOracleChecks.cs Line: 58)
+
+Ashen Voxel: all mesh regression checks passed.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AshenVoxel.Rendering.Editor.MeshRegressionChecks:Run () (at Assets/AshenVoxel/Rendering/Editor/MeshRegressionChecks.cs:79)
+
+(Filename: Assets/AshenVoxel/Rendering/Editor/MeshRegressionChecks.cs Line: 79)
+

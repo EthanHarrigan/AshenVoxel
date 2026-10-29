@@ -1,0 +1,31 @@
+{
+    "status": "PASS",
+    "unity": "6000.3.27f1",
+    "error": "",
+    "scope": "Native Edit-mode local invalidation, retained iterator/queue and synthetic contact admission. No Play, geometry, rendering or frame-time claim.",
+    "checks": [
+        "two distant publications preserve unrelated iterator/revision (voxel=False)",
+        "both affected requests coexist with unrelated queued work (voxel=False)",
+        "subsequent ApplyPlan preserves iterator and queued refinement identity (voxel=False)",
+        "sampling-halo publication cancels/requeues affected snapshot (voxel=False)",
+        "global reset revision still rejects stale work (voxel=False)",
+        "two distant publications preserve unrelated iterator/revision (voxel=True)",
+        "both affected requests coexist with unrelated queued work (voxel=True)",
+        "subsequent ApplyPlan preserves iterator and queued refinement identity (voxel=True)",
+        "sampling-halo publication cancels/requeues affected snapshot (voxel=True)",
+        "global reset revision still rejects stale work (voxel=True)",
+        "local contact edit queues an existing same-revision surface",
+        "denied contact replacement retains old support and dirty obligation",
+        "overlap movement requeues locally dirty contact despite equal global revision",
+        "released capacity wakes the retained contact replacement",
+        "successful contact publication alone clears its freshness obligation",
+        "affected contact iterator is canceled and requeued on another local update",
+        "eviction prunes contact dirty metadata outside residency and demand"
+    ],
+    "source_sha256": [
+        "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorer.cs 38a2baac969e7be4bb46ca55b02b34aac4eee83458ad8e5eb8bb2fc5c6eea952",
+        "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerIntegration.cs 44ccadca9b1edf1435e7d1f644ac6b53d5fd46efd384978baf75bff381d4d3a5",
+        "Assets/AshenVoxel/WorldScaleRuntime/WorldExplorerVoxels.cs 73c962408df4c22c79e9ed9d121b75bb624b5f6739825348ea36063764ae4ec9",
+        "Assets/AshenVoxel/Exploration/Editor/LocalTerrainRefreshChecks.cs 954563500dd4471b2222c62681644b84392bf216966784ccb9955476e02c3f38"
+    ]
+}
