@@ -17,9 +17,44 @@ namespace AshenVoxel.WorldScale
         public readonly string BaseIdentity,SourceFingerprint,Identity;
         readonly int[] heights;
         readonly byte[] coverage;
+        const int BoundsBlock=64;
+        readonly int blockColumns,blockRows;
+        readonly int[] blockMinimum,blockMaximum;
         public long PayloadBytes=>heights.LongLength*4+coverage.LongLength;
+        public long BoundsBytes=>(blockMinimum.LongLength+blockMaximum.LongLength)*4;
         internal BakedFarTerrain(int columns,int rows,double x,double z,double spacing,string basis,string source,string identity,int[] h,byte[] c)
-        {Columns=columns;Rows=rows;OriginX=x;OriginZ=z;SpacingMeters=spacing;BaseIdentity=basis;SourceFingerprint=source;Identity=identity;heights=h;coverage=c;}
+        {
+            Columns=columns;Rows=rows;OriginX=x;OriginZ=z;SpacingMeters=spacing;BaseIdentity=basis;SourceFingerprint=source;Identity=identity;heights=h;coverage=c;
+            blockColumns=(columns-2)/BoundsBlock+1;blockRows=(rows-2)/BoundsBlock+1;
+            blockMinimum=new int[blockColumns*blockRows];blockMaximum=new int[blockMinimum.Length];
+            for(int bz=0;bz<blockRows;bz++)for(int bx=0;bx<blockColumns;bx++)
+            {
+                int lo=int.MaxValue,hi=int.MinValue;
+                // Include the next block's first row/column: interpolation in the
+                // final cell needs those neighbors, including sparse boundaries.
+                for(int iz=bz*BoundsBlock;iz<=Math.Min(rows-1,(bz+1)*BoundsBlock);iz++)
+                for(int ix=bx*BoundsBlock;ix<=Math.Min(columns-1,(bx+1)*BoundsBlock);ix++)
+                {int i=ix+iz*columns;if(c[i]==0)continue;lo=Math.Min(lo,h[i]);hi=Math.Max(hi,h[i]);}
+                int block=bx+bz*blockColumns;blockMinimum[block]=lo;blockMaximum[block]=hi;
+            }
+        }
+        /// <summary>Conservative covered-height range; false means no covered
+        /// corner can contribute. Work is bounded by this cache's block count.</summary>
+        public bool TryHeightBounds(double x0,double z0,double x1,double z1,out HeightBounds bounds)
+        {
+            Numeric.Finite(x0,nameof(x0));Numeric.Finite(z0,nameof(z0));Numeric.Finite(x1,nameof(x1));Numeric.Finite(z1,nameof(z1));
+            if(x0>x1||z0>z1)throw new ArgumentException("Inverted far terrain bounds");bounds=default;
+            double maxX=OriginX+(Columns-1)*SpacingMeters,maxZ=OriginZ+(Rows-1)*SpacingMeters;
+            if(x1<OriginX||z1<OriginZ||x0>maxX||z0>maxZ)return false;
+            int Block(double value,double origin,int count)=>Math.Min(count-1,(int)Math.Floor(Math.Max(0,(value-origin)/SpacingMeters)/BoundsBlock));
+            int ax=Block(Math.Max(x0,OriginX),OriginX,blockColumns),bx=Block(Math.Min(x1,maxX),OriginX,blockColumns);
+            int az=Block(Math.Max(z0,OriginZ),OriginZ,blockRows),bz=Block(Math.Min(z1,maxZ),OriginZ,blockRows);
+            int lo=int.MaxValue,hi=int.MinValue;
+            for(int z=az;z<=bz;z++)for(int x=ax;x<=bx;x++){int i=x+z*blockColumns;lo=Math.Min(lo,blockMinimum[i]);hi=Math.Max(hi,blockMaximum[i]);}
+            if(lo==int.MaxValue)return false;
+            double margin=HeightUnitMeters*.5+1e-6;
+            bounds=new HeightBounds(lo*HeightUnitMeters-margin,hi*HeightUnitMeters+margin);return true;
+        }
         public double Sample(double x,double z,out double weight)
         {
             Numeric.Finite(x,nameof(x));Numeric.Finite(z,nameof(z));

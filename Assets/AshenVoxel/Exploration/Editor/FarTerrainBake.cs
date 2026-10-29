@@ -127,7 +127,7 @@ namespace AshenVoxel.Exploration.Editor
             }
             return Hex(Hash(manifest.ToArray()));
         }
-        static ExplorationAtlasField ReadBasis(byte[][] bytes,double blend)
+        internal static ExplorationAtlasField ReadBasis(byte[][] bytes,double blend)
         {
             HeightAtlas Height(int i){using(var ms=new MemoryStream(bytes[i],false))return AtlasIO.Read(ms);}
             ClimateAtlas Climate(int i){using(var ms=new MemoryStream(bytes[i],false))return ClimateArchiveIO.Read(ms);}

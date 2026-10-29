@@ -49,7 +49,7 @@ namespace AshenVoxel.Exploration
             s.distantSweepDeferredTiles=Vista?.DistantSweepDeferredTiles??0;
             s.distantSweepSpacingMeters=Vista?.DistantSweepSpacingMeters??0;s.distantSweepLargestSpacingMeters=Vista?.DistantSweepLargestSpacingMeters??0;
             s.distantSweepSpacingLimitedTiles=Vista?.DistantSweepSpacingLimitedTiles??0;
-            s.overviewSourceStatus=OverviewRefinement?.Status??"Waiting for baked source";
+            s.overviewSourceStatus=StaticOverview!=null?"Static40m cache checked; live fine source remains separate":OverviewRefinement?.Status??"Waiting for baked source";
             s.overviewSpacingMeters=OverviewRefinement?.PassSpacingMeters??0;s.overviewCompletedCells=OverviewRefinement?.CompletedCells??0;s.overviewDesiredCells=OverviewRefinement?.DesiredCells??0;
             s.terrainSeamPending=Vista?.TerrainSeamPending??0;s.terrainSeamBytes=Vista?.TerrainSeamBytes??0;
             s.contactReady=Vista?.ContactTiles??0;s.contactPending=Vista?.ContactPendingTiles??0;
@@ -57,11 +57,15 @@ namespace AshenVoxel.Exploration
             s.memoryBlocked=Vista!=null&&Vista.VoxelMemoryPressureBlocked;s.availableCommitBytes=Vista?.VoxelAvailableCommitBytes??-1;
             s.requiredCommitBytes=Vista?.VoxelRequiredCommitBytes??WorldExplorer.VoxelCommitReserveBytes+64L*1048576;
             if(Vista!=null&&!string.IsNullOrEmpty(Vista.LastVoxelBuildError))s.error=Vista.LastVoxelBuildError;
+            if(Vista!=null&&Vista.UsingClipmap)
+            {s.quality="Clipmap preview / "+ActiveSettings.ClipmapQuality;s.terrainResident=Clipmap.VisibleLevels;s.terrainPlanned=Clipmap.State.LevelCount;
+                s.terrainVisible=Clipmap.VisibleLevels;s.terrainPending=(int)Math.Min(int.MaxValue,Clipmap.PendingSamples);s.terrainStatus=Clipmap.Status;s.distantPlanComplete=Clipmap.IsReady;}
             s.modelsReady=Population?.CompletedModels??0;s.modelsTotal=Population?.TotalModels??0;
             s.populationCells=Population?.ResidentCells??0;s.populationPending=Population?.PendingCells??0;
             s.objectStatus=Population?.Status??"Objects wait until starting ground is ready";
             var probe=Ready&&Player!=null?Player.Feet:spawn;
             s.terrainReady=Vista!=null&&Vista.IsTerrainReadyArea(probe.X,probe.Z,2);
+            if(!Ready&&Vista!=null&&Vista.UsingClipmap)s.terrainReady=Clipmap.IsFineReadyArea(probe.X,probe.Z,2);
             s.objectsReady=Population!=null&&Population.Ready;s.spawnReady=Population!=null&&Population.IsReady(probe.X,probe.Z,16);
             // The startup map is hidden after Ready. Preserve its final sample;
             // live terrain/memory counters above continue without90 hidden probes.
@@ -75,7 +79,7 @@ namespace AshenVoxel.Exploration
             switch(loadingProgress.Phase)
             {
                 case WorldLoadingPhase.Source:loadingProgress.Observe(s.sourceReady,now);break;
-                case WorldLoadingPhase.Terrain:loadingProgress.Observe(s.terrainResident+s.contactReady+s.groundReadySamples*100000,now);break;
+                case WorldLoadingPhase.Terrain:loadingProgress.Observe(Vista!=null&&Vista.UsingClipmap?Clipmap.SamplesCompleted:s.terrainResident+s.contactReady+s.groundReadySamples*100000,now);break;
                 case WorldLoadingPhase.Objects:loadingProgress.Observe(s.modelsReady,now);break;
                 case WorldLoadingPhase.Spawn:loadingProgress.Observe(s.populationCells+(s.spawnReady?1000000:0)+(s.terrainReady?1000000:0),now);break;
             }
@@ -98,7 +102,7 @@ namespace AshenVoxel.Exploration
             // Release the same session resources as scene teardown. No saved
             // options or source data are written by this recovery action.
             OnDestroy();if(worldObject!=null)Destroy(worldObject);
-            worldObject=null;Vista=null;Population=null;LiveRefinement=null;OverviewRefinement=null;Player=null;VoxelTerrain=null;WorldField=null;Source=null;
+            worldObject=null;Vista=null;Population=null;LiveRefinement=null;OverviewRefinement=null;Player=null;VoxelTerrain=null;WorldField=null;Source=null;Clipmap=null;StaticOverview=null;clipmapChoiceSaved=false;
             ownedPipeline=null;sky=null;instanceMaterial=null;ActiveSettings=null;sun=null;distantRocks=null;bees=null;betaMatter=null;
 #if UNITY_5_3_OR_NEWER
             Upscaler=null;Wind=null;
@@ -149,6 +153,7 @@ namespace AshenVoxel.Exploration
                     GUI.Label(new Rect(330,y,535,25),(complete?"✓  ":current?"›  ":"·  ")+LoadingNames[i],loadingStep);
                     string detail=i==0?(phase>0?"Bundled height, climate and biome data read":"Checking bundled world files"):
                         i==1?(phase==1?s.sourceReady+" / "+s.sourceRequired+" nearby source cells ready":s.sourceFallback?"Bundled terrain active; finer source will continue later":phase>1?"Terrain source prepared":"Waiting"):
+                        i==2&&Vista!=null&&Vista.UsingClipmap?Clipmap.VisibleLevels+" / "+Clipmap.State.LevelCount+" visible levels; "+(Clipmap.PendingSamples/1000)+"k samples pending":
                         i==2?s.groundReadySamples+" / 9 spawn checks · "+s.terrainVisible+" visible / "+s.terrainResident+" cached distant tiles":
                         i==3?s.modelsReady+" / "+s.modelsTotal+" complete models":s.spawnReady&&s.terrainReady?"Ground and nearby objects ready":s.populationCells+" population cells · "+s.populationPending+" queued";
                     GUI.Label(new Rect(352,y+27,525,28),detail,loadingSmall);
@@ -183,6 +188,9 @@ namespace AshenVoxel.Exploration
         void DrawTerrainStreamingStatus()
         {
             if(Vista==null)return;
+            if(Clipmap!=null)
+            {GUI.Box(new Rect(14,90,720,64),GUIContent.none);GUI.Label(new Rect(28,96,690,27),Clipmap.Status,text);
+                GUI.Label(new Rect(28,123,690,25),"Terrain preview - visual acceptance pending - Esc / Graphics for saved Legacy rollback",text);return;}
             var s=loadingSnapshot;
             if(!s.memoryBlocked&&s.distantPlanComplete&&string.IsNullOrEmpty(s.error))return;
             GUI.Box(new Rect(14,90,720,64),GUIContent.none);

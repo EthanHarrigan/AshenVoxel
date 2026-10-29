@@ -3,6 +3,8 @@ using AshenVoxel.WorldScale;
 
 namespace AshenVoxel.Exploration
 {
+    public enum TerrainRendererMode{Legacy,Clipmap}
+    public enum TerrainClipmapQuality{Fast=256,High=512,Ultra=1024}
     public enum TerrainQualityPreset { Normal, Detailed, Maximum }
 
     /// <summary>Restart-applied mesh requests, independent of source resolution,
@@ -83,6 +85,15 @@ namespace AshenVoxel.Exploration
         [Range(.4f,1)] public float MinimumVegetationSpeed=.65f;
 
         [Header("Terrain and distant mountains")]
+        [Tooltip("Next Play. Legacy is the accepted renderer; Clipmap is an unvalidated preview with automatic fallback.")]
+        public TerrainRendererMode TerrainRenderer=TerrainRendererMode.Legacy;
+        [Tooltip("Explicit preview for this settings asset on next Play. A saved renderer choice overrides it; production renderer default remains Legacy.")]
+        public bool PreviewClipmapOnNextPlay;
+        public TerrainClipmapQuality ClipmapQuality=TerrainClipmapQuality.High;
+        [Range(.1f,.8f)] public float ClipmapFinestSpacing=.2f;
+        [Tooltip("Optional checked whole-world40m cache. Clipmap requires this; Legacy uses it only when explicitly enabled.")]
+        public bool UseStaticFarTerrain=false;
+        public TextAsset StaticFarTerrain;
         [Tooltip("Requires restarting Play. Maximum greedily requests256 columns for visible tiles and is expensive; mesh/plan caps can leave demand unmet.")]
         public TerrainQualityPreset TerrainQuality=TerrainQualityPreset.Normal;
         [Tooltip("Next Play: moves terrain tile LOD boundaries outward. Maximum already uses256 columns; this changes planner reach instead of just pixels.")]

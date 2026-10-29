@@ -36,6 +36,7 @@ namespace AshenVoxel.WorldScale
     {
         public readonly IWorldField BaseField;
         public readonly SurfaceProfile Profile;
+        static readonly double[] SnowCoverageQuantiles={.3,.43,.57,.7};
         readonly double windX,windZ,solarX,solarZ;
         public string SourceIdentity=>BaseField.SourceIdentity+"/"+Profile.Identity;
         public SurfaceMaterialSampler(IWorldField baseField,SurfaceProfile profile=null)
@@ -211,7 +212,7 @@ namespace AshenVoxel.WorldScale
         double SnowCoverage(double x,double z,double temp,double precipitation,double slope,double curvature,double exposure,double dx,double dz,bool water)
         {
             double broad=Noise01(x/47,z/47,Profile.Seed+919)*.35;int covered=0;
-            foreach(double q in new[]{.3,.43,.57,.7})if(SnowWith(broad+.65*q,temp,precipitation,slope,curvature,exposure,dx,dz,water)>=.099)covered++;
+            foreach(double q in SnowCoverageQuantiles)if(SnowWith(broad+.65*q,temp,precipitation,slope,curvature,exposure,dx,dz,water)>=.099)covered++;
             return covered*.25;
         }
         double SnowWith(double patch,double temp,double precipitation,double slope,double curvature,double exposure,double dx,double dz,bool water)

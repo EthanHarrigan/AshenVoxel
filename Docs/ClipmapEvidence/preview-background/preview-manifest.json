@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-29T04:07:43.474969+00:00",
+  "state": "Configured candidate preview; user presses Play; no agent Unity interaction",
+  "native_acceptance": "UNEXECUTED: wrapper10k comparison, final mesh regression/import, visual/depth/shadow/normal/edit/teleport/vegetation alignment and frame/startup memory gates",
+  "runtime_api": "PASS and all129 hashes match",
+  "editor_api": "PASS and all71 hashes match",
+  "project_integrity": "PASS296assets13assemblies",
+  "cpu_assertions": 1708439,
+  "wrapper_synthetic_checks": 27,
+  "preview_configuration": {
+    "scene_preview": true,
+    "settings_asset_preview": true,
+    "production_renderer_default": "Legacy",
+    "quality": "High512",
+    "finest_spacing_m": 0.2,
+    "saved_explicit_choice_wins": true,
+    "rollback": "Escape > Graphics > Roll back to Legacy next Play and save"
+  },
+  "known_limitations": [
+    "Standalone38.372CPU-second startup extrapolation is not native wall time or parallel scaling",
+    "Shared Bootstrap integration remains uncommitted with user GUI edits",
+    "Stepped silhouettes intentionally disabled; native visual polish acceptance pending"
+  ],
+  "file_sha256": {
+    "Assets/Scenes/Exploration.unity": "96a06b0265668d50c40ddde33f73639957069339eb451ec19849173c62c2ed96",
+    "Assets/AshenVoxel/Settings/ExplorationSettings.asset": "918ddbc986a68d52b58854399d678cccc384f61e3a91f14c67847a56ff1ece44",
+    "Assets/AshenVoxel/Exploration/ExplorationBootstrap.cs": "3cb628ec76b6477b70dbb8870acdf7ef9d6bd4640d4c5fc0d11b19d18a766d19",
+    "Assets/AshenVoxel/WorldScaleRuntime/Resources/TerrainClipmap.shader": "83daa6e6aad95d3627b3c5cb0586a8e4504ade1b261857ee49e9c150c6798491",
+    "Assets/AshenVoxel/WorldScaleRuntime/Resources/TerrainClipmapSampling.hlsl": "73795245af335ab1c0590d8bf6d6c97fdc3c1e739e8fb9bc7dd95be6199f09c3",
+    "Assets/AshenVoxel/WorldScaleRuntime/Resources/TerrainClipmapScatter.compute": "30bd764e5ef71819ebd0dbdac4133691bdde14c17196d32f9acacf2c03682e3e",
+    "Assets/AshenVoxel/Exploration/Samples/ExplorationFar40.bytes": "b580552be092c7389f3a583f59034cd04ec68baafb6376f5ecfbfd9a666f085d"
+  }
+}

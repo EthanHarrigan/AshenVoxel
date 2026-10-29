@@ -57,6 +57,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Settings: {fileID: 11400000, guid: f69927eec92045b4a4ac219cdb0db429, type: 2}
   LoadSavedOptions: 1
+  PreviewClipmapOnNextPlay: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

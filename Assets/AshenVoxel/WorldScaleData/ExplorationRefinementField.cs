@@ -205,6 +205,7 @@ namespace AshenVoxel.WorldScale
             }
         }
         public string WorldId {get;}
+        public string BaseSourceIdentity=>baseField.SourceIdentity;
         public double SpacingMeters {get;}
         public string SourceIdentity=>Volatile.Read(ref current).SourceIdentity;
         public int ResidentPatches=>Volatile.Read(ref current).Patches.Length;

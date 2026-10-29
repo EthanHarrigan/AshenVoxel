@@ -55,6 +55,12 @@ MonoBehaviour:
   MaximumWalkSlope: 50
   VegetationDragPerVoxel: 0.0008
   MinimumVegetationSpeed: 0.65
+  TerrainRenderer: 0
+  PreviewClipmapOnNextPlay: 1
+  ClipmapQuality: 512
+  ClipmapFinestSpacing: 0.2
+  UseStaticFarTerrain: 0
+  StaticFarTerrain: {fileID: 4900000, guid: bcf8840900985e84cb94531c386af9ba, type: 3}
   TerrainQuality: 0
   TerrainDetailReachMultiplier: 1
   TerrainFarDetailMiBOverride: 0

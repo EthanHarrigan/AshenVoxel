@@ -276,7 +276,7 @@ namespace AshenVoxel.WorldScaleRuntime
         }
         void RequestPlan()
         {
-            if (field == null || planJob != null) return;
+            if (field == null || planJob != null || UsingClipmap || DeferLegacyTerrain) return;
             double baseSize = UseVoxelLodTerrain ? VoxelLodSurface.BaseTileMeters : Mathf.Clamp(MinimumTileSizeMeters, 16, 128);
             double split=UseVoxelLodTerrain?Mathf.Clamp(VoxelPlanSplitFactor,1,LodSettings.MaximumSplitFactor):2.2;
             // First earn complete whole-view coverage with a small plan. Keep the
@@ -649,6 +649,7 @@ namespace AshenVoxel.WorldScaleRuntime
                 if (!buildingInspection && mouse != null && mouse.leftButton.wasPressedThisFrame) DigPatch();
                 return;
             }
+            if(UsingClipmap||DeferLegacyTerrain)return;
             UpdateVoxelTravelMotion();
             RefreshContactPlan();
             QueueNextVoxelRefinement();

@@ -54,8 +54,10 @@ namespace AshenVoxel.WorldScaleRuntime
         {
             Material target=EffectiveMaterial;if(target==null)return;
             target.SetVector("_VoxelTerrainGrid",grid);target.SetVectorArray("_VoxelTerrainMask",readyPages);
+            if(UsingClipmap&&ClipmapRenderer.Material!=null)
+            {ClipmapRenderer.Material.SetVector("_VoxelTerrainGrid",grid);ClipmapRenderer.Material.SetVectorArray("_VoxelTerrainMask",readyPages);}
         }
-        public bool HasActiveCoverage => field != null && view != null && active.Count > 0;
+        public bool HasActiveCoverage => UsingClipmap ? ClipmapRenderer.HasCoverage : field != null && view != null && active.Count > 0;
         public int LastMeshWorkUnits { get; private set; }
         public double LastMeshBuildMilliseconds { get; private set; }
         public int MeshUploadsLastFrame { get; private set; }
@@ -104,6 +106,7 @@ namespace AshenVoxel.WorldScaleRuntime
         }
         public bool IsTerrainReady(double xMeters, double zMeters)
         {
+            if(UsingClipmap)return ClipmapRenderer.IsReadyArea(xMeters,zMeters,0);
             Surface surface = ActiveSurfaceAt(xMeters, zMeters);
             return surface != null && (!surface.HeightProxy||ConnectedTerrainSurface) && (!ExternalNavigation || surface.Tile.SizeMeters / surface.Quads <= Math.Max(1.001, Mathf.Clamp(MinimumTileSizeMeters,16,128)/(double)Mathf.Clamp(NearTileQuads,8,64)+.001));
         }
@@ -119,6 +122,7 @@ namespace AshenVoxel.WorldScaleRuntime
         /// remains a render-cache query rather than edited material authority.</summary>
         public bool TrySampleRenderedHeight(double xMeters, double zMeters, out double heightMeters)
         {
+            if(UsingClipmap)return ClipmapRenderer.TryRenderedHeight(xMeters,zMeters,out heightMeters);
             heightMeters = 0; Surface surface = ActiveSurfaceAt(xMeters, zMeters);
             if (surface == null || surface.LocalHeights == null) return false;
             double px = (xMeters - surface.Tile.OriginXMeters) / surface.Tile.SizeMeters * surface.Quads;
@@ -205,6 +209,7 @@ namespace AshenVoxel.WorldScaleRuntime
         {
             var bounds=new ExplorationRefinementBounds(minimumX,minimumZ,maximumX,maximumZ);
             if(!ExternalNavigation||field==null)return;
+            if(UsingClipmap){ClipmapRenderer.Invalidate(minimumX,minimumZ,maximumX,maximumZ);return;}
             var queued=new HashSet<TileKey>();foreach(var work in pending)if(work.Revision==revision)queued.Add(work.Tile.Key);
             // Source publications are local; the global revision still fences
             // configuration/world resets. Pending jobs capture the latest field
