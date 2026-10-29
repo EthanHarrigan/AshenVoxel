@@ -44,7 +44,7 @@ namespace AshenVoxel.Exploration
         public string Error {get;private set;}
         static Vector3 Unity(NV v)=>new Vector3(v.X,v.Y,v.Z);
         static NV Numeric(Vector3 v)=>new NV(v.x,v.y,v.z);
-        static Quaternion Unity(NQ q)=>new Quaternion(q.X,q.Y,q.Z,q.W);
+        static Quaternion Unity(NQ q){float l=q.X*q.X+q.Y*q.Y+q.Z*q.Z+q.W*q.W;if(!(l>1e-8f)||float.IsInfinity(l))return Quaternion.identity;float k=1/Mathf.Sqrt(l);return new Quaternion(q.X*k,q.Y*k,q.Z*k,q.W*k);}
         GameObject CreateObject(string name)
         {
             var obj=new GameObject(name);SceneManager.MoveGameObjectToScene(obj,parent.gameObject.scene);

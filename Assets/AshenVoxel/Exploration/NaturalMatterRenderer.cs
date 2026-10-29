@@ -99,7 +99,9 @@ namespace AshenVoxel.Exploration.Experimental
             public BinKey Key;public Vector3 Center;public MaterialId Material;public Color32 Color;
         }
         static Vector3 Unity(NV v)=>new Vector3(v.X,v.Y,v.Z);
-        static Quaternion Unity(NQ q)=>new Quaternion(q.X,q.Y,q.Z,q.W);
+        // A body slot that is reported before its pose is written holds a zero quaternion; an invalid
+        // rotation makes a degenerate draw matrix (logged "Quaternion To Matrix conversion failed").
+        static Quaternion Unity(NQ q){float l=q.X*q.X+q.Y*q.Y+q.Z*q.Z+q.W*q.W;if(!(l>1e-8f)||float.IsInfinity(l))return Quaternion.identity;float k=1/Mathf.Sqrt(l);return new Quaternion(q.X*k,q.Y*k,q.Z*k,q.W*k);}
         static int Floor(int value,int divisor){int q=value/divisor;return value<0&&value%divisor!=0?q-1:q;}
         static Color32 Color(CargoKey matter)
         {
@@ -134,7 +136,7 @@ namespace AshenVoxel.Exploration.Experimental
             LastPatchGroupPasses=0;LastPatchCellLookups=0;
             if(source!=null)
             {
-                for(int i=0;i<GroupCount;i++){borrowedMaterials[i]=new Material(source.Material);borrowedMaterials[i].SetFloat("_MatterChunkMaskEnabled",0);borrowedMaterials[i].SetFloat("_MatterBreakAmount",0);if(i>0)borrowedMaterials[i].SetFloat("_MatterRigid",1);}
+                for(int i=0;i<GroupCount;i++){borrowedMaterials[i]=new Material(source.Material){enableInstancing=false};/* per-draw property blocks (owner mask, group) must never be GPU-instanced with the vegetation batches */borrowedMaterials[i].SetFloat("_MatterChunkMaskEnabled",0);borrowedMaterials[i].SetFloat("_MatterBreakAmount",0);if(i>0)borrowedMaterials[i].SetFloat("_MatterRigid",1);}
                 if(physics!=null&&!physics.HasCut){Ready=true;publishedRevision=physics.StructureRevision;}
             }
             renderers[0].sharedMaterial=source!=null?borrowedMaterials[0]:solidMaterial;
